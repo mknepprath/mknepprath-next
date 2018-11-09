@@ -1,5 +1,5 @@
 {
-  "name": "create-next-example-app",
+  "name": "mknepprath-next",
   "scripts": {
     "dev": "next",
     "build": "next build",

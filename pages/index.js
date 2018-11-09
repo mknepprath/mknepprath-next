@@ -5,11 +5,11 @@ import Nav from '../components/nav'
 
 const Home = () => (
   <div>
-    <Head title="Home" />
+    <Head title="Michael Knepprath, Developer &amp; Designer" />
     <Nav />
 
     <div className="hero">
-      <h1 className="title">Welcome to Next!</h1>
+      <h1 className="title">Welcome to M. Knepprath Dot Com!</h1>
       <p className="description">
         To get started, edit <code>pages/index.js</code> and save to reload.
       </p>
