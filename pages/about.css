@@ -1,0 +1,16 @@
+.hero {
+  background: #F7F7F7;
+  padding: 80px var(--mainPadding);
+}
+
+.hero img {
+  border-radius: 8px;
+  width: 320px;
+  height: 192px;
+  object-fit: cover;
+}
+
+.hero a {
+  color: var(--primaryColor);
+  text-decoration: none;
+}

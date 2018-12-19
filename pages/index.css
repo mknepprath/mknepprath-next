@@ -1,0 +1,84 @@
+:root  {
+  --pageContentWidth: 880px;
+  --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
+
+  --primaryColor: #6ABD9D;
+}
+
+:global(body) {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+    Helvetica, sans-serif;
+}
+
+.hero {
+  background-color: var(--primaryColor);
+  color: #333;
+  padding: 0 var(--mainPadding);
+}
+
+.title {
+  margin: 0;
+  width: 100%;
+  padding: 80px 0;
+  line-height: 1.1;
+  font-size: 64px;
+}
+
+.title span {
+  color: #FFF;
+}
+
+.row {
+  padding: 80px var(--mainPadding);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+
+  background: #F7F7F7;
+}
+
+.card {
+  --card-spacing: 16px;
+  display: flex;
+  padding: var(--card-spacing);
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, .1);
+  text-decoration: none;
+  transform: translate(0, 0);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, .05);
+  transform: translate(0, -2px);
+}
+.card .img {
+  height: 44px;
+  margin-right: var(--card-spacing);
+  transition: rotate .2s, transform .2s;
+}
+.card:hover .img {
+  transform: rotate(-5deg) scale(1.1);
+}
+.card .arrow {
+  opacity: 1;
+  transform: translate(-8px, -8px);
+  transition: opacity .2s, transform .2s;
+}
+.card:hover .arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.card h3 {
+  margin: 0;
+  color: var(--primaryColor);
+  font-size: 18px;
+}
+.card p {
+  margin: 0;
+  padding: 8px 0 0;
+  font-size: 13px;
+  color: #333;
+}
