@@ -1,6 +1,6 @@
 /** @type {Array<{ href: string, key: string, label: string }>} */
 export const footerLinks = [
-  { href: 'https://twitter.com/mknepprath', key: 'twitter', label: 'The Bird Site' },
+  // { href: 'https://twitter.com/mknepprath', key: 'twitter', label: 'The Bird Site' },
   { href: 'mailto:michael@mknepprath.com', key: 'contact', label: 'Contact Me' }
 ]
 
@@ -32,15 +32,15 @@ export const projectLinks = [
     url: '/static/design-prompts.png'
   },
   {
-    description: '@horse_ebooks Twitter bot',
-    href: 'https://twitter.com/robot_mk',
-    label: 'Robot M. Knepprath'
-  },
-  {
     description: 'Illustration series',
     href: 'https://dribbble.com/mknepprath/buckets/257652-Design-Prompts-Series',
     label: 'Dribbble Series',
     url: '/static/dribbble-series.png'
+  },
+  {
+    description: '@horse_ebooks Twitter bot',
+    href: 'https://twitter.com/robot_mk',
+    label: 'Robot M. Knepprath'
   },
   {
     description: 'Chrome extension',
@@ -53,7 +53,11 @@ export const projectLinks = [
     href: 'https://github.com/mknepprath/open-world',
     label: 'Open World'
   },
-  ,
+  {
+    description: 'Battle your friends on Twitter',
+    href: 'https://twitter.com/bout_bot',
+    label: 'Bout'
+  },
   {
     description: 'College projects',
     href: 'https://vimeo.com/mknepprath',

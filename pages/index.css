@@ -45,8 +45,8 @@
   padding: var(--card-spacing);
   background: #FFFFFF;
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, .1);
   text-decoration: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, .1);
   transform: translate(0, 0);
   transition: box-shadow 0.2s, transform 0.2s;
 }
