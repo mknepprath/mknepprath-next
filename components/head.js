@@ -2,7 +2,7 @@ import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
 
-const defaultDescription = ''
+const defaultDescription = 'Developer & Designer'
 const defaultOGURL = ''
 const defaultOGImage = ''
 
