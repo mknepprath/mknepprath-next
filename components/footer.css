@@ -8,6 +8,7 @@
 }
 .footer ul {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0; /* Remove `ul` default left padding */
 }
@@ -44,4 +45,11 @@
 .siteLogo a:hover {
   border-bottom: 2px solid var(--primaryColor);
   transform: translate(0, -2px);
+}
+
+.twitter {
+  transition: rotate .2s, transform .2s;
+}
+.twitter:hover {
+  transform: rotate(-5deg) scale(1.1);
 }
