@@ -2,6 +2,6 @@
   "version": 2,
   "alias": ["mknepprath.com", "www.mknepprath.com"],
   "builds": [
-    { "src": "nextjs/next.config.js", "use": "@now/next" }
+    { "src": "next.config.js", "use": "@now/next" }
   ]
 }
