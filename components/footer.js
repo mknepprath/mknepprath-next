@@ -17,7 +17,10 @@ const Footer = () => (
     </p>
     <ul>
       <Link href='https://twitter.com/mknepprath'>
-        <a className={styles.twitter}>
+        <a
+          aria-label='Twitter'
+          className={styles.twitter}
+        >
           <TwitterIcon />
         </a>
       </Link>
