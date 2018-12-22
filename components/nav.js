@@ -9,6 +9,7 @@ const Nav = () => (
   <nav className={styles.nav}>
     <a className={styles.siteLogo} href='/'>
       <img
+        alt={'Michael Knepprath Memoji'}
         className={styles.img}
         src='/static/memoji.png'
       />

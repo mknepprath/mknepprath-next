@@ -11,7 +11,10 @@ export default () => (
     <Nav />
 
     <div className={styles.hero}>
-      <img src='/static/about.jpg' />
+      <img
+        alt='A photo of Michael Knepprath'
+        src='/static/about.jpg'
+      />
 
       <h1>About</h1>
       <p>

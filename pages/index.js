@@ -25,7 +25,13 @@ export default () => (
         <Link href={link.href} key={link.label}>
           <a className={styles.card}>
             {link.url
-              ? <img className={styles.img} src={link.url} />
+              ? (
+                <img
+                  alt={link.label}
+                  className={styles.img}
+                  src={link.url}
+                />
+              )
               : null
             }
             <div>
