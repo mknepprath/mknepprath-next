@@ -48,6 +48,9 @@
 }
 
 .twitter {
+  line-height: 0;
+  padding: 0;
+
   transition: rotate .2s, transform .2s;
 }
 .twitter:hover {
