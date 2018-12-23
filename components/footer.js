@@ -16,14 +16,16 @@ const Footer = () => (
       </Link>
     </p>
     <ul>
-      <Link href='https://twitter.com/mknepprath'>
-        <a
-          aria-label='Twitter'
-          className={styles.twitter}
-        >
-          <TwitterIcon />
-        </a>
-      </Link>
+      <li>
+        <Link href='https://twitter.com/mknepprath'>
+          <a
+            aria-label='Twitter'
+            className={styles.twitter}
+          >
+            <TwitterIcon />
+          </a>
+        </Link>
+      </li>
       {footerLinks.map(({ href, key, label }) => (
         <li key={key}>
           <Link href={href}>
