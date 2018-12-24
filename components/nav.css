@@ -52,3 +52,7 @@
 .siteLogo:hover > img {
   transform: rotate(5deg) scale(1.2);
 }
+
+.siteLogo span {
+  white-space: nowrap;
+}
