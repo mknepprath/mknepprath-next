@@ -23,7 +23,7 @@ export default () => (
     <div className={styles.row}>
       {projectLinks.map(link => (
         <Link href={link.href} key={link.label}>
-          <a className={styles.card}>
+          <a className={styles.card} target='_blank'>
             {link.url
               ? (
                 <img

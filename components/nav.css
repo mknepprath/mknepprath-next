@@ -2,9 +2,15 @@
   display: flex;
   justify-content: space-between;
 
-  padding: 0 var(--mainPadding);
+  padding: 0 10px;
   text-align: center;
 }
+@media (min-width: 900px) {
+  .nav {
+    padding: 0 var(--mainPadding);
+  }
+}
+
 .nav ul {
   display: flex;
   justify-content: space-between;

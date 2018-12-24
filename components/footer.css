@@ -3,9 +3,15 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 var(--mainPadding);
+  padding: 0 10px;
   text-align: center;
 }
+@media (min-width: 900px) {
+  .footer {
+    padding: 0 var(--mainPadding);
+  }
+}
+
 .footer ul {
   display: flex;
   align-items: center;

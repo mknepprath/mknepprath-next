@@ -43,6 +43,12 @@ export const projectLinks = [
     label: 'Robot M. Knepprath'
   },
   {
+    description: 'A thread of Cinema 4D renders',
+    href: 'https://twitter.com/mknepprath/status/959812218119512065',
+    label: 'Cinema 4D Animations'
+
+  },
+  {
     description: 'Chrome extension',
     href: 'https://chrome.google.com/webstore/detail/patched-tomatoes/daceaaccoiggipikdodkejceenipddop',
     label: 'Patched Tomatoes',
@@ -52,6 +58,12 @@ export const projectLinks = [
     description: 'React RPG framework',
     href: 'https://github.com/mknepprath/open-world',
     label: 'Open World'
+  },
+  {
+    description: 'Sequential art',
+    href: 'https://twitter.com/mknepprath/status/1060284635182178305',
+    label: 'Comics'
+
   },
   {
     description: 'Battle your friends on Twitter',

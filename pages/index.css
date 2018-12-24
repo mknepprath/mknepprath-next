@@ -1,4 +1,4 @@
-:root  {
+:root {
   --pageContentWidth: 880px;
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
 
@@ -14,7 +14,7 @@
 .hero {
   background-color: var(--primaryColor);
   color: #333;
-  padding: 0 var(--mainPadding);
+  padding: 0 10px;
 }
 
 .title {
@@ -30,13 +30,31 @@
 }
 
 .row {
-  padding: 80px var(--mainPadding);
+  padding: 80px 10px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 
   background: #F7F7F7;
+}
+
+@media (min-width: 620px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: 0 var(--mainPadding);
+  }
+
+  .row {
+    padding: 80px var(--mainPadding);
+
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .card {

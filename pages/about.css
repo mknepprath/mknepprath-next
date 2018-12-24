@@ -1,6 +1,12 @@
 .hero {
   background: #F7F7F7;
-  padding: 80px var(--mainPadding);
+
+  padding: 80px 10px;
+}
+@media (min-width: 900px) {
+  .hero {
+    padding: 80px var(--mainPadding);
+  }
 }
 
 .hero img {
