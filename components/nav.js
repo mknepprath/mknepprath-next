@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { navLinks } from '../utils/links'
 
 import styles  from './nav.css'
+import { link } from 'fs';
 
 const Nav = () => (
   <nav className={styles.nav}>
@@ -19,7 +20,12 @@ const Nav = () => (
       {navLinks.map(({ href, key, label }) => (
         <li key={key}>
           <Link href={href}>
-            <a target='_blank'>{label}</a>
+            <a
+              rel={label === 'About' ? '' : 'noopener'}
+              target={label === 'About' ? '' : '_blank' }
+            >
+              {label}
+            </a>
           </Link>
         </li>
       ))}

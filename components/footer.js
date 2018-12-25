@@ -29,7 +29,7 @@ const Footer = () => (
       {footerLinks.map(({ href, key, label }) => (
         <li key={key}>
           <Link href={href}>
-            <a target='_blank'>{label}</a>
+            <a rel='noopener' target='_blank'>{label}</a>
           </Link>
         </li>
       ))}
