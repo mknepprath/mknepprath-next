@@ -22,7 +22,12 @@
   width: 100%;
   padding: 80px 0;
   line-height: 1.1;
-  font-size: 64px;
+  font-size: 32px;
+}
+@media (min-width: 620px) {
+  .title {
+    font-size: 64px;
+  }
 }
 
 .title span {

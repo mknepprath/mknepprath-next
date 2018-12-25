@@ -1,10 +1,13 @@
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   padding: 0 10px;
   text-align: center;
+}
+@media (min-width: 620px) {
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 @media (min-width: 900px) {
   .footer {
