@@ -96,8 +96,11 @@
 }
 .card h3 {
   margin: 0;
-  color: var(--primaryColor);
+  color: #333;
   font-size: 18px;
+}
+.card:hover h3 {
+  color: var(--primaryColor);
 }
 .card p {
   margin: 0;

@@ -12,7 +12,7 @@ const Footer = () => (
     <p className={styles.siteLogo}>
       Created by Michael Knepprath •
       <Link href='https://github.com/mknepprath/mknepprath-next'>
-        <a>View on GitHub</a>
+        <a rel='noopener' target='_blank'>View on GitHub</a>
       </Link>
     </p>
     <ul>

@@ -32,10 +32,13 @@
   transform: translate(0, -2px);
 }
 .footer a {
-  color: var(--primaryColor);
+  color: #333;
   padding: 6px 8px;
   text-decoration: none;
   font-size: 13px;
+}
+.footer a:hover {
+  color: var(--primaryColor);
 }
 
 .siteLogo {

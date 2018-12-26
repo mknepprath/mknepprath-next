@@ -29,10 +29,13 @@
   transform: translate(0, -2px);
 }
 .nav a {
-  color: var(--primaryColor);
+  color: #333;
   padding: 6px 8px;
   text-decoration: none;
   font-size: 13px;
+}
+.nav a:hover {
+  color: var(--primaryColor);
 }
 
 .siteLogo {
