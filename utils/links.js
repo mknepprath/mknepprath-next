@@ -17,7 +17,8 @@ export const projectLinks = [
   {
     description: 'Movie tracking, simplified',
     href: 'http://moviestarapp.com/',
-    label: '★ Movie Star'
+    label: '★ Movie Star',
+    url: '/static/movie-star.png'
   },
   {
     description: 'A Twitter text adventure',
@@ -40,7 +41,8 @@ export const projectLinks = [
   {
     description: '@horse_ebooks Twitter bot',
     href: 'https://twitter.com/robot_mk',
-    label: 'Robot M. Knepprath'
+    label: 'Robot MK',
+    url:'/static/robot-mk.png'
   },
   {
     description: 'A thread of Cinema 4D renders',
