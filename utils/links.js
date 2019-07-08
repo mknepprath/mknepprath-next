@@ -1,19 +1,35 @@
 /** @type {Array<{ href: string, key: string, label: string }>} */
 export const footerLinks = [
   // { href: 'https://twitter.com/mknepprath', key: 'twitter', label: 'The Bird Site' },
-  { href: "mailto:michael@mknepprath.com", key: "contact", label: "Contact Me" }
+  {
+    href: "mailto:michael@mknepprath.com",
+    key: "contact",
+    label: "Contact Me"
+  }
 ];
 
 /** @type {Array<{ href: string, key: string, label: string }>} */
 export const navLinks = [
-  { href: "https://github.com/mknepprath", key: "code", label: "Code" },
+  {
+    href: "https://github.com/mknepprath",
+    key: "code",
+    label: "Code"
+  },
   {
     href: "https://dribbble.com/mknepprath",
     key: "illustration",
     label: "Illustration"
   },
-  { href: "https://medium.com/@mknepprath", key: "writing", label: "Writing" },
-  { href: "/about", key: "about", label: "About" }
+  {
+    href: "https://medium.com/@mknepprath",
+    key: "writing",
+    label: "Writing"
+  },
+  {
+    href: "/about",
+    key: "about",
+    label: "About"
+  }
 ];
 
 /** @type {Array<{ description: string, href: string, label: string, url: string }>} */

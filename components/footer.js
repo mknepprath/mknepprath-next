@@ -12,7 +12,12 @@ const Footer = () => (
     <p className={styles.siteLogo}>
       Created by Michael Knepprath •
       <Link href='https://github.com/mknepprath/mknepprath-next'>
-        <a rel='noopener' target='_blank'>View on GitHub</a>
+        <a
+          rel='noopener'
+          target='_blank'
+        >
+          View on GitHub
+        </a>
       </Link>
     </p>
     <ul>
@@ -21,6 +26,7 @@ const Footer = () => (
           <a
             aria-label='Twitter'
             className={styles.twitter}
+            title='The Bird Site'
           >
             <TwitterIcon />
           </a>
@@ -29,7 +35,13 @@ const Footer = () => (
       {footerLinks.map(({ href, key, label }) => (
         <li key={key}>
           <Link href={href}>
-            <a rel='noopener' target='_blank'>{label}</a>
+            <a
+              rel='noopener'
+              target='_blank'
+              title={label}
+            >
+              {label}
+            </a>
           </Link>
         </li>
       ))}

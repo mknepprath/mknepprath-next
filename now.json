@@ -3,5 +3,11 @@
   "alias": ["mknepprath.com", "www.mknepprath.com"],
   "builds": [
     { "src": "next.config.js", "use": "@now/next" }
+  ],
+  "routes": [
+    {
+      "src": "/legacy",
+      "dest": "https://mknepprath.github.io"
+    }
   ]
 }
