@@ -91,5 +91,10 @@ export const projectLinks = [
     href: "https://vimeo.com/mknepprath",
     label: "Film & Animation",
     url: "/static/film.png"
+  },
+  {
+    description: "GIF collection",
+    href: "/gifs",
+    label: "GIFs"
   }
 ];
