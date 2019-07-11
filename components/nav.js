@@ -1,18 +1,18 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
-import { navLinks } from '../utils/links'
+import { navLinks } from "../utils/links";
 
-import styles  from './nav.css'
-import { link } from 'fs';
+import styles from "./nav.css";
+import { link } from "fs";
 
 const Nav = () => (
   <nav className={styles.nav}>
-    <a className={styles.siteLogo} href='/'>
+    <a className={styles.siteLogo} href="/">
       <img
-        alt={'Michael Knepprath Memoji'}
+        alt={"Michael Knepprath Memoji"}
         className={styles.img}
-        src='/static/memoji.png'
+        src="/static/memoji.png"
       />
       <span>M. Knepprath</span>
     </a>
@@ -21,8 +21,8 @@ const Nav = () => (
         <li key={key}>
           <Link href={href}>
             <a
-              rel={label === 'About' ? '' : 'noopener'}
-              target={label === 'About' ? '' : '_blank' }
+              rel={label === "About" ? "" : "noopener"}
+              target={label === "About" ? "" : "_blank"}
             >
               {label}
             </a>
@@ -31,6 +31,6 @@ const Nav = () => (
       ))}
     </ul>
   </nav>
-)
+);
 
-export default Nav
+export default Nav;

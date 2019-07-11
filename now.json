@@ -1,10 +1,12 @@
 {
   "version": 2,
   "alias": ["mknepprath.com", "www.mknepprath.com"],
-  "builds": [
-    { "src": "next.config.js", "use": "@now/next" }
-  ],
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
   "routes": [
+    {
+      "src": "/static/gifs",
+      "dest": "/gifs"
+    },
     {
       "src": "/legacy",
       "dest": "https://mknepprath.github.io"

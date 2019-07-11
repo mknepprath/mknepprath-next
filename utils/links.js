@@ -32,32 +32,32 @@ export const navLinks = [
   }
 ];
 
-/** @type {Array<{ description: string, href: string, label: string, url: string }>} */
+/** @type {Array<{ description: string, href: string, label: string, imgSrc: string }>} */
 export const projectLinks = [
   {
     description: "A Twitter text adventure",
     href: "https://twitter.com/familiarlilt",
     label: "Lilt",
-    url: "/static/lilt.png"
+    imgSrc: "/static/lilt.png"
   },
   {
     description: "A prompt a day, every day",
     href: "https://twitter.com/designprompts",
     label: "Design Prompts",
-    url: "/static/design-prompts.png"
+    imgSrc: "/static/design-prompts.png"
   },
   {
     description: "Illustration series",
     href:
       "https://dribbble.com/mknepprath/buckets/257652-Design-Prompts-Series",
     label: "Dribbble Series",
-    url: "/static/dribbble-series.png"
+    imgSrc: "/static/dribbble-series.png"
   },
   {
     description: "@horse_ebooks Twitter bot",
     href: "https://twitter.com/robot_mk",
     label: "Robot MK",
-    url: "/static/robot-mk.png"
+    imgSrc: "/static/robot-mk.png"
   },
   {
     description: "A thread of Cinema 4D renders",
@@ -69,7 +69,7 @@ export const projectLinks = [
     href:
       "https://chrome.google.com/webstore/detail/patched-tomatoes/daceaaccoiggipikdodkejceenipddop",
     label: "Patched Tomatoes",
-    url: "/static/patched-tomatoes.png"
+    imgSrc: "/static/patched-tomatoes.png"
   },
   {
     description: "React RPG framework",
@@ -90,7 +90,7 @@ export const projectLinks = [
     description: "College projects",
     href: "https://vimeo.com/mknepprath",
     label: "Film & Animation",
-    url: "/static/film.png"
+    imgSrc: "/static/film.png"
   },
   {
     description: "GIF collection",

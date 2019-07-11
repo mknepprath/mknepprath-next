@@ -22,7 +22,7 @@
   display: flex;
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
-  transition: border-bottom .2s, transform .2s;
+  transition: border-bottom 0.2s, transform 0.2s;
 }
 .nav li:hover {
   border-bottom: 2px solid var(--primaryColor);
@@ -51,7 +51,7 @@
 
 .siteLogo > .img {
   height: 32px;
-  transition: rotate .2s, transform .2s;
+  transition: rotate 0.2s, transform 0.2s;
 }
 
 .siteLogo:hover > img {
