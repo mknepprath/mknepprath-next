@@ -5,11 +5,11 @@ import TwitterIcon from "../components/icon-twitter";
 
 import { footerLinks } from "../utils/links";
 
-import styles from "./footer.css";
+import "./footer.css";
 
 const Footer = () => (
-  <nav className={styles.footer}>
-    <p className={styles.siteLogo}>
+  <nav className={"footer"}>
+    <p className={"footer-meta"}>
       Created by Michael Knepprath •
       <Link href="https://github.com/mknepprath/mknepprath-next">
         <a rel="noopener" target="_blank">
@@ -20,11 +20,7 @@ const Footer = () => (
     <ul>
       <li>
         <Link href="https://twitter.com/mknepprath">
-          <a
-            aria-label="Twitter"
-            className={styles.twitter}
-            title="The Bird Site"
-          >
+          <a aria-label="Twitter" className={"twitter"} title="The Bird Site">
             <TwitterIcon />
           </a>
         </Link>

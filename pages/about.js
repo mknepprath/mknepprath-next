@@ -3,14 +3,14 @@ import Head from "../components/head";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 
-import styles from "./about.css";
+import "./about.css";
 
 export default () => (
   <div>
     <Head title="About Michael Knepprath" />
     <Nav />
 
-    <div className={styles.hero}>
+    <div className={"main"}>
       <img alt="A photo of Michael Knepprath" src="/static/about.jpg" />
 
       <h1>About</h1>
