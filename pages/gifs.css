@@ -1,19 +1,19 @@
-.gifIndex {
+.gif-index {
   display: flex;
   flex-wrap: wrap;
 }
-.gifIndex img {
+.gif-index img {
   flex: 1;
   object-fit: cover;
   cursor: pointer;
 }
-.gifIndex img:hover {
+.gif-index img:hover {
   -webkit-filter: brightness(1.3);
   filter: brightness(1.3);
 }
 @media screen and (max-width: 640px) {
-  .gifIndex,
-  .gifIndex img {
+  .gif-index,
+  .gif-index img {
     display: block;
     width: 100%;
   }

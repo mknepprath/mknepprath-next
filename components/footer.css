@@ -25,7 +25,7 @@
   display: flex;
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
-  transition: border-bottom .2s, transform .2s;
+  transition: border-bottom 0.2s, transform 0.2s;
 }
 .footer li:hover {
   border-bottom: 2px solid var(--primaryColor);
@@ -41,20 +41,20 @@
   color: var(--primaryColor);
 }
 
-.siteLogo {
+.footer-meta {
   font-size: 13px;
   color: #333;
 }
 
-.siteLogo a {
+.footer-meta a {
   display: inline-block;
 
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
-  transition: border-bottom .2s, transform .2s;
+  transition: border-bottom 0.2s, transform 0.2s;
 }
 
-.siteLogo a:hover {
+.footer-meta a:hover {
   border-bottom: 2px solid var(--primaryColor);
   transform: translate(0, -2px);
 }
