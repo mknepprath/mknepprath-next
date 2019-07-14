@@ -3,14 +3,14 @@ import Link from "next/link";
 
 import { navLinks } from "../utils/links";
 
-import "./nav.css";
+import styles from "./nav.css";
 
 const Nav = () => (
-  <nav className={"nav"}>
-    <a className={"site-logo"} href={"/"}>
+  <nav className={styles.nav}>
+    <a className={styles.siteLogo} href={"/"}>
       <img
         alt={"Michael Knepprath Memoji"}
-        className={"img"}
+        className={styles.img}
         src={"/static/memoji.png"}
       />
       <span>M. Knepprath</span>

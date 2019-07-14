@@ -3,7 +3,7 @@ import Head from "../components/head";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 
-import "./gifs.css";
+import styles from "./gifs.css";
 
 const gifs = [
   {
@@ -121,10 +121,10 @@ class GIFs extends React.Component {
         <Head title="Michael Knepprath, GIF Aficionado" />
         <Nav />
 
-        <div className={"gif-index"}>
+        <div className={styles.gifIndex}>
           {shuffle(gifs).map(gif => (
             <img
-              className="gif"
+              className={styles.gif}
               data-clipboard-text={`http://mknepprath.com/static/gifs/${
                 gif.id
               }.gif`}

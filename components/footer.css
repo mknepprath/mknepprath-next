@@ -41,12 +41,12 @@
   color: var(--primaryColor);
 }
 
-.footer-meta {
+.footerMeta {
   font-size: 13px;
   color: #333;
 }
 
-.footer-meta a {
+.footerMeta a {
   display: inline-block;
 
   border-top: 2px solid transparent;
@@ -54,7 +54,7 @@
   transition: border-bottom 0.2s, transform 0.2s;
 }
 
-.footer-meta a:hover {
+.footerMeta a:hover {
   border-bottom: 2px solid var(--primaryColor);
   transform: translate(0, -2px);
 }

@@ -38,26 +38,26 @@
   color: var(--primaryColor);
 }
 
-.site-logo {
+.siteLogo {
   display: flex;
   align-items: center;
 
   cursor: pointer;
 }
 
-.site-logo > * {
+.siteLogo > * {
   margin-right: 16px;
 }
 
-.site-logo > .img {
+.siteLogo > .img {
   height: 32px;
   transition: rotate 0.2s, transform 0.2s;
 }
 
-.site-logo:hover > img {
+.siteLogo:hover > img {
   transform: rotate(5deg) scale(1.2);
 }
 
-.site-logo span {
+.siteLogo span {
   white-space: nowrap;
 }
