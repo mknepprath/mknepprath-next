@@ -1,7 +1,8 @@
 import React from "react";
-import Head from "../components/head";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
+
+import Footer from "../core/footer";
+import Head from "../core/head";
+import Nav from "../core/nav";
 
 import styles from "./about.css";
 

@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
 
-import TwitterIcon from "../components/icon-twitter";
+import TwitterIcon from "../core/icon-twitter";
 
 import { footerLinks } from "../utils/links";
 
 import styles from "./footer.css";
 
-const Footer = () => (
+export default () => (
   <nav className={styles.footer}>
     <p className={styles.footerMeta}>
       Created by Michael Knepprath •
@@ -41,5 +41,3 @@ const Footer = () => (
     </ul>
   </nav>
 );
-
-export default Footer;

@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import Head from "../components/head";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
+
+import Card from "../core/card";
+import Footer from "../core/footer";
+import Head from "../core/head";
+import Nav from "../core/nav";
 
 import { projectLinks } from "../utils/links";
 
@@ -21,20 +23,14 @@ export default () => (
     </div>
 
     <div className={styles.row}>
-      {projectLinks.map(link => (
-        <Link href={link.href} key={link.label}>
-          <a className={styles.card} rel="noopener" target="_blank">
-            {link.imgSrc ? (
-              <img alt={link.label} className={styles.img} src={link.imgSrc} />
-            ) : null}
-            <div>
-              <h3>
-                {link.label} <span className={styles.arrow}>&rarr;</span>
-              </h3>
-              <p>{link.description}</p>
-            </div>
-          </a>
-        </Link>
+      {projectLinks.map(({ description, href, imgSrc, label }) => (
+        <Card
+          description={description}
+          href={href}
+          imgSrc={imgSrc}
+          key={label}
+          label={label}
+        />
       ))}
     </div>
 

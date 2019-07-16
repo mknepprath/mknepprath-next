@@ -5,7 +5,7 @@ import { navLinks } from "../utils/links";
 
 import styles from "./nav.css";
 
-const Nav = () => (
+export default () => (
   <nav className={styles.nav}>
     <a className={styles.siteLogo} href={"/"}>
       <img
@@ -31,5 +31,3 @@ const Nav = () => (
     </ul>
   </nav>
 );
-
-export default Nav;
