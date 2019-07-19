@@ -15,6 +15,23 @@
   }
 }
 
+.footerMeta {
+  font-size: 13px;
+  color: #333;
+}
+.footerMeta a {
+  display: inline-block;
+
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s, transform 0.2s;
+}
+.footerMeta a:hover {
+  border-bottom: 2px solid var(--primaryColor);
+  color: var(--primaryColor);
+  transform: translate(0, -2px);
+}
+
 .footer ul {
   display: flex;
   align-items: center;
@@ -27,38 +44,26 @@
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.2s, transform 0.2s;
 }
-.footer li:hover {
-  border-bottom: 2px solid var(--primaryColor);
-  transform: translate(0, -2px);
-}
 .footer a {
   color: #333;
   padding: 6px 8px;
   text-decoration: none;
   font-size: 13px;
 }
-.footer a:hover {
-  color: var(--primaryColor);
+.footer li a.twitter {
+  line-height: 0;
+}
+.footer li a path {
+  fill: #333;
 }
 
-.footerMeta {
-  font-size: 13px;
-  color: #333;
-}
-
-.footerMeta a {
-  display: inline-block;
-
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom 0.2s, transform 0.2s;
-}
-
-.footerMeta a:hover {
+.footer li:hover {
   border-bottom: 2px solid var(--primaryColor);
   transform: translate(0, -2px);
 }
-
-.twitter {
-  line-height: 0;
+.footer li:hover a {
+  color: var(--primaryColor);
+}
+.footer li:hover a path {
+  fill: var(--primaryColor);
 }

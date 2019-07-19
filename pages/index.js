@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 
 import Card from "../core/card";
 import Footer from "../core/footer";

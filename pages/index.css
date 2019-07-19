@@ -35,7 +35,7 @@
 }
 
 .row {
-  padding: 80px 16px;
+  padding: 16px 16px;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -43,6 +43,7 @@
 
   background: #f7f7f7;
 }
+
 @media (min-width: 620px) {
   .row {
     grid-template-columns: 1fr 1fr;

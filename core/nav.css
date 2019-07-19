@@ -28,21 +28,31 @@
   border-bottom: 2px solid var(--primaryColor);
   transform: translate(0, -2px);
 }
+.nav li:hover a {
+  color: var(--primaryColor);
+}
 .nav a {
   color: #333;
   padding: 6px 8px;
   text-decoration: none;
   font-size: 13px;
 }
-.nav a:hover {
-  color: var(--primaryColor);
-}
 
 .siteLogo {
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  margin-top: 16px;
 
   cursor: pointer;
+}
+@media (min-width: 620px) {
+  .siteLogo {
+    justify-content: left;
+
+    margin-top: 0;
+  }
 }
 
 .siteLogo > * {
@@ -54,7 +64,7 @@
   transition: rotate 0.2s, transform 0.2s;
 }
 
-.siteLogo:hover > img {
+.siteLogo:hover > .img {
   transform: rotate(5deg) scale(1.2);
 }
 
