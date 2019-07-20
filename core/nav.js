@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 
 import { navLinks } from "../utils/links";
 
@@ -18,14 +17,13 @@ export default () => (
     <ul>
       {navLinks.map(({ href, key, label }) => (
         <li key={key}>
-          <Link href={href}>
-            <a
-              rel={label === "About" ? "" : "noopener"}
-              target={label === "About" ? "" : "_blank"}
-            >
-              {label}
-            </a>
-          </Link>
+          <a
+            href={href}
+            rel={label === "About" ? "" : "noopener"}
+            target={label === "About" ? "" : "_blank"}
+          >
+            {label}
+          </a>
         </li>
       ))}
     </ul>

@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 
 import TwitterIcon from "../core/icon-twitter";
 
@@ -11,31 +10,30 @@ export default () => (
   <nav className={styles.footer}>
     <p className={styles.footerMeta}>
       Created by Michael Knepprath •
-      <Link href="https://github.com/mknepprath/mknepprath-next">
-        <a rel="noopener" target="_blank">
-          View on GitHub
-        </a>
-      </Link>
+      <a
+        href="https://github.com/mknepprath/mknepprath-next"
+        rel="noopener"
+        target="_blank"
+      >
+        View on GitHub
+      </a>
     </p>
     <ul>
       <li>
-        <Link href="https://twitter.com/mknepprath">
-          <a
-            aria-label="Twitter"
-            className={styles.twitter}
-            title="The Bird Site"
-          >
-            <TwitterIcon />
-          </a>
-        </Link>
+        <a
+          aria-label="Twitter"
+          className={styles.twitter}
+          href="https://twitter.com/mknepprath"
+          title="The Bird Site"
+        >
+          <TwitterIcon />
+        </a>
       </li>
       {footerLinks.map(({ href, key, label }) => (
         <li key={key}>
-          <Link href={href}>
-            <a rel="noopener" target="_blank" title={label}>
-              {label}
-            </a>
-          </Link>
+          <a href={href} rel="noopener" target="_blank" title={label}>
+            {label}
+          </a>
         </li>
       ))}
     </ul>
