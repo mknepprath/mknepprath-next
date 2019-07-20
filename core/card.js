@@ -4,7 +4,6 @@ import Link from "next/link";
 import styles from "./card.css";
 
 export default ({ description, href, imgSrc, label }) => (
-  // <Link href={href} key={label}>
   <a
     className={styles.card}
     href={href}
@@ -20,5 +19,4 @@ export default ({ description, href, imgSrc, label }) => (
       <p>{description}</p>
     </div>
   </a>
-  // </Link>
 );
