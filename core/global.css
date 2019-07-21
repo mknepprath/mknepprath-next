@@ -1,0 +1,21 @@
+:root {
+  --pageContentWidth: 880px;
+  --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
+
+  --primaryColor: #6abd9d;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
+    sans-serif;
+}
+
+:global(.container) {
+  padding: 0 16px;
+}
+@media (min-width: 900px) {
+  :global(.container) {
+    padding: 0 var(--mainPadding);
+  }
+}

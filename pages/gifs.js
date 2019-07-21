@@ -1,4 +1,4 @@
-import React from "react";
+import classnames from "classnames";
 
 import Footer from "../core/footer";
 import Head from "../core/head";

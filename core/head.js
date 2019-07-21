@@ -1,8 +1,10 @@
-import React from "react";
 import NextHead from "next/head";
 import { string } from "prop-types";
 
-const defaultDescription = "Developer & Designer";
+import "./global.css";
+
+const defaultDescription =
+  "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.";
 const defaultOGURL = "";
 const defaultOGImage = "";
 

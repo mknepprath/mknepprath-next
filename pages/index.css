@@ -1,23 +1,9 @@
-:root {
-  --pageContentWidth: 880px;
-  --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
-
-  --primaryColor: #6abd9d;
-}
-
-:global(body) {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
-    sans-serif;
-}
-
 .hero {
   background-color: var(--primaryColor);
   color: #333;
-  padding: 0 16px;
 }
 
-.title {
+.greeting {
   margin: 0;
   width: 100%;
   padding: 80px 0;
@@ -25,17 +11,18 @@
   font-size: 32px;
 }
 @media (min-width: 620px) {
-  .title {
+  .greeting {
     font-size: 64px;
   }
 }
 
-.title span {
+.greeting span {
   color: #fff;
 }
 
 .row {
-  padding: 16px 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -51,12 +38,9 @@
 }
 
 @media (min-width: 900px) {
-  .hero {
-    padding: 0 var(--mainPadding);
-  }
-
   .row {
-    padding: 80px var(--mainPadding);
+    padding-top: 80px;
+    padding-bottom: 80px;
 
     gap: 24px;
 

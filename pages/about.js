@@ -1,4 +1,4 @@
-import React from "react";
+import classnames from "classnames";
 
 import Footer from "../core/footer";
 import Head from "../core/head";
@@ -11,7 +11,7 @@ export default () => (
     <Head title="About Michael Knepprath" />
     <Nav />
 
-    <div className={styles.main}>
+    <div className={classnames("container", styles.main)}>
       <img alt="A photo of Michael Knepprath" src="/static/about.jpg" />
 
       <h1>About</h1>

@@ -1,4 +1,4 @@
-import React from "react";
+import classnames from "classnames";
 
 import Card from "../core/card";
 import Footer from "../core/footer";
@@ -10,18 +10,18 @@ import { projectLinks } from "../utils/links";
 import styles from "./index.css";
 
 export default () => (
-  <div>
+  <React.Fragment>
     <Head title="Michael Knepprath, Developer &amp; Designer" />
     <Nav />
 
-    <div className={styles.hero}>
-      <h1 className={styles.title}>
+    <div className={classnames("container", styles.hero)}>
+      <h1 className={styles.greeting}>
         <span>Hello!</span>
         <br />I design & develop things for the internet.
       </h1>
     </div>
 
-    <div className={styles.row}>
+    <div className={classnames("container", styles.row)}>
       {projectLinks.map(({ description, href, imgSrc, label }) => (
         <Card
           description={description}
@@ -34,5 +34,5 @@ export default () => (
     </div>
 
     <Footer />
-  </div>
+  </React.Fragment>
 );

@@ -1,12 +1,8 @@
 .main {
   background: #f7f7f7;
 
-  padding: 80px 16px;
-}
-@media (min-width: 900px) {
-  .main {
-    padding: 80px var(--mainPadding);
-  }
+  padding-bottom: 80px;
+  padding-top: 80px;
 }
 
 .main img {

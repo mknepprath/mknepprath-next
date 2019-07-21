@@ -3,8 +3,8 @@ export const footerLinks = [
   // { href: 'https://twitter.com/mknepprath', key: 'twitter', label: 'The Bird Site' },
   {
     href: "mailto:michael@mknepprath.com",
-    key: "contact",
-    label: "Contact Me"
+    key: "email",
+    label: "Email Me"
   }
 ];
 
@@ -13,22 +13,17 @@ export const navLinks = [
   {
     href: "https://github.com/mknepprath",
     key: "code",
-    label: "Code"
+    label: "GitHub"
   },
   {
     href: "https://dribbble.com/mknepprath",
     key: "illustration",
-    label: "Illustration"
+    label: "Dribbble"
   },
   {
     href: "https://medium.com/@mknepprath",
     key: "writing",
     label: "Writing"
-  },
-  {
-    href: "/about",
-    key: "about",
-    label: "About"
   }
 ];
 
