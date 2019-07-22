@@ -1,17 +1,16 @@
-import NextHead from "next/head";
+import Head from "next/head";
 import { string } from "prop-types";
-
-import "./global.css";
 
 const defaultDescription =
   "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.";
 const defaultOGURL = "";
 const defaultOGImage = "";
+const defaultTitle = "Michael Knepprath, Developer & Designer";
 
-const Head = props => (
-  <NextHead>
+export default props => (
+  <Head>
     <meta charSet="UTF-8" />
-    <title>{props.title || ""}</title>
+    <title key="title">{props.title || defaultTitle}</title>
     <meta
       name="description"
       content={props.description || defaultDescription}
@@ -28,7 +27,7 @@ const Head = props => (
     <link rel="icon" href="/static/favicon.ico" />
     <meta name="theme-color" content="#6ABD9D" />
     <meta property="og:url" content={props.url || defaultOGURL} />
-    <meta property="og:title" content={props.title || ""} />
+    <meta property="og:title" content={props.title || defaultTitle} />
     <meta
       property="og:description"
       content={props.description || defaultDescription}
@@ -41,7 +40,7 @@ const Head = props => (
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <script src="/static/js/clipboard.js" />
-  </NextHead>
+  </Head>
 );
 
 Head.propTypes = {
@@ -50,5 +49,3 @@ Head.propTypes = {
   url: string,
   ogImage: string
 };
-
-export default Head;

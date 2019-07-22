@@ -1,18 +1,22 @@
 import classnames from "classnames";
+import Head from "next/head";
 
-import Footer from "../core/footer";
-import Head from "../core/head";
-import Nav from "../core/nav";
+import Page from "../core/page";
 
 import styles from "./about.css";
 
 export default () => (
-  <div>
-    <Head title="About Michael Knepprath" />
-    <Nav />
+  <Page>
+    <Head>
+      <title key="title">About Michael Knepprath</title>
+    </Head>
 
     <div className={classnames("container", styles.main)}>
-      <img alt="A photo of Michael Knepprath" src="/static/about.jpg" />
+      <img
+        alt="A photo of Michael Knepprath"
+        className={styles.photo}
+        src="/static/about.jpg"
+      />
 
       <h1>About</h1>
       <p>
@@ -34,7 +38,5 @@ export default () => (
         .
       </p>
     </div>
-
-    <Footer />
-  </div>
+  </Page>
 );

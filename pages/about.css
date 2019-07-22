@@ -5,7 +5,7 @@
   padding-top: 80px;
 }
 
-.main img {
+.photo {
   border-radius: 8px;
   width: 100%;
   height: 192px;
@@ -14,7 +14,7 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 620px) {
-  .main img {
+  .photo {
     width: 320px;
   }
 }

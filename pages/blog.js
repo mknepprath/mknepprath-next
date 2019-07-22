@@ -1,46 +1,29 @@
 // WIP
-
+import Head from "next/head";
 import Link from "next/link";
 
-import Footer from "../core/footer";
-import Head from "../core/head";
-import Nav from "../core/nav";
+import Page from "../core/page";
 
-export const blogPosts = [
-  {
-    id: "a",
-    name: "First Post",
-    summary: "Some text for the first blog post."
-  },
-  {
-    id: "b",
-    name: "Second Post",
-    summary: "Second blog post content here."
-  }
-];
-
-const PostLink = ({ post }) => (
-  <li key={post.id}>
-    <Link href="/blog/[id]" as={`/blog/${post.id}`}>
-      <a>{post.name}</a>
-    </Link>
-  </li>
-);
+import { posts } from "../posts.json";
 
 export default () => (
-  <div>
-    <Head title={"Michael Knepprath, Occasional Blogger"} />
-    <Nav />
+  <Page>
+    <Head>
+      <title key="title">Michael Knepprath, Occasional Blogger</title>
+    </Head>
 
     <div className={"container"}>
       <h1>My Blog</h1>
       <ul>
-        {blogPosts.map(post => (
-          <PostLink key={post.id} post={post} />
+        {posts.map(post => (
+          <li key={post.id}>
+            <Link href={`/blog/${post.id}`}>
+              <a>{post.title}</a>
+            </Link>{" "}
+            {post.date}
+          </li>
         ))}
       </ul>
     </div>
-
-    <Footer />
-  </div>
+  </Page>
 );

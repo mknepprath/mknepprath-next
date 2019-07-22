@@ -1,17 +1,17 @@
 import styles from "./card.css";
 
-export default ({ description, href, imgSrc, label }) => (
+export default ({ description, href, imgSrc, title }) => (
   <a
     className={styles.card}
     href={href}
-    key={label}
+    key={title}
     rel={"noopener"}
     target={"_blank"}
   >
-    {imgSrc ? <img alt={label} className={styles.img} src={imgSrc} /> : null}
+    {imgSrc ? <img alt={title} className={styles.img} src={imgSrc} /> : null}
     <div>
       <h3>
-        {label} <span className={styles.arrow}>&rarr;</span>
+        {title} <span className={styles.arrow}>&rarr;</span>
       </h3>
       <p>{description}</p>
     </div>

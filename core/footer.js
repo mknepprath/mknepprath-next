@@ -29,10 +29,10 @@ export default () => (
           <TwitterIcon />
         </a>
       </li>
-      {footerLinks.map(({ href, key, label }) => (
+      {footerLinks.map(({ href, key, title }) => (
         <li key={key}>
-          <a href={href} rel={"noopener"} target={"_blank"} title={label}>
-            {label}
+          <a href={href} rel={"noopener"} target={"_blank"} title={title}>
+            {title}
           </a>
         </li>
       ))}

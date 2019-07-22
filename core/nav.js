@@ -16,10 +16,10 @@ export default () => (
       <span>M. Knepprath</span>
     </a>
     <ul>
-      {navLinks.map(({ href, key, label }) => (
+      {navLinks.map(({ href, key, title }) => (
         <li key={key}>
           <a href={href} rel={"noopener"} target={"_blank"}>
-            {label}
+            {title}
           </a>
         </li>
       ))}
