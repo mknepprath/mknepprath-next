@@ -22,8 +22,8 @@ function shuffle(a) {
 
 class GIFs extends React.Component {
   componentDidMount() {
-    const btns = document.querySelectorAll(".gif");
-    new Clipboard(btns);
+    const gifElements = document.querySelectorAll(".gif");
+    new Clipboard(gifElements);
   }
   render() {
     return (
@@ -34,7 +34,7 @@ class GIFs extends React.Component {
         <div className={styles.gifIndex}>
           {shuffle(gifs).map(gif => (
             <img
-              className={styles.gif}
+              className={"gif"}
               data-clipboard-text={`http://mknepprath.com/static/gifs/${
                 gif.id
               }.gif`}
