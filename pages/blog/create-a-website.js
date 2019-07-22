@@ -108,11 +108,8 @@ class CreateAWebsite extends React.Component {
             </li>
             <li>
               Scroll all the way down to the <strong>GitHub Pages</strong>{" "}
-              section - it will now display a URL that looks similar to this:{" "}
-              <code className={"language-text"}>
-                https://github.com/username/example-site
-              </code>
-              .
+              section - it will now display a URL that looks similar to this:
+              https://github.com/username/example-site.
             </li>
             <li>Click on it to see your website.</li>
           </ul>
