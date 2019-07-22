@@ -19,11 +19,6 @@ export const navLinks = [
     href: "https://dribbble.com/mknepprath",
     key: "illustration",
     title: "Dribbble"
-  },
-  {
-    href: "https://medium.com/@mknepprath",
-    key: "writing",
-    title: "Writing"
   }
 ];
 

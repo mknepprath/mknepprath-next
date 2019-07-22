@@ -2,13 +2,23 @@
   --pageContentWidth: 880px;
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
 
+  --black: #333;
   --primaryColor: #6abd9d;
 }
 
 body {
-  margin: 0;
+  color: var(--black);
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
     sans-serif;
+  margin: 0;
+}
+
+h2 {
+  margin-top: 1.6em;
+}
+
+p {
+  line-height: 1.5;
 }
 
 :global(.container) {
@@ -18,4 +28,14 @@ body {
   :global(.container) {
     padding: 0 var(--mainPadding);
   }
+}
+
+:global(.blog-content) li {
+  line-height: 1.5;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+:global(.blog-content) li:first-child {
+  margin-top: 2em;
 }

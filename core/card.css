@@ -32,7 +32,7 @@
 }
 .card h3 {
   margin: 0;
-  color: #333;
+  color: var(--black);
   font-size: 18px;
 }
 .card:hover h3 {
@@ -42,5 +42,5 @@
   margin: 0;
   padding: 8px 0 0;
   font-size: 13px;
-  color: #333;
+  color: var(--black);
 }

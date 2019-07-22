@@ -8,7 +8,7 @@ import styles from "./footer.css";
 
 export default () => (
   <nav className={classnames("container", styles.footer)}>
-    <p className={styles.footerMeta}>
+    <span className={styles.footerMeta}>
       Created by Michael Knepprath •
       <a
         href={"https://github.com/mknepprath/mknepprath-next"}
@@ -17,7 +17,7 @@ export default () => (
       >
         View on GitHub
       </a>
-    </p>
+    </span>
     <ul>
       <li>
         <a

@@ -1,6 +1,6 @@
 .hero {
   background-color: var(--primaryColor);
-  color: #333;
+  color: var(--black);
 }
 
 .greeting {

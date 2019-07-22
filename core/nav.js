@@ -23,7 +23,12 @@ export default () => (
           </a>
         </li>
       ))}
-      {/* About is the only internal link - so we can use Next's Link here. */}
+      {/* Internal links - we can use Next's Link here. */}
+      <li>
+        <Link href={"/blog"}>
+          <a>Writing</a>
+        </Link>
+      </li>
       <li>
         <Link href={"/about"}>
           <a>About</a>
