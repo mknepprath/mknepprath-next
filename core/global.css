@@ -5,8 +5,8 @@
   --black: #333;
   --hoverColor: #6cd48f;
   --primaryColor: #6abd9d;
-  --visitedColor: #f06ea3;
-  /* --visitedColor: #b984c8; */
+  /* --visitedColor: #f06ea3; */
+  --visitedColor: #b984c8;
 }
 
 body {
@@ -48,6 +48,11 @@ a:visited {
 :global(.blog-content) {
   padding-bottom: 40px;
   padding-top: 40px;
+}
+:global(.blog-content) img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
 }
 :global(.blog-content) li {
   line-height: 1.5;

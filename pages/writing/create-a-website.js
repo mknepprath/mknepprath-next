@@ -15,6 +15,8 @@ class CreateAWebsite extends React.Component {
         </Head>
 
         <div className={"blog-content container"}>
+          <img src="/static/create-a-website1.jpg" />
+
           <h1>Create a Simple Website with GitHub Pages</h1>
 
           <p>
@@ -30,6 +32,8 @@ class CreateAWebsite extends React.Component {
             </li>
             <li>That's it??</li>
           </ul>
+
+          <img src="/static/create-a-website2.jpg" />
 
           <h2>Create a Repository</h2>
           <p>
@@ -95,6 +99,8 @@ class CreateAWebsite extends React.Component {
               `}
             </code>
           </pre>
+
+          <img src="/static/create-a-website3.jpg" />
 
           <h2 id="deploy-your-website">Deploy Your Website</h2>
           <p>
