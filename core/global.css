@@ -30,8 +30,7 @@ blockquote {
 blockquote {
   margin: 2em 2em 2em 1em;
   padding: 0 0.75em 0 1.25em;
-  border-left: 8px solid var(--primaryColor);
-  border-right: 0px solid var(--primaryColor);
+  border-left: 8px solid var(--black);
 }
 
 a {
