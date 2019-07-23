@@ -20,6 +20,7 @@ function shuffle(a) {
 
 class GIFs extends React.Component {
   componentDidMount() {
+    // Leverages clipboard.js to copy the gif URL to your clipboard on click.
     const gifElements = document.querySelectorAll(".gif");
     new Clipboard(gifElements);
   }
