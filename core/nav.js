@@ -25,7 +25,7 @@ export default () => (
       ))}
       {/* Internal links - we can use Next's Link here. */}
       <li>
-        <Link href={"/blog"}>
+        <Link href={"/writing"}>
           <a>Writing</a>
         </Link>
       </li>

@@ -1,8 +1,8 @@
 .main {
   background: #f7f7f7;
 
-  padding-bottom: 80px;
-  padding-top: 80px;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .photo {
@@ -17,9 +17,4 @@
   .photo {
     width: 320px;
   }
-}
-
-.main a {
-  color: var(--primaryColor);
-  text-decoration: none;
 }

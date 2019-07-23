@@ -16,6 +16,7 @@ export default props => (
       content={props.description || defaultDescription}
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="manifest" href="/static/manifest.json" />
     <link
       rel="icon"
@@ -25,8 +26,10 @@ export default props => (
     <link rel="apple-touch-icon" href="/static/apple-touch-icon-152x152.png" />
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#6ABD9D" />
     <link rel="icon" href="/static/favicon.ico" />
+    {/* prism.css is only used in blog posts, yet is being included globally. */}
     <link rel="stylesheet" type="text/css" href="/static/css/prism.css" />
     <meta name="theme-color" content="#6ABD9D" />
+
     <meta property="og:url" content={props.url || defaultOGURL} />
     <meta property="og:title" content={props.title || defaultTitle} />
     <meta
@@ -36,10 +39,11 @@ export default props => (
     <meta name="twitter:site" content={props.url || defaultOGURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={props.ogImage || defaultOGImage} />
-    <meta name="pinterest" content="nopin" />
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta name="pinterest" content="nopin" />
+
     <script src="/static/js/clipboard.js" />
   </Head>
 );

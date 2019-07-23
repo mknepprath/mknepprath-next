@@ -23,7 +23,8 @@
 .nav li:hover a {
   color: var(--primaryColor);
 }
-.nav a {
+.nav a,
+.nav a:visited {
   color: var(--black);
   padding: 6px 8px;
   text-decoration: none;

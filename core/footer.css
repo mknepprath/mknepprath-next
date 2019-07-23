@@ -13,11 +13,14 @@
   font-size: 13px;
   color: var(--black);
 }
-.footerMeta a {
+.footerMeta a,
+.footerMeta a:visited {
   display: inline-block;
 
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
+  color: var(--black);
+  font-size: 13px;
   transition: border-bottom 0.2s, transform 0.2s;
 }
 .footerMeta a:hover {

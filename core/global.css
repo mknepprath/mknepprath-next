@@ -3,7 +3,10 @@
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
 
   --black: #333;
+  --hoverColor: #6cd48f;
   --primaryColor: #6abd9d;
+  --visitedColor: #f06ea3;
+  /* --visitedColor: #b984c8; */
 }
 
 body {
@@ -21,6 +24,18 @@ p {
   line-height: 1.5;
 }
 
+a {
+  color: var(--primaryColor);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--hoverColor);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--visitedColor);
+}
+
 :global(.container) {
   padding: 0 16px;
 }
@@ -30,12 +45,15 @@ p {
   }
 }
 
+:global(.blog-content) {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
 :global(.blog-content) li {
   line-height: 1.5;
   margin-left: 2em;
   margin-top: 1em;
 }
-
 :global(.blog-content) li:first-child {
   margin-top: 2em;
 }

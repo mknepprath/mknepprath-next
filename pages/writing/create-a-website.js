@@ -14,7 +14,7 @@ class CreateAWebsite extends React.Component {
           <title key="title">Create a Simple Website with GitHub Pages</title>
         </Head>
 
-        <div className={"container blog-content"}>
+        <div className={"blog-content container"}>
           <h1>Create a Simple Website with GitHub Pages</h1>
 
           <p>
@@ -66,7 +66,7 @@ class CreateAWebsite extends React.Component {
             </li>
             <li>
               Where it says <strong>Name your file...</strong>, enter{" "}
-              <code className={"language-text"}>index.html</code>.
+              <code className="language-text">index.html</code>.
             </li>
             <li>
               Populate the page with some HTML. See{" "}
@@ -79,7 +79,7 @@ class CreateAWebsite extends React.Component {
 
           <h2>index.html Example</h2>
           <pre>
-            <code className={"language-markup"}>
+            <code className="language-markup">
               {`
   <!DOCTYPE html>
   <html lang="en">
@@ -99,7 +99,7 @@ class CreateAWebsite extends React.Component {
           <h2 id="deploy-your-website">Deploy Your Website</h2>
           <p>
             You should be back on the main page of your repo, and you should see
-            the new <code className={"language-text"}>index.html</code> file you
+            the new <code className="language-text">index.html</code> file you
             created.
           </p>
           <ul>
