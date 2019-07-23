@@ -30,7 +30,7 @@ class CreateAWebsite extends React.Component {
               A GitHub account. Sign up here:{" "}
               <a href="https://github.com/join">https://github.com/join</a>
             </li>
-            <li>That's it??</li>
+            <li>That's it!</li>
           </ul>
 
           <img src="/static/create-a-website2.jpg" />
