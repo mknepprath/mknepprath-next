@@ -123,8 +123,11 @@ class CreateAWebsite extends React.Component {
             <li>Enter the domain you purchased into that field.</li>
             <li>
               On the domain provider side of things, GitHub provides{" "}
-              <a>some guidance here</a>. It's differente for every provider, but
-              it comes down to setting some records.
+              <a href="https://help.github.com/en/articles/setting-up-an-apex-domain">
+                some guidance here
+              </a>
+              . It's differente for every provider, but it comes down to setting
+              some records.
             </li>
           </ul>
         </div>
