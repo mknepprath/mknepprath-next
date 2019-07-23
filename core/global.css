@@ -36,6 +36,10 @@ a:visited {
   color: var(--visitedColor);
 }
 
+pre {
+  border-radius: 8px;
+}
+
 :global(.container) {
   padding: 0 16px;
 }

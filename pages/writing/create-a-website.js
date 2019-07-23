@@ -12,11 +12,6 @@ class CreateAWebsite extends React.Component {
       <Page>
         <Head>
           <title key="title">Create a Simple Website with GitHub Pages</title>
-          <meta
-            key="twitter-image"
-            name="twitter:image"
-            content="/static/create-a-website1.jpg"
-          />
         </Head>
 
         <div className={"blog-content container"}>
