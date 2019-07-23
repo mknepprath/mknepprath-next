@@ -8,7 +8,7 @@ export default () => (
       <title key="title">How DC Is Failing Us All</title>
     </Head>
 
-    <div className={"blog-content container"}>
+    <div className={"blog-container container"}>
       <h1>How DC Is Failing Us All</h1>
 
       <p>

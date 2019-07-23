@@ -8,7 +8,7 @@ export default () => (
       <title key="title">oh my god i am in ant jail</title>
     </Head>
 
-    <div className={"blog-content container"}>
+    <div className={"blog-container container"}>
       <h1>Lilt</h1>
 
       <p>Coming soon!</p>

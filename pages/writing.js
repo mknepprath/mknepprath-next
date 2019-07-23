@@ -11,7 +11,7 @@ export default () => (
       <title key="title">Michael Knepprath, Occasional Writer</title>
     </Head>
 
-    <div className={"blog-content container"}>
+    <div className={"blog-container container"}>
       <h1>Writings</h1>
       <ul>
         {posts.map(post => (

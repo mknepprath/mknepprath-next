@@ -14,7 +14,7 @@ class CreateAWebsite extends React.Component {
           <title key="title">Create a Simple Website with GitHub Pages</title>
         </Head>
 
-        <div className={"blog-content container"}>
+        <div className={"blog-container container"}>
           <img src="/static/create-a-website1.jpg" />
 
           <h1>Create a Simple Website with GitHub Pages</h1>
