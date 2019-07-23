@@ -1,6 +1,8 @@
 :root {
   --pageContentWidth: 880px;
+  --blogContentWidth: 340px;
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
+  --blogPadding: calc((100% - var(--blogContentWidth)) / 2);
 
   --black: #333;
   --hoverColor: #6cd48f;
@@ -50,17 +52,17 @@ pre {
 }
 
 :global(.blog-content) {
+  padding: 0 var(--blogPadding);
   padding-bottom: 40px;
   padding-top: 40px;
 }
 :global(.blog-content) img {
   display: block;
-  margin: 0 auto;
-  width: 50%;
+
+  width: 100%;
 }
 :global(.blog-content) li {
   line-height: 1.5;
-  margin-left: 2em;
   margin-top: 1em;
 }
 :global(.blog-content) li:first-child {
