@@ -132,7 +132,7 @@ class CreateAWebsite extends React.Component {
               <a href="https://help.github.com/en/articles/setting-up-an-apex-domain">
                 some guidance here
               </a>
-              . It's differente for every provider, but it comes down to setting
+              . It's different for every provider, but it comes down to setting
               some records.
             </li>
           </ul>
