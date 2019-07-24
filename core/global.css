@@ -24,7 +24,7 @@ h2 {
 
 p,
 blockquote {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 blockquote {
@@ -69,12 +69,14 @@ pre {
     padding: 0 var(--blogPadding);
   }
 }
+
 :global(.blog-container) img {
   display: block;
 
   width: 100%;
 }
+
 :global(.blog-container) li {
-  line-height: 1.5;
+  line-height: 1.6;
   margin-top: 1em;
 }

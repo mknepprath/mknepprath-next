@@ -5,6 +5,7 @@ import Page from "../../core/page";
 
 class CreateAWebsite extends React.Component {
   componentDidMount() {
+    // Syntax highlighting needs to be triggered after the page is rendered.
     Prism.highlightAll();
   }
   render() {
