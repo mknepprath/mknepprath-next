@@ -7,7 +7,6 @@
   --black: #333;
   --hoverColor: #6cd48f;
   --primaryColor: #6abd9d;
-  /* --visitedColor: #f06ea3; */
   --visitedColor: #b984c8;
 }
 
@@ -15,6 +14,7 @@ body {
   color: var(--black);
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
     sans-serif;
+  font-size: 1.2em;
   margin: 0;
 }
 
@@ -28,9 +28,11 @@ blockquote {
 }
 
 blockquote {
-  margin: 2em 2em 2em 1em;
-  padding: 0 0.75em 0 1.25em;
-  border-left: 8px solid var(--black);
+  border-left: 2px solid var(--black);
+  font-style: italic;
+  font-weight: 300;
+  margin: 2em 0;
+  padding: 0 2em;
 }
 
 a {
@@ -59,9 +61,13 @@ pre {
 }
 
 :global(.blog-container) {
-  padding: 0 var(--blogPadding);
   padding-bottom: 40px;
   padding-top: 40px;
+}
+@media (min-width: 900px) {
+  :global(.blog-container) {
+    padding: 0 var(--blogPadding);
+  }
 }
 :global(.blog-container) img {
   display: block;

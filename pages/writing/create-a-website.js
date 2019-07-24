@@ -15,13 +15,19 @@ class CreateAWebsite extends React.Component {
         </Head>
 
         <div className={"blog-container container"}>
-          <img src="/static/create-a-website1.jpg" />
+          <img
+            alt="Illustration of a browser window"
+            src="/static/create-a-website1.jpg"
+          />
 
           <h1>Create a Simple Website with GitHub Pages</h1>
 
           <p>
             GitHub offers a free way to host websites called{" "}
-            <a href="https://pages.github.com/">GitHub Pages</a>.
+            <a alt="Illustration of Octocat" href="https://pages.github.com/">
+              GitHub Pages
+            </a>
+            .
           </p>
 
           <h2>Requirements</h2>
@@ -33,7 +39,10 @@ class CreateAWebsite extends React.Component {
             <li>That's it!</li>
           </ul>
 
-          <img src="/static/create-a-website2.jpg" />
+          <img
+            alt="Illustration of rocketship"
+            src="/static/create-a-website2.jpg"
+          />
 
           <h2>Create a Repository</h2>
           <p>
