@@ -24,7 +24,7 @@ class CreateAWebsite extends React.Component {
           <h1>Create a Simple Website with GitHub Pages</h1>
 
           <p className={"blog-time"}>
-            <time datetime="2019-07-22">July 22, 2019</time>
+            <time dateTime="2019-07-22">July 22, 2019</time>
           </p>
 
           <p>

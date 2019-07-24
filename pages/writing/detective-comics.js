@@ -16,7 +16,7 @@ export default () => (
 
       <h1>How DC Is Failing Us All</h1>
       <p className={"blog-time"}>
-        <time datetime="2015-04-29">April 29, 2015</time>
+        <time dateTime="2015-04-29">April 29, 2015</time>
       </p>
 
       <p>
@@ -47,9 +47,11 @@ export default () => (
         Sucker Punch. Per Rotten Tomatoes (which gave it a generous 23%):
       </p>
       <blockquote>
-        It’s technically impressive and loaded with eye-catching images, but
-        without characters or a plot to support them, all of Sucker Punch’s
-        visual thrills are for naught.
+        <p>
+          It’s technically impressive and loaded with eye-catching images, but
+          without characters or a plot to support them, all of Sucker Punch’s
+          visual thrills are for naught.
+        </p>
       </blockquote>
       <p>
         Now replace “Sucker Punch” with “Man of Steel.” Now go ahead and replace

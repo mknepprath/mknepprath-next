@@ -12,7 +12,7 @@ export default () => (
       <h1>Video Games Are Evolving!</h1>
 
       <p className={"blog-time"}>
-        <time datetime="2012-07-19">July 19, 2012</time>
+        <time dateTime="2012-07-19">July 19, 2012</time>
       </p>
 
       <p>
