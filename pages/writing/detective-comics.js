@@ -9,6 +9,11 @@ export default () => (
     </Head>
 
     <div className={"blog-container container"}>
+      <img
+        alt="The Joker in a box office booth"
+        src="/static/detective-comics.jpg"
+      />
+
       <h1>How DC Is Failing Us All</h1>
 
       <p>
