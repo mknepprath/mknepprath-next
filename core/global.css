@@ -78,6 +78,3 @@ pre {
   line-height: 1.5;
   margin-top: 1em;
 }
-:global(.blog-container) li:first-child {
-  margin-top: 2em;
-}
