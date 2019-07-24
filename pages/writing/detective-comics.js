@@ -15,6 +15,9 @@ export default () => (
       />
 
       <h1>How DC Is Failing Us All</h1>
+      <p className={"blog-time"}>
+        <time datetime="2015-04-29">April 29, 2015</time>
+      </p>
 
       <p>
         I love Batman. The Dark Knight was one of my favorite superhero films of

@@ -10,6 +10,9 @@ export default () => (
 
     <div className={"blog-container container"}>
       <h1>Lilt</h1>
+      <p className={"blog-time"}>
+        <time datetime="2019-07-22">July 22, 2019</time>
+      </p>
       {/*
         TODO: Put this into a component
         Interface: name, username, tweet ID, date
