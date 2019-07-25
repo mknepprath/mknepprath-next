@@ -12,7 +12,7 @@ export default () => (
     </Head>
 
     <div className={"blog-container container"}>
-      <h1>Writings</h1>
+      <h1>Writing</h1>
       <ul>
         {posts.map(post => (
           <li key={post.id}>
