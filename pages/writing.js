@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import Page from "../core/page";
+import Page from "core/page";
 
 import { posts } from "../posts.json";
 

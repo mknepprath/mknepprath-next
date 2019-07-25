@@ -1,7 +1,7 @@
 import classnames from "classnames";
 
-import Card from "../core/card";
-import Page from "../core/page";
+import Card from "core/card";
+import Page from "core/page";
 
 import { projectLinks } from "../utils/links";
 

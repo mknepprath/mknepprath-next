@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Page from "../../core/page";
+import Page from "core/page";
 
 export default () => (
   <Page>
@@ -10,9 +10,7 @@ export default () => (
 
     <div className={"blog-container container"}>
       <h1>Lilt</h1>
-      <p className={"blog-time"}>
-        <time dateTime="2019-07-22">July 22, 2019</time>
-      </p>
+
       {/*
         TODO: Put this into a component
         Interface: name, username, tweet ID, date
@@ -25,6 +23,10 @@ export default () => (
           January 18, 2018
         </a>
       </blockquote>
+
+      <p className={"blog-time"}>
+        <time dateTime="2019-07-22">July 22, 2019</time>
+      </p>
     </div>
   </Page>
 );

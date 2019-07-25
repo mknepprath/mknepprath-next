@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import Head from "next/head";
 
-import Page from "../core/page";
+import Page from "core/page";
 
 import styles from "./about.css";
 

@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Page from "../../core/page";
+import Page from "core/page";
 
 export default () => (
   <Page>
@@ -10,10 +10,6 @@ export default () => (
 
     <div className={"blog-container container"}>
       <h1>Video Games Are Evolving!</h1>
-
-      <p className={"blog-time"}>
-        <time dateTime="2012-07-19">July 19, 2012</time>
-      </p>
 
       <p>
         Last week I discussed the future of gaming, and mentioned that we’d be
@@ -86,6 +82,10 @@ export default () => (
         What if they’re never mentioned because of how commonplace they are?
         Suddenly, many of the crazy sci-fi stories we’ve read or watched become
         reality.
+      </p>
+
+      <p className={"blog-time"}>
+        <time dateTime="2012-07-19">July 19, 2012</time>
       </p>
     </div>
   </Page>

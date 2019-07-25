@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Page from "../../core/page";
+import Page from "core/page";
 
 export default () => (
   <Page>
@@ -15,9 +15,6 @@ export default () => (
       />
 
       <h1>How DC Is Failing Us All</h1>
-      <p className={"blog-time"}>
-        <time dateTime="2015-04-29">April 29, 2015</time>
-      </p>
 
       <p>
         I love Batman. The Dark Knight was one of my favorite superhero films of
@@ -87,6 +84,10 @@ export default () => (
         cheated. They’ll lose our loyalty in the long run, but they’ll make bank
         in the meantime. It doesn’t take a stretch of the imagination to see
         which one they currently value more.
+      </p>
+
+      <p className={"blog-time"}>
+        <time dateTime="2015-04-29">April 29, 2015</time>
       </p>
     </div>
   </Page>

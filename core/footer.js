@@ -1,6 +1,6 @@
 import classnames from "classnames";
 
-import TwitterIcon from "../core/icon-twitter";
+import TwitterIcon from "core/icon-twitter";
 
 import { footerLinks } from "../utils/links";
 

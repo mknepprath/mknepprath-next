@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Prism from "prismjs";
 
-import Page from "../../core/page";
+import Page from "core/page";
 
 class CreateAWebsite extends React.Component {
   componentDidMount() {
     // Syntax highlighting needs to be triggered after the page is rendered.
+    // - TODO: Do this lesson again:
+    //   https://nextjs.org/learn/excel/lazy-loading-components
     Prism.highlightAll();
   }
   render() {
@@ -22,10 +24,6 @@ class CreateAWebsite extends React.Component {
           />
 
           <h1>Create a Simple Website with GitHub Pages</h1>
-
-          <p className={"blog-time"}>
-            <time dateTime="2019-07-22">July 22, 2019</time>
-          </p>
 
           <p>
             GitHub offers a free way to host websites called{" "}
@@ -150,6 +148,10 @@ class CreateAWebsite extends React.Component {
               some records.
             </li>
           </ul>
+
+          <p className={"blog-time"}>
+            <time dateTime="2019-07-22">July 22, 2019</time>
+          </p>
         </div>
       </Page>
     );

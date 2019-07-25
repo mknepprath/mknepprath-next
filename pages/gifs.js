@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Page from "../core/page";
+import Page from "core/page";
 
 import { gifs } from "../utils/gifData";
 
