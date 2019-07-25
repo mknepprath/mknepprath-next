@@ -24,7 +24,7 @@ export default () => (
         <a href="http://mashable.com/2012/08/10/japanese-printing-live-fetus/">
           3D replica of a live fetus
         </a>
-        , or a
+        , or a{" "}
         <a href="http://mashable.com/2012/08/03/3d-printed-magic-arms/">
           robotic exoskeleton
         </a>
@@ -94,7 +94,7 @@ export default () => (
       <p>
         In the end, I believe the greatest change this technology will bring is
         an end to most labor-intensive factory jobs. While the potential is
-        great, there are many issues that will need to be covered, such as
+        great, there are many issues that will need to be covered, such as{" "}
         <a href="http://thenextweb.com/shareables/2012/07/26/the-worlds-first-3d-printed-gun-is-a-terrifying-thing/">
           the creation of weaponry
         </a>
@@ -102,7 +102,7 @@ export default () => (
       </p>
 
       <p className={"blog-time"}>
-        <time dateTime="2012-07-23">July 23, 2012</time>
+        <time dateTime="2012-08-13">August 13, 2012</time>
       </p>
     </div>
   </Page>
