@@ -10,6 +10,7 @@ export default () => (
 
     <div className={"blog-container container"}>
       <h1>Design In Politics</h1>
+
       <blockquote>
         This is a guest post by{" "}
         <a href="https://twitter.com/mjleyrer">Matthias Leyrer</a>. He is in
