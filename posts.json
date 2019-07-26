@@ -3,42 +3,134 @@
     {
       "id": "create-a-website",
       "date": "July 22, 2019",
+      "published": true,
       "title": "Create a Simple Website with GitHub Pages"
     },
     {
       "id": "creating-lilt-part-5",
       "date": "May 17, 2016",
+      "published": true,
       "title": "Creating Lilt — Part 5"
     },
     {
       "id": "creating-lilt-part-4",
       "date": "March 20, 2016",
+      "published": true,
       "title": "Creating Lilt — Part 4"
     },
     {
       "id": "creating-lilt-part-3",
       "date": "January 27, 2016",
+      "published": true,
       "title": "Creating Lilt — Part 3"
     },
     {
       "id": "creating-lilt-part-2",
       "date": "January 21, 2016",
+      "published": true,
       "title": "Creating Lilt — Part 2"
     },
     {
       "id": "creating-lilt-part-1",
       "date": "November 21, 2015",
+      "published": true,
       "title": "Creating Lilt — Part 1"
+    },
+    {
+      "id": "lots-of-little-improvements",
+      "date": "June 4, 2015",
+      "published": false,
+      "title": "Lots of Little Improvements"
     },
     {
       "id": "detective-comics",
       "date": "April 29, 2015",
+      "published": true,
       "title": "How DC Is Failing Us All"
+    },
+    {
+      "id": "twitter-be-nice",
+      "date": "March 14, 2015",
+      "published": false,
+      "title": "Twitter, Be Nice"
+    },
+    {
+      "id": "thoughts-on-the-apple-watch",
+      "date": "September 10, 2014",
+      "published": false,
+      "title": "Thoughts on the Apple Watch"
+    },
+    {
+      "id": "family-sharing",
+      "date": "June 4, 2014",
+      "published": false,
+      "title": "The Significance of Family Sharing"
+    },
+    {
+      "id": "apple-television",
+      "date": "October 23, 2013",
+      "published": false,
+      "title": "Why Does Everyone Think Apple Plans On Releasing A Television Set?"
+    },
+    {
+      "id": "leap-motion",
+      "date": "January 2, 2013",
+      "published": false,
+      "title": "Leap Motion: Give Your Mouse A Break"
+    },
+    {
+      "id": "get-things-done",
+      "date": "September 17, 2012",
+      "published": false,
+      "title": "How I Get Things Done"
+    },
+    {
+      "id": "design-in-politics",
+      "date": "September 14, 2012",
+      "published": false,
+      "title": "Design In Politics"
+    },
+    {
+      "id": "3d-printing",
+      "date": "August 13, 2012",
+      "published": false,
+      "title": "3D Printing and the End of the Industrial Age"
+    },
+    {
+      "id": "crowdsourced-news",
+      "date": "August 13, 2012",
+      "published": false,
+      "title": "The Advent of Crowdsourced News"
+    },
+    {
+      "id": "ifttt",
+      "date": "July 23, 2012",
+      "published": false,
+      "title": "Leverage the Combined Power of Your Services with IFTTT"
     },
     {
       "id": "video-games-are-evolving",
       "date": "July 19, 2012",
+      "published": true,
       "title": "Video Games Are Evolving!"
+    },
+    {
+      "id": "buffer",
+      "date": "July 10, 2012",
+      "published": false,
+      "title": "Become More Effective On Twitter with Buffer"
+    },
+    {
+      "id": "pocket",
+      "date": "July 10, 2012",
+      "published": false,
+      "title": "Stay On Task with Pocket"
+    },
+    {
+      "id": "pinterest",
+      "date": "July 6, 2012",
+      "published": false,
+      "title": "Harness the Power of Pinterest"
     }
   ]
 }

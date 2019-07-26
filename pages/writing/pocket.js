@@ -5,7 +5,7 @@ import Page from "core/page";
 export default () => (
   <Page>
     <Head>
-      <title key="title">Stay On task with Pocket</title>
+      <title key="title">Stay On Task with Pocket</title>
     </Head>
 
     <div className={"blog-container container"}>
