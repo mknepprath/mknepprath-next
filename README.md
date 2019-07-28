@@ -1,6 +1,8 @@
 # Michael Knepprath's codebase.
 Welcome to my internet.
 
+View the latest Now deploy here: https://mknepprath-next.mknepprath.now.sh.
+
 ## Set Up
 1. Open your terminal.
 1. Navigate to the directory you'd like to put clone this repository.
