@@ -8,6 +8,7 @@
   --hoverColor: #6cd48f;
   --primaryColor: #6abd9d;
   --visitedColor: #b984c8;
+  --visitedHoverColor: #ce8fe0;
 }
 
 body {
@@ -22,8 +23,7 @@ h2 {
   margin-top: 1.6em;
 }
 
-p,
-blockquote {
+p {
   line-height: 1.6;
 }
 
@@ -45,6 +45,9 @@ a:hover {
 }
 a:visited {
   color: var(--visitedColor);
+}
+a:visited:hover {
+  color: var(--visitedHoverColor);
 }
 
 pre {

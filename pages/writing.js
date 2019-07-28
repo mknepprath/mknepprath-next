@@ -21,7 +21,7 @@ class Writing extends React.Component {
 
         <div className={"blog-container container"}>
           <h1>Writing</h1>
-          <ul>
+          <main>
             {posts
               // Including this query param will display all posts.
               // https://mknepprath.com/writing?all=true
@@ -30,14 +30,18 @@ class Writing extends React.Component {
               // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
               .sort((a, b) => parse(b.date) - parse(a.date))
               .map(post => (
-                <li key={post.id}>
-                  <Link href={`/writing/${post.id}`}>
-                    <a>{post.title}</a>
-                  </Link>{" "}
-                  {post.date}
-                </li>
+                <article key={post.id}>
+                  <header>
+                    <Link href={`/writing/${post.id}`}>
+                      <a>
+                        <h2 style={{ marginBottom: 0 }}>{post.title}</h2>
+                      </a>
+                    </Link>{" "}
+                    <small>{post.date}</small>
+                  </header>
+                </article>
               ))}
-          </ul>
+          </main>
         </div>
       </Page>
     );
