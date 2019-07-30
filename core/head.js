@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { string } from "prop-types";
 
+import "./global.css";
+
 const defaultDescription =
   "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.";
 const defaultOGURL = "";
