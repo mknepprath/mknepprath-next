@@ -14,35 +14,36 @@ class Writing extends React.Component {
     } = this.props;
 
     return (
-      <Page>
+      <Page className={"container"}>
         <Head>
           <title key="title">Michael Knepprath, Occasional Writer</title>
         </Head>
 
-        <div className={"blog-container container"}>
+        <header>
           <h1>Writing</h1>
-          <main>
-            {posts
-              // Including this query param will display all posts.
-              // https://mknepprath.com/writing?all=true
-              .filter(post => post.published || query.all)
-              // The `sort` method can be conveniently used with function expressions:
-              // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-              .sort((a, b) => parse(b.date) - parse(a.date))
-              .map(post => (
-                <article key={post.id}>
-                  <header>
-                    <Link href={`/writing/${post.id}`}>
-                      <a>
-                        <h2 style={{ marginBottom: 0 }}>{post.title}</h2>
-                      </a>
-                    </Link>{" "}
-                    <small>{post.date}</small>
-                  </header>
-                </article>
-              ))}
-          </main>
-        </div>
+        </header>
+
+        <main>
+          {posts
+            // Including this query param will display all posts.
+            // https://mknepprath.com/writing?all=true
+            .filter(post => post.published || query.all)
+            // The `sort` method can be conveniently used with function expressions:
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+            .sort((a, b) => parse(b.date) - parse(a.date))
+            .map(post => (
+              <article key={post.id}>
+                <header>
+                  <Link href={`/writing/${post.id}`}>
+                    <a>
+                      <h2 style={{ marginBottom: 0 }}>{post.title}</h2>
+                    </a>
+                  </Link>{" "}
+                  <small>{post.date}</small>
+                </header>
+              </article>
+            ))}
+        </main>
       </Page>
     );
   }

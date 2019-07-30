@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Creating Lilt — Part 3</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Creating Lilt — Part 3</h1>
+    <article>
+      <header>
+        <h1>Creating Lilt — Part 3</h1>
+      </header>
 
       <p>
         Work has begun on a prototype of Lilt, and I thought it’d be fun to go
@@ -18,7 +20,11 @@ export default () => (
         <a href="https://twitter.com/mknepprath">hit me up on Twitter</a>. Let’s
         jump in!
       </p>
-      <img alt="Lilt prototype" src="/static/creating-lilt-part-3-1.png" />
+      <img
+        alt="Lilt prototype"
+        className="blog-image"
+        src="/static/creating-lilt-part-3-1.png"
+      />
 
       <h2>The Interface</h2>
       <p>
@@ -118,6 +124,7 @@ export default () => (
       </p>
       <img
         alt="Moves and responses in Parse"
+        className="blog-image"
         src="/static/creating-lilt-part-3-2.png"
       />
       <p>
@@ -131,6 +138,7 @@ export default () => (
       </p>
       <img
         alt="Interactions in Parse"
+        className="blog-image"
         src="/static/creating-lilt-part-3-3.png"
       />
       <p>
@@ -166,6 +174,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2016-01-27">January 27, 2016</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

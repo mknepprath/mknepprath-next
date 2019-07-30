@@ -1,4 +1,4 @@
-@media (min-width: 620px) {
+@media (min-width: 632px) {
   .nav {
     display: flex;
     justify-content: space-between;
@@ -23,10 +23,10 @@
 .nav li:hover a {
   color: var(--primaryColor);
 }
-.nav a,
-.nav a:visited {
+.nav li a,
+.siteLogo {
   color: var(--black);
-  padding: 6px 8px;
+  padding: 0 8px;
   text-decoration: none;
   font-size: 13px;
 }
@@ -40,7 +40,7 @@
 
   cursor: pointer;
 }
-@media (min-width: 620px) {
+@media (min-width: 632px) {
   .siteLogo {
     justify-content: left;
 

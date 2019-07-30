@@ -10,9 +10,10 @@
   line-height: 1.1;
   font-size: 32px;
 }
-@media (min-width: 620px) {
+@media (min-width: 632px) {
   .greeting {
     font-size: 64px;
+    text-align: center;
   }
 }
 
@@ -31,19 +32,13 @@
   background: #f7f7f7;
 }
 
-@media (min-width: 620px) {
-  .row {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 900px) {
+@media (min-width: 632px) {
   .row {
     padding-top: 80px;
     padding-bottom: 80px;
 
     gap: 24px;
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }

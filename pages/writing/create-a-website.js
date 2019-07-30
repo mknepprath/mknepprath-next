@@ -12,14 +12,15 @@ class CreateAWebsite extends React.Component {
   }
   render() {
     return (
-      <Page>
+      <Page className={"container"}>
         <Head>
           <title key="title">Create a Simple Website with GitHub Pages</title>
         </Head>
 
-        <div className={"blog-container container"}>
+        <article>
           <img
             alt="Illustration of a browser window"
+            className="blog-image"
             src="/static/create-a-website1.jpg"
           />
 
@@ -43,7 +44,8 @@ class CreateAWebsite extends React.Component {
           </ul>
 
           <img
-            alt="Illustration of rocketship"
+            alt="Octocat's face"
+            className="blog-image"
             src="/static/create-a-website2.jpg"
           />
 
@@ -112,7 +114,11 @@ class CreateAWebsite extends React.Component {
             </code>
           </pre>
 
-          <img src="/static/create-a-website3.jpg" />
+          <img
+            alt="Illustration of rocketship"
+            className="blog-image"
+            src="/static/create-a-website3.jpg"
+          />
 
           <h2 id="deploy-your-website">Deploy Your Website</h2>
           <p>
@@ -152,7 +158,7 @@ class CreateAWebsite extends React.Component {
           <p className={"blog-time"}>
             <time dateTime="2019-07-22">July 22, 2019</time>
           </p>
-        </div>
+        </article>
       </Page>
     );
   }

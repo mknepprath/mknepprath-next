@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Video Games Are Evolving!</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Video Games Are Evolving!</h1>
+    <article>
+      <header>
+        <h1>Video Games Are Evolving!</h1>
+      </header>
 
       <p>
         Last week I discussed the future of gaming, and mentioned that we’d be
@@ -87,6 +89,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2012-07-19">July 19, 2012</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

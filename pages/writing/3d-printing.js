@@ -3,13 +3,16 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">3D Printing and the End of the Industrial Age</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>3D Printing and the End of the Industrial Age</h1>
+    <article>
+      <header>
+        <h1>3D Printing and the End of the Industrial Age</h1>
+      </header>
+
       <p>
         3D printing, or{" "}
         <a href="http://en.wikipedia.org/wiki/3D_printing">
@@ -100,10 +103,10 @@ export default () => (
         </a>
         . What do you think could be a potential use or misuse of 3D printing?
       </p>
+    </article>
 
-      <p className={"blog-time"}>
-        <time dateTime="2012-08-13">August 13, 2012</time>
-      </p>
-    </div>
+    <p className={"blog-time"}>
+      <time dateTime="2012-08-13">August 13, 2012</time>
+    </p>
   </Page>
 );

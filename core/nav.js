@@ -5,8 +5,8 @@ import { navLinks } from "../utils/links";
 
 import styles from "./nav.css";
 
-export default () => (
-  <nav className={classnames("container", styles.nav)}>
+export default ({ className }) => (
+  <nav className={classnames(styles.nav, className)}>
     <a className={styles.siteLogo} href={"/"}>
       <img
         alt={"Michael Knepprath Memoji"}

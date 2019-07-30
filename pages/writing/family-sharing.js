@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">The Significance of Family Sharing</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>The Significance of Family Sharing</h1>
+    <article>
+      <header>
+        <h1>The Significance of Family Sharing</h1>
+      </header>
 
       <p>
         Apple announced a new feature during WWDC called{" "}
@@ -53,6 +55,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2014-06-04">June 4, 2014</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

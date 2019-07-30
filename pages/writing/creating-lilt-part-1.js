@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Creating Lilt — Part 1</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Creating Lilt — Part 1</h1>
+    <article>
+      <header>
+        <h1>Creating Lilt — Part 1</h1>
+      </header>
 
       <p>
         Roughly one year ago, I had an idea for a game that would be entirely
@@ -142,6 +144,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2015-11-21">November 21, 2015</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

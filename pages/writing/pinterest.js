@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Harness the Power of Pinterest</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Harness the Power of Pinterest</h1>
+    <article>
+      <header>
+        <h1>Harness the Power of Pinterest</h1>
+      </header>
 
       <p>
         Unless you’ve been hiding under a rock, you probably heard about
@@ -86,6 +88,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2012-07-06">July 6, 2012</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

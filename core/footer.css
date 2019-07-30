@@ -1,7 +1,7 @@
 .footer {
   text-align: center;
 }
-@media (min-width: 620px) {
+@media (min-width: 632px) {
   .footer {
     display: flex;
     align-items: center;
@@ -13,11 +13,10 @@
   font-size: 13px;
   color: var(--black);
 }
-.footerMeta a,
-.footerMeta a:visited {
+.footerMeta a {
   display: inline-block;
 
-  border-top: 2px solid transparent;
+  border-top: 2px solid transparent; /* Necessary to keep text centered */
   border-bottom: 2px solid transparent;
   color: var(--black);
   font-size: 13px;
@@ -43,7 +42,7 @@
 }
 .footer a {
   color: var(--black);
-  padding: 6px 8px;
+  padding: 0 8px;
   text-decoration: none;
   font-size: 13px;
 }

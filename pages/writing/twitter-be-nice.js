@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Twitter, Be Nice</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Twitter, Be Nice</h1>
+    <article>
+      <header>
+        <h1>Twitter, Be Nice</h1>
+      </header>
 
       <p>
         Twitter’s been lucky and unique in that they own the entirety of a near
@@ -50,6 +52,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2015-03-14">March 14, 2015</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Creating Lilt — Part 4</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Creating Lilt — Part 4</h1>
+    <article>
+      <header>
+        <h1>Creating Lilt — Part 4</h1>
+      </header>
 
       <p>
         As you may have seen in the addendum to{" "}
@@ -90,6 +92,7 @@ export default () => (
       </ol>
       <img
         alt="Postgresql table displaying users"
+        className="blog-image"
         src="/static/creating-lilt-part-4-1.png"
       />
 
@@ -125,6 +128,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2016-03-20">March 20, 2016</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

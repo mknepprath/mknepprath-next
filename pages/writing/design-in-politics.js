@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Design In Politics</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Design In Politics</h1>
+    <article>
+      <header>
+        <h1>Design In Politics</h1>
+      </header>
 
       <blockquote>
         This is a guest post by{" "}
@@ -129,6 +131,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2012-09-14">September 14, 2012</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

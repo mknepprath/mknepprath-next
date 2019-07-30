@@ -6,8 +6,8 @@ import { footerLinks } from "../utils/links";
 
 import styles from "./footer.css";
 
-export default () => (
-  <nav className={classnames("container", styles.footer)}>
+export default ({ className }) => (
+  <footer className={classnames(styles.footer, className)}>
     <span className={styles.footerMeta}>
       Created by Michael Knepprath •
       <a
@@ -37,5 +37,5 @@ export default () => (
         </li>
       ))}
     </ul>
-  </nav>
+  </footer>
 );

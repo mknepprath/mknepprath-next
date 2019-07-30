@@ -3,15 +3,17 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">
         Leverage the Combined Power of Your Services with IFTTT
       </title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Leverage the Combined Power of Your Services with IFTTT</h1>
+    <article>
+      <header>
+        <h1>Leverage the Combined Power of Your Services with IFTTT</h1>
+      </header>
 
       <p>
         <a href="https://ifttt.com">IFTTT</a> is a simple service that produces
@@ -71,6 +73,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2012-07-23">July 23, 2012</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

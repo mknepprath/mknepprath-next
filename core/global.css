@@ -1,8 +1,6 @@
 :root {
-  --pageContentWidth: 880px;
-  --blogContentWidth: 620px;
+  --pageContentWidth: 632px;
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
-  --blogPadding: calc((100% - var(--blogContentWidth)) / 2);
 
   --black: #333;
   --hoverColor: #6cd48f;
@@ -16,15 +14,18 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
     sans-serif;
   font-size: 1.2em;
+  line-height: 1.6em;
   margin: 0;
 }
 
-h2 {
-  margin-top: 1.6em;
-}
-
-p {
-  line-height: 1.6;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: normal;
+  margin-top: 2.4rem;
 }
 
 blockquote {
@@ -35,19 +36,26 @@ blockquote {
   padding: 0 2em;
 }
 
-a {
+article a {
   color: var(--primaryColor);
   text-decoration: none;
 }
-a:hover {
+article a:hover {
   color: var(--hoverColor);
   text-decoration: none;
 }
-a:visited {
+article a:visited {
   color: var(--visitedColor);
 }
-a:visited:hover {
+article a:visited:hover {
   color: var(--visitedHoverColor);
+}
+
+article li {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 pre {
@@ -55,33 +63,20 @@ pre {
 }
 
 :global(.container) {
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
-@media (min-width: 900px) {
+@media (min-width: 632px) {
   :global(.container) {
-    padding: 0 var(--mainPadding);
+    padding-left: var(--mainPadding);
+    padding-right: var(--mainPadding);
   }
 }
 
-:global(.blog-container) {
-  padding-bottom: 40px;
-  padding-top: 40px;
-}
-@media (min-width: 900px) {
-  :global(.blog-container) {
-    padding: 0 var(--blogPadding);
-  }
-}
-
-:global(.blog-container) img {
+:global(.blog-image) {
   display: block;
 
   width: 100%;
-}
-
-:global(.blog-container) li {
-  line-height: 1.6;
-  margin-top: 1em;
 }
 
 :global(.blog-time) {

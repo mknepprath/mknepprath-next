@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Become More Effective On Twitter with Buffer</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Become More Effective On Twitter with Buffer</h1>
+    <article>
+      <header>
+        <h1>Become More Effective On Twitter with Buffer</h1>
+      </header>
 
       <p>
         I ran into a problem recently. I would read a bunch of posts and share
@@ -69,6 +71,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2012-07-10">July 10, 2012</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

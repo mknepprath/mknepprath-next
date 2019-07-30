@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">Lots of Little Improvements</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>Lots of Little Improvements</h1>
+    <article>
+      <header>
+        <h1>Lots of Little Improvements</h1>
+      </header>
 
       <p>
         I once had a co-worker tell me that using Apple Pay could only be
@@ -41,6 +43,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2015-06-04">June 4, 2015</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

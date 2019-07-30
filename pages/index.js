@@ -1,14 +1,19 @@
 import classnames from "classnames";
 
 import Card from "core/card";
-import Page from "core/page";
+import Footer from "core/footer";
+import Head from "core/head";
+import Nav from "core/nav";
 
 import { projectLinks } from "../utils/links";
 
 import styles from "./index.css";
 
 export default () => (
-  <Page>
+  <>
+    <Head />
+    <Nav className={"container"} />
+
     <div className={classnames("container", styles.hero)}>
       <h1 className={styles.greeting}>
         <span>Hello!</span>
@@ -27,5 +32,7 @@ export default () => (
         />
       ))}
     </div>
-  </Page>
+
+    <Footer className={"container"} />
+  </>
 );

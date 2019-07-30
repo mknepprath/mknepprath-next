@@ -3,18 +3,21 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">How DC Is Failing Us All</title>
     </Head>
 
-    <div className={"blog-container container"}>
+    <article>
       <img
         alt="The Joker in a box office booth"
+        className="blog-image"
         src="/static/detective-comics.jpg"
       />
 
-      <h1>How DC Is Failing Us All</h1>
+      <header>
+        <h1>How DC Is Failing Us All</h1>
+      </header>
 
       <p>
         I love Batman. The Dark Knight was one of my favorite superhero films of
@@ -89,6 +92,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2015-04-29">April 29, 2015</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

@@ -12,13 +12,15 @@ class CreatingLiltPart2 extends React.Component {
   }
   render() {
     return (
-      <Page>
+      <Page className={"container"}>
         <Head>
           <title key="title">Creating Lilt — Part 2</title>
         </Head>
 
-        <div className={"blog-container container"}>
-          <h1>Creating Lilt — Part 2</h1>
+        <article>
+          <header>
+            <h1>Creating Lilt — Part 2</h1>
+          </header>
 
           <p>
             Now that I’ve been working on this game for a month or so, it’s time
@@ -105,6 +107,7 @@ class CreatingLiltPart2 extends React.Component {
           </p>
           <img
             alt="Drawing of The Room"
+            className="blog-image"
             src="/static/creating-lilt-part-2-1.png"
           />
           <p>
@@ -121,6 +124,7 @@ class CreatingLiltPart2 extends React.Component {
           </p>
           <img
             alt="Screenshot of the Lilt spreadsheet"
+            className="blog-image"
             src="/static/creating-lilt-part-2-2.png"
           />
           <p>
@@ -143,7 +147,7 @@ class CreatingLiltPart2 extends React.Component {
           <p className={"blog-time"}>
             <time dateTime="2016-01-21">January 21, 2016</time>
           </p>
-        </div>
+        </article>
       </Page>
     );
   }

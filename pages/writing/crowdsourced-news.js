@@ -3,13 +3,15 @@ import Head from "next/head";
 import Page from "core/page";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">The Advent of Crowdsourced News</title>
     </Head>
 
-    <div className={"blog-container container"}>
-      <h1>The Advent of Crowdsourced News</h1>
+    <article>
+      <header>
+        <h1>The Advent of Crowdsourced News</h1>
+      </header>
 
       <p>
         Technology is bringing about many changes to the way we interact and
@@ -77,6 +79,6 @@ export default () => (
       <p className={"blog-time"}>
         <time dateTime="2012-08-13">August 13, 2012</time>
       </p>
-    </div>
+    </article>
   </Page>
 );

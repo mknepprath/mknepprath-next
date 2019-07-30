@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import Head from "next/head";
 
 import Page from "core/page";
@@ -6,19 +5,22 @@ import Page from "core/page";
 import styles from "./about.css";
 
 export default () => (
-  <Page>
+  <Page className={"container"}>
     <Head>
       <title key="title">About Michael Knepprath</title>
     </Head>
 
-    <div className={classnames("container", styles.main)}>
+    <article>
+      <header>
+        <h1>About</h1>
+      </header>
+
       <img
         alt="A photo of Michael Knepprath"
         className={styles.photo}
         src="/static/about.jpg"
       />
 
-      <h1>About</h1>
       <p>
         Michael Knepprath is a Software Engineer at{" "}
         <a href="https://www.walmartlabs.com" target="_blank">
@@ -37,6 +39,6 @@ export default () => (
         </a>
         .
       </p>
-    </div>
+    </article>
   </Page>
 );
