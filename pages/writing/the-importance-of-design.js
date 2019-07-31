@@ -80,7 +80,7 @@ export default () => (
         </p>
       </blockquote>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2014-03-20">March 20, 2014</time>
       </p>
     </article>

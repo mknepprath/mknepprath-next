@@ -27,7 +27,7 @@ export default () => (
         src="/static/googles-icons-on-ios.jpg"
       />
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2013-10-25">October 25, 2013</time>
       </p>
     </article>

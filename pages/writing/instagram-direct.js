@@ -20,7 +20,7 @@ export default () => (
         Does anyone actually like read receipts?
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2013-12-12">December 12, 2013</time>
       </p>
     </article>

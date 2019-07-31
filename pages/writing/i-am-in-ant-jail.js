@@ -26,7 +26,7 @@ export default () => (
         </a>
       </blockquote>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2019-07-22">July 22, 2019</time>
       </p>
     </article>

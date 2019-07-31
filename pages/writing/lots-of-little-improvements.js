@@ -40,7 +40,7 @@ export default () => (
         spend even a few days of it doing a repetitive, meaningless task.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2015-06-04">June 4, 2015</time>
       </p>
     </article>

@@ -19,7 +19,7 @@ export default () => (
 
       <p>It's not going to happen.</p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2013-10-23">October 23, 2013</time>
       </p>
     </article>

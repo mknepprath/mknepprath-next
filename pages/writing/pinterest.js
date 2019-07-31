@@ -85,7 +85,7 @@ export default () => (
         Pinterest?
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2012-07-06">July 6, 2012</time>
       </p>
     </article>

@@ -71,7 +71,7 @@ export default () => (
         bloody ROI.”
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2014-04-29">April 29, 2014</time>
       </p>
     </article>

@@ -125,7 +125,7 @@ export default () => (
         <a href="https://twitter.com/mknepprath">tweet at me</a>!
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2016-03-20">March 20, 2016</time>
       </p>
     </article>

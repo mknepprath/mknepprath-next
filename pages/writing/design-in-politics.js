@@ -128,7 +128,7 @@ export default () => (
         impacts politics.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2012-09-14">September 14, 2012</time>
       </p>
     </article>

@@ -22,7 +22,7 @@ export default () => (
         IFTTT can automate all of that. Pretty cool, huh?
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2013-12-12">December 12, 2013</time>
       </p>
     </article>

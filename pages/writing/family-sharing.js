@@ -52,7 +52,7 @@ export default () => (
         willing to make sacrifices for a better customer experience.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2014-06-04">June 4, 2014</time>
       </p>
     </article>

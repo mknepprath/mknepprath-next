@@ -28,7 +28,7 @@ export default () => (
         .
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2013-12-16">December 16, 2013</time>
       </p>
     </article>

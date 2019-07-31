@@ -86,7 +86,7 @@ export default () => (
         reality.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2012-07-19">July 19, 2012</time>
       </p>
     </article>

@@ -56,7 +56,7 @@ export default () => (
         src="/static/instagram-for-ios-7.png"
       />
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2013-09-26">September 26, 2013</time>
       </p>
     </article>

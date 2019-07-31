@@ -144,7 +144,7 @@ class CreatingLiltPart2 extends React.Component {
             like to give it a shot!
           </p>
 
-          <p className={"blog-time"}>
+          <p>
             <time dateTime="2016-01-21">January 21, 2016</time>
           </p>
         </article>

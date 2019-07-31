@@ -89,7 +89,7 @@ export default () => (
         which one they currently value more.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2015-04-29">April 29, 2015</time>
       </p>
     </article>

@@ -141,7 +141,7 @@ export default () => (
         </li>
       </ul>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2015-11-21">November 21, 2015</time>
       </p>
     </article>

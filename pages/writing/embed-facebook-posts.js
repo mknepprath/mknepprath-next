@@ -22,7 +22,7 @@ export default () => (
         see this.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2013-10-17">October 17, 2013</time>
       </p>
     </article>

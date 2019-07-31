@@ -105,7 +105,7 @@ export default () => (
       </p>
     </article>
 
-    <p className={"blog-time"}>
+    <p>
       <time dateTime="2012-08-13">August 13, 2012</time>
     </p>
   </Page>

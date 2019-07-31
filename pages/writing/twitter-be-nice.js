@@ -49,7 +49,7 @@ export default () => (
         platform in the end.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2015-03-14">March 14, 2015</time>
       </p>
     </article>

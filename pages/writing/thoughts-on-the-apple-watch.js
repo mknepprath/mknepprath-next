@@ -42,7 +42,7 @@ export default () => (
         gets thinner over the next few generations.
       </p>
 
-      <p className={"blog-time"}>
+      <p>
         <time dateTime="2014-09-10">September 10, 2014</time>
       </p>
     </article>
