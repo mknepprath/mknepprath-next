@@ -63,14 +63,62 @@
     {
       "id": "family-sharing",
       "date": "June 4, 2014",
-      "published": false,
+      "published": true,
       "title": "The Significance of Family Sharing"
+    },
+    {
+      "id": "apples-future-wearable",
+      "date": "April 29, 2014",
+      "published": true,
+      "title": "Apple's Future Wearable"
+    },
+    {
+      "id": "the-importance-of-design",
+      "date": "March 20, 2014",
+      "published": true,
+      "title": "The Importance of Design"
+    },
+    {
+      "id": "angry-birds-goes-nintendo",
+      "date": "December 16, 2013",
+      "published": true,
+      "title": "Angry Birds Goes Nintendo"
+    },
+    {
+      "id": "instagram-direct",
+      "date": "December 12, 2013",
+      "published": true,
+      "title": "Instagram Direct"
+    },
+    {
+      "id": "ifttt-adds-ios-location",
+      "date": "December 12, 2013",
+      "published": true,
+      "title": "IFTTT Adds iOS Location"
+    },
+    {
+      "id": "googles-icons-on-ios",
+      "date": "October 25, 2013",
+      "published": true,
+      "title": "Google's Icons On iOS"
     },
     {
       "id": "apple-television",
       "date": "October 23, 2013",
       "published": false,
       "title": "Why Does Everyone Think Apple Plans On Releasing A Television Set?"
+    },
+    {
+      "id": "embed-facebook-posts",
+      "date": "October 17, 2013",
+      "published": false,
+      "title": "Embed Facebook Posts"
+    },
+    {
+      "id": "instagram-for-ios-7",
+      "date": "September 26, 2013",
+      "published": true,
+      "title": "Instagram For iOS 7"
     },
     {
       "id": "leap-motion",
@@ -81,7 +129,7 @@
     {
       "id": "get-things-done",
       "date": "September 17, 2012",
-      "published": false,
+      "published": true,
       "title": "How I Get Things Done"
     },
     {
@@ -103,9 +151,15 @@
       "title": "The Advent of Crowdsourced News"
     },
     {
+      "id": "introducing-square",
+      "date": "July 24, 2012",
+      "published": true,
+      "title": "You Can Now Accept Credit Cards with Square"
+    },
+    {
       "id": "ifttt",
       "date": "July 23, 2012",
-      "published": false,
+      "published": true,
       "title": "Leverage the Combined Power of Your Services with IFTTT"
     },
     {
@@ -117,13 +171,13 @@
     {
       "id": "buffer",
       "date": "July 10, 2012",
-      "published": false,
+      "published": true,
       "title": "Become More Effective On Twitter with Buffer"
     },
     {
       "id": "pocket",
       "date": "July 10, 2012",
-      "published": false,
+      "published": true,
       "title": "Stay On Task with Pocket"
     },
     {
