@@ -1,6 +1,6 @@
-import Head from "next/head";
-
-import Page from "core/page";
+import Footer from "core/footer";
+import Head from "core/head";
+import Nav from "core/nav";
 
 import { gifs } from "../utils/gifData";
 
@@ -26,10 +26,9 @@ class GIFs extends React.Component {
   }
   render() {
     return (
-      <Page>
-        <Head>
-          <title key="title">Michael Knepprath, GIF Aficionado</title>
-        </Head>
+      <>
+        <Head title="Michael Knepprath, GIF Aficionado" />
+        <Nav className={"container"} />
 
         <div className={styles.gifIndex}>
           {shuffle(gifs).map(gif => (
@@ -44,7 +43,9 @@ class GIFs extends React.Component {
             />
           ))}
         </div>
-      </Page>
+
+        <Footer className={"container"} />
+      </>
     );
   }
 }

@@ -14,7 +14,16 @@ export default () => (
         <h1>Dynoland</h1>
       </header>
 
-      <p>Content here.</p>
+      <img
+        alt="Dynoland status"
+        className="blog-image"
+        src="https://minecraft.meloncube.net/index.php?r=status/1573.png"
+      />
+
+      <p>
+        We have a{" "}
+        <a href="https://www.facebook.com/groups/dynoland/">Facebook page</a>.
+      </p>
     </article>
   </Page>
 );
