@@ -6,6 +6,7 @@
 import Document, { Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
+  /* I'm suspicious that this is doing nothing. */
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };

@@ -28,12 +28,21 @@ h6 {
   margin-top: 2.4rem;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 blockquote {
   border-left: 2px solid var(--black);
   font-style: italic;
   font-weight: 300;
   margin: 2em 0;
   padding: 0 2em;
+}
+
+article,
+main {
+  margin-bottom: 2em;
 }
 
 article a {

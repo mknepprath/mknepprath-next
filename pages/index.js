@@ -21,7 +21,7 @@ export default () => (
       </h1>
     </div>
 
-    <div className={classnames("container", styles.row)}>
+    <div className={classnames("container", styles.grid)}>
       {projectLinks.map(({ description, href, imgSrc, title }) => (
         <Card
           description={description}

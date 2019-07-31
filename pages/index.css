@@ -21,7 +21,7 @@
   color: #fff;
 }
 
-.row {
+.grid {
   padding-top: 16px;
   padding-bottom: 16px;
 
@@ -33,7 +33,7 @@
 }
 
 @media (min-width: 632px) {
-  .row {
+  .grid {
     padding-top: 80px;
     padding-bottom: 80px;
 

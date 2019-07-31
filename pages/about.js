@@ -30,7 +30,7 @@ export default () => (
         design, film, video games, and so on.
       </p>
 
-      <h3>Contact</h3>
+      <h2>Contact</h2>
       <p>
         You can contact him via{" "}
         <a href="mailto:michael@mknepprath.com">email</a> or send a message on{" "}
