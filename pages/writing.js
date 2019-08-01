@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import { withRouter } from "next/router";
 import parse from "date-fns/parse";
@@ -14,11 +13,10 @@ class Writing extends React.Component {
     } = this.props;
 
     return (
-      <Page className={"container"}>
-        <Head>
-          <title key="title">Michael Knepprath, Occasional Writer</title>
-        </Head>
-
+      <Page
+        className={"container"}
+        title={"Michael Knepprath, Occasional Writer"}
+      >
         <header>
           <h1>Writing</h1>
         </header>

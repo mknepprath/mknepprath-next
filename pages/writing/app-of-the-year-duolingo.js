@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">App Of The Year: Duolingo</title>
-    </Head>
-
+  <Page className={"container"} title={"App Of The Year: Duolingo"}>
     <article>
       <header>
         <h1>App Of The Year: Duolingo</h1>

@@ -1,7 +1,4 @@
 import Head from "next/head";
-import { string } from "prop-types";
-
-import "./global.css";
 
 const defaultDescription =
   "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.";
@@ -28,7 +25,8 @@ export default props => (
     <link rel="apple-touch-icon" href="/static/apple-touch-icon-152x152.png" />
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#6ABD9D" />
     <link rel="icon" href="/static/favicon.ico" />
-    {/* prism.css is only used in blog posts, yet is being included globally. */}
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+    {/* TODO: prism.css is only used in blog posts, yet is being included globally. */}
     <link rel="stylesheet" type="text/css" href="/static/css/prism.css" />
     <meta name="theme-color" content="#6ABD9D" />
 
@@ -50,9 +48,10 @@ export default props => (
   </Head>
 );
 
-Head.propTypes = {
-  title: string,
-  description: string,
-  url: string,
-  ogImage: string
-};
+// This is doing nothing.
+// Head.propTypes = {
+//   title: string,
+//   description: string,
+//   url: string,
+//   ogImage: string
+// };

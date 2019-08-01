@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Instagram Direct</title>
-    </Head>
-
+  <Page className={"container"} title={"Instagram Direct"}>
     <article>
       <header>
         <h1>Instagram Direct</h1>

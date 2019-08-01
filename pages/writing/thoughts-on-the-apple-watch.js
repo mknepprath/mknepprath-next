@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Thoughts on the Apple Watch</title>
-    </Head>
-
+  <Page className={"container"} title={"Thoughts on the Apple Watch"}>
     <article>
       <header>
         <h1>Thoughts on the Apple Watch</h1>

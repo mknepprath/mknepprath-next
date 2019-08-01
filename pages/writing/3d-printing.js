@@ -1,13 +1,10 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">3D Printing and the End of the Industrial Age</title>
-    </Head>
-
+  <Page
+    className={"container"}
+    title={"3D Printing and the End of the Industrial Age"}
+  >
     <article>
       <header>
         <h1>3D Printing and the End of the Industrial Age</h1>

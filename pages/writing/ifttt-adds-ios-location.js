@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">IFTTT Adds iOS Location</title>
-    </Head>
-
+  <Page className={"container"} title={"IFTTT Adds iOS Location"}>
     <article>
       <header>
         <h1>IFTTT Adds iOS Location</h1>

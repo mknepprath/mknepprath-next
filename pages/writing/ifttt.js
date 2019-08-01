@@ -1,15 +1,10 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">
-        Leverage the Combined Power of Your Services with IFTTT
-      </title>
-    </Head>
-
+  <Page
+    className={"container"}
+    title={"Leverage the Combined Power of Your Services with IFTTT"}
+  >
     <article>
       <header>
         <h1>Leverage the Combined Power of Your Services with IFTTT</h1>

@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Google’s Icons On iOS</title>
-    </Head>
-
+  <Page className={"container"} title={"Google’s Icons On iOS"}>
     <article>
       <header>
         <h1>Google’s Icons On iOS</h1>

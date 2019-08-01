@@ -71,18 +71,18 @@ pre {
   border-radius: 8px;
 }
 
-:global(.container) {
+.container {
   padding-left: 16px;
   padding-right: 16px;
 }
 @media (min-width: 632px) {
-  :global(.container) {
+  .container {
     padding-left: var(--mainPadding);
     padding-right: var(--mainPadding);
   }
 }
 
-:global(.blog-image) {
+.blog-image {
   display: block;
 
   width: 100%;

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Prism from "prismjs";
 
 import Page from "core/page";
@@ -12,11 +11,7 @@ class CreatingLiltPart2 extends React.Component {
   }
   render() {
     return (
-      <Page className={"container"}>
-        <Head>
-          <title key="title">Creating Lilt — Part 2</title>
-        </Head>
-
+      <Page className={"container"} title={"Creating Lilt — Part 2"}>
         <article>
           <header>
             <h1>Creating Lilt — Part 2</h1>

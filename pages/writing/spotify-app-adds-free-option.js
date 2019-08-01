@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Spotify App Adds Free Option</title>
-    </Head>
-
+  <Page className={"container"} title={"Spotify App Adds Free Option"}>
     <article>
       <header>
         <h1>Spotify App Adds Free Option</h1>

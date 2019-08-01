@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">How DC Is Failing Us All</title>
-    </Head>
-
+  <Page className={"container"} title={"How DC Is Failing Us All"}>
     <article>
       <img
         alt="The Joker in a box office booth"

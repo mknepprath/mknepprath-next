@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Harness the Power of Pinterest</title>
-    </Head>
-
+  <Page className={"container"} title={"Harness the Power of Pinterest"}>
     <article>
       <header>
         <h1>Harness the Power of Pinterest</h1>

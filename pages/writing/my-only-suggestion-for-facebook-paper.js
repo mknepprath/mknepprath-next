@@ -3,16 +3,10 @@
 
 // TODO: Check accuracy of timestamp.
 
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">My Only Suggestion For Facebook Paper</title>
-    </Head>
-
+  <Page className={"container"} title={"My Only Suggestion For Facebook Paper"}>
     <article>
       <header>
         <h1>My Only Suggestion For Facebook Paper</h1>

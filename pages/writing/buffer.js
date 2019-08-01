@@ -1,13 +1,10 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Become More Effective On Twitter with Buffer</title>
-    </Head>
-
+  <Page
+    className={"container"}
+    title={"Become More Effective On Twitter with Buffer"}
+  >
     <article>
       <header>
         <h1>Become More Effective On Twitter with Buffer</h1>

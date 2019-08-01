@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Prism from "prismjs";
 
 import Page from "core/page";
@@ -12,11 +11,10 @@ class CreateAWebsite extends React.Component {
   }
   render() {
     return (
-      <Page className={"container"}>
-        <Head>
-          <title key="title">Create a Simple Website with GitHub Pages</title>
-        </Head>
-
+      <Page
+        className={"container"}
+        title={"Create a Simple Website with GitHub Pages"}
+      >
         <article>
           <img
             alt="Illustration of a browser window"

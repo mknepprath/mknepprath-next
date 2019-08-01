@@ -1,15 +1,9 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 import styles from "./about.css";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">About Michael Knepprath</title>
-    </Head>
-
+  <Page className={"container"} title="About Michael Knepprath">
     <article>
       <header>
         <h1>About</h1>

@@ -1,13 +1,7 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Embed Facebook Posts</title>
-    </Head>
-
+  <Page className={"container"} title={"Embed Facebook Posts"}>
     <article>
       <header>
         <h1>Embed Facebook Posts</h1>

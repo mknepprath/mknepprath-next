@@ -1,15 +1,10 @@
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">
-        Use Genesis to Create Powerful WordPress Websites
-      </title>
-    </Head>
-
+  <Page
+    className={"container"}
+    title={"Use Genesis to Create Powerful WordPress Websites"}
+  >
     <article>
       <header>
         <h1>Use Genesis to Create Powerful WordPress Websites</h1>

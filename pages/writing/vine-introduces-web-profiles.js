@@ -1,16 +1,10 @@
 // Archival link:
 // https://web.archive.org/web/20140127084100/http://www.mknepprath.com/vine-introduces-web-profiles/
 
-import Head from "next/head";
-
 import Page from "core/page";
 
 export default () => (
-  <Page className={"container"}>
-    <Head>
-      <title key="title">Vine Introduces Web Profiles</title>
-    </Head>
-
+  <Page className={"container"} title={"Vine Introduces Web Profiles"}>
     <article>
       <header>
         <h1>Vine Introduces Web Profiles</h1>
