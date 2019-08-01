@@ -13,6 +13,8 @@ class CreateAWebsite extends React.Component {
     return (
       <Page
         className={"container"}
+        description={"A quick guide for setting up a new website with GitHub."}
+        ogImage={"/static/create-a-website1.jpg"}
         title={"Create a Simple Website with GitHub Pages"}
       >
         <article>
