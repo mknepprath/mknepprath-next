@@ -9,7 +9,7 @@ const defaultTitle = "Michael Knepprath, Developer & Designer";
 export default props => (
   <Head>
     <meta charSet="UTF-8" />
-    <title key="title">{props.title || defaultTitle}</title>
+    <title>{props.title || defaultTitle}</title>
     <meta
       name="description"
       content={props.description || defaultDescription}

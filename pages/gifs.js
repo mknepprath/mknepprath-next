@@ -37,7 +37,6 @@ class GIFs extends React.Component {
               data-clipboard-text={`http://mknepprath.com/static/gifs/${
                 gif.id
               }.gif`}
-              data-pin-nopin="true"
               key={gif.id}
               src={`/static/gifs/${gif.id}.gif`}
             />
