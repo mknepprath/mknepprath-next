@@ -1,19 +1,23 @@
+import classnames from "classnames";
+
 import Page from "core/page";
+import PhotoStack from "core/photo-stack";
 
 import styles from "./about.css";
 
 export default () => (
-  <Page className={"container"} title="About Michael Knepprath">
+  <Page
+    className={classnames("container", styles.pageContainer)}
+    title="About Michael Knepprath"
+  >
     <article>
       <header>
         <h1>About</h1>
       </header>
 
-      <img
-        alt="A photo of Michael Knepprath"
-        className={styles.photo}
-        src="/static/about.jpg"
-      />
+      <div className={styles.photoStackContainer}>
+        <PhotoStack />
+      </div>
 
       <p>
         Michael Knepprath is a Software Engineer at{" "}
