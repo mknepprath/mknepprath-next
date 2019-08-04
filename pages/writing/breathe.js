@@ -76,7 +76,7 @@ class Breathe extends React.Component {
           </pre>
           <p>
             And, of course, there are examples of great whitespace usage in the
-            official React docs. See the code samples in the{" "}
+            official React docs. See the code examples in the{" "}
             <a href="https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class">
               Adding Lifecycle Methods to a Class
             </a>{" "}
