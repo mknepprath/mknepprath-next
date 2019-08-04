@@ -13,12 +13,17 @@ class Breathe extends React.Component {
     return (
       <Page
         className={"container"}
-        description={
-          "A post about how important it is that code be allowed to breathe."
-        }
+        description={"What if we let our code breathe a little?"}
+        ogImage={"/static/breathe-1.jpg"}
         title={"Code Should Breathe"}
       >
         <article>
+          <img
+            alt="A feather"
+            className="blog-image"
+            src="/static/breathe-1.jpg"
+          />
+
           <header>
             <h1>Code Should Breathe</h1>
           </header>
@@ -171,6 +176,14 @@ class Breathe extends React.Component {
             this isn't code I want to read on a day-to-day basis. Instead, let's
             luxuriate in the fact that we have room to breathe.{" "}
           </p>
+
+          <a href="https://twitter.com/mknepprath/status/1057477764033458181?s=20">
+            <img
+              alt="Fishing"
+              className="blog-image"
+              src="/static/breathe-2.jpg"
+            />
+          </a>
 
           <p>
             <time dateTime="2019-08-03">August 3, 2019</time>
