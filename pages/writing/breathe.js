@@ -136,12 +136,20 @@ class Breathe extends React.Component {
 <!-- Example A (Pug) -->
 .fancy-link
 	a(href="/")
-		| Home
+    | Home
+.fancy-link
+  a(href="/about")
+    | About
 
 <!-- Example B -->
 <div class="fancy-link">
 	<a href="/">
 		Home
+	</a>
+</div>
+<div class="fancy-link">
+	<a href="/about">
+		About
 	</a>
 </div>
               `}
