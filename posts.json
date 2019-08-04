@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "id": "breathe",
+      "date": "August 3, 2019",
+      "published": true,
+      "title": "Code Should Breathe"
+    }
+    {
       "id": "create-a-website",
       "date": "July 22, 2019",
       "published": true,

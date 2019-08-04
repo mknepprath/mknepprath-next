@@ -24,7 +24,9 @@ class CreateAWebsite extends React.Component {
             src="/static/create-a-website1.jpg"
           />
 
-          <h1>Create a Simple Website with GitHub Pages</h1>
+          <header>
+            <h1>Create a Simple Website with GitHub Pages</h1>
+          </header>
 
           <p>
             GitHub offers a free way to host websites called{" "}
