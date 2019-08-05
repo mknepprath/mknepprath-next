@@ -1,13 +1,17 @@
 .pageContainer {
   overscroll-behavior-y: contain;
-  position: fixed;
   overflow: hidden;
 }
 
 .photoStackContainer {
-  margin: 40px 0;
   position: relative;
 
-  height: 400px;
+  height: 320px;
   width: 100%;
+}
+@media (min-width: 632px) {
+  .photoStackContainer {
+    margin: 40px 0;
+    height: 400px;
+  }
 }
