@@ -85,7 +85,7 @@ class Breathe extends React.Component {
             <a href="https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class">
               Adding Lifecycle Methods to a Class
             </a>{" "}
-            section. From the A List Apart article, " [W]hitespace creates
+            section. From the A List Apart article, "[W]hitespace creates
             breathing room and balance. It’s important."
           </p>
 
@@ -163,7 +163,7 @@ class Breathe extends React.Component {
           <p>
             While I love the brevity of Pug here, I personally think there's too
             much left to the imagination. Again, multiply{" "}
-            <strong>Example A</strong> by a dozen different, nested elements and
+            <strong>Example A</strong> by a dozen different nested elements and
             it becomes dense and difficult to parse.
           </p>
 
