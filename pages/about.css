@@ -6,12 +6,11 @@
 .photoStackContainer {
   position: relative;
 
-  height: 320px;
+  height: 280px;
   width: 100%;
 }
 @media (min-width: 632px) {
   .photoStackContainer {
-    margin: 40px 0;
-    height: 400px;
+    width: auto;
   }
 }

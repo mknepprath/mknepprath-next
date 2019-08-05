@@ -1,7 +1,7 @@
 .stack {
   position: absolute;
   width: 100%;
-  height: 320px;
+  height: 280px;
   will-change: transform;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
 }
 @media (min-width: 632px) {
   .stack {
-    height: 400px;
+    width: auto;
   }
 }
 
