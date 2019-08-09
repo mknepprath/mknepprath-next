@@ -2,7 +2,7 @@ import Footer from "core/footer";
 import Head from "core/head";
 import Nav from "core/nav";
 
-import { gifs } from "../utils/gifData";
+import { gifs } from "data/gifs";
 
 import styles from "./gifs.css";
 
@@ -22,7 +22,7 @@ class GIFs extends React.Component {
   componentDidMount() {
     // Leverages clipboard.js to copy the gif URL to your clipboard on click.
     const gifElements = document.querySelectorAll(".gif");
-    new Clipboard(gifElements);
+    new Clipboard(gifElements); // eslint-disable-line no-undef
   }
   render() {
     return (
@@ -34,11 +34,9 @@ class GIFs extends React.Component {
           {shuffle(gifs).map(gif => (
             <img
               className={"gif"}
-              data-clipboard-text={`http://mknepprath.com/static/gifs/${
-                gif.id
-              }.gif`}
+              data-clipboard-text={`http://mknepprath.com/gifs/${gif.id}.gif`}
               key={gif.id}
-              src={`/static/gifs/${gif.id}.gif`}
+              src={`/gifs/${gif.id}.gif`}
             />
           ))}
         </div>

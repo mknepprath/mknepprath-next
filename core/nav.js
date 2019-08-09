@@ -1,11 +1,12 @@
 import classnames from "classnames";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
-import { navLinks } from "../utils/links";
+import { navLinks } from "data/links";
 
 import styles from "./nav.css";
 
-export default ({ className }) => (
+const Nav = ({ className }) => (
   <nav className={classnames(styles.nav, className)}>
     <a className={styles.siteLogo} href={"/"}>
       <img
@@ -18,7 +19,7 @@ export default ({ className }) => (
     <ul>
       {navLinks.map(({ href, key, title }) => (
         <li key={key}>
-          <a href={href} rel={"noopener"} target={"_blank"}>
+          <a href={href} rel="noopener noreferrer" target="_blank">
             {title}
           </a>
         </li>
@@ -37,3 +38,13 @@ export default ({ className }) => (
     </ul>
   </nav>
 );
+
+Nav.defaultProps = {
+  className: ""
+};
+
+Nav.propTypes = {
+  className: PropTypes.string
+};
+
+export default Nav;

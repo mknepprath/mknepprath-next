@@ -1,14 +1,19 @@
+// External
+import parse from "date-fns/parse";
 import Link from "next/link";
 import { withRouter } from "next/router";
-import parse from "date-fns/parse";
+import PropTypes from "prop-types";
 
+// Components
 import Page from "core/page";
 
-import { posts } from "../posts.json";
+// Data
+import posts from "data/posts";
 
 class Writing extends React.Component {
   render() {
     const {
+      posts,
       router: { query }
     } = this.props;
 
@@ -46,5 +51,20 @@ class Writing extends React.Component {
     );
   }
 }
+
+Writing.defaultProps = {
+  posts: []
+};
+
+Writing.getInitialProps = () => {
+  return { posts };
+};
+
+Writing.propTypes = {
+  posts: PropTypes.array,
+  router: PropTypes.shape({
+    query: PropTypes.object.isRequired
+  }).isRequired
+};
 
 export default withRouter(Writing);

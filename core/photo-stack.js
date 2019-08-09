@@ -24,7 +24,7 @@ const to = i => ({
   rot: -10 + Math.random() * 20,
   delay: i * 100
 });
-const from = i => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const trans = (r, s) =>
   `perspective(1500px) rotateX(20deg) rotateY(${r /
@@ -34,7 +34,7 @@ function PhotoStack() {
   const [gone] = useState(() => new Set()); // The set flags all the photos that are flicked out
   const [props, set] = useSprings(photos.length, i => ({
     ...to(i),
-    from: from(i)
+    from
   })); // Create a bunch of springs using the helpers above
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
   const bind = useGesture(

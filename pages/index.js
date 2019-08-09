@@ -5,7 +5,7 @@ import Footer from "core/footer";
 import Head from "core/head";
 import Nav from "core/nav";
 
-import { projectLinks } from "../utils/links";
+import { projectLinks } from "data/links";
 
 import styles from "./index.css";
 

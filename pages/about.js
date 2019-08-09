@@ -21,7 +21,11 @@ export default () => (
 
       <p>
         Michael Knepprath is a Software Engineer at{" "}
-        <a href="https://www.walmartlabs.com" target="_blank">
+        <a
+          href="https://www.walmartlabs.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           Walmart Labs
         </a>
         . He loves the point at which technology and art converge: technology,
@@ -32,7 +36,11 @@ export default () => (
       <p>
         You can contact him via{" "}
         <a href="mailto:michael@mknepprath.com">email</a> or send a message on{" "}
-        <a href="https://twitter.com/mknepprath" target="_blank">
+        <a
+          href="https://twitter.com/mknepprath"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           Twitter
         </a>
         .

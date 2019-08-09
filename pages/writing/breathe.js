@@ -72,7 +72,7 @@ class Breathe extends React.Component {
   import Page from "core/page";
 
   // Data
-  import { posts } from "../posts.json";
+  import posts from "data/posts";
 
   class Writing extends React.Component {
     ...
