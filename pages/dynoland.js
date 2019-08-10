@@ -8,7 +8,7 @@ class Dynoland extends React.Component {
   }
   render() {
     return (
-      <Page className={"container"} title={"Dynoland"}>
+      <Page className="container" title="Dynoland">
         <article>
           <header>
             <h1>Dynoland</h1>

@@ -20,10 +20,7 @@ class Writing extends React.Component {
     } = this.props;
 
     return (
-      <Page
-        className={"container"}
-        title={"Michael Knepprath, Occasional Writer"}
-      >
+      <Page className="container" title="Michael Knepprath, Occasional Writer">
         <header>
           <h1>Writing</h1>
         </header>

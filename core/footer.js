@@ -16,9 +16,9 @@ function Footer({ className }) {
       <span className={styles.footerMeta}>
         Created by Michael Knepprath •
         <a
-          href={"https://github.com/mknepprath/mknepprath-next"}
+          href="https://github.com/mknepprath/mknepprath-next"
           rel="noopener noreferrer"
-          target={"_blank"}
+          target="_blank"
         >
           View on GitHub
         </a>
@@ -26,10 +26,10 @@ function Footer({ className }) {
       <ul>
         <li>
           <a
-            aria-label={"Twitter"}
+            aria-label="Twitter"
             className={styles.twitter}
-            href={"https://twitter.com/mknepprath"}
-            title={"The Bird Site"}
+            href="https://twitter.com/mknepprath"
+            title="The Bird Site"
           >
             <TwitterIcon />
           </a>

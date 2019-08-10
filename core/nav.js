@@ -10,11 +10,11 @@ import styles from "./nav.css";
 
 const Nav = ({ className }) => (
   <nav className={classnames(styles.nav, className)}>
-    <a className={styles.siteLogo} href={"/"}>
+    <a className={styles.siteLogo} href="/">
       <img
-        alt={"Michael Knepprath Memoji"}
+        alt="Michael Knepprath Memoji"
         className={styles.img}
-        src={"/static/memoji.png"}
+        src="/static/memoji.png"
       />
       <span>M. Knepprath</span>
     </a>
@@ -28,12 +28,12 @@ const Nav = ({ className }) => (
       ))}
       {/* Internal links - we can use Next's Link here. */}
       <li>
-        <Link href={"/writing"}>
+        <Link href="/writing">
           <a>Writing</a>
         </Link>
       </li>
       <li>
-        <Link href={"/about"}>
+        <Link href="/about">
           <a>About</a>
         </Link>
       </li>

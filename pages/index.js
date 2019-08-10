@@ -12,7 +12,7 @@ import styles from "./index.css";
 export default () => (
   <>
     <Head />
-    <Nav className={"container"} />
+    <Nav className="container" />
 
     <div className={classnames("container", styles.hero)}>
       <h1 className={styles.greeting}>
@@ -33,6 +33,6 @@ export default () => (
       ))}
     </div>
 
-    <Footer className={"container"} />
+    <Footer className="container" />
   </>
 );

@@ -30,12 +30,12 @@ class GIFs extends React.Component {
     return (
       <>
         <Head title="Michael Knepprath, GIF Aficionado" />
-        <Nav className={"container"} />
+        <Nav className="container" />
 
         <div className={styles.gifIndex}>
           {shuffle(gifs).map(gif => (
             <img
-              className={"gif"}
+              className="gif"
               data-clipboard-text={`http://mknepprath.com/gifs/${gif.id}.gif`}
               key={gif.id}
               src={`/gifs/${gif.id}.gif`}
@@ -43,7 +43,7 @@ class GIFs extends React.Component {
           ))}
         </div>
 
-        <Footer className={"container"} />
+        <Footer className="container" />
       </>
     );
   }
