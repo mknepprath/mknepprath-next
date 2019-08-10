@@ -1,8 +1,11 @@
+// External
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
+// Components
 import TwitterIcon from "core/icon-twitter";
 
+// Data
 import { footerLinks } from "data/links";
 
 import styles from "./footer.css";

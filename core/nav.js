@@ -1,7 +1,9 @@
+// External
 import classnames from "classnames";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
+// Data
 import { navLinks } from "data/links";
 
 import styles from "./nav.css";
