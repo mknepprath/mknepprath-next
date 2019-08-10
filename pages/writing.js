@@ -10,6 +10,8 @@ import Page from "core/page";
 // Data
 import posts from "data/posts";
 
+import styles from "./writing.css";
+
 class Writing extends React.Component {
   render() {
     const {
@@ -39,10 +41,14 @@ class Writing extends React.Component {
                 <header>
                   <Link href={`/writing/${post.id}`}>
                     <a>
-                      <h2 style={{ marginBottom: 0 }}>{post.title}</h2>
+                      <h2 className={styles.title}>{post.title}</h2>
                     </a>
                   </Link>{" "}
-                  <small>{post.date}</small>
+                  <small>
+                    {post.date}
+                    {/* If displaying all posts, label the unpublished ones. */}
+                    {query.all && (post.published ? "" : " • Unlisted")}
+                  </small>
                 </header>
               </article>
             ))}
