@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.container a {
+  color: var(--primaryColor);
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.container a:hover {
+  color: var(--hoverColor);
+}

@@ -62,6 +62,7 @@ function PhotoStack() {
         setTimeout(() => gone.clear() || set(i => to(i)), 600);
     }
   );
+
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (
     <animated.div

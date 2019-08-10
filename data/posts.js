@@ -1,3 +1,4 @@
+/** @type {Array<{ id: string, date: string, published: boolean, title: string }>} */
 const posts = [
   {
     id: "breathe",
