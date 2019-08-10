@@ -24,7 +24,9 @@ const to = i => ({
   rot: -10 + Math.random() * 20,
   delay: i * 100
 });
-const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+// The `i` is required. I'm not sure why.
+// https://spectrum.chat/react-spring/general/how-to-add-delay-to-each-property~de080776-bbe9-4bf7-8bf5-980c87f5cdd0
+const from = i => ({ x: 0, rot: 0, scale: 1.5, y: -1000 }); //  eslint-disable-line no-unused-vars
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const trans = (r, s) =>
   `perspective(1500px) rotateX(20deg) rotateY(${r /
@@ -34,7 +36,7 @@ function PhotoStack() {
   const [gone] = useState(() => new Set()); // The set flags all the photos that are flicked out
   const [props, set] = useSprings(photos.length, i => ({
     ...to(i),
-    from
+    from: from(i)
   })); // Create a bunch of springs using the helpers above
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
   const bind = useGesture(
