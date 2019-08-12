@@ -3,7 +3,7 @@ import BlogPage from "core/blog-page";
 export default () => (
   <BlogPage dateTime="2012-07-10" title="Stay On Task with Pocket">
     <header>
-      <h1>Stay On task with Pocket</h1>
+      <h1>Stay On Task with Pocket</h1>
     </header>
 
     <p>
