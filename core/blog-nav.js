@@ -4,24 +4,39 @@ import Link from "next/link";
 import { withRouter } from "next/router";
 import PropTypes from "prop-types";
 
+// Hooks
+import useKeyPress from "../hooks/useKeyPress";
+
 // Data
-import posts from "data/posts";
+import allPosts from "data/posts";
 
 import styles from "./blog-nav.css";
 
-const sortedPosts = posts
+const posts = allPosts
   .filter(post => post.published)
   // The `sort` method can be conveniently used with function expressions:
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
   .sort((a, b) => parse(b.date) - parse(a.date));
 
-const BlogNav = props => {
-  const postIndex = sortedPosts.findIndex(
-    post => post.id === props.router.pathname.replace("/writing/", "")
+const BlogNav = ({ router }) => {
+  const postIndex = posts.findIndex(
+    post => post.id === router.pathname.replace("/writing/", "")
   );
 
-  const nextPost = sortedPosts[postIndex - 1];
-  const prevPost = sortedPosts[postIndex + 1];
+  const nextPost = posts[postIndex - 1];
+  const prevPost = posts[postIndex + 1];
+
+  useKeyPress("ArrowLeft", () => {
+    if (postIndex > 0) {
+      router.push(`/writing/${nextPost.id}`);
+    }
+  });
+
+  useKeyPress("ArrowRight", () => {
+    if (postIndex < posts.length - 1) {
+      router.push(`/writing/${prevPost.id}`);
+    }
+  });
 
   return (
     <div className={styles.container}>
@@ -30,7 +45,7 @@ const BlogNav = props => {
           <a>&larr; {nextPost.title}</a>
         </Link>
       ) : null}{" "}
-      {postIndex < sortedPosts.length - 1 ? (
+      {postIndex < posts.length - 1 ? (
         <Link href={`/writing/${prevPost.id}`}>
           <a>{prevPost.title} &rarr;</a>
         </Link>
@@ -41,7 +56,8 @@ const BlogNav = props => {
 
 BlogNav.propTypes = {
   router: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
+    pathname: PropTypes.string.isRequired,
+    push: PropTypes.function
   }).isRequired
 };
 
