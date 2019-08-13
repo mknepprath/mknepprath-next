@@ -89,5 +89,8 @@ export const gifs = [
   },
   {
     id: "witnessme"
+  },
+  {
+    id: "wizards"
   }
 ];
