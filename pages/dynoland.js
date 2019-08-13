@@ -1,4 +1,4 @@
-import { distanceInWordsToNow, format, parse } from "date-fns";
+// import { distanceInWordsToNow, format, parse } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import PropTypes from "prop-types";
 
@@ -7,11 +7,18 @@ import Page from "core/page";
 import styles from "./dynoland.css";
 
 class Dynoland extends React.Component {
+  constructor(props) {
+    super(props);
+    // Create a ref to store the copy button DOM element.
+    this.copyServerAddressButton = React.createRef();
+  }
+
   componentDidMount() {
     // Leverages clipboard.js to copy the server address.
-    const copyButton = document.getElementById("copy-address-button");
-    new Clipboard(copyButton); // eslint-disable-line no-undef
+    // Note: we're accessing "current" to get the DOM node.
+    new Clipboard(this.copyServerAddressButton.current); // eslint-disable-line no-undef
   }
+
   render() {
     const { server } = this.props;
     return (
@@ -34,7 +41,7 @@ class Dynoland extends React.Component {
             <button
               className={styles.button}
               data-clipboard-text="dynoland.space"
-              id="copy-address-button"
+              ref={this.copyServerAddressButton}
               type="button"
             >
               Copy Server Address
@@ -64,7 +71,7 @@ class Dynoland extends React.Component {
             .
           </p>
 
-          <img alt="Dynoland favicon" src={server.favicon} />
+          {/* <img alt="Dynoland favicon" src={server.favicon} /> */}
         </article>
       </Page>
     );
