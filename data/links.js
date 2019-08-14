@@ -83,6 +83,11 @@ export const projectLinks = [
     imgSrc: "/static/film.png"
   },
   {
+    description: "A Minecraft server",
+    href: "/dynoland",
+    title: "Dynoland"
+  },
+  {
     description: "GIF collection",
     href: "/gifs",
     title: "GIFs"
