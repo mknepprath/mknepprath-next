@@ -22,13 +22,10 @@ class Dynoland extends React.Component {
   render() {
     const { server } = this.props;
     return (
-      <Page className="container" title={server.motd}>
+      <Page className="container" title="Dynoland">
         <article>
           <header>
-            <h1>
-              {server.motd}
-              {server.online ? "" : " (Offline)"}
-            </h1>
+            <h1>Dynoland {server.online ? "" : "(Offline)"}</h1>
           </header>
 
           <img
@@ -49,7 +46,7 @@ class Dynoland extends React.Component {
           </p>
 
           <p>
-            This server is set to Survival Mode. "Players must collect
+            This Minecraft server is set to Survival Mode. "Players must collect
             resources, build structures, battle mobs, manage hunger, and explore
             the world in an effort to thrive and survive."
           </p>
@@ -64,7 +61,21 @@ class Dynoland extends React.Component {
           </p>
 
           <p>
-            We have an inactive{" "}
+            We're running version {server.server.name.replace("Spigot ", "")} of
+            Minecraft, so you will need to ensure your client matches. Follow
+            the directions on the{" "}
+            <a
+              href="https://help.mojang.com/customer/portal/articles/1475923-changing-game-versions"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Changing game versions
+            </a>{" "}
+            support page if it doesn't.
+          </p>
+
+          <p>
+            We also have an inactive{" "}
             <a href="https://www.facebook.com/groups/dynoland/">
               Facebook page
             </a>
