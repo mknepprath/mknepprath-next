@@ -28,8 +28,8 @@ export default () => (
         >
           Walmart Labs
         </a>
-        . He loves the point at which technology and art converge: technology,
-        design, film, video games, and so on.
+        . He loves his family and working on side projects related to
+        technology, design, film, video games, and so on.
       </p>
 
       <h2>Contact</h2>
