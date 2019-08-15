@@ -5,7 +5,7 @@ import { withRouter } from "next/router";
 import PropTypes from "prop-types";
 
 // Hooks
-import useKeyPress from "../hooks/useKeyPress";
+import useKeyPress from "hooks/useKeyPress";
 
 // Data
 import allPosts from "data/posts";
