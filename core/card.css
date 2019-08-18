@@ -1,47 +1,57 @@
 .card {
   --card-spacing: 16px;
-  display: flex;
-  padding: var(--card-spacing);
+
   background: #ffffff;
   border-radius: 8px;
-  line-height: normal;
-  text-decoration: none;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  line-height: normal;
+  padding: var(--card-spacing);
+  text-decoration: none;
   transform: translate(0, 0);
   transition: box-shadow 0.2s, transform 0.2s;
 }
-.card:hover {
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.05);
-  transform: translate(0, -2px);
-}
+
 .card .img {
   height: 44px;
   margin-right: var(--card-spacing);
   transition: rotate 0.2s, transform 0.2s;
 }
-.card:hover .img {
-  transform: rotate(-5deg) scale(1.1);
-}
+
 .card .arrow {
   opacity: 1;
   transform: translate(-8px, -8px);
   transition: opacity 0.2s, transform 0.2s;
 }
+
+.card h3 {
+  color: var(--black);
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.card p {
+  color: var(--black);
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Card (and children) hover styles */
+.card:hover {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.05);
+  transform: translate(0, -2px);
+}
+
+.card:hover .img {
+  transform: rotate(-5deg) scale(1.1);
+}
+
 .card:hover .arrow {
   opacity: 1;
   transform: translate(0, 0);
 }
-.card h3 {
-  margin: 0;
-  color: var(--black);
-  font-size: 18px;
-}
+
 .card:hover h3 {
   color: var(--primaryColor);
-}
-.card p {
-  margin: 0;
-  padding: 8px 0 0;
-  font-size: 13px;
-  color: var(--black);
 }
