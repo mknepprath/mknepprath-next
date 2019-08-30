@@ -18,10 +18,10 @@
 }
 
 .greeting span {
-  color: #fff;
+  color: #ffffff;
 }
 
-.grid {
+.cardContainer {
   padding-top: 16px;
   padding-bottom: 16px;
 
@@ -33,7 +33,7 @@
 }
 
 @media (min-width: 632px) {
-  .grid {
+  .cardContainer {
     padding-top: 80px;
     padding-bottom: 80px;
 
