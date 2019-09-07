@@ -1,7 +1,12 @@
 import BlogPage from "core/blog-page";
 
 export default () => (
-  <BlogPage dateTime="2019-09-07" title="Thoughts on Design Process">
+  <BlogPage
+    dateTime="2019-09-07"
+    description="If I were to be asked to design an app, where would I start?"
+    ogImage="/static/design-process.jpg"
+    title="Thoughts on Design Process"
+  >
     <header>
       <h1>Thoughts on Design Process</h1>
     </header>
