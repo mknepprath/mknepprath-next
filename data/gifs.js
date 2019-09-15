@@ -25,6 +25,9 @@ export const gifs = [
     id: "dab"
   },
   {
+    id: "david"
+  },
+  {
     id: "forgetful"
   },
   {
@@ -47,6 +50,9 @@ export const gifs = [
   },
   {
     id: "no"
+  },
+  {
+    id: "noel"
   },
   {
     id: "office"
