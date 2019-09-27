@@ -13,6 +13,9 @@ export const gifs = [
     id: "concept"
   },
   {
+    id: "cranston"
+  },
+  {
     id: "crazystarwars"
   },
   {
@@ -53,6 +56,9 @@ export const gifs = [
   },
   {
     id: "noel"
+  },
+  {
+    id: "normalthing"
   },
   {
     id: "office"
