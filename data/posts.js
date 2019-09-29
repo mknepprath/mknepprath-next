@@ -1,6 +1,12 @@
 /** @type {Array<{ id: string, date: string, published: boolean, title: string }>} */
 const posts = [
   {
+    id: "mk9000",
+    date: "September 29, 2019",
+    published: true,
+    title: "A Chat with MK 9000"
+  },
+  {
     id: "design-process",
     date: "September 7, 2019",
     published: true,
