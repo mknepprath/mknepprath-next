@@ -6,7 +6,7 @@ import { useGesture } from "react-use-gesture";
 
 import styles from "./photo-stack.css";
 
-// TODO: Could eventually get these from Instagram? :\
+// TODO: Could get these from Instagram?
 const photos = [
   "/static/about-1.jpg",
   "/static/about-2.jpg",
@@ -16,7 +16,7 @@ const photos = [
   "/static/about-6.jpg"
 ];
 
-// These two are just helpers, they curate spring data, values that are later being interpolated into css
+// These two are just helpers, they curate spring data, values that are later being interpolated into CSS.
 const to = i => ({
   x: 0,
   y: i * -4,
@@ -27,23 +27,35 @@ const to = i => ({
 // The `i` is required. I'm not sure why.
 // https://spectrum.chat/react-spring/general/how-to-add-delay-to-each-property~de080776-bbe9-4bf7-8bf5-980c87f5cdd0
 const from = i => ({ x: 0, rot: 0, scale: 1.5, y: -1000 }); //  eslint-disable-line no-unused-vars
+
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
-const trans = (r, s) =>
+const transform = (r, s) =>
   `perspective(1500px) rotateX(20deg) rotateY(${r /
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
 function PhotoStack() {
   const [gone] = useState(() => new Set()); // The set flags all the photos that are flicked out
+
   const [props, set] = useSprings(photos.length, i => ({
     ...to(i),
     from: from(i)
   })); // Create a bunch of springs using the helpers above
-  // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
+
+  // Create a gesture, we're interested in down-state, movement (current-pos - click-pos), direction and velocity
   const bind = useGesture(
-    ({ args: [index], down, delta: [xDelta], direction: [xDir], velocity }) => {
+    ({
+      args: [index],
+      down,
+      movement: [xDelta],
+      direction: [xDir],
+      velocity
+    }) => {
+      console.log({ index, down, xDelta, xDir, velocity });
       const trigger = velocity > 0.2; // If you flick hard enough it should trigger the photo to fly out
       const dir = xDir < 0 ? -1 : 1; // Direction should either point left or right
+
       if (!down && trigger) gone.add(index); // If button/finger's up and trigger velocity is reached, we flag the photo ready to fly out
+
       set(i => {
         if (index !== i) return; // We're only interested in changing spring-data for the current spring
         const isGone = gone.has(index);
@@ -55,9 +67,14 @@ function PhotoStack() {
           rot,
           scale,
           delay: undefined,
-          config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 }
+          config: {
+            friction: 50,
+            tension: down ? 800 : isGone ? 200 : 500
+          }
         };
       });
+
+      // setTimeout if all the photos have been cleared.
       if (!down && gone.size === photos.length)
         setTimeout(() => gone.clear() || set(i => to(i)), 600);
     }
@@ -78,7 +95,7 @@ function PhotoStack() {
         {...bind(i)}
         className={styles.photo}
         style={{
-          transform: interpolate([rot, scale], trans),
+          transform: interpolate([rot, scale], transform),
           backgroundImage: `url(${photos[i]})`
         }}
       />
