@@ -17,10 +17,10 @@ export default () => (
       <a href="https://twitter.com/search?q=from%3A%40mknepprath%20%23inktober">
         #inktober
       </a>{" "}
-      2017 - the best way to get over drawing timidity is to use bold drawing
+      2017 - the best way to get over the fear of drawing is to use bold drawing
       tools. I started with pencil, transitioned to pen, and eventually cracked
-      open my son's marker set. My resulting illustrations were as brazen as the
-      drawing tools I was choosing to use.
+      open a marker set. My resulting illustrations were as brazen as the
+      drawing tools I was using.
     </p>
     <img
       alt="A pumpkin illustration"
@@ -48,7 +48,7 @@ export default () => (
         @JamesInks
       </a>
       , a talented comic artist, as a gag. I believe I was planning on replying
-      to a bunch of tweets with comics, but I only ended up posting two this
+      to a bunch of tweets with comics, but I only ended up posting two in this
       way.
     </p>
     <img
@@ -99,7 +99,7 @@ export default () => (
     />
     <p>
       At this point, I was attempting to create at least one comic per day, so
-      the subject matter turned trivial things I was dealing with. Like bugs.
+      the subject matter turned to trivial things I was dealing with. Like bugs.
     </p>
     <img
       alt="Apple Watch activity rings"
@@ -113,8 +113,8 @@ export default () => (
       src="/static/comics-09.jpeg"
     />
     <p>
-      There was a third panel here that turned out so bad, I cut it off. I
-      enjoyed this two-panel reaction shot to post it despite that.
+      There was a third panel here that turned out bad, so I cut it off. I
+      enjoyed this two-panel reaction shot enough to post it despite that.
     </p>
     <img
       alt="Flat La Croix"
@@ -122,7 +122,7 @@ export default () => (
       src="/static/comics-10.jpeg"
     />
     <p>
-      Most of my comics don't warrant a title. Perhaps this one didn't, either,
+      Most of my comics didn't warrant a title. Perhaps this one didn't, either,
       but I decided to include it for some additional context.
     </p>
     <img
@@ -164,20 +164,22 @@ export default () => (
     />
     <p>
       Here, I attempted to portray a simple thing in comic form that couldn't
-      happen in real life.
+      happen in reality.
     </p>
     <img
       alt="Robot vacuum"
       className="blog-image"
       src="/static/comics-17.jpeg"
     />
-    <p>Using line thickness and texture, I created a biopic of our RoboVac.</p>
+    <p>
+      Using line thickness and texture, I created a biopic about our RoboVac.
+    </p>
     <img alt="RAAWRRRRR" className="blog-image" src="/static/comics-18.jpeg" />
     <p>
       After a brief hiatus, I came back to comics with a fresh perspective on my
-      previous panels. I had become to careful, and it was time to loosen up a
-      bit. This cat comic could be see more feral version of the original "MAKE
-      COMICS" strip.
+      previous panels. I had become too careful, and it was time to loosen up a
+      bit. This cat comic could be seen as a more feral version of the original
+      "MAKE COMICS" strip.
     </p>
     <img
       alt="Candy witch"
@@ -218,7 +220,15 @@ export default () => (
       className="blog-image"
       src="/static/comics-23.jpeg"
     />
-    <p>Finally, a reaction shot to disappearing a mug of coffee.</p>
-    <p>I had a lot of fun with these, and I hope to do more.</p>
+    <p>Finally, too much caffeine!</p>
+    <p>
+      I had a lot of fun with these, and I hope to do more. My main takeaway
+      from the project is that I can (and should) impose constraints upon myself
+      to yield the results I'm looking for. I wanted to create quick, rough
+      comics - the best tool for the job ended up being a big ol' Sharpie (and a
+      few other markers for color). Many of my comics are bold and dynamic
+      because it's hard to do otherwise with the tools I was using. That wasn't
+      an accident.
+    </p>
   </BlogPage>
 );

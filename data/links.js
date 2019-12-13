@@ -67,9 +67,9 @@ export const projectLinks = [
     title: "Open World"
   },
   {
-    description: "Sequential art",
-    href: "https://twitter.com/mknepprath/status/1060284635182178305",
-    title: "Comics"
+    description: "A comic retrospective",
+    href: "/writing/sequential-art",
+    title: "Sequential Art™"
   },
   {
     description: "Battle your friends on Twitter",
