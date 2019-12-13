@@ -1,5 +1,5 @@
 // External
-import parse from "date-fns/parse";
+import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 import { withRouter } from "next/router";
 import PropTypes from "prop-types";
@@ -25,7 +25,7 @@ const Writing = ({ posts, router }) => (
         .filter(post => post.published || router.query.all)
         // The `sort` method can be conveniently used with function expressions:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-        .sort((a, b) => parse(b.date) - parse(a.date))
+        .sort((a, b) => parseISO(b.date) - parseISO(a.date))
         .map(post => (
           <article key={post.id}>
             <header>

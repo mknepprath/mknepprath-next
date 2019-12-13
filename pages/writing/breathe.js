@@ -65,7 +65,7 @@ class Breathe extends React.Component {
           <code className="language-javascript">
             {`
   // External
-  import parse from "date-fns/parse";
+  import parseISO from "date-fns/parseISO";
   import Link from "next/link";
   import { withRouter } from "next/router";
 

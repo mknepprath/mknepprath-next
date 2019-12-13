@@ -1,4 +1,4 @@
-// import { distanceInWordsToNow, format, parse } from "date-fns";
+// import { formatDistanceToNow, format, parse } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import PropTypes from "prop-types";
 
