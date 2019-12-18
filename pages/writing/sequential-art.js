@@ -4,7 +4,7 @@ export default () => (
   <BlogPage
     dateTime="2019-12-12"
     description="A comic retrospective."
-    ogImage="/static/comics-05.jpeg"
+    ogImage="/assets/comics-05.jpeg"
     title="Sequential Art™"
   >
     <header>
@@ -25,13 +25,13 @@ export default () => (
     <img
       alt="A pumpkin illustration"
       className="blog-image"
-      src="/static/comics-01.jpeg"
+      src="/assets/comics-01.jpeg"
     />
     <p></p>
     <img
       alt="A canoe illustration"
       className="blog-image"
-      src="/static/comics-02.jpeg"
+      src="/assets/comics-02.jpeg"
     />
     <p>
       Last year, I decided to use this technique to draw some panels. It was
@@ -40,7 +40,7 @@ export default () => (
     <img
       alt="Make comics. Who has time for that!"
       className="blog-image"
-      src="/static/comics-03.jpeg"
+      src="/assets/comics-03.jpeg"
     />
     <p>
       I posted my first comic as a reply to{" "}
@@ -54,7 +54,7 @@ export default () => (
     <img
       alt="I love pie!!!"
       className="blog-image"
-      src="/static/comics-04.jpeg"
+      src="/assets/comics-04.jpeg"
     />
     <p>
       The second was in reply to{" "}
@@ -66,7 +66,7 @@ export default () => (
     <img
       alt="Sequential art"
       className="blog-image"
-      src="/static/comics-05.jpeg"
+      src="/assets/comics-05.jpeg"
     />
     <p>
       After this, I started{" "}
@@ -80,7 +80,7 @@ export default () => (
     <img
       alt="Sequential stress"
       className="blog-image"
-      src="/static/comics-06.jpeg"
+      src="/assets/comics-06.jpeg"
     />
     <p>
       I tried my hand at social commentary for my 4th comic,{" "}
@@ -95,7 +95,7 @@ export default () => (
     <img
       alt="Demon bug!!"
       className="blog-image"
-      src="/static/comics-07.jpeg"
+      src="/assets/comics-07.jpeg"
     />
     <p>
       At this point, I was attempting to create at least one comic per day, so
@@ -104,13 +104,13 @@ export default () => (
     <img
       alt="Apple Watch activity rings"
       className="blog-image"
-      src="/static/comics-08.jpeg"
+      src="/assets/comics-08.jpeg"
     />
     <p>And exercise.</p>
     <img
       alt="I will say nothing"
       className="blog-image"
-      src="/static/comics-09.jpeg"
+      src="/assets/comics-09.jpeg"
     />
     <p>
       There was a third panel here that turned out bad, so I cut it off. I
@@ -119,7 +119,7 @@ export default () => (
     <img
       alt="Flat La Croix"
       className="blog-image"
-      src="/static/comics-10.jpeg"
+      src="/assets/comics-10.jpeg"
     />
     <p>
       Most of my comics didn't warrant a title. Perhaps this one didn't, either,
@@ -128,15 +128,15 @@ export default () => (
     <img
       alt="Silly faces"
       className="blog-image"
-      src="/static/comics-11.jpeg"
+      src="/assets/comics-11.jpeg"
     />
     <p>My son and I take pictures of our silly faces sometimes.</p>
-    <img alt="Hair study" className="blog-image" src="/static/comics-12.jpeg" />
+    <img alt="Hair study" className="blog-image" src="/assets/comics-12.jpeg" />
     <p>
       My hairstyle was in transition during this time. I did a few quick studies
       to nail how I wanted to portray it on the page.
     </p>
-    <img alt="Duck" className="blog-image" src="/static/comics-13.jpeg" />
+    <img alt="Duck" className="blog-image" src="/assets/comics-13.jpeg" />
     <p>
       While simple, this is the first one where I played with the perspective.
       Perhaps a sequel is warranted, "honk."
@@ -144,7 +144,7 @@ export default () => (
     <img
       alt="Butterflies"
       className="blog-image"
-      src="/static/comics-14.jpeg"
+      src="/assets/comics-14.jpeg"
     />
     <p>
       The goal of this study was to illustrate butterflies at various levels of
@@ -154,13 +154,13 @@ export default () => (
     <img
       alt="Hair problems"
       className="blog-image"
-      src="/static/comics-15.jpeg"
+      src="/assets/comics-15.jpeg"
     />
     <p>Again, hair transition issues.</p>
     <img
       alt="Disappearing can"
       className="blog-image"
-      src="/static/comics-16.jpeg"
+      src="/assets/comics-16.jpeg"
     />
     <p>
       Here, I attempted to portray a simple thing in comic form that couldn't
@@ -169,12 +169,12 @@ export default () => (
     <img
       alt="Robot vacuum"
       className="blog-image"
-      src="/static/comics-17.jpeg"
+      src="/assets/comics-17.jpeg"
     />
     <p>
       Using line thickness and texture, I created a biopic about our RoboVac.
     </p>
-    <img alt="RAAWRRRRR" className="blog-image" src="/static/comics-18.jpeg" />
+    <img alt="RAAWRRRRR" className="blog-image" src="/assets/comics-18.jpeg" />
     <p>
       After a brief hiatus, I came back to comics with a fresh perspective on my
       previous panels. I had become too careful, and it was time to loosen up a
@@ -184,7 +184,7 @@ export default () => (
     <img
       alt="Candy witch"
       className="blog-image"
-      src="/static/comics-19.jpeg"
+      src="/assets/comics-19.jpeg"
     />
     <p>
       These few comics were illustrated around Halloween 2018. I drew the candy
@@ -193,13 +193,13 @@ export default () => (
     <img
       alt="Angsty pumpkin"
       className="blog-image"
-      src="/static/comics-20.jpeg"
+      src="/assets/comics-20.jpeg"
     />
     <p>I also found the idea of an angsty pumpkin hilarious.</p>
     <img
       alt="Contemplative fisherman"
       className="blog-image"
-      src="/static/comics-21.jpeg"
+      src="/assets/comics-21.jpeg"
     />
     <p>
       This started out as a hand study, but resulted in one of my favorite
@@ -209,7 +209,7 @@ export default () => (
     <img
       alt="Dragon costume"
       className="blog-image"
-      src="/static/comics-22.jpeg"
+      src="/assets/comics-22.jpeg"
     />
     <p>
       Back to the Halloween theme, I thought it would be fun to illustrate a
@@ -218,7 +218,7 @@ export default () => (
     <img
       alt="Coffee high"
       className="blog-image"
-      src="/static/comics-23.jpeg"
+      src="/assets/comics-23.jpeg"
     />
     <p>Finally, too much caffeine!</p>
     <p>

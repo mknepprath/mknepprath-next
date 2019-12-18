@@ -14,13 +14,13 @@ class CreateAWebsite extends React.Component {
       <BlogPage
         dateTime="2019-07-22"
         description="A quick guide for setting up a new website with GitHub."
-        ogImage="/static/create-a-website1.jpg"
+        ogImage="/assets/create-a-website1.jpg"
         title="Create a Simple Website with GitHub Pages"
       >
         <img
           alt="Illustration of a browser window"
           className="blog-image"
-          src="/static/create-a-website1.jpg"
+          src="/assets/create-a-website1.jpg"
         />
 
         <header>
@@ -47,7 +47,7 @@ class CreateAWebsite extends React.Component {
         <img
           alt="Octocat's face"
           className="blog-image"
-          src="/static/create-a-website2.jpg"
+          src="/assets/create-a-website2.jpg"
         />
 
         <h2>Create a Repository</h2>
@@ -118,7 +118,7 @@ class CreateAWebsite extends React.Component {
         <img
           alt="Illustration of rocketship"
           className="blog-image"
-          src="/static/create-a-website3.jpg"
+          src="/assets/create-a-website3.jpg"
         />
 
         <h2 id="deploy-your-website">Deploy Your Website</h2>

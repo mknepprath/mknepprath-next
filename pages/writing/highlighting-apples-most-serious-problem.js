@@ -21,7 +21,7 @@ export default () => (
     <img
       alt="Screenshot of iOS app icons with highlights"
       className="blog-image"
-      src="/static/highlighting-apple-1.png"
+      src="/assets/highlighting-apple-1.png"
     />
 
     <p>
@@ -34,7 +34,7 @@ export default () => (
     <img
       alt="Screenshot of more iOS app icons with faux highlights"
       className="blog-image"
-      src="/static/highlighting-apple-2.png"
+      src="/assets/highlighting-apple-2.png"
     />
 
     <p>

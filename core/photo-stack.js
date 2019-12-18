@@ -8,12 +8,12 @@ import styles from "./photo-stack.css";
 
 // TODO: Could eventually get these from Instagram? :\
 const photos = [
-  "/static/about-1.jpg",
-  "/static/about-2.jpg",
-  "/static/about-3.jpg",
-  "/static/about-4.jpg",
-  "/static/about-5.jpg",
-  "/static/about-6.jpg"
+  "/assets/about-1.jpg",
+  "/assets/about-2.jpg",
+  "/assets/about-3.jpg",
+  "/assets/about-4.jpg",
+  "/assets/about-5.jpg",
+  "/assets/about-6.jpg"
 ];
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css

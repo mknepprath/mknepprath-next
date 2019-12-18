@@ -17,7 +17,7 @@ export default () => (
     <img
       alt="Google's icons on iOS"
       className="blog-image"
-      src="/static/googles-icons-on-ios.jpg"
+      src="/assets/googles-icons-on-ios.jpg"
     />
   </BlogPage>
 );
