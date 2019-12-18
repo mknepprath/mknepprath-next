@@ -20,7 +20,7 @@ export default () => (
     <img
       alt="Screenshot of the app Duolingo"
       className="blog-image"
-      src="/static/app-of-the-year-duolingo.jpg"
+      src="/assets/app-of-the-year-duolingo.jpg"
     />
   </BlogPage>
 );

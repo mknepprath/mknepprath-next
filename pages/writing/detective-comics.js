@@ -5,7 +5,7 @@ export default () => (
     <img
       alt="The Joker in a box office booth"
       className="blog-image"
-      src="/static/detective-comics.jpg"
+      src="/assets/detective-comics.jpg"
     />
 
     <header>

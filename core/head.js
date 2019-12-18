@@ -9,21 +9,21 @@ function Head({ title, description, ogImage, url }) {
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <link rel="manifest" href="/static/manifest.json" />
+      <link rel="manifest" href="/manifest.json" />
       <link
         rel="icon"
         sizes="192x192"
-        href="/static/android-chrome-192x192.png"
+        href="/assets/android-chrome-192x192.png"
       />
       <link
         rel="apple-touch-icon"
-        href="/static/apple-touch-icon-152x152.png"
+        href="/assets/apple-touch-icon-152x152.png"
       />
-      <link rel="mask-icon" href="/static/favicon-mask.svg" color="#6ABD9D" />
-      <link rel="icon" href="/static/favicon.ico" />
-      <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+      <link rel="mask-icon" href="/assets/favicon-mask.svg" color="#6ABD9D" />
+      <link rel="icon" href="/assets/favicon.ico" />
+      <link rel="stylesheet" type="text/css" href="/css/global.css" />
       {/* TODO: prism.css is only used in blog posts, yet is being included globally. */}
-      <link rel="stylesheet" type="text/css" href="/static/css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="/css/prism.css" />
       <meta name="theme-color" content="#6ABD9D" />
 
       <meta property="og:url" content={url} />
@@ -37,7 +37,7 @@ function Head({ title, description, ogImage, url }) {
       <meta property="og:image:height" content="630" />
       <meta name="pinterest" content="nopin" />
 
-      <script src="/static/js/clipboard.js" />
+      <script src="/js/clipboard.js" />
     </NextHead>
   );
 }

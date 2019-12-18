@@ -4,7 +4,7 @@ export default () => (
   <BlogPage
     dateTime="2019-09-07"
     description="If I were to be asked to design an app, where would I start?"
-    ogImage="/static/design-process.jpg"
+    ogImage="/assets/design-process.jpg"
     title="Thoughts on Design Process"
   >
     <header>
@@ -14,7 +14,7 @@ export default () => (
     <img
       alt="Rubber duck"
       className="blog-image"
-      src="/static/design-process.jpg"
+      src="/assets/design-process.jpg"
     />
 
     <p>I was recently asked,</p>

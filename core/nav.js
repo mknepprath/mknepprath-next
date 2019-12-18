@@ -14,7 +14,7 @@ const Nav = ({ className }) => (
       <img
         alt="Michael Knepprath Memoji"
         className={styles.img}
-        src="/static/memoji.png"
+        src="/assets/memoji.png"
       />
       <span>M. Knepprath</span>
     </a>

@@ -84,7 +84,7 @@ export default () => (
     <img
       alt="Postgresql table displaying users"
       className="blog-image"
-      src="/static/creating-lilt-part-4-1.png"
+      src="/assets/creating-lilt-part-4-1.png"
     />
 
     <h2>Gameplay Example</h2>

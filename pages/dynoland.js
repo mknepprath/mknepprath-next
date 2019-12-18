@@ -31,7 +31,7 @@ class Dynoland extends React.Component {
           <img
             alt="Dynoland rendered image"
             className="blog-image"
-            src="/static/dynoland.png"
+            src="/assets/dynoland.png"
           />
 
           <p>
