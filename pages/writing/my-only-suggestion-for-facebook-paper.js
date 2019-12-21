@@ -25,7 +25,7 @@ export default () => (
     <img
       alt="Facebook lists"
       className="blog-image"
-      src="/static/facebook-paper-lists.png"
+      src="/assets/facebook-paper-lists.png"
     />
 
     <p>Facebook lists are powerful, and here’s why:</p>
@@ -64,7 +64,7 @@ export default () => (
     <img
       alt="Facebook Paper sections"
       className="blog-image"
-      src="/static/facebook-paper-sections.png"
+      src="/assets/facebook-paper-sections.png"
     />
 
     <p>

@@ -9,7 +9,6 @@ module.exports = withCSS({
     localIdentName: "[path][name]-[local]-[hash:base64:5]"
   },
   cssModules: true,
-  experimental: { publicDirectory: true },
   webpack(config, options) {
     // https://github.com/zeit/next.js/tree/master/examples/with-absolute-imports
     // This allows me to reference these directories as if they were root.

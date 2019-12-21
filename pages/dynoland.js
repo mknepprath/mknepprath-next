@@ -1,4 +1,4 @@
-// import { distanceInWordsToNow, format, parse } from "date-fns";
+// import { formatDistanceToNow, format, parse } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import PropTypes from "prop-types";
 
@@ -31,7 +31,7 @@ class Dynoland extends React.Component {
           <img
             alt="Dynoland rendered image"
             className="blog-image"
-            src="/static/dynoland.png"
+            src="/assets/dynoland.png"
           />
 
           <p>

@@ -16,7 +16,7 @@ export default () => (
     <img
       alt="Screenshot of the flashlight app icon in iOS 7"
       className="blog-image"
-      src="/static/ios-7-flashlight.jpg"
+      src="/assets/ios-7-flashlight.jpg"
     />
   </BlogPage>
 );

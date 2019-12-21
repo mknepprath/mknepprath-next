@@ -16,7 +16,7 @@ export default () => (
     <img
       alt="Screenshot of Tweetbot 3 in the App Store"
       className="blog-image"
-      src="/static/tweetbot-3.jpg"
+      src="/assets/tweetbot-3.jpg"
     />
   </BlogPage>
 );

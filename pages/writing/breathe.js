@@ -14,13 +14,13 @@ class Breathe extends React.Component {
       <BlogPage
         dateTime="2019-08-03"
         description="What if we let our code breathe a little?"
-        ogImage="/static/breathe-1.jpg"
+        ogImage="/assets/breathe-1.jpg"
         title="Code Should Breathe"
       >
         <img
           alt="A feather"
           className="blog-image"
-          src="/static/breathe-1.jpg"
+          src="/assets/breathe-1.jpg"
         />
 
         <header>
@@ -65,7 +65,7 @@ class Breathe extends React.Component {
           <code className="language-javascript">
             {`
   // External
-  import parse from "date-fns/parse";
+  import parseISO from "date-fns/parseISO";
   import Link from "next/link";
   import { withRouter } from "next/router";
 
@@ -181,7 +181,7 @@ class Breathe extends React.Component {
           <img
             alt="Fishing"
             className="blog-image"
-            src="/static/breathe-2.jpg"
+            src="/assets/breathe-2.jpg"
           />
         </a>
       </BlogPage>

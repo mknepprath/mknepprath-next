@@ -1,5 +1,7 @@
 import classnames from "classnames";
-import { distanceInWordsToNow, format } from "date-fns";
+import format from "date-fns/format";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import parseISO from "date-fns/parseISO";
 import PropTypes from "prop-types";
 
 import BlogNav from "core/blog-nav";
@@ -24,8 +26,8 @@ const BlogPage = ({
       {children}
       <p>
         <time dateTime={dateTime}>
-          {format(dateTime, "MMMM Do, YYYY")} • {distanceInWordsToNow(dateTime)}{" "}
-          ago
+          {format(parseISO(dateTime), "MMMM d, yyyy")} •{" "}
+          {formatDistanceToNow(parseISO(dateTime))} ago
         </time>
       </p>
     </article>

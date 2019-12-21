@@ -46,7 +46,7 @@ export default () => (
     <img
       alt="Screenshot of Instagram's redesign for iOS 7"
       className="blog-image"
-      src="/static/instagram-for-ios-7.png"
+      src="/assets/instagram-for-ios-7.png"
     />
   </BlogPage>
 );

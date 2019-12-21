@@ -28,26 +28,26 @@ export const projectLinks = [
     description: "A Twitter text adventure",
     href: "https://twitter.com/familiarlilt",
     title: "Lilt",
-    imgSrc: "/static/lilt.png"
+    imgSrc: "/assets/lilt.png"
   },
   {
     description: "A prompt a day, every day",
     href: "https://twitter.com/designprompts",
     title: "Design Prompts",
-    imgSrc: "/static/design-prompts.png"
+    imgSrc: "/assets/design-prompts.png"
   },
   {
     description: "Illustration series",
     href:
       "https://dribbble.com/mknepprath/buckets/257652-Design-Prompts-Series",
     title: "Dribbble Series",
-    imgSrc: "/static/dribbble-series.png"
+    imgSrc: "/assets/dribbble-series.png"
   },
   {
     description: "@horse_ebooks Twitter bot",
     href: "https://twitter.com/robot_mk",
     title: "Robot MK",
-    imgSrc: "/static/robot-mk.png"
+    imgSrc: "/assets/robot-mk.png"
   },
   {
     description: "A thread of Cinema 4D renders",
@@ -59,7 +59,7 @@ export const projectLinks = [
     href:
       "https://chrome.google.com/webstore/detail/patched-tomatoes/daceaaccoiggipikdodkejceenipddop",
     title: "Patched Tomatoes",
-    imgSrc: "/static/patched-tomatoes.png"
+    imgSrc: "/assets/patched-tomatoes.png"
   },
   {
     description: "React RPG framework",
@@ -67,9 +67,9 @@ export const projectLinks = [
     title: "Open World"
   },
   {
-    description: "Sequential art",
-    href: "https://twitter.com/mknepprath/status/1060284635182178305",
-    title: "Comics"
+    description: "A comic retrospective",
+    href: "/writing/sequential-art",
+    title: "Sequential Art™"
   },
   {
     description: "Battle your friends on Twitter",
@@ -80,7 +80,7 @@ export const projectLinks = [
     description: "College projects",
     href: "https://vimeo.com/mknepprath",
     title: "Film & Animation",
-    imgSrc: "/static/film.png"
+    imgSrc: "/assets/film.png"
   },
   {
     description: "A Minecraft server",

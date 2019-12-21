@@ -101,7 +101,7 @@ class CreatingLiltPart2 extends React.Component {
         <img
           alt="Drawing of The Room"
           className="blog-image"
-          src="/static/creating-lilt-part-2-1.png"
+          src="/assets/creating-lilt-part-2-1.png"
         />
         <p>
           To kick off this process, I had a friend over and quickly threw
@@ -118,7 +118,7 @@ class CreatingLiltPart2 extends React.Component {
         <img
           alt="Screenshot of the Lilt spreadsheet"
           className="blog-image"
-          src="/static/creating-lilt-part-2-2.png"
+          src="/assets/creating-lilt-part-2-2.png"
         />
         <p>
           This allowed me to account for a vast majority of object/interaction

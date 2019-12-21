@@ -16,7 +16,7 @@ export default () => (
     <img
       alt="Lilt prototype"
       className="blog-image"
-      src="/static/creating-lilt-part-3-1.png"
+      src="/assets/creating-lilt-part-3-1.png"
     />
 
     <h2>The Interface</h2>
@@ -117,7 +117,7 @@ export default () => (
     <img
       alt="Moves and responses in Parse"
       className="blog-image"
-      src="/static/creating-lilt-part-3-2.png"
+      src="/assets/creating-lilt-part-3-2.png"
     />
     <p>
       So, let’s try to “open the chest” while in the “cell.” When the game was
@@ -130,7 +130,7 @@ export default () => (
     <img
       alt="Interactions in Parse"
       className="blog-image"
-      src="/static/creating-lilt-part-3-3.png"
+      src="/assets/creating-lilt-part-3-3.png"
     />
     <p>
       Once a match is found, it replies with the corresponding{" "}
