@@ -9,7 +9,7 @@ const posts = [
   {
     id: "mk9000",
     date: "September 29, 2019",
-    published: true,
+    published: false,
     title: "A Chat with MK 9000"
   },
   {
