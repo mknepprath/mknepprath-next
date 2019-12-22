@@ -21,6 +21,15 @@
   color: #ffffff;
 }
 
+.postContainer {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 0px;
+}
+
 .cardContainer {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -31,7 +40,6 @@
 
   background: #f7f7f7;
 }
-
 @media (min-width: 632px) {
   .cardContainer {
     padding-top: 80px;

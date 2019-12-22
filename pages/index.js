@@ -1,6 +1,6 @@
 // External
 import classnames from "classnames";
-import parse from "date-fns/parse";
+import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 
 // Components
@@ -27,14 +27,14 @@ export default () => (
       </h1>
     </div>
 
-    <div className="container">
+    <div className={classnames("container", styles.postContainer)}>
       {posts
         // Including this query param will display all posts.
         // https://mknepprath.com/writing?all=true
         .filter(post => post.published)
         // The `sort` method can be conveniently used with function expressions:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-        .sort((a, b) => parse(b.date) - parse(a.date))
+        .sort((a, b) => parseISO(b.date) - parseISO(a.date))
         // Only display first 5 posts.
         .slice(0, 5)
         .map(post => (
