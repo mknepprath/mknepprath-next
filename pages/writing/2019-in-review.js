@@ -2,8 +2,8 @@ import BlogPage from "core/blog-page";
 
 export default () => (
   <BlogPage
-    dateTime="2019-12-12"
-    description="A comic retrospective."
+    dateTime="2019-12-29"
+    description="A look at my accomplishments during the past year."
     ogImage="/assets/2019-in-review-1.png"
     title="2019 in Review"
   >

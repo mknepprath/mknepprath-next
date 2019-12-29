@@ -2,7 +2,7 @@
 const posts = [
   {
     id: "2019-in-review",
-    date: "December 28, 2019",
+    date: "December 29, 2019",
     published: true,
     title: "2019 in Review"
   },
