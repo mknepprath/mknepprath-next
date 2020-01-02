@@ -2,7 +2,7 @@
 export const footerLinks = [
   // { href: 'https://twitter.com/mknepprath', key: 'twitter', title: 'The Bird Site' },
   {
-    href: "mailto:mknepprath@gmail.com",
+    href: "mailto:michael@mknepprath.com",
     key: "email",
     title: "Email Me"
   }

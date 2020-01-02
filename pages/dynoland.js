@@ -1,3 +1,4 @@
+// I believe I was considering using this to display server uptime.
 // import { formatDistanceToNow, format, parse } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import PropTypes from "prop-types";

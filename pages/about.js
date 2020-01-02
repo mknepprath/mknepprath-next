@@ -34,8 +34,8 @@ export default () => (
 
       <h2>Contact</h2>
       <p>
-        You can contact him via <a href="mailto:mknepprath@gmail.com">email</a>{" "}
-        or send a message on{" "}
+        You can contact him via{" "}
+        <a href="mailto:michael@mknepprath.com">email</a> or send a message on{" "}
         <a
           href="https://twitter.com/mknepprath"
           rel="noopener noreferrer"
