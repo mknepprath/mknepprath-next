@@ -41,30 +41,29 @@ export default () => (
       . Allow me to define a few concepts below.
     </p>
     <p>
-      <strong>Position:</strong> At the most basic level, if you want to
-      interact with things in a certain place, you need to be positioned there.
-      There are two locations so far: “start,” and “cell.”
+      <b>Position:</b> At the most basic level, if you want to interact with
+      things in a certain place, you need to be positioned there. There are two
+      locations so far: “start,” and “cell.”
     </p>
     <p>
-      <strong>Move:</strong> This is a cleansed version of your input. You could
-      enter “Start!” or “START” or “start…” but in all of these cases, your move
-      will be “start”.
+      <b>Move:</b> This is a cleansed version of your input. You could enter
+      “Start!” or “START” or “start…” but in all of these cases, your move will
+      be “start”.
     </p>
     <p>
-      <strong>Response:</strong> Once you make your move, this is what the game
-      responds with.
+      <b>Response:</b> Once you make your move, this is what the game responds
+      with.
     </p>
     <p>
       So, let’s say you’ve decided to “Open the door” while in the “cell.”
-      Looking at the <strong>#tweet</strong> function in the game.js file, your{" "}
-      <strong>tweet</strong> gets assigned to <strong>move</strong> as “open the
-      door”. Because your location is “cell,” the game skips “start” and looks
-      for “open the door” under the “cell” if/else statement. Once it’s found,
-      it assigns the proper response, “Surprise, no can do,” to{" "}
-      <strong>response</strong>. Finally, the original <strong>tweet</strong>{" "}
-      and <strong>response</strong> are appended to the list (.command) on the
-      right. You might notice that there is no other logic — no way to interact
-      with objects, or win. That’s coming, I promise!
+      Looking at the <b>#tweet</b> function in the game.js file, your{" "}
+      <b>tweet</b> gets assigned to <b>move</b> as “open the door”. Because your
+      location is “cell,” the game skips “start” and looks for “open the door”
+      under the “cell” if/else statement. Once it’s found, it assigns the proper
+      response, “Surprise, no can do,” to <b>response</b>. Finally, the original{" "}
+      <b>tweet</b> and <b>response</b> are appended to the list (.command) on
+      the right. You might notice that there is no other logic — no way to
+      interact with objects, or win. That’s coming, I promise!
     </p>
 
     <h2>The Engine — Phase 2</h2>
@@ -76,7 +75,7 @@ export default () => (
       .
     </p>
     <p>
-      <strong>Cookies:</strong> I used{" "}
+      <b>Cookies:</b> I used{" "}
       <a href="https://github.com/js-cookie/js-cookie">JavaScript Cookie</a> to
       add the ability to continue where you left off in the game, even if you
       closed the tab or turned off your computer. It was a small win that will
@@ -87,17 +86,16 @@ export default () => (
       get updated after each move, or deleted if the game is reset.
     </p>
     <p>
-      <strong>Interactions:</strong> You may see some random variables sprinkled
-      around the responses, such as <strong>key_pasted</strong> and{" "}
-      <strong>key_acquired</strong>. The game keeps track of what you’ve
-      completed with these so that you can successfully do things like “open the
-      door” once you’ve acquired the key.
+      <b>Interactions:</b> You may see some random variables sprinkled around
+      the responses, such as <b>key_pasted</b> and <b>key_acquired</b>. The game
+      keeps track of what you’ve completed with these so that you can
+      successfully do things like “open the door” once you’ve acquired the key.
     </p>
     <p>
-      <strong>Comments:</strong> Now that game.js is getting to be bigger and
-      more confusing, I’ve started to add comments to clarify what different
-      tasks are being handled. I get even more thorough than this as time passes
-      — they’ve been extremely helpful during this process.
+      <b>Comments:</b> Now that game.js is getting to be bigger and more
+      confusing, I’ve started to add comments to clarify what different tasks
+      are being handled. I get even more thorough than this as time passes —
+      they’ve been extremely helpful during this process.
     </p>
 
     <h2>The Engine — Phase 3</h2>
@@ -121,11 +119,11 @@ export default () => (
     />
     <p>
       So, let’s try to “open the chest” while in the “cell.” When the game was
-      loaded previously, the data for <strong>moves</strong> and{" "}
-      <strong>interactions</strong> were fetched from Parse. Clicking the Tweet
-      button immediately logs your <strong>tweet</strong> to the list on the
-      right. It then loops through all of the moves gathered from Parse until it
-      finds one that matches your <strong>tweet</strong> (“open the chest”).
+      loaded previously, the data for <b>moves</b> and <b>interactions</b> were
+      fetched from Parse. Clicking the Tweet button immediately logs your{" "}
+      <b>tweet</b> to the list on the right. It then loops through all of the
+      moves gathered from Parse until it finds one that matches your{" "}
+      <b>tweet</b> (“open the chest”).
     </p>
     <img
       alt="Interactions in Parse"
@@ -133,11 +131,11 @@ export default () => (
       src="/assets/creating-lilt-part-3-3.png"
     />
     <p>
-      Once a match is found, it replies with the corresponding{" "}
-      <strong>response</strong> (“There’s a coin in it.”), and triggers any{" "}
-      <strong>interactions</strong> (chestopen) associated it. It will also
-      change your position, although there is only one instance where this is
-      necessary so far — when you tweet “start” at the beginning of the game.
+      Once a match is found, it replies with the corresponding <b>response</b>{" "}
+      (“There’s a coin in it.”), and triggers any <b>interactions</b>{" "}
+      (chestopen) associated it. It will also change your position, although
+      there is only one instance where this is necessary so far — when you tweet
+      “start” at the beginning of the game.
     </p>
 
     <h2>What's Next</h2>

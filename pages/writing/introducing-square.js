@@ -27,37 +27,37 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>
+        <b>
           <a href="https://squareup.com/">Sign up.</a>
-        </strong>
+        </b>
         You will be asked for your address during this process. This is so that
         you will receive a free Square Card Reader in the mail. This reader is
         absolutely free, they even cover the shipping cost.
       </li>
       <li>
-        <strong>Verify your identity.</strong> This is where Square collects
-        legal information regarding you and your business.
+        <b>Verify your identity.</b> This is where Square collects legal
+        information regarding you and your business.
       </li>
       <li>
-        <strong>Add a bank account.</strong> In order to function, you need to
-        add a bank account to Square. Payments you accept will be deposited into
-        this account.
+        <b>Add a bank account.</b> In order to function, you need to add a bank
+        account to Square. Payments you accept will be deposited into this
+        account.
       </li>
       <li>
-        <strong>Get the app.</strong> This is the main requirement. You are able
-        to get this app on your iPhone, Android phone, iPad, and even your iPod.
-        I’m able to accept payments on my 3 year old iPod Touch!
+        <b>Get the app.</b> This is the main requirement. You are able to get
+        this app on your iPhone, Android phone, iPad, and even your iPod. I’m
+        able to accept payments on my 3 year old iPod Touch!
       </li>
       <li>
-        <strong>Join the Square Directory.</strong> Square has a public
-        directory where people are able to search for businesses they might
-        need. You are asked to create a Public Profile, which is the information
-        that comes up when you show up in a search.
+        <b>Join the Square Directory.</b> Square has a public directory where
+        people are able to search for businesses they might need. You are asked
+        to create a Public Profile, which is the information that comes up when
+        you show up in a search.
       </li>
       <li>
-        <strong>Accept payments!</strong> Plug the Square Card Reader into the
-        iPhone jack of your device. Open the Square app. Swipe your client’s
-        card. From now on, this is all you have to do.
+        <b>Accept payments!</b> Plug the Square Card Reader into the iPhone jack
+        of your device. Open the Square app. Swipe your client’s card. From now
+        on, this is all you have to do.
       </li>
     </ol>
     <p>

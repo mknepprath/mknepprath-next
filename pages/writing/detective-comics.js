@@ -23,9 +23,9 @@ export default () => (
       DC is in a great place. Marvel’s done all the legwork of putting together
       a expansive, yet cohesive, cinematic universe. It’s all there — the
       planning, the timing, the pacing… DC should be taking this roadmap and
-      improving upon it. They even have the perfect hook —{" "}
-      <strong>Batman</strong>. Instead, DC appears to be trying to copy Marvel
-      as closely as it can. Poorly.
+      improving upon it. They even have the perfect hook — <b>Batman</b>.
+      Instead, DC appears to be trying to copy Marvel as closely as it can.
+      Poorly.
     </p>
     <p>
       Case in point: Zack Snyder. Snyder is not Whedon no matter how much DC

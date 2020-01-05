@@ -78,12 +78,10 @@ export default () => (
       their operation.
     </p>
     <p>
-      <strong>
-        When we see bad design we tend to see them as less credible and
-      </strong>{" "}
-      <strong>
+      <b>When we see bad design we tend to see them as less credible and</b>{" "}
+      <b>
         the same is true with politics whether we are aware of it or not. &nbsp;
-      </strong>
+      </b>
     </p>
     <p>
       I have spent a lot of time talking about Obama and how good his campaign
@@ -104,11 +102,11 @@ export default () => (
       on a variety of reasons and design usually isn’t one of them.
     </p>
     <p>
-      <strong>
+      <b>
         However, good design makes you want to share it and that is the ultimate
         goal of any institution that is convicted by its cause; sharing the
         message.
-      </strong>
+      </b>
     </p>
     <p>
       Good design might win over that person on the fence or that person who

@@ -39,18 +39,18 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>Materials can and will be purchased in bulk.</strong> Rather
-        than buying plates, cups, decorations, brackets, etc, we will be capable
-        of buying materials like plastic in bulk the same way we buy paper and
-        ink for printing. By always having these raw materials available, we are
-        only limited by the number of 3D models available online. If you know
-        how to use a 3D modeling program, you may not be limited at all.
+        <b>Materials can and will be purchased in bulk.</b> Rather than buying
+        plates, cups, decorations, brackets, etc, we will be capable of buying
+        materials like plastic in bulk the same way we buy paper and ink for
+        printing. By always having these raw materials available, we are only
+        limited by the number of 3D models available online. If you know how to
+        use a 3D modeling program, you may not be limited at all.
       </li>
       <li>
-        <strong>
+        <b>
           Mass production of small items will be much less common, if not
           entirely unnecessary.
-        </strong>{" "}
+        </b>{" "}
         Instead of producing a million copies of a product and hoping they’ll
         sell, household 3D printers allow for an on-demand system. As consumers,
         we will no longer have to go to the store and hope they have a
@@ -58,27 +58,23 @@ export default () => (
         ourselves, and even design it ourselves with the proper training.
       </li>
       <li>
-        <strong>
-          3D printer-friendly digital models will become a big market.
-        </strong>{" "}
-        As mentioned above, a large online market will form around printable 3D
+        <b>3D printer-friendly digital models will become a big market.</b> As
+        mentioned above, a large online market will form around printable 3D
         models. There will be many open source models available, many of them
         meeting the basic needs of individuals, such as a full dining set.
       </li>
       <li>
-        <strong>It will be much easier to be a stop-motion hobbyist.</strong>{" "}
-        This one’s not for everyone, but 3D printers will most likely bring
-        about a big wave of aspiring animators. What level of animation can be
-        achieved with 3D printers? Watch Coraline and{" "}
+        <b>It will be much easier to be a stop-motion hobbyist.</b> This one’s
+        not for everyone, but 3D printers will most likely bring about a big
+        wave of aspiring animators. What level of animation can be achieved with
+        3D printers? Watch Coraline and{" "}
         <a href="http://images.businessweek.com/ss/09/04/0415_how_to_innovate/9.htm">
           you’ll see
         </a>
         .
       </li>
       <li>
-        <strong>
-          Recycling materials within the household will become more common.
-        </strong>{" "}
+        <b>Recycling materials within the household will become more common.</b>{" "}
         Getting sick of your old decorations? Why not stick them back into your
         3D printer and create something new? Not only that, but if you
         absolutely need a plate for a guest, you can stick anything you no

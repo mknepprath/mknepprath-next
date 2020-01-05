@@ -28,27 +28,26 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>Add your channels.</strong> In order to work, you need to add
-        your services to IFTTT. These services are called channels. Go the the
+        <b>Add your channels.</b> In order to work, you need to add your
+        services to IFTTT. These services are called channels. Go the the
         Channels tab to add yours.
       </li>
       <li>
-        <strong>Use pre-built recipes.</strong> When two services are combined
-        like in the examples above, they are called a recipe. Many recipes have
-        already been built and shared by others on the Browse page, the most
-        popular being ‘When Facebook profile picture changes, update Twitter
-        profile picture.’
+        <b>Use pre-built recipes.</b> When two services are combined like in the
+        examples above, they are called a recipe. Many recipes have already been
+        built and shared by others on the Browse page, the most popular being
+        ‘When Facebook profile picture changes, update Twitter profile picture.’
       </li>
       <li>
-        <strong>Build your own recipes.</strong> There are already a large
-        number of recipes available, but if you can’t find the one you need,
-        it’s possible to build your own. Click on the Create tab and follow the
-        seven steps to get the results you are looking for.
+        <b>Build your own recipes.</b> There are already a large number of
+        recipes available, but if you can’t find the one you need, it’s possible
+        to build your own. Click on the Create tab and follow the seven steps to
+        get the results you are looking for.
       </li>
       <li>
-        <strong>Share your recipes.</strong> If you needed to build a recipe to
-        receive updates from Jugglers Anonymous in your email, then you’re
-        probably not the only one. Share your recipe on IFTTT for others to use.
+        <b>Share your recipes.</b> If you needed to build a recipe to receive
+        updates from Jugglers Anonymous in your email, then you’re probably not
+        the only one. Share your recipe on IFTTT for others to use.
       </li>
     </ol>
     <p>

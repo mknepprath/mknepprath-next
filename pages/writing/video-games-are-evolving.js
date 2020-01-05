@@ -23,8 +23,8 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>Non-player characters.</strong> By connecting a Kinect sensor
-        with some augmented reality glasses, a man has{" "}
+        <b>Non-player characters.</b> By connecting a Kinect sensor with some
+        augmented reality glasses, a man has{" "}
         <a href="http://www.sciencespacerobots.com/blog/71520123">
           already created a life-sized NPC
         </a>{" "}
@@ -39,8 +39,8 @@ export default () => (
         and the environment around them.
       </li>
       <li>
-        <strong>Tall grass.</strong> Holophonic sound is going to bring this
-        whole experience to life, but it could be especially useful for finding
+        <b>Tall grass.</b> Holophonic sound is going to bring this whole
+        experience to life, but it could be especially useful for finding
         Pokémon. If you wanted to find one in the games thus far, you’d walk
         around in tall grass until you basically tripped on one. With this new
         game, tall grass would be randomly generated in certain spots on the
@@ -50,18 +50,17 @@ export default () => (
         <a href="http://www.youtube.com/watch?v=x5G3HUiscW4">this realistic</a>.
       </li>
       <li>
-        <strong>Shops & Pokémon Centers.</strong> Here’s how actual businesses
-        could get involved in this game. A store like Target could place a
-        marker anywhere in their store. This marker tells your goggles to put a
-        shop there. Virtual shelves are lined with virtual goods, such as
-        pokéballs and healing potions. These items can be purchased with the
-        in-game money. If Target wants to capitalize on this extra virtual
-        business, they can offer store-exclusive content that can be purchased
-        with real money.
+        <b>Shops & Pokémon Centers.</b> Here’s how actual businesses could get
+        involved in this game. A store like Target could place a marker anywhere
+        in their store. This marker tells your goggles to put a shop there.
+        Virtual shelves are lined with virtual goods, such as pokéballs and
+        healing potions. These items can be purchased with the in-game money. If
+        Target wants to capitalize on this extra virtual business, they can
+        offer store-exclusive content that can be purchased with real money.
       </li>
       <li>
-        <strong>Battle.</strong> Although I’d prefer that they move away from
-        their current turn-based system, all I really want is to see the fight
+        <b>Battle.</b> Although I’d prefer that they move away from their
+        current turn-based system, all I really want is to see the fight
         happening between my and my opponent. Whether they create new battle
         mechanics, or set it up Pokémon Stadium-style, I don’t care.
       </li>

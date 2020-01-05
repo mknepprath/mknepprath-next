@@ -78,8 +78,8 @@ export default () => (
     </p>
     <p>
       Do you see where I’m going with this?{" "}
-      <strong>Facebook Paper Sections should be Facebook lists.</strong> And
-      here are the reasons I find it particularly obvious:
+      <b>Facebook Paper Sections should be Facebook lists.</b> And here are the
+      reasons I find it particularly obvious:
     </p>
     <ol>
       <li>
@@ -105,7 +105,7 @@ export default () => (
       more useful and powerful features as needed.
     </p>
     <p>
-      <strong>Bonus read:</strong>{" "}
+      <b>Bonus read:</b>{" "}
       <a href="http://blog.brianlovin.com/design-details-paper-by-facebook">
         Design Details: Paper by Facebook
       </a>{" "}
