@@ -26,8 +26,8 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>Install the Pocket extension or bookmarklet.</strong> To get the
-        most out of this service, you’ll want to{" "}
+        <b>Install the Pocket extension or bookmarklet.</b> To get the most out
+        of this service, you’ll want to{" "}
         <a href="http://getpocket.com/add/">
           install the Chrome extension or bookmarklet
         </a>
@@ -37,21 +37,20 @@ export default () => (
         such as Twitter.
       </li>
       <li>
-        <strong>Send all articles to the Pocket queue.</strong> The goal of
-        Pocket is to save all the articles you want to read for later, when you
-        have time set aside to read them. This would ideally be a time when you
-        have nothing else you are capable of accomplishing, like on a bus ride
-        or on a plane. When you come across an article you want to read, click
-        the extension or bookmarklet, and the article will be sent to your
-        queue. That’s it. If you see a tweet that links to an article you want
-        to read, click on the tweet, and then click Pocket. Pocket even claims
-        to be integrated into 300+ different apps, including Flipboard. It’s
-        extremely easy to collect articles from every source you might be
-        browsing on a regular basis.
+        <b>Send all articles to the Pocket queue.</b> The goal of Pocket is to
+        save all the articles you want to read for later, when you have time set
+        aside to read them. This would ideally be a time when you have nothing
+        else you are capable of accomplishing, like on a bus ride or on a plane.
+        When you come across an article you want to read, click the extension or
+        bookmarklet, and the article will be sent to your queue. That’s it. If
+        you see a tweet that links to an article you want to read, click on the
+        tweet, and then click Pocket. Pocket even claims to be integrated into
+        300+ different apps, including Flipboard. It’s extremely easy to collect
+        articles from every source you might be browsing on a regular basis.
       </li>
       <li>
-        <strong>Read the articles.</strong> When you want to read these saved
-        articles later, Pocket allows you to view your queue on{" "}
+        <b>Read the articles.</b> When you want to read these saved articles
+        later, Pocket allows you to view your queue on{" "}
         <a href="http://getpocket.com/">their website</a> or through their app
         for iPhone, iPad, and Android.
       </li>

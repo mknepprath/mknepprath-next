@@ -28,29 +28,29 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>Tailor your images for the audience. </strong>As mentioned
-        earlier, Pinterest is primarily women. As such, it’s not surprising that
-        some of the top brands on the site are related to wedding planning,
-        parenting, chocolate, and clothing. You (or your business) don’t
-        necessarily have to fall into these categories, but be sure that you are
-        targeting the correct audience.
+        <b>Tailor your images for the audience. </b>As mentioned earlier,
+        Pinterest is primarily women. As such, it’s not surprising that some of
+        the top brands on the site are related to wedding planning, parenting,
+        chocolate, and clothing. You (or your business) don’t necessarily have
+        to fall into these categories, but be sure that you are targeting the
+        correct audience.
       </li>
       <li>
-        <strong>Create shareable images. </strong>The main size at which your
-        images will be viewed is relatively small, a measly 192 pixels across.
-        Therefore, if you are planning on including words, make them large
-        enough to be legible at that width. There will be a much greater chance
-        of people reading what you are attempting to share with them.
+        <b>Create shareable images. </b>The main size at which your images will
+        be viewed is relatively small, a measly 192 pixels across. Therefore, if
+        you are planning on including words, make them large enough to be
+        legible at that width. There will be a much greater chance of people
+        reading what you are attempting to share with them.
       </li>
       <li>
-        <strong>Be aware of the trends.</strong> Speaking of including words in
-        your pins, doing just that is highly recommended. Inspirational quotes
-        go viral frequently, as many users like and relate to them. Other trends
-        include food, hair, shoes, dresses, and design.
+        <b>Be aware of the trends.</b> Speaking of including words in your pins,
+        doing just that is highly recommended. Inspirational quotes go viral
+        frequently, as many users like and relate to them. Other trends include
+        food, hair, shoes, dresses, and design.
       </li>
       <li>
-        <strong>Create a gallery on your website.</strong> This mainly applies
-        to businesses, and is also where the marketing value of Pinterest lies.
+        <b>Create a gallery on your website.</b> This mainly applies to
+        businesses, and is also where the marketing value of Pinterest lies.
         When a person pins an interesting or beautiful image from a website,
         their friends will start to share it with each other. Then their friends
         share it with their friends. If that doesn’t already sound amazing,
@@ -58,10 +58,10 @@ export default () => (
         they were originally pinned from. Yours.
       </li>
       <li>
-        <strong>Consistently share new pins.</strong> The most important step is
-        also the most difficult. Be consistent. Add pins on a regular basis so
-        people have a reason to keep coming back. If your page grows stagnant,
-        they will stop checking.
+        <b>Consistently share new pins.</b> The most important step is also the
+        most difficult. Be consistent. Add pins on a regular basis so people
+        have a reason to keep coming back. If your page grows stagnant, they
+        will stop checking.
       </li>
     </ol>
     <p>

@@ -55,11 +55,11 @@ class Breathe extends React.Component {
           A List Apart had a great article about the use of whitespace in web
           design entitled simply,{" "}
           <a href="http://alistapart.com/article/whitespace/">Whitespace</a>.
-          This piece refers to a concept called{" "}
-          <strong>active whitespace</strong>, "whitespace added to a composition
-          to better emphasize or structure, information." In code, use
-          whitespace (blank lines) to clearly separate imports, methods, and so
-          on. Here's an example from this website:
+          This piece refers to a concept called <b>active whitespace</b>,
+          "whitespace added to a composition to better emphasize or structure,
+          information." In code, use whitespace (blank lines) to clearly
+          separate imports, methods, and so on. Here's an example from this
+          website:
         </p>
         <pre>
           <code className="language-javascript">
@@ -120,9 +120,9 @@ class Breathe extends React.Component {
           </code>
         </pre>
         <p>
-          Given the two options above, <strong>Example B</strong> allows for
-          more breathing room. It's easier to understand at a glance. Multiply{" "}
-          <strong>Example A</strong> by a dozen elements with varying numbers of
+          Given the two options above, <b>Example B</b> allows for more
+          breathing room. It's easier to understand at a glance. Multiply{" "}
+          <b>Example A</b> by a dozen elements with varying numbers of
           attributes and it becomes increasingly difficult to see where
           attributes end and text/nested elements begin. I propose that when
           choosing between two lint rule options, always choose the one that
@@ -163,9 +163,9 @@ class Breathe extends React.Component {
         </pre>
         <p>
           While I love the brevity of Pug here, I personally think there's too
-          much left to the imagination. Again, multiply{" "}
-          <strong>Example A</strong> by a dozen different nested elements and it
-          becomes dense and difficult to parse.
+          much left to the imagination. Again, multiply <b>Example A</b> by a
+          dozen different nested elements and it becomes dense and difficult to
+          parse.
         </p>
 
         <h2 id="breathe">Breathe!</h2>

@@ -34,32 +34,30 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>It’s true eyewitness news. </strong>This is the most real news
-        has ever been. We’re reading firsthand reports from people who were in
-        or near the incident. Because of this, it’s also much more personal. It
-        was a heart-wrenching moment when a link to the Twitter account of one
-        of the victims was shared, and their last tweet was about how excited
-        they were for the movie that was starting in twenty minutes.
+        <b>It’s true eyewitness news.</b> This is the most real news has ever
+        been. We’re reading firsthand reports from people who were in or near
+        the incident. Because of this, it’s also much more personal. It was a
+        heart-wrenching moment when a link to the Twitter account of one of the
+        victims was shared, and their last tweet was about how excited they were
+        for the movie that was starting in twenty minutes.
       </li>
       <li>
-        <strong>It’s live. </strong>Information and photos were being posted as
-        they were found or captured. The filter was removed, and everything the
-        witnesses found shareable was shared.
+        <b>It’s live.</b> Information and photos were being posted as they were
+        found or captured. The filter was removed, and everything the witnesses
+        found shareable was shared.
       </li>
       <li>
-        <strong>It’s a two-way conversation. </strong>Rather than being
-        spoon-fed the news, it was actually possible to ask questions of the
-        victims and others present. Because of this, those providing the news
-        knew exactly what the public was looking for, and provided details
-        accordingly.
+        <b>It’s a two-way conversation.</b> Rather than being spoon-fed the
+        news, it was actually possible to ask questions of the victims and
+        others present. Because of this, those providing the news knew exactly
+        what the public was looking for, and provided details accordingly.
       </li>
       <li>
-        <strong>People are interested. </strong>When news is crowdsourced, it
-        requires the input of many people. These people are only going to
-        contribute what they deem interesting, and what others seem to find
-        interesting. This process cuts out all of the fluff news we see on TV
-        today, the news created to fill time and take up space when nothing else
-        is going on.
+        <b>People are interested.</b> When news is crowdsourced, it requires the
+        input of many people. These people are only going to contribute what
+        they deem interesting, and what others seem to find interesting. This
+        process cuts out all of the fluff news we see on TV today, the news
+        created to fill time and take up space when nothing else is going on.
       </li>
     </ol>
     <p>

@@ -31,9 +31,9 @@ export default () => (
       </li>
       <li>
         Not long after I had the idea, Twitter released an update that separated{" "}
-        <strong>Tweets</strong> and <strong>Tweets & replies</strong> into
-        separate tabs. This means that your main Tweets feed won’t get bogged
-        down with game tweets — they’d only be visible under Tweets & replies.
+        <b>Tweets</b> and <b>Tweets & replies</b> into separate tabs. This means
+        that your main Tweets feed won’t get bogged down with game tweets —
+        they’d only be visible under Tweets & replies.
       </li>
       <li>
         Finally, Twitter is still{" "}

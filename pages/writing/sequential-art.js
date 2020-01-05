@@ -73,9 +73,9 @@ export default () => (
       <a href="https://twitter.com/mknepprath/status/1024083111091597312">
         a thread
       </a>{" "}
-      that now includes 19 short comics. This first one,{" "}
-      <strong>Sequential Art™</strong> was meant to be a light-hearted jab at
-      the self-seriousness of some comic artists.
+      that now includes 19 short comics. This first one, <b>Sequential Art™</b>{" "}
+      was meant to be a light-hearted jab at the self-seriousness of some comic
+      artists.
     </p>
     <img
       alt="Sequential stress"
@@ -84,9 +84,8 @@ export default () => (
     />
     <p>
       I tried my hand at social commentary for my 4th comic,{" "}
-      <strong>Sequential Stress™</strong>. These panels ended up being featured
-      in Owen Williams' (<a href="http://twitter.com/ow">@ow</a>) article
-      entitled, "
+      <b>Sequential Stress™</b>. These panels ended up being featured in Owen
+      Williams' (<a href="http://twitter.com/ow">@ow</a>) article entitled, "
       <a href="https://char.gd/blog/2019/mobile-notifications-are-broken-its-time-to-fix-them">
         Notifications are broken. It's time to fix them.
       </a>
