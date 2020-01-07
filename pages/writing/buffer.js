@@ -25,30 +25,30 @@ export default () => (
     </p>
     <ol>
       <li>
-        <strong>
+        <b>
           Install the{" "}
           <a href="http://bufferapp.com/extras">Buffer extensions and apps</a>.
-        </strong>{" "}
+        </b>{" "}
         You need these if you want to take full advantage of Buffer. I use the
         Chrome extension, which puts Buffer at the top of the browser at all
         times, and also integrates a Buffer button into Twitter, Facebook,
         Reddit, and many more websites.
       </li>
       <li>
-        <strong>Keep your Buffer queue full.</strong> Whenever you find anything
-        you want to tweet, click Buffer. A window will open where you can tweak
-        the post that is automatically generated. Once you’ve perfected the
-        post, click Add to Buffer.
+        <b>Keep your Buffer queue full.</b> Whenever you find anything you want
+        to tweet, click Buffer. A window will open where you can tweak the post
+        that is automatically generated. Once you’ve perfected the post, click
+        Add to Buffer.
       </li>
       <li>
-        <strong>Reorder tweets & tweak settings.</strong> When you visit
-        Buffer’s website, you will be taken to your dashboard. Here you are able
-        to see all of your tweets and what times they are scheduled to go live.
-        You’re able to switch the order, edit the posts, and edit the default
-        schedule. As you use Buffer more, you’ll begin to discover which times
-        are the most effective and which ones may need to be changed. The
-        default schedule was calculated to be the most ideal for everyone, not
-        necessarily for your audience.
+        <b>Reorder tweets & tweak settings.</b> When you visit Buffer’s website,
+        you will be taken to your dashboard. Here you are able to see all of
+        your tweets and what times they are scheduled to go live. You’re able to
+        switch the order, edit the posts, and edit the default schedule. As you
+        use Buffer more, you’ll begin to discover which times are the most
+        effective and which ones may need to be changed. The default schedule
+        was calculated to be the most ideal for everyone, not necessarily for
+        your audience.
       </li>
     </ol>
     <p>

@@ -62,14 +62,14 @@ class CreateAWebsite extends React.Component {
         </p>
         <ol>
           <li>
-            Click the "+" icon at the top right and select{" "}
-            <strong>New repository</strong>.
+            Click the "+" icon at the top right and select <b>New repository</b>
+            .
           </li>
           <li>
-            Type in a <strong>Repository name</strong>.
+            Type in a <b>Repository name</b>.
           </li>
           <li>
-            Click <strong>Create repository</strong>.
+            Click <b>Create repository</b>.
           </li>
         </ol>
 
@@ -81,18 +81,18 @@ class CreateAWebsite extends React.Component {
         </p>
         <ol>
           <li>
-            Click <strong>creating a new file</strong>.
+            Click <b>creating a new file</b>.
           </li>
           <li>
-            Where it says <strong>Name your file...</strong>, enter{" "}
+            Where it says <b>Name your file...</b>, enter{" "}
             <code className="language-text">index.html</code>.
           </li>
           <li>
-            Populate the page with some HTML. See{" "}
-            <strong>index.html Example</strong> below.
+            Populate the page with some HTML. See <b>index.html Example</b>{" "}
+            below.
           </li>
           <li>
-            Click <strong>Commit new file</strong> at the bottom.
+            Click <b>Commit new file</b> at the bottom.
           </li>
         </ol>
 
@@ -129,11 +129,11 @@ class CreateAWebsite extends React.Component {
         </p>
         <ul>
           <li>
-            Go to <strong>Settings</strong> at the top right.
+            Go to <b>Settings</b> at the top right.
           </li>
           <li>
-            Scroll all the way down to the <strong>GitHub Pages</strong> section
-            - it will now display a URL that looks similar to this:
+            Scroll all the way down to the <b>GitHub Pages</b> section - it will
+            now display a URL that looks similar to this:
             https://github.com/username/example-site.
           </li>
           <li>Click on it to see your website.</li>
@@ -141,8 +141,8 @@ class CreateAWebsite extends React.Component {
 
         <h2>Add a Custom Domain</h2>
         <p>
-          Under the <strong>GitHub Pages</strong> section, there is a{" "}
-          <strong>Custom domain</strong> section.
+          Under the <b>GitHub Pages</b> section, there is a <b>Custom domain</b>{" "}
+          section.
         </p>
         <ul>
           <li>Enter the domain you purchased into that field.</li>
