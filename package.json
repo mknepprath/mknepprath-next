@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "build:rss": "node ./data/rss-feed.js",
     "start": "next start"
   },
   "repository": {

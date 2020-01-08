@@ -1,12 +1,15 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2012-08-13",
+  title: "3D Printing and the End of the Industrial Age"
+};
+
 export default () => (
-  <BlogPage
-    dateTime="2012-08-13"
-    title="3D Printing and the End of the Industrial Age"
-  >
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>3D Printing and the End of the Industrial Age</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>
