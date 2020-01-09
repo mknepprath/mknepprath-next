@@ -13,7 +13,11 @@ const feed = {
   description: "A description of a website",
   icon: "https://mknepprath.com/assets/apple-touch-icon-152x152.png",
   favicon: "https://mknepprath.com/assets/favicon.ico",
-  author: "Michael Knepprath",
+  author: {
+    name: "Michael Knepprath",
+    url: "https://mknepprath.com",
+    avatar: "https://mknepprath.com/assets/memoji.png"
+  },
   items: posts.map(post => ({
     id: `https://mknepprath.com/writing/${post.id}`,
     url: `https://mknepprath.com/writing/${post.id}`,
@@ -21,7 +25,7 @@ const feed = {
     content_text: `${post.title} - https://mknepprath.com/writing/${post.id}`,
     summary: post.summary,
     image: post.image ? `https://mknepprath.com/${post.image}` : undefined,
-    date_published: `${post.publishedAt}T15:00:00Z`,
+    date_published: post.publishedAt,
     author: "Michael Knepprath"
   }))
 };
