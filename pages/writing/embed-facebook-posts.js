@@ -1,9 +1,14 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  publishedAt: "2013-10-17",
+  title: "Embed Facebook Posts"
+};
+
 export default () => (
-  <BlogPage dateTime="2013-10-17" title="Embed Facebook Posts">
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>Embed Facebook Posts</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

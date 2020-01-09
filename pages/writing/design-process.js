@@ -1,14 +1,22 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2019-09-07",
+  summary: "If I were to be asked to design an app, where would I start?",
+  image: "/assets/design-process.jpg",
+  title: "Thoughts on Design Process"
+};
+
 export default () => (
   <BlogPage
-    dateTime="2019-09-07"
-    description="If I were to be asked to design an app, where would I start?"
-    ogImage="/assets/design-process.jpg"
-    title="Thoughts on Design Process"
+    dateTime={meta.publishedAt}
+    description={meta.summary}
+    ogImage={meta.image}
+    title={meta.title}
   >
     <header>
-      <h1>Thoughts on Design Process</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <img

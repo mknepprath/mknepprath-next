@@ -1,7 +1,7 @@
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  published: true,
+  published: false,
   publishedAt: "2013-12-20",
   title: "App Of The Year: Duolingo"
 };

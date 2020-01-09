@@ -1,12 +1,15 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2012-07-24",
+  title: "You Can Now Accept Credit Cards with Square"
+};
+
 export default () => (
-  <BlogPage
-    dateTime="2012-07-24"
-    title="You Can Now Accept Credit Cards with Square"
-  >
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>You Can Now Accept Credit Cards with Square</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

@@ -1,12 +1,15 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2012-07-23",
+  title: "Leverage the Combined Power of Your Services with IFTTT"
+};
+
 export default () => (
-  <BlogPage
-    dateTime="2012-07-23"
-    title="Leverage the Combined Power of Your Services with IFTTT"
-  >
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>Leverage the Combined Power of Your Services with IFTTT</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

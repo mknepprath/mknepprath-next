@@ -1,14 +1,14 @@
 import BlogPage from "core/blog-page";
 
 export const meta = {
+  image: "/assets/2019-in-review-1.png",
   published: true,
   publishedAt: "2019-12-29",
-  title: "2019 in Review",
   summary: "A look at my accomplishments during the past year.",
-  image: "/assets/2019-in-review-1.png"
+  title: "2019 in Review"
 };
 
-export default () => (
+const Review2019 = () => (
   <BlogPage
     dateTime={meta.publishedAt}
     description={meta.summary}
@@ -235,3 +235,5 @@ export default () => (
     <p>👋</p>
   </BlogPage>
 );
+
+export default Review2019;

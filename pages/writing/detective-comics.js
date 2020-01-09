@@ -1,7 +1,13 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2015-04-29",
+  title: "How DC Is Failing Us All"
+};
+
 export default () => (
-  <BlogPage dateTime="2015-04-29" title="How DC Is Failing Us All">
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <img
       alt="The Joker in a box office booth"
       className="blog-image"
@@ -9,7 +15,7 @@ export default () => (
     />
 
     <header>
-      <h1>How DC Is Failing Us All</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

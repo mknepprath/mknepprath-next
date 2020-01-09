@@ -2,6 +2,14 @@ import Prism from "prismjs";
 
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2019-07-22",
+  summary: "A quick guide for setting up a new website with GitHub.",
+  image: "/assets/create-a-website1.jpg",
+  title: "Create a Simple Website with GitHub Pages"
+};
+
 class CreateAWebsite extends React.Component {
   componentDidMount() {
     // Syntax highlighting needs to be triggered after the page is rendered.
@@ -12,10 +20,10 @@ class CreateAWebsite extends React.Component {
   render() {
     return (
       <BlogPage
-        dateTime="2019-07-22"
-        description="A quick guide for setting up a new website with GitHub."
-        ogImage="/assets/create-a-website1.jpg"
-        title="Create a Simple Website with GitHub Pages"
+        dateTime={meta.publishedAt}
+        description={meta.summary}
+        ogImage={meta.image}
+        title={meta.title}
       >
         <img
           alt="Illustration of a browser window"
@@ -24,7 +32,7 @@ class CreateAWebsite extends React.Component {
         />
 
         <header>
-          <h1>Create a Simple Website with GitHub Pages</h1>
+          <h1>{meta.title}</h1>
         </header>
 
         <p>

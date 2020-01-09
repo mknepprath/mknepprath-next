@@ -1,4 +1,5 @@
 // External
+import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 import { withRouter } from "next/router";
@@ -35,7 +36,7 @@ const Writing = ({ posts, router }) => (
                 </a>
               </Link>{" "}
               <small>
-                {post.date}
+                {format(parseISO(post.date), "MMMM d, yyyy")}
                 {/* If displaying all posts, label the unpublished ones. */}
                 {router.query.all && (post.published ? "" : " • Unlisted")}
               </small>

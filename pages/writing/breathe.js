@@ -2,6 +2,14 @@ import Prism from "prismjs";
 
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  image: "/assets/breathe-1.jpg",
+  published: true,
+  publishedAt: "2019-08-03",
+  summary: "What if we let our code breathe a little?",
+  title: "Code Should Breathe"
+};
+
 class Breathe extends React.Component {
   componentDidMount() {
     // Syntax highlighting needs to be triggered after the page is rendered.
@@ -12,19 +20,19 @@ class Breathe extends React.Component {
   render() {
     return (
       <BlogPage
-        dateTime="2019-08-03"
-        description="What if we let our code breathe a little?"
-        ogImage="/assets/breathe-1.jpg"
-        title="Code Should Breathe"
+        dateTime={meta.publishedAt}
+        description={meta.summary}
+        ogImage={meta.image}
+        title={meta.title}
       >
         <img
           alt="A feather"
           className="blog-image"
-          src="/assets/breathe-1.jpg"
+          src={"/assets/breathe-1.jpg"}
         />
 
         <header>
-          <h1>Code Should Breathe</h1>
+          <h1>{meta.title}</h1>
         </header>
 
         <p>

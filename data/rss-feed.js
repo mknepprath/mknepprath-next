@@ -10,7 +10,7 @@ const feed = {
   title: "M. Knepprath",
   home_page_url: "https://mknepprath.com",
   feed_url: "https://mknepprath.com/feed.json",
-  description: "A description of a website",
+  description: "Michael Knepprath is a Software Engineer at Walmart Labs.",
   icon: "https://mknepprath.com/assets/apple-touch-icon-152x152.png",
   favicon: "https://mknepprath.com/assets/favicon.ico",
   author: {
@@ -25,14 +25,11 @@ const feed = {
     content_text: `${post.title} - https://mknepprath.com/writing/${post.id}`,
     summary: post.summary,
     image: post.image ? `https://mknepprath.com/${post.image}` : undefined,
-    date_published: `${post.publishedAt}T15:00:00Z`,
-    author: {
-      name: "Michael Knepprath",
-      url: "https://mknepprath.com",
-      avatar: "https://mknepprath.com/assets/memoji.png"
-    }
+    date_published: `${post.publishedAt}T15:00:00Z`
   }))
 };
+
+console.log(feed.items.length);
 
 function generateRSSFeed(dir = OUT_DIR) {
   console.log("generating feed:", feed);

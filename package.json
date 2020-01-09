@@ -7,6 +7,7 @@
     "dev": "next",
     "build": "next build",
     "build:rss": "node ./data/rss-feed.js",
+    "build:posts": "node ./data/post-feed.js",
     "start": "next start"
   },
   "repository": {

@@ -16,8 +16,6 @@ function getContentFromFiles(arr, dir) {
       const contents = fs.readFileSync(name, "utf-8");
       const match = META.exec(contents);
 
-      if (!match || typeof match[1] !== "string") return {};
-
       if (!match || typeof match[1] !== "string") {
         throw new Error(`${name} needs to export const meta = {}`);
       }

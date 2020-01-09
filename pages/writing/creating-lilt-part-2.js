@@ -2,6 +2,12 @@ import Prism from "prismjs";
 
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2016-01-21",
+  title: "Creating Lilt — Part 2"
+};
+
 class CreatingLiltPart2 extends React.Component {
   componentDidMount() {
     // Syntax highlighting needs to be triggered after the page is rendered.
@@ -11,9 +17,9 @@ class CreatingLiltPart2 extends React.Component {
   }
   render() {
     return (
-      <BlogPage dateTime="2016-01-21" title="Creating Lilt — Part 2">
+      <BlogPage dateTime={meta.publishedAt} title={meta.title}>
         <header>
-          <h1>Creating Lilt — Part 2</h1>
+          <h1>{meta.title}</h1>
         </header>
 
         <p>

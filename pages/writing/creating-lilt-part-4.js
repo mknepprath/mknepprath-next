@@ -1,9 +1,15 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2016-03-20",
+  title: "Creating Lilt — Part 4"
+};
+
 export default () => (
-  <BlogPage dateTime="2016-03-20" title="Creating Lilt — Part 4">
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>Creating Lilt — Part 4</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

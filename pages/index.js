@@ -1,5 +1,6 @@
 // External
 import classnames from "classnames";
+import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 
@@ -45,7 +46,7 @@ export default () => (
                   <h2 className={styles.title}>{post.title}</h2>
                 </a>
               </Link>{" "}
-              <small>{post.date}</small>
+              <small>{format(parseISO(post.date), "MMMM d, yyyy")}</small>
             </header>
           </article>
         ))}

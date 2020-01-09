@@ -1,15 +1,22 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: false,
+  publishedAt: "2019-09-29",
+  summary: "What if 2001: A Space Odyssey, but with @robot_mk?",
+  title: "A Chat with MK 9000"
+};
+
 class MK9000 extends React.Component {
   render() {
     return (
       <BlogPage
-        dateTime="2019-09-29"
-        description="What if 2001: A Space Odyssey, but with @robot_mk?"
-        title="A Chat with MK 9000"
+        dateTime={meta.publishedAt}
+        description={meta.summary}
+        title={meta.title}
       >
         <header>
-          <h1>A Chat with MK 9000</h1>
+          <h1>{meta.title}</h1>
         </header>
 
         <p>

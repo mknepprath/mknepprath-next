@@ -3,10 +3,16 @@
 
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2014-01-03",
+  title: "Vine Introduces Web Profiles"
+};
+
 export default () => (
-  <BlogPage dateTime="2014-01-03" title="Vine Introduces Web Profiles">
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>Vine Introduces Web Profiles</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>
