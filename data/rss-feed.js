@@ -25,8 +25,12 @@ const feed = {
     content_text: `${post.title} - https://mknepprath.com/writing/${post.id}`,
     summary: post.summary,
     image: post.image ? `https://mknepprath.com/${post.image}` : undefined,
-    date_published: post.publishedAt,
-    author: "Michael Knepprath"
+    date_published: `${post.publishedAt}T15:00:00Z`,
+    author: {
+      name: "Michael Knepprath",
+      url: "https://mknepprath.com",
+      avatar: "https://mknepprath.com/assets/memoji.png"
+    }
   }))
 };
 
