@@ -8,8 +8,6 @@ const OUT_DIR = path.join(process.cwd(), "out");
 const postList = posts.map(post => ({
   date: post.publishedAt,
   id: post.id,
-  // TODO: Filtering out unpublished posts, so this can be removed.
-  published: post.published,
   title: post.title
 }));
 

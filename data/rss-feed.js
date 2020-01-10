@@ -23,7 +23,9 @@ const feed = {
     url: `https://mknepprath.com/writing/${post.id}`,
     title: post.title,
     content_text: post.summary,
-    summary: post.summary,
+    summary: `${
+      post.summary ? post.summary + " • " : ""
+    }https://mknepprath.com/writing/${post.id}`,
     image: post.image ? `https://mknepprath.com/${post.image}` : undefined,
     date_published: `${post.publishedAt}T15:00:00Z`
   }))

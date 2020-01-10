@@ -10,31 +10,34 @@ function getFiles(dir) {
 }
 
 function getContentFromFiles(arr, dir) {
-  return arr
-    .map((file, index) => {
-      const name = path.join(dir, file);
-      const contents = fs.readFileSync(name, "utf-8");
-      const match = META.exec(contents);
+  return (
+    arr
+      .map((file, index) => {
+        const name = path.join(dir, file);
+        const contents = fs.readFileSync(name, "utf-8");
+        const match = META.exec(contents);
 
-      console.log({ contents });
+        // TODO: Can I extract post content from `contents` and assign that to
+        // `content_text`... :\
 
-      if (!match || typeof match[1] !== "string") {
-        throw new Error(`${name} needs to export const meta = {}`);
-      }
+        if (!match || typeof match[1] !== "string") {
+          throw new Error(`${name} needs to export const meta = {}`);
+        }
 
-      const meta = eval("(" + match[1] + ")");
-      const id = file.replace(/\.js?$/, "");
+        const meta = eval("(" + match[1] + ")");
+        const id = file.replace(/\.js?$/, "");
 
-      return {
-        ...meta,
-        content_text: contents,
-        id,
-        path: dir.replace(process.cwd() + "/pages", "") + id,
-        index
-      };
-    })
-    .filter(meta => meta.published)
-    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+        return {
+          ...meta,
+          id,
+          path: dir.replace(process.cwd() + "/pages", "") + id,
+          index
+        };
+      })
+      .filter(meta => meta.published)
+      // TODO: Don't chain a sort.
+      .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+  );
 }
 
 const arrOfPosts = getFiles(POSTS_DIR);

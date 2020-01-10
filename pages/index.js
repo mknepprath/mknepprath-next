@@ -30,9 +30,6 @@ export default () => (
 
     <div className={classnames("container", styles.postContainer)}>
       {posts
-        // Including this query param will display all posts.
-        // https://mknepprath.com/writing?all=true
-        .filter(post => post.published)
         // The `sort` method can be conveniently used with function expressions:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
         .sort((a, b) => parseISO(b.date) - parseISO(a.date))

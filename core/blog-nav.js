@@ -13,7 +13,6 @@ import allPosts from "data/posts";
 import styles from "./blog-nav.css";
 
 const posts = allPosts
-  .filter(post => post.published)
   // The `sort` method can be conveniently used with function expressions:
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
   .sort((a, b) => parseISO(b.date) - parseISO(a.date));
