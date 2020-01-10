@@ -16,6 +16,8 @@ function getContentFromFiles(arr, dir) {
       const contents = fs.readFileSync(name, "utf-8");
       const match = META.exec(contents);
 
+      console.log({ contents });
+
       if (!match || typeof match[1] !== "string") {
         throw new Error(`${name} needs to export const meta = {}`);
       }
@@ -25,6 +27,7 @@ function getContentFromFiles(arr, dir) {
 
       return {
         ...meta,
+        content_text: contents,
         id,
         path: dir.replace(process.cwd() + "/pages", "") + id,
         index
