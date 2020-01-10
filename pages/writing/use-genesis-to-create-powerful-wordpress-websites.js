@@ -1,12 +1,17 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  publishedAt: "2012-07-26",
+  title: "Use Genesis to Create Powerful WordPress Websites"
+};
+
 export default () => (
   <BlogPage
-    dateTime="2012-07-26"
-    title="Use Genesis to Create Powerful WordPress Websites"
+    dateTime={meta.publishedAt}
+    title={meta.title}
   >
     <header>
-      <h1>Use Genesis to Create Powerful WordPress Websites</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

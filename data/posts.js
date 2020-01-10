@@ -1,311 +1,147 @@
-/** @type {Array<{ id: string, date: string, published: boolean, title: string }>} */
-const posts = [
+export default [
+  { date: "2019-12-29", id: "2019", title: "2019 in Review" },
+  { date: "2019-12-12", id: "sequential-art", title: "Sequential Art™" },
   {
-    id: "2019",
-    date: "December 29, 2019",
-    published: true,
-    title: "2019 in Review"
-  },
-  {
-    id: "sequential-art",
-    date: "December 12, 2019",
-    published: true,
-    title: "Sequential Art™"
-  },
-  {
-    id: "mk9000",
-    date: "September 29, 2019",
-    published: false,
-    title: "A Chat with MK 9000"
-  },
-  {
+    date: "2019-09-07",
     id: "design-process",
-    date: "September 7, 2019",
-    published: true,
     title: "Thoughts on Design Process"
   },
+  { date: "2019-08-03", id: "breathe", title: "Code Should Breathe" },
   {
-    id: "breathe",
-    date: "August 3, 2019",
-    published: true,
-    title: "Code Should Breathe"
-  },
-  {
+    date: "2019-07-22",
     id: "create-a-website",
-    date: "July 22, 2019",
-    published: true,
     title: "Create a Simple Website with GitHub Pages"
   },
   {
+    date: "2016-05-17",
     id: "creating-lilt-part-5",
-    date: "May 17, 2016",
-    published: true,
     title: "Creating Lilt — Part 5"
   },
   {
+    date: "2016-03-20",
     id: "creating-lilt-part-4",
-    date: "March 20, 2016",
-    published: true,
     title: "Creating Lilt — Part 4"
   },
   {
+    date: "2016-01-27",
     id: "creating-lilt-part-3",
-    date: "January 27, 2016",
-    published: true,
     title: "Creating Lilt — Part 3"
   },
   {
+    date: "2016-01-21",
     id: "creating-lilt-part-2",
-    date: "January 21, 2016",
-    published: true,
     title: "Creating Lilt — Part 2"
   },
   {
+    date: "2015-11-21",
     id: "creating-lilt-part-1",
-    date: "November 21, 2015",
-    published: true,
     title: "Creating Lilt — Part 1"
   },
   {
-    id: "lots-of-little-improvements",
-    date: "June 4, 2015",
-    published: false,
-    title: "Lots of Little Improvements"
-  },
-  {
+    date: "2015-04-29",
     id: "detective-comics",
-    date: "April 29, 2015",
-    published: true,
     title: "How DC Is Failing Us All"
   },
   {
-    id: "twitter-be-nice",
-    date: "March 14, 2015",
-    published: false,
-    title: "Twitter, Be Nice"
-  },
-  {
-    id: "thoughts-on-the-apple-watch",
-    date: "September 10, 2014",
-    published: false,
-    title: "Thoughts on the Apple Watch"
-  },
-  {
+    date: "2014-06-04",
     id: "family-sharing",
-    date: "June 4, 2014",
-    published: true,
     title: "The Significance of Family Sharing"
   },
   {
+    date: "2014-04-29",
     id: "apples-future-wearable",
-    date: "April 29, 2014",
-    published: true,
-    title: "Apple's Future Wearable"
+    title: "Apple’s Future Wearable"
   },
+  { date: "2014-04-02", id: "pokefy-your-skype", title: "Pokéfy Your Skype" },
   {
-    id: "pokefy-your-skype",
-    date: "April 2, 2014",
-    published: true,
-    title: "Pokéfy Your Skype"
-  },
-  {
-    id: "the-importance-of-design",
-    date: "March 20, 2014",
-    published: true,
-    title: "The Importance of Design"
-  },
-  {
+    date: "2014-03-20",
     id: "design-is-how-it-works",
-    date: "March 20, 2014",
-    published: true,
     title: "Design Is How It Works"
   },
   {
+    date: "2014-03-20",
+    id: "the-importance-of-design",
+    title: "The Importance of Design"
+  },
+  {
+    date: "2014-02-12",
     id: "my-only-suggestion-for-facebook-paper",
-    date: "February 12, 2014",
-    published: true,
     title: "My Only Suggestion For Facebook Paper"
   },
   {
+    date: "2014-01-03",
     id: "vine-introduces-web-profiles",
-    date: "January 3, 2014",
-    published: true,
     title: "Vine Introduces Web Profiles"
   },
   {
-    id: "app-of-the-year-duolingo",
-    date: "December 20, 2013",
-    published: false,
-    title: "App Of The Year: Duolingo"
-  },
-  {
+    date: "2013-12-19",
     id: "spotify-app-adds-free-option",
-    date: "December 19, 2013",
-    published: true,
     title: "Spotify App Adds Free Option"
   },
   {
+    date: "2013-12-16",
     id: "angry-birds-goes-nintendo",
-    date: "December 16, 2013",
-    published: true,
     title: "Angry Birds Goes Nintendo"
   },
   {
-    id: "steamos-available-december-13th",
-    date: "December 12, 2013",
-    published: false,
-    title: "SteamOS Available December 13th"
-  },
-  {
-    id: "instagram-direct",
-    date: "December 12, 2013",
-    published: true,
-    title: "Instagram Direct"
-  },
-  {
+    date: "2013-12-12",
     id: "ifttt-adds-ios-location",
-    date: "December 12, 2013",
-    published: true,
     title: "IFTTT Adds iOS Location"
   },
+  { date: "2013-12-12", id: "instagram-direct", title: "Instagram Direct" },
   {
+    date: "2013-10-30",
     id: "this-goes-out-to-gruber",
-    date: "October 30, 2013",
-    published: true,
     title: "Google's Android And The HTC/Amazon Rumor"
   },
   {
+    date: "2013-10-25",
     id: "googles-icons-on-ios",
-    date: "October 25, 2013",
-    published: true,
-    title: "Google's Icons On iOS"
+    title: "Google’s Icons On iOS"
   },
+  { date: "2013-10-16", id: "square-cash", title: "Square Cash" },
   {
-    id: "tweetbot-3",
-    date: "October 24, 2013",
-    published: false,
-    title: "Tweetbot 3"
-  },
-  {
-    id: "apple-television",
-    date: "October 23, 2013",
-    published: false,
-    title: "Why Does Everyone Think Apple Plans On Releasing A Television Set?"
-  },
-  {
-    id: "embed-facebook-posts",
-    date: "October 17, 2013",
-    published: false,
-    title: "Embed Facebook Posts"
-  },
-  {
-    id: "square-cash",
-    date: "October 16, 2013",
-    published: true,
-    title: "Square Cash"
-  },
-  {
-    id: "ios-7-flashlight",
-    date: "September 26, 2013",
-    published: true,
-    title: "iOS 7 Flashlight"
-  },
-  {
+    date: "2013-09-26",
     id: "instagram-for-ios-7",
-    date: "September 26, 2013",
-    published: true,
     title: "Instagram For iOS 7"
   },
+  { date: "2013-09-26", id: "ios-7-flashlight", title: "iOS 7 Flashlight" },
   {
+    date: "2013-09-24",
     id: "iphone-naming-conventions",
-    date: "September 24, 2013",
-    published: true,
     title: "iPhone Naming Conventions"
   },
+  { date: "2013-09-18", id: "ios-7-eve", title: "iOS 7 Eve" },
   {
-    id: "ios-7-eve",
-    date: "September 18, 2013",
-    published: true,
-    title: "iOS 7 Eve"
-  },
-  {
+    date: "2013-01-11",
     id: "highlighting-apples-most-serious-problem",
-    date: "January 11, 2013",
-    published: true,
     title: "Highlighting Apple's Most Serious Problem"
   },
+  { date: "2012-09-17", id: "get-things-done", title: "How I Get Things Done" },
   {
-    id: "leap-motion",
-    date: "January 2, 2013",
-    published: false,
-    title: "Leap Motion: Give Your Mouse A Break"
-  },
-  {
-    id: "get-things-done",
-    date: "September 17, 2012",
-    published: true,
-    title: "How I Get Things Done"
-  },
-  {
-    id: "design-in-politics",
-    date: "September 14, 2012",
-    published: false,
-    title: "Design In Politics"
-  },
-  {
+    date: "2012-08-13",
     id: "3d-printing",
-    date: "August 13, 2012",
-    published: false,
     title: "3D Printing and the End of the Industrial Age"
   },
   {
-    id: "crowdsourced-news",
-    date: "August 13, 2012",
-    published: false,
-    title: "The Advent of Crowdsourced News"
-  },
-  {
-    id: "use-genesis-to-create-powerful-wordpress-websites",
-    date: "July 26, 2012",
-    published: false,
-    title: "Use Genesis to Create Powerful WordPress Websites"
-  },
-  {
+    date: "2012-07-24",
     id: "introducing-square",
-    date: "July 24, 2012",
-    published: true,
     title: "You Can Now Accept Credit Cards with Square"
   },
   {
+    date: "2012-07-23",
     id: "ifttt",
-    date: "July 23, 2012",
-    published: true,
     title: "Leverage the Combined Power of Your Services with IFTTT"
   },
   {
+    date: "2012-07-19",
     id: "video-games-are-evolving",
-    date: "July 19, 2012",
-    published: true,
     title: "Video Games Are Evolving!"
   },
   {
+    date: "2012-07-10",
     id: "buffer",
-    date: "July 10, 2012",
-    published: true,
     title: "Become More Effective On Twitter with Buffer"
   },
-  {
-    id: "pocket",
-    date: "July 10, 2012",
-    published: true,
-    title: "Stay On Task with Pocket"
-  },
-  {
-    id: "pinterest",
-    date: "July 6, 2012",
-    published: false,
-    title: "Harness the Power of Pinterest"
-  }
+  { date: "2012-07-10", id: "pocket", title: "Stay On Task with Pocket" }
 ];
-
-export default posts;

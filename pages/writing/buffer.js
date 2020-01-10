@@ -1,12 +1,15 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2012-07-10",
+  title: "Become More Effective On Twitter with Buffer"
+};
+
 export default () => (
-  <BlogPage
-    dateTime="2012-07-10"
-    title="Become More Effective On Twitter with Buffer"
-  >
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>Become More Effective On Twitter with Buffer</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

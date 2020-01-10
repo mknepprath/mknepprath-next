@@ -1,14 +1,22 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: true,
+  publishedAt: "2019-12-12",
+  summary: "A comic retrospective.",
+  image: "/assets/comics-05.jpeg",
+  title: "Sequential Art™"
+};
+
 export default () => (
   <BlogPage
-    dateTime="2019-12-12"
-    description="A comic retrospective."
-    ogImage="/assets/comics-05.jpeg"
-    title="Sequential Art™"
+    dateTime={meta.publishedAt}
+    description={meta.summary}
+    ogImage={meta.image}
+    title={meta.title}
   >
     <header>
-      <h1>Sequential Art™</h1>
+      <h1>{meta.title}</h1>
     </header>
     <p>
       Comics, both web and traditional, have been a fascination of mine for some

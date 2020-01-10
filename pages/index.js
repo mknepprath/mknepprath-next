@@ -1,5 +1,6 @@
 // External
 import classnames from "classnames";
+import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 
@@ -29,9 +30,6 @@ export default () => (
 
     <div className={classnames("container", styles.postContainer)}>
       {posts
-        // Including this query param will display all posts.
-        // https://mknepprath.com/writing?all=true
-        .filter(post => post.published)
         // The `sort` method can be conveniently used with function expressions:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
         .sort((a, b) => parseISO(b.date) - parseISO(a.date))
@@ -45,7 +43,7 @@ export default () => (
                   <h2 className={styles.title}>{post.title}</h2>
                 </a>
               </Link>{" "}
-              <small>{post.date}</small>
+              <small>{format(parseISO(post.date), "MMMM d, yyyy")}</small>
             </header>
           </article>
         ))}

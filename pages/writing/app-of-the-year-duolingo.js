@@ -1,9 +1,15 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  published: false,
+  publishedAt: "2013-12-20",
+  title: "App Of The Year: Duolingo"
+};
+
 export default () => (
-  <BlogPage dateTime="2013-12-20" title="App Of The Year: Duolingo">
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>App Of The Year: Duolingo</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

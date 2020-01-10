@@ -1,9 +1,14 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  publishedAt: "2012-07-06",
+  title: "Harness the Power of Pinterest"
+};
+
 export default () => (
-  <BlogPage dateTime="2012-07-06" title="Harness the Power of Pinterest">
+  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
     <header>
-      <h1>Harness the Power of Pinterest</h1>
+      <h1>{meta.title}</h1>
     </header>
 
     <p>

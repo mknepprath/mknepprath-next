@@ -1,14 +1,22 @@
 import BlogPage from "core/blog-page";
 
+export const meta = {
+  image: "/assets/2019-in-review-1.png",
+  published: true,
+  publishedAt: "2019-12-29",
+  summary: "A look at my accomplishments during the past year.",
+  title: "2019 in Review"
+};
+
 export default () => (
   <BlogPage
-    dateTime="2019-12-29"
-    description="A look at my accomplishments during the past year."
-    ogImage="/assets/2019-in-review-1.png"
-    title="2019 in Review"
+    dateTime={meta.publishedAt}
+    description={meta.summary}
+    ogImage={meta.image}
+    title={meta.title}
   >
     <header>
-      <h1>2019 in Review</h1>
+      <h1>{meta.title}</h1>
     </header>
     <p>
       I didn't officially record or publish any goals for 2019, so these are

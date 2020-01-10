@@ -5,6 +5,9 @@
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "globals": {
+    "module": "writable",
+    "process": "writable",
+    "require": "writable",
     "Atomics": "readonly",
     "React": "writable",
     "SharedArrayBuffer": "readonly"

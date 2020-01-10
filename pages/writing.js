@@ -1,7 +1,7 @@
 // External
+import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import Link from "next/link";
-import { withRouter } from "next/router";
 import PropTypes from "prop-types";
 
 // Components
@@ -12,7 +12,7 @@ import posts from "data/posts";
 
 import styles from "./writing.css";
 
-const Writing = ({ posts, router }) => (
+const Writing = ({ posts }) => (
   <Page className="container" title="Michael Knepprath, Occasional Writer">
     <header>
       <h1>Writing</h1>
@@ -20,9 +20,6 @@ const Writing = ({ posts, router }) => (
 
     <main>
       {posts
-        // Including this query param will display all posts.
-        // https://mknepprath.com/writing?all=true
-        .filter(post => post.published || router.query.all)
         // The `sort` method can be conveniently used with function expressions:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
         .sort((a, b) => parseISO(b.date) - parseISO(a.date))
@@ -34,11 +31,7 @@ const Writing = ({ posts, router }) => (
                   <h2 className={styles.title}>{post.title}</h2>
                 </a>
               </Link>{" "}
-              <small>
-                {post.date}
-                {/* If displaying all posts, label the unpublished ones. */}
-                {router.query.all && (post.published ? "" : " • Unlisted")}
-              </small>
+              <small>{format(parseISO(post.date), "MMMM d, yyyy")}</small>
             </header>
           </article>
         ))}
@@ -55,10 +48,7 @@ Writing.getInitialProps = () => {
 };
 
 Writing.propTypes = {
-  posts: PropTypes.array,
-  router: PropTypes.shape({
-    query: PropTypes.object.isRequired
-  }).isRequired
+  posts: PropTypes.array
 };
 
-export default withRouter(Writing);
+export default Writing;
