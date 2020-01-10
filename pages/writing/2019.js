@@ -8,7 +8,7 @@ export const meta = {
   title: "2019 in Review"
 };
 
-const Review2019 = () => (
+export default () => (
   <BlogPage
     dateTime={meta.publishedAt}
     description={meta.summary}
@@ -235,5 +235,3 @@ const Review2019 = () => (
     <p>👋</p>
   </BlogPage>
 );
-
-export default Review2019;
