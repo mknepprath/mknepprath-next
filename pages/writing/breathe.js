@@ -28,7 +28,7 @@ class Breathe extends React.Component {
         <img
           alt="A feather"
           className="blog-image"
-          src={"/assets/breathe-1.jpg"}
+          src="/assets/breathe-1.jpg"
         />
 
         <header>
