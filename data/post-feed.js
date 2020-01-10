@@ -14,7 +14,7 @@ const postList = posts.map(post => ({
 }));
 
 function generateRSSFeed(dir = OUT_DIR) {
-  console.log("generating feed:", postList);
+  console.log("generating post list:", postList);
   console.log("path:", dir);
   fs.writeFileSync(
     path.join(dir, "posts.js"),

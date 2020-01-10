@@ -29,8 +29,6 @@ const feed = {
   }))
 };
 
-console.log(feed.items.length);
-
 function generateRSSFeed(dir = OUT_DIR) {
   console.log("generating feed:", feed);
   console.log("path:", dir);
