@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 // Data
 import { navLinks } from "data/links";
 
-import styles from "./nav.css";
+import styles from "./nav.module.css";
 
 const Nav = ({ className }) => (
   <nav className={classnames(styles.nav, className)}>

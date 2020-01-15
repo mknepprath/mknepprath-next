@@ -6,7 +6,7 @@ import Nav from "core/nav";
 // Data
 import { gifs } from "data/gifs";
 
-import styles from "./gifs.css";
+import styles from "./gifs.module.css";
 
 /**
  * Shuffles array in place. ES6 version

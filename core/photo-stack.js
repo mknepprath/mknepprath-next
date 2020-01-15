@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useSprings, animated, interpolate } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
-import styles from "./photo-stack.css";
+import styles from "./photo-stack.module.css";
 
 // TODO: Could eventually get these from Instagram? :\
 const photos = [

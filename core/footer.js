@@ -8,7 +8,7 @@ import TwitterIcon from "core/icon-twitter";
 // Data
 import { footerLinks } from "data/links";
 
-import styles from "./footer.css";
+import styles from "./footer.module.css";
 
 function Footer({ className }) {
   return (

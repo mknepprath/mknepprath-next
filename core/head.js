@@ -21,9 +21,6 @@ function Head({ title, description, ogImage, url }) {
       />
       <link rel="mask-icon" href="/assets/favicon-mask.svg" color="#6ABD9D" />
       <link rel="icon" href="/assets/favicon.ico" />
-      <link rel="stylesheet" type="text/css" href="/css/global.css" />
-      {/* TODO: prism.css is only used in blog posts, yet is being included globally. */}
-      <link rel="stylesheet" type="text/css" href="/css/prism.css" />
       <meta name="theme-color" content="#6ABD9D" />
 
       <meta property="og:url" content={url} />

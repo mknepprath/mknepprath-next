@@ -3,7 +3,7 @@ import classnames from "classnames";
 import Page from "core/page";
 import PhotoStack from "core/photo-stack";
 
-import styles from "./about.css";
+import styles from "./about.module.css";
 
 export default () => (
   <Page
