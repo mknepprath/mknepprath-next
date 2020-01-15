@@ -1,4 +1,4 @@
-import styles from "./icon-twitter.css";
+import styles from "./icon-twitter.module.css";
 
 export default () => (
   <svg className={styles.svg} viewBox="0 0 400 400">

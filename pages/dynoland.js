@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 import Page from "core/page";
 
-import styles from "./dynoland.css";
+import styles from "./dynoland.module.css";
 
 class Dynoland extends React.Component {
   constructor(props) {

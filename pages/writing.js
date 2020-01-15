@@ -10,7 +10,7 @@ import Page from "core/page";
 // Data
 import posts from "data/posts";
 
-import styles from "./writing.css";
+import styles from "./writing.module.css";
 
 const Writing = ({ posts }) => (
   <Page className="container" title="Michael Knepprath, Occasional Writer">

@@ -14,7 +14,7 @@ import Nav from "core/nav";
 import { projectLinks } from "data/links";
 import posts from "data/posts";
 
-import styles from "./index.css";
+import styles from "./index.module.css";
 
 export default () => (
   <>

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import styles from "./card.css";
+import styles from "./card.module.css";
 
 const Card = ({ description, href, imgSrc, title }) => (
   <a

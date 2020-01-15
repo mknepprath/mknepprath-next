@@ -10,7 +10,7 @@ import useKeyPress from "hooks/useKeyPress";
 // Data
 import allPosts from "data/posts";
 
-import styles from "./blog-nav.css";
+import styles from "./blog-nav.module.css";
 
 const posts = allPosts
   // The `sort` method can be conveniently used with function expressions:
@@ -42,7 +42,7 @@ const BlogNav = ({ router }) => {
       {postIndex > 0 ? (
         <Link href={`/writing/${nextPost.id}`}>
           <a>&larr; {nextPost.title}</a>
-        </Link>
+      </Link>
       ) : null}{" "}
       {postIndex < posts.length - 1 ? (
         <Link href={`/writing/${prevPost.id}`}>
