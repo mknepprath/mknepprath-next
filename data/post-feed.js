@@ -4,7 +4,6 @@ const { posts } = require("./get-blog-posts");
 
 const OUT_DIR = path.join(process.cwd(), "out");
 
-// https://jsonfeed.org/version/1
 const postList = posts.map(post => ({
   date: post.publishedAt,
   id: post.id,

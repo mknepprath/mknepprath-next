@@ -20,33 +20,30 @@ function shuffle(a) {
   return a;
 }
 
-class GIFs extends React.Component {
-  componentDidMount() {
+export default () => {
+  React.useEffect(() => {
     // Leverages clipboard.js to copy the gif URL to your clipboard on click.
     const gifElements = document.querySelectorAll(".gif");
     new Clipboard(gifElements); // eslint-disable-line no-undef
-  }
-  render() {
-    return (
-      <>
-        <Head title="Michael Knepprath, GIF Aficionado" />
-        <Nav className="container" />
+  }, []);
 
-        <div className={styles.gifIndex}>
-          {shuffle(gifs).map(gif => (
-            <img
-              className="gif"
-              data-clipboard-text={`http://mknepprath.com/gifs/${gif.id}.gif`}
-              key={gif.id}
-              src={`/gifs/${gif.id}.gif`}
-            />
-          ))}
-        </div>
+  return (
+    <>
+      <Head title="Michael Knepprath, GIF Aficionado" />
+      <Nav className="container" />
 
-        <Footer className="container" />
-      </>
-    );
-  }
-}
+      <div className={styles.gifIndex}>
+        {shuffle(gifs).map(gif => (
+          <img
+            className="gif"
+            data-clipboard-text={`http://mknepprath.com/gifs/${gif.id}.gif`}
+            key={gif.id}
+            src={`/gifs/${gif.id}.gif`}
+          />
+        ))}
+      </div>
 
-export default GIFs;
+      <Footer className="container" />
+    </>
+  );
+};
