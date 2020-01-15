@@ -5,7 +5,7 @@ import BlogPage from "core/blog-page";
 export const meta = {
   image: "/assets/adding-rss.jpg",
   published: true,
-  publishedAt: "2020-01-14",
+  publishedAt: "2020-01-15",
   summary:
     "Examining the bumps along the road as I worked to add an RSS feed to my website.",
   title: "Adding RSS to My Next.js Website"
