@@ -41,8 +41,8 @@ export default () => {
         <a href="https://twitter.com/chriscoyier/status/1214606808125341696?s=20">
           this tweet
         </a>{" "}
-        highlighting the long list of RSS feeds he was subscribe to and my world
-        came crashing down. I had a GitHub issue for adding a feed to this
+        highlighting the long list of RSS feeds he was subscribed to and my
+        world came crashing down. I had a GitHub issue for adding a feed to this
         website, but hadn't prioritized it yet. This tweet launched it to the
         top of my list.
       </p>
