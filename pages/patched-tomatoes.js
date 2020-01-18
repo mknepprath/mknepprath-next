@@ -27,7 +27,12 @@ export default () => (
         Let's create some films for the sake of example. Each film received 5
         critic reviews. Here they are:
       </p>
-      <table style={{ textAlign: "left", width: "100%" }}>
+      <table
+        border="1"
+        cellPadding="6"
+        cellSpacing="0"
+        style={{ textAlign: "left", width: "100%" }}
+      >
         <thead>
           <tr>
             <th>Film</th>
@@ -92,7 +97,12 @@ export default () => (
         most cases, Rotten Tomatoes considers 5.5/10 and above a "positive"
         review.
       </p>
-      <table style={{ textAlign: "left", width: "100%" }}>
+      <table
+        border="1"
+        cellPadding="6"
+        cellSpacing="0"
+        style={{ textAlign: "left", width: "100%" }}
+      >
         <thead>
           <tr>
             <th>Film</th>
@@ -149,7 +159,12 @@ export default () => (
         film's average rating is much more interesting. Let's convert the critic
         ratings to percentages and calculate their average:
       </p>
-      <table style={{ textAlign: "left", width: "100%" }}>
+      <table
+        border="1"
+        cellPadding="6"
+        cellSpacing="0"
+        style={{ textAlign: "left", width: "100%" }}
+      >
         <thead>
           <tr>
             <th>Film</th>
