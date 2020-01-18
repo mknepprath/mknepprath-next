@@ -195,7 +195,7 @@ export default () => (
           </tr>
         </tbody>
       </table>
-      <p>These average out to the folowing:</p>
+      <p>These average out to the following:</p>
       <ul>
         <li>Frostbite: 48%</li>
         <li>Blue Harvest: 15%</li>
