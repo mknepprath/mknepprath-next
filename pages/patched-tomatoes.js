@@ -29,7 +29,7 @@ export default () => (
       </p>
       <table
         border="1"
-        cellPadding="6"
+        cellPadding="4"
         cellSpacing="0"
         style={{ textAlign: "left", width: "100%" }}
       >
@@ -99,7 +99,7 @@ export default () => (
       </p>
       <table
         border="1"
-        cellPadding="6"
+        cellPadding="4"
         cellSpacing="0"
         style={{ textAlign: "left", width: "100%" }}
       >
@@ -161,7 +161,7 @@ export default () => (
       </p>
       <table
         border="1"
-        cellPadding="6"
+        cellPadding="4"
         cellSpacing="0"
         style={{ textAlign: "left", width: "100%" }}
       >
