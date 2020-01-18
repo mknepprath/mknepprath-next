@@ -3,11 +3,15 @@ import Page from "core/page";
 export default () => (
   <Page className="container" title="Patched Tomatoes">
     <article>
+      <img
+        alt="Dynoland rendered image"
+        src="/assets/patched-tomatoes.png"
+        style={{ display: "block", margin: "0 auto" }}
+      />
+
       <header>
         <h1>Patched Tomatoes</h1>
       </header>
-
-      <img alt="Dynoland rendered image" src="/assets/patched-tomatoes.png" />
 
       <p>
         <a href="https://github.com/mknepprath/patched-tomatoes">
