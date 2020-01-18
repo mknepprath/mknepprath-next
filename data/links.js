@@ -56,8 +56,7 @@ export const projectLinks = [
   },
   {
     description: "Chrome extension",
-    href:
-      "https://chrome.google.com/webstore/detail/patched-tomatoes/daceaaccoiggipikdodkejceenipddop",
+    href: "/patched-tomatoes",
     title: "Patched Tomatoes",
     imgSrc: "/assets/patched-tomatoes.png"
   },
