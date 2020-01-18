@@ -216,6 +216,13 @@ export default () => (
         reviews) received a Tomatometer rating of 99%, or that Parasite's
         average rating is 93.7%?
       </p>
+      <p>
+        If you would like to install Patched Tomatoes for yourself, head to{" "}
+        <a href="https://github.com/mknepprath/patched-tomatoes">
+          mknepprath/patched-tomatoes
+        </a>{" "}
+        on GitHub and follow the instructions.
+      </p>
     </article>
   </Page>
 );
