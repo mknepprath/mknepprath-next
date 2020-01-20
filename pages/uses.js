@@ -7,7 +7,11 @@ export default () => (
         <h1>Uses</h1>
       </header>
 
-      <p>This is where I document tools and products I use and love.</p>
+      <p>
+        This is where I document tools and products I use and love. If your
+        curious about anything that is missing, feel free to{" "}
+        <a href="https://twitter.com/mknepprath">@ me</a>.
+      </p>
 
       <h2>Editor & Terminal</h2>
       <ul>
@@ -31,7 +35,7 @@ export default () => (
         </li>
       </ul>
 
-      <h2>Desktop Apps</h2>
+      <h2>Apps</h2>
       <ul>
         <li>
           <a href="https://brave.com/">Brave</a>
@@ -40,7 +44,13 @@ export default () => (
           <a href="https://1password.com/">1Password</a>
         </li>
         <li>
-          <a href="https://culturedcode.com/things/">Things</a> (macOS & iOS)
+          <a href="https://culturedcode.com/things/">Things</a>
+        </li>
+        <li>
+          <a href="https://slack.com/">Slack</a>
+        </li>
+        <li>
+          <a href="http://notion.so/">Notion</a>
         </li>
         <li>
           <a href="https://meetshotty.com/">Shotty</a> by{" "}
