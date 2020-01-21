@@ -9,7 +9,7 @@ export default () => (
 
       <p>
         This is where I document tools and products I use and love. If your
-        curious about anything that is missing, feel free to{" "}
+        curious about anything that's missing, feel free to{" "}
         <a href="https://twitter.com/mknepprath">@ me</a>.
       </p>
 
