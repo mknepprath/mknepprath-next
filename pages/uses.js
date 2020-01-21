@@ -62,7 +62,7 @@ export default () => (
         </li>
         <li>
           <a href="https://www.spotify.com/">Spotify</a> (
-          <a href="https://open.spotify.com/user/mknepprath">mknepprath</a>)
+          <a href="https://open.spotify.com/user/mknepprath">follow me</a>)
         </li>
         <li>
           <a href="https://www.sketch.com/">Sketch</a>
@@ -88,8 +88,11 @@ export default () => (
         </li>
       </ul>
 
-      <h2>Brave/Chrome Extensions</h2>
-      <p>Since Brave is Chromium, Chrome extensions work for both.</p>
+      <h2>Chrome Extensions</h2>
+      <p>
+        Since Brave is based on Chromium, Chrome extensions work for both
+        browsers.
+      </p>
       <ul>
         <li>
           <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">
@@ -102,7 +105,8 @@ export default () => (
           </a>
         </li>
         <li>
-          <a href="https://mknepprath.com/patched-tomatoes">Patched Tomatoes</a>
+          <a href="https://mknepprath.com/patched-tomatoes">Patched Tomatoes</a>{" "}
+          by me
         </li>
         <li>
           <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">
@@ -121,6 +125,11 @@ export default () => (
       </p>
       <ul>
         <li>
+          <a href="https://www.westelm.com/products/modern-wall-desk-white-pecan-h1499/">
+            West Elm Modern Wall Desk
+          </a>
+        </li>
+        <li>
           <a href="https://www.apple.com/shop/buy-mac/macbook-pro">
             MacBook Pro
           </a>{" "}
@@ -128,7 +137,7 @@ export default () => (
         </li>
         <li>
           <a href="https://www.amazon.com/Apple-MC914LL-27-inch-Thunderbolt-Display/dp/B074D4W31Y">
-            Apple Thunderbolt Display
+            Thunderbolt Display
           </a>
         </li>
         <li>
@@ -140,8 +149,9 @@ export default () => (
           </a>
         </li>
         <li>
-          <a href="https://www.westelm.com/products/modern-wall-desk-white-pecan-h1499/">
-            West Elm Modern Wall Desk
+          Rain Design's{" "}
+          <a href="https://www.amazon.com/Rain-Design-mStand-Laptop-Patented/dp/B000OOYECC">
+            mStand Laptop Stand
           </a>
         </li>
       </ul>
