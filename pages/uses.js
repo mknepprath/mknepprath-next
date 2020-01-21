@@ -47,6 +47,10 @@ export default () => (
           <a href="https://culturedcode.com/things/">Things</a>
         </li>
         <li>
+          <a href="https://flexibits.com/fantastical">Fantastical</a> by{" "}
+          <a href="https://twitter.com/flexibits">Flexibits</a>
+        </li>
+        <li>
           <a href="https://slack.com/">Slack</a>
         </li>
         <li>
