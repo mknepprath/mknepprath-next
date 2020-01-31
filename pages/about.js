@@ -20,7 +20,7 @@ export default () => (
       </div>
 
       <p>
-        Michael Knepprath is a Software Engineer at{" "}
+        Michael Knepprath is a Senior Software Engineer at{" "}
         <a
           href="https://www.walmartlabs.com"
           rel="noopener noreferrer"
