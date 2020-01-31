@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "classnames": "^2.2.6",
     "date-fns": "^2.9.0",
     "isomorphic-unfetch": "^3.0.0",
