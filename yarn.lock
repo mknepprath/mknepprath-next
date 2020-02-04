@@ -5116,10 +5116,10 @@ react-spring@^8.0.27:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-use-gesture@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-7.0.1.tgz#31e85e224217b289927474c115617c45fa0f8326"
-  integrity sha512-D3szKjwp57lDau08whjqDktP5oHKGONTgDzh+CBChONJ3SMtPyNaQ3Dog9HkGcn/TcVvsNBmhfmEAok2asNwGQ==
+react-use-gesture@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-7.0.2.tgz#30b4dd8b7a874cb09a29ae423be8a1741bf30eef"
+  integrity sha512-D4l7F5FxJtDiLEpN5iuQlI40fUKnF4xr4jFjJy6LkL2IQwWkmOQmh/NGh85ILnsQgfoxCSDq5PrH5Mgwv1bF2w==
 
 react@^16.12.0:
   version "16.12.0"
