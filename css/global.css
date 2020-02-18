@@ -32,6 +32,12 @@ h1 {
   font-size: 2em;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid var(--black);
+  opacity: 0.2;
+}
+
 blockquote {
   border-left: 2px solid var(--black);
   font-style: italic;
