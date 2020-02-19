@@ -139,15 +139,15 @@ export default () => {
         I found a few 3rd-party apps that claim to offer the ability to delete
         all likes, Circleboom being an example. Suffice it to say,{" "}
         <a href="https://blog.circleboom.com/can-you-bulk-delete-twitter-likes-yes-in-just-2-steps/">
-          this blog post of theirs was a lie
+          this blog post of theirs is a lie
         </a>
         . Their app is unable to see likes beyond the 3,200 window.
       </p>
       <p>
-        After this, I made a shocking discovery. Twitter's own apps were
-        affected by this limit. Whether viewing my liked tweets through
-        Twitter's iOS app or website, likes outside of the 3,200 window aren't
-        displayed as having been liked - the heart icons are empty.
+        After this, I made a shocking discovery. Twitter's own apps are affected
+        by this limit. Whether viewing my liked tweets through Twitter's iOS app
+        or website, likes outside of the 3,200 window aren't displayed as having
+        been liked - the heart icons are empty.
       </p>
       <img
         alt="Likes displayed as unliked"
@@ -280,20 +280,17 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
       <h2 id="now-what">Now What?</h2>
       <p>
         The dream of deleting all of my Twitter likes may be dead, but I did
-        manage to remove all of them through October 2019, and am down to 61.5K
-        likes.
+        manage to remove all of them through October 2019, and am down to 61.4K
+        likes. And that number won't be growing - all new likes are being
+        scrubbed daily thanks to an AWS Lambda function.
       </p>
       <p>
-        And that number won't be growing - all new likes will be scrubbed
-        nightly. Right now this script is running locally on my computer. I plan
-        deploying it somewhere else.
-      </p>
-      <p>
-        Finally, I made an exception in my script for{" "}
-        <a href="https://twitter.com/jdickerson/status/1099324189939519489">
-          one tweet
+        If you'd like to try it yourself,{" "}
+        <a href="https://gist.github.com/mknepprath/e7cdafd078efffc5a27683a5017386e5">
+          here's a gist
         </a>{" "}
-        that will always appear in my Twitter likes...
+        that contains a simplified version of the second script I talk about
+        above.
       </p>
     </BlogPage>
   );
