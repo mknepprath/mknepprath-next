@@ -22,7 +22,11 @@ export default () => {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img />
+      <img
+        alt="Likes header illustration"
+        className="blog-image"
+        src="/assets/twitter-likes-illustration-1.jpg"
+      />
       <header>
         <h1>{meta.title}</h1>
       </header>
@@ -73,8 +77,8 @@ export default () => {
       </p>
       <p>
         Today, Twitter likes are simply that. A quick way to say, "I like this
-        tweet." A social exchange - ephemeral in nature, but permanently
-        recorded and published publicly by Twitter.
+        tweet." A social exchange—ephemeral in nature, but permanently recorded
+        and published publicly by Twitter.
       </p>
       <p>
         Why? Perhaps the public list of likes is a vestigial feature, leftover
@@ -86,12 +90,17 @@ export default () => {
       </p>
       <h2 id="so-do-i-need-em">So Do I Need 'Em?</h2>
       <p>Nah.</p>
+      <img
+        alt="Broken like"
+        className="blog-image"
+        src="/assets/twitter-likes-illustration-2.jpg"
+      />
       <p>
         At least not this many. In my ideal Twitter world, likes last long
         enough to convey appreciation, then disappear once they've served their
         purpose. To reach this ideal world, I'd need to write a script that
-        loops through all of my tweets and unlikes any beyond the most recent
-        hundred or so.
+        loops through all of my liked tweets and unlikes any beyond the most
+        recent hundred or so.
       </p>
       <h2 id="can-i-delete-em">Can I Delete 'Em?</h2>
       <p>
@@ -116,15 +125,20 @@ export default () => {
       </p>
       <p>
         And this quote is only half of the story - it's missing the reason likes
-        can't be removed outside this window. The Twitter API simply does not
-        recognize likes beyond the most recent 3,200. Once all of the liked
-        tweets within this window are unliked, Twitter sends over an empty list.
-        No way around it. Old likes are 100% inaccessible through the API.
+        can't be removed outside this window. The Twitter API does not recognize
+        likes beyond the most recent 3,200. Once all of the liked tweets within
+        this window are unliked, Twitter sends over an empty list. No way around
+        it. Old likes are 100% inaccessible through the API.
       </p>
+      <img
+        alt="Likes window illustrated"
+        className="blog-image"
+        src="/assets/twitter-likes-illustration-3.jpg"
+      />
       <p>
         To unlike tweets outside of this window, I'd need to find another way.
       </p>
-      <p>And therefore, two scripts.</p>
+      <p>And therefore, two scripts would now be necessary:</p>
       <ol>
         <li>
           One that deletes all of my likes outside the 3,200 window from now
@@ -167,14 +181,8 @@ export default () => {
       </p>
       <p>
         This same pattern held true when interacting with likes through the
-        Twitter API. Attempting to unlike one of these tweets through the API
-        manually resulted in an error. Twitter simply did not recognize it as a
-        tweet liked by me.
-      </p>
-      <p>
-        In order to remove one of these likes through the API, I'd need to
-        separately gather my Twitter likes from the website without using the
-        API, then simulate this like/unlike pattern.
+        Twitter API. In order to remove one of these likes through the API, I'd
+        need to simulate this like/unlike pattern.
       </p>
       <p>Which I did.</p>
       <p>Here's a simplified snippet of that script...</p>
@@ -196,8 +204,8 @@ for likeId in likeIds:
       />
       <p>
         This, however, has an unfortunate side effect. Every like causes a
-        notification just like any other would (despite these being tweets I'd
-        already liked in the past).
+        notification just like any other would despite these being tweets I'd
+        already liked in the past.
       </p>
       <img
         alt="Unwanted notifications #1"
@@ -229,8 +237,11 @@ for likeId in likeIds:
       <p>A cruel irony indeed.</p>
       <p>
         Do I follow through? At this point, it seems unlikely. I'm only ~6%
-        done. With rate limiting, this would likely be a months-long process.
-        Ugh.
+        done. With{" "}
+        <a href="https://developer.twitter.com/en/docs/basics/rate-limits">
+          rate limiting
+        </a>
+        , this would likely be a months-long process. Ugh.
       </p>
       <img
         alt="I Defeated Twitter (Not)"
@@ -244,6 +255,11 @@ for likeId in likeIds:
         useless. Therefore, this script only deals with recent likes that exist
         within the 3,200 window. No problem!
       </p>
+      <img
+        alt="Sweeping up likes"
+        className="blog-image"
+        src="/assets/twitter-likes-illustration-4.jpg"
+      />
       <p>Here's a snippet of this new script:</p>
       <pre>
         <code className="language-python">
@@ -255,10 +271,10 @@ for i, like in enumerate(likes):
         </code>
       </pre>
       <p>
-        There's more to it, but it boils down to this: It loops through all of
-        my liked tweets (within the window) and unlikes any beyond the first 10.
-        I initially had this script running every 30 minutes but have decreased
-        the frequency to once per day. It's now a nightly cleanup routine.
+        It boils down to this: It loops through all of my liked tweets (within
+        the window) and unlikes any beyond the first 10. I initially had this
+        script running every 30 minutes but have decreased the frequency to once
+        per day. It's now a nightly cleanup routine.
       </p>
       <p>Another neat feature:</p>
       <pre>
@@ -280,7 +296,7 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
       <h2 id="now-what">Now What?</h2>
       <p>
         The dream of deleting all of my Twitter likes may be dead, but I did
-        manage to remove all of them through October 2019, and am down to 61.4K
+        manage to remove all of them through October 2019 and am down to 61.4K
         likes. And that number won't be growing - all new likes are being
         scrubbed daily thanks to an AWS Lambda function.
       </p>
@@ -289,9 +305,15 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
         <a href="https://gist.github.com/mknepprath/e7cdafd078efffc5a27683a5017386e5">
           here's a gist
         </a>{" "}
-        that contains a simplified version of the second script I talk about
-        above.
+        that contains a simplified version of that function. Feel free to post
+        any questions or comments there.
       </p>
+      <p>Thanks for reading! 👋</p>
+      <img
+        alt="Farewell image"
+        className="blog-image"
+        src="/assets/twitter-likes-illustration-5.jpg"
+      />
     </BlogPage>
   );
 };
