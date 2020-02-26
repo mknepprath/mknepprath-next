@@ -28,7 +28,7 @@ export default () => (
       </h1>
     </div>
 
-    <div className={classnames("container", styles.postContainer)}>
+    <div className="container">
       {posts
         // The `sort` method can be conveniently used with function expressions:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -49,16 +49,19 @@ export default () => (
         ))}
     </div>
 
-    <div className={classnames("container", styles.cardContainer)}>
-      {projectLinks.map(({ description, href, imgSrc, title }) => (
-        <Card
-          description={description}
-          href={href}
-          imgSrc={imgSrc}
-          key={title}
-          title={title}
-        />
-      ))}
+    <div className={classnames("container", styles.projectContainer)}>
+      <h2>Projects</h2>
+      <div className={styles.cardContainer}>
+        {projectLinks.map(({ description, href, imgSrc, title }) => (
+          <Card
+            description={description}
+            href={href}
+            imgSrc={imgSrc}
+            key={title}
+            title={title}
+          />
+        ))}
+      </div>
     </div>
 
     <Footer className="container" />

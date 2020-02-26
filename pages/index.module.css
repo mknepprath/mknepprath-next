@@ -1,49 +1,41 @@
 .hero {
-  background-color: var(--primaryColor);
   color: var(--black);
 }
 
 .greeting {
-  margin: 0;
+  margin: 80px 0;
   width: 100%;
-  padding: 80px 0;
   line-height: 1.1;
   font-size: 32px;
 }
 @media (min-width: 632px) {
   .greeting {
     font-size: 64px;
-    text-align: center;
   }
 }
 
 .greeting span {
-  color: #ffffff;
-}
-
-.postContainer {
-  padding: 40px 0;
-  text-align: center;
+  color: var(--primaryColor);
 }
 
 .title {
   margin-bottom: 0px;
 }
 
+.projectContainer {
+  margin-top: 80px;
+}
+
 .cardContainer {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
 
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-
-  background: #f7f7f7;
 }
 @media (min-width: 632px) {
   .cardContainer {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    margin-bottom: 80px;
 
     gap: 24px;
 
