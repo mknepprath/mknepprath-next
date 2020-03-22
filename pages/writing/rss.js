@@ -109,7 +109,7 @@ export const meta = {
         </a>
         , feel free to leave a comment! It's not perfect, but it got the job
         done. I plan on writing a separate post detailing out the process of
-        writing this since it was a bit of a sidequest.
+        writing this since it was a bit of a side quest.
       </p>
       <p>
         Once I added a simplified version of the{" "}

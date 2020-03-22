@@ -3,7 +3,7 @@ import Prism from "prismjs";
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  image: "",
+  image: "/assets/twitter-likes-illustration-1.jpg",
   published: true,
   publishedAt: "2020-02-20",
   summary: "I tried to delete my Twitter Likes. Twitter didn't like that.",
