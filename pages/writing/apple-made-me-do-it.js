@@ -39,14 +39,11 @@ export default () => {
         <a src="https://iempty.tooliphone.net/">iEmpty</a> to generate empty
         home screen icons.
       </p>
-      <p>
-        <blockquote>
-          [Using iEmpty,] you can add blank icons on your iOS home screen, and
-          set your application icons where you want on the iPhone screen,
-          hacking the limitation set by Apple on icons positions on the iOS
-          devices screens.
-        </blockquote>
-      </p>
+      <blockquote>
+        [Using iEmpty,] you can add blank icons on your iOS home screen, and set
+        your application icons where you want on the iPhone screen, hacking the
+        limitation set by Apple on icons positions on the iOS devices screens.
+      </blockquote>
       <p>
         iEmpty achieves this by using iOS's ability to save websites to your
         home screen with custom icons. iEmpty dynamically generates web pages
