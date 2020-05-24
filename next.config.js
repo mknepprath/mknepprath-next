@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const { join } = require("path");
 
 module.exports = {
@@ -13,8 +11,10 @@ module.exports = {
     // I can simply write:
     // `import Nav from "core/Nav";`
     const paths = ["core", "data", "hooks"];
-    paths.forEach(path => (config.resolve.alias[path] = join(__dirname, path)));
+    paths.forEach(
+      (path) => (config.resolve.alias[path] = join(__dirname, path))
+    );
 
     return config;
-  }
+  },
 };
