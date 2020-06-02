@@ -43,7 +43,7 @@ export default () => {
         a new dynamic page with live data about my server. Vercel's Next.js
         makes this easy by providing a method for fetching data server-side
         called <code className="language-html">getInitialProps</code>! Note:
-        This method has been deprecated by{" "}
+        This method has been deprecated in favor of{" "}
         <code className="language-html">getStaticProps</code>. I set this page
         up before that was introduced, however.
       </p>
