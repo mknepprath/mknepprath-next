@@ -26,8 +26,8 @@
 
 .button:active {
   color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  background-color: #0053ac;
+  border-color: #0051a8;
 }
 
 .button:focus {

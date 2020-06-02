@@ -18,8 +18,18 @@ const Dynoland = ({ online, players, server }) => {
     <Page className="container" title="Dynoland">
       <article>
         <header>
-          <h1>Dynoland {online ? "" : "(Offline)"}</h1>
+          <h1>Dynoland {online ? "" : "Is Offline"}</h1>
         </header>
+
+        {online ? (
+          ""
+        ) : (
+          <p>
+            If you were planning on playing right now,{" "}
+            <a href="https://twitter.com/mknepprath">message me</a> and I will
+            look into it as soon as I'm available.
+          </p>
+        )}
 
         <img
           alt="Dynoland rendered image"
@@ -64,18 +74,13 @@ const Dynoland = ({ online, players, server }) => {
           support page if it doesn't.
         </p>
 
-        <p>
-          We also have an inactive{" "}
-          <a href="https://www.facebook.com/groups/dynoland/">Facebook page</a>.
-        </p>
-
         {/* <img alt="Dynoland favicon" src={server.favicon} /> */}
       </article>
     </Page>
   );
 };
 
-Dynoland.getInitialProps = async function() {
+Dynoland.getInitialProps = async function () {
   const res = await fetch("https://mcapi.us/server/status?ip=dynoland.space");
   const data = await res.json();
   return { ...data };
@@ -84,7 +89,7 @@ Dynoland.getInitialProps = async function() {
 Dynoland.propTypes = {
   online: PropTypes.bool,
   players: PropTypes.object,
-  server: PropTypes.object
+  server: PropTypes.object,
 };
 
 export default Dynoland;

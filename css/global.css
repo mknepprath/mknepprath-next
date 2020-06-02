@@ -91,6 +91,7 @@ pre {
 .blog-image {
   display: block;
 
+  border-radius: 8px;
   width: 100%;
 }
 
