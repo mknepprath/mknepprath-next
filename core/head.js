@@ -22,6 +22,7 @@ function Head({ title, description, ogImage, url }) {
       <link rel="mask-icon" href="/assets/favicon-mask.svg" color="#6ABD9D" />
       <link rel="icon" href="/assets/favicon.ico" />
       <meta name="theme-color" content="#6ABD9D" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF" />
 
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
@@ -44,14 +45,14 @@ Head.defaultProps = {
     "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.",
   ogImage: "",
   title: "Michael Knepprath, Developer & Designer",
-  url: ""
+  url: "",
 };
 
 Head.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   url: PropTypes.string,
-  ogImage: PropTypes.string
+  ogImage: PropTypes.string,
 };
 
 export default Head;
