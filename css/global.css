@@ -3,6 +3,7 @@
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
 
   --black: #333;
+  --grey: #eceff1;
   --hoverColor: #6cd48f;
   --primaryColor: #6abd9d;
   --visitedColor: #b984c8;
@@ -93,6 +94,11 @@ pre {
 
   border-radius: 8px;
   width: 100%;
+}
+
+.bordered-image {
+  border: 1px solid var(--grey);
+  box-sizing: border-box;
 }
 
 time {
