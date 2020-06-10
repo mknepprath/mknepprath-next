@@ -55,7 +55,7 @@ code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: 1em;
+  padding: 0 2rem;
   margin: 0.5em 0;
   overflow: auto;
 }
@@ -112,7 +112,6 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
   color: #9a6e3a;
-  background: hsla(0, 0%, 100%, 0.5);
 }
 
 .token.atrule,
