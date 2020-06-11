@@ -40,6 +40,71 @@ export default function CulturallyIrrelevant() {
       </p>
       <blockquote>
         <p>
+          <b>
+            <a
+              href="https://twitter.com/NerdAtWar"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Tyler Driscoll
+            </a>
+          </b>
+          <br />
+          Born in the cold of Michigan and shown Star Wars by his father; Tyler
+          developed into a full-blown nerd. Star Wars, Marvel, and cinema
+          galore. I'm Tyler.
+        </p>
+        <p>
+          <b>
+            <a
+              href="https://twitter.com/benlundsten"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Ben Lundsten
+            </a>
+          </b>
+          <br />A father of two future superheroes and a victim of male pattern
+          baldness. His specialties are Halo 1 and films you've never heard of.
+        </p>
+        <p>
+          <b>
+            <a
+              href="https://twitter.com/JoshWWhat"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Josh Wierschke
+            </a>
+          </b>
+          <br />
+          Your friendly neighborhood Josh has been reading comics since before
+          he could… well, read. But this nerd won't be put in a box.
+        </p>
+        <p>
+          <b>
+            <a
+              href="http://thirstycatcollection.blogspot.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Dane Christenson
+            </a>
+          </b>
+          <br />
+          An unapologetic Sega fanboy from WI who always roots for the underdog,
+          making him the most irrelevant of the bunch. P.S. Stanley Kubrick.
+        </p>
+        <p>— Excerpts taken from the old Culturally Irrelevant website.</p>
+      </blockquote>
+      <p>
+        Tyler, Ben, Josh, Dane and myself were friends since college and bonded
+        over our love for film, theater, and media in general. The podcast was a
+        way for us to continue those conversations that were harder to come by
+        now that we were out of school.
+      </p>
+      <blockquote>
+        <p>
           <b>Ben:</b> "This is the point of the whole show. We're trying to draw
           things out of ambiguity. And it's going to be anything, it might be
           video games. Hey, we're going to bring a video game to the table!
@@ -60,12 +125,45 @@ export default function CulturallyIrrelevant() {
         December 6, 2018. Not long after, the domain expired, and the podcast
         was lost to the internet.
       </p>
+      <p>
+        On a personal note, I will be revisiting Culturally Irrelevant for the
+        rest of my life. It was a joy to listen to and there are dozens of
+        recommendations that I still plan on checking out. Last week, I put on{" "}
+        <a
+          href="https://www.imdb.com/title/tt8006786/?ref_=nv_sr_srsg_0"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Big Dreams, Small Spaces
+        </a>
+        , a British gardening show recommended by Ben in episode 41. I'd never
+        watched it before, but I found it fun and relaxing. If not for the
+        podcast, I never would have heard of it, let alone watched it.
+      </p>
+      <p>
+        Beyond the recommendations, it was a thrill to listen to the hosts cheer
+        each other on when they brought interesting and exciting topics or rib
+        each other about which of their topics was the most relevant.
+      </p>
+      <p>
+        The hosts poured their hearts and souls into this show, even going so
+        far as to chat the creators of some of the things they brought including
+        an hour-long interview with the{" "}
+        <a
+          href="http://www.georgiaraefamilyband.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Georgia Rae Family Band
+        </a>
+        . This podcast was special.
+      </p>
       <p>In April of 2020, Dane died in a car accident.</p>
       <p>
         While the podcast was a relatively minor achievement in his life, it was
         one of my favorite projects of his. It showcased many of his favorite
-        things. He talked about film, books, video games. He talked about family
-        and faith.
+        things. He talked about film, books and video games. He talked about
+        family and faith.
       </p>
       <p>I decided that, at least for myself, I had to preserve the podcast.</p>
 
@@ -79,7 +177,7 @@ export default function CulturallyIrrelevant() {
       </p>
       <p>
         I simultaneously relistened to the entire podcast, collected audio clips
-        (one for each recommendation, plus more) and built the website.
+        (one for each recommendation, plus more), and built the website.
       </p>
       <img
         alt="Podcast recommendations in Airtable."
@@ -131,8 +229,8 @@ export default function Home() {
 
       <h2 id="the-recommendation-board">The Recommendation Board</h2>
       <p>
-        Big things have small beginnings. The website started out as a simple
-        list of recommendations laid out with{" "}
+        Big things have small beginnings. The website started as a simple list
+        of recommendations laid out with{" "}
         <a
           href="https://css-tricks.com/snippets/css/complete-guide-grid/"
           rel="noopener noreferrer"
@@ -160,10 +258,10 @@ export default function Home() {
           </em>
         </p>
         <p>
-          <b>Josh:</b> "It's less of me trying trying to bestow knowledge upon
-          the masses. I want this to be a learning experience for me, too. I
-          want to hear about stuff I've never heard of from you guys, and I hope
-          that our 3+ listeners feel the same way. That's it for me. I want to
+          <b>Josh:</b> "It's less of me trying to bestow knowledge upon the
+          masses. I want this to be a learning experience for me, too. I want to
+          hear about stuff I've never heard of from you guys, and I hope that
+          our 3+ listeners feel the same way. That's it for me. I want to
           broaden my horizons more than I've done already."
         </p>
         <p>
@@ -178,7 +276,7 @@ export default function Home() {
         <p>
           <b>Ben:</b> "For me, the real catalyst moments are when I find a film
           I would've never heard of, when someone in passing who has weird taste
-          is like 'dude, watch this.' Hopefully I can turn one person on to
+          is like 'dude, watch this.' Hopefully, I can turn one person on to
           something that they've never heard of. It just opens a portal for
           people, and that's what I want this to be. I want it to be a portal
           that you can take down to a whole new world of holy-crap-awesomeness."
@@ -245,7 +343,7 @@ export default function Home() {
 
       <h3 id="submitting-recommendations">Submitting Recommendations</h3>
       <p>
-        Next up, I needed to set up a way for visitors to submit their own
+        Next up, I needed to set up a way for visitors to submit their
         recommendations. I created an{" "}
         <a
           href="https://github.com/mknepprath/culturally-irrelevant/blob/master/pages/api/recommendation.js"
@@ -285,7 +383,7 @@ export default function Home() {
         colors.
       </p>
       <p>
-        I also made sure to respect vistors' system-level settings. If your
+        I also made sure to respect visitors' system-level settings. If your
         phone or computer is set to dark mode, the website will follow suit.
       </p>
       <video className="blog-image" controls>
@@ -385,8 +483,8 @@ export default function Home() {
           in other things there's one key thing where it's like 'I saw this
           movie' or 'I listened to this record' or whatever it be 'and from that
           point on my life was changed.' I also had one of those moments and it
-          was actually around the time I was in high school. For me it was 2001:
-          A Space Odyssey that completely switched me over."
+          was actually around the time I was in high school. For me, it was
+          2001: A Space Odyssey that completely switched me over."
         </p>
         <p>
           <em>— Episode #5 - Musical Interludes (June 5, 2015)</em>
