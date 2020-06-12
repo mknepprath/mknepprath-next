@@ -6,9 +6,9 @@ export const meta = {
   image: "/assets/culturally-irrelevant-11.jpg",
   published: true,
   publishedAt: "2020-06-10",
+  slug: "culturally-irrelevant",
   summary: "The podcast is over, but the legacy continues.",
   title: "Building a Culturally Irrelevant Recommendation Board",
-  url: "/writing/culturally-irrelevant",
 };
 
 export default function CulturallyIrrelevant() {
@@ -22,7 +22,7 @@ export default function CulturallyIrrelevant() {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
-      url={meta.url}
+      url={`/writing/${meta.url}`}
     >
       <img
         alt="The hosts of Culturally Irrelevant."
