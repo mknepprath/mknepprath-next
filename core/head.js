@@ -29,10 +29,10 @@ function Head({ title, description, ogImage, url }) {
       <meta name="theme-color" content="#6ABD9D" />
       <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF" />
 
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={`${BASE_URL}${url}`} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta name="twitter:site" content={url} />
+      <meta name="twitter:site" content={`${BASE_URL}${url}`} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={`${BASE_URL}${ogImage}`} />
       <meta property="og:image" content={`${BASE_URL}${ogImage}`} />
