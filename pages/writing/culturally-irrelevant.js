@@ -22,6 +22,7 @@ export default function CulturallyIrrelevant() {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      url={meta.url}
     >
       <img
         alt="The hosts of Culturally Irrelevant."
