@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Prism from "prismjs";
 
 import BlogPage from "core/blog-page";
@@ -9,6 +8,7 @@ export const meta = {
   publishedAt: "2020-06-10",
   summary: "The podcast is over, but the legacy continues.",
   title: "Building a Culturally Irrelevant Recommendation Board",
+  url: "/writing/culturally-irrelevant",
 };
 
 export default function CulturallyIrrelevant() {
