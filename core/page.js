@@ -13,12 +13,6 @@ const Page = ({ children, className, description, ogImage, title }) => (
   </div>
 );
 
-Page.defaultProps = {
-  className: "",
-  description: "",
-  ogImage: "",
-};
-
 Page.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,

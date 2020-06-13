@@ -16,7 +16,7 @@ const BlogPage = ({
   description,
   ogImage,
   title,
-  url
+  url,
 }) => (
   <div className={classnames("container", className)}>
     <Head title={title} description={description} url={url} ogImage={ogImage} />
@@ -37,13 +37,6 @@ const BlogPage = ({
   </div>
 );
 
-BlogPage.defaultProps = {
-  className: "",
-  description: "",
-  ogImage: "",
-  url: ""
-};
-
 BlogPage.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
@@ -52,7 +45,7 @@ BlogPage.propTypes = {
   description: PropTypes.string,
   ogImage: PropTypes.string,
   title: PropTypes.string.isRequired,
-  url: PropTypes.string
+  url: PropTypes.string,
 };
 
 export default BlogPage;
