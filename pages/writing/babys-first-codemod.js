@@ -6,7 +6,7 @@ export const meta = {
   published: true,
   publishedAt: "2020-03-21",
   summary: "A quick overview of my first experience with codemods.",
-  title: "The Codemod Side Quest"
+  title: "The Codemod Side Quest",
 };
 
 export default () => {
@@ -18,7 +18,6 @@ export default () => {
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
-      ogImage={meta.image}
       title={meta.title}
     >
       <header>
