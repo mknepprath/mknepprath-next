@@ -6,7 +6,6 @@ export const meta = {
   image: "/assets/culturally-irrelevant-11.jpg",
   published: true,
   publishedAt: "2020-06-10",
-  slug: "culturally-irrelevant",
   summary: "The podcast is over, but the legacy continues.",
   title: "Building a Culturally Irrelevant Recommendation Board",
 };
@@ -482,10 +481,10 @@ export default function Home() {
           <b>Dane:</b> "It seems like some things you either fall into, you just
           slowly realize you love it the more and more you get into it, whereas
           in other things there's one key thing where it's like 'I saw this
-          movie' or 'I listened to this record' or whatever it be 'and from that
-          point on my life was changed.' I also had one of those moments and it
-          was actually around the time I was in high school. For me, it was
-          2001: A Space Odyssey that completely switched me over."
+          movie' or 'I listened to this record' or whatever it may be 'and from
+          that point on my life was changed.' I also had one of those moments
+          and it was actually around the time I was in high school. For me, it
+          was 2001: A Space Odyssey that completely switched me over."
         </p>
         <p>
           <em>— Episode #5 - Musical Interludes (June 5, 2015)</em>

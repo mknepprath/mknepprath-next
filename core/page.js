@@ -4,9 +4,9 @@ import Footer from "core/footer";
 import Head from "core/head";
 import Nav from "core/nav";
 
-const Page = ({ children, className, description, ogImage, title, url }) => (
+const Page = ({ children, className, description, ogImage, title }) => (
   <div className={className}>
-    <Head title={title} description={description} url={url} ogImage={ogImage} />
+    <Head title={title} description={description} ogImage={ogImage} />
     <Nav />
     {children}
     <Footer />
@@ -17,7 +17,6 @@ Page.defaultProps = {
   className: "",
   description: "",
   ogImage: "",
-  url: ""
 };
 
 Page.propTypes = {
@@ -27,7 +26,6 @@ Page.propTypes = {
   description: PropTypes.string,
   ogImage: PropTypes.string,
   title: PropTypes.string.isRequired,
-  url: PropTypes.string
 };
 
 export default Page;

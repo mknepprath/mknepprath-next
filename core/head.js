@@ -1,4 +1,5 @@
 import NextHead from "next/head";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
 const BASE_URL =
@@ -6,7 +7,9 @@ const BASE_URL =
     ? "localhost:3000"
     : "https://mknepprath.com";
 
-function Head({ title, description, ogImage, url }) {
+function Head({ title, description, ogImage }) {
+  const router = useRouter();
+
   return (
     <NextHead>
       <meta charSet="UTF-8" />
@@ -29,10 +32,10 @@ function Head({ title, description, ogImage, url }) {
       <meta name="theme-color" content="#6ABD9D" />
       <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF" />
 
-      {/* <meta property="og:url" content={`${BASE_URL}${url}`} /> */}
+      <meta property="og:url" content={`${BASE_URL}${router.pathname}`} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      {/* <meta name="twitter:site" content={`${BASE_URL}${url}`} /> */}
+      <meta name="twitter:site" content={`${BASE_URL}${router.pathname}`} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={`${BASE_URL}${ogImage}`} />
       <meta property="og:image" content={`${BASE_URL}${ogImage}`} />
@@ -48,15 +51,13 @@ function Head({ title, description, ogImage, url }) {
 Head.defaultProps = {
   description:
     "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.",
-  ogImage: "",
+  ogImage: "/assets/og-image.jpg",
   title: "Michael Knepprath, Developer & Designer",
-  url: "",
 };
 
 Head.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  url: PropTypes.string,
   ogImage: PropTypes.string,
 };
 
