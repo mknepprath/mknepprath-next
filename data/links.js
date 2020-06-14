@@ -67,9 +67,10 @@ export const projectLinks = [
     imgSrc: "/assets/patched-tomatoes.png",
   },
   {
-    description: "React RPG framework",
-    href: "https://github.com/mknepprath/open-world",
-    title: "Open World",
+    description: "A React RPG",
+    href: "https://tinymystery.club",
+    title: "Tiny Mystery Club",
+    imgSrc: "/assets/prize-sparkle.gif",
   },
   {
     description: "A comic retrospective",
