@@ -8,7 +8,7 @@ import BlogPage from "core/blog-page";
 export const meta = {
   published: true,
   publishedAt: "2014-02-12",
-  title: "My Only Suggestion For Facebook Paper"
+  title: "My Only Suggestion For Facebook Paper",
 };
 
 export default () => (
@@ -112,7 +112,7 @@ export default () => (
     </p>
     <p>
       <b>Bonus read:</b>{" "}
-      <a href="http://blog.brianlovin.com/design-details-paper-by-facebook">
+      <a href="https://brianlovin.com/design-details/paper-facebook-ios">
         Design Details: Paper by Facebook
       </a>{" "}
       by Brian Lovin
