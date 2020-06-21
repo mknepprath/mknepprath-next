@@ -1,3 +1,4 @@
+import React from "react";
 import Prism from "prismjs";
 
 import BlogPage from "core/blog-page";
@@ -5,7 +6,7 @@ import BlogPage from "core/blog-page";
 export const meta = {
   published: true,
   publishedAt: "2016-01-21",
-  title: "Creating Lilt — Part 2"
+  title: "Creating Lilt — Part 2",
 };
 
 export default () => {
