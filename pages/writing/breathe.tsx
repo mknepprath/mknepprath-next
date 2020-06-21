@@ -1,6 +1,3 @@
-import React from "react";
-import Prism from "prismjs";
-
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -11,18 +8,12 @@ export const meta = {
   title: "Code Should Breathe",
 };
 
-export default () => {
-  React.useEffect(() => {
-    // Syntax highlighting needs to be triggered after the page is rendered.
-    // - TODO: Do this lesson again:
-    //   https://nextjs.org/learn/excel/lazy-loading-components
-    Prism.highlightAll();
-  }, []);
-
+export default function Breathe() {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
+      highlightCode
       ogImage={meta.image}
       title={meta.title}
     >
@@ -184,4 +175,4 @@ export default () => {
       </a>
     </BlogPage>
   );
-};
+}

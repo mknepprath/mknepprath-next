@@ -1,6 +1,4 @@
-import React from "react";
 import Link from "next/link";
-import Prism from "prismjs";
 
 import BlogPage from "core/blog-page";
 
@@ -13,15 +11,12 @@ export const meta = {
   title: "Making a Minecraft Server Status Page",
 };
 
-export default () => {
-  React.useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
+export default function MinecraftStatusPage() {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
+      highlightCode
       ogImage={meta.image}
       title={meta.title}
     >
@@ -142,4 +137,4 @@ MinecraftStatusPage.getInitialProps = async function () {
       </p>
     </BlogPage>
   );
-};
+}

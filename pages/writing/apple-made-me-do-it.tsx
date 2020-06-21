@@ -1,6 +1,3 @@
-import React from "react";
-import Prism from "prismjs";
-
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -11,15 +8,12 @@ export const meta = {
   title: "Home Screen Hack",
 };
 
-export default () => {
-  React.useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
+export default function HomeScreenHack() {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
+      highlightCode
       ogImage={meta.image}
       title={meta.title}
     >
@@ -112,4 +106,4 @@ export default () => {
       </p>
     </BlogPage>
   );
-};
+}

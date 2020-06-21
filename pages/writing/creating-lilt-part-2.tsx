@@ -1,6 +1,3 @@
-import React from "react";
-import Prism from "prismjs";
-
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -9,13 +6,9 @@ export const meta = {
   title: "Creating Lilt — Part 2",
 };
 
-export default () => {
-  React.useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
+export default function LiltPart2() {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage dateTime={meta.publishedAt} highlightCode title={meta.title}>
       <header>
         <h1>{meta.title}</h1>
       </header>
@@ -140,4 +133,4 @@ export default () => {
       </p>
     </BlogPage>
   );
-};
+}

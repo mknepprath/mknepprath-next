@@ -1,6 +1,3 @@
-import React from "react";
-import Prism from "prismjs";
-
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -10,15 +7,12 @@ export const meta = {
   title: "The Codemod Side Quest",
 };
 
-export default () => {
-  React.useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
+export default function CodemodSideQuest() {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
+      highlightCode
       title={meta.title}
     >
       <header>
@@ -269,4 +263,4 @@ export default transform;
       <p>Thanks for reading! 👋</p>
     </BlogPage>
   );
-};
+}

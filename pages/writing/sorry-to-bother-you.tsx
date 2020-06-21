@@ -1,6 +1,3 @@
-import React from "react";
-import Prism from "prismjs";
-
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -11,15 +8,12 @@ export const meta = {
   title: "Twitter Defeated Me",
 };
 
-export default () => {
-  React.useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
+export default function TwitterDefeatedMe() {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
+      highlightCode
       ogImage={meta.image}
       title={meta.title}
     >
@@ -317,4 +311,4 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
       />
     </BlogPage>
   );
-};
+}

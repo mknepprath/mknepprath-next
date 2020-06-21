@@ -1,6 +1,3 @@
-import React from "react";
-import Prism from "prismjs";
-
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -13,14 +10,11 @@ export const meta = {
 };
 
 export default function RSS() {
-  React.useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
   return (
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
+      highlightCode
       ogImage={meta.image}
       title={meta.title}
     >
