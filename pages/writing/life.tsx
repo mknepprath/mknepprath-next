@@ -19,31 +19,36 @@ export const meta = {
 };
 
 export default function Life() {
-  const [coordinates, setCoordinates] = React.useState([
-    { x: 150, y: 200, color: "rgba(51, 51, 51, 1)" },
+  const [nodes, setNodes] = React.useState([
+    { color: "rgba(51, 51, 51, 1)", id: `${0},${0}`, x: 0, y: 0 },
   ]);
 
   useEffect(() => {
     let id = setInterval(() => {
-      setCoordinates((prevCoordinates) => [
-        ...prevCoordinates,
-        {
-          x:
-            prevCoordinates[prevCoordinates.length - 1].x +
-            [-INC, 0, INC][getRandomInt(3)],
-          y:
-            prevCoordinates[prevCoordinates.length - 1].y +
-            [-INC, 0, INC][getRandomInt(3)],
-          color: [
-            "rgba(120, 159, 177, .4)",
-            "rgba(99, 91, 137, .4)",
-            "rgba(226, 135, 164, .4)",
-            "rgba(255, 207, 186, .4)",
-            "rgba(51, 51, 51, 1)",
-          ][getRandomInt(5)],
-        },
-      ]);
-    }, 1);
+      setNodes((prevNodes) => {
+        let nextX =
+          prevNodes[prevNodes.length - 1].x + [-INC, 0, INC][getRandomInt(3)];
+        let nextY =
+          prevNodes[prevNodes.length - 1].y + [-INC, 0, INC][getRandomInt(3)];
+        const nextNodes = [
+          ...prevNodes,
+          {
+            color: [
+              "rgba(120, 159, 177, .4)",
+              "rgba(99, 91, 137, .4)",
+              "rgba(226, 135, 164, .4)",
+              "rgba(255, 207, 186, .4)",
+              "rgba(51, 51, 51, 1)",
+            ][getRandomInt(5)],
+            id: `${nextX},${nextY}`,
+            x: nextX < 0 ? 0 : nextX,
+            y: nextY < 0 ? 0 : nextY,
+          },
+        ];
+        if (nextNodes.length > 100) nextNodes.shift();
+        return nextNodes;
+      });
+    }, 5);
     return () => clearInterval(id);
   });
 
@@ -63,8 +68,11 @@ export default function Life() {
       <header>
         <h1>{meta.title}</h1>
       </header>
-      <p>I highly recommend you do NOT leave this page open</p>
-      {coordinates.map(({ x, y, color }, index) => (
+      <p>
+        I highly recommend you do NOT leave this page open. There are currently{" "}
+        {nodes.length} nodes on the page...
+      </p>
+      {nodes.map(({ x, y, color }, index) => (
         <div
           className={styles.px}
           key={index}
