@@ -1,5 +1,5 @@
 .button {
-  color: #fff;
+  color: var(--white);
   background-color: #007bff;
   border-color: #007bff;
 
@@ -19,13 +19,13 @@
 }
 
 .button:hover {
-  color: #fff;
+  color: var(--white);
   background-color: #0069d9;
   border-color: #0062cc;
 }
 
 .button:active {
-  color: #fff;
+  color: var(--white);
   background-color: #0053ac;
   border-color: #0051a8;
 }

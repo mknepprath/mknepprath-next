@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "build:rss": "node ./data/rss-feed.js",
-    "build:posts": "node ./data/post-feed.js",
+    "build:feed": "ts-node ./data/gen-rss-feed.ts",
+    "build:rss": "ts-node ./data/gen-rss-feed.ts",
+    "build:posts": "ts-node ./data/gen-post-list.ts",
     "start": "next start"
   },
   "repository": {
@@ -22,6 +23,8 @@
   },
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/prismjs": "^1.16.1",
     "classnames": "^2.2.6",
     "date-fns": "^2.14.0",
     "isomorphic-unfetch": "^3.0.0",
@@ -29,12 +32,21 @@
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-spring": "^8.0.27",
-    "react-use-gesture": "^7.0.15"
+    "react-spring": "^9.0.0-rc.3",
+    "react-use-gesture": "^7.0.15",
+    "swr": "^0.2.3"
   },
   "devDependencies": {
+    "@types/node": "^14.0.13",
+    "@types/react": "^16.9.36",
+    "colors": "^1.4.0",
+    "diff": "^4.0.2",
     "eslint": "^7.2.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4"
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   }
 }
