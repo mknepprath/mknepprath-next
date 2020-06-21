@@ -1,3 +1,4 @@
+import React from "react";
 import Prism from "prismjs";
 
 import BlogPage from "core/blog-page";
@@ -7,7 +8,7 @@ export const meta = {
   published: true,
   publishedAt: "2020-02-20",
   summary: "I tried to delete my Twitter Likes. Twitter didn't like that.",
-  title: "Twitter Defeated Me"
+  title: "Twitter Defeated Me",
 };
 
 export default () => {
