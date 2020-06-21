@@ -2,12 +2,17 @@
   --pageContentWidth: 632px;
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
 
-  --black: #333;
+  --black: #333333;
   --grey: #eceff1;
+  --white: #ffffff;
   --hoverColor: #6cd48f;
-  --primaryColor: #6abd9d;
-  --visitedColor: #b984c8;
-  --visitedHoverColor: #ce8fe0;
+  --primaryColor: #7dbba3;
+  --selectedColor: #b984c8;
+}
+
+::selection {
+  background-color: var(--selectedColor);
+  color: var(--white);
 }
 
 body {
@@ -59,12 +64,6 @@ article a {
 article a:hover {
   color: var(--hoverColor);
   text-decoration: none;
-}
-article a:visited {
-  color: var(--visitedColor);
-}
-article a:visited:hover {
-  color: var(--visitedHoverColor);
 }
 
 article li {

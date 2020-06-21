@@ -12,12 +12,9 @@
 }
 .nav li {
   display: flex;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom 0.2s, transform 0.2s;
+  transition: transform 0.2s;
 }
 .nav li:hover {
-  border-bottom: 2px solid var(--primaryColor);
   transform: translate(0, -2px);
 }
 .nav li:hover a {

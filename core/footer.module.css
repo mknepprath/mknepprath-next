@@ -16,14 +16,11 @@
 .footerMeta a {
   display: inline-block;
 
-  border-top: 2px solid transparent; /* Necessary to keep text centered */
-  border-bottom: 2px solid transparent;
   color: var(--black);
   font-size: 13px;
-  transition: border-bottom 0.2s, transform 0.2s;
+  transition: transform 0.2s;
 }
 .footerMeta a:hover {
-  border-bottom: 2px solid var(--primaryColor);
   color: var(--primaryColor);
   transform: translate(0, -2px);
 }
@@ -36,9 +33,7 @@
 }
 .footer li {
   display: flex;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom 0.2s, transform 0.2s;
+  transition: transform 0.2s;
 }
 .footer a {
   color: var(--black);
@@ -54,7 +49,6 @@
 }
 
 .footer li:hover {
-  border-bottom: 2px solid var(--primaryColor);
   transform: translate(0, -2px);
 }
 .footer li:hover a {
