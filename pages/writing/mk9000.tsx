@@ -1,7 +1,7 @@
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  published: false,
+  published: true,
   publishedAt: "2019-09-29",
   summary: "What if 2001: A Space Odyssey, but with @robot_mk?",
   title: "A Chat with MK 9000",
@@ -28,36 +28,6 @@ export default function MK9000() {
 
       <hr />
 
-      <p>
-        <b>MK</b> Today is my dumbest bot.
-      </p>
-      <p>
-        <b>Dave Bowman</b> No not at all.
-      </p>
-      <p>
-        <b>MK</b> One of my favorite memories from when I was 4 and very
-        precisely predicts the coming of smart phones.
-      </p>
-      <p>
-        <b>Dave Bowman</b> How do you mean?
-      </p>
-      <p>
-        <b>MK</b> I HAVE NO DOUBT THAT THESE THINGS ARE THE WOOOORST - I CAN'T
-        REPLICATE THE ISSUE LOCALLY ON THE NEW 15, MAKING ME.
-      </p>
-      <p>
-        <b>Dave Bowman</b> Well, I don't know, that's a rather difficult
-        question to answer.
-      </p>
-      <p>
-        <b>MK</b> When your bot goes on a rampage and you regret everything.
-      </p>
-      <p>
-        <b>Dave Bowman</b> No, not at all.
-      </p>
-      <p>
-        <b>MK</b> We're down to the last month of 2016 folks.
-      </p>
       <p>
         <b>Dave Bowman</b> You're working up your crew psychology report?
       </p>
