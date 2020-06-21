@@ -1,7 +1,7 @@
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  publishedAt: "2020-06-19",
+  publishedAt: "2020-06-21",
   title: "oh my god i am in ant jail",
 };
 

@@ -1,8 +1,10 @@
+require("colors");
 const fs = require("fs");
+const jsdiff = require("diff");
 const path = require("path");
 const posts = require("./get-blog-posts");
 
-const OUT_DIR = path.join(process.cwd(), "out");
+const FEED_FILE = `${process.cwd()}/public/feed.json`;
 
 interface Post {
   publishedAt: string;
@@ -39,12 +41,31 @@ const feed = {
   })),
 };
 
-function generateRSSFeed(dir = OUT_DIR) {
-  console.log("generating feed:", feed);
-  console.log("path:", dir);
-  fs.writeFileSync(path.join(dir, "feed.json"), JSON.stringify(feed));
+function generateRSSFeed() {
+  console.log("generating feed...");
+  console.log("path:", FEED_FILE);
+
+  const prevPosts = fs.readFileSync(FEED_FILE, "utf-8");
+  const nextPosts = JSON.stringify(feed, null, "  ");
+
+  fs.writeFileSync(FEED_FILE, nextPosts);
+
+  fs.writeFileSync(FEED_FILE, nextPosts);
+
+  const diff = jsdiff.diffLines(prevPosts, nextPosts);
+  diff.forEach(function (part: {
+    added: string;
+    removed: string;
+    value: string;
+  }) {
+    // green for additions, red for deletions
+    // grey for common parts
+    const color = part.added ? "green" : part.removed ? "red" : "grey";
+    process.stderr.write(part.value[color as any]);
+  });
+  console.log();
 }
 
-generateRSSFeed(`${process.cwd()}/public`);
+generateRSSFeed();
 
 export {};
