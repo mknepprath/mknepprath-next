@@ -1,5 +1,4 @@
-import React from "react";
-import Clipboard from "react-clipboard.js";
+import React, { SyntheticEvent } from "react";
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 
@@ -8,6 +7,26 @@ import Page from "core/page";
 
 // Styles
 import styles from "./dynoland.module.css";
+
+function onClickToCopy(e: SyntheticEvent) {
+  const text = e.currentTarget.getAttribute("data-clipboard-text") || "";
+  const fakeElement = document.createElement("textarea");
+  fakeElement.value = text;
+  document.body.appendChild(fakeElement);
+  fakeElement.select();
+  fakeElement.setSelectionRange(0, fakeElement.value.length);
+  let succeeded;
+  try {
+    succeeded = document.execCommand("copy");
+  } catch (err) {
+    succeeded = false;
+  }
+  if (succeeded)
+    document.title = `Michael Knepprath, ${(
+      e.currentTarget.id + "!"
+    ).toUpperCase()}`;
+  document.body.removeChild(fakeElement);
+}
 
 const SERVER_IP = "dynoland.space";
 
@@ -46,14 +65,14 @@ export default function Dynoland() {
         />
 
         <p>
-          <Clipboard
+          <button
             className={styles.button}
-            component="button"
             data-clipboard-text={SERVER_IP}
+            onClick={onClickToCopy}
             type="button"
           >
             Copy Server Address
-          </Clipboard>
+          </button>
         </p>
 
         <p>
