@@ -40,6 +40,11 @@ const posts: PostListItem[] = [
     "title": "Sequential Art™"
   },
   {
+    "date": "2019-09-29",
+    "id": "mk9000",
+    "title": "A Chat with MK 9000"
+  },
+  {
     "date": "2019-09-07",
     "id": "design-process",
     "title": "Thoughts on Design Process"
