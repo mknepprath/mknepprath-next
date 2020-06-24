@@ -7,15 +7,28 @@ function getRandomInt(max: number) {
 }
 
 interface Props {
+  colors?: Array<string>;
   coordinates: Array<number>;
   increment: number;
+  length?: number;
+  style?: React.CSSProperties;
 }
 
 export default function PxBrushPage(props: Props) {
   const [x, y] = props.coordinates;
 
+  const colors = props.colors || [
+    "rgba(120, 159, 177, .4)",
+    "rgba(99, 91, 137, .4)",
+    "rgba(226, 135, 164, .4)",
+    "rgba(255, 207, 186, .4)",
+    "rgba(51, 51, 51, 1)",
+  ];
+
+  const length = props.length || BRUSH_LENGTH;
+
   const [nodes, setNodes] = React.useState([
-    { color: "rgba(51, 51, 51, 1)", id: `${x},${y}`, x, y },
+    { color: colors[0], id: `${x},${y}`, x, y },
   ]);
 
   React.useEffect(() => {
@@ -30,19 +43,13 @@ export default function PxBrushPage(props: Props) {
         const nextNodes = [
           ...prevNodes,
           {
-            color: [
-              "rgba(120, 159, 177, .4)",
-              "rgba(99, 91, 137, .4)",
-              "rgba(226, 135, 164, .4)",
-              "rgba(255, 207, 186, .4)",
-              "rgba(51, 51, 51, 1)",
-            ][getRandomInt(5)],
+            color: colors[getRandomInt(colors.length)],
             id: `${nextX},${nextY}`,
             x: nextX < 0 ? 0 : nextX,
             y: nextY < 0 ? 0 : nextY,
           },
         ];
-        if (nextNodes.length > BRUSH_LENGTH) nextNodes.shift();
+        if (nextNodes.length > length) nextNodes.shift();
         return nextNodes;
       });
     }, 1);
@@ -62,6 +69,7 @@ export default function PxBrushPage(props: Props) {
             position: "absolute",
             width: props.increment,
             top: y,
+            ...props.style,
           }}
         />
       ))}

@@ -1,3 +1,4 @@
+import React from "react";
 import NextHead from "next/head";
 import { useRouter } from "next/router";
 
@@ -7,12 +8,14 @@ const BASE_URL =
     : "https://mknepprath.com";
 
 interface Props {
-  title?: string;
+  children?: React.ReactNode;
   description?: string;
   ogImage?: string;
+  title?: string;
 }
 
 export default function Head({
+  children,
   title = "Michael Knepprath, Developer & Designer",
   description = "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.",
   ogImage = "/assets/og-image.jpg",
@@ -51,6 +54,7 @@ export default function Head({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="pinterest" content="nopin" />
+      {children}
     </NextHead>
   );
 }

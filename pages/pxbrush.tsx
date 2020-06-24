@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
 
+import Head from "core/head";
 import PxBrush from "core/pxbrush";
 
 const INC = 2;
@@ -42,7 +42,7 @@ export default function PxBrushPage() {
 
   return (
     <>
-      <Head>
+      <Head title="Pixel Brush">
         <style>{`body { background-color: #${randomColor()}; }`}</style>
       </Head>
       {brushes.map((coordinates, key) => (

@@ -40,17 +40,42 @@ export default function Life() {
       title={meta.title}
     >
       <div ref={brushEl} style={{ height: 300, width: "100%" }} />
-      {centerpoint && <PxBrush coordinates={centerpoint} increment={16} />}
+      {centerpoint && (
+        <PxBrush
+          colors={["rgba(51, 51, 51, 1)"]}
+          coordinates={centerpoint}
+          increment={6}
+          length={30000}
+          style={{
+            border: "12px solid rgba(51, 51, 51, 1)",
+            borderRadius: "100%",
+          }}
+        />
+      )}
 
       <header>
         <h1>{meta.title}</h1>
       </header>
       <p>I highly recommend you do NOT leave this page open.</p>
-      <Link href="/pxbrush?scale=30&quantity=1">
-        <a>Scale 30</a>
-      </Link>
+      <p>
+        <Link href="/pxbrush?scale=30&quantity=1">
+          <a>Scale 30</a>
+        </Link>
+      </p>
+      <p>
+        <Link href="/pxbrush?scale=16&quantity=16">
+          <a>16 @ Scale 16</a>
+        </Link>
+      </p>
     </BlogPage>
   );
 }
 
 // /pxbrush?scale=6&quantity=10
+
+// Calculator games
+// Old handwritten code for my TI-85
+
+// Creativity
+// high school programming, college programming
+// ART, Dan Eden... etc
