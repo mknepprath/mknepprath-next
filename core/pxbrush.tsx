@@ -1,5 +1,7 @@
 import React from "react";
 
+import styles from "./pxbrush.module.css";
+
 const BRUSH_LENGTH = 320;
 
 function getRandomInt(max: number) {
@@ -52,7 +54,8 @@ export default function PxBrushPage(props: Props) {
         if (nextNodes.length > length) nextNodes.shift();
         return nextNodes;
       });
-    }, 1);
+      // console.count("nodes");
+    }, 50);
     return () => clearInterval(id);
   });
 
@@ -60,13 +63,12 @@ export default function PxBrushPage(props: Props) {
     <>
       {nodes.map(({ x, y, color }, index) => (
         <div
+          className={styles.brush}
           key={index}
           style={{
             backgroundColor: color,
             height: props.increment,
             left: x,
-            pointerEvents: "none",
-            position: "absolute",
             width: props.increment,
             top: y,
             ...props.style,
