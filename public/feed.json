@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/life-art-nostalgia",
+      "url": "https://mknepprath.com/writing/life-art-nostalgia",
+      "title": "Life, Art, Nostalgia",
+      "content_text": "Recreating a project from my high school years. • https://mknepprath.com/writing/life-art-nostalgia",
+      "summary": "Recreating a project from my high school years.",
+      "image": "https://mknepprath.com//assets/pxbrush.png",
+      "date_published": "2020-06-25T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/culturally-irrelevant",
       "url": "https://mknepprath.com/writing/culturally-irrelevant",
       "title": "Building a Culturally Irrelevant Recommendation Board",
