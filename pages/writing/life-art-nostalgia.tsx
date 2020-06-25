@@ -4,6 +4,8 @@ import Link from "next/link";
 import BlogPage from "core/blog-page";
 import PxBrush from "core/pxbrush";
 
+import styles from "./life-art-nostalgia.module.css";
+
 const GRID_SCALE = 8;
 
 export const meta = {
@@ -220,13 +222,11 @@ export default function Life() {
       <div ref={brushEl3} style={{ height: 200, width: "100%" }} />
       {centerpoint3 && (
         <PxBrush
-          colors={["var(--primaryColor)", "var(--selectedColor)"]}
+          className={styles.wave}
+          colors={["rgba(0, 0, 0, 0)"]}
           coordinates={centerpoint3}
-          increment={4}
-          length={1000}
-          style={{
-            borderRadius: 2,
-          }}
+          increment={20}
+          length={500}
         />
       )}
     </BlogPage>
