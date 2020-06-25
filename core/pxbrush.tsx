@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 
 import styles from "./pxbrush.module.css";
 
@@ -9,6 +10,7 @@ function getRandomInt(max: number) {
 }
 
 interface Props {
+  className?: string;
   colors?: Array<string>;
   coordinates: Array<number>;
   increment: number;
@@ -63,7 +65,7 @@ export default function PxBrushPage(props: Props) {
     <>
       {nodes.map(({ x, y, color }, index) => (
         <div
-          className={styles.brush}
+          className={classnames(styles.brush, props.className)}
           key={index}
           style={{
             backgroundColor: color,
