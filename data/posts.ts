@@ -1,5 +1,10 @@
 const posts: PostListItem[] = [
   {
+    "date": "2020-06-25",
+    "id": "life-art-nostalgia",
+    "title": "Life, Art, Nostalgia"
+  },
+  {
     "date": "2020-06-10",
     "id": "culturally-irrelevant",
     "title": "Building a Culturally Irrelevant Recommendation Board"
