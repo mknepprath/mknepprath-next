@@ -13,12 +13,21 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/2020-mid-year-review",
+      "url": "https://mknepprath.com/writing/2020-mid-year-review",
+      "title": "The 2020 Mid-Year Review",
+      "content_text": "A mid-year check-in to see how I'm doing on my goals. • https://mknepprath.com/writing/2020-mid-year-review",
+      "summary": "A mid-year check-in to see how I'm doing on my goals.",
+      "image": "https://mknepprath.com/assets/2020-mid-year-1.png",
+      "date_published": "2020-06-30T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/life-art-nostalgia",
       "url": "https://mknepprath.com/writing/life-art-nostalgia",
       "title": "Life, Art, Nostalgia",
       "content_text": "Recreating a project from my high school years. • https://mknepprath.com/writing/life-art-nostalgia",
       "summary": "Recreating a project from my high school years.",
-      "image": "https://mknepprath.com//assets/pxbrush.png",
+      "image": "https://mknepprath.com/assets/pxbrush.png",
       "date_published": "2020-06-25T15:00:00Z"
     },
     {
@@ -27,7 +36,7 @@
       "title": "Building a Culturally Irrelevant Recommendation Board",
       "content_text": "The podcast is over, but the legacy continues. • https://mknepprath.com/writing/culturally-irrelevant",
       "summary": "The podcast is over, but the legacy continues.",
-      "image": "https://mknepprath.com//assets/culturally-irrelevant-11.jpg",
+      "image": "https://mknepprath.com/assets/culturally-irrelevant-11.jpg",
       "date_published": "2020-06-10T15:00:00Z"
     },
     {
@@ -36,7 +45,7 @@
       "title": "Making a Minecraft Server Status Page",
       "content_text": "Creating a simple page for displaying Minecraft server stats in Next.js. • https://mknepprath.com/writing/making-a-minecraft-status-page",
       "summary": "Creating a simple page for displaying Minecraft server stats in Next.js.",
-      "image": "https://mknepprath.com//assets/dynoland-1.jpg",
+      "image": "https://mknepprath.com/assets/dynoland-1.jpg",
       "date_published": "2020-06-02T15:00:00Z"
     },
     {
@@ -45,7 +54,7 @@
       "title": "Home Screen Hack",
       "content_text": "How I customized my iOS home screen. • https://mknepprath.com/writing/apple-made-me-do-it",
       "summary": "How I customized my iOS home screen.",
-      "image": "https://mknepprath.com//assets/home-screen-1.png",
+      "image": "https://mknepprath.com/assets/home-screen-1.png",
       "date_published": "2020-05-07T15:00:00Z"
     },
     {
@@ -62,7 +71,7 @@
       "title": "Twitter Defeated Me",
       "content_text": "I tried to delete my Twitter Likes. Twitter didn't like that. • https://mknepprath.com/writing/sorry-to-bother-you",
       "summary": "I tried to delete my Twitter Likes. Twitter didn't like that.",
-      "image": "https://mknepprath.com//assets/twitter-likes-illustration-1.jpg",
+      "image": "https://mknepprath.com/assets/twitter-likes-illustration-1.jpg",
       "date_published": "2020-02-20T15:00:00Z"
     },
     {
@@ -71,7 +80,7 @@
       "title": "Adding RSS to My Next.js Website",
       "content_text": "Examining the bumps along the road as I worked to add an RSS feed to my website. • https://mknepprath.com/writing/rss",
       "summary": "Examining the bumps along the road as I worked to add an RSS feed to my website.",
-      "image": "https://mknepprath.com//assets/adding-rss.jpg",
+      "image": "https://mknepprath.com/assets/adding-rss.jpg",
       "date_published": "2020-01-15T15:00:00Z"
     },
     {
@@ -80,7 +89,7 @@
       "title": "2019 in Review",
       "content_text": "A look at my accomplishments during the past year. • https://mknepprath.com/writing/2019",
       "summary": "A look at my accomplishments during the past year.",
-      "image": "https://mknepprath.com//assets/2019-in-review-1.png",
+      "image": "https://mknepprath.com/assets/2019-in-review-1.png",
       "date_published": "2019-12-29T15:00:00Z"
     },
     {
@@ -89,7 +98,7 @@
       "title": "Sequential Art™",
       "content_text": "A comic retrospective. • https://mknepprath.com/writing/sequential-art",
       "summary": "A comic retrospective.",
-      "image": "https://mknepprath.com//assets/comics-05.jpeg",
+      "image": "https://mknepprath.com/assets/comics-05.jpeg",
       "date_published": "2019-12-12T15:00:00Z"
     },
     {
@@ -106,7 +115,7 @@
       "title": "Thoughts on Design Process",
       "content_text": "If I were to be asked to design an app, where would I start? • https://mknepprath.com/writing/design-process",
       "summary": "If I were to be asked to design an app, where would I start?",
-      "image": "https://mknepprath.com//assets/design-process.jpg",
+      "image": "https://mknepprath.com/assets/design-process.jpg",
       "date_published": "2019-09-07T15:00:00Z"
     },
     {
@@ -115,7 +124,7 @@
       "title": "Code Should Breathe",
       "content_text": "What if we let our code breathe a little? • https://mknepprath.com/writing/breathe",
       "summary": "What if we let our code breathe a little?",
-      "image": "https://mknepprath.com//assets/breathe-1.jpg",
+      "image": "https://mknepprath.com/assets/breathe-1.jpg",
       "date_published": "2019-08-03T15:00:00Z"
     },
     {
@@ -124,7 +133,7 @@
       "title": "Create a Simple Website with GitHub Pages",
       "content_text": "A quick guide for setting up a new website with GitHub. • https://mknepprath.com/writing/create-a-website",
       "summary": "A quick guide for setting up a new website with GitHub.",
-      "image": "https://mknepprath.com//assets/create-a-website1.jpg",
+      "image": "https://mknepprath.com/assets/create-a-website1.jpg",
       "date_published": "2019-07-22T15:00:00Z"
     },
     {

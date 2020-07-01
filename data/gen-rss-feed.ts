@@ -36,7 +36,7 @@ const feed = {
       post.summary ? post.summary + " • " : ""
     }https://mknepprath.com/writing/${post.id}`,
     summary: post.summary,
-    image: post.image ? `https://mknepprath.com/${post.image}` : undefined,
+    image: post.image ? `https://mknepprath.com${post.image}` : undefined,
     date_published: `${post.publishedAt}T15:00:00Z`,
   })),
 };
