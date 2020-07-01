@@ -6,7 +6,7 @@
   margin: 80px 0;
   width: 100%;
   line-height: 1.1;
-  font-size: 32px;
+  font-size: 48px;
 }
 @media (min-width: 632px) {
   .greeting {
