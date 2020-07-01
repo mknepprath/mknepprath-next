@@ -2,7 +2,7 @@ import Link from "next/link";
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  image: "/assets/2020-mid-year-1.png",
+  image: "/assets/2020-mid-year-1.jpg",
   published: true,
   publishedAt: "2020-06-30",
   summary: "A mid-year check-in to see how I'm doing on my goals.",
