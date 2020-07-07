@@ -4,11 +4,17 @@ export const meta = {
   image: "/assets/detective-comics.jpg",
   published: true,
   publishedAt: "2015-04-29",
+  summary: "Prepare to get robbed.",
   title: "How DC Is Failing Us All",
 };
 
 export default () => (
-  <BlogPage dateTime={meta.publishedAt} ogImage={meta.image} title={meta.title}>
+  <BlogPage
+    dateTime={meta.publishedAt}
+    description={meta.summary}
+    ogImage={meta.image}
+    title={meta.title}
+  >
     <img
       alt="The Joker in a box office booth"
       className="blog-image"
