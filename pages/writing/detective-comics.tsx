@@ -8,7 +8,7 @@ export const meta = {
 };
 
 export default () => (
-  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+  <BlogPage dateTime={meta.publishedAt} ogImage={meta.image} title={meta.title}>
     <img
       alt="The Joker in a box office booth"
       className="blog-image"
