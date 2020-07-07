@@ -1,9 +1,10 @@
 import BlogPage from "core/blog-page";
 
 export const meta = {
+  image: "/assets/detective-comics.jpg",
   published: true,
   publishedAt: "2015-04-29",
-  title: "How DC Is Failing Us All"
+  title: "How DC Is Failing Us All",
 };
 
 export default () => (
