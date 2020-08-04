@@ -1,6 +1,7 @@
 import BlogPage from "core/blog-page";
 
 export const meta = {
+  image: "/assets/mk9000.png",
   published: true,
   publishedAt: "2019-09-29",
   summary: "What if 2001: A Space Odyssey, but with @robot_mk?",
@@ -12,8 +13,15 @@ export default function MK9000() {
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
+      ogImage={meta.image}
       title={meta.title}
     >
+      <img
+        alt="Monolith"
+        className="blog-image"
+        src="/assets/mk9000.png"
+      />
+
       <header>
         <h1>{meta.title}</h1>
       </header>

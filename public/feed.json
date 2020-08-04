@@ -107,6 +107,7 @@
       "title": "A Chat with MK 9000",
       "content_text": "What if 2001: A Space Odyssey, but with @robot_mk? • https://mknepprath.com/writing/mk9000",
       "summary": "What if 2001: A Space Odyssey, but with @robot_mk?",
+      "image": "https://mknepprath.com/assets/mk9000.png",
       "date_published": "2019-09-29T15:00:00Z"
     },
     {
@@ -175,7 +176,8 @@
       "id": "https://mknepprath.com/writing/detective-comics",
       "url": "https://mknepprath.com/writing/detective-comics",
       "title": "How DC Is Failing Us All",
-      "content_text": "https://mknepprath.com/writing/detective-comics",
+      "content_text": "Prepare to get robbed. • https://mknepprath.com/writing/detective-comics",
+      "summary": "Prepare to get robbed.",
       "image": "https://mknepprath.com/assets/detective-comics.jpg",
       "date_published": "2015-04-29T15:00:00Z"
     },
