@@ -5,8 +5,8 @@ import PhotoStack from "core/photo-stack";
 
 import styles from "./about.module.css";
 
-export default () => (
-  <Page
+export default function About() {
+  return <Page
     className={classnames("container", styles.pageContainer)}
     title="About Michael Knepprath"
   >
@@ -47,4 +47,4 @@ export default () => (
       </p>
     </article>
   </Page>
-);
+};

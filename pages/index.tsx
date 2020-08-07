@@ -16,8 +16,8 @@ import posts from "data/posts";
 
 import styles from "./index.module.css";
 
-export default () => (
-  <>
+export default function Home() {
+  return <>
     <Head />
     <Nav className="container" />
 
@@ -66,4 +66,4 @@ export default () => (
 
     <Footer className="container" />
   </>
-);
+}
