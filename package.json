@@ -34,7 +34,7 @@
     "react-dom": "^16.13.1",
     "react-spring": "^9.0.0-rc.3",
     "react-use-gesture": "^7.0.15",
-    "swr": "^0.3.0"
+    "swr": "^0.3.1"
   },
   "devDependencies": {
     "@types/node": "^14.6.0",
