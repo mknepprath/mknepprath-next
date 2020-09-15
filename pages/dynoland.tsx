@@ -28,13 +28,14 @@ function onClickToCopy(e: SyntheticEvent) {
   document.body.removeChild(fakeElement);
 }
 
-const SERVER_IP = "dynoland.space";
+const IP = "144.217.215.65";
+const PORT = "25601"
 
 const fetcher = (url: RequestInfo) => fetch(url).then((r) => r.json());
 
 export default function Dynoland() {
   const { data } = useSWR(
-    `https://mcapi.us/server/status?ip=${SERVER_IP}`,
+    `https://mcapi.us/server/status?ip=${IP}`,
     fetcher,
     { refreshInterval: 30000 }
   );
@@ -45,18 +46,18 @@ export default function Dynoland() {
     <Page className="container" title="Dynoland">
       <article>
         <header>
-          <h1>Dynoland {data.online ? "" : "(Currently Offline)"}</h1>
+          <h1>Dynoland {data.online ? "" : "(Offline)"}</h1>
         </header>
 
         {data.online ? (
           ""
         ) : (
-          <p>
-            If you were planning on playing right now,{" "}
-            <a href="https://twitter.com/mknepprath">message me</a> and I will
+            <p>
+              If you were planning on playing right now,{" "}
+              <a href="https://twitter.com/mknepprath">message me</a> and I will
             look into it as soon as I'm available.
-          </p>
-        )}
+            </p>
+          )}
 
         <img
           alt="Dynoland rendered image"
@@ -67,7 +68,7 @@ export default function Dynoland() {
         <p>
           <button
             className={styles.button}
-            data-clipboard-text={SERVER_IP}
+            data-clipboard-text={`${IP}:${PORT}`}
             onClick={onClickToCopy}
             type="button"
           >

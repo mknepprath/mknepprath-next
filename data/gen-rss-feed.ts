@@ -1,7 +1,6 @@
 require("colors");
 const fs = require("fs");
 const jsdiff = require("diff");
-const path = require("path");
 const posts = require("./get-blog-posts");
 
 const FEED_FILE = `${process.cwd()}/public/feed.json`;
@@ -34,7 +33,7 @@ const feed = {
     title: post.title,
     content_text: `${
       post.summary ? post.summary + " • " : ""
-    }https://mknepprath.com/writing/${post.id}`,
+      }https://mknepprath.com/writing/${post.id}`,
     summary: post.summary,
     image: post.image ? `https://mknepprath.com${post.image}` : undefined,
     date_published: `${post.publishedAt}T15:00:00Z`,
@@ -68,4 +67,4 @@ function generateRSSFeed() {
 
 generateRSSFeed();
 
-export {};
+export { };
