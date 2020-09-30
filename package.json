@@ -27,7 +27,7 @@
     "@types/prismjs": "^1.16.1",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",
-    "isomorphic-unfetch": "^3.0.0",
+    "isomorphic-unfetch": "^3.1.0",
     "next": "^9.5.3",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
