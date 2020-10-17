@@ -31,7 +31,7 @@
     "next": "^9.5.3",
     "prismjs": "^1.22.0",
     "react": "^16.14.0",
-    "react-dom": "^16.13.1",
+    "react-dom": "^16.14.0",
     "react-spring": "^9.0.0-rc.3",
     "react-use-gesture": "^7.0.16",
     "swr": "^0.3.5"
