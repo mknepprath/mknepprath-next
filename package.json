@@ -24,29 +24,29 @@
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
     "classnames": "^2.2.6",
-    "date-fns": "^2.15.0",
+    "date-fns": "^2.16.1",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.5.1",
-    "prismjs": "^1.20.0",
+    "next": "^9.5.3",
+    "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-spring": "^9.0.0-rc.3",
-    "react-use-gesture": "^7.0.15",
-    "swr": "^0.3.0"
+    "react-use-gesture": "^7.0.16",
+    "swr": "^0.3.2"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
-    "@types/node": "^14.0.27",
     "@types/prismjs": "^1.16.1",
-    "@types/react": "^16.9.43",
+    "@types/node": "^14.10.1",
+    "@types/react": "^16.9.49",
     "colors": "^1.4.0",
     "diff": "^4.0.2",
-    "eslint": "^7.6.0",
+    "eslint": "^7.8.1",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.5",
-    "eslint-plugin-react-hooks": "^4.0.8",
-    "prettier": "^2.0.5",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "prettier": "^2.1.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
   }
 }
