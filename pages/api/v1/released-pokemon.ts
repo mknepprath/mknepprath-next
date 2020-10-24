@@ -56,7 +56,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         p => ({
             ...p,
             nests: Boolean(nestingPokemonDict[p.id]),
-            raidBoss: Boolean(raidBosses[p.id]),
+            raidBoss: Boolean(raidBosses.find(boss => boss.id === p.id)),
             raidBossTier: String(raidBosses.find(boss => boss.id === p.id)?.tier || 0),
             shadowObtainable: Boolean(shadowPokemonDict[p.id]),
             shinyReleased: Boolean(shinyPokemonDict[p.id]),
