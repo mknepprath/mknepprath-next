@@ -72,7 +72,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const evolutions: PokemonEvolution[] = await fetch("https://pogoapi.net/api/v1/pokemon_evolutions.json")
         .then((response) => response.json())
 
-    const regionals = [83, 115, 122, 128, 214, 222, 324, 335, 336, 337, 338, 369, 313, 314, 357, 417, 422, 441, 455, 480, 481, 482, 511, 512, 513, 514, 515, 516, 537, 538, 539, 550, 556, 561, 626, 631, 632]
+    const regionals = [83, 115, 122, 128, 214, 222, 324, 335, 336, 337, 338, 369, 313, 314, 357, 417, 422, 439, 441, 455, 480, 481, 482, 511, 512, 513, 514, 515, 516, 537, 538, 539, 550, 556, 561, 626, 631, 632]
 
     const hydratedPokemon: HydratedPokemon[] = releasedPokemon.map(
         p => ({
