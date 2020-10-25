@@ -72,6 +72,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const evolutions: PokemonEvolution[] = await fetch("https://pogoapi.net/api/v1/pokemon_evolutions.json")
         .then((response) => response.json())
 
+    const regionals = [83, 115, 122, 128, 214, 222, 324, 335, 336, 337, 338, 369, 313, 314, 357, 417, 422, 441, 455, 480, 481, 482, 511, 512, 513, 514, 515, 516, 537, 538, 539, 550, 556, 561, 626, 631, 632]
+
     const hydratedPokemon: HydratedPokemon[] = releasedPokemon.map(
         p => ({
             ...p,
@@ -80,6 +82,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             possibleDitto: Boolean(possibleDittoDict[p.id]),
             raidBoss: Boolean(raidBosses.find(boss => boss.id === p.id)),
             raidBossTier: String(raidBosses.find(boss => boss.id === p.id)?.tier || 0),
+            regional: Boolean(regionals.includes(p.id)),
             shadowObtainable: Boolean(shadowPokemonDict[p.id]),
             shinyReleased: Boolean(shinyPokemonDict[p.id])
         })
