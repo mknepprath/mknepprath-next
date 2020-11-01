@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 interface Pokemon {
     id: number;
     name: string;
+    sprite?: string; // Hydrated with PokéAPI
 }
 
 interface ShinyPokemon extends Pokemon {
@@ -51,6 +52,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         .then((response) => response.json())
     const releasedPokemon = Object.values(releasedPokemonDict)
 
+    console.log('a')
+
+    // for (let p in releasedPokemon) {
+    //     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${releasedPokemon[p].id}`)
+    //     const data = await response.json()
+    //     releasedPokemon[p].sprite = data.sprites.front_default
+    //     console.count('.')
+    // }
+
+    console.log('b')
+
     const nestingPokemonDict: { [key: string]: Pokemon } = await fetch("https://pogoapi.net/api/v1/nesting_pokemon.json")
         .then((response) => response.json())
 
@@ -84,7 +96,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             raidBossTier: String(raidBosses.find(boss => boss.id === p.id)?.tier || 0),
             regional: Boolean(regionals.includes(p.id)),
             shadowObtainable: Boolean(shadowPokemonDict[p.id]),
-            shinyReleased: Boolean(shinyPokemonDict[p.id])
+            shinyReleased: Boolean(shinyPokemonDict[p.id]),
+            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`,
         })
     )
 
