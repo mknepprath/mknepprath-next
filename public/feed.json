@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/lily-dex",
+      "url": "https://mknepprath.com/writing/lily-dex",
+      "title": "lily dex",
+      "content_text": "A simple Pokédex for Pokémon Go • https://mknepprath.com/writing/lily-dex",
+      "summary": "A simple Pokédex for Pokémon Go",
+      "image": "https://mknepprath.com/assets/lily-dex-hero.jpg",
+      "date_published": "2020-11-01T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/2020-mid-year-review",
       "url": "https://mknepprath.com/writing/2020-mid-year-review",
       "title": "The 2020 Mid-Year Review",

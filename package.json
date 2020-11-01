@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "build:feed": "ts-node ./data/gen-rss-feed.ts",
-    "build:rss": "ts-node ./data/gen-rss-feed.ts",
-    "build:posts": "ts-node ./data/gen-post-list.ts",
+    "build:feed": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
+    "build:rss": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
+    "build:posts": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-post-list.ts",
     "start": "next start"
   },
   "repository": {
