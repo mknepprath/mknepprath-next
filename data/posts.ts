@@ -2,31 +2,37 @@ const posts: PostListItem[] = [
   {
     "date": "2020-11-01",
     "id": "lily-dex",
+    "image": "/assets/lily-dex-hero.jpg",
     "title": "lily dex"
   },
   {
     "date": "2020-06-30",
     "id": "2020-mid-year-review",
+    "image": "/assets/2020-mid-year-1.jpg",
     "title": "The 2020 Mid-Year Review"
   },
   {
     "date": "2020-06-25",
     "id": "life-art-nostalgia",
+    "image": "/assets/pxbrush.png",
     "title": "Life, Art, Nostalgia"
   },
   {
     "date": "2020-06-10",
     "id": "culturally-irrelevant",
+    "image": "/assets/culturally-irrelevant-11.jpg",
     "title": "Building a Culturally Irrelevant Recommendation Board"
   },
   {
     "date": "2020-06-02",
     "id": "making-a-minecraft-status-page",
+    "image": "/assets/dynoland-1.jpg",
     "title": "Making a Minecraft Server Status Page"
   },
   {
     "date": "2020-05-07",
     "id": "apple-made-me-do-it",
+    "image": "/assets/home-screen-1.png",
     "title": "Home Screen Hack"
   },
   {
@@ -37,41 +43,49 @@ const posts: PostListItem[] = [
   {
     "date": "2020-02-20",
     "id": "sorry-to-bother-you",
+    "image": "/assets/twitter-likes-illustration-1.jpg",
     "title": "Twitter Defeated Me"
   },
   {
     "date": "2020-01-15",
     "id": "rss",
+    "image": "/assets/adding-rss.jpg",
     "title": "Adding RSS to My Next.js Website"
   },
   {
     "date": "2019-12-29",
     "id": "2019",
+    "image": "/assets/2019-in-review-1.png",
     "title": "2019 in Review"
   },
   {
     "date": "2019-12-12",
     "id": "sequential-art",
+    "image": "/assets/comics-05.jpeg",
     "title": "Sequential Art™"
   },
   {
     "date": "2019-09-29",
     "id": "mk9000",
+    "image": "/assets/mk9000.png",
     "title": "A Chat with MK 9000"
   },
   {
     "date": "2019-09-07",
     "id": "design-process",
+    "image": "/assets/design-process.jpg",
     "title": "Thoughts on Design Process"
   },
   {
     "date": "2019-08-03",
     "id": "breathe",
+    "image": "/assets/breathe-1.jpg",
     "title": "Code Should Breathe"
   },
   {
     "date": "2019-07-22",
     "id": "create-a-website",
+    "image": "/assets/create-a-website1.jpg",
     "title": "Create a Simple Website with GitHub Pages"
   },
   {
@@ -102,6 +116,7 @@ const posts: PostListItem[] = [
   {
     "date": "2015-04-29",
     "id": "detective-comics",
+    "image": "/assets/detective-comics.jpg",
     "title": "How DC Is Failing Us All"
   },
   {

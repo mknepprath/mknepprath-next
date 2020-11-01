@@ -35,7 +35,13 @@ interface ProjectLink {
 /** @type {Array<{ description: string, href: string, title: string, imgSrc: string }>} */
 export const projectLinks: ProjectLink[] = [
   {
-    description: "A website based on a podcast",
+    description: "A simple Pokédex app for Go",
+    href: "https://apps.apple.com/us/app/lily-dex/id1525132070",
+    title: "lily dex",
+    imgSrc: "/assets/lily-dex-icon.png",
+  },
+  {
+    description: "A website inspired by a podcast",
     href: "https://culturallyirrelevant.net/",
     title: "Culturally Irrelevant",
     imgSrc: "/assets/culturally-irrelevant.png",

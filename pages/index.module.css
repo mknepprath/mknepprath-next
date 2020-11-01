@@ -19,7 +19,12 @@
 }
 
 .title {
+  color: var(--black);
   margin-bottom: 0px;
+  margin-top: 8px;
+}
+.title:hover {
+  color: var(--primaryColor);
 }
 
 .projectContainer {
