@@ -13,5 +13,6 @@ interface Post {
 interface PostListItem {
   date: string;
   id: string;
+  image?: string;
   title: string;
 }

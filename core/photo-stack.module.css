@@ -15,7 +15,7 @@
 }
 
 .photo {
-  background-size: 100% auto;
+  background-size: cover !important;
   background-repeat: no-repeat;
   background-position: center center;
   cursor: grab;
