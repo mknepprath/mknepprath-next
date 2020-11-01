@@ -1,3 +1,5 @@
+// Fixed a ts-node issue with https://github.com/TypeStrong/ts-node/issues/436#issuecomment-624328557
+
 require("colors");
 const fs = require("fs");
 const jsdiff = require("diff");

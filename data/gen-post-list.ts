@@ -16,6 +16,7 @@ interface Post {
 const postList = posts.map((post: Post) => ({
   date: post.publishedAt,
   id: post.id,
+  image: post.image,
   title: post.title,
 }));
 

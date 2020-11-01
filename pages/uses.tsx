@@ -9,8 +9,8 @@ export default function Uses() {
         </header>
 
         <p>
-          This is where I document tools and products I use and love. If your
-          curious about anything that's missing, feel free to{" "}
+          This is where I document tools and products I use and love. If you're
+          curious about anything, feel free to{" "}
           <a href="https://twitter.com/mknepprath">@ me</a>.
         </p>
 
@@ -104,23 +104,39 @@ export default function Uses() {
         </p>
         <ul>
           <li>
-            <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">
+            <a
+              href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               React Developer Tools
             </a>
           </li>
           <li>
-            <a href="https://chrome.google.com/webstore/detail/instapaper/ldjkgaaoikpmhmkelcgkgacicjfbofhh">
+            <a
+              href="https://chrome.google.com/webstore/detail/instapaper/ldjkgaaoikpmhmkelcgkgacicjfbofhh"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Instapaper
             </a>
           </li>
           <li>
-            <a href="https://mknepprath.com/patched-tomatoes">
+            <a
+              href="https://mknepprath.com/patched-tomatoes"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Patched Tomatoes
             </a>{" "}
             by me
           </li>
           <li>
-            <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">
+            <a
+              href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               JSON Formatter
             </a>
           </li>
@@ -129,43 +145,83 @@ export default function Uses() {
         <h2>Desktop IRL</h2>
         <p>
           The things on{" "}
-          <a href="https://twitter.com/mknepprath/status/1215106277447282689?s=20">
+          <a
+            href="https://twitter.com/mknepprath/status/1215106277447282689?s=20"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             my real desk
           </a>{" "}
           that I use everyday.
         </p>
         <ul>
           <li>
-            <a href="https://www.westelm.com/products/modern-wall-desk-white-pecan-h1499/">
+            <a
+              href="https://www.westelm.com/products/modern-wall-desk-white-pecan-h1499/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               West Elm Modern Wall Desk
             </a>
           </li>
           <li>
-            <a href="https://www.apple.com/shop/buy-mac/macbook-pro">
+            <a
+              href="https://www.apple.com/shop/buy-mac/macbook-pro"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               MacBook Pro
             </a>{" "}
             (15-inch, 2018)
           </li>
           <li>
-            <a href="https://www.amazon.com/Apple-MC914LL-27-inch-Thunderbolt-Display/dp/B074D4W31Y">
+            <a
+              href="https://www.amazon.com/Apple-MC914LL-27-inch-Thunderbolt-Display/dp/B074D4W31Y"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Thunderbolt Display
             </a>
           </li>
           <li>
-            <a href="https://www.apple.com/airpods">AirPods</a>
+            <a
+              href="https://www.apple.com/airpods"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              AirPods
+            </a>
           </li>
           <li>
-            <a href="https://www.apple.com/shop/product/MLA02LL/A/magic-mouse-2-silver">
+            <a
+              href="https://www.apple.com/shop/product/MLA02LL/A/magic-mouse-2-silver"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Magic Mouse
             </a>
           </li>
           <li>
             Rain Design's{" "}
-            <a href="https://www.amazon.com/Rain-Design-mStand-Laptop-Patented/dp/B000OOYECC">
+            <a
+              href="https://www.amazon.com/Rain-Design-mStand-Laptop-Patented/dp/B000OOYECC"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               mStand Laptop Stand
             </a>
           </li>
         </ul>
+
+        <hr />
+
+        <em>
+          Featured on{" "}
+          <a href="https://uses.tech" rel="noopener noreferrer" target="_blank">
+            uses.tech
+          </a>
+          .
+        </em>
       </article>
     </Page>
   );

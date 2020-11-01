@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "build:feed": "ts-node ./data/gen-rss-feed.ts",
-    "build:rss": "ts-node ./data/gen-rss-feed.ts",
-    "build:posts": "ts-node ./data/gen-post-list.ts",
+    "build:feed": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
+    "build:rss": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
+    "build:posts": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-post-list.ts",
     "start": "next start"
   },
   "repository": {
@@ -32,11 +32,11 @@
     "react-dom": "^16.14.0",
     "react-spring": "^9.0.0-rc.3",
     "react-use-gesture": "^7.0.16",
-    "swr": "^0.3.6"
+    "swr": "^0.3.7"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
-    "@types/prismjs": "^1.16.1",
+    "@types/prismjs": "^1.16.2",
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.55",
     "colors": "^1.4.0",

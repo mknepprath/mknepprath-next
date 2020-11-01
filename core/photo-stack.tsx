@@ -27,7 +27,7 @@ const from = (i: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 }); //  eslint
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const transform = (r: number, s: number) =>
   `perspective(1500px) rotateX(20deg) rotateY(${
-  r / 10
+    r / 10
   }deg) rotateZ(${r}deg) scale(${s})`;
 
 function PhotoStack() {
