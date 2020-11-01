@@ -17,6 +17,9 @@
 .greeting span {
   color: var(--primaryColor);
 }
+.greeting a {
+  text-decoration: none;
+}
 
 .title {
   color: var(--black);

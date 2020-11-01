@@ -24,7 +24,13 @@ export default function Home() {
 
       <div className={classnames("container", styles.hero)}>
         <h1 className={styles.greeting}>
-          <span>Hello!</span>
+          <a
+            href="https://twitter.com/mknepprath/status/1256722710308282369"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>Hello!</span>
+          </a>
           <br />I design & develop things for the internet.
         </h1>
       </div>
