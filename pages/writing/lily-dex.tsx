@@ -146,7 +146,14 @@ const LilyDex = () => (
     </p>
     <p>
       If you play Pokémon Go and this sounds useful to you, check it out in the{" "}
-      <a>App Store</a>!
+      <a
+        href="https://apps.apple.com/us/app/lily-dex/id1525132070"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        App Store
+      </a>
+      !
     </p>
     <img
       alt="lily dex in the App Store"
