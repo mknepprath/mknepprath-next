@@ -97,6 +97,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             regional: Boolean(regionals.includes(p.id)),
             shadowObtainable: Boolean(shadowPokemonDict[p.id]),
             shinyReleased: Boolean(shinyPokemonDict[p.id]),
+            shinySprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`,
             sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`,
         })
     )
