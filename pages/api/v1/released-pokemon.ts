@@ -175,5 +175,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
+  res.setHeader("Cache-Control", "max-age=86400");
   res.end(JSON.stringify(hydratedPokemon));
 };
