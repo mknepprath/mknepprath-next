@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+const POGO_API = "https://pogoapi.net/api/v1";
+const POKE_API_SPRITE_URL =
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon";
+
 interface Pokemon {
   id: number;
   name: string;
@@ -68,62 +72,62 @@ interface CandyRequired extends PokemonForm {
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const releasedPokemonDict: { [key: string]: Pokemon } = await fetch(
-    "https://pogoapi.net/api/v1/released_pokemon.json"
+    `${POGO_API}/released_pokemon.json`
   ).then((response) => response.json());
   const releasedPokemon = Object.values(releasedPokemonDict);
 
   const nestingPokemonDict: { [key: string]: Pokemon } = await fetch(
-    "https://pogoapi.net/api/v1/nesting_pokemon.json"
+    `${POGO_API}/nesting_pokemon.json`
   ).then((response) => response.json());
 
   const raidBossesDict: {
     current: { [key: string]: [RaidBoss] };
-  } = await fetch(
-    "https://pogoapi.net/api/v1/raid_bosses.json"
-  ).then((response) => response.json());
+  } = await fetch(`${POGO_API}/raid_bosses.json`).then((response) =>
+    response.json()
+  );
   const raidBosses = Object.keys(raidBossesDict.current).flatMap(
     (tier) => raidBossesDict.current[tier]
   );
 
   const buddyDistanceDict: { [key: string]: BuddyDistance[] } = await fetch(
-    "https://pogoapi.net/api/v1/pokemon_buddy_distances.json"
+    `${POGO_API}/pokemon_buddy_distances.json`
   ).then((response) => response.json());
   const buddyDistances = Object.keys(buddyDistanceDict)
     .flatMap((amount) => buddyDistanceDict[amount])
-    .filter((buddy) => buddy.form === "Normal");
+    .filter((buddy) => buddy.form === `Normal`);
 
   const candyRequiredDict: { [key: string]: CandyRequired[] } = await fetch(
-    "https://pogoapi.net/api/v1/pokemon_candy_to_evolve.json"
+    `${POGO_API}/pokemon_candy_to_evolve.json`
   ).then((response) => response.json());
   const candyRequired = Object.keys(candyRequiredDict)
     .flatMap((amount) => candyRequiredDict[amount])
-    .filter((pokemon) => pokemon.form === "Normal");
+    .filter((pokemon) => pokemon.form === `Normal`);
 
   const rarityDict: { [key: string]: PokemonRarity[] } = await fetch(
-    "https://pogoapi.net/api/v1/pokemon_rarity.json"
+    `${POGO_API}/pokemon_rarity.json`
   ).then((response) => response.json());
   const rarity = Object.keys(rarityDict).flatMap(
     (pokemon) => rarityDict[pokemon]
   );
 
   const shadowPokemonDict: { [key: string]: Pokemon } = await fetch(
-    "https://pogoapi.net/api/v1/shadow_pokemon.json"
+    `${POGO_API}/shadow_pokemon.json`
   ).then((response) => response.json());
 
   const shinyPokemonDict: { [key: string]: ShinyPokemon } = await fetch(
-    "https://pogoapi.net/api/v1/shiny_pokemon.json"
+    `${POGO_API}/shiny_pokemon.json`
   ).then((response) => response.json());
 
   const possibleDittoDict: { [key: string]: Pokemon } = await fetch(
-    "https://pogoapi.net/api/v1/possible_ditto_pokemon.json"
+    `${POGO_API}/possible_ditto_pokemon.json`
   ).then((response) => response.json());
 
   const evolutions: PokemonEvolution[] = await fetch(
-    "https://pogoapi.net/api/v1/pokemon_evolutions.json"
+    `${POGO_API}/pokemon_evolutions.json`
   ).then((response) => response.json());
 
   const types: PokemonTypes[] = await fetch(
-    "https://pogoapi.net/api/v1/pokemon_types.json"
+    `${POGO_API}/pokemon_types.json`
   ).then((response) => response.json());
 
   const regionals = [
@@ -190,8 +194,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     regional: Boolean(regionals.includes(p.id)),
     shadowObtainable: Boolean(shadowPokemonDict[p.id]),
     shinyReleased: Boolean(shinyPokemonDict[p.id]),
-    shinySprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`,
-    sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`,
+    shinySprite: `${POKE_API_SPRITE_URL}/shiny/${p.id}.png`,
+    sprite: `${POKE_API_SPRITE_URL}/${p.id}.png`,
     types: types.find((pokemon) => pokemon.pokemon_id === p.id)?.type,
   }));
 
