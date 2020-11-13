@@ -34,24 +34,35 @@ interface HydratedPokemon extends Pokemon {
 }
 
 interface PokemonBase {
-  form: string;
   pokemon_id: number;
   pokemon_name: string;
 }
 
-interface Evolution extends PokemonBase {
+interface PokemonRarity extends PokemonBase {
+  rarity: string;
+}
+
+interface PokemonTypes extends PokemonBase {
+  type: string[];
+}
+
+interface PokemonForm extends PokemonBase {
+  form: string;
+}
+
+interface Evolution extends PokemonForm {
   candy_required: number;
 }
 
-interface PokemonEvolution extends PokemonBase {
+interface PokemonEvolution extends PokemonForm {
   evolutions: Evolution[];
 }
 
-interface BuddyDistance extends PokemonBase {
+interface BuddyDistance extends PokemonForm {
   distance: number;
 }
 
-interface CandyRequired extends PokemonBase {
+interface CandyRequired extends PokemonForm {
   candy_required: number;
 }
 
@@ -88,6 +99,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     .flatMap((amount) => candyRequiredDict[amount])
     .filter((pokemon) => pokemon.form === "Normal");
 
+  const rarityDict: { [key: string]: PokemonRarity[] } = await fetch(
+    "https://pogoapi.net/api/v1/pokemon_rarity.json"
+  ).then((response) => response.json());
+  const rarity = Object.keys(rarityDict).flatMap(
+    (pokemon) => rarityDict[pokemon]
+  );
+
   const shadowPokemonDict: { [key: string]: Pokemon } = await fetch(
     "https://pogoapi.net/api/v1/shadow_pokemon.json"
   ).then((response) => response.json());
@@ -102,6 +120,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const evolutions: PokemonEvolution[] = await fetch(
     "https://pogoapi.net/api/v1/pokemon_evolutions.json"
+  ).then((response) => response.json());
+
+  const types: PokemonTypes[] = await fetch(
+    "https://pogoapi.net/api/v1/pokemon_types.json"
   ).then((response) => response.json());
 
   const regionals = [
@@ -164,11 +186,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     raidBossTier: String(
       raidBosses.find((boss) => boss.id === p.id)?.tier || 0
     ),
+    rarity: rarity.find((pokemon) => pokemon.pokemon_id === p.id)?.rarity,
     regional: Boolean(regionals.includes(p.id)),
     shadowObtainable: Boolean(shadowPokemonDict[p.id]),
     shinyReleased: Boolean(shinyPokemonDict[p.id]),
     shinySprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${p.id}.png`,
     sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`,
+    types: types.find((pokemon) => pokemon.pokemon_id === p.id)?.type,
   }));
 
   hydratedPokemon.sort((a, b) => a.id - b.id);
