@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -17,7 +19,14 @@ export default function Breathe() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img alt="A feather" className="blog-image" src="/assets/breathe-1.jpg" />
+      <Image
+        alt="A feather"
+        height={450}
+        src="/assets/breathe-1.jpg"
+        layout="responsive"
+        priority
+        width={800}
+      />
 
       <header>
         <h1>{meta.title}</h1>
@@ -171,7 +180,13 @@ export default function Breathe() {
       </p>
 
       <a href="https://twitter.com/mknepprath/status/1057477764033458181?s=20">
-        <img alt="Fishing" className="blog-image" src="/assets/breathe-2.jpg" />
+        <Image
+          alt="Fishing"
+          height={282}
+          src="/assets/breathe-2.jpg"
+          layout="responsive"
+          width={556}
+        />
       </a>
     </BlogPage>
   );

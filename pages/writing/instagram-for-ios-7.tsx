@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
   published: true,
   publishedAt: "2013-09-26",
-  title: "Instagram For iOS 7"
+  title: "Instagram For iOS 7",
 };
 
 export default () => (
@@ -49,10 +51,13 @@ export default () => (
       simplifying or optimization.
     </p>
 
-    <img
+    <Image
       alt="Screenshot of Instagram's redesign for iOS 7"
-      className="blog-image"
+      className="corner-radius-8"
+      height={1136}
       src="/assets/instagram-for-ios-7.png"
+      layout="responsive"
+      width={640}
     />
   </BlogPage>
 );

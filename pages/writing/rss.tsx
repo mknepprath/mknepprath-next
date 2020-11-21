@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -18,10 +20,12 @@ export default function RSS() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img
+      <Image
         alt="A big shiny subscribe button."
-        className="blog-image"
+        height={629}
+        layout="responsive"
         src="/assets/adding-rss.jpg"
+        width={800}
       />
       <header>
         <h1>{meta.title}</h1>

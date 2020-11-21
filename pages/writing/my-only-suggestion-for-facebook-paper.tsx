@@ -3,6 +3,8 @@
 
 // TODO: Check accuracy of timestamp.
 
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -28,10 +30,14 @@ export default () => (
       introduce Facebook lists:
     </p>
 
-    <img
+    <Image
       alt="Facebook lists"
-      className="blog-image"
+      className="corner-radius-8"
+      height={960}
+      layout="responsive"
+      priority
       src="/assets/facebook-paper-lists.png"
+      width={1190}
     />
 
     <p>Facebook lists are powerful, and here’s why:</p>
@@ -67,10 +73,13 @@ export default () => (
       experience, but does include something new: Sections.
     </p>
 
-    <img
+    <Image
       alt="Facebook Paper sections"
-      className="blog-image"
+      className="corner-radius-8"
+      height={533}
       src="/assets/facebook-paper-sections.png"
+      layout="responsive"
+      width={900}
     />
 
     <p>

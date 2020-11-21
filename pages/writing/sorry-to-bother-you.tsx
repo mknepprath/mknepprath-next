@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -17,10 +19,13 @@ export default function TwitterDefeatedMe() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img
+      <Image
         alt="Likes header illustration"
-        className="blog-image"
+        height={365}
+        layout="responsive"
+        priority
         src="/assets/twitter-likes-illustration-1.jpg"
+        width={1000}
       />
       <header>
         <h1>{meta.title}</h1>
@@ -85,10 +90,12 @@ export default function TwitterDefeatedMe() {
       </p>
       <h2 id="so-do-i-need-em">So Do I Need 'Em?</h2>
       <p>Nah.</p>
-      <img
+      <Image
         alt="Broken like"
-        className="blog-image"
+        height={249}
         src="/assets/twitter-likes-illustration-2.jpg"
+        layout="responsive"
+        width={1000}
       />
       <p>
         At least not this many. In my ideal Twitter world, likes last long
@@ -125,10 +132,12 @@ export default function TwitterDefeatedMe() {
         this window are unliked, Twitter sends over an empty list. No way around
         it. Old likes are 100% inaccessible through the API.
       </p>
-      <img
+      <Image
         alt="Likes window illustrated"
-        className="blog-image"
+        height={248}
         src="/assets/twitter-likes-illustration-3.jpg"
+        layout="responsive"
+        width={1000}
       />
       <p>
         To unlike tweets outside of this window, I'd need to find another way.
@@ -158,10 +167,12 @@ export default function TwitterDefeatedMe() {
         or website, likes outside of the 3,200 window aren't displayed as having
         been liked - the heart icons are empty.
       </p>
-      <img
+      <Image
         alt="Likes displayed as unliked"
-        className="blog-image"
+        height={1060}
         src="/assets/twitter-likes-6.png"
+        layout="responsive"
+        width={1196}
       />
       <p>
         Additionally, Twitter offers a JavaScript-free version of their site,
@@ -192,38 +203,48 @@ for likeId in likeIds:
         </code>
       </pre>
       <p>...and the Terminal output when running it.</p>
-      <img
+      <Image
         alt="Command line liked and unliked messages"
-        className="blog-image"
+        height={1192}
         src="/assets/twitter-likes-1.png"
+        layout="responsive"
+        width={1024}
       />
       <p>
         This, however, has an unfortunate side effect. Every like causes a
         notification just like any other would despite these being tweets I'd
         already liked in the past.
       </p>
-      <img
+      <Image
         alt="Unwanted notifications #1"
-        className="blog-image"
+        height={180}
         src="/assets/twitter-likes-2.png"
+        layout="responsive"
+        width={1196}
       />
       <hr />
-      <img
+      <Image
         alt="Unwanted notifications #2"
-        className="blog-image"
+        height={260}
         src="/assets/twitter-likes-3.png"
+        layout="responsive"
+        width={1196}
       />
       <hr />
-      <img
+      <Image
         alt="Unwanted notifications #3"
-        className="blog-image"
+        height={186}
         src="/assets/twitter-likes-4.png"
+        layout="responsive"
+        width={1196}
       />
       <hr />
-      <img
+      <Image
         alt="Unwanted notifications #4"
-        className="blog-image"
+        height={276}
         src="/assets/twitter-likes-5.png"
+        layout="responsive"
+        width={1196}
       />
       <p>
         And herein lies the dilemma. I <em>can</em> accomplish my goal. But it
@@ -238,10 +259,12 @@ for likeId in likeIds:
         </a>
         , this would likely be a months-long process. Ugh.
       </p>
-      <img
+      <Image
         alt="I Defeated Twitter (Not)"
-        className="blog-image"
+        height={192}
         src="/assets/twitter-likes-7.png"
+        layout="responsive"
+        width={1196}
       />
       <h3 id="delete-stale-likes">Delete Stale Likes</h3>
       <p>It's not all bad.</p>
@@ -250,10 +273,12 @@ for likeId in likeIds:
         useless. Therefore, this script only deals with recent likes that exist
         within the 3,200 window. No problem!
       </p>
-      <img
+      <Image
         alt="Sweeping up likes"
-        className="blog-image"
+        height={610}
         src="/assets/twitter-likes-illustration-4.jpg"
+        layout="responsive"
+        width={1000}
       />
       <p>Here's a snippet of this new script:</p>
       <pre>
@@ -283,10 +308,12 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
         The script self-reports how many likes it's cleaning up when it runs!
         This is what I see in my DMs on Twitter.
       </p>
-      <img
+      <Image
         alt="Unlike logs as direct messages"
-        className="blog-image"
+        height={486}
         src="/assets/twitter-likes-8.png"
+        layout="responsive"
+        width={1196}
       />
       <h2 id="now-what">Now What?</h2>
       <p>
@@ -304,10 +331,12 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
         any questions or comments there.
       </p>
       <p>Thanks for reading! 👋</p>
-      <img
+      <Image
         alt="Farewell image"
-        className="blog-image"
+        height={611}
         src="/assets/twitter-likes-illustration-5.jpg"
+        layout="responsive"
+        width={1000}
       />
     </BlogPage>
   );

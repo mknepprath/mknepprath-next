@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
   published: true,
   publishedAt: "2016-01-27",
-  title: "Creating Lilt — Part 3"
+  title: "Creating Lilt — Part 3",
 };
 
 export default () => (
@@ -19,10 +21,13 @@ export default () => (
       <a href="https://twitter.com/mknepprath">hit me up on Twitter</a>. Let’s
       jump in!
     </p>
-    <img
+    <Image
       alt="Lilt prototype"
-      className="blog-image"
+      height={265}
       src="/assets/creating-lilt-part-3-1.png"
+      layout="responsive"
+      priority
+      width={700}
     />
 
     <h2>The Interface</h2>
@@ -118,10 +123,13 @@ export default () => (
       </a>
       , from 280 lines to 137.
     </p>
-    <img
+    <Image
       alt="Moves and responses in Parse"
-      className="blog-image"
+      className="corner-radius-8"
+      height={322}
       src="/assets/creating-lilt-part-3-2.png"
+      layout="responsive"
+      width={700}
     />
     <p>
       So, let’s try to “open the chest” while in the “cell.” When the game was
@@ -131,10 +139,13 @@ export default () => (
       moves gathered from Parse until it finds one that matches your{" "}
       <b>tweet</b> (“open the chest”).
     </p>
-    <img
+    <Image
       alt="Interactions in Parse"
-      className="blog-image"
+      className="corner-radius-8"
+      height={301}
       src="/assets/creating-lilt-part-3-3.png"
+      layout="responsive"
+      width={500}
     />
     <p>
       Once a match is found, it replies with the corresponding <b>response</b>{" "}

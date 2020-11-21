@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -5,7 +7,7 @@ export const meta = {
   publishedAt: "2019-09-07",
   summary: "If I were to be asked to design an app, where would I start?",
   image: "/assets/design-process.jpg",
-  title: "Thoughts on Design Process"
+  title: "Thoughts on Design Process",
 };
 
 export default () => (
@@ -19,10 +21,13 @@ export default () => (
       <h1>{meta.title}</h1>
     </header>
 
-    <img
+    <Image
       alt="Rubber duck"
-      className="blog-image"
+      height={540}
+      priority
       src="/assets/design-process.jpg"
+      layout="responsive"
+      width={896}
     />
 
     <p>I was recently asked,</p>

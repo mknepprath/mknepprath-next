@@ -88,16 +88,30 @@ pre {
   }
 }
 
-.blog-image {
-  display: block;
+.fill-image {
+  position: relative;
 
   border-radius: 8px;
   width: 100%;
 }
 
-.bordered-image {
+.blog-video {
+  position: relative;
+
   border: 1px solid var(--grey);
+  border-radius: 8px;
   box-sizing: border-box;
+  width: 100%;
+}
+
+.corner-radius-8 {
+  border-radius: 8px;
+}
+
+/* Must be !important to override next/image */
+.bordered-image {
+  border: 1px solid var(--grey) !important;
+  box-sizing: border-box !important;
 }
 
 time {

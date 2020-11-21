@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -16,10 +18,13 @@ export default function MK9000() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img
+      <Image
         alt="Monolith"
-        className="blog-image"
+        height={978}
+        layout="responsive"
+        priority
         src="/assets/mk9000.png"
+        width={1328}
       />
 
       <header>

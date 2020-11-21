@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -15,7 +17,15 @@ const LilyDex = () => (
     ogImage={meta.image}
     title={meta.title}
   >
-    <img alt="lily dex artwork" className="blog-image" src={meta.image} />
+    <Image
+      alt="lily dex artwork"
+      className="corner-radius-8"
+      height={1040}
+      layout="responsive"
+      priority
+      src={meta.image}
+      width={2000}
+    />
 
     <header>
       <h1>{meta.title}</h1>
@@ -96,10 +106,13 @@ const LilyDex = () => (
       to keep the Pokémon list up-to-date, a widget for displaying your dex
       total on your home screen, sorting options, current raid bosses, and more.
     </p>
-    <img
+    <Image
       alt="lily dex iOS widget"
-      className="blog-image"
+      className="corner-radius-8"
+      height={1384}
       src="/assets/lily-dex-2.jpg"
+      layout="responsive"
+      width={2000}
     />
     <p>
       If you search "Pokédex" in the App Store, you'll see a lot of sameness -
@@ -155,10 +168,13 @@ const LilyDex = () => (
       </a>
       !
     </p>
-    <img
+    <Image
       alt="lily dex in the App Store"
-      className="blog-image"
+      className="corner-radius-8"
+      height={1129}
       src="/assets/lily-dex-1.jpg"
+      layout="responsive"
+      width={1227}
     />
   </BlogPage>
 );

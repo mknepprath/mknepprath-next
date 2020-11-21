@@ -1,4 +1,5 @@
 import React, { SyntheticEvent } from "react";
+import Image from "next/image";
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 
@@ -29,16 +30,14 @@ function onClickToCopy(e: SyntheticEvent) {
 }
 
 const IP = "144.217.215.65";
-const PORT = "25601"
+const PORT = "25601";
 
 const fetcher = (url: RequestInfo) => fetch(url).then((r) => r.json());
 
 export default function Dynoland() {
-  const { data } = useSWR(
-    `https://mcapi.us/server/status?ip=${IP}`,
-    fetcher,
-    { refreshInterval: 30000 }
-  );
+  const { data } = useSWR(`https://mcapi.us/server/status?ip=${IP}`, fetcher, {
+    refreshInterval: 30000,
+  });
 
   if (!data) return null;
 
@@ -52,17 +51,20 @@ export default function Dynoland() {
         {data.online ? (
           ""
         ) : (
-            <p>
-              If you were planning on playing right now,{" "}
-              <a href="https://twitter.com/mknepprath">message me</a> and I will
+          <p>
+            If you were planning on playing right now,{" "}
+            <a href="https://twitter.com/mknepprath">message me</a> and I will
             look into it as soon as I'm available.
-            </p>
-          )}
+          </p>
+        )}
 
-        <img
+        <Image
           alt="Dynoland rendered image"
-          className="blog-image"
+          className="corner-radius-8"
+          height={600}
           src="/assets/dynoland.png"
+          layout="responsive"
+          width={1200}
         />
 
         <p>
@@ -103,8 +105,6 @@ export default function Dynoland() {
           </a>{" "}
           support page if it doesn't.
         </p>
-
-        {/* <img alt="Dynoland favicon" src={data.server.favicon} /> */}
       </article>
     </Page>
   );

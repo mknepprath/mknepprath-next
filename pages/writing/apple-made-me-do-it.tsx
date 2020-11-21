@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -17,10 +19,12 @@ export default function HomeScreenHack() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img
+      <Image
         alt="iOS home screen"
-        className="blog-image"
+        height={2858}
         src="/assets/home-screen-1.png"
+        layout="responsive"
+        width={3400}
       />
 
       <header>

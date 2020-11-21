@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -21,10 +23,13 @@ export default () => (
     </p>
     <p>First, let’s take a look at a sample of Apple app icons.</p>
 
-    <img
+    <Image
       alt="Screenshot of iOS app icons with highlights"
-      className="blog-image"
+      height={337}
       src="/assets/highlighting-apple-1.png"
+      layout="responsive"
+      priority
+      width={779}
     />
 
     <p>
@@ -34,10 +39,12 @@ export default () => (
       highlight. But wait. It gets worse.
     </p>
 
-    <img
+    <Image
       alt="Screenshot of more iOS app icons with faux highlights"
-      className="blog-image"
+      height={336}
       src="/assets/highlighting-apple-2.png"
+      layout="responsive"
+      width={762}
     />
 
     <p>

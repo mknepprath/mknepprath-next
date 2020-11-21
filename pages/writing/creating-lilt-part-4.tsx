@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
   published: true,
   publishedAt: "2016-03-20",
-  title: "Creating Lilt — Part 4"
+  title: "Creating Lilt — Part 4",
 };
 
 export default () => (
@@ -87,10 +89,13 @@ export default () => (
         on.
       </li>
     </ol>
-    <img
+    <Image
       alt="Postgresql table displaying users"
-      className="blog-image"
+      className="corner-radius-8"
+      height={190}
       src="/assets/creating-lilt-part-4-1.png"
+      layout="responsive"
+      width={700}
     />
 
     <h2>Gameplay Example</h2>

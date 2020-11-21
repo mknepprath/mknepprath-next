@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -17,10 +19,13 @@ export default function CreateAWebsite() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img
+      <Image
         alt="Illustration of a browser window"
-        className="blog-image"
+        height={826}
         src="/assets/create-a-website1.jpg"
+        layout="responsive"
+        priority
+        width={1263}
       />
 
       <header>
@@ -44,10 +49,12 @@ export default function CreateAWebsite() {
         <li>That's it!</li>
       </ul>
 
-      <img
+      <Image
         alt="Octocat's face"
-        className="blog-image"
+        height={636}
         src="/assets/create-a-website2.jpg"
+        layout="responsive"
+        width={840}
       />
 
       <h2>Create a Repository</h2>
@@ -113,10 +120,12 @@ export default function CreateAWebsite() {
         </code>
       </pre>
 
-      <img
+      <Image
         alt="Illustration of rocketship"
-        className="blog-image"
+        height={821}
         src="/assets/create-a-website3.jpg"
+        layout="responsive"
+        width={1040}
       />
 
       <h2 id="deploy-your-website">Deploy Your Website</h2>
