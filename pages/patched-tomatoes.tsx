@@ -1,14 +1,20 @@
+import Image from "next/image";
+
 import Page from "core/page";
 
 export default function PatchedTomatoes() {
   return (
     <Page className="container" title="Patched Tomatoes">
       <article>
-        <img
-          alt="Dynoland rendered image"
-          src="/assets/patched-tomatoes.png"
-          style={{ display: "block", margin: "0 auto" }}
-        />
+        <div className="fill-image" style={{ height: 256 }}>
+          <Image
+            alt="Dynoland rendered image"
+            src="/assets/patched-tomatoes.png"
+            layout="fill"
+            objectFit="contain"
+            priority
+          />
+        </div>
 
         <header>
           <h1>Patched Tomatoes</h1>

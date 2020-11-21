@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -95,10 +97,12 @@ export default function LiltPart2() {
         first level of this game, and then see if a good system came to light
         through that.
       </p>
-      <img
+      <Image
         alt="Drawing of The Room"
-        className="blog-image"
+        height={639}
         src="/assets/creating-lilt-part-2-1.png"
+        layout="responsive"
+        width={1000}
       />
       <p>
         To kick off this process, I had a friend over and quickly threw together
@@ -111,10 +115,13 @@ export default function LiltPart2() {
         It was this brainstorming session that lead me to the surprising
         solution that I’ve been running with so far… a spreadsheet.
       </p>
-      <img
+      <Image
         alt="Screenshot of the Lilt spreadsheet"
-        className="blog-image"
+        className="corner-radius-8"
+        height={768}
         src="/assets/creating-lilt-part-2-2.png"
+        layout="responsive"
+        width={1400}
       />
       <p>
         This allowed me to account for a vast majority of object/interaction

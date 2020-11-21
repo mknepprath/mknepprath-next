@@ -2,6 +2,7 @@
 import classnames from "classnames";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
+import Image from "next/image";
 import Link from "next/link";
 
 // Components
@@ -49,12 +50,18 @@ export default function Home() {
                 <Link href={`/writing/${post.id}`}>
                   <a>
                     {post.image ? (
-                      <img
-                        alt={`cover image for ${post.title}`}
-                        className="blog-image bordered-image"
-                        src={post.image}
-                        style={{ maxHeight: 200, objectFit: "cover" }}
-                      />
+                      <div
+                        className="fill-image bordered-image"
+                        style={{ height: 200 }}
+                      >
+                        <Image
+                          alt={`cover image for ${post.title}`}
+                          className="corner-radius-8"
+                          src={post.image}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
                     ) : null}
                     <h3 className={styles.title}>{post.title}</h3>
                   </a>

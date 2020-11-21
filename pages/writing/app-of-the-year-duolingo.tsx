@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -23,10 +25,14 @@ export default () => (
       German, French, Spanish, Portuguese, and Italian.
     </p>
 
-    <img
+    <Image
       alt="Screenshot of the app Duolingo"
-      className="blog-image"
+      className="corner-radius-8"
+      height={1136}
       src="/assets/app-of-the-year-duolingo.jpg"
+      layout="responsive"
+      priority
+      width={640}
     />
   </BlogPage>
 );

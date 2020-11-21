@@ -49,12 +49,12 @@
   margin-right: 16px;
 }
 
-.siteLogo > .img {
+.siteLogo > div {
   height: 32px;
   transition: rotate 0.2s, transform 0.2s;
 }
 
-.siteLogo:hover > .img {
+.siteLogo:hover > div {
   transform: rotate(5deg) scale(1.2);
 }
 

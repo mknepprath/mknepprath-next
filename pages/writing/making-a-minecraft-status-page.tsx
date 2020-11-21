@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import BlogPage from "core/blog-page";
@@ -20,10 +21,14 @@ export default function MinecraftStatusPage() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img
+      <Image
         alt="A render of a Minecraft castle."
-        className="blog-image"
+        className="corner-radius-8"
+        height={1000}
+        layout="responsive"
+        priority
         src="/assets/dynoland-1.jpg"
+        width={2000}
       />
       <header>
         <h1>{meta.title}</h1>
@@ -43,10 +48,13 @@ export default function MinecraftStatusPage() {
         <code className="language-html">getStaticProps</code>. I set this page
         up before that was introduced, however.
       </p>
-      <img
-        alt="A render of a Minecraft castle."
-        className="blog-image"
+      <Image
+        alt="A render of a Minecraft battle arena."
+        className="corner-radius-8"
+        height={1000}
         src="/assets/dynoland-2.jpg"
+        layout="responsive"
+        width={2000}
       />
       <p>
         First, I tracked down an API service I could use. After a few dead ends,
@@ -73,10 +81,13 @@ MinecraftStatusPage.getInitialProps = async function () {
         <a href="http://dynoland.space/">dynoland.space</a>, so I'm able to pass
         that in as the IP address to request the data.
       </p>
-      <img
+      <Image
         alt="A render of a Minecraft castle."
-        className="blog-image"
+        className="corner-radius-8"
+        height={1000}
         src="/assets/dynoland-3.jpg"
+        layout="responsive"
+        width={2000}
       />
       <p>
         I like the idea of mixing live data with natural language. It's
@@ -107,10 +118,13 @@ MinecraftStatusPage.getInitialProps = async function () {
         </a>{" "}
         support page if it doesn't.
       </blockquote>
-      <img
+      <Image
         alt="A render of a Minecraft castle."
-        className="blog-image"
+        className="corner-radius-8"
+        height={1000}
         src="/assets/dynoland-4.jpg"
+        layout="responsive"
+        width={2000}
       />
       <p>
         Another example - if my server is online, I don't display that in any

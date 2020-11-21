@@ -1,5 +1,6 @@
 // External
 import classnames from "classnames";
+import Image from "next/image";
 import Link from "next/link";
 
 // Data
@@ -15,10 +16,13 @@ export default function Nav({ className }: Props) {
   return (
     <nav className={classnames(styles.nav, className)}>
       <a className={styles.siteLogo} href="/">
-        <img
+        <Image
           alt="Michael Knepprath Memoji"
-          className={styles.img}
+          height={32}
+          layout="fixed"
           src="/assets/memoji.png"
+          priority
+          width={28.4}
         />
         <span>M. Knepprath</span>
       </a>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -17,10 +19,14 @@ export default function CulturallyIrrelevant() {
       ogImage={meta.image}
       title={meta.title}
     >
-      <img
+      <Image
         alt="The hosts of Culturally Irrelevant."
-        className="blog-image"
+        className="corner-radius-8"
+        height={821}
+        layout="responsive"
         src="/assets/culturally-irrelevant-1.jpg"
+        priority
+        width={1920}
       />
 
       <header>
@@ -173,10 +179,13 @@ export default function CulturallyIrrelevant() {
         I simultaneously relistened to the entire podcast, collected audio clips
         (one for each recommendation, plus more), and built the website.
       </p>
-      <img
+      <Image
         alt="Podcast recommendations in Airtable."
-        className="blog-image"
+        className="corner-radius-8"
+        height={506}
         src="/assets/culturally-irrelevant-2.png"
+        layout="responsive"
+        width={1402}
       />
       <p>
         I used{" "}
@@ -234,10 +243,13 @@ export default function Home() {
         </a>
         .
       </p>
-      <img
+      <Image
         alt="The first iteration of the Culturally Irrelevant website that includes the tagline: For learning, teaching, sharing and remembering."
-        className="blog-image bordered-image"
+        className="corner-radius-8 bordered-image"
+        height={1422}
         src="/assets/culturally-irrelevant-3.png"
+        layout="responsive"
+        width={1430}
       />
       <p>
         While the tagline above is not in the current iteration of the website,
@@ -297,18 +309,24 @@ export default function Home() {
         to try to distinguish between them. I wanted to make it bold and fun,
         true to the podcast.
       </p>
-      <img
-        alt="The first iteration of the Culturally Irrelevant website that includes the tagline: For learning, teaching, sharing and remembering."
-        className="blog-image bordered-image"
+      <Image
+        alt="The Culturally Irrelevant website with styles."
+        className="corner-radius-8 bordered-image"
+        height={1566}
         src="/assets/culturally-irrelevant-4.png"
+        layout="responsive"
+        width={1564}
       />
       <p>
         I used transforms and shadows to replicate the podcast logo on hover.
       </p>
-      <img
-        alt="The first iteration of the Culturally Irrelevant website that includes the tagline: For learning, teaching, sharing and remembering."
-        className="blog-image bordered-image"
+      <Image
+        alt="Card with audio element."
+        className="corner-radius-8 bordered-image"
+        height={582}
         src="/assets/culturally-irrelevant-5.png"
+        layout="responsive"
+        width={908}
       />
 
       <h3 id="audio-clips">Audio Clips</h3>
@@ -365,7 +383,7 @@ export default function Home() {
         . I don't typically lean so heavily on libraries, but I was moving fast
         and these got the job done.
       </p>
-      <video className="blog-image" controls>
+      <video className="blog-video" controls>
         <source src="/assets/culturally-irrelevant-6.mp4" type="video/mp4" />
         Sorry, your browser doesn't support embedded videos.
       </video>
@@ -380,7 +398,7 @@ export default function Home() {
         I also made sure to respect visitors' system-level settings. If your
         phone or computer is set to dark mode, the website will follow suit.
       </p>
-      <video className="blog-image" controls>
+      <video className="blog-video" controls>
         <source src="/assets/culturally-irrelevant-7.mp4" type="video/mp4" />
         Sorry, your browser doesn't support embedded videos.
       </video>
@@ -405,10 +423,13 @@ export default function Home() {
         I now display 16 recommendations on page load, then add 32 more each
         time a visitor clicks the new Load More button.
       </p>
-      <img
+      <Image
         alt="The Load More button."
-        className="blog-image"
+        className="corner-radius-8 bordered-image"
+        height={1072}
         src="/assets/culturally-irrelevant-8.png"
+        layout="responsive"
+        width={2038}
       />
 
       <h3 id="loading-indicators">Loading Indicators</h3>
@@ -418,7 +439,7 @@ export default function Home() {
         for LaserDisc. I added loading indicators that referenced these - a
         random one is displayed each time.
       </p>
-      <video className="blog-image bordered-image" controls>
+      <video className="blog-video bordered-image" controls>
         <source src="/assets/culturally-irrelevant-9.mp4" type="video/mp4" />
         Sorry, your browser doesn't support embedded videos.
       </video>
@@ -440,10 +461,13 @@ export default function Home() {
         </a>{" "}
         I wrote to do this is not magic - but I had a lot of fun writing it.
       </p>
-      <img
+      <Image
         alt="The search bar."
-        className="blog-image bordered-image"
+        className="corner-radius-8 bordered-image"
+        height={966}
         src="/assets/culturally-irrelevant-10.png"
+        layout="responsive"
+        width={1862}
       />
 
       <h2 id="thats-not-all">And That's Not All</h2>
@@ -484,10 +508,13 @@ export default function Home() {
           <em>— Episode #5 - Musical Interludes (June 5, 2015)</em>
         </p>
       </blockquote>
-      <img
+      <Image
         alt="A Culturally Irrelevant mug."
-        className="blog-image"
+        className="corner-radius-8"
+        height={960}
         src="/assets/culturally-irrelevant-11.jpg"
+        layout="responsive"
+        width={1280}
       />
     </BlogPage>
   );

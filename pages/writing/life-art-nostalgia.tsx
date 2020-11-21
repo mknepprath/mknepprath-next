@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import BlogPage from "core/blog-page";
@@ -164,10 +165,13 @@ export default function Life() {
           </Link>
         </li>
       </ul>
-      <img
+      <Image
         alt="Pixel brush example 1"
-        className="blog-image"
+        className="corner-radius-8"
+        height={400}
         src="/assets/pxbrush-1.png"
+        layout="responsive"
+        width={1200}
       />
       <ul>
         <li>
@@ -176,10 +180,13 @@ export default function Life() {
           </Link>
         </li>
       </ul>
-      <img
+      <Image
         alt="Pixel brush example 2"
-        className="blog-image"
+        className="corner-radius-8"
+        height={400}
         src="/assets/pxbrush-2.png"
+        layout="responsive"
+        width={1200}
       />
       <ul>
         <li>
@@ -188,10 +195,13 @@ export default function Life() {
           </Link>
         </li>
       </ul>
-      <img
+      <Image
         alt="Pixel brush example 3"
-        className="blog-image"
+        className="corner-radius-8"
+        height={400}
         src="/assets/pxbrush-3.png"
+        layout="responsive"
+        width={1200}
       />
       <ul>
         <li>
@@ -200,10 +210,13 @@ export default function Life() {
           </Link>
         </li>
       </ul>
-      <img
+      <Image
         alt="Pixel brush example 4"
-        className="blog-image"
+        className="corner-radius-8"
+        height={400}
         src="/assets/pxbrush-4.png"
+        layout="responsive"
+        width={1200}
       />
 
       <p>

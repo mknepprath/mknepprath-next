@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
   published: true,
   publishedAt: "2013-09-26",
-  title: "iOS 7 Flashlight"
+  title: "iOS 7 Flashlight",
 };
 
 export default () => (
@@ -19,10 +21,14 @@ export default () => (
       Look at the on/off switch on the flashlight.)
     </p>
 
-    <img
+    <Image
       alt="Screenshot of the flashlight app icon in iOS 7"
-      className="blog-image"
+      className="corner-radius-8"
+      height={398}
+      layout="responsive"
+      priority
       src="/assets/ios-7-flashlight.jpg"
+      width={640}
     />
   </BlogPage>
 );

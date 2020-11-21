@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -23,10 +25,14 @@ export default () => (
       based on memory and hindsight - which means I accomplished most of them.
       Yay!
     </p>
-    <img
+    <Image
       alt="Top 9 Instagram photos from 2019 (1-3)."
-      className="blog-image"
+      className="corner-radius-8"
+      height={345}
       src="/assets/2019-in-review-1.png"
+      layout="responsive"
+      priority
+      width={1064}
     />
     <h2>2019 Goals</h2>
     <h3>Get a new job ✅</h3>
@@ -131,10 +137,13 @@ export default () => (
       I illustrated a few moths and posted them to{" "}
       <a href="https://dribbble.com/mknepprath">Dribbble</a>.
     </p>
-    <img
+    <Image
       alt="Top 9 Instagram photos from 2019 (4-6)."
-      className="blog-image"
+      className="corner-radius-8"
+      height={344}
       src="/assets/2019-in-review-2.png"
+      layout="responsive"
+      width={1064}
     />
     <h2>Cool Things</h2>
     <h3>Travel</h3>
@@ -144,10 +153,13 @@ export default () => (
       According to <a href="https://www.flightyapp.com/">Flighty</a>, I flew the
       equivalent of .9x around the earth this year alone.
     </p>
-    <img
+    <Image
       alt="2019 in Flighty"
-      className="blog-image"
+      className="corner-radius-8"
+      height={997}
       src="/assets/2019-in-review-flights.jpg"
+      layout="responsive"
+      width={1242}
     />
     <p>Some highlights:</p>
     <ul>
@@ -174,10 +186,13 @@ export default () => (
       and the game itself has been expanded. I hope to do more before formally
       announcing it, however.
     </p>
-    <img
+    <Image
       alt="Top 9 Instagram photos from 2019 (7-9)."
-      className="blog-image"
+      className="corner-radius-8"
+      height={345}
       src="/assets/2019-in-review-3.png"
+      layout="responsive"
+      width={1064}
     />
     <h2>2020 Goals</h2>
     <p>

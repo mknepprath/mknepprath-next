@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -15,10 +17,14 @@ export default () => (
     ogImage={meta.image}
     title={meta.title}
   >
-    <img
+    <Image
       alt="The Joker in a box office booth"
-      className="blog-image"
+      className="corner-radius-8"
+      height={675}
+      layout="responsive"
+      priority
       src="/assets/detective-comics.jpg"
+      width={900}
     />
 
     <header>
