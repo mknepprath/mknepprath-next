@@ -65,6 +65,16 @@ export default () => (
       priority
       width={1200}
     />
+    <blockquote>
+      Above: Seniors Brandon Carr and Michael Knepprath pose next to their piece
+      entitled "The Couch." Knepprath remarked, "It received quite a bit of
+      positive feedback at the show, including the janitor telling me how much
+      he loved the couch because it reminded him of the 70s. The piece is
+      ultimately a memorial to this couch. We had to throw it away due to how
+      nasty and smelly it was!" Sophomore Tracey Melhouse praised Carr and
+      Knepprath's creativity saying, "I love this mural because it is so them;
+      they captured themselves well."
+    </blockquote>
 
     <p>
       Unfortunately, the black & white yearbook photo doesn't do it justice
