@@ -87,7 +87,7 @@ export default () => (
     />
     <p>
       I was on a lift for a full day hanging it up. For context, check out the
-      size of the rest of the artwork below my portrait:
+      size of the artwork below my portrait:
     </p>
     <Image
       alt="Giant photo."
