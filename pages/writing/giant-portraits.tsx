@@ -21,11 +21,18 @@ export default () => (
       <h1>{meta.title}</h1>
     </header>
     <p>
-      Upon deciding to take full advantage of my school’s unlimited black and
-      white printing, I first blew up a photo to 10 feet wide by 6.5 feet tall,
-      then pulled it into Photoshop and divided it into 8.5×11” sections. This
-      first project ended up being 95 sheets of printer paper that I displayed
-      in my dorm room at the time.
+      Upon deciding to take full advantage of my school’s unlimited black &
+      white printing, I first blew up a photo by{" "}
+      <a
+        href="https://twitter.com/carrphoto"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Brandon Carr
+      </a>{" "}
+      to <b>10 feet wide by 6.5 feet tall</b>, then pulled it into Photoshop and
+      divided it into 8.5×11” sections. This first project ended up being 95
+      sheets of printer paper that I displayed in my dorm room at the time.
     </p>
 
     <Image
@@ -50,6 +57,22 @@ export default () => (
 
     <p>A similar piece was displayed in the mid-year student art show.</p>
     <Image
+      alt="Couch illustration in art show."
+      className="corner-radius-8"
+      height={568}
+      src="/assets/giant-portraits-8.jpg"
+      layout="responsive"
+      priority
+      width={1200}
+    />
+
+    <p>
+      Unfortunately, the black & white yearbook photo doesn't do it justice
+      here. My school gave each student a limited number of color prints, so I
+      thought it'd be clever to only use color in certain tiles and print the
+      rest in black & white.
+    </p>
+    <Image
       alt="Couch photo in color."
       className="corner-radius-8"
       height={382}
@@ -58,7 +81,7 @@ export default () => (
       priority
       width={637}
     />
-    <p>Here's how it looked sliced up:</p>
+    <p>Here it is sliced up:</p>
     <Image
       alt="Couch photo files."
       className="corner-radius-8"
@@ -72,8 +95,8 @@ export default () => (
     <p>
       For the end-of-year student art show I decided to go even bigger. I
       illustrated a portrait of myself and followed the same process, except
-      this time the piece ended up being 323 sheets of paper, or 12 feet wide by
-      17.5 feet tall.
+      this time the piece ended up being 323 sheets of paper, or{" "}
+      <b>12 feet wide by 17.5 feet tall</b>.
     </p>
 
     <Image
@@ -85,6 +108,7 @@ export default () => (
       priority
       width={730}
     />
+
     <p>
       I was on a lift for a full day hanging it up. For context, check out the
       size of the artwork below my portrait:
