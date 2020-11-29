@@ -3,7 +3,7 @@ import Image from "next/image";
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  image: "/assets/2020-mid-year-1.jpg",
+  image: "/assets/giant-portraits-2.jpg",
   published: true,
   publishedAt: "2014-11-29",
   summary: "My biggest college art project.",
