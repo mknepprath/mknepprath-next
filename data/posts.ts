@@ -120,6 +120,12 @@ const posts: PostListItem[] = [
     "title": "How DC Is Failing Us All"
   },
   {
+    "date": "2014-11-29",
+    "id": "giant-portraits",
+    "image": "/assets/2020-mid-year-1.jpg",
+    "title": "Giant Portraits"
+  },
+  {
     "date": "2014-06-04",
     "id": "family-sharing",
     "title": "The Significance of Family Sharing"

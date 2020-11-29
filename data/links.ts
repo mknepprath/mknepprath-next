@@ -105,6 +105,12 @@ export const projectLinks: ProjectLink[] = [
     imgSrc: "/assets/film.png",
   },
   {
+    description: "College projects",
+    href: "/writing/giant-portraits",
+    title: "Giant Portraits",
+    imgSrc: "/assets/giant-portraits.png",
+  },
+  {
     description: "A Minecraft server",
     href: "/dynoland",
     title: "Dynoland",
