@@ -86,8 +86,8 @@ export default () => (
       width={730}
     />
     <p>
-      I was on a lift for a full day hanging it up. For comparison, you can see
-      some normal artwork at the bottom of the second photo.
+      I was on a lift for a full day hanging it up. For context, check out the
+      size of the rest of the artwork below my portrait:
     </p>
     <Image
       alt="Giant photo."
@@ -97,6 +97,27 @@ export default () => (
       layout="responsive"
       priority
       width={608}
+    />
+
+    <p>
+      <a
+        href="https://twitter.com/benlundsten"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Ben Lundsten
+      </a>{" "}
+      made an accompanying piece in response to this final portrait, and we were
+      both featured in the yearbook that year!
+    </p>
+    <Image
+      alt="Giant photos in the yearbook."
+      className="corner-radius-8 bordered-image"
+      height={480}
+      src="/assets/giant-portraits-7.jpg"
+      layout="responsive"
+      priority
+      width={640}
     />
   </BlogPage>
 );
