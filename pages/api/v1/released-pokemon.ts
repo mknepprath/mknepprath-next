@@ -168,6 +168,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     626,
     631,
     632,
+    707,
   ];
 
   const hydratedPokemon: HydratedPokemon[] = releasedPokemon.map((p) => ({
