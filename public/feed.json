@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/bills-pc",
+      "url": "https://mknepprath.com/writing/bills-pc",
+      "title": "Pokémon Data Munging",
+      "content_text": "Using API routes to clean up data. • https://mknepprath.com/writing/bills-pc",
+      "summary": "Using API routes to clean up data.",
+      "image": "https://mknepprath.com/assets/bills-pc.jpg",
+      "date_published": "2020-12-05T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/lily-dex",
       "url": "https://mknepprath.com/writing/lily-dex",
       "title": "lily dex",
@@ -196,7 +205,7 @@
       "title": "Giant Portraits",
       "content_text": "My biggest college art project. • https://mknepprath.com/writing/giant-portraits",
       "summary": "My biggest college art project.",
-      "image": "https://mknepprath.com/assets/2020-mid-year-1.jpg",
+      "image": "https://mknepprath.com/assets/giant-portraits-2.jpg",
       "date_published": "2014-11-29T15:00:00Z"
     },
     {

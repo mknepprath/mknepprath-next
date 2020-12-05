@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2020-12-05",
+    "id": "bills-pc",
+    "image": "/assets/bills-pc.jpg",
+    "title": "Pokémon Data Munging"
+  },
+  {
     "date": "2020-11-01",
     "id": "lily-dex",
     "image": "/assets/lily-dex-hero.jpg",
@@ -122,7 +128,7 @@ const posts: PostListItem[] = [
   {
     "date": "2014-11-29",
     "id": "giant-portraits",
-    "image": "/assets/2020-mid-year-1.jpg",
+    "image": "/assets/giant-portraits-2.jpg",
     "title": "Giant Portraits"
   },
   {
