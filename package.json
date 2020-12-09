@@ -32,13 +32,15 @@
     "react-dom": "^16.14.0",
     "react-spring": "^9.0.0-rc.3",
     "react-use-gesture": "^8.0.0",
-    "swr": "^0.3.9"
+    "swr": "^0.3.9",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
     "@types/prismjs": "^1.16.2",
     "@types/node": "^14.14.9",
     "@types/react": "^17.0.0",
+    "@types/xml2js": "^0.4.7",
     "colors": "^1.4.0",
     "diff": "^4.0.2",
     "eslint": "^7.13.0",

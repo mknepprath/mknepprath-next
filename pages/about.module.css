@@ -14,3 +14,15 @@
     width: auto;
   }
 }
+
+.bookContainer {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 632px) {
+  .bookContainer {
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
