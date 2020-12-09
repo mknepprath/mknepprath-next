@@ -59,7 +59,7 @@ export default function About() {
         {books?.length ? (
           <>
             <h2>Books I've Read</h2>
-            <div className={styles.bookContainer}>
+            <div className={styles.cardContainer}>
               {books?.map((book: Book) => (
                 <Card
                   description={book.author}
@@ -76,7 +76,7 @@ export default function About() {
         {films?.length ? (
           <>
             <h2>Films I've Watched</h2>
-            <div className={styles.bookContainer}>
+            <div className={styles.cardContainer}>
               {films?.map((film: Film) => (
                 <Card
                   description={film.year}

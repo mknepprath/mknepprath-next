@@ -15,13 +15,13 @@
   }
 }
 
-.bookContainer {
+.cardContainer {
   display: grid;
   gap: 16px;
   grid-template-columns: 1fr;
 }
 @media (min-width: 632px) {
-  .bookContainer {
+  .cardContainer {
     gap: 24px;
     grid-template-columns: 1fr 1fr;
   }
