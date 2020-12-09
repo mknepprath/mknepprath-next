@@ -13,6 +13,7 @@
 }
 
 .card .img {
+  border-radius: 2px;
   height: 44px;
   margin-right: var(--card-spacing);
   transition: rotate 0.2s, transform 0.2s;
