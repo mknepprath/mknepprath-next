@@ -59,9 +59,9 @@ function Ebooks() {
         >
           @robot_mk
         </a>{" "}
-        beyond the intial setup, it has been a constant presence in my online
+        beyond the initial setup, it has been a constant presence in my online
         life since. People still find joy and entertainment from its tweets and
-        frequently play along with its weird responses.
+        frequently play along with their weird responses.
       </p>
       <blockquote className="twitter-tweet">
         <p lang="en" dir="ltr">
