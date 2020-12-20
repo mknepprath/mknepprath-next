@@ -152,29 +152,34 @@ function BillsPc() {
         all the responses and returned them as an array containing all the
         details I wanted in my app.
       </p>
-      <p>Here's some data from this new endpoint:</p>
       {pokemon ? (
-        <blockquote>
-          {pokemon.name} is a {pokemon.types.join("/")}
-          -type Pokémon.
-          {pokemon.shinyReleased
-            ? ` The shiny version has been released.`
-            : null}
-          {pokemon.candyRequired
-            ? ` You need to collect ${pokemon.candyRequired} candy to evolve ${
-                pokemons.find((p: Pokemon) => p.id === pokemon.evolvesFrom).name
-              } into ${pokemon.name}.`
-            : null}
-          <button
-            onClick={() =>
-              setPokemonId(
-                pokemons[Math.floor(Math.random() * pokemons.length)].id
-              )
-            }
-          >
-            Refresh
-          </button>
-        </blockquote>
+        <>
+          <p>Here's some data from this new endpoint:</p>
+          <blockquote>
+            {pokemon.name} is a {pokemon.types.join("/")}
+            -type Pokémon.
+            {pokemon.shinyReleased
+              ? ` The shiny version has been released.`
+              : null}
+            {pokemon.candyRequired
+              ? ` You need to collect ${
+                  pokemon.candyRequired
+                } candy to evolve ${
+                  pokemons.find((p: Pokemon) => p.id === pokemon.evolvesFrom)
+                    .name
+                } into ${pokemon.name}.`
+              : null}
+            <button
+              onClick={() =>
+                setPokemonId(
+                  pokemons[Math.floor(Math.random() * pokemons.length)].id
+                )
+              }
+            >
+              Refresh
+            </button>
+          </blockquote>
+        </>
       ) : null}
       <p>
         As things currently stand, lily dex calls this endpoint, which calls the

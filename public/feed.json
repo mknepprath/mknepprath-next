@@ -13,13 +13,22 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/ebooks",
+      "url": "https://mknepprath.com/writing/ebooks",
+      "title": "“It's Just the Algorithm”",
+      "content_text": "An ebooks account in retrospect. • https://mknepprath.com/writing/ebooks",
+      "summary": "An ebooks account in retrospect.",
+      "image": "https://mknepprath.com/assets/ebooks.jpg",
+      "date_published": "2020-12-20T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/bills-pc",
       "url": "https://mknepprath.com/writing/bills-pc",
       "title": "Pokémon Data Munging",
       "content_text": "Using API routes to clean up data. • https://mknepprath.com/writing/bills-pc",
       "summary": "Using API routes to clean up data.",
       "image": "https://mknepprath.com/assets/bills-pc.jpg",
-      "date_published": "2020-12-05T15:00:00Z"
+      "date_published": "2020-12-04T15:00:00Z"
     },
     {
       "id": "https://mknepprath.com/writing/lily-dex",

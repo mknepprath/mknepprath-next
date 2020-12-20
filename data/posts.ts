@@ -1,6 +1,12 @@
 const posts: PostListItem[] = [
   {
-    "date": "2020-12-05",
+    "date": "2020-12-20",
+    "id": "ebooks",
+    "image": "/assets/ebooks.jpg",
+    "title": "“It's Just the Algorithm”"
+  },
+  {
+    "date": "2020-12-04",
     "id": "bills-pc",
     "image": "/assets/bills-pc.jpg",
     "title": "Pokémon Data Munging"
