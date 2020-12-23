@@ -34,5 +34,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   res.setHeader("Cache-Control", "max-age=86400");
-  res.end(JSON.stringify(books.filter((film) => +film.rating > 3).slice(0, 6)));
+  res.end(JSON.stringify(books.filter((book) => +book.rating > 3).slice(0, 6)));
 };
