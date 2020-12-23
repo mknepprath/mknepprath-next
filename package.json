@@ -9,7 +9,10 @@
     "build:feed": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
     "build:rss": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
     "build:posts": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-post-list.ts",
-    "start": "next start"
+    "start": "next start",
+    "test": "npm run cypress:run",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -37,11 +40,12 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
-    "@types/prismjs": "^1.16.2",
     "@types/node": "^14.14.14",
+    "@types/prismjs": "^1.16.2",
     "@types/react": "^17.0.0",
     "@types/xml2js": "^0.4.7",
     "colors": "^1.4.0",
+    "cypress": "^6.2.0",
     "diff": "^5.0.0",
     "eslint": "^7.16.0",
     "eslint-plugin-prettier": "^3.3.0",
