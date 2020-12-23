@@ -1,6 +1,7 @@
 {
-    "baseUrl": "http://localhost:3000",
-    "viewportWidth": 1300,
-    "defaultCommandTimeout": 20000,
-    "video": false
-  }
+  "baseUrl": "http://localhost:3000",
+  "viewportWidth": 1300,
+  "defaultCommandTimeout": 20000,
+  "video": false,
+  "projectId": "2tv5un"
+}
