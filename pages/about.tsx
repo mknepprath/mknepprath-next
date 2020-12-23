@@ -20,7 +20,7 @@ export default function About() {
       className={classnames("container", styles.pageContainer)}
       title="About Michael Knepprath"
     >
-      <article>
+      <article data-cy="about-page">
         <header>
           <h1>About</h1>
         </header>
