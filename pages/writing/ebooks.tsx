@@ -201,11 +201,6 @@ function Ebooks() {
           April 2, 2016
         </a>
       </blockquote>
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charSet="utf-8"
-      ></script>
     </BlogPage>
   );
 }
