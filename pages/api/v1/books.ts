@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "isomorphic-unfetch";
 import xml2js from "xml2js";
 
-const GOODREADS_API = `https://www.goodreads.com/review/list?v=2&id=${process.env.GOODREADS_ID}&shelf=read&key=${process.env.GOODREADS_KEY}`;
+const GOODREADS_API = `https://www.goodreads.com/review/list_rss/${process.env.GOODREADS_ID}?key=${process.env.GOODREADS_KEY}&shelf=read`;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let books: Book[] = [];
@@ -12,20 +12,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       xml2js.parseString(body, function (error, response) {
         if (error) console.error(error);
         console.info("Getting Book List from GoodReads API");
-
-        let bookList = response.GoodreadsResponse.reviews[0].review;
+        let bookList = response.rss.channel[0].item;
         for (let i = 0; i < bookList.length; i++) {
           books.push({
-            title: bookList[i].book[0].title_without_series[0],
-            author: bookList[i].book[0].authors[0].author[0].name[0],
-            isbn: bookList[i].book[0].isbn[0],
-            image_url: bookList[i].book[0].image_url[0],
-            small_image_url: bookList[i].book[0].image_url[0],
-            large_image_url: bookList[i].book[0].large_image_url[0],
-            link: bookList[i].book[0].link[0],
-            date_started: bookList[i].date_added[0],
-            date_finished: bookList[i].read_at[0],
-            rating: bookList[i].rating[0],
+            title: bookList[i].title[0],
+            author: bookList[i].author_name[0],
+            isbn: bookList[i].isbn[0],
+            image_url: bookList[i].book_image_url[0],
+            small_image_url: bookList[i].book_small_image_url[0],
+            large_image_url: bookList[i].book_large_image_url[0],
+            link: bookList[i].link[0],
+            date_started: bookList[i].user_date_added[0],
+            date_finished: bookList[i].user_read_at[0],
+            rating: bookList[i].user_rating[0],
           });
         }
       });
