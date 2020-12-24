@@ -12,8 +12,8 @@
     "start": "next start",
     "test": "npm run cypress:run",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --record --key 41f0e667-3e42-4c36-83e8-76acb7609493",
-    "cypress:run:silent": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:run:record": "cypress run --record --key 41f0e667-3e42-4c36-83e8-76acb7609493"
   },
   "repository": {
     "type": "git",
