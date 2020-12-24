@@ -32,7 +32,7 @@ jobs:
           --data '{
             "context": "cypress: ci",
             "state": "success",
-            "description": "Cypress tests passed"
+            "description": "Cypress tests passed",
             "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
 
