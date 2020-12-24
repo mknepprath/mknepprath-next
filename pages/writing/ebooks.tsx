@@ -192,15 +192,6 @@ function Ebooks() {
           The Verge
         </a>
       </blockquote>
-      <blockquote className="twitter-tweet">
-        <p lang="en" dir="ltr">
-          I want to host a party where we all using?
-        </p>
-        &mdash; Robot MK (@robot_mk){" "}
-        <a href="https://twitter.com/robot_mk/status/716095567923974144?ref_src=twsrc%5Etfw">
-          April 2, 2016
-        </a>
-      </blockquote>
     </BlogPage>
   );
 }
