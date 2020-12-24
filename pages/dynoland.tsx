@@ -43,7 +43,7 @@ export default function Dynoland() {
 
   return (
     <Page className="container" title="Dynoland">
-      <article>
+      <article data-cy="dynoland-page">
         <header>
           <h1>Dynoland {data.online ? "" : "(Offline)"}</h1>
         </header>
