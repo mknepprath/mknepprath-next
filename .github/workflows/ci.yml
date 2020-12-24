@@ -3,6 +3,7 @@ name: ci
 on: [deployment_status]
 jobs:
   e2e:
+    name: "Tests"
     # only runs this job on successful deploy
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
@@ -48,3 +49,34 @@ jobs:
             "state": "failure",
             "description": "Cypress tests failed"
           }'
+
+  merge:
+    name: "Merge"
+    runs-on: "ubuntu-latest"
+    needs:
+      - "e2e"
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false && (
+        github.event.action == 'opened' ||
+        github.event.action == 'reopened' ||
+        github.event.action == 'synchronize'
+      ) && (
+        github.actor == 'dependabot[bot]'
+      )
+
+    steps:
+      - name: "Merge pull request"
+        uses: "actions/github-script@v3.1"
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            await github.pulls.merge({
+              merge_method: "merge",
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+            })

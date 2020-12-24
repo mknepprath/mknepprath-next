@@ -54,7 +54,7 @@ export default function GifsPage() {
       <Head title="Michael Knepprath, GIF Aficionado" />
       <Nav className="container" />
 
-      <div className={styles.gifIndex}>
+      <div className={styles.gifIndex} data-cy="gifs-page">
         {shuffle(gifs).map((gif: Gif) => (
           <img
             data-clipboard-text={`${BASE_URL}/gifs/${gif.id}.gif`}
