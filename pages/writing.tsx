@@ -15,7 +15,7 @@ import styles from "./writing.module.css";
 export default function Writing() {
   return (
     <Page className="container" title="Michael Knepprath, Occasional Writer">
-      <header>
+      <header data-cy="writing-page">
         <h1>Writing</h1>
       </header>
 
