@@ -3,7 +3,7 @@ import Page from "core/page";
 export default function Uses() {
   return (
     <Page className="container" title="Uses">
-      <article>
+      <article data-cy="uses-page">
         <header>
           <h1>Uses</h1>
         </header>
