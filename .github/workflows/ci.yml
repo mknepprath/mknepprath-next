@@ -30,7 +30,7 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \
           --data '{
-            "context": "cypress: ci",
+            "context": "e2e",
             "state": "success",
             "description": "Cypress tests passed",
             "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
@@ -44,7 +44,7 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \
           --data '{
-            "context": "cypress: ci",
+            "context": "e2e",
             "state": "failure",
             "description": "Cypress tests failed"
           }'
