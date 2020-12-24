@@ -4,12 +4,8 @@ import Page from "core/page";
 
 export default function PatchedTomatoes() {
   return (
-    <Page
-      className="container"
-      title="Patched Tomatoes"
-      data-cy="patched-tomatoes-page"
-    >
-      <article>
+    <Page className="container" title="Patched Tomatoes">
+      <article data-cy="patched-tomatoes-page">
         <div className="fill-image" style={{ height: 256 }}>
           <Image
             alt="Dynoland rendered image"
