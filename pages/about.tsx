@@ -25,9 +25,9 @@ export default function About() {
           <h1>About</h1>
         </header>
 
-        {/* <div className={styles.photoStackContainer}>
-        <PhotoStack />
-      </div> */}
+        <div className={styles.photoStackContainer}>
+          <PhotoStack />
+        </div>
 
         <p>
           Michael Knepprath is a Senior Software Engineer at{" "}

@@ -2,6 +2,12 @@ const { join } = require("path");
 
 module.exports = {
   webpack(config, options) {
+    // Fix for a long-running react-spring bug. https://github.com/pmndrs/react-spring/issues/1078#issuecomment-743698325
+    config.module.rules.push({
+      test: /react-spring/,
+      sideEffects: true
+    })
+
     // https://github.com/zeit/next.js/tree/master/examples/with-absolute-imports
     // This allows me to reference these directories as if they were root.
     //

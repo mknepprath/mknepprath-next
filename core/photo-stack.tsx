@@ -1,4 +1,7 @@
 // Totally borrowed from a react-spring demo: https://codesandbox.io/embed/j0y0vpz59
+
+// Also the current version of the react-spring beta is kinda broken: https://github.com/pmndrs/react-spring/issues/1078
+// Applying this change fixes it: https://github.com/pmndrs/react-spring/issues/1078#issuecomment-663635523
 import React from "react";
 import { useSprings, animated, to } from "react-spring";
 import { useDrag } from "react-use-gesture";
