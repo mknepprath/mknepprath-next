@@ -35,9 +35,13 @@ const PORT = "25601";
 const fetcher = (url: RequestInfo) => fetch(url).then((r) => r.json());
 
 export default function Dynoland() {
-  const { data } = useSWR(`https://mcapi.us/server/status?ip=${IP}`, fetcher, {
-    refreshInterval: 30000,
-  });
+  const { data } = useSWR(
+    `/api/v1/minecraft-status?host=${IP}&port=${PORT}`,
+    fetcher,
+    {
+      refreshInterval: 30000,
+    }
+  );
 
   if (!data) return null;
 
@@ -79,32 +83,29 @@ export default function Dynoland() {
         </p>
 
         <p>
-          This Minecraft server is set to Survival Mode. "Players must collect
-          resources, build structures, battle mobs, manage hunger, and explore
-          the world in an effort to thrive and survive."
-        </p>
-        <p>
           There are currently{" "}
-          {data.players.now <= 0
+          {data.players.online <= 0
             ? "no"
-            : `${data.players.now}/${data.players.max}`}{" "}
+            : `${data.players.online}/${data.players.max}`}{" "}
           players online. If you would like to be whitelisted to access this
           server, contact <a href="https://twitter.com/mknepprath">Michael</a>.
         </p>
 
-        <p>
-          We're running version {data.server.name.replace("Spigot ", "")} of
-          Minecraft, so you will need to ensure your client matches. Follow the
-          directions on the{" "}
-          <a
-            href="https://help.mojang.com/customer/portal/articles/1475923-changing-game-versions"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Changing game versions
-          </a>{" "}
-          support page if it doesn't.
-        </p>
+        {data.version.name ? (
+          <p>
+            We're running version {data.version.name.replace("Spigot ", "")} of
+            Minecraft, so you will need to ensure your client matches. Follow
+            the directions on the{" "}
+            <a
+              href="https://help.mojang.com/customer/portal/articles/1475923-changing-game-versions"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Changing game versions
+            </a>{" "}
+            support page if it doesn't.
+          </p>
+        ) : null}
       </article>
     </Page>
   );
