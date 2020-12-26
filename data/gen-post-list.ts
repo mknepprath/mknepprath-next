@@ -21,8 +21,8 @@ const postList = posts.map((post: Post) => ({
 }));
 
 function generatePostList() {
-  console.log("generating post list...");
-  console.log("path:", POSTS_FILE);
+  console.info("generating post list...");
+  console.info("path:", POSTS_FILE);
 
   const prevPosts = fs.readFileSync(POSTS_FILE, "utf-8");
   const nextPosts = `const posts: PostListItem[] = ${JSON.stringify(
@@ -45,7 +45,7 @@ function generatePostList() {
     const color = part.added ? "green" : part.removed ? "red" : "grey";
     process.stderr.write(part.value[color as any]);
   });
-  console.log();
+  console.info();
 }
 
 generatePostList();

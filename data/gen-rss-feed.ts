@@ -35,7 +35,7 @@ const feed = {
     title: post.title,
     content_text: `${
       post.summary ? post.summary + " • " : ""
-      }https://mknepprath.com/writing/${post.id}`,
+    }https://mknepprath.com/writing/${post.id}`,
     summary: post.summary,
     image: post.image ? `https://mknepprath.com${post.image}` : undefined,
     date_published: `${post.publishedAt}T15:00:00Z`,
@@ -43,8 +43,8 @@ const feed = {
 };
 
 function generateRSSFeed() {
-  console.log("generating feed...");
-  console.log("path:", FEED_FILE);
+  console.info("generating feed...");
+  console.info("path:", FEED_FILE);
 
   const prevPosts = fs.readFileSync(FEED_FILE, "utf-8");
   const nextPosts = JSON.stringify(feed, null, "  ");
@@ -64,9 +64,9 @@ function generateRSSFeed() {
     const color = part.added ? "green" : part.removed ? "red" : "grey";
     process.stderr.write(part.value[color as any]);
   });
-  console.log();
+  console.info();
 }
 
 generateRSSFeed();
 
-export { };
+export {};
