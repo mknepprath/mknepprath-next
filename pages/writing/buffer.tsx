@@ -3,7 +3,7 @@ import BlogPage from "core/blog-page";
 export const meta = {
   published: true,
   publishedAt: "2012-07-10",
-  title: "Become More Effective On Twitter with Buffer...",
+  title: "Become More Effective On Twitter with Buffer",
 };
 
 export default function Buffer(): React.ReactNode {
