@@ -9,6 +9,7 @@
     "build:feed": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
     "build:rss": "npm run build:feed",
     "build:posts": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-post-list.ts",
+    "commit:posts": "git add ./data/posts.ts ./public/feed.json",
     "start": "next start",
     "lint": "eslint ./pages/* ./core/* ./data/* -c .eslintrc --fix --ext ts,tsx",
     "lint:quiet": "eslint --quiet ./pages/* ./core/* ./data/* -c .eslintrc --fix --ext ts,tsx",
@@ -19,6 +20,7 @@
   "pre-commit": [
     "build:feed",
     "build:posts",
+    "commit:posts",
     "lint:quiet"
   ],
   "repository": {
