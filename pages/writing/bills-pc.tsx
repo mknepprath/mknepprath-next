@@ -56,12 +56,8 @@ export default function BillsPc(): React.ReactNode {
       </header>
       <p>
         Tonight, I thought it&apos;d be fun to detail out a choice I made while
-        building{" "}
-        <Link href="/writing/lily-dex">
-          <a>lily dex</a>
-        </Link>{" "}
-        that I had very little confidence in, but has been serving me well thus
-        far.
+        building <Link href="/writing/lily-dex">lily dex</Link> that I had very
+        little confidence in, but has been serving me well thus far.
       </p>
       <h2>The Problem</h2>
       <p>

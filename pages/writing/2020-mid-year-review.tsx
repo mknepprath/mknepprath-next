@@ -123,7 +123,7 @@ export default function MidyearReviewOf2020(): React.ReactNode {
         I&apos;ve been writing more this year than ever, and some of these posts
         represent a significant chunk of work, for instance,{" "}
         <Link href="/writing/culturally-irrelevant">
-          <a>Building a Culturally Irrelevant Recommendation Board</a>
+          Building a Culturally Irrelevant Recommendation Board
         </Link>{" "}
         was the follow-up to a month-long React project. I&#8217;m very happy
         with how these are turning out.{" "}
@@ -138,39 +138,31 @@ export default function MidyearReviewOf2020(): React.ReactNode {
       </p>
       <ol>
         <li>
-          <Link href="/writing/rss">
-            <a>Adding RSS to My Next.js Website</a>
-          </Link>
+          <Link href="/writing/rss">Adding RSS to My Next.js Website</Link>
         </li>
         <li>
-          <Link href="/writing/sorry-to-bother-you">
-            <a>Twitter Defeated Me</a>
-          </Link>
+          <Link href="/writing/sorry-to-bother-you">Twitter Defeated Me</Link>
         </li>
         <li>
           <Link href="/writing/babys-first-codemod">
-            <a>The Codemod Side Quest</a>
+            The Codemod Side Quest
           </Link>
         </li>
         <li>
-          <Link href="/writing/apple-made-me-do-it">
-            <a>Home Screen Hack</a>
-          </Link>
+          <Link href="/writing/apple-made-me-do-it">Home Screen Hack</Link>
         </li>
         <li>
           <Link href="/writing/making-a-minecraft-status-page">
-            <a>Making a Minecraft Server Status Page</a>
+            Making a Minecraft Server Status Page
           </Link>
         </li>
         <li>
           <Link href="/writing/culturally-irrelevant">
-            <a>Building a Culturally Irrelevant Recommendation Board</a>
+            Building a Culturally Irrelevant Recommendation Board
           </Link>
         </li>
         <li>
-          <Link href="/writing/life-art-nostalgia">
-            <a>Life, Art, Nostalgia</a>
-          </Link>
+          <Link href="/writing/life-art-nostalgia">Life, Art, Nostalgia</Link>
         </li>
       </ol>
 
@@ -185,12 +177,9 @@ export default function MidyearReviewOf2020(): React.ReactNode {
           @familiarlilt
         </a>
         , but have not gotten started on the proposed admin interface that I
-        mentioned in my{" "}
-        <Link href="/writing/2019">
-          <a>2019 in Review</a>
-        </Link>{" "}
-        post. I&#8217;m not sure I will, either. I&#8217;m content with the work
-        I did on it, and have{" "}
+        mentioned in my <Link href="/writing/2019">2019 in Review</Link> post.
+        I&#8217;m not sure I will, either. I&#8217;m content with the work I did
+        on it, and have{" "}
         <a
           href="https://tinymystery.club/"
           target="_blank"

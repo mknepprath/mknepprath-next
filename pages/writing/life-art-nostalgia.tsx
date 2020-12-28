@@ -161,9 +161,7 @@ export default function Life(): React.ReactNode {
       </p>
       <ul>
         <li>
-          <Link href="/pxbrush">
-            <a>Default</a>
-          </Link>
+          <Link href="/pxbrush">Default</Link>
         </li>
       </ul>
       <Image
@@ -176,9 +174,7 @@ export default function Life(): React.ReactNode {
       />
       <ul>
         <li>
-          <Link href="/pxbrush?scale=16">
-            <a>Scale: 16</a>
-          </Link>
+          <Link href="/pxbrush?scale=16">Scale: 16</Link>
         </li>
       </ul>
       <Image
@@ -192,7 +188,7 @@ export default function Life(): React.ReactNode {
       <ul>
         <li>
           <Link href="/pxbrush?scale=32&quantity=8">
-            <a>Scale: 32, Quantity: 8</a>
+            Scale: 32, Quantity: 8
           </Link>
         </li>
       </ul>
@@ -207,7 +203,7 @@ export default function Life(): React.ReactNode {
       <ul>
         <li>
           <Link href="/pxbrush?scale=16&quantity=16">
-            <a>Scale: 16, Quantity: 16</a>
+            Scale: 16, Quantity: 16
           </Link>
         </li>
       </ul>

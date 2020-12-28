@@ -33,13 +33,11 @@ export default function Ebooks(): React.ReactNode {
       </header>
       <p>
         In 2016, I had some{" "}
-        <Link href="/writing/creating-lilt-part-4">
-          <a>big ideas</a>
-        </Link>{" "}
-        that required developing Twitter bots and decided to build an ebooks
-        account as a sort of trial run. It came together much faster than
-        I&apos;d expected and I was able to switch to my other Twitter bot ideas
-        within a few weeks.
+        <Link href="/writing/creating-lilt-part-4">big ideas</Link> that
+        required developing Twitter bots and decided to build an ebooks account
+        as a sort of trial run. It came together much faster than I&apos;d
+        expected and I was able to switch to my other Twitter bot ideas within a
+        few weeks.
       </p>
       <blockquote className="twitter-tweet">
         <p lang="en" dir="ltr">

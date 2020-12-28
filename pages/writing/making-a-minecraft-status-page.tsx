@@ -144,12 +144,9 @@ MinecraftStatusPage.getInitialProps = async function () {
         few steps!
       </p>
       <p>
-        Check out the{" "}
-        <Link href="/dynoland">
-          <a>final status page here</a>
-        </Link>
-        , and <a href="https://twitter.com/mknepprath">let me know</a> if
-        you&apos;d like to join!
+        Check out the <Link href="/dynoland">final status page here</Link>, and{" "}
+        <a href="https://twitter.com/mknepprath">let me know</a> if you&apos;d
+        like to join!
       </p>
     </BlogPage>
   );
