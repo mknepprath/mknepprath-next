@@ -266,7 +266,7 @@ const posts: PostListItem[] = [
   {
     "date": "2012-07-10",
     "id": "buffer",
-    "title": "Become More Effective On Twitter with Buffer"
+    "title": "Become More Effective On Twitter with Buffer..."
   },
   {
     "date": "2012-07-10",
