@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Page from "core/page";
 
-export default function PatchedTomatoes() {
+export default function PatchedTomatoes(): React.ReactNode {
   return (
     <Page className="container" title="Patched Tomatoes">
       <article data-cy="patched-tomatoes-page">
@@ -25,14 +25,14 @@ export default function PatchedTomatoes() {
             Patched Tomatoes
           </a>{" "}
           is a Chrome extension that replaces the Tomatometer score on Rotten
-          Tomatoes with the Critics' Average Rating. It does the same for the
-          Audience Score. I believe the Tomatometer score is calculated in a
+          Tomatoes with the Critics&apos; Average Rating. It does the same for
+          the Audience Score. I believe the Tomatometer score is calculated in a
           misleading way, and this extension aims to fix that.
         </p>
         <h2 id="how-rotten-tomatoes-works">How Rotten Tomatoes Works</h2>
         <p>
-          Let's create some films for the sake of example. Each film received 5
-          critic reviews. Here they are:
+          Let&apos;s create some films for the sake of example. Each film
+          received 5 critic reviews. Here they are:
         </p>
         <table
           cellPadding="4"
@@ -87,9 +87,9 @@ export default function PatchedTomatoes() {
         <p>
           Upon reviewing these ratings - one might assume that Prime Directive
           is amazing, Blue Harvest is bad, and the remaining two films are
-          similarly mediocre. What would Rotten Tomatoes say? Here's{" "}
+          similarly mediocre. What would Rotten Tomatoes say? Here&apos;s{" "}
           <a href="https://www.rottentomatoes.com/about">their definition</a> of
-          a "Fresh" film:
+          a &lquo;Fresh&rquo; film:
         </p>
         <blockquote>
           The Tomatometer score represents the percentage of professional critic
@@ -99,9 +99,9 @@ export default function PatchedTomatoes() {
         </blockquote>
         <p>
           What does this mean for our example films? First, we need to convert
-          each critic rating to a binary "positive" or "not positive" review. In
-          most cases, Rotten Tomatoes considers 5.5/10 and above a "positive"
-          review.
+          each critic rating to a binary &lquo;positive&rquo; or &lquo;not
+          positive&rquo; review. In most cases, Rotten Tomatoes considers 5.5/10
+          and above a &lquo;positive&rquo; review.
         </p>
         <table
           cellPadding="4"
@@ -161,8 +161,8 @@ export default function PatchedTomatoes() {
         <h2 id="a-better-way">A Better Way</h2>
         <p>
           This is where Patched Tomatoes comes in. I find that simply looking at
-          a film's average rating is much more interesting. Let's convert the
-          critic ratings to percentages and calculate their average:
+          a film&apos;s average rating is much more interesting. Let&apos;s
+          convert the critic ratings to percentages and calculate their average:
         </p>
         <table
           cellPadding="4"
@@ -222,22 +222,22 @@ export default function PatchedTomatoes() {
           <li>Artemis: 58%</li>
         </ul>
         <p>
-          Perhaps Artemis isn't the critically-acclaimed film Rotten Tomatoes
-          indicated.
+          Perhaps Artemis isn&apos;t the critically-acclaimed film Rotten
+          Tomatoes indicated.
         </p>
         <p>
-          One side effect of this is that it's a lot harder for a film to get a
-          100% rating. In fact, the only way for this to happen would be if
-          every single critic agreed that it was a perfect film - and this has
-          never happened. The current highest-ranking films are Citizen Kane and
-          The Wizard of Oz at ~94%.
+          One side effect of this is that it&apos;s a lot harder for a film to
+          get a 100% rating. In fact, the only way for this to happen would be
+          if every single critic agreed that it was a perfect film - and this
+          has never happened. The current highest-ranking films are Citizen Kane
+          and The Wizard of Oz at ~94%.
         </p>
         <p>
-          I posit that it's all the more impressive for a modern film to reach
-          this level of consensus given the sheer number of critics rating films
-          online today. Which number tells you more, that Parasite (with 356
-          total reviews) received a Tomatometer rating of 99%, or that
-          Parasite's average rating is 93.7%?
+          I posit that it&apos;s all the more impressive for a modern film to
+          reach this level of consensus given the sheer number of critics rating
+          films online today. Which number tells you more, that Parasite (with
+          356 total reviews) received a Tomatometer rating of 99%, or that
+          Parasite&apos;s average rating is 93.7%?
         </p>
         <p>
           If you would like to install Patched Tomatoes for yourself, head to{" "}

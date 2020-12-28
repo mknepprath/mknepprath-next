@@ -5,7 +5,7 @@ export const meta = {
   title: "Leap Motion: Give Your Mouse A Break",
 };
 
-export default function LeapMotion() {
+export default function LeapMotion(): React.ReactNode {
   return (
     <BlogPage dateTime={meta.publishedAt} title={meta.title}>
       <header>

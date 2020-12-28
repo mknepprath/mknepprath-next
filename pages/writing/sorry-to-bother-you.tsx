@@ -6,11 +6,11 @@ export const meta = {
   image: "/assets/twitter-likes-illustration-1.jpg",
   published: true,
   publishedAt: "2020-02-20",
-  summary: "I tried to delete my Twitter Likes. Twitter didn't like that.",
+  summary: "I tried to delete my Twitter Likes. Twitter didn&apos;t like that.",
   title: "Twitter Defeated Me",
 };
 
-export default function TwitterDefeatedMe() {
+export default function TwitterDefeatedMe(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -39,7 +39,7 @@ export default function TwitterDefeatedMe() {
         <a href="https://www.youtube.com/watch?v=ARJ8cAGm6JE">
           an ill-conceived algorithm
         </a>
-        ) to compile a background check out of this person's liked tweets.
+        ) to compile a background check out of this person&apos;s liked tweets.
       </p>
       <p>
         This got me thinking. What purpose do my Twitter likes serve? Do I need
@@ -76,19 +76,19 @@ export default function TwitterDefeatedMe() {
         even if one wanted to.
       </p>
       <p>
-        Today, Twitter likes are simply that. A quick way to say, "I like this
-        tweet." A social exchange—ephemeral in nature, but permanently recorded
-        and published publicly by Twitter.
+        Today, Twitter likes are simply that. A quick way to say, &ldquo;I like
+        this tweet.&rdquo; A social exchange—ephemeral in nature, but
+        permanently recorded and published publicly by Twitter.
       </p>
       <p>
         Why? Perhaps the public list of likes is a vestigial feature, leftover
         from when likes were favorites were bookmarks. Regardless, given a
         relatively short period of time, a like is something neither I nor its
-        recipient will reference or care about. I've reached around 66,000
+        recipient will reference or care about. I&apos;ve reached around 66,000
         likes, none of which are meaningful beyond the most recent hundred or
         so.
       </p>
-      <h2 id="so-do-i-need-em">So Do I Need 'Em?</h2>
+      <h2 id="so-do-i-need-em">So Do I Need &apos;Em?</h2>
       <p>Nah.</p>
       <Image
         alt="Broken like"
@@ -99,15 +99,15 @@ export default function TwitterDefeatedMe() {
       />
       <p>
         At least not this many. In my ideal Twitter world, likes last long
-        enough to convey appreciation, then disappear once they've served their
-        purpose. To reach this ideal world, I'd need to write a script that
-        loops through all of my liked tweets and unlikes any beyond the most
-        recent hundred or so.
+        enough to convey appreciation, then disappear once they&apos;ve served
+        their purpose. To reach this ideal world, I&apos;d need to write a
+        script that loops through all of my liked tweets and unlikes any beyond
+        the most recent hundred or so.
       </p>
-      <h2 id="can-i-delete-em">Can I Delete 'Em?</h2>
+      <h2 id="can-i-delete-em">Can I Delete &apos;Em?</h2>
       <p>
-        Short answer, it's possible - but brutal. I am currently at war with
-        Twitter.
+        Short answer, it&apos;s possible - but brutal. I am currently at war
+        with Twitter.
       </p>
       <p>
         First, I gained access to the Twitter API by repeatedly emailing them
@@ -116,21 +116,22 @@ export default function TwitterDefeatedMe() {
       <p>Then I started hitting roadblocks.</p>
       <p>
         I wrote a Python script that began unliking all of my liked tweets, and
-        it worked beautifully. Until it didn't. After a bit of research, I
+        it worked beautifully. Until it didn&apos;t. After a bit of research, I
         discovered{" "}
         <a href="https://www.wired.com/story/tweets-ephemeral-likes-forever/">
           this Wired piece
         </a>{" "}
-        that described the exact roadblock I'd run into, "We've found that likes
-        outside this 3,200 window can't be removed even if we get details on
-        them from another source." I had reached this limit.
+        that described the exact roadblock I&apos;d run into, &ldquo;We&apos;ve
+        found that likes outside this 3,200 window can&apos;t be removed even if
+        we get details on them from another source.&rdquo; I had reached this
+        limit.
       </p>
       <p>
-        And this quote is only half of the story - it's missing the reason likes
-        can't be removed outside this window. The Twitter API does not recognize
-        likes beyond the most recent 3,200. Once all of the liked tweets within
-        this window are unliked, Twitter sends over an empty list. No way around
-        it. Old likes are 100% inaccessible through the API.
+        And this quote is only half of the story - it&apos;s missing the reason
+        likes can&apos;t be removed outside this window. The Twitter API does
+        not recognize likes beyond the most recent 3,200. Once all of the liked
+        tweets within this window are unliked, Twitter sends over an empty list.
+        No way around it. Old likes are 100% inaccessible through the API.
       </p>
       <Image
         alt="Likes window illustrated"
@@ -140,7 +141,8 @@ export default function TwitterDefeatedMe() {
         width={1000}
       />
       <p>
-        To unlike tweets outside of this window, I'd need to find another way.
+        To unlike tweets outside of this window, I&apos;d need to find another
+        way.
       </p>
       <p>And therefore, two scripts would now be necessary:</p>
       <ol>
@@ -162,10 +164,10 @@ export default function TwitterDefeatedMe() {
         . Their app is unable to see likes beyond the 3,200 window.
       </p>
       <p>
-        After this, I made a shocking discovery. Twitter's own apps are affected
-        by this limit. Whether viewing my liked tweets through Twitter's iOS app
-        or website, likes outside of the 3,200 window aren't displayed as having
-        been liked - the heart icons are empty.
+        After this, I made a shocking discovery. Twitter&apos;s own apps are
+        affected by this limit. Whether viewing my liked tweets through
+        Twitter&apos;s iOS app or website, likes outside of the 3,200 window
+        aren&apos;t displayed as having been liked - the heart icons are empty.
       </p>
       <Image
         alt="Likes displayed as unliked"
@@ -177,21 +179,21 @@ export default function TwitterDefeatedMe() {
       <p>
         Additionally, Twitter offers a JavaScript-free version of their site,
         and this fails to display likes outside of the 3,200 window entirely. If
-        Twitter itself can't consistently access my Twitter likes, what hope do
-        I have?
+        Twitter itself can&apos;t consistently access my Twitter likes, what
+        hope do I have?
       </p>
       <p>
         One thing I noticed when interacting with the above UI - in order to
-        remove an old tweet from my likes, I'd need to like it <em>again</em>{" "}
-        before unliking it.
+        remove an old tweet from my likes, I&apos;d need to like it{" "}
+        <em>again</em> before unliking it.
       </p>
       <p>
         This same pattern held true when interacting with likes through the
-        Twitter API. In order to remove one of these likes through the API, I'd
-        need to simulate this like/unlike pattern.
+        Twitter API. In order to remove one of these likes through the API,
+        I&apos;d need to simulate this like/unlike pattern.
       </p>
       <p>Which I did.</p>
-      <p>Here's a simplified snippet of that script...</p>
+      <p>Here&apos;s a simplified snippet of that script...</p>
       <pre>
         <code className="language-python">
           {`
@@ -212,8 +214,8 @@ for likeId in likeIds:
       />
       <p>
         This, however, has an unfortunate side effect. Every like causes a
-        notification just like any other would despite these being tweets I'd
-        already liked in the past.
+        notification just like any other would despite these being tweets
+        I&apos;d already liked in the past.
       </p>
       <Image
         alt="Unwanted notifications #1"
@@ -248,11 +250,11 @@ for likeId in likeIds:
       />
       <p>
         And herein lies the dilemma. I <em>can</em> accomplish my goal. But it
-        will spam the tweeps I've liked the most.
+        will spam the tweeps I&apos;ve liked the most.
       </p>
       <p>A cruel irony indeed.</p>
       <p>
-        Do I follow through? At this point, it seems unlikely. I'm only ~6%
+        Do I follow through? At this point, it seems unlikely. I&apos;m only ~6%
         done. With{" "}
         <a href="https://developer.twitter.com/en/docs/basics/rate-limits">
           rate limiting
@@ -267,7 +269,7 @@ for likeId in likeIds:
         width={1196}
       />
       <h3 id="delete-stale-likes">Delete Stale Likes</h3>
-      <p>It's not all bad.</p>
+      <p>It&apos;s not all bad.</p>
       <p>
         The goal of my second script is to delete likes as soon as they become
         useless. Therefore, this script only deals with recent likes that exist
@@ -280,7 +282,7 @@ for likeId in likeIds:
         layout="responsive"
         width={1000}
       />
-      <p>Here's a snippet of this new script:</p>
+      <p>Here&apos;s a snippet of this new script:</p>
       <pre>
         <code className="language-python">
           {`
@@ -294,7 +296,7 @@ for i, like in enumerate(likes):
         It boils down to this: It loops through all of my liked tweets (within
         the window) and unlikes any beyond the first 10. I initially had this
         script running every 30 minutes but have decreased the frequency to once
-        per day. It's now a nightly cleanup routine.
+        per day. It&apos;s now a nightly cleanup routine.
       </p>
       <p>Another neat feature:</p>
       <pre>
@@ -305,8 +307,8 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
         </code>
       </pre>
       <p>
-        The script self-reports how many likes it's cleaning up when it runs!
-        This is what I see in my DMs on Twitter.
+        The script self-reports how many likes it&apos;s cleaning up when it
+        runs! This is what I see in my DMs on Twitter.
       </p>
       <Image
         alt="Unlike logs as direct messages"
@@ -319,13 +321,13 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
       <p>
         The dream of deleting all of my Twitter likes may be dead, but I did
         manage to remove all of them through October 2019 and am down to 61.4K
-        likes. And that number won't be growing - all new likes are being
+        likes. And that number won&apos;t be growing - all new likes are being
         scrubbed daily thanks to an AWS Lambda function.
       </p>
       <p>
-        If you'd like to try it yourself,{" "}
+        If you&apos;d like to try it yourself,{" "}
         <a href="https://gist.github.com/mknepprath/e7cdafd078efffc5a27683a5017386e5">
-          here's a gist
+          here&apos;s a gist
         </a>{" "}
         that contains a simplified version of that function. Feel free to post
         any questions or comments there.

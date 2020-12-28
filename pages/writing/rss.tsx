@@ -11,7 +11,7 @@ export const meta = {
   title: "Adding RSS to My Next.js Website",
 };
 
-export default function RSS() {
+export default function RSS(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -35,42 +35,42 @@ export default function RSS() {
         <a href="https://twitter.com/chriscoyier/status/1214555767115862016?s=20">
           this tweet
         </a>{" "}
-        mentioning how many personal websites don't include their owner's name.
-        Then Chris posted{" "}
+        mentioning how many personal websites don&apos;t include their
+        owner&apos;s name. Then Chris posted{" "}
         <a href="https://twitter.com/chriscoyier/status/1214606808125341696?s=20">
           this tweet
         </a>{" "}
         highlighting the long list of RSS feeds he was subscribed to and my
         world came crashing down. I had a GitHub issue for adding a feed to this
-        website, but hadn't prioritized it yet. This tweet launched it to the
-        top of my list.
+        website, but hadn&apos;t prioritized it yet. This tweet launched it to
+        the top of my list.
       </p>
       <p>
         Since my blog on this site was{" "}
         <a href="https://github.com/mknepprath/mknepprath-next/pull/10">
           custom built
         </a>
-        , there wasn't a plug-and-play solution out there for me - I had to
+        , there wasn&apos;t a plug-and-play solution out there for me - I had to
         write my own.
       </p>
       <h2 id="the-solution">The Solution</h2>
       <p>
-        After a bunch of googling, I landed on Juan Olvera's blog post,{" "}
+        After a bunch of googling, I landed on Juan Olvera&apos;s blog post,{" "}
         <a href="https://jolvera.dev/posts/rebuilding-my-blog-with-nextjs">
           Rebuilding my blog with Next.js
         </a>
         , which included details about how he added an RSS feed to his blog. I
-        decided to follow the same pattern he used, "An npm script runs a Node
-        function that generates the feed." Once set up, I'd be able to run{" "}
-        <code className="language-html">npm run build:rss</code> from the
-        command line to generate my RSS{" "}
+        decided to follow the same pattern he used, &ldquo;An npm script runs a
+        Node function that generates the feed.&rdquo; Once set up, I&apos;d be
+        able to run <code className="language-html">npm run build:rss</code>{" "}
+        from the command line to generate my RSS{" "}
         <code className="language-html">feed.json</code> file - which RSS reader
         apps would parse to load my posts.
       </p>
       <p>
-        Juan's Node function relies upon each post having a separate, exported{" "}
-        <code className="language-html">meta</code> object that looks similar to
-        this:
+        Juan&apos;s Node function relies upon each post having a separate,
+        exported <code className="language-html">meta</code> object that looks
+        similar to this:
       </p>
       <pre>
         <code className="language-js">
@@ -88,13 +88,13 @@ export const meta = {
       <p>
         None of my posts had this object. They <em>did</em> include all of this
         information as props, but after converting a few, I quickly realized I
-        didn't want to repeat this process 60+ times. It was time to write my
-        first <a href="https://github.com/facebook/codemod">codemod</a>.
+        didn&apos;t want to repeat this process 60+ times. It was time to write
+        my first <a href="https://github.com/facebook/codemod">codemod</a>.
       </p>
       <h3 id="codemods">Codemods</h3>
       <p>
         Codemods are scripts that automate code changes when you need to make
-        the same change to a large number of files. If you're familiar with
+        the same change to a large number of files. If you&apos;re familiar with
         batch-processing in Photoshop, this is similar, except a codemod is for
         code.
       </p>
@@ -106,8 +106,8 @@ export const meta = {
         <a href="https://gist.github.com/mknepprath/be919a308f37315030f4607244afef42">
           a gist
         </a>
-        , feel free to leave a comment! It's not perfect, but it got the job
-        done. I plan on writing a separate post detailing out the process of
+        , feel free to leave a comment! It&apos;s not perfect, but it got the
+        job done. I plan on writing a separate post detailing out the process of
         writing this since it was a bit of a side quest.
       </p>
       <p>
@@ -151,20 +151,20 @@ export const meta = {
         <a href="http://mknepprath.com/feed.json">subscribe to it</a>, however,
         you will notice you still have to click through to see the full post.
         This is because the feed solely uses the previously mentioned{" "}
-        <code className="language-html">meta</code> objects, which don't contain
-        the full contents of my posts. I'm still thinking about how to solve
-        this. If you have any ideas, dear reader,{" "}
+        <code className="language-html">meta</code> objects, which don&apos;t
+        contain the full contents of my posts. I&apos;m still thinking about how
+        to solve this. If you have any ideas, dear reader,{" "}
         <a href="https://twitter.com/mknepprath">let me know</a>.
       </p>
       <p>
         One additional issue is that I have to run the RSS feed and post list
-        scripts before publishing new posts - it isn't automatic. I'm
+        scripts before publishing new posts - it isn&apos;t automatic. I&apos;m
         considering using a <a href="https://githooks.com/">Git hook</a> to help
-        with this, but I don't consider it a permanent solution.
+        with this, but I don&apos;t consider it a permanent solution.
       </p>
       <p>
-        Is a blog a really a blog if it doesn't have an RSS feed? I don't know,
-        but now mine does! Yay!
+        Is a blog a really a blog if it doesn&apos;t have an RSS feed? I
+        don&apos;t know, but now mine does! Yay!
       </p>
     </BlogPage>
   );

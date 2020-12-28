@@ -6,12 +6,14 @@ export const meta = {
   title: "Why Does Everyone Think Apple Plans On Releasing A Television Set?",
 };
 
-export default () => (
-  <BlogPage dateTime={meta.publishedAt} title={meta.title}>
-    <header>
-      <h1>{meta.title}</h1>
-    </header>
+export default function AppleTelevision(): React.ReactNode {
+  return (
+    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
-    <p>It's not going to happen.</p>
-  </BlogPage>
-);
+      <p>It&apos;s not going to happen.</p>
+    </BlogPage>
+  );
+}

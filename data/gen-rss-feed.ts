@@ -1,9 +1,10 @@
 // Fixed a ts-node issue with https://github.com/TypeStrong/ts-node/issues/436#issuecomment-624328557
 
-require("colors");
-const fs = require("fs");
-const jsdiff = require("diff");
-const posts = require("./get-blog-posts");
+import "colors";
+import fs from "fs";
+import posts from "./get-blog-posts";
+
+const Diff = require("diff"); // eslint-disable-line @typescript-eslint/no-var-requires
 
 const FEED_FILE = `${process.cwd()}/public/feed.json`;
 
@@ -13,6 +14,12 @@ interface Post {
   image?: string;
   summary?: string;
   title: string;
+}
+
+enum Color {
+  Red = "red",
+  Green = "green",
+  Grey = "grey",
 }
 
 // https://jsonfeed.org/version/1
@@ -43,8 +50,7 @@ const feed = {
 };
 
 function generateRSSFeed() {
-  console.info("generating feed...");
-  console.info("path:", FEED_FILE);
+  console.info("Generating feed...", FEED_FILE);
 
   const prevPosts = fs.readFileSync(FEED_FILE, "utf-8");
   const nextPosts = JSON.stringify(feed, null, "  ");
@@ -53,18 +59,39 @@ function generateRSSFeed() {
 
   fs.writeFileSync(FEED_FILE, nextPosts);
 
-  const diff = jsdiff.diffLines(prevPosts, nextPosts);
-  diff.forEach(function (part: {
-    added: string;
-    removed: string;
-    value: string;
-  }) {
-    // green for additions, red for deletions
-    // grey for common parts
-    const color = part.added ? "green" : part.removed ? "red" : "grey";
-    process.stderr.write(part.value[color as any]);
-  });
-  console.info();
+  const diff = Diff.diffLines(prevPosts, nextPosts);
+
+  if (diff.length === 1) {
+    console.info("No change\n");
+  } else {
+    diff.forEach(function (part: {
+      added?: boolean;
+      removed?: boolean;
+      value: { [key: string]: string };
+    }) {
+      // green for additions, red for deletions
+      // grey for common parts
+      const color = part.added
+        ? Color.Green
+        : part.removed
+        ? Color.Red
+        : Color.Grey;
+      if (color === Color.Grey) {
+        const lines = part.value[color].match(/[^\r\n]+/g);
+        if (!lines) return;
+
+        if (lines.length < 4) {
+          process.stderr.write(part.value[color]);
+        } else {
+          process.stderr.write(`${lines[0]}\n.......\n${lines.reverse()[1]}\n`); // index 1, because every part seems to include an empty line at the end.
+        }
+      } else {
+        process.stderr.write(part.value[color]);
+      }
+    });
+    process.stderr.write("\x1b[0m");
+    console.info();
+  }
 }
 
 generateRSSFeed();

@@ -12,7 +12,7 @@ interface Props {
   className?: string;
 }
 
-export default function Nav({ className }: Props) {
+export default function Nav({ className }: Props): JSX.Element {
   return (
     <nav className={classnames(styles.nav, className)}>
       <a className={styles.siteLogo} href="/">

@@ -17,7 +17,7 @@ import posts from "data/posts";
 
 import styles from "./index.module.css";
 
-export default function Home() {
+export default function Home(): React.ReactNode {
   return (
     <>
       <Head />

@@ -8,7 +8,7 @@ export const meta = {
   title: "Google’s Icons On iOS",
 };
 
-export default function GooglesIconsOnIos() {
+export default function GooglesIconsOnIos(): React.ReactNode {
   return (
     <BlogPage dateTime={meta.publishedAt} title={meta.title}>
       <header>

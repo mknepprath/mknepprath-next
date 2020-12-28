@@ -17,13 +17,13 @@ export const meta = {
   title: "Life, Art, Nostalgia",
 };
 
-export default function Life() {
+export default function Life(): React.ReactNode {
   // Position the brush in the center of where a hero image would normally be.
-  const [centerpoint, setCenterpoint] = React.useState<Array<number>>();
+  const [centerpoint, setCenterpoint] = React.useState<number[]>([0, 0]);
   const brushEl = React.useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (brushEl.current) {
-      var rect = brushEl.current.getBoundingClientRect();
+      const rect = brushEl.current.getBoundingClientRect();
 
       const centerX = rect.left + (rect.right - rect.left) / 2;
       const centerY = rect.top + (rect.bottom - rect.top) / 2;
@@ -39,7 +39,7 @@ export default function Life() {
   const brushEl2 = React.useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (brushEl2.current) {
-      var rect = brushEl2.current.getBoundingClientRect();
+      const rect = brushEl2.current.getBoundingClientRect();
 
       const centerX = rect.left + (rect.right - rect.left) / 2;
       const centerY = rect.top + (rect.bottom - rect.top) / 2;
@@ -55,7 +55,7 @@ export default function Life() {
   const brushEl3 = React.useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (brushEl3.current) {
-      var rect = brushEl3.current.getBoundingClientRect();
+      const rect = brushEl3.current.getBoundingClientRect();
 
       const centerX = rect.left + (rect.right - rect.left) / 2;
       const centerY = rect.top + (rect.bottom - rect.top) / 2;
@@ -104,9 +104,9 @@ export default function Life() {
         This transported me back to memories of myself in high school
         programming on my TI-83. While I had forgotten my rudimentary
         programming methods, I do remember seeing classmates sharing cool
-        calculator games they'd found with each other, searching the Internet to
-        download some to play myself, and eventually feeling brave enough to try
-        to create my own.
+        calculator games they&apos;d found with each other, searching the
+        Internet to download some to play myself, and eventually feeling brave
+        enough to try to create my own.
       </p>
       <p>
         Most of the programs I wrote were variants of{" "}
@@ -124,9 +124,9 @@ export default function Life() {
       </p>
       <p>
         I took a few programming classes after this, the last one being during
-        my freshman year of college. I never really felt like I "got it" and
-        ended up barely passing with a D-. I didn't touch capital-P Programming
-        for a decade.
+        my freshman year of college. I never really felt like I &lquo;got
+        it&rquo; and ended up barely passing with a D-. I didn&apos;t touch
+        capital-P Programming for a decade.
       </p>
       <div ref={brushEl2} style={{ height: 400, width: "100%" }} />
       {centerpoint2 && (
@@ -144,10 +144,11 @@ export default function Life() {
         I spent the rest of my college years focused on design, art, film,
         motion graphics, animation... And I did eventually make my way back
         around during my career; graphic design → web design → frontend
-        development → JavaScript/React, Python, etc. I'm grateful for all of it.
+        development → JavaScript/React, Python, etc. I&apos;m grateful for all
+        of it.
       </p>
       <p>
-        Over the past few days, I've been playing with that old randomized
+        Over the past few days, I&apos;ve been playing with that old randomized
         drawing idea, but in React. There are a few in this blog post -{" "}
         <a style={{ cursor: "pointer" }} onClick={() => window.scrollTo(0, 0)}>
           scroll back up
@@ -229,7 +230,7 @@ export default function Life() {
         >
           Twitter
         </a>
-        . I'd love to see them. Thanks for reading! 👋
+        . I&apos;d love to see them. Thanks for reading! 👋
       </p>
 
       <div ref={brushEl3} style={{ height: 200, width: "100%" }} />

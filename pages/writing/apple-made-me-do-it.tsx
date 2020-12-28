@@ -10,7 +10,7 @@ export const meta = {
   title: "Home Screen Hack",
 };
 
-export default function HomeScreenHack() {
+export default function HomeScreenHack(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -33,7 +33,7 @@ export default function HomeScreenHack() {
 
       <p>
         This is my iPhone home screen. Yes, my icons are bottom-aligned. No,
-        this isn't a native feature of iOS. For quite some time, I had been
+        this isn&apos;t a native feature of iOS. For quite some time, I had been
         relying on a website called{" "}
         <a href="https://iempty.tooliphone.net/">iEmpty</a> to generate empty
         home screen icons.
@@ -44,18 +44,18 @@ export default function HomeScreenHack() {
         limitation set by Apple on icons positions on the iOS devices screens.
       </blockquote>
       <p>
-        iEmpty achieves this by using iOS's ability to save websites to your
-        home screen with custom icons. iEmpty dynamically generates web pages
-        with Apple icons that match your wallpaper, making them appear
+        iEmpty achieves this by using iOS&apos;s ability to save websites to
+        your home screen with custom icons. iEmpty dynamically generates web
+        pages with Apple icons that match your wallpaper, making them appear
         invisible.
       </p>
       <p>
         There were a couple downsides to using this service. First, I was
-        reliant on a 3rd-party website that didn't fully trust. Second, they
-        hosted images ephemerally, so if I were to tap on one of the empty
+        reliant on a 3rd-party website that didn&apos;t fully trust. Second,
+        they hosted images ephemerally, so if I were to tap on one of the empty
         icons, it would open the iEmpty website and update the icon with
-        iEmpty's logo. I'd have to go through the whole process of creating the
-        icon again to replace the broken one.{" "}
+        iEmpty&apos;s logo. I&apos;d have to go through the whole process of
+        creating the icon again to replace the broken one.{" "}
       </p>
       <p>
         To fix this, I decided it was time to host these icons myself. My
@@ -105,8 +105,8 @@ export default () => {
         home screen.
       </p>
       <p>
-        That's it! Same result, except I'm no longer using iEmpty beyond
-        creating the initial assets. 🎉
+        That&apos;s it! Same result, except I&apos;m no longer using iEmpty
+        beyond creating the initial assets. 🎉
       </p>
     </BlogPage>
   );

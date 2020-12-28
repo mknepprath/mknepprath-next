@@ -10,7 +10,7 @@ export const meta = {
   title: "Code Should Breathe",
 };
 
-export default function Breathe() {
+export default function Breathe(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -34,8 +34,8 @@ export default function Breathe() {
 
       <p>
         <em>
-          Note: This is my opinion. If you have thoughts or concerns, that's
-          fine - feel free to{" "}
+          Note: This is my opinion. If you have thoughts or concerns,
+          that&apos;s fine - feel free to{" "}
           <a href="https://twitter.com/mknepprath">message me</a>.
         </em>
       </p>
@@ -47,9 +47,9 @@ export default function Breathe() {
         All of this leads to the code equivalent of hyperventilation.
       </p>
       <p>
-        What if we let our code breathe a little? "Breathing room" here is
-        defined as extra lines and empty space within code. Here are a couple
-        ways this can be accomplished.
+        What if we let our code breathe a little? &ldquo;Breathing room&rdquo;
+        here is defined as extra lines and empty space within code. Here are a
+        couple ways this can be accomplished.
       </p>
 
       <h2 id="use-blank-lines-to-create-sections">
@@ -59,10 +59,11 @@ export default function Breathe() {
         A List Apart had a great article about the use of whitespace in web
         design entitled simply,{" "}
         <a href="http://alistapart.com/article/whitespace/">Whitespace</a>. This
-        piece refers to a concept called <b>active whitespace</b>, "whitespace
-        added to a composition to better emphasize or structure, information."
-        In code, use whitespace (blank lines) to clearly separate imports,
-        methods, and so on. Here's an example from this website:
+        piece refers to a concept called <b>active whitespace</b>,
+        &ldquo;whitespace added to a composition to better emphasize or
+        structure, information.&rdquo; In code, use whitespace (blank lines) to
+        clearly separate imports, methods, and so on. Here&apos;s an example
+        from this website:
       </p>
       <pre>
         <code className="language-js">
@@ -89,8 +90,8 @@ export default function Breathe() {
         <a href="https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class">
           Adding Lifecycle Methods to a Class
         </a>{" "}
-        section. From the A List Apart article, "[W]hitespace creates breathing
-        room and balance. It’s important."
+        section. From the A List Apart article, &ldquo;[W]hitespace creates
+        breathing room and balance. It’s important.&rdquo;
       </p>
 
       <h2 id="lint-rules">Lint Rules</h2>
@@ -124,11 +125,11 @@ export default function Breathe() {
       </pre>
       <p>
         Given the two options above, <b>Example B</b> allows for more breathing
-        room. It's easier to understand at a glance. Multiply <b>Example A</b>{" "}
-        by a dozen elements with varying numbers of attributes and it becomes
-        increasingly difficult to see where attributes end and text/nested
-        elements begin. I propose that when choosing between two lint rule
-        options, always choose the one that adds more lines and space.
+        room. It&apos;s easier to understand at a glance. Multiply{" "}
+        <b>Example A</b> by a dozen elements with varying numbers of attributes
+        and it becomes increasingly difficult to see where attributes end and
+        text/nested elements begin. I propose that when choosing between two
+        lint rule options, always choose the one that adds more lines and space.
       </p>
 
       <h2 id="close-blocks-clearly">Close Blocks Clearly</h2>
@@ -164,8 +165,8 @@ export default function Breathe() {
         </code>
       </pre>
       <p>
-        While I love the brevity of Pug here, I personally think there's too
-        much left to the imagination. Again, multiply <b>Example A</b> by a
+        While I love the brevity of Pug here, I personally think there&apos;s
+        too much left to the imagination. Again, multiply <b>Example A</b> by a
         dozen different nested elements and it becomes dense and difficult to
         parse.
       </p>
@@ -175,8 +176,9 @@ export default function Breathe() {
         On a fun website called <a href="https://www.dwitter.net">Dwitter</a>,
         contributors are challenged to see what they can create with 140
         characters (or less) of JavaScript. While limiting characters can be a
-        fun constraint, this isn't code I want to read on a day-to-day basis.
-        Instead, let's luxuriate in the fact that we have room to breathe.{" "}
+        fun constraint, this isn&apos;t code I want to read on a day-to-day
+        basis. Instead, let&apos;s luxuriate in the fact that we have room to
+        breathe.{" "}
       </p>
 
       <a href="https://twitter.com/mknepprath/status/1057477764033458181?s=20">

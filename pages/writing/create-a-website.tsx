@@ -10,7 +10,7 @@ export const meta = {
   title: "Create a Simple Website with GitHub Pages",
 };
 
-export default function CreateAWebsite() {
+export default function CreateAWebsite(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -46,7 +46,7 @@ export default function CreateAWebsite() {
           A GitHub account. Sign up here:{" "}
           <a href="https://github.com/join">https://github.com/join</a>
         </li>
-        <li>That's it!</li>
+        <li>That&apos;s it!</li>
       </ul>
 
       <Image
@@ -69,7 +69,8 @@ export default function CreateAWebsite() {
       </p>
       <ol>
         <li>
-          Click the "+" icon at the top right and select <b>New repository</b>.
+          Click the &ldquo;+&rdquo; icon at the top right and select{" "}
+          <b>New repository</b>.
         </li>
         <li>
           Type in a <b>Repository name</b>.
@@ -82,8 +83,8 @@ export default function CreateAWebsite() {
       <h2>Build Your Website</h2>
       <p>
         You are now on the main page of your new repo. For now, you can ignore
-        everything on this page except where it says "Get started by creating a
-        new file..."
+        everything on this page except where it says &ldquo;Get started by
+        creating a new file...&rdquo;
       </p>
       <ol>
         <li>
@@ -157,8 +158,8 @@ export default function CreateAWebsite() {
           <a href="https://help.github.com/en/articles/setting-up-an-apex-domain">
             some guidance here
           </a>
-          . It's different for every provider, but it comes down to setting some
-          records.
+          . It&apos;s different for every provider, but it comes down to setting
+          some records.
         </li>
       </ul>
     </BlogPage>

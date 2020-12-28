@@ -11,7 +11,7 @@ import styles from "./about.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export default function About() {
+export default function About(): React.ReactNode {
   const { data: books } = useSWR(`/api/v1/books`, fetcher);
   const { data: films } = useSWR(`/api/v1/films`, fetcher);
 
@@ -58,7 +58,7 @@ export default function About() {
 
         {books?.length ? (
           <>
-            <h2>Books I've Read</h2>
+            <h2>Books I&apos;ve Read</h2>
             <div className={styles.cardContainer}>
               {books?.map((book: Book) => (
                 <Card
@@ -75,13 +75,13 @@ export default function About() {
 
         {films?.length ? (
           <>
-            <h2>Films I've Watched</h2>
+            <h2>Films I&apos;ve Watched</h2>
             <div className={styles.cardContainer}>
               {films?.map((film: Film) => (
                 <Card
                   description={film.year}
                   href={film.link}
-                  imgSrc={film.image_url.split('"')[1]}
+                  imgSrc={film.image_url.split(`"`)[1]}
                   key={film.link}
                   title={film.title}
                 />

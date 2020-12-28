@@ -19,7 +19,7 @@ export default function Head({
   title = "Michael Knepprath, Developer & Designer",
   description = "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.",
   ogImage = "/assets/og-image.jpg",
-}: Props) {
+}: Props): JSX.Element {
   const router = useRouter();
 
   React.useEffect(() => {

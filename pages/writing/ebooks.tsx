@@ -11,7 +11,7 @@ export const meta = {
   title: "“It's Just the Algorithm”",
 };
 
-function Ebooks() {
+export default function Ebooks(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -37,9 +37,9 @@ function Ebooks() {
           <a>big ideas</a>
         </Link>{" "}
         that required developing Twitter bots and decided to build an ebooks
-        account as a sort of trial run. It came together much faster than I'd
-        expected and I was able to switch to my other Twitter bot ideas within a
-        few weeks.
+        account as a sort of trial run. It came together much faster than
+        I&apos;d expected and I was able to switch to my other Twitter bot ideas
+        within a few weeks.
       </p>
       <blockquote className="twitter-tweet">
         <p lang="en" dir="ltr">
@@ -73,9 +73,9 @@ function Ebooks() {
         </a>
       </blockquote>
       <p>
-        Even the quirks caused by "bugs" were fun, such as when it would repeat
-        my tweets verbatim. Here, the bot turned one of my tweets into a sort of
-        ouroboros.
+        Even the quirks caused by &ldquo;bugs&rdquo; were fun, such as when it
+        would repeat my tweets verbatim. Here, the bot turned one of my tweets
+        into a sort of ouroboros.
       </p>
       <blockquote className="twitter-tweet">
         <p lang="en" dir="ltr">
@@ -91,7 +91,7 @@ function Ebooks() {
         </a>
       </blockquote>
       <p>
-        It's not all fun and games, however. Sometimes the account seems to
+        It&apos;s not all fun and games, however. Sometimes the account seems to
         tweet veiled threats.
       </p>
       <blockquote className="twitter-tweet">
@@ -132,7 +132,7 @@ function Ebooks() {
         </small>{" "}
         this is a failure of the <b>algorithm</b>.
       </p>
-      <h2>It's Just the Algorithm</h2>
+      <h2>It&apos;s Just the Algorithm</h2>
       <p>
         The reason my bot sometimes tweets in a threatening manner has to do
         with the algorithm behind the bot, as the tweets are determined by an
@@ -171,7 +171,7 @@ function Ebooks() {
         </a>
       </blockquote>
       <blockquote>
-        “It's <b>the algorithm</b>.” −{" "}
+        “It&apos;s <b>the algorithm</b>.” −{" "}
         <a
           href="https://www.rand.org/blog/2019/11/did-no-one-audit-the-apple-card-algorithm.html"
           rel="noopener noreferrer"
@@ -195,5 +195,3 @@ function Ebooks() {
     </BlogPage>
   );
 }
-
-export default Ebooks;

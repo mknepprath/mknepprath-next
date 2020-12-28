@@ -14,7 +14,7 @@ interface Props {
   className?: string;
 }
 
-export default function Footer({ className }: Props) {
+export default function Footer({ className }: Props): JSX.Element {
   return (
     <footer className={classnames(styles.footer, className)}>
       <span className={styles.footerMeta}>

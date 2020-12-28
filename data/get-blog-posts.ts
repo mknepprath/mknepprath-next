@@ -1,12 +1,14 @@
-const fs = require("fs");
-const path = require("path");
+import fs, { PathLike } from "fs";
+import path from "path";
 
 const META = /export\s+const\s+meta\s+=\s+(\{(\r\n|\n|.)*?(\r\n|\n)\})/;
 
-const POSTS_DIR = path.join(process.cwd(), "/pages/writing/");
+const POSTS_DIR: PathLike = path.join(process.cwd(), "/pages/writing/");
 
-function getFiles(dir: string[]) {
-  return fs.readdirSync(dir).filter((file: string) => file.endsWith(".tsx"));
+function getFiles(dir: PathLike) {
+  return fs
+    .readdirSync(dir)
+    .filter((file: string) => file.endsWith(".tsx") && file !== "latest.tsx");
 }
 
 interface Post {
@@ -57,4 +59,4 @@ const posts = getContentFromFiles(postsArray, POSTS_DIR);
 
 module.exports = posts;
 
-export {};
+export default posts;

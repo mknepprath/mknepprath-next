@@ -13,7 +13,7 @@ function randomColor() {
   return Math.floor(Math.random() * 16777215).toString(16);
 }
 
-export default function PxBrushPage() {
+export default function PxBrushPage(): React.ReactNode {
   const [brushes, setBrushes] = React.useState<Array<Array<number>>>([]);
   const [scale, setScale] = React.useState<number>();
   const [quantity, setQuantity] = React.useState<number>();

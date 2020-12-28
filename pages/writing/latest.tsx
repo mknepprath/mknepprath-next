@@ -7,7 +7,7 @@ import Nav from "core/nav";
 // Data
 import posts from "data/posts";
 
-export default function Latest() {
+export default function Latest(): React.ReactNode {
   React.useEffect(() => {
     window.location.href = `/writing/${posts[0].id}`;
   }, []);

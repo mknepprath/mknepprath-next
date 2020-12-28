@@ -4,15 +4,18 @@ import xml2js from "xml2js";
 
 const GOODREADS_API = `https://www.goodreads.com/review/list_rss/${process.env.GOODREADS_ID}?key=${process.env.GOODREADS_KEY}&shelf=read`;
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  let books: Book[] = [];
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
+  const books: Book[] = [];
   await fetch(GOODREADS_API)
     .then((response) => response.text())
     .then((body) => {
       xml2js.parseString(body, function (error, response) {
         if (error) console.error(error);
         console.info("Getting Book List from GoodReads API");
-        let bookList = response.rss.channel[0].item;
+        const bookList = response.rss.channel[0].item;
         for (let i = 0; i < bookList.length; i++) {
           books.push({
             title: bookList[i].title[0],
