@@ -72,7 +72,9 @@ export default posts;`;
       }
     });
     process.stderr.write("\x1b[0m");
-    console.info();
+    console.info("Add these changes before committing\n");
+
+    process.exit();
   }
 }
 
