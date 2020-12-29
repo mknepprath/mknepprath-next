@@ -26,8 +26,7 @@
   "settings": {
     "react": {
       "version": "detect"
-    },
-    "import/ignore": [".css$","node_modules/*"]
+    }
   },
   "parserOptions": {
     "ecmaFeatures": {
