@@ -7,14 +7,22 @@
     "dev": "next",
     "build": "next build",
     "build:feed": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
-    "build:rss": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-rss-feed.ts",
+    "build:rss": "npm run build:feed",
     "build:posts": "ts-node -O '{\"module\":\"commonjs\"}' -s ./data/gen-post-list.ts",
+    "commit:posts": "git add ./data/posts.ts ./public/feed.json",
     "start": "next start",
+    "lint": "eslint ./pages/* ./core/* ./data/* -c .eslintrc --fix --ext ts,tsx",
+    "lint:quiet": "eslint --quiet ./pages/* ./core/* ./data/* -c .eslintrc --fix --ext ts,tsx",
     "test": "npm run cypress:run",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "cypress:run:record": "cypress run --record --key 41f0e667-3e42-4c36-83e8-76acb7609493"
+    "cypress:run": "cypress run"
   },
+  "pre-commit": [
+    "build:feed",
+    "build:posts",
+    "commit:posts",
+    "lint:quiet"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mknepprath/mknepprath-next.git"
@@ -46,13 +54,17 @@
     "@types/prismjs": "^1.16.2",
     "@types/react": "^17.0.0",
     "@types/xml2js": "^0.4.7",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
     "colors": "^1.4.0",
     "cypress": "^6.2.0",
     "diff": "^5.0.0",
     "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"

@@ -6,7 +6,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       // This is the reason this file was added - to set the `lang` attribute.
       <Html lang="en">

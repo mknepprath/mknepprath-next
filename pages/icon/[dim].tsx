@@ -1,7 +1,7 @@
 import NextHead from "next/head";
 import { useRouter } from "next/router";
 
-export default () => {
+export default function Dim(): React.ReactNode {
   const router = useRouter();
   const { dim } = router.query;
 
@@ -21,4 +21,4 @@ export default () => {
       <img src={`/assets/icon/${dim}.png`} />
     </>
   );
-};
+}

@@ -4,15 +4,18 @@ import xml2js from "xml2js";
 
 const LETTERBOXD_RSS = `https://letterboxd.com/mknepprath/rss/`;
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  let films: Film[] = [];
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
+  const films: Film[] = [];
   await fetch(LETTERBOXD_RSS)
     .then((response) => response.text())
     .then((body) => {
       xml2js.parseString(body, function (error, response) {
         if (error) console.error(error);
         console.info("Getting Film List from Letterboxd API");
-        let filmList = response.rss.channel[0].item;
+        const filmList = response.rss.channel[0].item;
         for (let i = 0; i < filmList.length; i++) {
           films.push({
             title: filmList[i]["letterboxd:filmTitle"][0],

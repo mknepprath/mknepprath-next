@@ -12,7 +12,7 @@ import posts from "data/posts";
 // Styles
 import styles from "./writing.module.css";
 
-export default function Writing() {
+export default function Writing(): React.ReactNode {
   return (
     <Page className="container" title="Michael Knepprath, Occasional Writer">
       <header data-cy="writing-page">
@@ -28,9 +28,7 @@ export default function Writing() {
             <article key={post.id}>
               <header>
                 <Link href={`/writing/${post.id}`}>
-                  <a>
-                    <h2 className={styles.title}>{post.title}</h2>
-                  </a>
+                  <h2 className={styles.title}>{post.title}</h2>
                 </Link>{" "}
                 <small>{format(parseISO(post.date), "MMMM d, yyyy")}</small>
               </header>

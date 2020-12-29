@@ -7,7 +7,7 @@ export const meta = {
   title: "The Codemod Side Quest",
 };
 
-export default function CodemodSideQuest() {
+export default function BabysFirstCodemod(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -27,9 +27,9 @@ export default function CodemodSideQuest() {
       <p>
         <blockquote>
           Codemods are scripts that automate code changes when you need to make
-          the same change to a large number of files. If you're familiar with
-          batch-processing in Photoshop, this is similar, except a codemod is
-          for code.
+          the same change to a large number of files. If you&apos;re familiar
+          with batch-processing in Photoshop, this is similar, except a codemod
+          is for code.
         </blockquote>
       </p>
       <p>
@@ -50,7 +50,8 @@ export default function CodemodSideQuest() {
       </p>
       <p>
         Luckily, I had already been structuring my blog posts in a consistent
-        way, making a batch edit feasible. Here's an example post, pre-codemod.
+        way, making a batch edit feasible. Here&apos;s an example post,
+        pre-codemod.
       </p>
       <pre>
         <code className="language-js">
@@ -58,7 +59,7 @@ export default function CodemodSideQuest() {
 import BlogPage from "core/blog-page";
 
 export default () => (
-  <BlogPage
+  return <BlogPage
     dateTime="2020-03-21"
     description="A description of the post."
     ogImage="/assets/image.jpg"
@@ -76,9 +77,9 @@ export default () => (
         </code>
       </pre>
       <p>
-        My posts didn't include the aforementioned metadata object, but all of
-        that data <em>was</em> there as props. Here's how I wanted my posts to
-        look post-codemod:
+        My posts didn&apos;t include the aforementioned metadata object, but all
+        of that data <em>was</em> there as props. Here&apos;s how I wanted my
+        posts to look post-codemod:
       </p>
       <pre>
         <code className="language-js">
@@ -94,7 +95,7 @@ export const meta = {
 };
 
 export default () => (
-  <BlogPage
+  return <BlogPage
     dateTime={meta.publishedAt}
     description={meta.summary}
     ogImage={meta.image}
@@ -128,7 +129,7 @@ export default () => (
         themselves.{" "}
       </p>
       <p>
-        Next, I explored Facebook's library of codemods,{" "}
+        Next, I explored Facebook&apos;s library of codemods,{" "}
         <a href="https://github.com/reactjs/react-codemod">
           reactjs/react-codemod
         </a>
@@ -137,9 +138,10 @@ export default () => (
       </p>
       <p>
         I also took a look at{" "}
-        <a href="https://astexplorer.net/">AST Explorer</a>. It's a popular tool
-        that lets you paste in your code and codemod and quickly see the result.
-        I wasn't able to get it to work for my needs at the time, however.
+        <a href="https://astexplorer.net/">AST Explorer</a>. It&apos;s a popular
+        tool that lets you paste in your code and codemod and quickly see the
+        result. I wasn&apos;t able to get it to work for my needs at the time,
+        however.
       </p>
       <p>
         I ended up heavily referencing{" "}
@@ -167,12 +169,12 @@ export default () => (
         </ul>
       </p>
       <p>
-        Here's the resulting codemod with comments describing how each of these
-        tasks was accomplished. I also published this codemod as{" "}
+        Here&apos;s the resulting codemod with comments describing how each of
+        these tasks was accomplished. I also published this codemod as{" "}
         <a href="https://gist.github.com/mknepprath/be919a308f37315030f4607244afef42">
           a gist
         </a>{" "}
-        if you'd like to leave feedback.
+        if you&apos;d like to leave feedback.
       </p>
       <pre>
         <code className="language-js">
@@ -248,17 +250,17 @@ export default transform;
         </code>
       </pre>
       <p>
-        Note: I did forget to include one thing. This codemod doesn't add a{" "}
+        Note: I did forget to include one thing. This codemod doesn&apos;t add a{" "}
         <code className="language-html">published</code> property, so I ended up
         doing a bit of cleanup after the fact.
       </p>
       <h2 id="codemod-complete">Codemod Complete!</h2>
       <p>
-        Frequent writers of codemods won't be impressed with this code, but it
-        accomplished what I was seeking to do - and I'm happy with that. Feel
-        free to bother me on{" "}
+        Frequent writers of codemods won&apos;t be impressed with this code, but
+        it accomplished what I was seeking to do - and I&apos;m happy with that.
+        Feel free to bother me on{" "}
         <a href="https://twitter.com/mknepprath">Twitter</a> if you have
-        thoughts, I'd love to hear them.
+        thoughts, I&apos;d love to hear them.
       </p>
       <p>Thanks for reading! 👋</p>
     </BlogPage>

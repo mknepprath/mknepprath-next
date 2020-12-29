@@ -8,7 +8,7 @@ export const meta = {
   title: "Creating Lilt — Part 2",
 };
 
-export default function LiltPart2() {
+export default function CreatingLiltPart2(): React.ReactNode {
   return (
     <BlogPage dateTime={meta.publishedAt} highlightCode title={meta.title}>
       <header>

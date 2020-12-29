@@ -28,10 +28,10 @@ export default function BlogPage({
   highlightCode,
   ogImage,
   title,
-}: Props) {
+}: Props): JSX.Element {
   React.useEffect(() => {
     if (highlightCode) Prism.highlightAll();
-  }, []);
+  }, [highlightCode]);
 
   return (
     <div className={classnames("container", className)}>

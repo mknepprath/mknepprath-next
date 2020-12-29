@@ -70,7 +70,10 @@ interface CandyRequired extends PokemonForm {
   candy_required: number;
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
   const releasedPokemonDict: { [key: string]: Pokemon } = await fetch(
     `${POGO_API}/released_pokemon.json`
   ).then((response) => response.json());

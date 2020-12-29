@@ -48,7 +48,7 @@ function onClickToCopy(e: SyntheticEvent) {
   document.body.removeChild(fakeElement);
 }
 
-export default function GifsPage() {
+export default function GifsPage(): React.ReactNode {
   return (
     <>
       <Head title="Michael Knepprath, GIF Aficionado" />

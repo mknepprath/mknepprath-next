@@ -1,4 +1,4 @@
-export default function Zombies() {
+export default function Zombies(): React.ReactNode {
   return (
     <object
       type="application/x-shockwave-flash"

@@ -34,7 +34,7 @@ const PORT = "25601";
 
 const fetcher = (url: RequestInfo) => fetch(url).then((r) => r.json());
 
-export default function Dynoland() {
+export default function Dynoland(): React.ReactNode {
   const { data } = useSWR(
     `/api/v1/minecraft-status?host=${IP}&port=${PORT}`,
     fetcher,
@@ -58,7 +58,7 @@ export default function Dynoland() {
           <p>
             If you were planning on playing right now,{" "}
             <a href="https://twitter.com/mknepprath">message me</a> and I will
-            look into it as soon as I'm available.
+            look into it as soon as I&apos;m available.
           </p>
         )}
 
@@ -93,9 +93,9 @@ export default function Dynoland() {
 
         {data.version.name ? (
           <p>
-            We're running version {data.version.name.replace("Spigot ", "")} of
-            Minecraft, so you will need to ensure your client matches. Follow
-            the directions on the{" "}
+            We&apos;re running version{" "}
+            {data.version.name.replace("Spigot ", "")} of Minecraft, so you will
+            need to ensure your client matches. Follow the directions on the{" "}
             <a
               href="https://help.mojang.com/customer/portal/articles/1475923-changing-game-versions"
               rel="noopener noreferrer"
@@ -103,7 +103,7 @@ export default function Dynoland() {
             >
               Changing game versions
             </a>{" "}
-            support page if it doesn't.
+            support page if it doesn&apos;t.
           </p>
         ) : null}
       </article>

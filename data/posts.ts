@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2020-12-28",
+    "id": "2020",
+    "image": "/assets/2020-in-review-3.jpeg",
+    "title": "2020 in Review"
+  },
+  {
     "date": "2020-12-20",
     "id": "ebooks",
     "image": "/assets/ebooks.jpg",
@@ -268,4 +274,4 @@ const posts: PostListItem[] = [
     "title": "Stay On Task with Pocket"
   }
 ];
-  export default posts;
+export default posts;

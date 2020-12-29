@@ -34,7 +34,7 @@ const defaultOptions: Partial<StatusOptions> = {
 export default async function getStatus(
   req: NextApiRequest,
   res: NextApiResponse
-) {
+): Promise<void> {
   const { host, port } = req.query;
 
   const client = await Client.connect(host as string, +port, {

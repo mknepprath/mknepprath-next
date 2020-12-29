@@ -16,7 +16,7 @@ export default function Page({
   description,
   ogImage,
   title,
-}: Props) {
+}: Props): JSX.Element {
   return (
     <div className={className}>
       <Head title={title} description={description} ogImage={ogImage} />

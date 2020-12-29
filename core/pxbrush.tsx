@@ -18,7 +18,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default function PxBrushPage(props: Props) {
+export default function PxBrushPage(props: Props): JSX.Element {
   const [x, y] = props.coordinates;
 
   const colors = props.colors || [
@@ -36,12 +36,12 @@ export default function PxBrushPage(props: Props) {
   ]);
 
   React.useEffect(() => {
-    let id = setInterval(() => {
+    const id = setInterval(() => {
       setNodes((prevNodes) => {
-        let nextX =
+        const nextX =
           prevNodes[prevNodes.length - 1].x +
           [-props.increment, 0, props.increment][getRandomInt(3)];
-        let nextY =
+        const nextY =
           prevNodes[prevNodes.length - 1].y +
           [-props.increment, 0, props.increment][getRandomInt(3)];
         const nextNodes = [

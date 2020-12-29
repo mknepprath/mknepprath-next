@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Page from "core/page";
 
-const Lilt = () => {
+export default function Lilt(): React.ReactNode {
   return (
     <Page className="container" title="Lilt">
       <article>
@@ -21,7 +21,7 @@ const Lilt = () => {
         </div>
 
         <p>
-          Every game should have a guidebook. Here's{" "}
+          Every game should have a guidebook. Here&apos;s{" "}
           <a
             href="https://twitter.com/familiarlilt"
             rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const Lilt = () => {
           >
             Lilt
           </a>
-          's.
+          &apos;s.
         </p>
 
         <h2>The Goal</h2>
@@ -40,16 +40,15 @@ const Lilt = () => {
         <h2>Tips</h2>
         <p>
           While Lilt attempts to allow you to use natural language messages, it
-          works best if you follow certain patterns: "look at the tree", "pick
-          up the coin", "use water on the flower", and so on.
+          works best if you follow certain patterns: &ldquo;look at the
+          tree&rdquo;, &ldquo;pick up the coin&rdquo;, &ldquo;use water on the
+          flower&rdquo;, and so on.
         </p>
         <p>
-          It's also possible to give items to other people who are playing the
-          game: "Give @frederick an apple."
+          It&apos;s also possible to give items to other people who are playing
+          the game: &ldquo;Give @frederick an apple.&rdquo;
         </p>
       </article>
     </Page>
   );
-};
-
-export default Lilt;
+}

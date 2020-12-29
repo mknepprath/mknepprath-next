@@ -10,7 +10,7 @@ export const meta = {
   title: "Building a Culturally Irrelevant Recommendation Board",
 };
 
-export default function CulturallyIrrelevant() {
+export default function CulturallyIrrelevant(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -52,7 +52,7 @@ export default function CulturallyIrrelevant() {
           <br />
           Born in the cold of Michigan and shown Star Wars by his father; Tyler
           developed into a full-blown nerd. Star Wars, Marvel, and cinema
-          galore. I'm Tyler.
+          galore. I&apos;m Tyler.
         </p>
         <p>
           <b>
@@ -65,7 +65,8 @@ export default function CulturallyIrrelevant() {
             </a>
           </b>
           <br />A father of two future superheroes and a victim of male pattern
-          baldness. His specialties are Halo 1 and films you've never heard of.
+          baldness. His specialties are Halo 1 and films you&apos;ve never heard
+          of.
         </p>
         <p>
           <b>
@@ -79,7 +80,7 @@ export default function CulturallyIrrelevant() {
           </b>
           <br />
           Your friendly neighborhood Josh has been reading comics since before
-          he could… well, read. But this nerd won't be put in a box.
+          he could… well, read. But this nerd won&apos;t be put in a box.
         </p>
         <p>
           <b>
@@ -105,16 +106,17 @@ export default function CulturallyIrrelevant() {
       </p>
       <blockquote>
         <p>
-          <b>Ben:</b> "This is the point of the whole show. We're trying to draw
-          things out of ambiguity. And it's going to be anything, it might be
-          video games. Hey, we're going to bring a video game to the table!
-          Tyler's got one and on the level of ambiguity, it's, you know, you've
-          heard of it. But you might not have played it. And there's some that
-          Dane will bring and it's going to be from the depths of like..."
+          <b>Ben:</b> &ldquo;This is the point of the whole show. We&apos;re
+          trying to draw things out of ambiguity. And it&apos;s going to be
+          anything, it might be video games. Hey, we&apos;re going to bring a
+          video game to the table! Tyler&apos;s got one and on the level of
+          ambiguity, it&apos;s, you know, you&apos;ve heard of it. But you might
+          not have played it. And there&apos;s some that Dane will bring and
+          it&apos;s going to be from the depths of like...&rdquo;
         </p>
         <p>
-          <b>Dane:</b> "Oh, you have no idea. You have no idea what I've got to
-          bring."
+          <b>Dane:</b> &ldquo;Oh, you have no idea. You have no idea what
+          I&apos;ve got to bring.&rdquo;
         </p>
         <p>
           <em>— Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
@@ -136,8 +138,8 @@ export default function CulturallyIrrelevant() {
         >
           Big Dreams, Small Spaces
         </a>
-        , a British gardening show recommended by Ben in episode 41. I'd never
-        watched it before, but I found it fun and relaxing. If not for the
+        , a British gardening show recommended by Ben in episode 41. I&apos;d
+        never watched it before, but I found it fun and relaxing. If not for the
         podcast, I never would have heard of it, let alone watched it.
       </p>
       <p>
@@ -172,8 +174,8 @@ export default function CulturallyIrrelevant() {
         After discussing it with the hosts, it became clear to me that I could
         do more than republish the episodes. The goal of the podcast was to
         shine a light on media most had missed. Instead of having that end with
-        the podcast, I thought it'd be cool to expand its scope by creating a
-        website where anyone can submit their own overlooked recommendations.
+        the podcast, I thought it&apos;d be cool to expand its scope by creating
+        a website where anyone can submit their own overlooked recommendations.
       </p>
       <p>
         I simultaneously relistened to the entire podcast, collected audio clips
@@ -194,7 +196,7 @@ export default function CulturallyIrrelevant() {
           rel="noopener noreferrer"
           target="_blank"
         >
-          Overcast's clip sharing feature
+          Overcast&apos;s clip sharing feature
         </a>{" "}
         to collect over 400 clips and uploaded them all to{" "}
         <a
@@ -206,7 +208,7 @@ export default function CulturallyIrrelevant() {
         </a>
         . I was then able to use{" "}
         <a href="https://swr.now.sh/" rel="noopener noreferrer" target="_blank">
-          Vercel's SWR data fetching library
+          Vercel&apos;s SWR data fetching library
         </a>{" "}
         to pull all of that data into the website.
       </p>
@@ -259,42 +261,43 @@ export default function Home() {
       <blockquote>
         <p>
           <em>
-            <b>Tyler:</b> "What do you want from this podcast, and what are you
-            putting into it, and what are you expecting from it?"
+            <b>Tyler:</b> &ldquo;What do you want from this podcast, and what
+            are you putting into it, and what are you expecting from it?&rdquo;
           </em>
         </p>
         <p>
-          <b>Josh:</b> "It's less of me trying to bestow knowledge upon the
-          masses. I want this to be a learning experience for me, too. I want to
-          hear about stuff I've never heard of from you guys, and I hope that
-          our 3+ listeners feel the same way. That's it for me. I want to
-          broaden my horizons more than I've done already."
+          <b>Josh:</b> &ldquo;It&apos;s less of me trying to bestow knowledge
+          upon the masses. I want this to be a learning experience for me, too.
+          I want to hear about stuff I&apos;ve never heard of from you guys, and
+          I hope that our 3+ listeners feel the same way. That&apos;s it for me.
+          I want to broaden my horizons more than I&apos;ve done already.&rdquo;
         </p>
         <p>
-          <b>Dane:</b> "Well, I guess for me, I've always been someone to root
-          for the underdog. Perfect example, I grew up a Sega fanboy. I've
-          always naturally been drawn to the lesser-known things that aren't
-          quite as popular. I feel that, yes, this is me bestowing my
-          intelligence that I've gained of these different things. To me, it's
-          about spreading that, because I feel that these things deserve
-          attention."
+          <b>Dane:</b> &ldquo;Well, I guess for me, I&apos;ve always been
+          someone to root for the underdog. Perfect example, I grew up a Sega
+          fanboy. I&apos;ve always naturally been drawn to the lesser-known
+          things that aren&apos;t quite as popular. I feel that, yes, this is me
+          bestowing my intelligence that I&apos;ve gained of these different
+          things. To me, it&apos;s about spreading that, because I feel that
+          these things deserve attention.&rdquo;
         </p>
         <p>
-          <b>Ben:</b> "For me, the real catalyst moments are when I find a film
-          I would've never heard of, when someone in passing who has weird taste
-          is like 'dude, watch this.' Hopefully, I can turn one person on to
-          something that they've never heard of. It just opens a portal for
-          people, and that's what I want this to be. I want it to be a portal
-          that you can take down to a whole new world of holy-crap-awesomeness."
+          <b>Ben:</b> &ldquo;For me, the real catalyst moments are when I find a
+          film I would&apos;ve never heard of, when someone in passing who has
+          weird taste is like &apos;dude, watch this.&apos; Hopefully, I can
+          turn one person on to something that they&apos;ve never heard of. It
+          just opens a portal for people, and that&apos;s what I want this to
+          be. I want it to be a portal that you can take down to a whole new
+          world of holy-crap-awesomeness.&rdquo;
         </p>
         <p>
-          <b>Tyler:</b> "I mean, this is an idea I've had for many different
-          things, like a podcast with Dane before, or doing a blog. What pushed
-          me into being nerdy about stuff was, really, my dad sitting me down
-          with these movies that he loved. To me, this has been a lifelong
-          experience. This has been something that's been building since I was a
-          little kid. For me, this is an expression of who I am as a human
-          being. I'm excited."
+          <b>Tyler:</b> &ldquo;I mean, this is an idea I&apos;ve had for many
+          different things, like a podcast with Dane before, or doing a blog.
+          What pushed me into being nerdy about stuff was, really, my dad
+          sitting me down with these movies that he loved. To me, this has been
+          a lifelong experience. This has been something that&apos;s been
+          building since I was a little kid. For me, this is an expression of
+          who I am as a human being. I&apos;m excited.&rdquo;
         </p>
         <p>
           <em>— Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
@@ -331,9 +334,9 @@ export default function Home() {
 
       <h3 id="audio-clips">Audio Clips</h3>
       <p>
-        I was excited to discover that embedding the Overcast audio clips I'd
-        created would be fairly simple. Airtable returns a bunch of useful data
-        for each uploaded file:
+        I was excited to discover that embedding the Overcast audio clips
+        I&apos;d created would be fairly simple. Airtable returns a bunch of
+        useful data for each uploaded file:
       </p>
       <pre className="language-js">
         <code>
@@ -380,44 +383,45 @@ export default function Home() {
         >
           Reach UI dialog
         </a>
-        . I don't typically lean so heavily on libraries, but I was moving fast
-        and these got the job done.
+        . I don&apos;t typically lean so heavily on libraries, but I was moving
+        fast and these got the job done.
       </p>
       <video className="blog-video" controls>
         <source src="/assets/culturally-irrelevant-6.mp4" type="video/mp4" />
-        Sorry, your browser doesn't support embedded videos.
+        Sorry, your browser doesn&apos;t support embedded videos.
       </video>
 
       <h3 id="dark-mode">Dark Mode</h3>
       <p>
-        I felt obligated to add dark mode to this site, and I didn't want it to
-        be an afterthought. Suffice it to say, I didn't simply invert some
-        colors.
+        I felt obligated to add dark mode to this site, and I didn&apos;t want
+        it to be an afterthought. Suffice it to say, I didn&apos;t simply invert
+        some colors.
       </p>
       <p>
-        I also made sure to respect visitors' system-level settings. If your
-        phone or computer is set to dark mode, the website will follow suit.
+        I also made sure to respect visitors&apos; system-level settings. If
+        your phone or computer is set to dark mode, the website will follow
+        suit.
       </p>
       <video className="blog-video" controls>
         <source src="/assets/culturally-irrelevant-7.mp4" type="video/mp4" />
-        Sorry, your browser doesn't support embedded videos.
+        Sorry, your browser doesn&apos;t support embedded videos.
       </video>
 
       <h3 id="lazy-loading">Lazy Loading</h3>
       <p>
         Initially, I was displaying all of the recommendations on page load. It
-        wasn't <em>that</em> bad until I had all of the audio clips uploaded, at
-        which point I was making visitors immediately download over a hundred
-        audio clips.
+        wasn&apos;t <em>that</em> bad until I had all of the audio clips
+        uploaded, at which point I was making visitors immediately download over
+        a hundred audio clips.
       </p>
       <p>
-        My first thought was that I should paginate Airtable's response - that
-        is, fetch a limited amount until explicitly asked to fetch more. It took
-        me a while to realize that this solution was unnecessarily complicated.
-        Airtable's response wasn't that large - the issue occurred when the
-        website would read the audio URLs and load them all in at once. Instead
-        of limited the data I was getting, I could instead limit how much of
-        that data I was displaying on the page.
+        My first thought was that I should paginate Airtable&apos;s response -
+        that is, fetch a limited amount until explicitly asked to fetch more. It
+        took me a while to realize that this solution was unnecessarily
+        complicated. Airtable&apos;s response wasn&apos;t that large - the issue
+        occurred when the website would read the audio URLs and load them all in
+        at once. Instead of limited the data I was getting, I could instead
+        limit how much of that data I was displaying on the page.
       </p>
       <p>
         I now display 16 recommendations on page load, then add 32 more each
@@ -435,13 +439,13 @@ export default function Home() {
       <h3 id="loading-indicators">Loading Indicators</h3>
       <p>
         The podcast had a lot of fun tangents and in-jokes, including a
-        long-running thread about carrier pigeons and another about Dane's love
-        for LaserDisc. I added loading indicators that referenced these - a
+        long-running thread about carrier pigeons and another about Dane&apos;s
+        love for LaserDisc. I added loading indicators that referenced these - a
         random one is displayed each time.
       </p>
       <video className="blog-video bordered-image" controls>
         <source src="/assets/culturally-irrelevant-9.mp4" type="video/mp4" />
-        Sorry, your browser doesn't support embedded videos.
+        Sorry, your browser doesn&apos;t support embedded videos.
       </video>
 
       <h3 id="search">Search</h3>
@@ -470,7 +474,7 @@ export default function Home() {
         width={1862}
       />
 
-      <h2 id="thats-not-all">And That's Not All</h2>
+      <h2 id="thats-not-all">And That&apos;s Not All</h2>
       <p>
         Please visit the website for the full experience, including features
         like{" "}
@@ -481,10 +485,10 @@ export default function Home() {
         >
           The Irrelevant Mixtape
         </a>{" "}
-        - a randomized "Best Of" playlist that includes recommendations and
-        other fun bits. If you have a lesser-known movie, video game, comic
-        book, television show, book, board game, artist, podcast, miniseries,
-        band, etc, that you'd like to share, visit{" "}
+        - a randomized &ldquo;Best Of&rdquo; playlist that includes
+        recommendations and other fun bits. If you have a lesser-known movie,
+        video game, comic book, television show, book, board game, artist,
+        podcast, miniseries, band, etc, that you&apos;d like to share, visit{" "}
         <a
           href="https://culturallyirrelevant.net"
           rel="noopener noreferrer"
@@ -496,13 +500,14 @@ export default function Home() {
       </p>
       <blockquote>
         <p>
-          <b>Dane:</b> "It seems like some things you either fall into, you just
-          slowly realize you love it the more and more you get into it, whereas
-          in other things there's one key thing where it's like 'I saw this
-          movie' or 'I listened to this record' or whatever it may be 'and from
-          that point on my life was changed.' I also had one of those moments
-          and it was actually around the time I was in high school. For me, it
-          was 2001: A Space Odyssey that completely switched me over."
+          <b>Dane:</b> &ldquo;It seems like some things you either fall into,
+          you just slowly realize you love it the more and more you get into it,
+          whereas in other things there&apos;s one key thing where it&apos;s
+          like &apos;I saw this movie&apos; or &apos;I listened to this
+          record&apos; or whatever it may be &apos;and from that point on my
+          life was changed.&apos; I also had one of those moments and it was
+          actually around the time I was in high school. For me, it was 2001: A
+          Space Odyssey that completely switched me over.&rdquo;
         </p>
         <p>
           <em>— Episode #5 - Musical Interludes (June 5, 2015)</em>

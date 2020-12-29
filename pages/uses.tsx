@@ -1,6 +1,6 @@
 import Page from "core/page";
 
-export default function Uses() {
+export default function Uses(): React.ReactNode {
   return (
     <Page className="container" title="Uses">
       <article data-cy="uses-page">
@@ -9,8 +9,8 @@ export default function Uses() {
         </header>
 
         <p>
-          This is where I document tools and products I use and love. If you're
-          curious about anything, feel free to{" "}
+          This is where I document tools and products I use and love. If
+          you&apos;re curious about anything, feel free to{" "}
           <a href="https://twitter.com/mknepprath">@ me</a>.
         </p>
 
@@ -202,7 +202,7 @@ export default function Uses() {
             </a>
           </li>
           <li>
-            Rain Design's{" "}
+            Rain Design&apos;s{" "}
             <a
               href="https://www.amazon.com/Rain-Design-mStand-Laptop-Patented/dp/B000OOYECC"
               rel="noopener noreferrer"

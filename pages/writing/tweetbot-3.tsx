@@ -7,7 +7,7 @@ export const meta = {
   title: "Tweetbot 3",
 };
 
-export default function Tweetbot3() {
+export default function Tweetbot3(): React.ReactNode {
   return (
     <BlogPage dateTime={meta.publishedAt} title={meta.title}>
       <header>

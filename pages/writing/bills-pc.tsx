@@ -24,7 +24,7 @@ export const meta = {
   title: "Pokémon Data Munging",
 };
 
-function BillsPc() {
+export default function BillsPc(): React.ReactNode {
   const [pokemonId, setPokemonId] = useState(0);
   const { data: pokemons } = useSWR(`/api/v1/released-pokemon`, fetcher);
 
@@ -55,22 +55,18 @@ function BillsPc() {
         <h1>{meta.title}</h1>
       </header>
       <p>
-        Tonight, I thought it'd be fun to detail out a choice I made while
-        building{" "}
-        <Link href="/writing/lily-dex">
-          <a>lily dex</a>
-        </Link>{" "}
-        that I had very little confidence in, but has been serving me well thus
-        far.
+        Tonight, I thought it&apos;d be fun to detail out a choice I made while
+        building <Link href="/writing/lily-dex">lily dex</Link> that I had very
+        little confidence in, but has been serving me well thus far.
       </p>
       <h2>The Problem</h2>
       <p>
         Early iterations of lily dex included the full list of Pokémon{" "}
         <em>in the app code</em>, therefore requiring an app update every single
-        time a new Pokémon was added to Pokémon Go. I'd have to open Xcode,
-        update the app, push the update, wait for Apple's approval... and then
-        players would have to manually update or wait for the automatic update
-        to get the change.
+        time a new Pokémon was added to Pokémon Go. I&apos;d have to open Xcode,
+        update the app, push the update, wait for Apple&apos;s approval... and
+        then players would have to manually update or wait for the automatic
+        update to get the change.
       </p>
       <p>Every. Single. Time.</p>
       <p>
@@ -116,8 +112,8 @@ function BillsPc() {
       <p>
         I also wanted to add additional details for each Pokémon from other PoGo
         API endpoints. This would require a lot of data transformation and
-        coercion - far beyond what I'd learned during my Swift course at that
-        point.
+        coercion - far beyond what I&apos;d learned during my Swift course at
+        that point.
       </p>
       <h2>The Solution: An API Route</h2>
       <p>
@@ -154,7 +150,7 @@ function BillsPc() {
       </p>
       {pokemon ? (
         <>
-          <p>Here's some data from this new endpoint:</p>
+          <p>Here&apos;s some data from this new endpoint:</p>
           <blockquote>
             {pokemon.name} is a {pokemon.types.join("/")}
             -type Pokémon.
@@ -183,10 +179,10 @@ function BillsPc() {
       ) : null}
       <p>
         As things currently stand, lily dex calls this endpoint, which calls the
-        PoGo API. I'm not sure sending all the data through my personal site
-        makes sense... I could set up a lambda anywhere and accomplish the same
-        thing. I could do all this data wrangling in the app. I feel insecure
-        about these things.
+        PoGo API. I&apos;m not sure sending all the data through my personal
+        site makes sense... I could set up a lambda anywhere and accomplish the
+        same thing. I could do all this data wrangling in the app. I feel
+        insecure about these things.
       </p>
       <p>
         But this architecture works. I was able to set it up fast, and it gives
@@ -207,5 +203,3 @@ function BillsPc() {
     </BlogPage>
   );
 }
-
-export default BillsPc;

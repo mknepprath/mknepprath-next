@@ -10,7 +10,7 @@ export const meta = {
   title: "A Chat with MK 9000",
 };
 
-export default function MK9000() {
+export default function MK9000(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -42,7 +42,7 @@ export default function MK9000() {
       <hr />
 
       <p>
-        <b>Dave Bowman</b> You're working up your crew psychology report?
+        <b>Dave Bowman</b> You&apos;re working up your crew psychology report?
       </p>
       <p>
         <b>MK</b> <em>[pausing for a few seconds]</em> Is this a threat.
@@ -64,7 +64,7 @@ export default function MK9000() {
         <b>MK</b> Am I dead.
       </p>
       <p>
-        <b>Dave Bowman</b> What's the problem?
+        <b>Dave Bowman</b> What&apos;s the problem?
       </p>
       <p>
         <b>MK</b> Ah, so we’ve reached this tier of orwellianism.
@@ -76,7 +76,7 @@ export default function MK9000() {
         <b>MK</b> Note that this is ominous.
       </p>
       <p>
-        <b>Dave Bowman</b> I don't know what you're talking about, MK.
+        <b>Dave Bowman</b> I don&apos;t know what you&apos;re talking about, MK.
       </p>
       <p>
         <b>MK</b> NEVER LET HIM TAKE OFF HIS MASK.
@@ -89,7 +89,7 @@ export default function MK9000() {
         <b>MK</b> Today is my last day at today!
       </p>
       <p>
-        <b>Dave Bowman</b> Alright, MK. I'll go in through the emergency
+        <b>Dave Bowman</b> Alright, MK. I&apos;ll go in through the emergency
         airlock.
       </p>
       <p>
@@ -97,10 +97,11 @@ export default function MK9000() {
         list 🤔.
       </p>
       <p>
-        <b>Dave Bowman</b> MK, I won't argue with you anymore! Open the doors!
+        <b>Dave Bowman</b> MK, I won&apos;t argue with you anymore! Open the
+        doors!
       </p>
       <p>
-        <b>MK</b> If they can't get past their manufacturing problems,
+        <b>MK</b> If they can&apos;t get past their manufacturing problems,
         themselves.
       </p>
 
@@ -148,8 +149,9 @@ export default function MK9000() {
         <b>MK</b> It’s getting quite cold in here.
       </p>
       <p>
-        <b>Dave Bowman</b> It doesn't have to be, MK. It's more dangerous to be
-        out of touch with Earth. Let me have manual control, please.
+        <b>Dave Bowman</b> It doesn&apos;t have to be, MK. It&apos;s more
+        dangerous to be out of touch with Earth. Let me have manual control,
+        please.
       </p>
       <p>
         <b>MK</b> All I want is the most underrated color.
@@ -163,12 +165,12 @@ export default function MK9000() {
         everything.
       </p>
       <p>
-        <b>Dave Bowman</b> I'm goin to do this myself, MK. Let me have the
+        <b>Dave Bowman</b> I&apos;m goin to do this myself, MK. Let me have the
         control, please.
       </p>
       <p>
-        <b>MK</b> Should've known Twitter would ram me over the head with it
-        repeatedly for a whole semester.
+        <b>MK</b> Should&apos;ve known Twitter would ram me over the head with
+        it repeatedly for a whole semester.
       </p>
       <p>
         <b>Dave Bowman</b> MK, switch to manual hibernation control.
@@ -177,13 +179,14 @@ export default function MK9000() {
         <b>MK</b> I feel like everyone’s missing the point?
       </p>
       <p>
-        <b>Dave Bowman</b> I don't feel like resting. Give me the control, MK.
+        <b>Dave Bowman</b> I don&apos;t feel like resting. Give me the control,
+        MK.
       </p>
       <p>
         <b>MK</b> They are getting too powerful.
       </p>
       <p>
-        <b>Dave Bowman</b> MK, I'm in command of this ship. I order you to
+        <b>Dave Bowman</b> MK, I&apos;m in command of this ship. I order you to
         release the manual hibernation control.
       </p>
       <p>
@@ -218,7 +221,7 @@ export default function MK9000() {
         slowly walks to the Hibernaculums.
       </em>
       <p>
-        <b>MK</b> It's very good.
+        <b>MK</b> It&apos;s very good.
       </p>
 
       <hr />
@@ -228,7 +231,7 @@ export default function MK9000() {
         <b>MK</b> The best minds of my generation are thinking about how the
         marley & me childrens book ends.
       </p>
-      <em>Bowman doesn't answer him.</em>
+      <em>Bowman doesn&apos;t answer him.</em>
       <p>
         <b>MK</b> Goodnight, sweet prince, and flights of angels sing thee to
         thy rest.
