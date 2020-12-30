@@ -49,11 +49,3 @@ jobs:
             "state": "failure",
             "description": "Cypress tests failed"
           }'
-
-      - name: Merge me!
-        # You may pin to the exact commit or the version.
-        # uses: ridedott/merge-me-action@7d2645a278352b70326b3b756a3b1f379adea29a
-        uses: ridedott/merge-me-action@v1.2.62
-        with:
-          # A GitHub token.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
