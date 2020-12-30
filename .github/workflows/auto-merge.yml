@@ -5,10 +5,8 @@ on:
 
 jobs:
   auto-merge:
-    name: "Merge"
     runs-on: ubuntu-latest
     steps:
-      - name: "Merge"
       - uses: actions/checkout@v2
       - uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
