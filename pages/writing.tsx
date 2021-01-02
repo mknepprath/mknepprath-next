@@ -28,7 +28,9 @@ export default function Writing(): React.ReactNode {
             <article key={post.id}>
               <header>
                 <Link href={`/writing/${post.id}`}>
-                  <h2 className={styles.title}>{post.title}</h2>
+                  <a>
+                    <h2 className={styles.title}>{post.title}</h2>
+                  </a>
                 </Link>{" "}
                 <small>{format(parseISO(post.date), "MMMM d, yyyy")}</small>
               </header>
