@@ -60,8 +60,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "Comic book art",
-    href:
-      "https://comicbookroundup.com/comic-books/reviews/z2-comics/welcome-to-showside/3",
+    href: "/welcome-to-showside",
     title: "8-Bit Kit",
   },
   {
