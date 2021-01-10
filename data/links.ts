@@ -59,6 +59,12 @@ export const projectLinks: ProjectLink[] = [
     imgSrc: "/assets/design-prompts.png",
   },
   {
+    description: "Comic book art",
+    href:
+      "https://comicbookroundup.com/comic-books/reviews/z2-comics/welcome-to-showside/3",
+    title: "8-Bit Kit",
+  },
+  {
     description: "Illustration series",
     href:
       "https://dribbble.com/mknepprath/buckets/257652-Design-Prompts-Series",

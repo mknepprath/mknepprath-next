@@ -107,6 +107,11 @@ const posts: PostListItem[] = [
     "title": "Create a Simple Website with GitHub Pages"
   },
   {
+    "date": "2018-03-14",
+    "id": "consistency",
+    "title": "Above All Else, Be Consistent"
+  },
+  {
     "date": "2016-05-17",
     "id": "creating-lilt-part-5",
     "title": "Creating Lilt — Part 5"
