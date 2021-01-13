@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2021-01-12",
+    "id": "the-bots-replaced-me",
+    "image": "/assets/dependabot.jpg",
+    "title": "Auto-Merging Dependabot Pull Requests"
+  },
+  {
     "date": "2020-12-28",
     "id": "2020",
     "image": "/assets/2020-in-review-3.jpeg",
@@ -184,6 +190,11 @@ const posts: PostListItem[] = [
     "title": "Vine Introduces Web Profiles"
   },
   {
+    "date": "2013-12-20",
+    "id": "app-of-the-year-duolingo",
+    "title": "App Of The Year: Duolingo"
+  },
+  {
     "date": "2013-12-19",
     "id": "spotify-app-adds-free-option",
     "title": "Spotify App Adds Free Option"
@@ -204,6 +215,11 @@ const posts: PostListItem[] = [
     "title": "Instagram Direct"
   },
   {
+    "date": "2013-12-12",
+    "id": "steamos-available-december-13th",
+    "title": "SteamOS Available December 13th"
+  },
+  {
     "date": "2013-10-30",
     "id": "this-goes-out-to-gruber",
     "title": "Google's Android And The HTC/Amazon Rumor"
@@ -212,6 +228,11 @@ const posts: PostListItem[] = [
     "date": "2013-10-25",
     "id": "googles-icons-on-ios",
     "title": "Google’s Icons On iOS"
+  },
+  {
+    "date": "2013-10-23",
+    "id": "apple-television",
+    "title": "Why Does Everyone Think Apple Plans On Releasing A Television Set?"
   },
   {
     "date": "2013-10-16",

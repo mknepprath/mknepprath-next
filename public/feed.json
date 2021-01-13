@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/the-bots-replaced-me",
+      "url": "https://mknepprath.com/writing/the-bots-replaced-me",
+      "title": "Auto-Merging Dependabot Pull Requests",
+      "content_text": "How I learned to stop worrying and love the bot. • https://mknepprath.com/writing/the-bots-replaced-me",
+      "summary": "How I learned to stop worrying and love the bot.",
+      "image": "https://mknepprath.com/assets/dependabot.jpg",
+      "date_published": "2021-01-12T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/2020",
       "url": "https://mknepprath.com/writing/2020",
       "title": "2020 in Review",
@@ -284,6 +293,13 @@
       "date_published": "2014-01-03T15:00:00Z"
     },
     {
+      "id": "https://mknepprath.com/writing/app-of-the-year-duolingo",
+      "url": "https://mknepprath.com/writing/app-of-the-year-duolingo",
+      "title": "App Of The Year: Duolingo",
+      "content_text": "https://mknepprath.com/writing/app-of-the-year-duolingo",
+      "date_published": "2013-12-20T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/spotify-app-adds-free-option",
       "url": "https://mknepprath.com/writing/spotify-app-adds-free-option",
       "title": "Spotify App Adds Free Option",
@@ -312,6 +328,13 @@
       "date_published": "2013-12-12T15:00:00Z"
     },
     {
+      "id": "https://mknepprath.com/writing/steamos-available-december-13th",
+      "url": "https://mknepprath.com/writing/steamos-available-december-13th",
+      "title": "SteamOS Available December 13th",
+      "content_text": "https://mknepprath.com/writing/steamos-available-december-13th",
+      "date_published": "2013-12-12T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/this-goes-out-to-gruber",
       "url": "https://mknepprath.com/writing/this-goes-out-to-gruber",
       "title": "Google's Android And The HTC/Amazon Rumor",
@@ -324,6 +347,13 @@
       "title": "Google’s Icons On iOS",
       "content_text": "https://mknepprath.com/writing/googles-icons-on-ios",
       "date_published": "2013-10-25T15:00:00Z"
+    },
+    {
+      "id": "https://mknepprath.com/writing/apple-television",
+      "url": "https://mknepprath.com/writing/apple-television",
+      "title": "Why Does Everyone Think Apple Plans On Releasing A Television Set?",
+      "content_text": "https://mknepprath.com/writing/apple-television",
+      "date_published": "2013-10-23T15:00:00Z"
     },
     {
       "id": "https://mknepprath.com/writing/square-cash",
