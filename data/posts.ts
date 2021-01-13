@@ -2,7 +2,7 @@ const posts: PostListItem[] = [
   {
     "date": "2021-01-12",
     "id": "the-bots-replaced-me",
-    "image": "/assets/dependabot.jpg",
+    "image": "/assets/dependabot-1.jpg",
     "title": "Auto-Merging Dependabot Pull Requests"
   },
   {

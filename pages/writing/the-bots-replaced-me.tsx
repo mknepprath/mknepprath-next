@@ -4,7 +4,7 @@ import A from "core/a";
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  image: "/assets/dependabot.jpg",
+  image: "/assets/dependabot-1.jpg",
   published: true,
   publishedAt: "2021-01-12",
   summary: "How I learned to stop worrying and love the bot.",
@@ -19,6 +19,15 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
+      <Image
+        alt="Pull request as an Unown."
+        className="corner-radius-8"
+        height={534}
+        layout="responsive"
+        priority
+        src={meta.image}
+        width={1000}
+      />
       <header>
         <h1>{meta.title}</h1>
       </header>
@@ -133,7 +142,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         height={1100}
         layout="responsive"
         priority
-        src={meta.image}
+        src="/assets/dependabot-2.jpg"
         width={1880}
       />
       <p>
