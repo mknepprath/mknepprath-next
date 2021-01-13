@@ -43,7 +43,7 @@ export default function BillsPc(): React.ReactNode {
       title={meta.title}
     >
       <Image
-        alt="lily dex artwork"
+        alt="Colored lines."
         className="corner-radius-8"
         height={1040}
         layout="responsive"
