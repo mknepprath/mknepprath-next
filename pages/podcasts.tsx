@@ -106,6 +106,11 @@ export default function Podcasts(): React.ReactNode {
               379: Shipping Personal Projects
             </A>
           </li>
+          <li>
+            <A href="https://designdetails.fm/episodes/VlL1gBvI">
+              380: Designing WhatsApp ft. Priyanka Kodikal
+            </A>
+          </li>
         </ul>
 
         <h3>React Podcast</h3>
