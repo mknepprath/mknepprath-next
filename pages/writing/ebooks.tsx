@@ -20,7 +20,7 @@ export default function Ebooks(): React.ReactNode {
       title={meta.title}
     >
       <Image
-        alt="lily dex artwork"
+        alt="Two robot heads."
         className="corner-radius-8"
         height={1040}
         layout="responsive"

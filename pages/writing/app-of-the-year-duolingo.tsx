@@ -3,7 +3,7 @@ import Image from "next/image";
 import BlogPage from "core/blog-page";
 
 export const meta = {
-  published: false,
+  published: true,
   publishedAt: "2013-12-20",
   title: "App Of The Year: Duolingo",
 };
