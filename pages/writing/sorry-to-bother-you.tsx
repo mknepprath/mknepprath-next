@@ -8,6 +8,7 @@ export const meta = {
   publishedAt: "2020-02-20",
   summary: "I tried to delete my Twitter Likes. Twitter didn&apos;t like that.",
   title: "Twitter Defeated Me",
+  tweetId: "1230541165985845248",
 };
 
 export default function TwitterDefeatedMe(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function TwitterDefeatedMe(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Likes header illustration"

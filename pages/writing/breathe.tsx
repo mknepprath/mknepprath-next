@@ -8,6 +8,7 @@ export const meta = {
   publishedAt: "2019-08-03",
   summary: "What if we let our code breathe a little?",
   title: "Code Should Breathe",
+  tweetId: "1158369861996883968",
 };
 
 export default function Breathe(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function Breathe(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="A feather"

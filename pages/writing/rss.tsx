@@ -9,6 +9,7 @@ export const meta = {
   summary:
     "Examining the bumps along the road as I worked to add an RSS feed to my website.",
   title: "Adding RSS to My Next.js Website",
+  tweetId: "1217495469984604160",
 };
 
 export default function RSS(): React.ReactNode {
@@ -19,6 +20,7 @@ export default function RSS(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="A big shiny subscribe button."

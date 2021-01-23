@@ -8,6 +8,7 @@ export const meta = {
   publishedAt: "2014-11-29",
   summary: "My biggest college art project.",
   title: "Giant Portraits",
+  tweetId: "1333065791340765185",
 };
 
 export default function GiantPortraits(): React.ReactNode {
@@ -17,6 +18,7 @@ export default function GiantPortraits(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>

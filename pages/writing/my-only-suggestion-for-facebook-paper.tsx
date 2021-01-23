@@ -11,11 +11,16 @@ export const meta = {
   published: true,
   publishedAt: "2014-02-12",
   title: "My Only Suggestion For Facebook Paper",
+  tweetId: "1293236273805692928",
 };
 
 export default function FacebookPaper(): React.ReactNode {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage
+      dateTime={meta.publishedAt}
+      title={meta.title}
+      tweetId={meta.tweetId}
+    >
       <header>
         <h1>{meta.title}</h1>
       </header>

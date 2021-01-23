@@ -6,11 +6,16 @@ export const meta = {
   published: true,
   publishedAt: "2013-10-25",
   title: "Google’s Icons On iOS",
+  tweetId: "442675061229502465",
 };
 
 export default function GooglesIconsOnIos(): React.ReactNode {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage
+      dateTime={meta.publishedAt}
+      title={meta.title}
+      tweetId={meta.tweetId}
+    >
       <header>
         <h1>{meta.title}</h1>
       </header>
