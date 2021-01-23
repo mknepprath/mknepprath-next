@@ -8,6 +8,7 @@ export const meta = {
   summary: "A quick guide for setting up a new website with GitHub.",
   image: "/assets/create-a-website1.jpg",
   title: "Create a Simple Website with GitHub Pages",
+  tweetId: "1153730670910251008",
 };
 
 export default function CreateAWebsite(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function CreateAWebsite(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Illustration of a browser window"

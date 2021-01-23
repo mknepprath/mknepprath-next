@@ -8,6 +8,7 @@ export const meta = {
   publishedAt: "2020-06-10",
   summary: "The podcast is over, but the legacy continues.",
   title: "Building a Culturally Irrelevant Recommendation Board",
+  tweetId: "1271074841270063108",
 };
 
 export default function CulturallyIrrelevant(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function CulturallyIrrelevant(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="The hosts of Culturally Irrelevant."

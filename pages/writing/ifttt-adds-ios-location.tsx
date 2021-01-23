@@ -4,11 +4,16 @@ export const meta = {
   published: true,
   publishedAt: "2013-12-12",
   title: "IFTTT Adds iOS Location",
+  tweetId: "412599019538747392",
 };
 
 export default function IftttAddsIosLocation(): React.ReactNode {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage
+      dateTime={meta.publishedAt}
+      title={meta.title}
+      tweetId={meta.tweetId}
+    >
       <header>
         <h1>{meta.title}</h1>
       </header>

@@ -8,6 +8,7 @@ export const meta = {
   publishedAt: "2020-11-01",
   summary: "A simple Pokédex for Pokémon Go",
   title: "lily dex",
+  tweetId: "1322976949619314691",
 };
 
 export default function LilyDex(): React.ReactNode {
@@ -17,6 +18,7 @@ export default function LilyDex(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="lily dex artwork"

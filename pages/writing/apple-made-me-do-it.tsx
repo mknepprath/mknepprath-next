@@ -8,6 +8,7 @@ export const meta = {
   publishedAt: "2020-05-07",
   summary: "How I customized my iOS home screen.",
   title: "Home Screen Hack",
+  tweetId: "1258583962508824577",
 };
 
 export default function HomeScreenHack(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function HomeScreenHack(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="iOS home screen"

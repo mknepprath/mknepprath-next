@@ -15,6 +15,7 @@ export const meta = {
   publishedAt: "2020-06-25",
   summary: "Recreating a project from my high school years.",
   title: "Life, Art, Nostalgia",
+  tweetId: "1276286461671886849",
 };
 
 export default function Life(): React.ReactNode {
@@ -74,6 +75,7 @@ export default function Life(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <div ref={brushEl} style={{ height: 400, width: "100%" }} />
       {centerpoint && (

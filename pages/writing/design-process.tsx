@@ -8,6 +8,7 @@ export const meta = {
   summary: "If I were to be asked to design an app, where would I start?",
   image: "/assets/design-process.jpg",
   title: "Thoughts on Design Process",
+  tweetId: "1170381514623729664",
 };
 
 export default function DesignProcess(): React.ReactNode {
@@ -17,6 +18,7 @@ export default function DesignProcess(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>

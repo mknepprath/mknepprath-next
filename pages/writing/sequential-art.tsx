@@ -8,6 +8,7 @@ export const meta = {
   summary: "A comic retrospective.",
   image: "/assets/comics-05.jpeg",
   title: "Sequential Art™",
+  tweetId: "1205319311029485569",
 };
 
 export default function SequentialArt(): React.ReactNode {
@@ -17,6 +18,7 @@ export default function SequentialArt(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
