@@ -68,13 +68,17 @@ export default function BlogPage({
           </time>
           {tweet?.data ? (
             <>
-              <A href={`https://twitter.com/mknepprath/status/${tweetId}`}>
-                ♥ {tweet?.data?.public_metrics.like_count} likes
-              </A>
-              <A href={`https://twitter.com/mknepprath/status/${tweetId}`}>
-                <RepliesIcon /> {tweet?.data?.public_metrics.reply_count}{" "}
-                replies
-              </A>
+              {tweet?.data?.public_metrics.like_count ? (
+                <A href={`https://twitter.com/mknepprath/status/${tweetId}`}>
+                  ♥ {tweet?.data?.public_metrics.like_count} likes
+                </A>
+              ) : null}
+              {tweet?.data?.public_metrics.reply_count ? (
+                <A href={`https://twitter.com/mknepprath/status/${tweetId}`}>
+                  <RepliesIcon /> {tweet?.data?.public_metrics.reply_count}{" "}
+                  replies
+                </A>
+              ) : null}
             </>
           ) : (
             ""
