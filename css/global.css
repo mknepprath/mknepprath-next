@@ -118,3 +118,7 @@ pre {
   color: #aaa;
   font-size: 0.8em;
 }
+.blog-meta > time,
+.blog-meta > a {
+  margin-right: 16px;
+}
