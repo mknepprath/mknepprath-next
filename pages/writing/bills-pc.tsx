@@ -22,6 +22,7 @@ export const meta = {
   publishedAt: "2020-12-04",
   summary: "Using API routes to clean up data.",
   title: "Pokémon Data Munging",
+  tweetId: "1335265057190649858",
 };
 
 export default function BillsPc(): React.ReactNode {
@@ -41,6 +42,7 @@ export default function BillsPc(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Colored lines."

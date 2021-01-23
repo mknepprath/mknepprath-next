@@ -9,6 +9,7 @@ export const meta = {
   publishedAt: "2021-01-12",
   summary: "How I learned to stop worrying and love the bot.",
   title: "Auto-Merging Dependabot Pull Requests",
+  tweetId: "1349403627622977536",
 };
 
 export default function AutomergingDependabotPullRequests(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Pull request as an Unown."

@@ -9,6 +9,7 @@ export const meta = {
   publishedAt: "2020-12-20",
   summary: "An ebooks account in retrospect.",
   title: "“It's Just the Algorithm”",
+  tweetId: "1340767691745988609",
 };
 
 export default function Ebooks(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function Ebooks(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Two robot heads."

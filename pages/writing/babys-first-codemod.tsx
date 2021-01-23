@@ -5,6 +5,7 @@ export const meta = {
   publishedAt: "2020-03-21",
   summary: "A quick overview of my first experience with codemods.",
   title: "The Codemod Side Quest",
+  tweetId: "1241549799448510467",
 };
 
 export default function BabysFirstCodemod(): React.ReactNode {
@@ -14,6 +15,7 @@ export default function BabysFirstCodemod(): React.ReactNode {
       description={meta.summary}
       highlightCode
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
@@ -24,14 +26,14 @@ export default function BabysFirstCodemod(): React.ReactNode {
         a minor side quest: building a codemod and executing it on all of my
         existing blog posts. An excerpt from that post:
       </p>
-      <p>
-        <blockquote>
+      <blockquote>
+        <p>
           Codemods are scripts that automate code changes when you need to make
           the same change to a large number of files. If you&apos;re familiar
           with batch-processing in Photoshop, this is similar, except a codemod
           is for code.
-        </blockquote>
-      </p>
+        </p>
+      </blockquote>
       <p>
         In order to build an RSS feed, all of my posts needed to include a new
         object containing each posts metadata (title, summary, published status,

@@ -10,6 +10,7 @@ export const meta = {
   publishedAt: "2020-12-28",
   summary: "A look at my accomplishments during the past year.",
   title: "2020 in Review",
+  tweetId: "1343720383472656385",
 };
 
 export default function ReviewOf2020(): React.ReactNode {
@@ -19,6 +20,7 @@ export default function ReviewOf2020(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>

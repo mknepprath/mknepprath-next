@@ -114,7 +114,7 @@ pre {
   box-sizing: border-box !important;
 }
 
-time {
+.blog-meta {
   color: #aaa;
   font-size: 0.8em;
 }
