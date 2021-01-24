@@ -17,7 +17,7 @@
 .photo {
   background-size: cover !important;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center center !important;
   cursor: grab;
   width: 45vh;
   max-width: 320px;
