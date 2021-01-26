@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/guest-post",
+      "url": "https://mknepprath.com/writing/guest-post",
+      "title": "The Guest Post",
+      "content_text": "A blog post written by @robot_mk. • https://mknepprath.com/writing/guest-post",
+      "summary": "A blog post written by @robot_mk.",
+      "image": "https://mknepprath.com/assets/guest-post.webp",
+      "date_published": "2021-01-25T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/the-bots-replaced-me",
       "url": "https://mknepprath.com/writing/the-bots-replaced-me",
       "title": "Auto-Merging Dependabot Pull Requests",

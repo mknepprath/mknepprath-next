@@ -37,3 +37,43 @@ interface Film {
   link: string;
   rating: string;
 }
+
+interface Tweet {
+  data: {
+    id: string;
+    text: string;
+    public_metrics: PublicMetrics;
+  };
+}
+
+interface MediaTweet {
+  id: string;
+  text: string;
+  attachments: {
+    media_keys: MediaKey[];
+  };
+}
+
+type MediaKey = string;
+
+interface Media {
+  width: number;
+  type: "photo" | "video";
+  media_key: MediaKey;
+  url: string;
+  height: number;
+}
+
+interface PublicMetrics {
+  like_count: number;
+  quote_count: number;
+  reply_count: number;
+  retweet_count: number;
+}
+
+interface Tweets {
+  data: MediaTweet[];
+  includes: {
+    media: Media[];
+  };
+}
