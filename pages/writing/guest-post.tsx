@@ -184,12 +184,6 @@ export default function BillsPc(): React.ReactNode {
         ))}
       </p>
 
-      <pre>
-        <code className="language-js">
-          {JSON.stringify(tweets?.data.slice(0, 2), null, 2)}
-        </code>
-      </pre>
-
       <p>
         {lines.slice(12).map(({ string }, index) => (
           <Fragment key={index}>
@@ -198,6 +192,7 @@ export default function BillsPc(): React.ReactNode {
           </Fragment>
         ))}
       </p>
+
       <p>
         <em>
           This guest blog post was written by{" "}
