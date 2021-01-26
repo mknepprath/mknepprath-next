@@ -2,7 +2,7 @@ const posts: PostListItem[] = [
   {
     "date": "2021-01-25",
     "id": "guest-post",
-    "image": "/assets/guest-post.webp",
+    "image": "/assets/guest-post.jpg",
     "title": "The Guest Post"
   },
   {

@@ -100,12 +100,12 @@ const cleanUp = (s = "") =>
     .replace("&amp;", "&");
 
 export const meta = {
-  image: "/assets/guest-post.webp",
+  image: "/assets/guest-post.jpg",
   published: true,
   publishedAt: "2021-01-25",
   summary: "A blog post written by @robot_mk.",
   title: "The Guest Post",
-  // tweetId: "1335265057190649858",
+  tweetId: "1353885918655082496",
 };
 
 export default function BillsPc(): React.ReactNode {
@@ -148,7 +148,7 @@ export default function BillsPc(): React.ReactNode {
       description={cleanUp(lines[0]?.string)}
       ogImage={meta.image}
       title={toTitleCase(title)}
-      // tweetId={meta.tweetId}
+      tweetId={meta.tweetId}
     >
       {image ? (
         <Image
