@@ -71,6 +71,7 @@ export default function PhotoStack(): JSX.Element {
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return (
     <>
+      {/* eslint-disable-next-line react/prop-types */}
       {props.map(({ x, y, rot, scale }, i) => (
         <animated.div
           className={styles.stack}

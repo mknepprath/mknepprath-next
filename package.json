@@ -38,6 +38,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",
     "isomorphic-unfetch": "^3.1.0",
+    "markov-strings": "^3.0.1",
     "mcproto": "^0.9.0",
     "next": "^10.0.5",
     "prismjs": "^1.23.0",

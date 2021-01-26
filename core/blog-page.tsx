@@ -15,19 +15,6 @@ import Nav from "core/nav";
 const fetcher = (url: RequestInfo): Promise<Tweet> =>
   fetch(url).then((response) => response.json());
 
-interface Tweet {
-  data: {
-    id: string;
-    text: string;
-    public_metrics: {
-      like_count: number;
-      quote_count: number;
-      reply_count: number;
-      retweet_count: number;
-    };
-  };
-}
-
 interface Props {
   children: React.ReactNode;
   className?: string;
