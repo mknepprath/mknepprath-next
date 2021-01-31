@@ -211,10 +211,10 @@ export default function SequentialArt(): React.ReactNode {
       <Image
         alt="Butterflies"
         className="corner-radius-8"
-        height={1392}
+        height={2048}
         src="/assets/comics-14.jpeg"
         layout="responsive"
-        width={2048}
+        width={1392}
       />
 
       <p>Again, hair transition issues.</p>
