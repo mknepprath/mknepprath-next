@@ -101,7 +101,7 @@ const cleanUp = (s = "") =>
 
 export const meta = {
   image: "/assets/guest-post.jpg",
-  published: true,
+  published: false,
   publishedAt: "2021-01-25",
   summary: "A blog post written by @robot_mk.",
   title: "The Guest Post",
