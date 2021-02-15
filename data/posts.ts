@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2021-02-15",
+    "id": "sherlock-codes",
+    "image": "/assets/sherlock-codes.jpg",
+    "title": "10x Detective"
+  },
+  {
     "date": "2021-01-12",
     "id": "the-bots-replaced-me",
     "image": "/assets/dependabot-1.jpg",

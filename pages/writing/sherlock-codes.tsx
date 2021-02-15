@@ -5,7 +5,7 @@ import BlogPage from "core/blog-page";
 
 export const meta = {
   image: "/assets/sherlock-codes.jpg",
-  published: false,
+  published: true,
   publishedAt: "2021-02-15",
   summary: "Mystery game mechanics as an allegory for debugging.",
   title: "10x Detective",
