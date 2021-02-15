@@ -78,9 +78,9 @@ export default function TenXDetective(): React.ReactNode {
         After some digging, the most effective way I found to solve this problem
         was to try a bunch of different build scripts based on reading the
         documentation for Next.js and our internal deploy tool, then search
-        GitHub Enterprise for repositories where folks who had tried the same
-        thing. The documentation was my newspaper, and GitHub was my London full
-        of red herrings.
+        GitHub Enterprise for repositories where folks had tried the same thing.
+        The documentation was my newspaper, and GitHub was my London full of red
+        herrings.
       </p>
       <p>
         Game Maker&apos;s Toolkit also mentioned a 2009 game called Blackwell
