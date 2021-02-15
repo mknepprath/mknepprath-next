@@ -9,6 +9,7 @@ export const meta = {
   publishedAt: "2021-02-15",
   summary: "Mystery game mechanics as an allegory for debugging.",
   title: "10x Detective",
+  tweetId: "1361426223470170117",
 };
 
 export default function TenXDetective(): React.ReactNode {
@@ -18,6 +19,7 @@ export default function TenXDetective(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Bug Detective"
