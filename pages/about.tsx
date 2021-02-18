@@ -58,7 +58,7 @@ export default function About(): React.ReactNode {
 
         {books?.length ? (
           <>
-            <h2>Books I&apos;ve Read</h2>
+            <h2>Recent Books Read</h2>
             <div className={styles.cardContainer}>
               {books?.map((book: Book) => (
                 <Card
@@ -75,7 +75,7 @@ export default function About(): React.ReactNode {
 
         {films?.length ? (
           <>
-            <h2>Films I&apos;ve Watched</h2>
+            <h2>Recent Films Watched</h2>
             <div className={styles.cardContainer}>
               {films?.map((film: Film) => (
                 <Card
