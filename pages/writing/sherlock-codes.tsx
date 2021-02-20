@@ -45,7 +45,7 @@ export default function TenXDetective(): React.ReactNode {
         I&apos;ve worked through some code since.
       </p>
       <p>
-        My favorite segment of the video was about Sherlock Holmes: Consulting
+        My favorite segment of the video is about Sherlock Holmes: Consulting
         Detective, a video game based on a board game of the same name.
       </p>
       <Image
