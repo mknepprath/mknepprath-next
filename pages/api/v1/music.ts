@@ -1,0 +1,37 @@
+import { NextApiRequest, NextApiResponse } from "next";
+import fetch from "isomorphic-unfetch";
+
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> => {
+  const myHeaders = new Headers();
+
+  myHeaders.append("Authorization", `${process.env.MUSICKIT_TOKEN}`);
+  myHeaders.append("Music-User-Token", `${process.env.MUSIC_USER_TOKEN}`);
+
+  const requestOptions: RequestInit = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  return new Promise((resolve, reject) => {
+    fetch(
+      `https://api.music.apple.com/v1/me/recent/played?limit=6`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/json");
+        res.end(result);
+        resolve();
+      })
+      .catch((error) => {
+        res.json(error);
+        res.status(404).end();
+        return resolve();
+      });
+  });
+};

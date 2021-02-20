@@ -77,3 +77,30 @@ interface Tweets {
     media: Media[];
   };
 }
+
+interface Playlist {
+  href: string;
+  id: string;
+  type: "albums" | "stations" | "library-playlists";
+  attributes: {
+    artwork: {
+      height?: number;
+      url: string;
+      width?: number;
+    };
+    canEdit: boolean;
+    dateAdded: string;
+    description: {
+      standard: string;
+    };
+    hasCatalog: boolean;
+    name: string;
+    playParams: {
+      globalId: string;
+      id: string;
+      isLibrary: boolean;
+      kind: "album" | "radioStation" | "playlist";
+    };
+    url?: string;
+  };
+}

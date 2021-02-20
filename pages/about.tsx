@@ -12,8 +12,12 @@ const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
 export default function About(): React.ReactNode {
-  const { data: books } = useSWR(`/api/v1/books`, fetcher);
-  const { data: films } = useSWR(`/api/v1/films`, fetcher);
+  const { data: books } = useSWR<Book[]>(`/api/v1/books`, fetcher);
+  const { data: films } = useSWR<Film[]>(`/api/v1/films`, fetcher);
+  const { data: music } = useSWR<{ data: Playlist[] }>(
+    `/api/v1/music`,
+    fetcher
+  );
 
   return (
     <Page
@@ -58,9 +62,9 @@ export default function About(): React.ReactNode {
 
         {books?.length ? (
           <>
-            <h2>Recent Books Read</h2>
+            <h2>Recent Books</h2>
             <div className={styles.cardContainer}>
-              {books?.map((book: Book) => (
+              {books.map((book) => (
                 <Card
                   description={book.author}
                   href={book.link}
@@ -75,9 +79,9 @@ export default function About(): React.ReactNode {
 
         {films?.length ? (
           <>
-            <h2>Recent Films Watched</h2>
+            <h2>Recent Films</h2>
             <div className={styles.cardContainer}>
-              {films?.map((film: Film) => (
+              {films.map((film) => (
                 <Card
                   description={film.year}
                   href={film.link}
@@ -90,6 +94,35 @@ export default function About(): React.ReactNode {
           </>
         ) : null}
       </article>
+
+      {music?.data?.length ? (
+        <>
+          <h2>Recent Music</h2>
+          <div className={styles.cardContainer}>
+            {music.data.map((playlist) => {
+              // Titlecase the kind of media this is.
+              var kind = playlist.attributes.playParams.kind.replace(
+                /([A-Z])/g,
+                " $1"
+              );
+              return (
+                <Card
+                  description={kind.charAt(0).toUpperCase() + kind.slice(1)}
+                  href={
+                    playlist.attributes.url ||
+                    `https://music.apple.com/us/${playlist.attributes.playParams.kind}/${playlist.attributes.playParams.globalId}`
+                  }
+                  imgSrc={playlist.attributes.artwork.url
+                    .replace("{w}", `${playlist.attributes.artwork.width}`)
+                    .replace("{h}", `${playlist.attributes.artwork.height}`)}
+                  key={playlist.id}
+                  title={playlist.attributes.name}
+                />
+              );
+            })}
+          </div>
+        </>
+      ) : null}
     </Page>
   );
 }
