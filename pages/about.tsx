@@ -101,7 +101,7 @@ export default function About(): React.ReactNode {
           <div className={styles.cardContainer}>
             {music.data.map((playlist) => {
               // Titlecase the kind of media this is.
-              var kind = playlist.attributes.playParams.kind.replace(
+              const kind = playlist.attributes.playParams.kind.replace(
                 /([A-Z])/g,
                 " $1"
               );
@@ -113,8 +113,8 @@ export default function About(): React.ReactNode {
                     `https://music.apple.com/us/${playlist.attributes.playParams.kind}/${playlist.attributes.playParams.globalId}`
                   }
                   imgSrc={playlist.attributes.artwork.url
-                    .replace("{w}", `${playlist.attributes.artwork.width}`)
-                    .replace("{h}", `${playlist.attributes.artwork.height}`)}
+                    .replace("{w}", "200")
+                    .replace("{h}", "200")}
                   key={playlist.id}
                   title={playlist.attributes.name}
                 />
