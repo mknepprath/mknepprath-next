@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/ping",
+      "url": "https://mknepprath.com/writing/ping",
+      "title": "Using the Apple Music API with Next.js",
+      "content_text": "How I hacked my way to displaying recently played music on my website. • https://mknepprath.com/writing/ping",
+      "summary": "How I hacked my way to displaying recently played music on my website.",
+      "image": "https://mknepprath.com/assets/ping.jpg",
+      "date_published": "2021-02-21T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/sherlock-codes",
       "url": "https://mknepprath.com/writing/sherlock-codes",
       "title": "10x Detective",

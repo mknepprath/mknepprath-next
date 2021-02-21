@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2021-02-21",
+    "id": "ping",
+    "image": "/assets/ping.jpg",
+    "title": "Using the Apple Music API with Next.js"
+  },
+  {
     "date": "2021-02-15",
     "id": "sherlock-codes",
     "image": "/assets/sherlock-codes.jpg",
