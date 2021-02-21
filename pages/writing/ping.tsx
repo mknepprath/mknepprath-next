@@ -71,7 +71,7 @@ export default function Ping(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
-      // tweetId={meta.tweetId}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Musical lock"
