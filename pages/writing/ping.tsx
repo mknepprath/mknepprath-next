@@ -45,7 +45,7 @@ export const meta = {
   summary:
     "How I hacked my way to displaying recently played music on my website.",
   title: "Using the Apple Music API with Next.js",
-  // tweetId: "1361426223470170117",
+  tweetId: "1363525903591108609",
 };
 
 export default function Ping(): React.ReactNode {
