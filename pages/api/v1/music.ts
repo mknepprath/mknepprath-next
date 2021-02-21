@@ -5,8 +5,11 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const myHeaders = new Headers();
+  const {
+    query: { offset = 0, limit = 6 },
+  } = req;
 
+  const myHeaders = new Headers();
   myHeaders.append("Authorization", `${process.env.MUSICKIT_TOKEN}`);
   myHeaders.append("Music-User-Token", `${process.env.MUSIC_USER_TOKEN}`);
 
@@ -18,7 +21,7 @@ export default async (
 
   return new Promise((resolve, reject) => {
     fetch(
-      `https://api.music.apple.com/v1/me/recent/played?limit=6`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
+      `https://api.music.apple.com/v1/me/recent/played?limit=${limit}&offset=${offset}`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
       requestOptions
     )
       .then((response) => response.text())
