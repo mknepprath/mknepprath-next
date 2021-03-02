@@ -51,7 +51,7 @@ interface PokemonTypes extends PokemonBase {
 }
 
 interface PokemonForm extends PokemonBase {
-  form: string;
+  form: "Normal" | "Alola" | "Galarian" | "Shadow" | "Purified";
 }
 
 interface Evolution extends PokemonForm {
@@ -97,14 +97,14 @@ export default async (
   ).then((response) => response.json());
   const buddyDistances = Object.keys(buddyDistanceDict)
     .flatMap((amount) => buddyDistanceDict[amount])
-    .filter((buddy) => buddy.form === `Normal`);
+    .filter((buddy) => buddy.form !== "Purified");
 
   const candyRequiredDict: { [key: string]: CandyRequired[] } = await fetch(
     `${POGO_API}/pokemon_candy_to_evolve.json`
   ).then((response) => response.json());
   const candyRequired = Object.keys(candyRequiredDict)
     .flatMap((amount) => candyRequiredDict[amount])
-    .filter((pokemon) => pokemon.form === `Normal`);
+    .filter((pokemon) => pokemon.form !== "Purified");
 
   const rarityDict: { [key: string]: PokemonRarity[] } = await fetch(
     `${POGO_API}/pokemon_rarity.json`
