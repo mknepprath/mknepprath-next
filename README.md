@@ -5,7 +5,7 @@ View the latest deploy here: https://mknepprath-next.mknepprath.now.sh.
 
 ## Set Up
 1. Open your terminal.
-1. Navigate to the directory you'd like to put clone this repository.
+1. Navigate to the directory you'd like to clone this repository to.
 1. To clone, run `git clone https://github.com/mknepprath/mknepprath-next.git`.
 1. Navigate into the cloned directory: `cd mknepprath-next`.
 1. To install packages, run `npm i`.
