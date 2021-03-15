@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2021-03-15",
+    "id": "settings-done",
+    "image": "/assets/settings-done.png",
+    "title": "iOS App Settings: A Study"
+  },
+  {
     "date": "2021-02-21",
     "id": "ping",
     "image": "/assets/ping.jpg",
