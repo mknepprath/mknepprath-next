@@ -10,9 +10,9 @@ export const meta = {
   image: "/assets/settings-done.png",
   published: true,
   publishedAt: "2021-03-15",
-  summary: "How iOS apps I use implement their settings view.",
+  summary: "How the iOS apps I use implement their settings view.",
   title: "iOS App Settings: A Study",
-  // tweetId: "1361426223470170117",
+  tweetId: "1371468417434288134",
 };
 
 export default function IosAppSettings(): React.ReactNode {
@@ -22,7 +22,7 @@ export default function IosAppSettings(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
-      // tweetId={meta.tweetId}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="TestFlight screenshot feedback"
