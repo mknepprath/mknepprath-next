@@ -25,7 +25,7 @@ export default function IosAppSettings(): React.ReactNode {
       // tweetId={meta.tweetId}
     >
       <Image
-        alt="Bug Detective"
+        alt="TestFlight screenshot feedback"
         className="bordered-image corner-radius-8"
         height={690}
         src={meta.image}
