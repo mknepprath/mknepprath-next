@@ -1,0 +1,15 @@
+.table {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+.table thead th:nth-child(1) {
+  width: 40%;
+}
+.table thead th:nth-child(2), 
+.table thead th:nth-child(3) {
+  width: 30%;
+}

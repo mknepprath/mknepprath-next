@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import A from "core/a";
 import BlogPage from "core/blog-page";
 
 export const meta = {
@@ -166,13 +167,9 @@ export default function LilyDex(): React.ReactNode {
       <p>
         If you play Pokémon Go and this sounds useful to you, check it out in
         the{" "}
-        <a
-          href="https://apps.apple.com/us/app/lily-dex/id1525132070"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <A href="https://apps.apple.com/us/app/lily-dex/id1525132070">
           App Store
-        </a>
+        </A>
         !
       </p>
       <Image
