@@ -58,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "colors": "^1.4.0",
-    "cypress": "^6.6.0",
+    "cypress": "^6.7.1",
     "diff": "^5.0.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^7.2.0",
