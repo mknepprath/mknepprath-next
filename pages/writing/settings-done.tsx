@@ -44,13 +44,9 @@ export default function IosAppSettings(): React.ReactNode {
       </blockquote>
       <p>
         I gave a little cheer when I received this bug report from a TestFlight
-        user of my app,{" "}
-        <A href="https://apps.apple.com/us/app/lily-dex/id1525132070">
-          lily dex
-        </A>
-        . Finally, I had made an app worthy of scrutiny. This wasn&apos;t my
-        first bit of feedback, but each one was a reminder that people actually
-        use my app!
+        user of my app, <A href="https://lilydex.com">lily dex</A>. Finally, I
+        had made an app worthy of scrutiny. This wasn&apos;t my first bit of
+        feedback, but each one was a reminder that people actually use my app!
       </p>
       <p>
         This particular bit of feedback was different than most in that it

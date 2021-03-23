@@ -36,7 +36,7 @@ interface ProjectLink {
 export const projectLinks: ProjectLink[] = [
   {
     description: "A simple Pokédex app for Go",
-    href: "https://apps.apple.com/us/app/lily-dex/id1525132070",
+    href: "https://lilydex.com",
     title: "lily dex",
     imgSrc: "/assets/lily-dex-icon.png",
   },

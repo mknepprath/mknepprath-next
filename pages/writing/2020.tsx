@@ -230,7 +230,7 @@ export default function ReviewOf2020(): React.ReactNode {
       <p>
         I didn&apos;t set a repeat goal for this in 2020, and yet...{" "}
         <Link href="/writing/lily-dex">I built an app</Link>! And{" "}
-        <A href="https://apps.apple.com/us/app/lily-dex/id1525132070">
+        <A href="https://lilydex.com">
           <em>published</em> it
         </A>
         ! This was all thanks to the excellent 100 Days of SwiftUI course

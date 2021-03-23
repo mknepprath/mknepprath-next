@@ -166,11 +166,7 @@ export default function LilyDex(): React.ReactNode {
       </p>
       <p>
         If you play Pokémon Go and this sounds useful to you, check it out in
-        the{" "}
-        <A href="https://apps.apple.com/us/app/lily-dex/id1525132070">
-          App Store
-        </A>
-        !
+        the <A href="https://lilydex.com">App Store</A>!
       </p>
       <Image
         alt="lily dex in the App Store"
