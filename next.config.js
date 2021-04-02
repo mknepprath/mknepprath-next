@@ -1,6 +1,10 @@
 const { join } = require("path");
 
 module.exports = {
+  future: {
+    // https://twitter.com/timneutkens/status/1377950178913714177
+    webpack5: true
+  },
   images: {
     domains: ['pbs.twimg.com'],
   },
