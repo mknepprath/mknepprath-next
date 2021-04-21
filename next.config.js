@@ -2,7 +2,7 @@ const { join } = require("path");
 
 module.exports = {
   future: {
-    // https://twitter.com/timneutkens/status/1377950178913714177
+    // https://nextjs.org/docs/messages/webpack5
     webpack5: true
   },
   images: {

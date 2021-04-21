@@ -40,7 +40,7 @@ export default function About(): React.ReactNode {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Walmart Labs
+            Walmart
           </a>
           . He loves his family and working on side projects related to
           technology, design, film, video games, and so on.

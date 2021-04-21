@@ -28,7 +28,7 @@ const feed = {
   title: "M. Knepprath",
   home_page_url: "https://mknepprath.com",
   feed_url: "https://mknepprath.com/feed.json",
-  description: "Michael Knepprath is a Software Engineer at Walmart Labs.",
+  description: "Michael Knepprath is a Senior Software Engineer at Walmart.",
   icon: "https://mknepprath.com/assets/apple-touch-icon-152x152.png",
   favicon: "https://mknepprath.com/assets/favicon.ico",
   author: {
