@@ -49,20 +49,20 @@ export const meta = {
 };
 
 export default function Ping(): React.ReactNode {
-  const { data: musicSection1 } = useSWR<{ data: Playlist[] }>(
+  const { data: musicSection1 } = useSWR<Playlist[]>(
     `/api/v1/music?limit=4`,
     fetcher,
-    { refreshInterval: 1000 }
+    { refreshInterval: 60000 }
   );
-  const { data: musicSection2 } = useSWR<{ data: Playlist[] }>(
+  const { data: musicSection2 } = useSWR<Playlist[]>(
     `/api/v1/music?limit=4&offset=4`,
     fetcher,
-    { refreshInterval: 1000 }
+    { refreshInterval: 60000 }
   );
-  const { data: musicSection3 } = useSWR<{ data: Playlist[] }>(
+  const { data: musicSection3 } = useSWR<Playlist[]>(
     `/api/v1/music?limit=4&offset=8`,
     fetcher,
-    { refreshInterval: 1000 }
+    { refreshInterval: 60000 }
   );
 
   return (
@@ -101,9 +101,7 @@ export default function Ping(): React.ReactNode {
         MusicKit also includes a JavaScript library, which again was mostly
         tangential to my needs.
       </p>
-      {musicSection1?.data?.length ? (
-        <MusicSection music={musicSection1?.data} />
-      ) : null}
+      {musicSection1?.length ? <MusicSection music={musicSection1} /> : null}
       <p>
         Anyway, the first thing I had to do to start making requests for music
         was to get a developer token - a long, secret password that tells Apple
@@ -132,9 +130,7 @@ export default function Ping(): React.ReactNode {
         I&apos;m not even sure you&apos;re able to do all of this without a paid
         account ($99/year).
       </p>
-      {musicSection2?.data?.length ? (
-        <MusicSection music={musicSection2?.data} />
-      ) : null}
+      {musicSection2?.length ? <MusicSection music={musicSection2} /> : null}
       <p>
         At this point, I was flying... straight into a brick wall. I was able to
         make requests for specific albums, playlists, songs, and more, but as
@@ -170,9 +166,7 @@ export default function Ping(): React.ReactNode {
         Finally, I was able to make requests for my most recently played music
         and more! Yay!
       </p>
-      {musicSection3?.data?.length ? (
-        <MusicSection music={musicSection3?.data} />
-      ) : null}
+      {musicSection3?.length ? <MusicSection music={musicSection3} /> : null}
       <p>
         My main fear right now is I have no idea if and when the tokens I&apos;m
         using will expire. I assume the user token will{" "}

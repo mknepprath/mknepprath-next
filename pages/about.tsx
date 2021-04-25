@@ -14,10 +14,7 @@ const fetcher = (url: RequestInfo) =>
 export default function About(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books`, fetcher);
   const { data: films } = useSWR<Film[]>(`/api/v1/films`, fetcher);
-  const { data: music } = useSWR<{ data: Playlist[] }>(
-    `/api/v1/music`,
-    fetcher
-  );
+  const { data: music } = useSWR<Playlist[]>(`/api/v1/music`, fetcher);
 
   return (
     <Page
@@ -95,11 +92,11 @@ export default function About(): React.ReactNode {
         ) : null}
       </article>
 
-      {music?.data?.length ? (
+      {music?.length ? (
         <>
           <h2>Recent Music</h2>
           <div className={styles.cardContainer}>
-            {music.data.map((playlist) => {
+            {music.map((playlist) => {
               // Titlecase the kind of media this is.
               const kind = playlist.attributes.playParams.kind.replace(
                 /([A-Z])/g,

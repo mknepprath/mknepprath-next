@@ -28,7 +28,7 @@ export default async (
       .then((result) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        res.end(result);
+        res.end(JSON.stringify(JSON.parse(result).data));
         resolve();
       })
       .catch((error) => {
