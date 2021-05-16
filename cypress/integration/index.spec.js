@@ -21,4 +21,8 @@ describe("Home", () => {
       cy.contains(project.title);
     });
   });
+
+  it("should render Illustrations section", () => {
+    cy.contains("Illustrations").scrollIntoView().should("be.visible");
+  });
 });
