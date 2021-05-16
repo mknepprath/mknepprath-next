@@ -5,11 +5,10 @@ import parseISO from "date-fns/parseISO";
 import Prism from "prismjs";
 import useSWR from "swr";
 
-import A from "core/a";
 import BlogNav from "core/blog-nav";
+import TwitterMetrics from "core/twitter-metrics";
 import Footer from "core/footer";
 import Head from "core/head";
-import RepliesIcon from "core/icon-replies";
 import Nav from "core/nav";
 
 const fetcher = (url: RequestInfo): Promise<Tweet> =>
@@ -54,19 +53,7 @@ export default function BlogPage({
             Published {formatDistanceToNow(parseISO(dateTime))} ago
           </time>
           {tweet?.data ? (
-            <>
-              {tweet?.data?.public_metrics.like_count ? (
-                <A href={`https://twitter.com/mknepprath/status/${tweetId}`}>
-                  ♥ {tweet?.data?.public_metrics.like_count} likes
-                </A>
-              ) : null}
-              {tweet?.data?.public_metrics.reply_count ? (
-                <A href={`https://twitter.com/mknepprath/status/${tweetId}`}>
-                  <RepliesIcon /> {tweet?.data?.public_metrics.reply_count}{" "}
-                  replies
-                </A>
-              ) : null}
-            </>
+            <TwitterMetrics tweetId={tweetId} {...tweet.data.public_metrics} />
           ) : (
             ""
           )}
