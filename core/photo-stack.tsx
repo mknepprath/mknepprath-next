@@ -8,7 +8,6 @@ import { useDrag } from "react-use-gesture";
 
 import styles from "./photo-stack.module.css";
 
-// TODO: Could eventually get these from Instagram.
 const photos = [
   "/assets/about-1.jpg",
   "/assets/about-2.jpg",
@@ -84,7 +83,6 @@ export default function PhotoStack(): JSX.Element {
           }}
         >
           {/* This is the photo itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-          {/* TODO: Not loving that these aren't images - MK */}
           <animated.div
             {...bind(i)}
             className={styles.photo}

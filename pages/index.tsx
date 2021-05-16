@@ -2,14 +2,17 @@
 import classnames from "classnames";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
+import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
+import useSWR from "swr";
 
 // Components
 import Card from "core/card";
 import Footer from "core/footer";
 import Head from "core/head";
 import Nav from "core/nav";
+import Shot from "core/shot";
 
 // Data
 import { projectLinks } from "data/links";
@@ -17,7 +20,12 @@ import posts from "data/posts";
 
 import styles from "./index.module.css";
 
+const fetcher = (url: RequestInfo) =>
+  fetch(url).then((response) => response.json());
+
 export default function Home(): React.ReactNode {
+  const { data: shots } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
+
   return (
     <>
       <Head />
@@ -70,6 +78,8 @@ export default function Home(): React.ReactNode {
               </header>
             </article>
           ))}
+        {/* TODO: Make this look good. */}
+        {/* <Link href="/writing">See more</Link> */}
       </div>
 
       <div className={classnames("container", styles.projectContainer)}>
@@ -86,6 +96,25 @@ export default function Home(): React.ReactNode {
           ))}
         </div>
       </div>
+
+      {shots?.length ? (
+        <div className={classnames("container", styles.projectContainer)}>
+          <h2>Illustrations</h2>
+          <div className={styles.cardContainer}>
+            {shots?.map(({ html_url, images, published_at, title }) => (
+              <Shot
+                description={format(parseISO(published_at), "MMMM d, yyyy")}
+                href={html_url}
+                imgSrc={images.normal}
+                key={title}
+                title={title}
+              />
+            ))}
+          </div>
+          {/* TODO: Make this look good. */}
+          {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
+        </div>
+      ) : null}
 
       <Footer className="container" />
     </>
