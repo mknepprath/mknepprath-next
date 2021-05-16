@@ -22,7 +22,7 @@ export default function Card({
       target="_blank"
     >
       {imgSrc ? <img alt={title} className={styles.img} src={imgSrc} /> : null}
-      <div className={styles.body}>
+      <div>
         <h3>
           {title} <span className={styles.arrow}>&rarr;</span>
         </h3>

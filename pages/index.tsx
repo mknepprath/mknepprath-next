@@ -7,10 +7,10 @@ import Link from "next/link";
 
 // Components
 import Card from "core/card";
-import CardAlt from "core/cardAlt";
 import Footer from "core/footer";
 import Head from "core/head";
 import Nav from "core/nav";
+import Shot from "core/shot";
 
 // Data
 import fetch from "isomorphic-unfetch";
@@ -98,22 +98,24 @@ export default function Home(): React.ReactNode {
         </div>
       </div>
 
-      <div className={classnames("container", styles.projectContainer)}>
-        <h2>Illustrations</h2>
-        <div className={styles.cardContainer}>
-          {shots?.map(({ html_url, images, published_at, title }) => (
-            <CardAlt
-              description={format(parseISO(published_at), "MMMM d, yyyy")}
-              href={html_url}
-              imgSrc={images.normal}
-              key={title}
-              title={title}
-            />
-          ))}
+      {shots?.length ? (
+        <div className={classnames("container", styles.projectContainer)}>
+          <h2>Illustrations</h2>
+          <div className={styles.cardContainer}>
+            {shots?.map(({ html_url, images, published_at, title }) => (
+              <Shot
+                description={format(parseISO(published_at), "MMMM d, yyyy")}
+                href={html_url}
+                imgSrc={images.normal}
+                key={title}
+                title={title}
+              />
+            ))}
+          </div>
+          {/* TODO: Make this look good. */}
+          {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
         </div>
-        {/* TODO: Make this look good. */}
-        {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
-      </div>
+      ) : null}
 
       <Footer className="container" />
     </>

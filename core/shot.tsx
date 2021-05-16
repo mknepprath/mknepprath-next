@@ -1,4 +1,4 @@
-import styles from "./cardAlt.module.css";
+import styles from "./shot.module.css";
 
 interface Props {
   description: string;
@@ -7,7 +7,7 @@ interface Props {
   title: string;
 }
 
-export default function Card({
+export default function Shot({
   description,
   href,
   imgSrc,
@@ -21,7 +21,7 @@ export default function Card({
       rel="noopener noreferrer"
       target="_blank"
     >
-      {imgSrc ? <img alt={title} className={styles.img} src={imgSrc} /> : null}
+      <img alt={title} className={styles.img} src={imgSrc} />
       <div className={styles.body}>
         <h3>
           {title} <span className={styles.arrow}>&rarr;</span>
