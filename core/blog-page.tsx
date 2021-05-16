@@ -73,7 +73,7 @@ export default function BlogPage({
         </p>
       </article>
 
-      {/* <BlogNav /> */}
+      <BlogNav />
       <Footer />
     </div>
   );
