@@ -2,8 +2,10 @@
 import classnames from "classnames";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
+import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
+import useSWR from "swr";
 
 // Components
 import Card from "core/card";
@@ -13,9 +15,6 @@ import Nav from "core/nav";
 import Shot from "core/shot";
 
 // Data
-import fetch from "isomorphic-unfetch";
-import useSWR from "swr";
-
 import { projectLinks } from "data/links";
 import posts from "data/posts";
 
