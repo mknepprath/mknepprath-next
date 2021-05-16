@@ -7,17 +7,26 @@ import Link from "next/link";
 
 // Components
 import Card from "core/card";
+import CardAlt from "core/cardAlt";
 import Footer from "core/footer";
 import Head from "core/head";
 import Nav from "core/nav";
 
 // Data
+import fetch from "isomorphic-unfetch";
+import useSWR from "swr";
+
 import { projectLinks } from "data/links";
 import posts from "data/posts";
 
 import styles from "./index.module.css";
 
+const fetcher = (url: RequestInfo) =>
+  fetch(url).then((response) => response.json());
+
 export default function Home(): React.ReactNode {
+  const { data: shots } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
+
   return (
     <>
       <Head />
@@ -70,6 +79,8 @@ export default function Home(): React.ReactNode {
               </header>
             </article>
           ))}
+        {/* TODO: Make this look good. */}
+        {/* <Link href="/writing">See more</Link> */}
       </div>
 
       <div className={classnames("container", styles.projectContainer)}>
@@ -85,6 +96,23 @@ export default function Home(): React.ReactNode {
             />
           ))}
         </div>
+      </div>
+
+      <div className={classnames("container", styles.projectContainer)}>
+        <h2>Illustrations</h2>
+        <div className={styles.cardContainer}>
+          {shots?.map(({ html_url, images, published_at, title }) => (
+            <CardAlt
+              description={format(parseISO(published_at), "MMMM d, yyyy")}
+              href={html_url}
+              imgSrc={images.normal}
+              key={title}
+              title={title}
+            />
+          ))}
+        </div>
+        {/* TODO: Make this look good. */}
+        {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
       </div>
 
       <Footer className="container" />

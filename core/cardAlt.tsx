@@ -1,4 +1,4 @@
-import styles from "./card.module.css";
+import styles from "./cardAlt.module.css";
 
 interface Props {
   description: string;
