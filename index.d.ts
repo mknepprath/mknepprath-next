@@ -104,3 +104,28 @@ interface Playlist {
     url?: string;
   };
 }
+
+interface Shot {
+  animated: boolean;
+  description: string;
+  height: number;
+  html_url: string;
+  id: number;
+  images: {
+    hidpi: string;
+    normal: string;
+    one_x: string;
+    two_x: string;
+    four_x: string;
+    teaser: string;
+  };
+  low_profile: boolean;
+  tags: string[];
+  title: string;
+  width: number;
+  published_at: string;
+  updated_at: string;
+  attachments: unknown[];
+  projects: unknown[];
+  video: unknown;
+}

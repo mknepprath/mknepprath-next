@@ -44,6 +44,8 @@ const BlogNav = ({ router }: Props) => {
     }
   });
 
+  return null;
+
   return (
     <div className={styles.container}>
       {postIndex > 0 ? (

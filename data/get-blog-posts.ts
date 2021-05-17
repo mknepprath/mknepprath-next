@@ -20,37 +20,36 @@ interface Post {
 }
 
 function getContentFromFiles(postsArray: string[], dir: string) {
-  return (
-    postsArray
-      .map((file, index) => {
-        const name = path.join(dir, file);
-        const contents = fs.readFileSync(name, "utf-8");
-        const match = META.exec(contents);
+  const posts = postsArray
+    .map((file, index) => {
+      const name = path.join(dir, file);
+      const contents = fs.readFileSync(name, "utf-8");
+      const match = META.exec(contents);
 
-        // TODO: Can I extract post content from `contents` and assign that to
-        // `content_text`... :\
+      // TODO: Can I extract post content from `contents` and assign that to
+      // `content_text`... :\
 
-        if (!match || typeof match[1] !== "string") {
-          throw new Error(`${name} needs to export const meta = {}`);
-        }
+      if (!match || typeof match[1] !== "string") {
+        throw new Error(`${name} needs to export const meta = {}`);
+      }
 
-        const meta = eval("(" + match[1] + ")");
-        const id = file.replace(/\.tsx?$/, "");
+      const meta = eval("(" + match[1] + ")");
+      const id = file.replace(/\.tsx?$/, "");
 
-        return {
-          ...meta,
-          id,
-          path: dir.replace(process.cwd() + "/pages", "") + id,
-          index,
-        };
-      })
-      .filter((meta: Post) => meta.published)
-      // TODO: Don't chain a sort. Sorting is place not the intended use-case.
-      .sort(
-        (a: Post, b: Post) =>
-          +new Date(b.publishedAt) - +new Date(a.publishedAt)
-      )
+      return {
+        ...meta,
+        id,
+        path: dir.replace(process.cwd() + "/pages", "") + id,
+        index,
+      };
+    })
+    .filter((meta: Post) => meta.published);
+
+  posts.sort(
+    (a: Post, b: Post) => +new Date(b.publishedAt) - +new Date(a.publishedAt)
   );
+
+  return posts;
 }
 
 const postsArray = getFiles(POSTS_DIR);
