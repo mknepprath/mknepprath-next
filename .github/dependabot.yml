@@ -1,0 +1,24 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "10:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: cypress
+    versions:
+    - 7.0.1
+    - 7.1.0
+  - dependency-name: react-spring
+    versions:
+    - 9.0.0
+    - 9.1.0
+    - 9.1.1
+  - dependency-name: react-use-gesture
+    versions:
+    - 9.1.0
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 8.0.0
