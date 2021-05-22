@@ -1,9 +1,11 @@
 # Michael Knepprath's codebase.
+
 Welcome to my internet.
 
 View the latest deploy here: https://mknepprath-next.mknepprath.now.sh.
 
 ## Set Up
+
 1. Open your terminal.
 1. Navigate to the directory you'd like to clone this repository to.
 1. To clone, run `git clone https://github.com/mknepprath/mknepprath-next.git`.
