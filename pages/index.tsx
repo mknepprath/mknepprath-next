@@ -34,7 +34,7 @@ export default function Home(): React.ReactNode {
       <div className={classnames("container", styles.hero)}>
         <h1 className={styles.greeting}>
           <a
-            href="https://twitter.com/mknepprath/status/1256722710308282369"
+            href="https://youtu.be/5-CEGCXDVgI"
             rel="noopener noreferrer"
             target="_blank"
           >
