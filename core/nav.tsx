@@ -20,9 +20,9 @@ export default function Nav({ className }: Props): JSX.Element {
           alt="Michael Knepprath Memoji"
           height={32}
           layout="fixed"
-          src="/assets/memoji.png"
+          src="/assets/mk-profile-pic.png"
           priority
-          width={28.4}
+          width={32}
         />
         <span>M. Knepprath</span>
       </a>

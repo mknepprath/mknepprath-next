@@ -40,7 +40,7 @@ const MusicSection = (props: { music: Playlist[] }): JSX.Element => (
 
 export const meta = {
   image: "/assets/ping.jpg",
-  published: true,
+  published: false,
   publishedAt: "2021-02-21",
   summary:
     "How I hacked my way to displaying recently played music on my website.",
