@@ -10,6 +10,7 @@ export const meta = {
   summary:
     "Memes are catchy and entertaining, but rarely capture the full scope of the problem at hand.",
   title: "Memes Aren't User Research",
+  tweetId: "1403859005190017025",
 };
 
 export default function MemesArentUserResearch(): React.ReactNode {
@@ -19,6 +20,7 @@ export default function MemesArentUserResearch(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
+      tweetId={meta.tweetId}
     >
       <Image
         alt="Katamari App"
@@ -30,14 +32,14 @@ export default function MemesArentUserResearch(): React.ReactNode {
       />
 
       <header>
-        <h1>Memes Aren't User Research</h1>
+        <h1>Memes Aren&apos;t User Research</h1>
       </header>
 
       <p>
-        “
+        &quot;
         <A href="https://twitter.com/lily_flood/status/1400910301852323844?s=20">
-          how do i read a recipe online without reading the author’s life story
-          first
+          how do i read a recipe online without reading the author&apos;s life
+          story first
         </A>
         &quot;
       </p>
