@@ -26,7 +26,7 @@ export default function Dynoland(): React.ReactNode {
         />
 
         <p>
-          In 2014, I had the great honor of illustrating a back-up comic for{" "}
+          In 2015, I had the great honor of illustrating a back-up comic for{" "}
           <A href="https://comicbookroundup.com/comic-books/reviews/z2-comics/welcome-to-showside/3">
             Welcome to Showside #3
           </A>
