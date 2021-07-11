@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2021-06-27",
+    "id": "2021-mid-year-review",
+    "image": "/assets/2021-mid-year-4.jpg",
+    "title": "The 2021 Mid-Year Review"
+  },
+  {
     "date": "2021-06-12",
     "id": "memes-arent-user-research",
     "image": "/assets/memes-arent-user-research.jpg",
@@ -10,6 +16,12 @@ const posts: PostListItem[] = [
     "id": "settings-done",
     "image": "/assets/settings-done.png",
     "title": "iOS App Settings: A Study"
+  },
+  {
+    "date": "2021-02-21",
+    "id": "ping",
+    "image": "/assets/ping.jpg",
+    "title": "Using the Apple Music API with Next.js"
   },
   {
     "date": "2021-02-15",

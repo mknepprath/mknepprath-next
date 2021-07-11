@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/2021-mid-year-review",
+      "url": "https://mknepprath.com/writing/2021-mid-year-review",
+      "title": "The 2021 Mid-Year Review",
+      "content_text": "A mid-year check-in to see how I&apos;m doing on my goals for 2021. • https://mknepprath.com/writing/2021-mid-year-review",
+      "summary": "A mid-year check-in to see how I&apos;m doing on my goals for 2021.",
+      "image": "https://mknepprath.com/assets/2021-mid-year-4.jpg",
+      "date_published": "2021-06-27T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/memes-arent-user-research",
       "url": "https://mknepprath.com/writing/memes-arent-user-research",
       "title": "Memes Aren't User Research",
@@ -29,6 +38,15 @@
       "summary": "How the iOS apps I use implement their settings view.",
       "image": "https://mknepprath.com/assets/settings-done.png",
       "date_published": "2021-03-15T15:00:00Z"
+    },
+    {
+      "id": "https://mknepprath.com/writing/ping",
+      "url": "https://mknepprath.com/writing/ping",
+      "title": "Using the Apple Music API with Next.js",
+      "content_text": "How I hacked my way to displaying recently played music on my website. • https://mknepprath.com/writing/ping",
+      "summary": "How I hacked my way to displaying recently played music on my website.",
+      "image": "https://mknepprath.com/assets/ping.jpg",
+      "date_published": "2021-02-21T15:00:00Z"
     },
     {
       "id": "https://mknepprath.com/writing/sherlock-codes",
