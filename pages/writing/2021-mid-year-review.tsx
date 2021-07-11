@@ -7,7 +7,7 @@ import BlogPage from "core/blog-page";
 export const meta = {
   image: "/assets/2021-mid-year-4.jpg",
   published: true,
-  publishedAt: "2021-06-27",
+  publishedAt: "2021-07-11",
   summary:
     "A mid-year check-in to see how I&apos;m doing on my goals for 2021.",
   title: "The 2021 Mid-Year Review",
