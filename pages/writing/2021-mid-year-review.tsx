@@ -11,7 +11,7 @@ export const meta = {
   summary:
     "A mid-year check-in to see how I&apos;m doing on my goals for 2021.",
   title: "The 2021 Mid-Year Review",
-  // tweetId: "1278141092291059714",
+  tweetId: "1414295972910440457",
 };
 
 export default function MidyearReviewOf2021(): React.ReactNode {
@@ -21,7 +21,7 @@ export default function MidyearReviewOf2021(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
-      // tweetId={meta.tweetId}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
