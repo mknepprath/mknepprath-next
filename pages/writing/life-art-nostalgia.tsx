@@ -99,8 +99,8 @@ export default function Life(): React.ReactNode {
         <h1>{meta.title}</h1>
       </header>
       <p>
-        While panning for gold in all of my earthly belongings during a move
-        last year, I found a notebook full of handwritten BASIC code.
+        While panning for gold amongst all of my earthly belongings during a
+        move last year, I found a notebook full of handwritten BASIC code.
       </p>
       <p>
         This transported me back to memories of myself in high school
