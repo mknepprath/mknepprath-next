@@ -6,7 +6,7 @@ interface Link {
 
 export const footerLinks: Link[] = [
   {
-    href: "mailto:michael@mknepprath.com",
+    href: "mailto:mknepprath@gmail.com",
     key: "email",
     title: "Email Me",
   },
@@ -65,8 +65,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "Illustration series",
-    href:
-      "https://dribbble.com/mknepprath/buckets/257652-Design-Prompts-Series",
+    href: "https://dribbble.com/mknepprath/buckets/257652-Design-Prompts-Series",
     title: "Dribbble Series",
     imgSrc: "/assets/dribbble-series.png",
   },
