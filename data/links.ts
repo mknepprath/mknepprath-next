@@ -70,7 +70,7 @@ export const projectLinks: ProjectLink[] = [
     imgSrc: "/assets/dribbble-series.png",
   },
   {
-    description: "@horse_ebooks Twitter bot",
+    description: "AI Twitter bot",
     href: "https://twitter.com/robot_mk",
     title: "Robot MK",
     imgSrc: "/assets/robot-mk.png",
