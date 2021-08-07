@@ -13,11 +13,11 @@ jobs:
 
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v2.7.0
-        with:
-          record: true
+        # with:
+        #   record: true
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
       - name: Cypress tests ✅
