@@ -149,7 +149,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
       />
       <p>
         After tweeting about this issue,{" "}
-        <A href="https://twitter.com/FloFi/status/1348894135705612288?s=20">
+        <A href="https://twitter.com/FloFi/status/1348894135705612288">
           Florian Fittschen
         </A>{" "}
         suggested another (probably better) solution: using a GitHub Action to

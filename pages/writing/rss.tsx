@@ -34,12 +34,12 @@ export default function RSS(): React.ReactNode {
       </header>
       <p>
         Last week, I was riding high thanks to{" "}
-        <a href="https://twitter.com/chriscoyier/status/1214555767115862016?s=20">
+        <a href="https://twitter.com/chriscoyier/status/1214555767115862016">
           this tweet
         </a>{" "}
         mentioning how many personal websites don&apos;t include their
         owner&apos;s name. Then Chris posted{" "}
-        <a href="https://twitter.com/chriscoyier/status/1214606808125341696?s=20">
+        <a href="https://twitter.com/chriscoyier/status/1214606808125341696">
           this tweet
         </a>{" "}
         highlighting the long list of RSS feeds he was subscribed to and my

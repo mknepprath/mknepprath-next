@@ -116,7 +116,7 @@ export default function Uses(): React.ReactNode {
         <h2>Desktop IRL</h2>
         <p>
           The things on{" "}
-          <A href="https://twitter.com/mknepprath/status/1215106277447282689?s=20">
+          <A href="https://twitter.com/mknepprath/status/1215106277447282689">
             my real desk
           </A>{" "}
           that I use everyday.
