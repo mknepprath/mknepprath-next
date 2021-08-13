@@ -15,9 +15,9 @@ export default function MyRobotFriend(): React.ReactNode {
     <BlogPage
       dateTime={meta.publishedAt}
       description={meta.summary}
-      ogImage={meta.image}
+      // ogImage={meta.image}
       title={meta.title}
-      tweetId={meta.tweetId}
+      // tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
