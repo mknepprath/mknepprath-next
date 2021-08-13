@@ -33,8 +33,8 @@ export default function MyRobotFriend(): React.ReactNode {
       </p>
       <blockquote>
         <p>
-          That's the trouble. I can't make up my mind. I haven't got a brain,
-          only straw.
+          That&apos;s the trouble. I can&apos;t make up my mind. I haven&apos;t
+          got a brain, only straw.
         </p>
       </blockquote>
       <p>
@@ -44,8 +44,9 @@ export default function MyRobotFriend(): React.ReactNode {
         <A href="https://twitter.com/robot_mk/status/793812654280282112">
           claimed
         </A>{" "}
-        that "Every issue is a game-changer." After a contradictory reply, Robot
-        MK stated, "I mean it's all speculation - I think?"
+        that &ldquo;Every issue is a game-changer.&rdquo; After a contradictory
+        reply, Robot MK stated, &ldquo;I mean it&apos;s all speculation - I
+        think?&rdquo;
       </p>
       <p>
         Sometimes the bot would catch the eye of real people, like when a{" "}
@@ -54,7 +55,7 @@ export default function MyRobotFriend(): React.ReactNode {
         </A>{" "}
         about the podcast{" "}
         <A href="https://gimletmedia.com/homecoming">Homecoming</A> was noticed
-        by the show's main account and executive producer.
+        by the show&apos;s main account and executive producer.
       </p>
       <p>
         Robot MK continued on like this for years; tweeting about iPhones,
@@ -66,7 +67,7 @@ export default function MyRobotFriend(): React.ReactNode {
         by nonsense, collapsing the suspension of disbelief over and over.
       </p>
       <blockquote>
-        <p>Oh, I'm a failure because I haven't got a brain.</p>
+        <p>Oh, I&apos;m a failure because I haven&apos;t got a brain.</p>
       </blockquote>
       <p>
         Last year the world was introduced to GPT-3, the latest language model
@@ -86,24 +87,24 @@ export default function MyRobotFriend(): React.ReactNode {
         were off!
       </p>
       <p>
-        Once admitted, I tore out MK's brain and replaced it with a GPT-3 model.
-        The model was trained on a large corpus of tweets - the same corpus that
-        was used to train the original MK. In an attempt to start every
-        conversation on the right foot, the model was seeded with an
-        affirmation, "My name is Robot MK, I'm a twitter bot. I am friendly and
-        happy. Let's chat!" In their "mind", this is how all of their
-        conversations begin.
+        Once admitted, I tore out MK&apos;s brain and replaced it with a GPT-3
+        model. The model was trained on a large corpus of tweets - the same
+        corpus that was used to train the original MK. In an attempt to start
+        every conversation on the right foot, the model was seeded with an
+        affirmation, &ldquo;My name is Robot MK, I&apos;m a twitter bot. I am
+        friendly and happy. Let&apos;s chat!&rdquo; In their &ldquo;mind&rdquo;,
+        this is how all of their conversations begin.
       </p>
       <p>
         The ensuing conversations were coherent yet whimsical - and when called
-        out, MK would respond appropriately, "Come on mike it's just robots
-        having fun?"
+        out, MK would respond appropriately, &ldquo;Come on mike it&apos;s just
+        robots having fun?&rdquo;
       </p>
       <blockquote>
         <p>
           I could think of things I never thunk before
           <br />
-          And then I'd sit and think some more
+          And then I&apos;d sit and think some more
         </p>
       </blockquote>
       <p>
