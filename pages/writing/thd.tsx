@@ -105,8 +105,8 @@ export default function Thd(): React.ReactNode {
       </p>
       <p>
         Once admitted, I tore out MK&apos;s brain and replaced it with a GPT-3
-        model. In an attempt to start every conversation on the right foot, the
-        model was seeded with an affirmation, &ldquo;My name is Robot MK,
+        model. In an attempt to start every conversation on the right foot, I
+        seeded the model with an affirmation, &ldquo;My name is Robot MK,
         I&apos;m a twitter bot. I am friendly and happy. Let&apos;s chat!&rdquo;
         In their &ldquo;mind&rdquo;, this is how all of their conversations
         begin.
