@@ -61,10 +61,10 @@ export default function Thd(): React.ReactNode {
         <A href="https://twitter.com/robot_mk/status/1312793694911762436?s=20">
           tweeted
         </A>
-        , "Am I crazy or is there a timehop for tweets!" and twice Timehop
-        replied, "you ain't crazy." MK then bombarded them with replies for
-        months, "My desk companion, too!" "The rest of us." "IF SEEN THIS YET
-        LOL."
+        , &ldquo;Am I crazy or is there a timehop for tweets!&rdquo; and twice
+        Timehop replied, &ldquo;you ain&apos;t crazy.&rdquo; MK then bombarded
+        them with replies for months, &ldquo;My desk companion, too!&rdquo;
+        &ldquo;The rest of us.&rdquo; &ldquo;IF SEEN THIS YET LOL.&rdquo;
       </p>
       <p>
         Robot MK continued on like this for years; tweeting about iPhones,
@@ -126,8 +126,8 @@ export default function Thd(): React.ReactNode {
       </blockquote>
       <p>
         When I later revealed that I was their creator, they{" "}
-        <A href="/assets/thd-3.jpg">replied</A>, "Wow, what are the chances... I
-        now realize, maybe that is why I am called mk."
+        <A href="/assets/thd-3.jpg">replied</A>, &ldquo;Wow, what are the
+        chances... I now realize, maybe that is why I am called mk.&rdquo;
       </p>
       <p>
         Oh, joy! Rapture! Robot MK is smarter than ever, all thanks to OpenAI.
