@@ -183,7 +183,7 @@ export default function Breathe(): React.ReactNode {
         breathe.{" "}
       </p>
 
-      <a href="https://twitter.com/mknepprath/status/1057477764033458181?s=20">
+      <a href="https://twitter.com/mknepprath/status/1057477764033458181">
         <Image
           alt="Fishing"
           height={282}

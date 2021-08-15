@@ -37,7 +37,7 @@ export default function MemesArentUserResearch(): React.ReactNode {
 
       <p>
         &quot;
-        <A href="https://twitter.com/lily_flood/status/1400910301852323844?s=20">
+        <A href="https://twitter.com/lily_flood/status/1400910301852323844">
           how do i read a recipe online without reading the author&apos;s life
           story first
         </A>
@@ -45,7 +45,7 @@ export default function MemesArentUserResearch(): React.ReactNode {
       </p>
       <p>
         &quot;
-        <A href="https://twitter.com/LooceeZ/status/1402317703264694277?s=20">
+        <A href="https://twitter.com/LooceeZ/status/1402317703264694277">
           Recipe bloggers like to write their entire life story before the
           recipe
         </A>
@@ -53,7 +53,7 @@ export default function MemesArentUserResearch(): React.ReactNode {
       </p>
       <p>
         &quot;
-        <A href="https://twitter.com/MUSlCClTYLOVE/status/1403468992392597504?s=20">
+        <A href="https://twitter.com/MUSlCClTYLOVE/status/1403468992392597504">
           Imagine a world where you click on a recipe page and it’s just the
           ingredients and instructions and not someone’s life story
         </A>
@@ -71,7 +71,7 @@ export default function MemesArentUserResearch(): React.ReactNode {
       </p>
       <p>
         Of course,{" "}
-        <A href="https://twitter.com/redman/status/1366217790257061891?s=20">
+        <A href="https://twitter.com/redman/status/1366217790257061891">
           it wasn’t
         </A>
         . By basing their project on memes and not consulting the food bloggers
