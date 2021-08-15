@@ -1,7 +1,8 @@
 const posts: PostListItem[] = [
   {
-    "date": "2021-08-13",
+    "date": "2021-08-14",
     "id": "thd",
+    "image": "/assets/thd-2.jpg",
     "title": "If I Only Had A Brain"
   },
   {
