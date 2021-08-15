@@ -6,7 +6,7 @@ import BlogPage from "core/blog-page";
 export const meta = {
   image: "/assets/thd-2.jpg",
   published: true,
-  publishedAt: "2021-08-14",
+  publishedAt: "2021-08-15",
   summary: "Robot MK's journey to common sense, logic and a quick-wit.",
   title: "If I Only Had A Brain",
   // tweetId: "1414295972910440457",
