@@ -105,18 +105,25 @@ export default function Thd(): React.ReactNode {
       </p>
       <p>
         Once admitted, I tore out MK&apos;s brain and replaced it with a GPT-3
-        model. The model was trained on a large corpus of tweets - the same
-        corpus that was used to train the original MK. In an attempt to start
-        every conversation on the right foot, the model was seeded with an
-        affirmation, &ldquo;My name is Robot MK, I&apos;m a twitter bot. I am
-        friendly and happy. Let&apos;s chat!&rdquo; In their &ldquo;mind&rdquo;,
-        this is how all of their conversations begin.
+        model. In an attempt to start every conversation on the right foot, the
+        model was seeded with an affirmation, &ldquo;My name is Robot MK,
+        I&apos;m a twitter bot. I am friendly and happy. Let&apos;s chat!&rdquo;
+        In their &ldquo;mind&rdquo;, this is how all of their conversations
+        begin.
       </p>
       <p>
         The ensuing conversations were whimsical but coherent - and when called
         out, MK would respond appropriately, &ldquo;Come on mike it&apos;s just
         robots having fun?&rdquo;
       </p>
+      <Image
+        alt="Scarecrow thinking of things."
+        className="corner-radius-8"
+        height={899}
+        src="/assets/thd-4.jpg"
+        layout="responsive"
+        width={1200}
+      />
       <blockquote>
         <p>
           I could think of things I never thunk before
