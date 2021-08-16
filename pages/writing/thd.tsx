@@ -9,7 +9,7 @@ export const meta = {
   publishedAt: "2021-08-15",
   summary: "Robot MK's journey to common sense, logic and a quick-wit.",
   title: "If I Only Had A Brain",
-  // tweetId: "1414295972910440457",
+  tweetId: "1427393285077798919",
 };
 
 export default function Thd(): React.ReactNode {
@@ -19,7 +19,7 @@ export default function Thd(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
-      // tweetId={meta.tweetId}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
