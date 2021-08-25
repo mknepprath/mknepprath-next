@@ -1,7 +1,14 @@
+import useSWR from "swr";
+
 import A from "core/a";
 import Page from "core/page";
 
+const fetcher = (url: RequestInfo) =>
+  fetch(url).then((response) => response.json());
+
 export default function Uses(): React.ReactNode {
+  const { data: books } = useSWR<Book[]>(`/api/v1/books?shelf=desk`, fetcher);
+
   return (
     <Page className="container" title="Uses">
       <article data-cy="uses-page">
@@ -158,6 +165,15 @@ export default function Uses(): React.ReactNode {
               mStand Laptop Stand
             </A>
           </li>
+          {books?.length ? (
+            <>
+              {books.map((book) => (
+                <li key={book.link}>
+                  <A href={book.link}>{book.title}</A> by {book.author}
+                </li>
+              ))}
+            </>
+          ) : null}
         </ul>
 
         <hr />
