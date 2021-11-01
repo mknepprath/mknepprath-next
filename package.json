@@ -53,7 +53,7 @@
     "@types/classnames": "^2.3.1",
     "@types/node": "^16.11.4",
     "@types/prismjs": "^1.16.6",
-    "@types/react": "^17.0.32",
+    "@types/react": "^17.0.33",
     "@types/xml2js": "^0.4.9",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
