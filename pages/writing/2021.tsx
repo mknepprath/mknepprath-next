@@ -252,7 +252,7 @@ export default function ReviewOf2021(): React.ReactNode {
         <li>The Godfather Part II (1974)</li>
         <li>Vertigo (1958)</li>
         <li>Goodfellas (1990)</li>
-        <li>Contact (1997)</li>Seven
+        <li>Contact (1997)</li>
         <li>Sorcerer (1977)</li>
         <li>Princess Mononoke (1997)</li>
         <li>Catch Me If You Can (2002)</li>
