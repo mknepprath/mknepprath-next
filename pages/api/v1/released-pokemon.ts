@@ -138,9 +138,9 @@ export default async (
     `${POGO_API}/pokemon_types.json`
   ).then((response) => response.json());
 
-  const babies: Pokemon[] = await fetch(
-    `${POGO_API}/baby_pokemon.json`
-  ).then((response) => response.json());
+  const babies: Pokemon[] = await fetch(`${POGO_API}/baby_pokemon.json`).then(
+    (response) => response.json()
+  );
 
   const regionals = [
     83, // Farfetch’d
@@ -181,6 +181,7 @@ export default async (
     631, // Heatmor
     632, // Durant
     707, // Klefki
+    764, // Comfey
   ];
 
   // The API seems to assume all Pokémon have a "Normal" form,
