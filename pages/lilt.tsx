@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Page from "core/page";
+import Page from "@core/page";
 
 export default function Lilt(): React.ReactNode {
   return (

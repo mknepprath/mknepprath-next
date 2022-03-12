@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import A from "core/a";
-import BlogPage from "core/blog-page";
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   image: "/assets/2020-in-review-3.jpeg",

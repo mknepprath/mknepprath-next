@@ -18,10 +18,10 @@ module.exports = {
     // `import Nav from "../../core/Nav";`
     //
     // I can simply write:
-    // `import Nav from "core/Nav";`
+    // `import Nav from "@core/Nav";`
     const paths = ["core", "data", "hooks"];
     paths.forEach(
-      (path) => (config.resolve.alias[path] = join(__dirname, path))
+      (path) => (config.resolve.alias[`@${path}`] = join(__dirname, path))
     );
 
     return config;

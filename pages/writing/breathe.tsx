@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   image: "/assets/breathe-1.jpg",
@@ -76,10 +76,10 @@ export default function Breathe(): React.ReactNode {
   import { withRouter } from "next/router";
 
   // Components
-  import Page from "core/page";
+  import Page from "@core/page";
 
   // Data
-  import posts from "data/posts";
+  import posts from "@data/posts";
 
   class Writing extends React.Component {
     ...

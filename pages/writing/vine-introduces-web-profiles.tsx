@@ -1,7 +1,7 @@
 // Archival link:
 // https://web.archive.org/web/20140127084100/http://www.mknepprath.com/vine-introduces-web-profiles/
 
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   published: true,

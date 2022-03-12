@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
-import Head from "core/head";
-import PxBrush from "core/pxbrush";
+import Head from "@core/head";
+import PxBrush from "@core/pxbrush";
 
 const INC = 2;
 

@@ -4,10 +4,9 @@ import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 
 // Components
-import Page from "core/page";
-
+import Page from "@core/page";
 // Data
-import posts from "data/posts";
+import posts from "@data/posts";
 
 // Styles
 import styles from "./writing.module.css";

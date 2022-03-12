@@ -1,4 +1,4 @@
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   published: true,
@@ -58,7 +58,7 @@ export default function BabysFirstCodemod(): React.ReactNode {
       <pre>
         <code className="language-js">
           {`
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export default () => (
   return <BlogPage
@@ -86,7 +86,7 @@ export default () => (
       <pre>
         <code className="language-js">
           {`
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   published: true,
@@ -238,7 +238,7 @@ const transform = (file, api) => {
   );
 
   // The last import in the example above is
-  // \`import BlogPage from "core/blog-page";\`. This adds the metadata object
+  // \`import BlogPage from "@core/blog-page";\`. This adds the metadata object
   // below that import.
   const LAST_IMPORT = root.find(j.ImportDeclaration).at(-1);
   LAST_IMPORT.insertAfter(\`export const meta = {\${metaPropsStrings}

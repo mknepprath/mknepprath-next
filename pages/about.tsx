@@ -2,9 +2,9 @@ import classnames from "classnames";
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 
-import Card from "core/card";
-import Page from "core/page";
-import PhotoStack from "core/photo-stack";
+import Card from "@core/card";
+import Page from "@core/page";
+import PhotoStack from "@core/photo-stack";
 
 import styles from "./about.module.css";
 

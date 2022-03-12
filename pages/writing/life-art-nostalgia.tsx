@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React, { useEffect } from "react";
 
-import BlogPage from "core/blog-page";
-import PxBrush from "core/pxbrush";
+import BlogPage from "@core/blog-page";
+import PxBrush from "@core/pxbrush";
 
 import styles from "./life-art-nostalgia.module.css";
 

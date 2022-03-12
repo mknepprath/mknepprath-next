@@ -1,7 +1,6 @@
 import Image from "next/image";
 
-import A from "core/a";
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   image: "/assets/sherlock-codes.jpg",

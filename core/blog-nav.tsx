@@ -3,11 +3,10 @@ import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
-// Hooks
-import useKeyPress from "hooks/useKeyPress";
-
 // Data
-import allPosts from "data/posts";
+import allPosts from "@data/posts";
+// Hooks
+import useKeyPress from "@hooks/useKeyPress";
 
 // Styles
 import styles from "./blog-nav.module.css";

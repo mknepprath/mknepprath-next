@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "isomorphic-unfetch";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (
   req: NextApiRequest,
@@ -18,7 +18,7 @@ export default async (
     redirect: "follow",
   };
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     fetch(
       `https://api.twitter.com/2/users/${id}/tweets?expansions=attachments.media_keys&media.fields=type,url,width,height&max_results=100`,
       requestOptions

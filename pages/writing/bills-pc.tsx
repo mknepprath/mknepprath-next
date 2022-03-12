@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
 import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());

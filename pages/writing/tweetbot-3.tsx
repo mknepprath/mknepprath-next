@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   publishedAt: "2013-10-24",

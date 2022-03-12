@@ -2,10 +2,9 @@
 import classnames from "classnames";
 
 // Components
-import TwitterIcon from "core/icon-twitter";
-
+import TwitterIcon from "@core/icon-twitter";
 // Data
-import { footerLinks } from "data/links";
+import { footerLinks } from "@data/links";
 
 // Styles
 import styles from "./footer.module.css";

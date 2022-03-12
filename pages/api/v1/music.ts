@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "isomorphic-unfetch";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (
   req: NextApiRequest,
@@ -19,7 +19,7 @@ export default async (
     redirect: "follow",
   };
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     fetch(
       `https://api.music.apple.com/v1/me/recent/played?limit=${limit}&offset=${offset}`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
       requestOptions

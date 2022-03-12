@@ -1,5 +1,5 @@
-import posts from "data/posts";
-import { projectLinks } from "data/links";
+import { projectLinks } from "@data/links";
+import posts from "@data/posts";
 
 describe("Home", () => {
   before(() => {

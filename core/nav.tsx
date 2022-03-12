@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Data
-import { navLinks } from "data/links";
+import { navLinks } from "@data/links";
 
 import styles from "./nav.module.css";
 
