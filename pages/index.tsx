@@ -1,4 +1,3 @@
-// External
 import classnames from "classnames";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
@@ -7,16 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 
-// Components
-import Card from "core/card";
-import Footer from "core/footer";
-import Head from "core/head";
-import Nav from "core/nav";
-import Shot from "core/shot";
-
-// Data
-import { projectLinks } from "data/links";
-import posts from "data/posts";
+import Card from "@core/card";
+import Footer from "@core/footer";
+import Head from "@core/head";
+import Nav from "@core/nav";
+import Shot from "@core/shot";
+import { projectLinks } from "@data/links";
+import posts from "@data/posts";
 
 import styles from "./index.module.css";
 

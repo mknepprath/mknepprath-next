@@ -1,6 +1,6 @@
-import Footer from "core/footer";
-import Head from "core/head";
-import Nav from "core/nav";
+import Footer from "@core/footer";
+import Head from "@core/head";
+import Nav from "@core/nav";
 
 interface Props {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import A from "core/a";
-import BlogPage from "core/blog-page";
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   image: "/assets/lily-dex-hero.jpg",

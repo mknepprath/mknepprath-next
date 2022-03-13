@@ -1,11 +1,10 @@
 import React from "react";
 
 // Components
-import Head from "core/head";
-import Nav from "core/nav";
-
+import Head from "@core/head";
+import Nav from "@core/nav";
 // Data
-import posts from "data/posts";
+import posts from "@data/posts";
 
 export default function Latest(): React.ReactNode {
   React.useEffect(() => {

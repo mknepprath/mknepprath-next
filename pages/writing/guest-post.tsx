@@ -1,11 +1,11 @@
-import { Fragment, useEffect, useState } from "react";
 import fetch from "isomorphic-unfetch";
 import Markov from "markov-strings";
 import Image from "next/image";
+import { Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
 
-import A from "core/a";
-import BlogPage from "core/blog-page";
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
 
 interface MarkovResult {
   string: string;
@@ -28,7 +28,8 @@ const options = {
 
 /* To Title Case © 2018 David Gouch | https://github.com/gouch/to-title-case */
 function toTitleCase(str: string) {
-  const smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|v.?|vs.?|via)$/i;
+  const smallWords =
+    /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|v.?|vs.?|via)$/i;
   const alphanumericPattern = /([A-Za-z0-9\u00C0-\u00FF])/;
   const wordSeparators = /([ :–—-])/;
 
@@ -140,7 +141,7 @@ export default function BillsPc(): React.ReactNode {
       );
       setImage(media);
     }
-  }, [tweets?.data]);
+  }, [tweets?.data, tweets?.includes.media]);
 
   return (
     <BlogPage

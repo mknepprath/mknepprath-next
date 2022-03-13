@@ -1,11 +1,11 @@
+import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
-import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 
-import A from "core/a";
-import BlogPage from "core/blog-page";
-import Card from "core/card";
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
+import Card from "@core/card";
 
 import styles from "./ping.module.css";
 

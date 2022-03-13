@@ -1,4 +1,4 @@
-import BlogPage from "core/blog-page";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   published: true,

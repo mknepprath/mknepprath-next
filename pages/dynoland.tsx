@@ -1,10 +1,10 @@
-import React, { SyntheticEvent } from "react";
-import Image from "next/image";
 import fetch from "isomorphic-unfetch";
+import Image from "next/image";
+import React, { SyntheticEvent } from "react";
 import useSWR from "swr";
 
 // Components
-import Page from "core/page";
+import Page from "@core/page";
 
 // Styles
 import styles from "./dynoland.module.css";

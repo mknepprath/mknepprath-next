@@ -1,5 +1,5 @@
-import A from "core/a";
-import Page from "core/page";
+import A from "@core/a";
+import Page from "@core/page";
 
 export default function Podcasts(): React.ReactNode {
   return (

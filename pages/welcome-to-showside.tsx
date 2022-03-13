@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 // Components
-import A from "core/a";
-import Page from "core/page";
+import A from "@core/a";
+import Page from "@core/page";
 
 export default function Dynoland(): React.ReactNode {
   return (

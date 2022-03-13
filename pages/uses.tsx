@@ -1,7 +1,7 @@
 import useSWR from "swr";
 
-import A from "core/a";
-import Page from "core/page";
+import A from "@core/a";
+import Page from "@core/page";
 
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());

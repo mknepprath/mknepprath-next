@@ -19,13 +19,13 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "./core/*": [
+      "@core/*": [
         "core/*"
       ],
-      "./data/*": [
+      "@data/*": [
         "data/*"
       ],
-      "./hooks/*": [
+      "@hooks/*": [
         "hooks/*"
       ]
     },

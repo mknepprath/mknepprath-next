@@ -1,5 +1,5 @@
-import A from "core/a";
-import BlogPage from "core/blog-page";
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
 
 export const meta = {
   published: true,

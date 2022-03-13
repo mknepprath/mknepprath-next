@@ -1,12 +1,11 @@
 import React, { SyntheticEvent } from "react";
 
 // Components
-import Footer from "core/footer";
-import Head from "core/head";
-import Nav from "core/nav";
-
+import Footer from "@core/footer";
+import Head from "@core/head";
+import Nav from "@core/nav";
 // Data
-import { gifs } from "data/gifs";
+import { gifs } from "@data/gifs";
 
 // Styles
 import styles from "./gifs.module.css";
