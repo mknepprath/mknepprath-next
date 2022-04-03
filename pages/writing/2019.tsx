@@ -245,7 +245,7 @@ export default function ReviewOf2019(): React.ReactNode {
       <p>
         I want to draw some more comics, create some short animations, etc. I
         don&apos;t care all that much about the format as long as I do some cool
-        visual work. I may even dabble in capital &lquo;A&rquo; Art again.
+        visual work. I may even dabble in capital “A” Art again.
       </p>
       <h2>Tracking My Goals</h2>
       <p>

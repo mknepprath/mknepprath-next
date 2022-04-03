@@ -126,9 +126,9 @@ export default function Life(): React.ReactNode {
       </p>
       <p>
         I took a few programming classes after this, the last one being during
-        my freshman year of college. I never really felt like I &lquo;got
-        it&rquo; and ended up barely passing with a D-. I didn&apos;t touch
-        capital-P Programming for a decade.
+        my freshman year of college. I never really felt like I “got it” and
+        ended up barely passing with a D-. I didn&apos;t touch capital-P
+        Programming for a decade.
       </p>
       <div ref={brushEl2} style={{ height: 400, width: "100%" }} />
       {centerpoint2 && (
