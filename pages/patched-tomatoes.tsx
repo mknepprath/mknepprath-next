@@ -89,7 +89,7 @@ export default function PatchedTomatoes(): React.ReactNode {
           is amazing, Blue Harvest is bad, and the remaining two films are
           similarly mediocre. What would Rotten Tomatoes say? Here&apos;s{" "}
           <a href="https://www.rottentomatoes.com/about">their definition</a> of
-          a &lquo;Fresh&rquo; film:
+          a “Fresh” film:
         </p>
         <blockquote>
           The Tomatometer score represents the percentage of professional critic
@@ -99,9 +99,9 @@ export default function PatchedTomatoes(): React.ReactNode {
         </blockquote>
         <p>
           What does this mean for our example films? First, we need to convert
-          each critic rating to a binary &lquo;positive&rquo; or &lquo;not
-          positive&rquo; review. In most cases, Rotten Tomatoes considers 5.5/10
-          and above a &lquo;positive&rquo; review.
+          each critic rating to a binary “positive” or “not positive” review. In
+          most cases, Rotten Tomatoes considers 5.5/10 and above a “positive”
+          review.
         </p>
         <table
           cellPadding="4"
