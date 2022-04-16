@@ -8,7 +8,7 @@ export default function PatchedTomatoes(): React.ReactNode {
       <article data-cy="patched-tomatoes-page">
         <div className="fill-image" style={{ height: 256 }}>
           <Image
-            alt="Dynoland rendered image"
+            alt="Patched Tomatoes artwork"
             src="/assets/patched-tomatoes.png"
             layout="fill"
             objectFit="contain"
