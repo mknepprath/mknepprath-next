@@ -69,6 +69,6 @@
     "pre-commit": "^1.2.2",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.2"
   }
 }
