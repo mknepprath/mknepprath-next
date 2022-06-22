@@ -81,12 +81,16 @@ export default async (
 ): Promise<void> => {
   const releasedPokemonDict: { [key: string]: Pokemon } = await fetch(
     `${POGO_API}/released_pokemon.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
   const releasedPokemon = Object.values(releasedPokemonDict);
 
   const nestingPokemonDict: { [key: string]: Pokemon } = await fetch(
     `${POGO_API}/nesting_pokemon.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
 
   const raidBossesDict: {
     current: { [key: string]: [RaidBoss] };
@@ -99,48 +103,62 @@ export default async (
 
   const buddyDistanceDict: { [key: string]: BuddyDistance[] } = await fetch(
     `${POGO_API}/pokemon_buddy_distances.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
   const buddyDistances = Object.keys(buddyDistanceDict)
     .flatMap((amount) => buddyDistanceDict[amount])
     .filter((buddy) => isNotRocket(buddy));
 
   const candyRequiredDict: { [key: string]: CandyRequired[] } = await fetch(
     `${POGO_API}/pokemon_candy_to_evolve.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
   const candyRequired = Object.keys(candyRequiredDict)
     .flatMap((amount) => candyRequiredDict[amount])
     .filter((pokemon) => isNotRocket(pokemon));
 
   const rarityDict: { [key: string]: PokemonRarity[] } = await fetch(
     `${POGO_API}/pokemon_rarity.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
   const rarity = Object.keys(rarityDict).flatMap(
     (pokemon) => rarityDict[pokemon]
   );
 
   const shadowPokemonDict: { [key: string]: Pokemon } = await fetch(
     `${POGO_API}/shadow_pokemon.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
 
   const shinyPokemonDict: { [key: string]: ShinyPokemon } = await fetch(
     `${POGO_API}/shiny_pokemon.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
 
   const possibleDittoDict: { [key: string]: Pokemon } = await fetch(
     `${POGO_API}/possible_ditto_pokemon.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
 
   const evolutions: PokemonEvolution[] = await fetch(
     `${POGO_API}/pokemon_evolutions.json`
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
 
-  const types: PokemonTypes[] = await fetch(
-    `${POGO_API}/pokemon_types.json`
-  ).then((response) => response.json());
+  const types: PokemonTypes[] = await fetch(`${POGO_API}/pokemon_types.json`)
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
 
-  const babies: Pokemon[] = await fetch(`${POGO_API}/baby_pokemon.json`).then(
-    (response) => response.json()
-  );
+  const babies: Pokemon[] = await fetch(`${POGO_API}/baby_pokemon.json`)
+    .then((response) => response.json())
+    .catch((e) => res.status(500).json({ message: e.message }));
 
   const regionals = [
     83, // Farfetch’d
