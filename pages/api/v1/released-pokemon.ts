@@ -79,86 +79,63 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const releasedPokemonDict: { [key: string]: Pokemon } = await fetch(
-    `${POGO_API}/released_pokemon.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
+  const [
+    releasedPokemonDict,
+    raidBossesDict,
+    buddyDistanceDict,
+    candyRequiredDict,
+    rarityDict,
+    shinyPokemonDict,
+    evolutions,
+    types,
+    babies,
+  ]: [
+    { [key: string]: Pokemon },
+    { [key: string]: RaidBoss[] },
+    { [key: string]: BuddyDistance[] },
+    { [key: string]: CandyRequired[] },
+    { [key: string]: PokemonRarity[] },
+    { [key: string]: ShinyPokemon },
+    PokemonEvolution[],
+    PokemonTypes[],
+    Pokemon[]
+  ] = await Promise.all([
+    fetch(`${POGO_API}/released_pokemon.json`).then((response) =>
+      response.json()
+    ),
+    fetch(`${POGO_API}/raid_bosses.json`)
+      .then((response) => response.json())
+      .then(({ current }) => current),
+    fetch(`${POGO_API}/pokemon_buddy_distances.json`).then((response) =>
+      response.json()
+    ),
+    fetch(`${POGO_API}/pokemon_candy_to_evolve.json`).then((response) =>
+      response.json()
+    ),
+    fetch(`${POGO_API}/pokemon_rarity.json`).then((response) =>
+      response.json()
+    ),
+    fetch(`${POGO_API}/shiny_pokemon.json`).then((response) => response.json()),
+    fetch(`${POGO_API}/pokemon_evolutions.json`).then((response) =>
+      response.json()
+    ),
+    fetch(`${POGO_API}/pokemon_types.json`).then((response) => response.json()),
+    fetch(`${POGO_API}/baby_pokemon.json`).then((response) => response.json()),
+  ]);
+
   const releasedPokemon = Object.values(releasedPokemonDict);
-
-  const nestingPokemonDict: { [key: string]: Pokemon } = await fetch(
-    `${POGO_API}/nesting_pokemon.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
-
-  const raidBossesDict: {
-    current: { [key: string]: [RaidBoss] };
-  } = await fetch(`${POGO_API}/raid_bosses.json`).then((response) =>
-    response.json()
+  const raidBosses = Object.keys(raidBossesDict).flatMap(
+    (tier) => raidBossesDict[tier]
   );
-  const raidBosses = Object.keys(raidBossesDict.current).flatMap(
-    (tier) => raidBossesDict.current[tier]
-  );
-
-  const buddyDistanceDict: { [key: string]: BuddyDistance[] } = await fetch(
-    `${POGO_API}/pokemon_buddy_distances.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
   const buddyDistances = Object.keys(buddyDistanceDict)
     .flatMap((amount) => buddyDistanceDict[amount])
     .filter((buddy) => isNotRocket(buddy));
-
-  const candyRequiredDict: { [key: string]: CandyRequired[] } = await fetch(
-    `${POGO_API}/pokemon_candy_to_evolve.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
   const candyRequired = Object.keys(candyRequiredDict)
     .flatMap((amount) => candyRequiredDict[amount])
     .filter((pokemon) => isNotRocket(pokemon));
-
-  const rarityDict: { [key: string]: PokemonRarity[] } = await fetch(
-    `${POGO_API}/pokemon_rarity.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
   const rarity = Object.keys(rarityDict).flatMap(
     (pokemon) => rarityDict[pokemon]
   );
-
-  const shadowPokemonDict: { [key: string]: Pokemon } = await fetch(
-    `${POGO_API}/shadow_pokemon.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
-
-  const shinyPokemonDict: { [key: string]: ShinyPokemon } = await fetch(
-    `${POGO_API}/shiny_pokemon.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
-
-  const possibleDittoDict: { [key: string]: Pokemon } = await fetch(
-    `${POGO_API}/possible_ditto_pokemon.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
-
-  const evolutions: PokemonEvolution[] = await fetch(
-    `${POGO_API}/pokemon_evolutions.json`
-  )
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
-
-  const types: PokemonTypes[] = await fetch(`${POGO_API}/pokemon_types.json`)
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
-
-  const babies: Pokemon[] = await fetch(`${POGO_API}/baby_pokemon.json`)
-    .then((response) => response.json())
-    .catch((e) => res.status(500).json({ message: e.message }));
 
   const regionals = [
     83, // Farfetch’d
@@ -202,133 +179,6 @@ export default async (
     764, // Comfey
   ];
 
-  // The API seems to assume all Pokémon have a "Normal" form,
-  // which is no longer the case with Galar. Mr. Rime may be its
-  // "Normal" form, but it's only compatible with the Galarian Mime.
-  // So I have to hand roll this data...
-  const forms: { id: number; forms: Form[] }[] = [
-    {
-      id: 19, // Rattata
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 20, // Raticate
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 26, // Raichu
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 27, // Sandshrew
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 28, // Sandslash
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 37, // Vulpix
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 38, // Ninetales
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 50, // Diglett
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 51, // Dugtrio
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 52, // Meowth
-      forms: ["Normal", "Alola", "Galarian"],
-    },
-    {
-      id: 53, // Persian
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 74, // Geodude
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 75, // Graveler
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 76, // Golem
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 83, // Farfetch'd
-      forms: ["Normal", "Galarian"],
-    },
-    {
-      id: 88, // Grimer
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 89, // Muk
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 103, // Exeggutor
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 105, // Marowak
-      forms: ["Normal", "Alola"],
-    },
-    {
-      id: 110, // Weezing
-      forms: ["Normal", "Galarian"],
-    },
-    {
-      id: 263, // Zigzagoon
-      forms: ["Normal", "Galarian"],
-    },
-    {
-      id: 264, // Linoone
-      forms: ["Normal", "Galarian"],
-    },
-    {
-      id: 554, // Darumaka
-      forms: ["Normal", "Galarian"],
-    },
-    {
-      id: 555, // Darmanitan
-      forms: ["Normal", "Galarian"],
-    },
-    {
-      id: 618, // Stunfisk
-      forms: ["Normal", "Galarian"],
-    },
-    {
-      id: 862, // Obstagoon
-      forms: ["Galarian"],
-    },
-    {
-      id: 863, // Perrserker
-      forms: ["Galarian"],
-    },
-    {
-      id: 865, // Sirfetch'd
-      forms: ["Galarian"],
-    },
-    {
-      id: 866, // Mr. Rime
-      forms: ["Galarian"],
-    },
-    {
-      id: 867, // Runerigus
-      forms: ["Galarian"],
-    },
-  ];
-
   const hydratedPokemon: HydratedPokemon[] = releasedPokemon.map((p) => ({
     ...p,
     baby: Boolean(babies.find((baby) => baby.id === p.id)),
@@ -341,31 +191,25 @@ export default async (
             e.evolutions.find((e) => e.pokemon_id === p.id && isNotRocket(e))
           )?.pokemon_id === pokemon.pokemon_id
       )?.candy_required || 0,
-    forms: forms.find((pokemon) => pokemon.id === p.id)?.forms || ["Normal"],
+    forms: [], // deprecated
     evolvesFrom: evolutions.find((e) =>
       e.evolutions.find((e) => e.pokemon_id === p.id)
     )?.pokemon_id,
-    evolvesFromForm: evolutions
-      .filter((e) =>
-        e.evolutions.find((e) => e.pokemon_id === p.id && isNotRocket(e))
-      )
-      .map((e) => e?.form),
-    nests: Boolean(nestingPokemonDict[p.id]),
-    possibleDitto: Boolean(possibleDittoDict[p.id]),
+    evolvesFromForm: [],
+    nests: false, // deprecated
+    possibleDitto: false, // deprecated
     raidBoss: Boolean(raidBosses.find((boss) => boss.id === p.id)),
     raidBossTier: String(
       raidBosses.find((boss) => boss.id === p.id)?.tier || 0
     ),
     rarity: rarity.find((pokemon) => pokemon.pokemon_id === p.id)?.rarity,
     regional: Boolean(regionals.includes(p.id)),
-    shadowObtainable: Boolean(shadowPokemonDict[p.id]),
+    shadowObtainable: false, // deprecated
     shinyReleased: Boolean(shinyPokemonDict[p.id]),
     shinySprite: `${POKE_API_SPRITE_URL}/shiny/${p.id}.png`,
     sprite: `${POKE_API_SPRITE_URL}/${p.id}.png`,
     types: types.find((pokemon) => pokemon.pokemon_id === p.id)?.type,
   }));
-
-  hydratedPokemon.sort((a, b) => a.id - b.id);
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
