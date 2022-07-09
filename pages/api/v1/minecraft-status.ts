@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { Client, PacketWriter, State } from "mcproto";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export interface Status {
   online: boolean;
@@ -37,7 +37,7 @@ export default async function getStatus(
 ): Promise<void> {
   const { host, port } = req.query;
 
-  const client = await Client.connect(host as string, +port, {
+  const client = await Client.connect(host as string, +port || 0, {
     connectTimeout: defaultOptions.timeout,
     timeout: defaultOptions.timeout,
   }).catch((err) => console.error("connection error", err.stack));
