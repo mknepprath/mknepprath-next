@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "isomorphic-unfetch": "^3.1.0",
     "markov-strings": "^3.0.1",
