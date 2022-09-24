@@ -197,9 +197,9 @@ const FilmPost = ({ date, id, image, summary, title, url }: PostListItem) => (
           <Image
             alt={`cover image for ${title}`}
             className="bordered-image corner-radius-8"
-            height={150}
+            height={135}
             src={image}
-            width={100}
+            width={90}
           />
         </a>
       ) : null}

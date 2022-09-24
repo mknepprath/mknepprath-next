@@ -57,7 +57,12 @@
 
 .filmPoster {
   flex-shrink: 0;
-  width: 133px;
+  width: 106px;
+}
+@media (min-width: 632px) {
+  .filmPoster {
+    width: 123px;
+  }
 }
 
 .filmTitle {
