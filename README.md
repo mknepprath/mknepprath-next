@@ -1,7 +1,5 @@
 # Michael Knepprath's codebase.
 
-Welcome to my internet.
-
 View the latest deploy here: https://mknepprath-next.mknepprath.now.sh.
 
 ## Set Up
