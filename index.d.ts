@@ -14,7 +14,10 @@ interface PostListItem {
   date: string;
   id: string;
   image?: string;
+  summary?: string;
   title: string;
+  type?: "FILM" | "TWEET" | "REPO" | "POST";
+  url?: string;
 }
 
 interface Book {
@@ -31,11 +34,13 @@ interface Book {
 }
 
 interface Film {
-  title: string;
-  year: string;
   image_url: string;
   link: string;
+  published_at: string;
   rating: string;
+  review: string;
+  title: string;
+  year: string;
 }
 
 interface Tweet {
@@ -49,19 +54,32 @@ interface Tweet {
 interface MediaTweet {
   id: string;
   text: string;
+  created_at: string;
   attachments: {
     media_keys: MediaKey[];
   };
+  entities: {
+    urls: {
+      display_url: string;
+      end: number;
+      expanded_url: string;
+      media_key: string;
+      start: number;
+      url: string;
+    }[];
+  };
+  public_metrics: PublicMetrics;
 }
 
 type MediaKey = string;
 
 interface Media {
-  width: number;
-  type: "photo" | "video";
-  media_key: MediaKey;
-  url: string;
   height: number;
+  media_key: MediaKey;
+  preview_image_url: string;
+  type: "photo" | "video";
+  url: string;
+  width: number;
 }
 
 interface PublicMetrics {
@@ -128,4 +146,12 @@ interface Shot {
   attachments: unknown[];
   projects: unknown[];
   video: unknown;
+}
+interface Repo {
+  id: string;
+  name: string;
+  pushed_at: string;
+  html_url: string;
+  description: string;
+  homepage: string;
 }

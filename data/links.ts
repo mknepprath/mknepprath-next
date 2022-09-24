@@ -18,11 +18,11 @@ export const navLinks: Link[] = [
     key: "code",
     title: "GitHub",
   },
-  {
-    href: "https://dribbble.com/mknepprath",
-    key: "illustration",
-    title: "Dribbble",
-  },
+  // {
+  //   href: "https://dribbble.com/mknepprath",
+  //   key: "illustration",
+  //   title: "Dribbble",
+  // },
 ];
 
 interface ProjectLink {
@@ -42,7 +42,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "A website inspired by a podcast",
-    href: "https://culturallyirrelevant.net/",
+    href: "https://culturallyirrelevant.com",
     title: "Culturally Irrelevant",
     imgSrc: "/assets/culturally-irrelevant.png",
   },

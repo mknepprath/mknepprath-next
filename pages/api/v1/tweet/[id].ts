@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "isomorphic-unfetch";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (
   req: NextApiRequest,
@@ -10,7 +10,7 @@ export default async (
   } = req;
 
   const myHeaders = new Headers();
-  myHeaders.append("Authorization", `${process.env.TWITTER_AUTH_TOKEN}`);
+  myHeaders.append("Authorization", `Bearer ${process.env.TWITTER_AUTH_TOKEN}`);
 
   const requestOptions: RequestInit = {
     method: "GET",
