@@ -18,11 +18,11 @@ export const navLinks: Link[] = [
     key: "code",
     title: "GitHub",
   },
-  {
-    href: "https://dribbble.com/mknepprath",
-    key: "illustration",
-    title: "Dribbble",
-  },
+  // {
+  //   href: "https://dribbble.com/mknepprath",
+  //   key: "illustration",
+  //   title: "Dribbble",
+  // },
 ];
 
 interface ProjectLink {
