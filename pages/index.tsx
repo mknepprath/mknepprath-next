@@ -4,6 +4,7 @@ import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
+import { ReactNode, useMemo } from "react";
 import useSWR from "swr";
 
 import Card from "@core/card";
@@ -19,8 +20,40 @@ import styles from "./index.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export default function Home(): React.ReactNode {
-  const { data: shots } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
+export default function Home(): ReactNode {
+  const { data: films = [] } = useSWR<Film[]>(`/api/v1/films`, fetcher);
+  const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
+  const { data: tweets } = useSWR<Tweets>(`/api/v1/timeline/15332057`, fetcher);
+
+  const filmPosts: PostListItem[] = useMemo(() => {
+    return films?.map((film) => ({
+      date: new Date(film.published_at).toISOString(),
+      id: `${film.title.split(" ").join("_")}_${film.year}`,
+      image: film.image_url,
+      summary: film.review,
+      title: film.title,
+      type: "FILM",
+      url: film.link,
+    }));
+  }, [films]);
+
+  const tweetPosts: PostListItem[] = useMemo(() => {
+    return (tweets?.data || [])
+      ?.filter((tweet) => !tweet?.entities?.urls?.length)
+      .map((tweet) => {
+        const media = tweets?.includes.media.find(
+          (m) => m.media_key === tweet.attachments?.media_keys[0]
+        );
+        return {
+          date: new Date(tweet.created_at).toISOString(),
+          id: tweet.id,
+          image: media?.preview_image_url || media?.url,
+          summary: tweet.text,
+          title: tweet.text,
+          type: "TWEET",
+        };
+      });
+  }, [tweets]);
 
   return (
     <>
@@ -42,40 +75,22 @@ export default function Home(): React.ReactNode {
 
       <div className="container">
         <h2>Writing</h2>
-        {posts
+        {[...posts, ...filmPosts, ...tweetPosts]
           // The `sort` method can be conveniently used with function expressions:
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
           .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-          // Only display first 5 posts.
-          .slice(0, 5)
-          .map((post) => (
-            <article key={post.id}>
-              <header>
-                <Link href={`/writing/${post.id}`}>
-                  <a>
-                    {post.image ? (
-                      <div
-                        className="fill-image bordered-image"
-                        style={{ height: 200 }}
-                      >
-                        <Image
-                          alt={`cover image for ${post.title}`}
-                          className="corner-radius-8"
-                          src={post.image}
-                          layout="fill"
-                          objectFit="cover"
-                        />
-                      </div>
-                    ) : null}
-                    <h3 className={styles.title}>{post.title}</h3>
-                  </a>
-                </Link>{" "}
-                <small>{format(parseISO(post.date), "MMMM d, yyyy")}</small>
-              </header>
-            </article>
-          ))}
-        {/* TODO: Make this look good. */}
-        {/* <Link href="/writing">See more</Link> */}
+          // Only display first 6 posts.
+          .slice(0, 6)
+          .map((post) => {
+            switch (post.type) {
+              case "FILM":
+                return <FilmPost key={post.id} {...post} />;
+              case "TWEET":
+                return <TweetPost key={post.id} {...post} />;
+              default:
+                return <Post key={post.id} {...post} />;
+            }
+          })}
       </div>
 
       <div className={classnames("container", styles.projectContainer)}>
@@ -116,3 +131,90 @@ export default function Home(): React.ReactNode {
     </>
   );
 }
+
+const Post = ({ date, id, image, title }: PostListItem) => (
+  <article key={id}>
+    <header>
+      <Link href={`/writing/${id}`}>
+        <a>
+          {image ? (
+            <div className="fill-image bordered-image" style={{ height: 200 }}>
+              <Image
+                alt={`cover image for ${title}`}
+                className="corner-radius-8"
+                src={image}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ) : null}
+          <h3 className={styles.title}>{title}</h3>
+        </a>
+      </Link>{" "}
+      <small>{format(parseISO(date), "MMMM d, yyyy")}</small>
+    </header>
+  </article>
+);
+
+const FilmPost = ({ date, id, image, summary, title, url }: PostListItem) => (
+  <article key={id}>
+    <header className={styles.filmPostHeader}>
+      {image ? (
+        <a
+          className={styles.filmPoster}
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            alt={`cover image for ${title}`}
+            className="bordered-image corner-radius-8"
+            height={150}
+            src={image}
+            width={100}
+          />
+        </a>
+      ) : null}
+      <div>
+        <a href={url} target="_blank" rel="noreferrer">
+          <h3 className={styles.filmTitle}>{title}</h3>
+        </a>
+        {summary ? (
+          <div
+            className={styles.filmReview}
+            dangerouslySetInnerHTML={{ __html: summary }}
+          />
+        ) : null}
+        <small>Watched on {format(parseISO(date), "MMMM d, yyyy")}</small>
+      </div>
+    </header>
+  </article>
+);
+
+const TweetPost = ({ date, id, image, title }: PostListItem) => (
+  <article key={id}>
+    <header>
+      <a
+        href={`https://twitter.com/mknepprath/status/${id}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {image ? (
+          <div className="fill-image bordered-image" style={{ height: 200 }}>
+            <Image
+              alt={`cover image for ${title}`}
+              className="corner-radius-8"
+              src={image}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : null}
+        <h3 className={styles.tweet}>
+          <em>“{title}”</em>
+        </h3>
+      </a>{" "}
+      <small>Tweeted on {format(parseISO(date), "MMMM d, yyyy")}</small>
+    </header>
+  </article>
+);

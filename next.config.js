@@ -1,8 +1,9 @@
+/* eslint-disable */
 const { join } = require("path");
 
 module.exports = {
   images: {
-    domains: ["pbs.twimg.com"],
+    domains: ["pbs.twimg.com", "a.ltrbxd.com"],
   },
   webpack(config, options) {
     // Fix for a long-running react-spring bug. https://github.com/pmndrs/react-spring/issues/1078#issuecomment-743698325

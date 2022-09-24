@@ -10,7 +10,7 @@ export default async (
   } = req;
 
   const myHeaders = new Headers();
-  myHeaders.append("Authorization", `${process.env.TWITTER_AUTH_TOKEN}`);
+  myHeaders.append("Authorization", `Bearer ${process.env.TWITTER_AUTH_TOKEN}`);
 
   const requestOptions: RequestInit = {
     method: "GET",
@@ -20,7 +20,7 @@ export default async (
 
   return new Promise((resolve) => {
     fetch(
-      `https://api.twitter.com/2/users/${id}/tweets?expansions=attachments.media_keys&media.fields=type,url,width,height&max_results=100`,
+      `https://api.twitter.com/2/users/${id}/tweets?tweet.fields=created_at,entities&exclude=replies,retweets&expansions=attachments.media_keys&media.fields=type,url,preview_image_url,width,height&max_results=100`,
       requestOptions
     )
       .then((response) => response.text())

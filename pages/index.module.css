@@ -50,3 +50,32 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.filmPostHeader {
+  display: flex;
+}
+
+.filmPoster {
+  flex-shrink: 0;
+  width: 133px;
+}
+
+.filmTitle {
+  color: var(--black);
+  margin: 0px;
+}
+.filmTitle:hover {
+  color: var(--primaryColor);
+}
+
+.filmReview > * {
+  margin: 0.8em 0 0.6em;
+}
+
+.tweet {
+  color: var(--black);
+  margin: 0;
+}
+.tweet:hover {
+  color: var(--primaryColor);
+}

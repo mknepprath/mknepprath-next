@@ -82,7 +82,7 @@ export default function About(): React.ReactNode {
                 <Card
                   description={film.year}
                   href={film.link}
-                  imgSrc={film.image_url.split(`"`)[1]}
+                  imgSrc={film.image_url}
                   key={film.link}
                   title={film.title}
                 />
