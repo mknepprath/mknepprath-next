@@ -42,7 +42,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "A website inspired by a podcast",
-    href: "https://culturallyirrelevant.net/",
+    href: "https://culturallyirrelevant.com",
     title: "Culturally Irrelevant",
     imgSrc: "/assets/culturally-irrelevant.png",
   },

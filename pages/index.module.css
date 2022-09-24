@@ -69,12 +69,13 @@
 }
 
 .filmReview > * {
-  margin: 0.8em 0 0.6em;
+  margin: 0.4em 0 0.2em;
 }
 
 .tweet {
   color: var(--black);
   margin: 0;
+  margin-bottom: 0.2em;
 }
 .tweet:hover {
   color: var(--primaryColor);

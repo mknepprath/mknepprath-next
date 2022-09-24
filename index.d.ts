@@ -16,7 +16,7 @@ interface PostListItem {
   image?: string;
   summary?: string;
   title: string;
-  type?: "FILM" | "TWEET" | "POST";
+  type?: "FILM" | "TWEET" | "REPO" | "POST";
   url?: string;
 }
 
@@ -68,6 +68,7 @@ interface MediaTweet {
       url: string;
     }[];
   };
+  public_metrics: PublicMetrics;
 }
 
 type MediaKey = string;
@@ -145,4 +146,12 @@ interface Shot {
   attachments: unknown[];
   projects: unknown[];
   video: unknown;
+}
+interface Repo {
+  id: string;
+  name: string;
+  pushed_at: string;
+  html_url: string;
+  description: string;
+  homepage: string;
 }

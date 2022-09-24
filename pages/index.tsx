@@ -24,36 +24,62 @@ export default function Home(): ReactNode {
   const { data: films = [] } = useSWR<Film[]>(`/api/v1/films`, fetcher);
   const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
   const { data: tweets } = useSWR<Tweets>(`/api/v1/timeline/15332057`, fetcher);
+  const { data: repos = [] } = useSWR<Repo[]>(`/api/v1/github/repos`, fetcher);
 
-  const filmPosts: PostListItem[] = useMemo(() => {
-    return films?.map((film) => ({
-      date: new Date(film.published_at).toISOString(),
-      id: `${film.title.split(" ").join("_")}_${film.year}`,
-      image: film.image_url,
-      summary: film.review,
-      title: film.title,
-      type: "FILM",
-      url: film.link,
-    }));
-  }, [films]);
+  const filmPosts: PostListItem[] = useMemo(
+    () =>
+      films?.map((film) => ({
+        date: new Date(film.published_at).toISOString(),
+        id: `${film.title.split(" ").join("_")}_${film.year}`,
+        image: film.image_url,
+        summary: film.review,
+        title: film.title,
+        type: "FILM",
+        url: film.link,
+      })),
+    [films]
+  );
 
-  const tweetPosts: PostListItem[] = useMemo(() => {
-    return (tweets?.data || [])
-      ?.filter((tweet) => !tweet?.entities?.urls?.length)
-      .map((tweet) => {
-        const media = tweets?.includes.media.find(
-          (m) => m.media_key === tweet.attachments?.media_keys[0]
-        );
-        return {
-          date: new Date(tweet.created_at).toISOString(),
-          id: tweet.id,
-          image: media?.preview_image_url || media?.url,
-          summary: tweet.text,
-          title: tweet.text,
-          type: "TWEET",
-        };
-      });
-  }, [tweets]);
+  // filter out tweets without likes
+
+  const tweetPosts: PostListItem[] = useMemo(
+    () =>
+      (tweets?.data || [])
+        ?.filter(
+          (tweet) =>
+            !tweet?.entities?.urls?.length &&
+            tweet?.public_metrics?.like_count > 0
+        )
+        .map((tweet) => {
+          const media = tweets?.includes.media.find(
+            (m) => m.media_key === tweet.attachments?.media_keys[0]
+          );
+          return {
+            date: new Date(tweet.created_at).toISOString(),
+            id: tweet.id,
+            image: media?.preview_image_url || media?.url,
+            summary: tweet.text,
+            title: tweet.text,
+            type: "TWEET",
+          };
+        }),
+    [tweets]
+  );
+
+  const repoPosts: PostListItem[] = useMemo(
+    () =>
+      repos
+        ?.filter((repo) => repo.name !== "mknepprath-next")
+        .map((repo) => ({
+          date: repo.pushed_at,
+          id: repo.id,
+          summary: repo.description,
+          title: repo.name,
+          type: "REPO",
+          url: repo.homepage,
+        })),
+    [repos]
+  );
 
   return (
     <>
@@ -74,8 +100,8 @@ export default function Home(): ReactNode {
       </div>
 
       <div className="container">
-        <h2>Writing</h2>
-        {[...posts, ...filmPosts, ...tweetPosts]
+        <h2>Activity</h2>
+        {[...posts, ...filmPosts, ...tweetPosts, ...repoPosts]
           // The `sort` method can be conveniently used with function expressions:
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
           .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
@@ -87,6 +113,8 @@ export default function Home(): ReactNode {
                 return <FilmPost key={post.id} {...post} />;
               case "TWEET":
                 return <TweetPost key={post.id} {...post} />;
+              case "REPO":
+                return <RepoPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }
@@ -187,6 +215,28 @@ const FilmPost = ({ date, id, image, summary, title, url }: PostListItem) => (
         ) : null}
         <small>Watched on {format(parseISO(date), "MMMM d, yyyy")}</small>
       </div>
+    </header>
+  </article>
+);
+
+const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
+  <article key={id}>
+    <header>
+      <a
+        href={url || `https://github.com/mknepprath/${title}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <h3 className={styles.title}>
+          {url?.replace("https://", "") || (
+            <>
+              <span style={{ fontWeight: 300 }}>mknepprath /</span> {title}
+            </>
+          )}
+        </h3>
+      </a>{" "}
+      <p style={{ margin: "0.4em 0 0.2em" }}>{summary}</p>
+      <small>Updated on {format(parseISO(date), "MMMM d, yyyy")}</small>
     </header>
   </article>
 );
