@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "isomorphic-unfetch";
+import { NextApiRequest, NextApiResponse } from "next";
 import xml2js from "xml2js";
 
 export default async (
