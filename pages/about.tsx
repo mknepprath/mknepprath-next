@@ -31,7 +31,7 @@ export default function About(): React.ReactNode {
         </div>
 
         <p>
-          Michael Knepprath is a Senior Software Engineer at{" "}
+          Michael Knepprath is a Staff Software Engineer at{" "}
           <a
             href="https://www.walmartlabs.com"
             rel="noopener noreferrer"
