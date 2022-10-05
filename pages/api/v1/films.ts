@@ -22,11 +22,11 @@ export default async (
           films.push({
             image_url: filmList[i].description[0].split(`"`)[1],
             link: filmList[i].link[0],
-            published_at: filmList[i].pubDate[0],
+            published_at: filmList[i]["letterboxd:watchedDate"][0],
             rating: filmList[i]["letterboxd:memberRating"]?.[0],
             review: review.join(`</p>`),
             title: filmList[i]["letterboxd:filmTitle"][0],
-            year: filmList[i]["letterboxd:filmYear"][0],
+            year: filmList[i]["letterboxd:filmYear"]?.[0],
           });
         }
       });
@@ -35,6 +35,7 @@ export default async (
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  res.setHeader("Cache-Control", "max-age=86400");
-  res.end(JSON.stringify(films.filter((film) => +film.rating > 4).slice(0, 6)));
+  if (process.env.NODE_ENV !== "development")
+    res.setHeader("Cache-Control", "max-age=86400");
+  res.end(JSON.stringify(films.filter((film) => +film.rating > 3).slice(0, 6)));
 };

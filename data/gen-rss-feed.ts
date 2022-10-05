@@ -1,7 +1,9 @@
 // Fixed a ts-node issue with https://github.com/TypeStrong/ts-node/issues/436#issuecomment-624328557
 
 import "colors";
+
 import fs from "fs";
+
 import posts from "./get-blog-posts";
 
 const Diff = require("diff"); // eslint-disable-line @typescript-eslint/no-var-requires
@@ -28,7 +30,7 @@ const feed = {
   title: "M. Knepprath",
   home_page_url: "https://mknepprath.com",
   feed_url: "https://mknepprath.com/feed.json",
-  description: "Michael Knepprath is a Senior Software Engineer at Walmart.",
+  description: "Michael Knepprath is a Staff Software Engineer at Walmart.",
   icon: "https://mknepprath.com/assets/apple-touch-icon-152x152.png",
   favicon: "https://mknepprath.com/assets/favicon.ico",
   author: {
