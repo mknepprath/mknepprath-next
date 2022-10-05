@@ -35,6 +35,7 @@ export default async (
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  res.setHeader("Cache-Control", "max-age=86400");
+  if (process.env.NODE_ENV !== "development")
+    res.setHeader("Cache-Control", "max-age=86400");
   res.end(JSON.stringify(films.filter((film) => +film.rating > 3).slice(0, 6)));
 };

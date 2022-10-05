@@ -28,15 +28,20 @@ export default function Home(): ReactNode {
 
   const filmPosts: PostListItem[] = useMemo(
     () =>
-      films?.map((film) => ({
-        date: new Date(film.published_at).toISOString(),
-        id: `${film.title.split(" ").join("_")}_${film.year}`,
-        image: film.image_url,
-        summary: film.review,
-        title: film.title,
-        type: "FILM",
-        url: film.link,
-      })),
+      films
+        ?.map((film) => ({
+          date: new Date(film.published_at).toISOString(),
+          id: `${film.title.split(" ").join("_")}_${film.year}`,
+          image: film.image_url,
+          summary: film.review,
+          title: film.title,
+          type: "FILM" as PostListItem["type"],
+          url: film.link,
+        }))
+        // The `sort` method can be conveniently used with function expressions:
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+        .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
+        .slice(0, 2),
     [films]
   );
 
@@ -60,9 +65,13 @@ export default function Home(): ReactNode {
             image: media?.preview_image_url || media?.url,
             summary: tweet.text,
             title: tweet.text,
-            type: "TWEET",
+            type: "TWEET" as PostListItem["type"],
           };
-        }),
+        })
+        // The `sort` method can be conveniently used with function expressions:
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+        .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
+        .slice(0, 2),
     [tweets]
   );
 
@@ -75,10 +84,20 @@ export default function Home(): ReactNode {
           id: repo.id,
           summary: repo.description,
           title: repo.name,
-          type: "REPO",
+          type: "REPO" as PostListItem["type"],
           url: repo.homepage,
-        })),
+        }))
+        // The `sort` method can be conveniently used with function expressions:
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+        .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
+        .slice(0, 2),
     [repos]
+  );
+
+  console.log(
+    [...posts, ...filmPosts, ...tweetPosts, ...repoPosts].sort(
+      (a, b) => +parseISO(b.date) - +parseISO(a.date)
+    )
   );
 
   return (
@@ -106,7 +125,7 @@ export default function Home(): ReactNode {
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
           .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
           // Only display first 6 posts.
-          .slice(0, 6)
+          .slice(0, 8)
           .map((post) => {
             switch (post.type) {
               case "FILM":
