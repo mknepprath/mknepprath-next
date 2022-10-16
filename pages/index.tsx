@@ -52,19 +52,23 @@ export default function Home(): ReactNode {
       (tweets?.data || [])
         ?.filter(
           (tweet) =>
-            !tweet?.entities?.urls?.length &&
+            tweet?.entities?.urls?.length <= 1 &&
+            !!tweet?.entities?.urls[0].media_key &&
             tweet?.public_metrics?.like_count > 0
         )
         .map((tweet) => {
           const media = tweets?.includes.media.find(
             (m) => m.media_key === tweet.attachments?.media_keys[0]
           );
+          const text = tweet.text
+            .replace(tweet.entities.urls[0].url, "")
+            .trim();
           return {
             date: new Date(tweet.created_at).toISOString(),
             id: tweet.id,
             image: media?.preview_image_url || media?.url,
-            summary: tweet.text,
-            title: tweet.text,
+            summary: text,
+            title: text,
             type: "TWEET" as PostListItem["type"],
           };
         })
@@ -92,12 +96,6 @@ export default function Home(): ReactNode {
         .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
         .slice(0, 2),
     [repos]
-  );
-
-  console.log(
-    [...posts, ...filmPosts, ...tweetPosts, ...repoPosts].sort(
-      (a, b) => +parseISO(b.date) - +parseISO(a.date)
-    )
   );
 
   return (
@@ -260,7 +258,7 @@ const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
   </article>
 );
 
-const TweetPost = ({ date, id, image, title }: PostListItem) => (
+const TweetPost = ({ date, id, image, summary, title }: PostListItem) => (
   <article key={id}>
     <header>
       <a
@@ -279,10 +277,16 @@ const TweetPost = ({ date, id, image, title }: PostListItem) => (
             />
           </div>
         ) : null}
-        <h3 className={styles.tweet}>
-          <em>“{title}”</em>
-        </h3>
-      </a>{" "}
+        {!image ? (
+          <h3 className={styles.tweet}>
+            <em>{title}</em>
+          </h3>
+        ) : (
+          <p className={styles.tweet} style={{ margin: "0.4em 0 0.2em" }}>
+            <em>{summary}</em>
+          </p>
+        )}
+      </a>
       <small>Tweeted on {format(parseISO(date), "MMMM d, yyyy")}</small>
     </header>
   </article>
