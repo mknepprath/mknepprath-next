@@ -8,6 +8,7 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
+  const { max_results, min_rating } = req.query;
   const films: Film[] = [];
   await fetch(LETTERBOXD_RSS)
     .then((response) => response.text())
@@ -35,7 +36,16 @@ export default async (
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  if (process.env.NODE_ENV !== "development")
+  if (process.env.NODE_ENV === "production")
     res.setHeader("Cache-Control", "max-age=86400");
-  res.end(JSON.stringify(films.filter((film) => +film.rating > 3).slice(0, 6)));
+  res.end(
+    JSON.stringify(
+      films
+        .filter(
+          (film) =>
+            +film.rating > (min_rating ? parseInt(min_rating as string) : 4)
+        )
+        .slice(0, max_results ? parseInt(max_results as string) : 6)
+    )
+  );
 };

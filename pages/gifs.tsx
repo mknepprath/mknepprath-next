@@ -12,7 +12,7 @@ import styles from "./gifs.module.css";
 
 const BASE_URL =
   process.env.NODE_ENV === "development"
-    ? "localhost:3000"
+    ? "http://localhost:3000"
     : "https://mknepprath.com";
 
 /**
