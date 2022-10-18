@@ -481,7 +481,7 @@ export default function Home() {
         Please visit the website for the full experience, including features
         like{" "}
         <a
-          href="https://culturallyirrelevant.net/mixtape"
+          href="https://culturallyirrelevant.com/mixtape"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -492,7 +492,7 @@ export default function Home() {
         video game, comic book, television show, book, board game, artist,
         podcast, miniseries, band, etc, that you&apos;d like to share, visit{" "}
         <a
-          href="https://culturallyirrelevant.net"
+          href="https://culturallyirrelevant.com"
           rel="noopener noreferrer"
           target="_blank"
         >

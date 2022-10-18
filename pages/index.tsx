@@ -245,7 +245,9 @@ const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
         rel="noreferrer"
       >
         <h3 className={styles.title}>
-          {url?.replace("https://", "") || (
+          {url
+            ?.replace("https://twitter.com/", "@")
+            ?.replace("https://", "") || (
             <>
               <span style={{ fontWeight: 300 }}>mknepprath /</span> {title}
             </>

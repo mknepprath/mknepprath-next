@@ -260,7 +260,7 @@ export default function ReviewOf2020(): React.ReactNode {
       </p>
       <p>
         Earlier this year, I dropped all of my other projects to work on the{" "}
-        <A href="https://culturallyirrelevant.net">
+        <A href="https://culturallyirrelevant.com">
           Culturally Irrelevant Recommendation Board
         </A>
         , a website inspired by a retired podcast of the same name. I spent a
