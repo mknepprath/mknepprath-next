@@ -12,9 +12,9 @@ export default async (
   const result = await octokit.request("GET /user", {});
   // get repo list
   const repos = await octokit.request("GET /user/repos", {
-    type: "owner",
     sort: "updated",
     direction: "desc",
+    visibility: "all",
   });
 
   // get commits for each repo

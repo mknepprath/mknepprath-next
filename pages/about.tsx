@@ -2,6 +2,7 @@ import classnames from "classnames";
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 
+import A from "@core/a";
 import Card from "@core/card";
 import Page from "@core/page";
 import PhotoStack from "@core/photo-stack";
@@ -32,15 +33,11 @@ export default function About(): React.ReactNode {
 
         <p>
           Michael Knepprath is a Staff Software Engineer at{" "}
-          <a
-            href="https://www.walmartlabs.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Walmart
-          </a>
-          . He loves his family and working on side projects related to
-          technology, design, film, video games, and so on.
+          <A href="https://www.walmartlabs.com">Walmart</A> (prev.{" "}
+          <A href="https://hyper.online">Hyper</A>,{" "}
+          <A href="https://whcc.com">WHCC</A>). He loves his family and working
+          on side projects related to technology, design, film, video games, and
+          so on.
         </p>
 
         <h2>Contact</h2>
