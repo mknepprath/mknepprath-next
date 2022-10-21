@@ -18,7 +18,7 @@ export default function Page({
   title,
 }: Props): JSX.Element {
   return (
-    <div className={className}>
+    <div className={"container " + className}>
       <Head title={title} description={description} ogImage={ogImage} />
       <Nav />
       {children}

@@ -15,7 +15,6 @@ export default async (
     .then((body) => {
       xml2js.parseString(body, function (error, response) {
         if (error) console.error(error);
-        console.info("Getting Book List from GoodReads API");
         const bookList = response.rss.channel[0].item;
         for (let i = 0; i < bookList.length; i++) {
           books.push({

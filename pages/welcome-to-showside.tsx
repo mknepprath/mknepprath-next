@@ -6,11 +6,7 @@ import Page from "@core/page";
 
 export default function Dynoland(): React.ReactNode {
   return (
-    <Page
-      className="container"
-      ogImage="/assets/welcome-to-showside.jpg"
-      title="8-Bit Kit"
-    >
+    <Page ogImage="/assets/welcome-to-showside.jpg" title="8-Bit Kit">
       <article>
         <header>
           <h1>8-Bit Kit</h1>

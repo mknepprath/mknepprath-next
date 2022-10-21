@@ -10,7 +10,7 @@ export default function Uses(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books?shelf=desk`, fetcher);
 
   return (
-    <Page className="container" title="Uses">
+    <Page title="Uses">
       <article data-cy="uses-page">
         <header>
           <h1>Uses</h1>

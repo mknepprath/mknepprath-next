@@ -3,7 +3,7 @@ import Page from "@core/page";
 
 export default function Podcasts(): React.ReactNode {
   return (
-    <Page className="container" title="Podcasts">
+    <Page title="Podcasts">
       <article data-cy="uses-page">
         <header>
           <h1>Podcasts</h1>

@@ -9,7 +9,6 @@ export default async (
     auth: process.env.GITHUB_AUTH_TOKEN,
   });
 
-  const result = await octokit.request("GET /user", {});
   // get repo list
   const repos = await octokit.request("GET /user/repos", {
     sort: "updated",

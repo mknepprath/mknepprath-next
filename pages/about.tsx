@@ -18,10 +18,7 @@ export default function About(): React.ReactNode {
   const { data: music } = useSWR<Playlist[]>(`/api/v1/music`, fetcher);
 
   return (
-    <Page
-      className={classnames("container", styles.pageContainer)}
-      title="About Michael Knepprath"
-    >
+    <Page className={styles.pageContainer} title="About Michael Knepprath">
       <article data-cy="about-page">
         <header>
           <h1>About</h1>

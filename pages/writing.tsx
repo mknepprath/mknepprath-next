@@ -13,7 +13,7 @@ import styles from "./writing.module.css";
 
 export default function Writing(): React.ReactNode {
   return (
-    <Page className="container" title="Michael Knepprath, Occasional Writer">
+    <Page title="Michael Knepprath, Occasional Writer">
       <header data-cy="writing-page">
         <h1>Writing</h1>
       </header>

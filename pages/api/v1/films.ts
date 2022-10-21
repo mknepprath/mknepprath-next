@@ -15,7 +15,6 @@ export default async (
     .then((body) => {
       xml2js.parseString(body, function (error, response) {
         if (error) console.error(error);
-        console.info("Getting Film List from Letterboxd API");
         const filmList = response.rss.channel[0].item;
         for (let i = 0; i < filmList.length; i++) {
           const review = filmList[i].description[0].split(`</p>`);
@@ -23,10 +22,10 @@ export default async (
           films.push({
             image_url: filmList[i].description[0].split(`"`)[1],
             link: filmList[i].link[0],
-            published_at: filmList[i]["letterboxd:watchedDate"][0],
+            published_at: filmList[i]["letterboxd:watchedDate"]?.[0],
             rating: filmList[i]["letterboxd:memberRating"]?.[0],
             review: review.join(`</p>`),
-            title: filmList[i]["letterboxd:filmTitle"][0],
+            title: filmList[i]["letterboxd:filmTitle"]?.[0],
             year: filmList[i]["letterboxd:filmYear"]?.[0],
           });
         }
