@@ -42,7 +42,7 @@ export default async (
       films
         .filter(
           (film) =>
-            +film.rating > (min_rating ? parseInt(min_rating as string) : 4)
+            +film.rating > (min_rating ? parseInt(min_rating as string) : 3)
         )
         .slice(0, max_results ? parseInt(max_results as string) : 6)
     )

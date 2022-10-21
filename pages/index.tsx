@@ -64,6 +64,8 @@ export default function Home(): ReactNode {
                 return <Post key={post.id} {...post} />;
             }
           })}
+
+        {!activity.length && <div>What have I been up to...</div>}
       </div>
 
       <div className={classnames("container", styles.projectContainer)}>
