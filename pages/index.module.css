@@ -1,10 +1,13 @@
 .hero {
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+
   color: var(--black);
 }
 
 .greeting {
   margin: 80px 0;
-  width: 100%;
   line-height: 1.1;
   font-size: 48px;
 }

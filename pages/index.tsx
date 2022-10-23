@@ -4,7 +4,7 @@ import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import useSWR from "swr";
 
 import Card from "@core/card";
@@ -13,6 +13,7 @@ import Head from "@core/head";
 import Nav from "@core/nav";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
+import useScrollPosition from "@hooks/useScrollPosition";
 
 import styles from "./index.module.css";
 
@@ -26,12 +27,17 @@ export default function Home(): ReactNode {
   );
   const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
 
+  const scrollPosition = useScrollPosition();
+
   return (
     <>
       <Head />
-      <Nav className="container" />
+      <Nav
+        className="container"
+        style={{ position: "absolute", left: 0, right: 0, zIndex: 200 }}
+      />
 
-      <div className={classnames("container", styles.hero)}>
+      {/* <div className={classnames("container", styles.hero)}>
         <h1 className={styles.greeting}>
           <a
             href="https://youtu.be/5-CEGCXDVgI"
@@ -42,10 +48,114 @@ export default function Home(): ReactNode {
           </a>
           <br />I design & develop things for the internet.
         </h1>
+      </div> */}
+
+      <div className="keyart" id="parallax">
+        <div
+          className="keyart_layer parallax"
+          id="keyart-0"
+          data-speed="2"
+          style={{
+            transform: `translate3d(0px, ${scrollPosition * -0.02}px, 0px)`,
+          }}
+        />
+        {/* <div
+          className="keyart_layer parallax"
+          id="keyart-1"
+          data-speed="5"
+          style={{ transform: `translate3d(0px, ${scrollPosition}px, 0px)` }}
+        /> */}
+        <div
+          className="keyart_layer parallax"
+          id="keyart-1"
+          data-speed="11"
+          style={{
+            transform: `translate3d(0px, ${scrollPosition * -0.11}px, 0px)`,
+          }}
+        />
+        {/* <div
+          className="keyart_layer parallax"
+          id="keyart-3"
+          data-speed="16"
+          style={{ transform: `translate3d(0px, ${scrollPosition}px, 0px)` }}
+        /> */}
+        <div
+          className="keyart_layer parallax"
+          id="keyart-2"
+          data-speed="26"
+          style={{
+            transform: `translate3d(0px, ${scrollPosition * -0.26}px, 0px)`,
+          }}
+        />
+        {/* <div
+          className="keyart_layer parallax"
+          id="keyart-5"
+          data-speed="36"
+          style={{ transform: `translate3d(0px, ${scrollPosition}px, 0px)` }}
+        /> */}
+        <div
+          className="keyart_layer parallax"
+          id="keyart-3b"
+          data-speed="49"
+          style={{
+            transform: `translate3d(0px, ${scrollPosition * -0.49}px, 0px)`,
+            opacity: 0.6, // `${0.6 - scrollPosition * 0.001}`,
+          }}
+        />
+        <div
+          className="keyart_layer parallax"
+          id="keyart-3"
+          data-speed="49"
+          style={{
+            transform: `translate3d(0px, ${scrollPosition * -0.49}px, 0px)`,
+          }}
+        />
+        <div className="keyart_layer" id="keyart-scrim" />
+        <div
+          className="keyart_layer parallax"
+          id="keyart-7"
+          data-speed="69"
+          style={{
+            transform: `translate3d(0px, ${scrollPosition * -0.69}px, 0px)`,
+          }}
+        >
+          <div
+            className={classnames("container", styles.hero)}
+            style={{ marginTop: 200 }}
+          >
+            <h1 className={styles.greeting}>
+              <a
+                href="https://youtu.be/5-CEGCXDVgI"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span>Hello!</span>
+              </a>
+              <br />I design & develop things for the internet.
+            </h1>
+          </div>
+        </div>
+        <div
+          className="keyart_layer parallax"
+          id="keyart-4"
+          data-speed="59"
+          style={{
+            transform: `translate3d(0px, ${scrollPosition * -0.59}px, 0px)`,
+          }}
+        />
+        <div className="keyart_layer" id="keyart-5" data-speed="100" />
       </div>
 
-      <div className="container">
-        <h2>Activity</h2>
+      <div
+        className="container"
+        style={{
+          background: "#ffffff",
+          paddingTop: "2.4rem",
+          position: "relative",
+          zIndex: 200,
+        }}
+      >
+        <h2 style={{ marginTop: 0 }}>Activity</h2>
         {activity
           // The `sort` method can be conveniently used with function expressions:
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -66,43 +176,49 @@ export default function Home(): ReactNode {
           })}
 
         {!activity.length && <div>What have I been up to...</div>}
-      </div>
 
-      <div className={classnames("container", styles.projectContainer)}>
-        <h2>Projects</h2>
-        <div className={styles.cardContainer}>
-          {projectLinks.map(({ description, href, imgSrc, title }) => (
-            <Card
-              description={description}
-              href={href}
-              imgSrc={imgSrc}
-              key={title}
-              title={title}
-            />
-          ))}
-        </div>
-      </div>
-
-      {shots?.length ? (
-        <div className={classnames("container", styles.projectContainer)}>
-          <h2>Illustrations</h2>
+        <div
+          className={styles.projectContainer}
+          style={{ position: "relative", zIndex: 200 }}
+        >
+          <h2>Projects</h2>
           <div className={styles.cardContainer}>
-            {shots?.map(({ html_url, images, published_at, title }) => (
-              <Shot
-                description={format(parseISO(published_at), "MMMM d, yyyy")}
-                href={html_url}
-                imgSrc={images.normal}
+            {projectLinks.map(({ description, href, imgSrc, title }) => (
+              <Card
+                description={description}
+                href={href}
+                imgSrc={imgSrc}
                 key={title}
                 title={title}
               />
             ))}
           </div>
-          {/* TODO: Make this look good. */}
-          {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
         </div>
-      ) : null}
 
-      <Footer className="container" />
+        {shots?.length ? (
+          <div
+            className={styles.projectContainer}
+            style={{ position: "relative", zIndex: 200 }}
+          >
+            <h2>Illustrations</h2>
+            <div className={styles.cardContainer}>
+              {shots?.map(({ html_url, images, published_at, title }) => (
+                <Shot
+                  description={format(parseISO(published_at), "MMMM d, yyyy")}
+                  href={html_url}
+                  imgSrc={images.normal}
+                  key={title}
+                  title={title}
+                />
+              ))}
+            </div>
+            {/* TODO: Make this look good. */}
+            {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
+          </div>
+        ) : null}
+
+        <Footer />
+      </div>
     </>
   );
 }
