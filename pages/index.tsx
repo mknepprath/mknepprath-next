@@ -29,6 +29,17 @@ export default function Home(): ReactNode {
 
   const scrollPosition = useScrollPosition();
 
+  const SPEED = {
+    KEYART_0: 0.02, // sun
+    KEYART_1: 0.11, // land
+    KEYART_2: 0.26, // land
+    KEYART_3: 0.39, // wall
+    KEYART_4: 0.49, // desk, monitor text
+    KEYART_6: 0.69, // tree
+    KEYART_7: 0.79, // cat
+    KEYART_8: 1, // divider
+  };
+
   return (
     <>
       <Head />
@@ -54,69 +65,57 @@ export default function Home(): ReactNode {
         <div
           className="keyart_layer parallax"
           id="keyart-0"
-          data-speed="2"
           style={{
-            transform: `translate3d(0px, ${scrollPosition * -0.02}px, 0px)`,
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_0
+            }px, 0px)`,
           }}
         />
-        {/* <div
-          className="keyart_layer parallax"
-          id="keyart-1"
-          data-speed="5"
-          style={{ transform: `translate3d(0px, ${scrollPosition}px, 0px)` }}
-        /> */}
         <div
           className="keyart_layer parallax"
           id="keyart-1"
-          data-speed="11"
           style={{
-            transform: `translate3d(0px, ${scrollPosition * -0.11}px, 0px)`,
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_1
+            }px, 0px)`,
           }}
         />
-        {/* <div
-          className="keyart_layer parallax"
-          id="keyart-3"
-          data-speed="16"
-          style={{ transform: `translate3d(0px, ${scrollPosition}px, 0px)` }}
-        /> */}
         <div
           className="keyart_layer parallax"
           id="keyart-2"
-          data-speed="26"
           style={{
-            transform: `translate3d(0px, ${scrollPosition * -0.26}px, 0px)`,
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_2
+            }px, 0px)`,
           }}
         />
-        {/* <div
-          className="keyart_layer parallax"
-          id="keyart-5"
-          data-speed="36"
-          style={{ transform: `translate3d(0px, ${scrollPosition}px, 0px)` }}
-        /> */}
         <div
           className="keyart_layer parallax"
           id="keyart-3b"
-          data-speed="49"
           style={{
-            transform: `translate3d(0px, ${scrollPosition * -0.49}px, 0px)`,
-            opacity: 0.6, // `${0.6 - scrollPosition * 0.001}`,
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_3
+            }px, 0px)`,
+            opacity: `${1 - scrollPosition * 0.001}`,
           }}
         />
         <div
           className="keyart_layer parallax"
           id="keyart-3"
-          data-speed="49"
           style={{
-            transform: `translate3d(0px, ${scrollPosition * -0.49}px, 0px)`,
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_4
+            }px, 0px)`,
           }}
         />
         <div className="keyart_layer" id="keyart-scrim" />
         <div
           className="keyart_layer parallax"
           id="keyart-7"
-          data-speed="69"
           style={{
-            transform: `translate3d(0px, ${scrollPosition * -0.69}px, 0px)`,
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_6
+            }px, 0px)`,
           }}
         >
           <div
@@ -138,12 +137,22 @@ export default function Home(): ReactNode {
         <div
           className="keyart_layer parallax"
           id="keyart-4"
-          data-speed="59"
           style={{
-            transform: `translate3d(0px, ${scrollPosition * -0.59}px, 0px)`,
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_6
+            }px, 0px)`,
           }}
         />
-        <div className="keyart_layer" id="keyart-5" data-speed="100" />
+        <div
+          className="keyart_layer parallax"
+          id="keyart-5"
+          style={{
+            transform: `translate3d(0px, ${
+              scrollPosition * -SPEED.KEYART_7
+            }px, 0px)`,
+          }}
+        />
+        <div className="keyart_layer" id="keyart-6" />
       </div>
 
       <div
