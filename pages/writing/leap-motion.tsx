@@ -33,7 +33,6 @@ export default function LeapMotion(): React.ReactNode {
           src="http://www.youtube.com/embed/1x-eAvASIFc?rel=0"
           height="326"
           width="580"
-          allowFullScreen={false}
           frameBorder="0"
         />
       </p>
@@ -47,7 +46,6 @@ export default function LeapMotion(): React.ReactNode {
           src="http://www.youtube.com/embed/_d6KuiuteIA?rel=0"
           height="326"
           width="580"
-          allowFullScreen={false}
           frameBorder="0"
         />
       </p>
@@ -61,7 +59,6 @@ export default function LeapMotion(): React.ReactNode {
           src="http://www.youtube.com/embed/mQkKyOOyLSs?rel=0"
           height="326"
           width="580"
-          allowFullScreen={false}
           frameBorder="0"
         />
       </p>

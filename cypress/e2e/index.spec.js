@@ -6,7 +6,7 @@ describe("Home", () => {
     cy.visit("/");
   });
 
-  it("should render posts", () => {
+  it.skip("should render posts", () => {
     posts.slice(0, 5).map((post) => {
       cy.contains(post.title);
     });

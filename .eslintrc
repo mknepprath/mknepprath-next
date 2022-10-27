@@ -10,6 +10,7 @@
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:cypress/recommended",
     "prettier"
   ],
   "plugins": [
