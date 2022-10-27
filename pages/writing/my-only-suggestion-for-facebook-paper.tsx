@@ -3,7 +3,7 @@
 
 // TODO: Check accuracy of timestamp.
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import BlogPage from "@core/blog-page";
 

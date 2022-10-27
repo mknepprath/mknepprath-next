@@ -1,6 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import Markov from "markov-strings";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
 

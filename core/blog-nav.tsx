@@ -48,14 +48,10 @@ const BlogNav = ({ router }: Props) => {
   return (
     <div className={styles.container}>
       {postIndex > 0 ? (
-        <Link href={`/writing/${nextPost.id}`}>
-          <a>&larr; {nextPost.title}</a>
-        </Link>
+        <Link href={`/writing/${nextPost.id}`}>&larr; {nextPost.title}</Link>
       ) : null}{" "}
       {postIndex < posts.length - 1 ? (
-        <Link href={`/writing/${prevPost.id}`}>
-          <a>{prevPost.title} &rarr;</a>
-        </Link>
+        <Link href={`/writing/${prevPost.id}`}>{prevPost.title} &rarr;</Link>
       ) : null}
     </div>
   );

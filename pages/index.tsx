@@ -2,7 +2,7 @@ import classnames from "classnames";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 import useSWR from "swr";
@@ -111,20 +111,18 @@ const Post = ({ date, id, image, title }: PostListItem) => (
   <article key={id}>
     <header>
       <Link href={`/writing/${id}`}>
-        <a>
-          {image ? (
-            <div className="fill-image bordered-image" style={{ height: 200 }}>
-              <Image
-                alt={`cover image for ${title}`}
-                className="corner-radius-8"
-                src={image}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          ) : null}
-          <h3 className={styles.title}>{title}</h3>
-        </a>
+        {image ? (
+          <div className="fill-image bordered-image" style={{ height: 200 }}>
+            <Image
+              alt={`cover image for ${title}`}
+              className="corner-radius-8"
+              src={image}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : null}
+        <h3 className={styles.title}>{title}</h3>
       </Link>{" "}
       <small>{format(parseISO(date), "MMMM d, yyyy")}</small>
     </header>
