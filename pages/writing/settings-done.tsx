@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
