@@ -4,7 +4,7 @@ import Page from "@core/page";
 
 export default function PatchedTomatoes(): React.ReactNode {
   return (
-    <Page className="container" title="Patched Tomatoes">
+    <Page title="Patched Tomatoes">
       <article data-cy="patched-tomatoes-page">
         <div className="fill-image" style={{ height: 256 }}>
           <Image

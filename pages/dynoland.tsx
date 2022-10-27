@@ -46,7 +46,7 @@ export default function Dynoland(): React.ReactNode {
   if (!data) return null;
 
   return (
-    <Page className="container" title="Dynoland">
+    <Page title="Dynoland">
       <article data-cy="dynoland-page">
         <header>
           <h1>Dynoland {data.online ? "" : "(Offline)"}</h1>

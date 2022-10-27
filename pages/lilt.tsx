@@ -4,7 +4,7 @@ import Page from "@core/page";
 
 export default function Lilt(): React.ReactNode {
   return (
-    <Page className="container" title="Lilt">
+    <Page title="Lilt">
       <article>
         <header>
           <h1>Lilt</h1>

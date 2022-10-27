@@ -10,7 +10,7 @@ export default function Uses(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books?shelf=desk`, fetcher);
 
   return (
-    <Page className="container" title="Uses">
+    <Page title="Uses">
       <article data-cy="uses-page">
         <header>
           <h1>Uses</h1>
@@ -37,17 +37,12 @@ export default function Uses(): React.ReactNode {
             <A href="https://dank.sh/">Dank Mono</A> font by{" "}
             <A href="https://twitter.com/_philpl">Phil Pluckthun</A>
           </li>
-          <li>
-            Terminal.app with the{" "}
-            <A href="https://github.com/mcansh/night-owl-terminal">Night Owl</A>{" "}
-            theme (that I tweaked a bit)
-          </li>
         </ul>
 
         <h2>Apps</h2>
         <ul>
           <li>
-            <A href="https://www.microsoft.com/en-us/edge">Microsoft Edge</A>
+            <A href="https://arc.net/">Arc</A> from the Browser Company
           </li>
           <li>
             <A href="https://1password.com/">1Password</A>
@@ -66,15 +61,14 @@ export default function Uses(): React.ReactNode {
             <A href="https://reincubate.com/camo/">Camo</A> by Reincubate
           </li>
           <li>
-            <A href="http://notion.so/">Notion</A>
+            <A href="http://craft.do/">Craft</A>
           </li>
           <li>
             <A href="https://meetshotty.com/">Shotty</A> by{" "}
             <A href="https://twitter.com/JacobRuizDesign">Jacob Ruiz</A>
           </li>
           <li>
-            <A href="https://music.apple.com/">Apple Music</A> (
-            <A href="https://music.apple.com/profile/mknepprath">follow me</A>)
+            <A href="https://music.apple.com/">Apple Music</A>
           </li>
           <li>
             <A href="https://www.figma.com/">Figma</A>
@@ -84,17 +78,6 @@ export default function Uses(): React.ReactNode {
           </li>
           <li>
             <A href="https://pdfexpert.com/">PDF Expert</A>
-          </li>
-          <li>
-            <A href="https://beta.wall.cat/">Wallcat</A> by{" "}
-            <A href="https://twitter.com/SmallAnimalInc">
-              Small Animal Studios
-            </A>
-          </li>
-          <li>
-            <A href="https://github.com/JohnCoates/Aerial">
-              Aerial Screensaver
-            </A>
           </li>
         </ul>
 
@@ -147,9 +130,9 @@ export default function Uses(): React.ReactNode {
           </li>
           <li>
             <A href="https://www.apple.com/shop/buy-mac/macbook-pro">
-              MacBook Air
+              M1 MacBook Pro
             </A>{" "}
-            (13-inch, 2020)
+            (14-inch, 2021)
           </li>
           <li>
             <A href="https://www.apple.com/airpods">AirPods</A>

@@ -4,7 +4,7 @@ import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import useSWR from "swr";
 
 import Card from "@core/card";
@@ -13,7 +13,6 @@ import Head from "@core/head";
 import Nav from "@core/nav";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
-import posts from "@data/posts";
 
 import styles from "./index.module.css";
 
@@ -21,82 +20,11 @@ const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
 export default function Home(): ReactNode {
-  const { data: films = [] } = useSWR<Film[]>(`/api/v1/films`, fetcher);
+  const { data: activity = [] } = useSWR<PostListItem[]>(
+    `/api/v1/activity`,
+    fetcher
+  );
   const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
-  const { data: tweets } = useSWR<Tweets>(`/api/v1/timeline/15332057`, fetcher);
-  const { data: repos = [] } = useSWR<Repo[]>(`/api/v1/github/repos`, fetcher);
-
-  const filmPosts: PostListItem[] = useMemo(
-    () =>
-      films
-        ?.map((film) => ({
-          date: new Date(film.published_at).toISOString(),
-          id: `${film.title.split(" ").join("_")}_${film.year}`,
-          image: film.image_url,
-          summary: film.review,
-          title: film.title,
-          type: "FILM" as PostListItem["type"],
-          url: film.link,
-        }))
-        // The `sort` method can be conveniently used with function expressions:
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-        .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-        .slice(0, 2),
-    [films]
-  );
-
-  // filter out tweets without likes
-
-  const tweetPosts: PostListItem[] = useMemo(
-    () =>
-      (tweets?.data || [])
-        ?.filter(
-          (tweet) =>
-            tweet?.entities?.urls?.length <= 1 &&
-            !!tweet?.entities?.urls[0].media_key &&
-            tweet?.public_metrics?.like_count > 0
-        )
-        .map((tweet) => {
-          const media = tweets?.includes.media.find(
-            (m) => m.media_key === tweet.attachments?.media_keys[0]
-          );
-          const text = tweet.text
-            .replace(tweet.entities.urls[0].url, "")
-            .trim();
-          return {
-            date: new Date(tweet.created_at).toISOString(),
-            id: tweet.id,
-            image: media?.preview_image_url || media?.url,
-            summary: text,
-            title: text,
-            type: "TWEET" as PostListItem["type"],
-          };
-        })
-        // The `sort` method can be conveniently used with function expressions:
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-        .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-        .slice(0, 2),
-    [tweets]
-  );
-
-  const repoPosts: PostListItem[] = useMemo(
-    () =>
-      repos
-        ?.filter((repo) => repo.name !== "mknepprath-next")
-        .map((repo) => ({
-          date: repo.pushed_at,
-          id: repo.id,
-          summary: repo.description,
-          title: repo.name,
-          type: "REPO" as PostListItem["type"],
-          url: repo.homepage,
-        }))
-        // The `sort` method can be conveniently used with function expressions:
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-        .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-        .slice(0, 2),
-    [repos]
-  );
 
   return (
     <>
@@ -118,12 +46,10 @@ export default function Home(): ReactNode {
 
       <div className="container">
         <h2>Activity</h2>
-        {[...posts, ...filmPosts, ...tweetPosts, ...repoPosts]
+        {activity
           // The `sort` method can be conveniently used with function expressions:
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
           .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-          // Only display first 6 posts.
-          .slice(0, 8)
           .map((post) => {
             switch (post.type) {
               case "FILM":
@@ -132,10 +58,14 @@ export default function Home(): ReactNode {
                 return <TweetPost key={post.id} {...post} />;
               case "REPO":
                 return <RepoPost key={post.id} {...post} />;
+              case "BOOK":
+                return <BookPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }
           })}
+
+        {!activity.length && <div>What have I been up to...</div>}
       </div>
 
       <div className={classnames("container", styles.projectContainer)}>
@@ -236,6 +166,36 @@ const FilmPost = ({ date, id, image, summary, title, url }: PostListItem) => (
   </article>
 );
 
+const BookPost = ({ date, id, image, summary, title, url }: PostListItem) => (
+  <article key={id}>
+    <header className={styles.filmPostHeader}>
+      {image ? (
+        <a
+          className={styles.filmPoster}
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            alt={`cover for ${title}`}
+            className="bordered-image corner-radius-8"
+            height={135}
+            src={image}
+            width={90}
+          />
+        </a>
+      ) : null}
+      <div>
+        <a href={url} target="_blank" rel="noreferrer">
+          <h3 className={styles.filmTitle}>{title}</h3>
+        </a>
+        <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
+        <small>Read on {format(parseISO(date), "MMMM d, yyyy")}</small>
+      </div>
+    </header>
+  </article>
+);
+
 const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
   <article key={id}>
     <header>
@@ -245,7 +205,9 @@ const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
         rel="noreferrer"
       >
         <h3 className={styles.title}>
-          {url?.replace("https://", "") || (
+          {url
+            ?.replace("https://twitter.com/", "@")
+            ?.replace("https://", "") || (
             <>
               <span style={{ fontWeight: 300 }}>mknepprath /</span> {title}
             </>

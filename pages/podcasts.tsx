@@ -3,7 +3,7 @@ import Page from "@core/page";
 
 export default function Podcasts(): React.ReactNode {
   return (
-    <Page className="container" title="Podcasts">
+    <Page title="Podcasts">
       <article data-cy="uses-page">
         <header>
           <h1>Podcasts</h1>
@@ -16,12 +16,12 @@ export default function Podcasts(): React.ReactNode {
         <h3>Culturally Irrelevant</h3>
         <ul>
           <li>
-            <A href="http://culturallyirrelevant.net">
+            <A href="http://culturallyirrelevant.com">
               24: Producer in the House
             </A>
           </li>
           <li>
-            <A href="http://culturallyirrelevant.net">
+            <A href="http://culturallyirrelevant.com">
               39: Death of the Netflix Boy
             </A>
           </li>

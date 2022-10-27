@@ -16,7 +16,7 @@ interface PostListItem {
   image?: string;
   summary?: string;
   title: string;
-  type?: "FILM" | "TWEET" | "REPO" | "POST";
+  type?: "FILM" | "TWEET" | "REPO" | "POST" | "BOOK";
   url?: string;
 }
 
