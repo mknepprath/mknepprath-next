@@ -4,7 +4,7 @@ import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import useSWR from "swr";
 
 import Card from "@core/card";

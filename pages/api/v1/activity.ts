@@ -13,18 +13,18 @@ export default async (
   res: NextApiResponse
 ): Promise<void> => {
   const { max_results } = req.query;
-  const films: Film[] = await fetch(`${BASE_URL}/api/v1/films`).then(
-    (response) => response.json()
-  );
-  const books: Book[] = await fetch(`${BASE_URL}/api/v1/books`).then(
-    (response) => response.json()
-  );
-  const tweets: Tweets = await fetch(
-    `${BASE_URL}/api/v1/timeline/15332057`
-  ).then((response) => response.json());
-  const repos: Repo[] = await fetch(`${BASE_URL}/api/v1/github/repos`).then(
-    (response) => response.json()
-  );
+
+  const [films, books, tweets, repos]: [Film[], Book[], Tweets, Repo[]] =
+    await Promise.all([
+      fetch(`${BASE_URL}/api/v1/films`).then((response) => response.json()),
+      fetch(`${BASE_URL}/api/v1/books`).then((response) => response.json()),
+      fetch(`${BASE_URL}/api/v1/timeline/15332057`)
+        .then((response) => response.json())
+        .then((response) => response.data),
+      fetch(`${BASE_URL}/api/v1/github/repos`).then((response) =>
+        response.json()
+      ),
+    ]);
 
   const filmPosts = films?.map((film) => ({
     date: new Date(film.published_at).toISOString(),
