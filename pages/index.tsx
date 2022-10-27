@@ -114,7 +114,7 @@ export default function Home(): ReactNode {
           id="keyart-7"
           style={{
             transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_6
+              scrollPosition * -SPEED.KEYART_4
             }px, 0px)`,
           }}
         >
