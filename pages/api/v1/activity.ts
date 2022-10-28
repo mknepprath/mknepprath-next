@@ -28,7 +28,7 @@ export default async (
 
   const filmPosts = films?.map((film) => ({
     date: new Date(film.published_at).toISOString(),
-    id: `${film.title.split(" ").join("_")}_${film.year}`,
+    id: `film-${film.title.split(" ").join("_")}_${film.year}`,
     image: film.image_url,
     summary: film.review,
     title: film.title,
@@ -50,7 +50,7 @@ export default async (
       const text = tweet.text.replace(tweet.entities.urls[0].url, "").trim();
       return {
         date: new Date(tweet.created_at).toISOString(),
-        id: tweet.id,
+        id: `tweet-${tweet.id}`,
         image: media?.preview_image_url || media?.url,
         summary: text,
         title: text,
@@ -62,7 +62,7 @@ export default async (
     ?.filter((repo) => repo.name !== "mknepprath-next")
     .map((repo) => ({
       date: repo.pushed_at,
-      id: repo.id,
+      id: `repo-${repo.id}`,
       summary: repo.description,
       title: repo.name,
       type: "REPO" as PostListItem["type"],
@@ -71,7 +71,7 @@ export default async (
 
   const bookPosts = books?.map((book) => ({
     date: new Date(book.date_finished).toISOString(),
-    id: book.isbn,
+    id: `book-${book.isbn}`,
     image: book.large_image_url,
     summary: book.author,
     title: book.title,
@@ -80,7 +80,10 @@ export default async (
   }));
 
   const typedPosts = posts
-    .map((post) => ({ ...post, type: "POST" } as PostListItem))
+    .map(
+      (post) =>
+        ({ ...post, id: `post-${post.id}`, type: "POST" } as PostListItem)
+    )
     // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     .sort((a, b) => +parseISO(b.date) - +parseISO(a.date));
