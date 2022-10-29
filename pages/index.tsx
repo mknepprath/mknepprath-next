@@ -4,12 +4,12 @@ import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
 import useSWR from "swr";
 
 import Card from "@core/card";
 import Footer from "@core/footer";
 import Head from "@core/head";
+import Layer from "@core/layer";
 import Nav from "@core/nav";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
@@ -20,7 +20,24 @@ import styles from "./index.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export default function Home(): ReactNode {
+const Hero = () => {
+  return (
+    <div className={classnames("container", styles.hero)}>
+      <h1 className={styles.greeting}>
+        <a
+          href="https://youtu.be/5-CEGCXDVgI"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span>Hello!</span>
+        </a>
+        <br />I design & develop things for the internet.
+      </h1>
+    </div>
+  );
+};
+
+export default function Home(): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
     fetcher
@@ -28,17 +45,6 @@ export default function Home(): ReactNode {
   const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
 
   const scrollPosition = useScrollPosition();
-
-  const SPEED = {
-    KEYART_0: 0.02, // sun
-    KEYART_1: 0.11, // land
-    KEYART_2: 0.26, // land
-    KEYART_3: 0.39, // wall
-    KEYART_4: 0.49, // desk, monitor text
-    KEYART_6: 0.69, // tree
-    KEYART_7: 0.79, // cat
-    KEYART_8: 1, // divider
-  };
 
   return (
     <>
@@ -48,110 +54,17 @@ export default function Home(): ReactNode {
         style={{ position: "absolute", left: 0, right: 0, zIndex: 200 }}
       />
 
-      {/* <div className={classnames("container", styles.hero)}>
-        <h1 className={styles.greeting}>
-          <a
-            href="https://youtu.be/5-CEGCXDVgI"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span>Hello!</span>
-          </a>
-          <br />I design & develop things for the internet.
-        </h1>
-      </div> */}
-
       <div className="keyart" id="parallax">
-        <div
-          className="keyart_layer parallax"
-          id="keyart-0"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_0
-            }px, 0px)`,
-          }}
-        />
-        <div
-          className="keyart_layer parallax"
-          id="keyart-1"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_1
-            }px, 0px)`,
-          }}
-        />
-        <div
-          className="keyart_layer parallax"
-          id="keyart-2"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_2
-            }px, 0px)`,
-          }}
-        />
-        <div
-          className="keyart_layer parallax"
-          id="keyart-3b"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_3
-            }px, 0px)`,
-            opacity: `${1 - scrollPosition * 0.001}`,
-          }}
-        />
-        <div
-          className="keyart_layer parallax"
-          id="keyart-3"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_4
-            }px, 0px)`,
-          }}
-        />
-        <div className="keyart_layer" id="keyart-scrim" />
-        <div
-          className="keyart_layer parallax"
-          id="keyart-7"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_4
-            }px, 0px)`,
-          }}
-        >
-          <div
-            className={classnames("container", styles.hero)}
-            style={{ marginTop: 200 }}
-          >
-            <h1 className={styles.greeting}>
-              <a
-                href="https://youtu.be/5-CEGCXDVgI"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span>Hello!</span>
-              </a>
-              <br />I design & develop things for the internet.
-            </h1>
-          </div>
-        </div>
-        <div
-          className="keyart_layer parallax"
-          id="keyart-4"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_6
-            }px, 0px)`,
-          }}
-        />
-        <div
-          className="keyart_layer parallax"
-          id="keyart-5"
-          style={{
-            transform: `translate3d(0px, ${
-              scrollPosition * -SPEED.KEYART_7
-            }px, 0px)`,
-          }}
-        />
+        <Layer id="0" position={scrollPosition} speed={0.02} />
+        <Layer id="1" position={scrollPosition} speed={0.11} />
+        <Layer id="2" position={scrollPosition} speed={0.26} />
+        <Layer id="3b" position={scrollPosition} speed={0.39} />
+        <Layer id="3" position={scrollPosition} speed={0.49} />
+        <Layer id="7" position={scrollPosition} speed={0.49}>
+          <Hero />
+        </Layer>
+        <Layer id="4" position={scrollPosition} speed={0.69} />
+        <Layer id="5" position={scrollPosition} speed={0.79} />
         <div className="keyart_layer" id="keyart-6" />
       </div>
 

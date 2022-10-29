@@ -4,6 +4,8 @@
   pointer-events: auto;
 
   color: var(--black);
+
+  margin-top: 200px;
 }
 
 .greeting {
