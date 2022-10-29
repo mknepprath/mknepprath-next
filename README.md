@@ -1,4 +1,4 @@
-# Michael Knepprath's codebase.
+# Michael Knepprath's codebase
 
 View the latest deploy here: https://mknepprath-next.mknepprath.now.sh.
 

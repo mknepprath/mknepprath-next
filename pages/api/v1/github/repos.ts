@@ -35,18 +35,17 @@ export default async (
         );
 
         return {
-          pushed_at: repo.pushed_at,
-          id: repo.id,
           description: repo.description,
-          name: repo.name,
           homepage: repo.homepage,
           html_url: repo.html_url,
-          last_commit: lastCommit?.commit?.committer?.date,
+          id: repo.id,
+          name: repo.name,
+          pushed_at: lastCommit?.commit?.committer?.date,
         };
       })
   );
 
-  const filteredRepos = reposAndLastCommit.filter((repo) => repo.last_commit);
+  const filteredRepos = reposAndLastCommit.filter((repo) => repo.pushed_at);
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");

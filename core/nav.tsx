@@ -1,6 +1,6 @@
 // External
 import classnames from "classnames";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { CSSProperties } from "react";
 
@@ -22,8 +22,8 @@ export default function Nav({ className, style }: Props): JSX.Element {
           alt="Michael Knepprath Memoji"
           height={32}
           layout="fixed"
-          src="/assets/mk-profile-pic.png"
           priority
+          src="/assets/mk-profile-pic.png"
           width={32}
         />
         <span>M. Knepprath</span>
@@ -38,14 +38,10 @@ export default function Nav({ className, style }: Props): JSX.Element {
         ))}
         {/* Internal links - we can use Next's Link here. */}
         <li>
-          <Link href="/writing">
-            <a>Writing</a>
-          </Link>
+          <Link href="/writing">Writing</Link>
         </li>
         <li>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
+          <Link href="/about">About</Link>
         </li>
       </ul>
     </nav>
