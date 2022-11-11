@@ -17,7 +17,10 @@ export default function Footer({ className }: Props): JSX.Element {
   return (
     <footer className={classnames(styles.footer, className)}>
       <span className={styles.footerMeta}>
-        Created by Michael Knepprath •
+        Created by Michael Knepprath{" "}
+        <a rel="me" href="https://mastodon.social/@mknepprath">
+          •
+        </a>
         <a
           href="https://github.com/mknepprath/mknepprath-next"
           rel="noopener noreferrer"
