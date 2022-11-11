@@ -4,7 +4,7 @@ import Image from "next/legacy/image";
 import A from "@core/a";
 import Page from "@core/page";
 
-export default function Dynoland(): React.ReactNode {
+export default function WecomeToShowside(): React.ReactNode {
   return (
     <Page ogImage="/assets/welcome-to-showside.jpg" title="8-Bit Kit">
       <article>

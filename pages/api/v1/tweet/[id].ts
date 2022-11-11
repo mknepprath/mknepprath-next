@@ -18,7 +18,7 @@ export default async (
     redirect: "follow",
   };
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     fetch(
       `https://api.twitter.com/2/tweets/${id}?tweet.fields=public_metrics`,
       requestOptions
