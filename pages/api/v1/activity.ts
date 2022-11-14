@@ -59,8 +59,8 @@ export default async (
     });
 
   const repoPosts = repos
-    ?.filter((repo) => repo.name !== "mknepprath-next")
-    .map((repo) => ({
+    // ?.filter((repo) => repo.name !== "mknepprath-next")
+    ?.map((repo) => ({
       date: repo.pushed_at,
       id: `repo-${repo.id}`,
       summary: repo.description,
