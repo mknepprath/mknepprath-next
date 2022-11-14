@@ -22,7 +22,8 @@ export default async (
           films.push({
             image_url: filmList[i].description[0].split(`"`)[1],
             link: filmList[i].link[0],
-            published_at: filmList[i]["letterboxd:watchedDate"]?.[0],
+            // published_at: filmList[i]["letterboxd:watchedDate"]?.[0],
+            published_at: filmList[i].pubDate[0],
             rating: filmList[i]["letterboxd:memberRating"]?.[0],
             review: review.join(`</p>`),
             title: filmList[i]["letterboxd:filmTitle"]?.[0],
