@@ -51,6 +51,11 @@ const moduleExports = {
         permanent: true,
       },
       {
+        source: "/music",
+        destination: "https://music.apple.com/profile/mknepprath",
+        permanent: true,
+      },
+      {
         source: "/twitter",
         destination: "https://twitter.com/mknepprath",
         permanent: true,
