@@ -16,6 +16,41 @@ const moduleExports = {
   async redirects() {
     return [
       {
+        source: "/dribbble",
+        destination: "https://dribbble.com/mknepprath",
+        permanent: true,
+      },
+      {
+        source: "/github",
+        destination: "https://github.com/mknepprath",
+        permanent: true,
+      },
+      {
+        source: "/goodreads",
+        destination: "https://goodreads.com/mknepprath",
+        permanent: true,
+      },
+      {
+        source: "/instagram",
+        destination: "https://www.instagram.com/mknepprath/",
+        permanent: true,
+      },
+      {
+        source: "/letterboxd",
+        destination: "https://letterboxd.com/mknepprath/",
+        permanent: true,
+      },
+      {
+        source: "/linkedin",
+        destination: "https://www.linkedin.com/in/mknepprath/",
+        permanent: true,
+      },
+      {
+        source: "/mastodon",
+        destination: "https://mastodon.social/@mknepprath",
+        permanent: true,
+      },
+      {
         source: "/twitter",
         destination: "https://twitter.com/mknepprath",
         permanent: true,
