@@ -1,3 +1,4 @@
+import Image from "next/legacy/image";
 import useSWR from "swr";
 
 import A from "@core/a";
@@ -15,6 +16,15 @@ export default function Uses(): React.ReactNode {
         <header>
           <h1>Uses</h1>
         </header>
+
+        <Image
+          alt="Photograph of my desk."
+          className="corner-radius-8"
+          height={714}
+          src="/assets/uses.jpg"
+          layout="responsive"
+          width={1200}
+        />
 
         <p>
           This is where I document tools and products I use and love. If

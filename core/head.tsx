@@ -35,7 +35,6 @@ export default function Head({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-
       <link rel="manifest" href="/manifest.json" />
       <link
         rel="icon"
@@ -51,7 +50,6 @@ export default function Head({
       <link rel="me" href="https://mastodon.social/@mknepprath" />
       <meta name="theme-color" content="#6ABD9D" />
       <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF" />
-
       <meta property="og:url" content={`${BASE_URL}${router.pathname}`} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
