@@ -48,6 +48,7 @@ export default function Head({
       />
       <link rel="mask-icon" href="/assets/favicon-mask.svg" color="#6ABD9D" />
       <link rel="icon" href="/assets/favicon.ico" />
+      <link rel="me" href="https://mastodon.social/@mknepprath" />
       <meta name="theme-color" content="#6ABD9D" />
       <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF" />
 
