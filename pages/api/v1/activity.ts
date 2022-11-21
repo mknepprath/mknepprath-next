@@ -18,9 +18,9 @@ export default async (
     await Promise.all([
       fetch(`${BASE_URL}/api/v1/films`).then((response) => response.json()),
       fetch(`${BASE_URL}/api/v1/books`).then((response) => response.json()),
-      fetch(`${BASE_URL}/api/v1/timeline/15332057`)
-        .then((response) => response.json())
-        .then((response) => response.data),
+      fetch(`${BASE_URL}/api/v1/timeline/15332057`).then((response) =>
+        response.json()
+      ),
       fetch(`${BASE_URL}/api/v1/github/repos`).then((response) =>
         response.json()
       ),
