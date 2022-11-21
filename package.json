@@ -36,7 +36,7 @@
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
     "@sentry/nextjs": "^7.20.0",
-    "@vercel/analytics": "^0.1.4",
+    "@vercel/analytics": "^0.1.5",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "isomorphic-unfetch": "^3.1.0",
