@@ -286,7 +286,7 @@ const TootPost = ({ date, id, image, summary, title, url }: PostListItem) => (
           </p>
         )}
       </A>
-      <small>Posted on {format(parseISO(date), "MMMM d, yyyy")}</small>
+      <small>Tooted on {format(parseISO(date), "MMMM d, yyyy")}</small>
     </header>
   </article>
 );
