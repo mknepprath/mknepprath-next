@@ -14,17 +14,23 @@ export default async (
 ): Promise<void> => {
   const { max_results } = req.query;
 
-  const [films, books, tweets, repos]: [Film[], Book[], Tweets, Repo[]] =
-    await Promise.all([
-      fetch(`${BASE_URL}/api/v1/films`).then((response) => response.json()),
-      fetch(`${BASE_URL}/api/v1/books`).then((response) => response.json()),
-      fetch(`${BASE_URL}/api/v1/timeline/15332057`).then((response) =>
-        response.json()
-      ),
-      fetch(`${BASE_URL}/api/v1/github/repos`).then((response) =>
-        response.json()
-      ),
-    ]);
+  const [films, books, tweets, repos, toots]: [
+    Film[],
+    Book[],
+    Tweets,
+    Repo[],
+    Toot[]
+  ] = await Promise.all([
+    fetch(`${BASE_URL}/api/v1/films`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/books`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/timeline/15332057`).then((response) =>
+      response.json()
+    ),
+    fetch(`${BASE_URL}/api/v1/github/repos`).then((response) =>
+      response.json()
+    ),
+    fetch(`${BASE_URL}/api/v1/toots`).then((response) => response.json()),
+  ]);
 
   const filmPosts = films?.map((film) => ({
     date: new Date(film.published_at).toISOString(),
@@ -79,6 +85,16 @@ export default async (
     url: book.link,
   }));
 
+  const tootPosts = toots?.map((toot) => ({
+    date: new Date(toot.published_at).toISOString(),
+    id: `toot-${toot.id}`,
+    image: toot.image,
+    summary: toot.description,
+    title: toot.description,
+    type: "TOOT" as PostListItem["type"],
+    url: toot.id,
+  }));
+
   const typedPosts = posts
     .map(
       (post) =>
@@ -93,6 +109,7 @@ export default async (
     ...tweetPosts,
     ...repoPosts,
     ...bookPosts,
+    ...tootPosts,
     ...typedPosts,
   ] // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort

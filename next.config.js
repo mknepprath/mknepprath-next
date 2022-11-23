@@ -67,6 +67,7 @@ const moduleExports = {
       "pbs.twimg.com", // Twitter
       "a.ltrbxd.com", // Letterboxed
       "i.gr-assets.com", // Goodreads
+      "files.mastodon.social", // Mastodon
     ],
   },
   sentry: {
