@@ -114,7 +114,7 @@ export default async (
   ] // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-    .slice(0, max_results ? parseInt(max_results as string) : 6);
+    .slice(0, max_results ? parseInt(max_results as string) : 8);
 
   // If none of the posts are of type "POST", add one that is.
   if (allPosts.every((post) => post.type !== "POST")) {
