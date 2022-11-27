@@ -43,11 +43,20 @@ interface Film {
   year: string;
 }
 
-interface Toot {
+interface TootRss {
   description: string;
   id: string;
   image: string;
   published_at: string;
+}
+
+interface Toot {
+  id: string;
+  created_at: string;
+  content: string;
+  favourites_count: number;
+  media_attachments: { url: string }[];
+  url: string;
 }
 
 interface Tweet {

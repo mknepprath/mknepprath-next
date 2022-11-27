@@ -29,7 +29,7 @@ export default async (
     fetch(`${BASE_URL}/api/v1/github/repos`).then((response) =>
       response.json()
     ),
-    fetch(`${BASE_URL}/api/v1/toots`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/mastodon`).then((response) => response.json()),
   ]);
 
   const filmPosts = films?.map((film) => ({
@@ -85,15 +85,17 @@ export default async (
     url: book.link,
   }));
 
-  const tootPosts = toots?.map((toot) => ({
-    date: new Date(toot.published_at).toISOString(),
-    id: `toot-${toot.id}`,
-    image: toot.image,
-    summary: toot.description,
-    title: toot.description,
-    type: "TOOT" as PostListItem["type"],
-    url: toot.id,
-  }));
+  const tootPosts = toots
+    ?.filter((toot) => toot.favourites_count > 3)
+    .map((toot) => ({
+      date: new Date(toot.created_at).toISOString(),
+      id: `toot-${toot.id}`,
+      image: toot.media_attachments[0]?.url,
+      summary: toot.content,
+      title: toot.content,
+      type: "TOOT" as PostListItem["type"],
+      url: toot.url,
+    }));
 
   const typedPosts = posts
     .map(

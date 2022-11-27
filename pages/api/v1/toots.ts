@@ -6,7 +6,7 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const toots: Toot[] = [];
+  const toots: TootRss[] = [];
   await fetch(`https://mastodon.social/@mknepprath.rss`)
     .then((response) => response.text())
     .then((body) => {
