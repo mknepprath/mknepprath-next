@@ -16,6 +16,46 @@ const moduleExports = {
   async redirects() {
     return [
       {
+        source: "/dribbble",
+        destination: "https://dribbble.com/mknepprath",
+        permanent: true,
+      },
+      {
+        source: "/github",
+        destination: "https://github.com/mknepprath",
+        permanent: true,
+      },
+      {
+        source: "/goodreads",
+        destination: "https://goodreads.com/mknepprath",
+        permanent: true,
+      },
+      {
+        source: "/instagram",
+        destination: "https://www.instagram.com/mknepprath/",
+        permanent: true,
+      },
+      {
+        source: "/letterboxd",
+        destination: "https://letterboxd.com/mknepprath/",
+        permanent: true,
+      },
+      {
+        source: "/linkedin",
+        destination: "https://www.linkedin.com/in/mknepprath/",
+        permanent: true,
+      },
+      {
+        source: "/mastodon",
+        destination: "https://mastodon.social/@mknepprath",
+        permanent: true,
+      },
+      {
+        source: "/music",
+        destination: "https://music.apple.com/profile/mknepprath",
+        permanent: true,
+      },
+      {
         source: "/twitter",
         destination: "https://twitter.com/mknepprath",
         permanent: true,
@@ -27,6 +67,7 @@ const moduleExports = {
       "pbs.twimg.com", // Twitter
       "a.ltrbxd.com", // Letterboxed
       "i.gr-assets.com", // Goodreads
+      "files.mastodon.social", // Mastodon
     ],
   },
   sentry: {

@@ -6,6 +6,7 @@ import Image from "next/legacy/image";
 import Link from "next/link";
 import useSWR from "swr";
 
+import A from "@core/a";
 import Card from "@core/card";
 import Footer from "@core/footer";
 import Head from "@core/head";
@@ -92,6 +93,8 @@ export default function Home(): React.ReactNode {
                 return <RepoPost key={post.id} {...post} />;
               case "BOOK":
                 return <BookPost key={post.id} {...post} />;
+              case "TOOT":
+                return <TootPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }
@@ -286,6 +289,42 @@ const TweetPost = ({ date, id, image, summary, title }: PostListItem) => (
         )}
       </a>
       <small>Tweeted on {format(parseISO(date), "MMMM d, yyyy")}</small>
+    </header>
+  </article>
+);
+
+const TootPost = ({ date, id, image, summary, title, url }: PostListItem) => (
+  <article key={id}>
+    <header>
+      <A href={url || ""}>
+        {image ? (
+          <div className="fill-image bordered-image" style={{ height: 200 }}>
+            <Image
+              alt={`cover image for ${title}`}
+              className="corner-radius-8"
+              src={image}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : null}
+        {!image ? (
+          <h3 className={styles.tweet}>
+            <em
+              className={styles.filmReview}
+              dangerouslySetInnerHTML={{ __html: summary || "" }}
+            />
+          </h3>
+        ) : (
+          <p className={styles.tweet} style={{ margin: "0.4em 0 0.2em" }}>
+            <em
+              className={styles.filmReview}
+              dangerouslySetInnerHTML={{ __html: summary || "" }}
+            />
+          </p>
+        )}
+      </A>
+      <small>Tooted on {format(parseISO(date), "MMMM d, yyyy")}</small>
     </header>
   </article>
 );

@@ -16,7 +16,7 @@ interface PostListItem {
   image?: string;
   summary?: string;
   title: string;
-  type?: "FILM" | "TWEET" | "REPO" | "POST" | "BOOK";
+  type?: "FILM" | "TWEET" | "REPO" | "POST" | "BOOK" | "TOOT";
   url?: string;
 }
 
@@ -41,6 +41,22 @@ interface Film {
   review: string;
   title: string;
   year: string;
+}
+
+interface TootRss {
+  description: string;
+  id: string;
+  image: string;
+  published_at: string;
+}
+
+interface Toot {
+  id: string;
+  created_at: string;
+  content: string;
+  favourites_count: number;
+  media_attachments: { url: string }[];
+  url: string;
 }
 
 interface Tweet {

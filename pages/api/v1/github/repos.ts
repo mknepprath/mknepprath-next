@@ -35,7 +35,11 @@ export default async (
         );
 
         return {
-          description: repo.description,
+          description: lastCommit?.commit?.committer?.email?.includes(
+            "mknepprath"
+          )
+            ? lastCommit?.commit?.message
+            : repo.description,
           homepage: repo.homepage,
           html_url: repo.html_url,
           id: repo.id,
