@@ -221,14 +221,10 @@ const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
   </article>
 );
 
-const TweetPost = ({ date, id, image, summary, title }: PostListItem) => (
+const TweetPost = ({ date, id, image, summary, title, url }: PostListItem) => (
   <article key={id}>
     <header>
-      <a
-        href={`https://twitter.com/mknepprath/status/${id}`}
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href={url} target="_blank" rel="noreferrer">
         {image ? (
           <div className="fill-image bordered-image" style={{ height: 200 }}>
             <Image

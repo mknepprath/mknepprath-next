@@ -61,6 +61,7 @@ export default async (
         summary: text,
         title: text,
         type: "TWEET" as PostListItem["type"],
+        url: `https://twitter.com/mknepprath/status/${tweet.id}`,
       };
     });
 
