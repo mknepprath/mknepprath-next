@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import React from "react";
 
 const BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://mknepprath.com";
+  process.env.NODE_ENV === "production"
+    ? "https://mknepprath.com"
+    : "http://localhost:3000";
 
 interface Props {
   children?: React.ReactNode;

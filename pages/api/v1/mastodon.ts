@@ -13,7 +13,7 @@ export default async (
       .then((result) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        if (process.env.NODE_ENV !== "development")
+        if (process.env.NODE_ENV === "production")
           res.setHeader(
             "Cache-Control",
             "max-age=0, s-maxage=1, stale-while-revalidate"

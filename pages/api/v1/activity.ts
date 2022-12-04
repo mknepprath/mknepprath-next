@@ -4,9 +4,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 import posts from "@data/posts";
 
 const BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://mknepprath.com";
+  process.env.NODE_ENV === "production"
+    ? "https://mknepprath.com"
+    : "http://localhost:3000";
 
 export default async (
   req: NextApiRequest,

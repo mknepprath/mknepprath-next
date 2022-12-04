@@ -11,9 +11,9 @@ import { gifs } from "@data/gifs";
 import styles from "./gifs.module.css";
 
 const BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://mknepprath.com";
+  process.env.NODE_ENV === "production"
+    ? "https://mknepprath.com"
+    : "http://localhost:3000";
 
 /**
  * Shuffles array in place. ES6 version
