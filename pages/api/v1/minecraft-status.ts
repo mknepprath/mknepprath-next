@@ -86,7 +86,10 @@ export default async function getStatus(
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
     if (process.env.NODE_ENV === "production")
-      res.setHeader("Cache-Control", "max-age=86400");
+      res.setHeader(
+        "Cache-Control",
+        "max-age=0, s-maxage=1, stale-while-revalidate"
+      );
     res.end(JSON.stringify(status));
   }
 }

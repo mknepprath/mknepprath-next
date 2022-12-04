@@ -27,8 +27,11 @@ export default async (
       .then((result) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        if (process.env.NODE_ENV !== "development")
-          res.setHeader("Cache-Control", "max-age=86400");
+        if (process.env.NODE_ENV === "production")
+          res.setHeader(
+            "Cache-Control",
+            "max-age=0, s-maxage=1, stale-while-revalidate"
+          );
         res.end(result);
         resolve();
       })

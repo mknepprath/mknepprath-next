@@ -4,9 +4,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 import posts from "@data/posts";
 
 const BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://mknepprath.com";
+  process.env.NODE_ENV === "production"
+    ? "https://mknepprath.com"
+    : "http://localhost:3000";
 
 export default async (
   req: NextApiRequest,
@@ -61,6 +61,7 @@ export default async (
         summary: text,
         title: text,
         type: "TWEET" as PostListItem["type"],
+        url: `https://twitter.com/mknepprath/status/${tweet.id}`,
       };
     });
 
@@ -128,6 +129,9 @@ export default async (
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   if (process.env.NODE_ENV === "production")
-    res.setHeader("Cache-Control", "max-age=86400");
+    res.setHeader(
+      "Cache-Control",
+      "max-age=0, s-maxage=1, stale-while-revalidate"
+    );
   res.end(JSON.stringify(allPosts));
 };
