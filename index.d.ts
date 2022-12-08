@@ -10,8 +10,9 @@ interface Post {
   title: string;
 }
 
+// TODO: Split the Post interface into two interfaces
 interface PostListItem {
-  action: string;
+  action?: string;
   date: string;
   id: string;
   image?: string;
