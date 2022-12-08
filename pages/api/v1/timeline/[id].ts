@@ -6,7 +6,7 @@ export default async (
   res: NextApiResponse
 ): Promise<void> => {
   const {
-    query: { id },
+    query: { id, max_results = 100 },
   } = req;
 
   const myHeaders = new Headers();
@@ -20,7 +20,7 @@ export default async (
 
   return new Promise((resolve) => {
     fetch(
-      `https://api.twitter.com/2/users/${id}/tweets?tweet.fields=created_at,entities,public_metrics&exclude=replies,retweets&expansions=attachments.media_keys&media.fields=type,url,preview_image_url,width,height&max_results=100`,
+      `https://api.twitter.com/2/users/${id}/tweets?tweet.fields=created_at,entities,public_metrics&exclude=replies,retweets&expansions=attachments.media_keys&media.fields=type,url,preview_image_url,width,height&max_results=${max_results}`,
       requestOptions
     )
       .then((response) => response.text())
