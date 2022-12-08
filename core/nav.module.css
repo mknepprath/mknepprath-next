@@ -20,12 +20,19 @@
 .nav li:hover a {
   color: var(--primaryColor);
 }
+.nav li:hover a {
+  color: var(--primaryColor);
+}
 .nav li a,
 .siteLogo {
   color: var(--black);
   padding: 0 8px;
   text-decoration: none;
   font-size: 13px;
+}
+.nav.darkMode li a,
+.darkMode .siteLogo {
+  color: var(--primaryColor);
 }
 
 .siteLogo {

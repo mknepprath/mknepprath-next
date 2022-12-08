@@ -11,12 +11,20 @@ import styles from "./nav.module.css";
 
 interface Props {
   className?: string;
+  darkMode?: boolean;
   style?: CSSProperties;
 }
 
-export default function Nav({ className, style }: Props): JSX.Element {
+export default function Nav({
+  className,
+  darkMode,
+  style,
+}: Props): JSX.Element {
   return (
-    <nav className={classnames(styles.nav, className)} style={style}>
+    <nav
+      className={classnames(styles.nav, styles.darkMode, className)}
+      style={style}
+    >
       <a className={styles.siteLogo} href="/">
         <Image
           alt="Michael Knepprath Memoji"

@@ -1,29 +1,8 @@
-.hero {
-  display: flex;
-  justify-content: center;
-  pointer-events: auto;
-
-  color: var(--black);
-
-  margin-top: 200px;
-}
-
-.greeting {
-  margin: 80px 0;
-  line-height: 1.1;
-  font-size: 48px;
-}
-@media (min-width: 632px) {
-  .greeting {
-    font-size: 64px;
-  }
-}
-
-.greeting span {
-  color: var(--primaryColor);
-}
-.greeting a {
-  text-decoration: none;
+.nav {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  z-index: 200;
 }
 
 .title {

@@ -1,3 +1,7 @@
+import classnames from "classnames";
+
+import styles from "./layer.module.css";
+
 interface Props {
   children?: JSX.Element;
   id: string;
@@ -13,9 +17,8 @@ export default function Layer({
 }: Props): JSX.Element {
   return (
     <div
-      className="keyart_layer parallax"
+      className={classnames(styles.keyartLayer, styles.parallax)}
       id={`keyart-${id}`}
-      key={`keyart-${id}`}
       style={{
         transform: `translate3d(0px, ${position * -speed}px, 0px)`,
       }}

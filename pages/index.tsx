@@ -2,6 +2,7 @@ import classnames from "classnames";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
+import { GetServerSideProps } from "next";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import useSWR from "swr";
@@ -10,63 +11,46 @@ import A from "@core/a";
 import Card from "@core/card";
 import Footer from "@core/footer";
 import Head from "@core/head";
-import Layer from "@core/layer";
+import Hero from "@core/hero";
 import Nav from "@core/nav";
+import Parallax from "@core/parallax";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
-import useScrollPosition from "@hooks/useScrollPosition";
+import useMediaQuery from "@hooks/useMediaQuery";
 
 import styles from "./index.module.css";
 
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-const Hero = () => {
-  return (
-    <div className={classnames("container", styles.hero)}>
-      <h1 className={styles.greeting}>
-        <a
-          href="https://youtu.be/5-CEGCXDVgI"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <span>Hello!</span>
-        </a>
-        <br />I design & develop things for the internet.
-      </h1>
-    </div>
-  );
-};
+interface Props {
+  isDesktop: boolean;
+}
 
-export default function Home(): React.ReactNode {
+export default function Home(props: Props): React.ReactNode {
+  console.log(props.isDesktop);
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
     fetcher
   );
   const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
-
-  const scrollPosition = useScrollPosition();
+  const matches = useMediaQuery("(min-width: 632px)");
 
   return (
     <>
       <Head />
       <Nav
-        className="container"
-        style={{ position: "absolute", left: 0, right: 0, zIndex: 200 }}
+        className={classnames("container", {
+          [styles.nav]: props.isDesktop,
+        })}
+        darkMode
       />
 
-      <div className="keyart" id="parallax">
-        <Layer id="0" position={scrollPosition} speed={0.02} />
-        <Layer id="1" position={scrollPosition} speed={0.11} />
-        <Layer id="2" position={scrollPosition} speed={0.26} />
-        <Layer id="3b" position={scrollPosition} speed={0.39} />
-        <Layer id="3" position={scrollPosition} speed={0.49} />
-        <Layer id="7" position={scrollPosition} speed={0.49}>
-          <Hero />
-        </Layer>
-        <Layer id="4" position={scrollPosition} speed={0.69} />
-        <Layer id="5" position={scrollPosition} speed={0.79} />
-        <div className="keyart_layer" id="keyart-6" />
+      <div style={{ display: props.isDesktop ? "block" : "none" }}>
+        <Parallax />
+      </div>
+      <div style={{ display: props.isDesktop ? "none" : "block" }}>
+        <Hero />
       </div>
 
       <div
@@ -324,3 +308,17 @@ const TootPost = ({ date, id, image, summary, title, url }: PostListItem) => (
     </header>
   </article>
 );
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const userAgent = context.req.headers["user-agent"] || "";
+  return {
+    props: {
+      isDesktop: isDesktop(userAgent),
+    },
+  };
+};
+
+function isDesktop(userAgent: string) {
+  const ua = userAgent.toLowerCase();
+  return ua.includes("macintosh") || ua.includes("windows");
+}
