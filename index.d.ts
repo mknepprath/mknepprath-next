@@ -10,7 +10,9 @@ interface Post {
   title: string;
 }
 
+// TODO: Split the Post interface into two interfaces
 interface PostListItem {
+  action?: string;
   date: string;
   id: string;
   image?: string;
@@ -39,6 +41,7 @@ interface Film {
   published_at: string;
   rating: string;
   review: string;
+  rewatched: boolean;
   title: string;
   year: string;
 }

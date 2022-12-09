@@ -154,7 +154,15 @@ const Post = ({ date, id, image, title }: PostListItem) => (
   </article>
 );
 
-const FilmPost = ({ date, id, image, summary, title, url }: PostListItem) => (
+const FilmPost = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
   <article key={id}>
     <header className={styles.filmPostHeader}>
       {image ? (
@@ -183,13 +191,23 @@ const FilmPost = ({ date, id, image, summary, title, url }: PostListItem) => (
             dangerouslySetInnerHTML={{ __html: summary }}
           />
         ) : null}
-        <small>Watched on {format(parseISO(date), "MMMM d, yyyy")}</small>
+        <small>
+          {action} on {format(parseISO(date), "MMMM d, yyyy")}
+        </small>
       </div>
     </header>
   </article>
 );
 
-const BookPost = ({ date, id, image, summary, title, url }: PostListItem) => (
+const BookPost = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
   <article key={id}>
     <header className={styles.filmPostHeader}>
       {image ? (
@@ -213,13 +231,15 @@ const BookPost = ({ date, id, image, summary, title, url }: PostListItem) => (
           <h3 className={styles.filmTitle}>{title}</h3>
         </a>
         <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
-        <small>Read on {format(parseISO(date), "MMMM d, yyyy")}</small>
+        <small>
+          {action} on {format(parseISO(date), "MMMM d, yyyy")}
+        </small>
       </div>
     </header>
   </article>
 );
 
-const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
+const RepoPost = ({ action, date, id, summary, title, url }: PostListItem) => (
   <article key={id}>
     <header>
       <a
@@ -238,12 +258,22 @@ const RepoPost = ({ date, id, summary, title, url }: PostListItem) => (
         </h3>
       </a>{" "}
       <p style={{ margin: "0.4em 0 0.2em" }}>{summary}</p>
-      <small>Updated on {format(parseISO(date), "MMMM d, yyyy")}</small>
+      <small>
+        {action} on {format(parseISO(date), "MMMM d, yyyy")}
+      </small>
     </header>
   </article>
 );
 
-const TweetPost = ({ date, id, image, summary, title, url }: PostListItem) => (
+const TweetPost = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
   <article key={id}>
     <header>
       <a href={url} target="_blank" rel="noreferrer">
@@ -268,12 +298,22 @@ const TweetPost = ({ date, id, image, summary, title, url }: PostListItem) => (
           </p>
         )}
       </a>
-      <small>Tweeted on {format(parseISO(date), "MMMM d, yyyy")}</small>
+      <small>
+        {action} on {format(parseISO(date), "MMMM d, yyyy")}
+      </small>
     </header>
   </article>
 );
 
-const TootPost = ({ date, id, image, summary, title, url }: PostListItem) => (
+const TootPost = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
   <article key={id}>
     <header>
       <A href={url || ""}>
@@ -304,7 +344,9 @@ const TootPost = ({ date, id, image, summary, title, url }: PostListItem) => (
           </p>
         )}
       </A>
-      <small>Tooted on {format(parseISO(date), "MMMM d, yyyy")}</small>
+      <small>
+        {action} on {format(parseISO(date), "MMMM d, yyyy")}
+      </small>
     </header>
   </article>
 );

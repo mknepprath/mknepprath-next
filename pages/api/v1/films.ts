@@ -26,6 +26,7 @@ export default async (
             published_at: filmList[i].pubDate[0],
             rating: filmList[i]["letterboxd:memberRating"]?.[0],
             review: review.join(`</p>`),
+            rewatched: filmList[i]["letterboxd:rewatch"]?.[0] === "Yes",
             title: filmList[i]["letterboxd:filmTitle"]?.[0],
             year: filmList[i]["letterboxd:filmYear"]?.[0],
           });
