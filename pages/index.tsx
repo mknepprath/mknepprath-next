@@ -45,7 +45,7 @@ export default function Home(props: Props): React.ReactNode {
       {props.isDesktop ? <Parallax /> : <Hero />}
 
       <div className={classnames("container", styles.container)}>
-        <h2 style={{ marginTop: 0 }}>Activity</h2>
+        <h2 className={styles.activityHeading}>Activity</h2>
         {activity
           // The `sort` method can be conveniently used with function expressions:
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort

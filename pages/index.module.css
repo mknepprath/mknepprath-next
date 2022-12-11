@@ -26,6 +26,10 @@
   z-index: 200;
 }
 
+.activityHeading {
+  margin-top: 0;
+}
+
 .projectContainer {
   margin-top: 80px;
 
