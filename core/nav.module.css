@@ -30,10 +30,6 @@
   text-decoration: none;
   font-size: 13px;
 }
-.nav.darkMode li a,
-.darkMode .siteLogo {
-  color: var(--primaryColor);
-}
 
 .siteLogo {
   display: flex;

@@ -16,7 +16,6 @@ import Nav from "@core/nav";
 import Parallax from "@core/parallax";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
-import useMediaQuery from "@hooks/useMediaQuery";
 
 import styles from "./index.module.css";
 
@@ -41,20 +40,11 @@ export default function Home(props: Props): React.ReactNode {
         className={classnames("container", {
           [styles.nav]: props.isDesktop,
         })}
-        darkMode
       />
 
       {props.isDesktop ? <Parallax /> : <Hero />}
 
-      <div
-        className="container"
-        style={{
-          background: "#ffffff",
-          paddingTop: "2.4rem",
-          position: "relative",
-          zIndex: 200,
-        }}
-      >
+      <div className={classnames("container", styles.container)}>
         <h2 style={{ marginTop: 0 }}>Activity</h2>
         {activity
           // The `sort` method can be conveniently used with function expressions:
@@ -79,10 +69,7 @@ export default function Home(props: Props): React.ReactNode {
 
         {!activity.length && <div>What have I been up to...</div>}
 
-        <div
-          className={styles.projectContainer}
-          style={{ position: "relative", zIndex: 200 }}
-        >
+        <div className={styles.projectContainer}>
           <h2>Projects</h2>
           <div className={styles.cardContainer}>
             {projectLinks.map(({ description, href, imgSrc, title }) => (
@@ -98,10 +85,7 @@ export default function Home(props: Props): React.ReactNode {
         </div>
 
         {shots?.length ? (
-          <div
-            className={styles.projectContainer}
-            style={{ position: "relative", zIndex: 200 }}
-          >
+          <div className={styles.projectContainer}>
             <h2>Illustrations</h2>
             <div className={styles.cardContainer}>
               {shots?.map(({ html_url, images, published_at, title }) => (

@@ -2,7 +2,6 @@
 import classnames from "classnames";
 import Image from "next/legacy/image";
 import Link from "next/link";
-import { CSSProperties } from "react";
 
 // Data
 import { navLinks } from "@data/links";
@@ -11,20 +10,11 @@ import styles from "./nav.module.css";
 
 interface Props {
   className?: string;
-  darkMode?: boolean;
-  style?: CSSProperties;
 }
 
-export default function Nav({
-  className,
-  darkMode,
-  style,
-}: Props): JSX.Element {
+export default function Nav({ className }: Props): JSX.Element {
   return (
-    <nav
-      className={classnames(styles.nav, styles.darkMode, className)}
-      style={style}
-    >
+    <nav className={classnames(styles.nav, className)}>
       <a className={styles.siteLogo} href="/">
         <Image
           alt="Michael Knepprath Memoji"

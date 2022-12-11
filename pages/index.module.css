@@ -4,6 +4,10 @@
   right: 0px;
   z-index: 200;
 }
+.nav li a,
+.nav span {
+  color: var(--primaryColor);
+}
 
 .title {
   color: var(--black);
@@ -14,8 +18,20 @@
   color: var(--primaryColor);
 }
 
+/* Accomodate for the absolutely positioned hero. */
+.container {
+  background: var(--white);
+  padding-top: 2.4rem;
+  position: relative;
+  z-index: 200;
+}
+
 .projectContainer {
   margin-top: 80px;
+
+  /* Accomodate for the absolutely positioned hero. */
+  position: relative;
+  z-index: 200;
 }
 
 .cardContainer {
