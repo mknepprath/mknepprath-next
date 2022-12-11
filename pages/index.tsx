@@ -28,13 +28,11 @@ interface Props {
 }
 
 export default function Home(props: Props): React.ReactNode {
-  console.log(props.isDesktop);
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
     fetcher
   );
   const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
-  const matches = useMediaQuery("(min-width: 632px)");
 
   return (
     <>
@@ -46,12 +44,7 @@ export default function Home(props: Props): React.ReactNode {
         darkMode
       />
 
-      <div style={{ display: props.isDesktop ? "block" : "none" }}>
-        <Parallax />
-      </div>
-      <div style={{ display: props.isDesktop ? "none" : "block" }}>
-        <Hero />
-      </div>
+      {props.isDesktop ? <Parallax /> : <Hero />}
 
       <div
         className="container"
