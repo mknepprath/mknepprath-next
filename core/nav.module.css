@@ -20,6 +20,9 @@
 .nav li:hover a {
   color: var(--primaryColor);
 }
+.nav li:hover a {
+  color: var(--primaryColor);
+}
 .nav li a,
 .siteLogo {
   color: var(--black);

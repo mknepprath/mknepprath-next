@@ -2,16 +2,18 @@ import classnames from "classnames";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import fetch from "isomorphic-unfetch";
+import { GetServerSideProps } from "next";
 import Image from "next/legacy/image";
 import Link from "next/link";
-import { ReactNode } from "react";
 import useSWR from "swr";
 
 import A from "@core/a";
 import Card from "@core/card";
 import Footer from "@core/footer";
 import Head from "@core/head";
+import Hero from "@core/hero";
 import Nav from "@core/nav";
+import Parallax from "@core/parallax";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
 
@@ -20,7 +22,11 @@ import styles from "./index.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export default function Home(): ReactNode {
+interface Props {
+  isDesktop: boolean;
+}
+
+export default function Home(props: Props): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
     fetcher
@@ -30,23 +36,16 @@ export default function Home(): ReactNode {
   return (
     <>
       <Head />
-      <Nav className="container" />
+      <Nav
+        className={classnames("container", {
+          [styles.nav]: props.isDesktop,
+        })}
+      />
 
-      <div className={classnames("container", styles.hero)}>
-        <h1 className={styles.greeting}>
-          <a
-            href="https://youtu.be/5-CEGCXDVgI"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span>Hello!</span>
-          </a>
-          <br />I design & develop things for the internet.
-        </h1>
-      </div>
+      {props.isDesktop ? <Parallax /> : <Hero />}
 
-      <div className="container">
-        <h2>Activity</h2>
+      <div className={classnames("container", styles.container)}>
+        <h2 className={styles.activityHeading}>Activity</h2>
         {activity
           // The `sort` method can be conveniently used with function expressions:
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -69,43 +68,43 @@ export default function Home(): ReactNode {
           })}
 
         {!activity.length && <div>What have I been up to...</div>}
-      </div>
 
-      <div className={classnames("container", styles.projectContainer)}>
-        <h2>Projects</h2>
-        <div className={styles.cardContainer}>
-          {projectLinks.map(({ description, href, imgSrc, title }) => (
-            <Card
-              description={description}
-              href={href}
-              imgSrc={imgSrc}
-              key={title}
-              title={title}
-            />
-          ))}
-        </div>
-      </div>
-
-      {shots?.length ? (
-        <div className={classnames("container", styles.projectContainer)}>
-          <h2>Illustrations</h2>
+        <div className={styles.projectContainer}>
+          <h2>Projects</h2>
           <div className={styles.cardContainer}>
-            {shots?.map(({ html_url, images, published_at, title }) => (
-              <Shot
-                description={format(parseISO(published_at), "MMMM d, yyyy")}
-                href={html_url}
-                imgSrc={images.normal}
+            {projectLinks.map(({ description, href, imgSrc, title }) => (
+              <Card
+                description={description}
+                href={href}
+                imgSrc={imgSrc}
                 key={title}
                 title={title}
               />
             ))}
           </div>
-          {/* TODO: Make this look good. */}
-          {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
         </div>
-      ) : null}
 
-      <Footer className="container" />
+        {shots?.length ? (
+          <div className={styles.projectContainer}>
+            <h2>Illustrations</h2>
+            <div className={styles.cardContainer}>
+              {shots?.map(({ html_url, images, published_at, title }) => (
+                <Shot
+                  description={format(parseISO(published_at), "MMMM d, yyyy")}
+                  href={html_url}
+                  imgSrc={images.normal}
+                  key={title}
+                  title={title}
+                />
+              ))}
+            </div>
+            {/* TODO: Make this look good. */}
+            {/* <A href="https://dribbble.com/mknepprath">See more</A> */}
+          </div>
+        ) : null}
+
+        <Footer />
+      </div>
     </>
   );
 }
@@ -328,3 +327,17 @@ const TootPost = ({
     </header>
   </article>
 );
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const userAgent = context.req.headers["user-agent"] || "";
+  return {
+    props: {
+      isDesktop: isDesktop(userAgent),
+    },
+  };
+};
+
+function isDesktop(userAgent: string) {
+  const ua = userAgent.toLowerCase();
+  return ua.includes("macintosh") || ua.includes("windows");
+}

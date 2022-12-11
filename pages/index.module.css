@@ -1,24 +1,12 @@
-.hero {
-  color: var(--black);
+.nav {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  z-index: 200;
 }
-
-.greeting {
-  margin: 80px 0;
-  width: 100%;
-  line-height: 1.1;
-  font-size: 48px;
-}
-@media (min-width: 632px) {
-  .greeting {
-    font-size: 64px;
-  }
-}
-
-.greeting span {
+.nav li a,
+.nav span {
   color: var(--primaryColor);
-}
-.greeting a {
-  text-decoration: none;
 }
 
 .title {
@@ -30,8 +18,24 @@
   color: var(--primaryColor);
 }
 
+/* Accomodate for the absolutely positioned hero. */
+.container {
+  background: var(--white);
+  padding-top: 2.4rem;
+  position: relative;
+  z-index: 200;
+}
+
+.activityHeading {
+  margin-top: 0;
+}
+
 .projectContainer {
   margin-top: 80px;
+
+  /* Accomodate for the absolutely positioned hero. */
+  position: relative;
+  z-index: 200;
 }
 
 .cardContainer {

@@ -1,0 +1,12 @@
+.keyart {
+	height: 1000px;
+}
+
+.keyart {
+	position: relative;
+	z-index: 100;
+}
+
+.hero {
+  margin-top: 200px;
+}
