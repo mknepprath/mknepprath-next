@@ -18,7 +18,7 @@
   }
 }
 
-.greeting span {
+.link {
   color: var(--primaryColor);
 }
 .greeting a {

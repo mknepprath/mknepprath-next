@@ -11,11 +11,12 @@ export default function Hero({ className }: Props): JSX.Element {
     <div className={classnames("container", styles.hero, className)}>
       <h1 className={styles.greeting}>
         <a
+          className={styles.link}
           href="https://youtu.be/5-CEGCXDVgI"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <span>Hello!</span>
+          Hello!
         </a>
         <br />I design & develop things for the internet.
       </h1>

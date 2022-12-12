@@ -18,7 +18,7 @@ export default function Writing(): React.ReactNode {
         <h1>Writing</h1>
       </header>
 
-      <main>
+      <>
         {posts
           // The `sort` method can be conveniently used with function expressions:
           // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -33,7 +33,7 @@ export default function Writing(): React.ReactNode {
               </header>
             </article>
           ))}
-      </main>
+      </>
     </Page>
   );
 }

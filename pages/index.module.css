@@ -4,7 +4,7 @@
   right: 0px;
   z-index: 200;
 }
-.nav li a,
+.nav a,
 .nav span {
   color: var(--primaryColor);
 }

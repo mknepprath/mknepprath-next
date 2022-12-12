@@ -23,7 +23,7 @@
 .nav li:hover a {
   color: var(--primaryColor);
 }
-.nav li a,
+.nav a,
 .siteLogo {
   color: var(--black);
   padding: 0 8px;
