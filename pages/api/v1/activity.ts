@@ -51,8 +51,7 @@ export default async (
     ?.filter(
       (tweet) =>
         tweet?.entities?.urls?.length <= 1 &&
-        !!tweet?.entities?.urls[0].media_key &&
-        tweet?.public_metrics?.like_count > 2
+        !!tweet?.entities?.urls[0].media_key
     )
     .map((tweet) => {
       const media = tweets?.includes.media.find(

@@ -18,6 +18,9 @@ export default function MyApp({
     <main>
       {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx global>{`
+        body {
+          font-family: ${bodyFont.style.fontFamily};
+        }
         h1,
         h2,
         h3,
