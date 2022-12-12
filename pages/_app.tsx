@@ -24,11 +24,12 @@ export default function MyApp({
         h4,
         h5,
         a,
-        span {
+        a span {
           font-family: ${headingFont.style.fontFamily};
         }
         p,
-        small {
+        small,
+        span {
           font-family: ${bodyFont.style.fontFamily};
         }
         em {
