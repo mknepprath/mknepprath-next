@@ -137,7 +137,7 @@ export default async (
         // TODO: remove the fraction.
         toot.favourites_count >= rating / 2 &&
         // ...and has content...
-        !!toot.content &&
+        !!(toot.content || toot.media_attachments[0]?.url) &&
         // ...and doesn't start with a link.
         !toot.content.startsWith(`<p><span class="h-card"><a href="`)
     )
