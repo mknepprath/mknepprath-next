@@ -12,7 +12,8 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const { max_results } = req.query;
+  const { max_results, min_rating = "4" } = req.query;
+  const rating = parseInt(min_rating as string);
 
   const [films, books, tweets, games, repos, toots]: [
     Film[],
@@ -22,8 +23,12 @@ export default async (
     Repo[],
     Toot[]
   ] = await Promise.all([
-    fetch(`${BASE_URL}/api/v1/films`).then((response) => response.json()),
-    fetch(`${BASE_URL}/api/v1/books`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/films?min_rating=${rating}`).then((response) =>
+      response.json()
+    ),
+    fetch(`${BASE_URL}/api/v1/books?min_rating=${rating}`).then((response) =>
+      response.json()
+    ),
     fetch(`${BASE_URL}/api/v1/timeline/15332057?max_results=20`).then(
       (response) => response.json()
     ),
@@ -50,14 +55,23 @@ export default async (
   const tweetPosts = (tweets?.data || [])
     ?.filter(
       (tweet) =>
-        tweet?.entities?.urls?.length <= 1 &&
-        !!tweet?.entities?.urls[0].media_key
+        // If the tweet has no URLs...
+        (tweet?.entities?.urls === undefined ||
+          // ...or one URL and a media key...
+          (tweet?.entities?.urls?.length === 1 &&
+            !!tweet?.entities?.urls[0].media_key)) &&
+        // ...and at least min_rating likes.
+        tweet.public_metrics.like_count >= rating
     )
     .map((tweet) => {
+      // Find the media object that matches the media key.
       const media = tweets?.includes.media.find(
         (m) => m.media_key === tweet.attachments?.media_keys[0]
       );
-      const text = tweet.text.replace(tweet.entities.urls[0].url, "").trim();
+      // If the tweet has a URL for the media object, remove it from the text.
+      const text = media
+        ? tweet.text.replace(tweet.entities.urls[0].url, "").trim()
+        : tweet.text;
       return {
         action: "Tweeted",
         date: new Date(tweet.created_at).toISOString(),
@@ -117,7 +131,14 @@ export default async (
   }));
 
   const tootPosts = toots
-    ?.filter((toot) => toot.favourites_count > 2)
+    ?.filter(
+      (toot) =>
+        // Has at least half min_rating likes...
+        // TODO: remove the fraction.
+        toot.favourites_count >= rating / 2 &&
+        // ...and doesn't start with a link.
+        !toot.content.startsWith(`<p><span class="h-card"><a href="`)
+    )
     .map((toot) => ({
       action: "Tooted",
       date: new Date(toot.created_at).toISOString(),
@@ -149,7 +170,7 @@ export default async (
   ] // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-    .slice(0, max_results ? parseInt(max_results as string) : 10);
+    .slice(0, max_results ? parseInt(max_results as string) : 50);
 
   // If none of the posts are of type "POST", add one that is.
   if (allPosts.every((post) => post.type !== "POST")) {
