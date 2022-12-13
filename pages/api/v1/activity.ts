@@ -136,6 +136,8 @@ export default async (
         // Has at least half min_rating likes...
         // TODO: remove the fraction.
         toot.favourites_count >= rating / 2 &&
+        // ...and has content...
+        !!toot.content &&
         // ...and doesn't start with a link.
         !toot.content.startsWith(`<p><span class="h-card"><a href="`)
     )

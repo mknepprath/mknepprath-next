@@ -24,7 +24,7 @@ export default function Nav({ className }: Props): JSX.Element {
           src="/assets/mk-profile-pic.png"
           width={32}
         />
-        M. Knepprath
+        <span>M. Knepprath</span>
       </a>
       <ul>
         {navLinks.map(({ href, key, title }) => (
