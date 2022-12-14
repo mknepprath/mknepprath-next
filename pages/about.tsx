@@ -14,8 +14,7 @@ const fetcher = (url: RequestInfo) =>
 export default function About(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books`, fetcher);
   const { data: films } = useSWR<Film[]>(`/api/v1/films?min_rating=2`, fetcher);
-  const { data: music } = useSWR<Playlist[]>(`/api/v1/music`, fetcher);
-
+  const { data: music } = useSWR<Music[]>(`/api/v1/music`, fetcher);
   return (
     <Page className={styles.pageContainer} title="About Michael Knepprath">
       <article data-cy="about-page">
@@ -89,9 +88,9 @@ export default function About(): React.ReactNode {
         <>
           <h2>Recent Music</h2>
           <div className={styles.cardContainer}>
-            {music.map((playlist) => {
+            {music.map((m) => {
               // Titlecase the kind of media this is.
-              const kind = playlist.attributes.playParams.kind.replace(
+              const kind = m.attributes.playParams.kind.replace(
                 /([A-Z])/g,
                 " $1"
               );
@@ -99,14 +98,15 @@ export default function About(): React.ReactNode {
                 <Card
                   description={kind.charAt(0).toUpperCase() + kind.slice(1)}
                   href={
-                    playlist.attributes.url ||
-                    `https://music.apple.com/us/${playlist.attributes.playParams.kind}/${playlist.attributes.playParams.globalId}`
+                    m.attributes.playParams.globalId
+                      ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
+                      : "#"
                   }
-                  imgSrc={playlist.attributes.artwork.url
+                  imgSrc={m.attributes.artwork.url
                     .replace("{w}", "200")
                     .replace("{h}", "200")}
-                  key={playlist.id}
-                  title={playlist.attributes.name}
+                  key={m.id}
+                  title={m.attributes.name}
                 />
               );
             })}

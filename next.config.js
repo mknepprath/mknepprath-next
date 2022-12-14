@@ -69,6 +69,16 @@ const moduleExports = {
       "i.gr-assets.com", // Goodreads
       "files.mastodon.social", // Mastodon
     ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.mzstatic.com", // Apple Music
+      },
+      {
+        protocol: "https",
+        hostname: "**.blobstore.apple.com", // Apple Music
+      },
+    ],
   },
   sentry: {
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map

@@ -225,4 +225,49 @@ const TootPost = ({
   </article>
 );
 
-export { Post, BookPost, FilmPost, RepoPost, TweetPost, TootPost };
+// FIXME: Fix case when no link is available.
+const MusicPost = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
+  <article key={id}>
+    <header className={styles.filmPostHeader}>
+      {image ? (
+        <a
+          className={styles.filmPoster}
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            alt={`album art for ${title}`}
+            className="bordered-image corner-radius-8"
+            height={90}
+            src={image}
+            width={90}
+          />
+        </a>
+      ) : null}
+      <div>
+        <a href={url} target="_blank" rel="noreferrer">
+          <h3 className={styles.filmTitle}>{title}</h3>
+        </a>
+        {summary ? (
+          <div className={styles.filmReview}>
+            <p>{summary}</p>
+          </div>
+        ) : null}
+        <small>
+          {action} on {format(parseISO(date), "MMMM d, yyyy")}
+        </small>
+      </div>
+    </header>
+  </article>
+);
+
+export { Post, BookPost, FilmPost, RepoPost, TweetPost, TootPost, MusicPost };

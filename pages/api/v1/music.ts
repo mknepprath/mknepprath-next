@@ -1,4 +1,5 @@
 import fetch from "isomorphic-unfetch";
+import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (
@@ -9,8 +10,18 @@ export default async (
     query: { offset = 0, limit = 6 },
   } = req;
 
+  const jwtToken = jwt.sign({}, `${process.env.MUSIC_PRIVATE_KEY}`, {
+    algorithm: "ES256",
+    expiresIn: "180d",
+    issuer: process.env.MUSIC_TEAM_ID,
+    header: {
+      alg: "ES256",
+      kid: process.env.MUSIC_KEY_ID,
+    },
+  });
+
   const myHeaders = new Headers();
-  myHeaders.append("Authorization", `${process.env.MUSICKIT_TOKEN}`);
+  myHeaders.append("Authorization", `Bearer ${jwtToken}`);
   myHeaders.append("Music-User-Token", `${process.env.MUSIC_USER_TOKEN}`);
 
   const requestOptions: RequestInit = {
@@ -21,7 +32,7 @@ export default async (
 
   return new Promise((resolve) => {
     fetch(
-      `https://api.music.apple.com/v1/me/recent/played?limit=${limit}&offset=${offset}`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
+      `https://api.music.apple.com/v1/me/library/recently-added?limit=${limit}&offset=${offset}`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
       requestOptions
     )
       .then((response) => response.text())
