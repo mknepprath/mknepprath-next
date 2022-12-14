@@ -12,18 +12,24 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const { max_results } = req.query;
+  const { max_results, min_rating = "4" } = req.query;
+  const rating = parseInt(min_rating as string);
 
-  const [films, books, tweets, games, repos, toots]: [
+  const [films, books, tweets, games, repos, toots, music]: [
     Film[],
     Book[],
     Tweets,
     Tweets,
     Repo[],
-    Toot[]
+    Toot[],
+    Music[]
   ] = await Promise.all([
-    fetch(`${BASE_URL}/api/v1/films`).then((response) => response.json()),
-    fetch(`${BASE_URL}/api/v1/books`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/films?min_rating=${rating}`).then((response) =>
+      response.json()
+    ),
+    fetch(`${BASE_URL}/api/v1/books?min_rating=${rating}`).then((response) =>
+      response.json()
+    ),
     fetch(`${BASE_URL}/api/v1/timeline/15332057?max_results=20`).then(
       (response) => response.json()
     ),
@@ -34,7 +40,25 @@ export default async (
       response.json()
     ),
     fetch(`${BASE_URL}/api/v1/mastodon`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/music?limit=20`).then((response) =>
+      response.json()
+    ),
   ]);
+
+  const musicPosts = music?.map((m) => ({
+    action: "Added",
+    date: new Date(m.attributes.dateAdded).toISOString(),
+    id: `music-${m.id}`,
+    image:
+      m.attributes.artwork?.url.replace("{w}", "500").replace("{h}", "500") ||
+      "",
+    summary: m.attributes.artistName,
+    title: m.attributes.name,
+    type: "MUSIC" as PostListItem["type"],
+    url: m.attributes.playParams.globalId
+      ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
+      : undefined,
+  }));
 
   const filmPosts = films?.map((film) => ({
     action: film.rewatched ? "Rewatched" : "Watched",
@@ -50,15 +74,23 @@ export default async (
   const tweetPosts = (tweets?.data || [])
     ?.filter(
       (tweet) =>
-        tweet?.entities?.urls?.length <= 1 &&
-        !!tweet?.entities?.urls[0].media_key &&
-        tweet?.public_metrics?.like_count > 2
+        // If the tweet has no URLs...
+        (tweet?.entities?.urls === undefined ||
+          // ...or one URL and a media key...
+          (tweet?.entities?.urls?.length === 1 &&
+            !!tweet?.entities?.urls[0].media_key)) &&
+        // ...and at least min_rating likes.
+        tweet.public_metrics.like_count >= rating
     )
     .map((tweet) => {
+      // Find the media object that matches the media key.
       const media = tweets?.includes.media.find(
         (m) => m.media_key === tweet.attachments?.media_keys[0]
       );
-      const text = tweet.text.replace(tweet.entities.urls[0].url, "").trim();
+      // If the tweet has a URL for the media object, remove it from the text.
+      const text = media
+        ? tweet.text.replace(tweet.entities.urls[0].url, "").trim()
+        : tweet.text;
       return {
         action: "Tweeted",
         date: new Date(tweet.created_at).toISOString(),
@@ -118,7 +150,16 @@ export default async (
   }));
 
   const tootPosts = toots
-    ?.filter((toot) => toot.favourites_count > 2)
+    ?.filter(
+      (toot) =>
+        // Has at least half min_rating likes...
+        // TODO: remove the fraction.
+        toot.favourites_count >= rating / 2 &&
+        // ...and has content...
+        !!(toot.content || toot.media_attachments[0]?.url) &&
+        // ...and doesn't start with a link.
+        !toot.content.startsWith(`<p><span class="h-card"><a href="`)
+    )
     .map((toot) => ({
       action: "Tooted",
       date: new Date(toot.created_at).toISOString(),
@@ -140,6 +181,7 @@ export default async (
     .sort((a, b) => +parseISO(b.date) - +parseISO(a.date));
 
   const allPosts = [
+    ...musicPosts,
     ...filmPosts,
     ...tweetPosts,
     ...gamePosts,

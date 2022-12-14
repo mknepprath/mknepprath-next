@@ -18,7 +18,7 @@ interface PostListItem {
   image?: string;
   summary?: string;
   title: string;
-  type?: "FILM" | "TWEET" | "REPO" | "POST" | "BOOK" | "TOOT";
+  type?: "FILM" | "TWEET" | "REPO" | "POST" | "BOOK" | "TOOT" | "MUSIC";
   url?: string;
 }
 
@@ -115,30 +115,71 @@ interface Tweets {
   };
 }
 
-interface Playlist {
-  href: string;
+interface RecentPlayed {
   id: string;
   type: "albums" | "stations" | "library-playlists";
+  href: string;
   attributes: {
+    copyright: string;
+    genreNames: string[];
+    releaseDate: string;
+    upc: string;
+    isMasteredForItunes: boolean;
     artwork: {
-      height?: number;
+      width: number;
+      height: number;
       url: string;
-      width?: number;
+      bgColor: string;
+      textColor1: string;
+      textColor2: string;
+      textColor3: string;
+      textColor4: string;
     };
-    canEdit: boolean;
-    dateAdded: string;
-    description: {
-      standard: string;
-    };
-    hasCatalog: boolean;
-    name: string;
     playParams: {
-      globalId: string;
+      globalId?: string;
       id: string;
-      isLibrary: boolean;
+      isLibrary?: boolean;
       kind: "album" | "radioStation" | "playlist";
     };
-    url?: string;
+    url: string;
+    recordLabel: string;
+    trackCount: number;
+    isCompilation: boolean;
+    isSingle: boolean;
+    name: string;
+    contentRating: string;
+    artistName: string;
+    editorialNotes: {
+      standard: string;
+      short: string;
+    };
+    isComplete: boolean;
+  };
+}
+
+interface Music {
+  id: string;
+  type: "library-albums" | "library-songs" | "library-playlists";
+  href: string;
+  attributes: {
+    isPublic?: boolean;
+    trackCount: number;
+    genreNames: string[];
+    releaseDate: string;
+    name: string;
+    artistName: string;
+    artwork: {
+      width: number;
+      height: number;
+      url: string;
+    };
+    playParams: {
+      id: string;
+      kind: "album" | "song" | "playlist";
+      isLibrary: boolean;
+      globalId?: string;
+    };
+    dateAdded: string;
   };
 }
 

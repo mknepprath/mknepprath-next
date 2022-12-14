@@ -1,0 +1,43 @@
+.title {
+  color: var(--black);
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+.title:hover {
+  color: var(--primaryColor);
+}
+
+.filmPostHeader {
+  display: flex;
+}
+
+.filmPoster {
+  flex-shrink: 0;
+  width: 106px;
+}
+@media (min-width: 632px) {
+  .filmPoster {
+    width: 123px;
+  }
+}
+
+.filmTitle {
+  color: var(--black);
+  margin: 0px;
+}
+.filmTitle:hover {
+  color: var(--primaryColor);
+}
+
+.filmReview > * {
+  margin: 0.4em 0 0.2em;
+}
+
+.tweet {
+  color: var(--black);
+  margin: 0;
+  margin-bottom: 0.2em;
+}
+.tweet:hover {
+  color: var(--primaryColor);
+}

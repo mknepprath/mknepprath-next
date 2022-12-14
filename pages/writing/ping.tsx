@@ -12,7 +12,7 @@ import styles from "./ping.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-const MusicSection = (props: { music: Playlist[] }): JSX.Element => (
+const MusicSection = (props: { music: Music[] }): JSX.Element => (
   <div className={styles.cardContainer}>
     {props.music.map((playlist) => {
       // Titlecase the kind of media this is.
@@ -24,8 +24,9 @@ const MusicSection = (props: { music: Playlist[] }): JSX.Element => (
         <Card
           description={kind.charAt(0).toUpperCase() + kind.slice(1)}
           href={
-            playlist.attributes.url ||
-            `https://music.apple.com/us/${playlist.attributes.playParams.kind}/${playlist.attributes.playParams.globalId}`
+            playlist.attributes.playParams.globalId
+              ? `https://music.apple.com/us/${playlist.attributes.playParams.kind}/${playlist.attributes.playParams.globalId}`
+              : "#"
           }
           imgSrc={playlist.attributes.artwork.url
             .replace("{w}", "200")
@@ -49,17 +50,17 @@ export const meta = {
 };
 
 export default function Ping(): React.ReactNode {
-  const { data: musicSection1 } = useSWR<Playlist[]>(
+  const { data: musicSection1 } = useSWR<Music[]>(
     `/api/v1/music?limit=4`,
     fetcher,
     { refreshInterval: 60000 }
   );
-  const { data: musicSection2 } = useSWR<Playlist[]>(
+  const { data: musicSection2 } = useSWR<Music[]>(
     `/api/v1/music?limit=4&offset=4`,
     fetcher,
     { refreshInterval: 60000 }
   );
-  const { data: musicSection3 } = useSWR<Playlist[]>(
+  const { data: musicSection3 } = useSWR<Music[]>(
     `/api/v1/music?limit=4&offset=8`,
     fetcher,
     { refreshInterval: 60000 }
