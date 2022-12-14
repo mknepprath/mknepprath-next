@@ -6,6 +6,7 @@ import Page from "@core/page";
 import {
   BookPost,
   FilmPost,
+  MusicPost,
   Post,
   RepoPost,
   TootPost,
@@ -44,6 +45,8 @@ export default function Home(): React.ReactNode {
                 return <BookPost key={post.id} {...post} />;
               case "TOOT":
                 return <TootPost key={post.id} {...post} />;
+              case "MUSIC":
+                return <MusicPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }

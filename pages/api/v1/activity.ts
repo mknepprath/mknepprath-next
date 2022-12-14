@@ -15,13 +15,14 @@ export default async (
   const { max_results, min_rating = "4" } = req.query;
   const rating = parseInt(min_rating as string);
 
-  const [films, books, tweets, games, repos, toots]: [
+  const [films, books, tweets, games, repos, toots, music]: [
     Film[],
     Book[],
     Tweets,
     Tweets,
     Repo[],
-    Toot[]
+    Toot[],
+    Music[]
   ] = await Promise.all([
     fetch(`${BASE_URL}/api/v1/films?min_rating=${rating}`).then((response) =>
       response.json()
@@ -39,7 +40,25 @@ export default async (
       response.json()
     ),
     fetch(`${BASE_URL}/api/v1/mastodon`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/music?limit=20`).then((response) =>
+      response.json()
+    ),
   ]);
+
+  const musicPosts = music?.map((m) => ({
+    action: "Added",
+    date: new Date(m.attributes.dateAdded).toISOString(),
+    id: `music-${m.id}`,
+    image:
+      m.attributes.artwork?.url.replace("{w}", "500").replace("{h}", "500") ||
+      "",
+    summary: m.attributes.artistName,
+    title: m.attributes.name,
+    type: "MUSIC" as PostListItem["type"],
+    url: m.attributes.playParams.globalId
+      ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
+      : undefined,
+  }));
 
   const filmPosts = films?.map((film) => ({
     action: film.rewatched ? "Rewatched" : "Watched",
@@ -162,6 +181,7 @@ export default async (
     .sort((a, b) => +parseISO(b.date) - +parseISO(a.date));
 
   const allPosts = [
+    ...musicPosts,
     ...filmPosts,
     ...tweetPosts,
     ...gamePosts,
