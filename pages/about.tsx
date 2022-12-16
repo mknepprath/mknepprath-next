@@ -1,4 +1,5 @@
 import fetch from "isomorphic-unfetch";
+import Link from "next/link";
 import useSWR from "swr";
 
 import A from "@core/a";
@@ -31,8 +32,8 @@ export default function About(): React.ReactNode {
           <A href="https://www.walmartlabs.com">Walmart</A> (prev.{" "}
           <A href="https://hyper.online">Hyper</A>,{" "}
           <A href="https://whcc.com">WHCC</A>). He loves his family and working
-          on side projects related to technology, design, film, video games, and
-          so on.
+          on side projects related to technology, design, film, video games,{" "}
+          <Link href="/activity">and so on</Link>.
         </p>
 
         <h2>Contact</h2>
