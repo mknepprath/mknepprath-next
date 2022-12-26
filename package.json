@@ -65,7 +65,7 @@
     "cypress": "^11.2.0",
     "diff": "^5.1.0",
     "eslint": "^8.30.0",
-    "eslint-config-next": "^13.0.7",
+    "eslint-config-next": "^13.1.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.2.1",
