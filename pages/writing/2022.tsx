@@ -23,7 +23,7 @@ export const meta = {
 
 export default function ReviewOf2022(): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
-    `/api/v1/activity?max_results=6`,
+    `/api/v1/activity?max_results=6&min_rating=1`,
     fetcher
   );
   return (
