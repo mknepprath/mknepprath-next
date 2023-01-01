@@ -174,7 +174,12 @@ export default async (
   const typedPosts = posts
     .map(
       (post) =>
-        ({ ...post, id: `post-${post.id}`, type: "POST" } as PostListItem)
+        ({
+          ...post,
+          id: `post-${post.id}`,
+          url: `/writing/${post.id}`,
+          type: "POST",
+        } as PostListItem)
     )
     // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
