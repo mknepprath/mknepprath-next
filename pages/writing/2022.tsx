@@ -18,7 +18,7 @@ export const meta = {
   publishedAt: "2023-01-01",
   summary: "A look at my accomplishments during the past year.",
   title: "2022 in Review",
-  // tweetId: "1476611721825603586",
+  tweetId: "1609679621267537920",
 };
 
 export default function ReviewOf2022(): React.ReactNode {
