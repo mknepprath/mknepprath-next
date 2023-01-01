@@ -232,11 +232,13 @@ export default function ReviewOf2022(): React.ReactNode {
       <div className={styles.cardContainer}>
         {activity.map((item) => (
           <Card
-            description={parseISO(item.date).toLocaleDateString("en-US", {
+            description={`${item.action} on ${parseISO(
+              item.date
+            ).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
-            })}
+            })}`}
             href={item.url || "#"}
             imgSrc={item.image}
             key={item.id}
