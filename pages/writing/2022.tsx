@@ -32,7 +32,7 @@ export default function ReviewOf2022(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
-      // tweetId={meta.tweetId}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
