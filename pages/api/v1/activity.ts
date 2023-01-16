@@ -103,7 +103,7 @@ export default async (
       };
     });
 
-  const gamePosts = games?.data
+  const gamePosts = (games?.data || [])
     ?.filter(
       (tweet) =>
         tweet?.entities?.urls?.length <= 1 &&
