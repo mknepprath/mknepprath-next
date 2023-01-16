@@ -58,7 +58,32 @@ interface Toot {
   created_at: string;
   content: string;
   favourites_count: number;
-  media_attachments: { url: string }[];
+  media_attachments: {
+    blurhash: string;
+    description: string;
+    id: string;
+    meta: {
+      original: {
+        width: number;
+        height: number;
+        size: string;
+        aspect: number;
+      };
+      small: {
+        width: number;
+        height: number;
+        size: string;
+        aspect: number;
+      };
+      focus: { x: 0; y: 0 };
+    };
+    preview_remote_url?: string;
+    preview_url: string;
+    remote_url?: string;
+    text_url?: string;
+    type: "image" | "gifv";
+    url: string;
+  }[];
   url: string;
 }
 

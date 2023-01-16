@@ -11,7 +11,7 @@ import styles from "./2022.module.css";
 export const meta = {
   image: "/assets/2022-in-review-2.jpg",
   published: true,
-  publishedAt: "2023-01-14",
+  publishedAt: "2023-01-16",
   summary: "Reviewing the many movies I watched during 2022.",
   title: "2022 in Film",
   // tweetId: "1609679621267537920",
@@ -42,10 +42,15 @@ export default function FilmsOf2022(): React.ReactNode {
 
       <p>
         Hi all! I wanted to take a moment to reflect on all the films I watched
-        in 2022. By the end of the year I had watched a total of 302 films,
-        nearly triple the 2021&apos;s total. This amounted to almost 500 hours
-        of movie-watching. 15.6% of the films I watched were new 2022 releases
-        and 23.5% were rewatches.
+        in 2022. Below you will find a number of film cards. Each of these links
+        to my Letterboxd review. Click on any of them to read my thoughts on the
+        film.
+      </p>
+      <p>
+        By the end of the year I had watched a total of 302 films, nearly triple
+        2021&apos;s total. This amounted to almost 500 hours of movie-watching.
+        15.6% of the films I watched were new 2022 releases and 23.5% were
+        rewatches.
       </p>
 
       <h2>My Top Films of 2022</h2>
@@ -77,8 +82,7 @@ export default function FilmsOf2022(): React.ReactNode {
             My wife and I watched it in theaters shortly after it came out
             without knowing anything about it. We loved it so much that
             we&apos;ve watched it a few more times since. It&apos;s so dense
-            that I was still discovering new things about it during my 4th
-            viewing.
+            that I was still discovering new things during my 4th viewing.
           </p>
           <p>
             Despite being an earlier release, this held the top spot as my
@@ -99,8 +103,8 @@ export default function FilmsOf2022(): React.ReactNode {
           <p>
             <A href="https://letterboxd.com/mknepprath/film/rrr/">RRR</A> is
             Telugu period action film that was just an epic ride. I watched it
-            four times last year as well, and I&apos;m sure I&apos;m planning to
-            put it on again soon.
+            four times last year as well, and I&apos;m planning to put it on
+            again soon.
           </p>
           <p>
             Both this and Everything Everywhere could be considered maximalist
@@ -182,8 +186,11 @@ export default function FilmsOf2022(): React.ReactNode {
       <h2>My Top Films Watched in 2022</h2>
 
       <p>
-        I also want to mention the best movies I saw watched this year,
-        regardless of when they were released. Again, in no particular order.
+        I also want to mention the best movies I watched this year, regardless
+        of when they were released. 2022 was a year of catching up on culturally
+        significant films I had missed. Represented here are a number of films I
+        continue to think about and bring up in conversation frequently with
+        friends. Again, in no particular order.
       </p>
 
       <div className={styles.cardContainer}>
@@ -443,7 +450,7 @@ export default function FilmsOf2022(): React.ReactNode {
       </div>
 
       <p>
-        My most watched actor and director last year were the same,{" "}
+        My most watched actor and director last year were the same:{" "}
         <A href="https://letterboxd.com/mknepprath/films/diary/for/2022/genre/-documentary/with/actor/buster-keaton/">
           Buster Keaton
         </A>
@@ -459,6 +466,15 @@ export default function FilmsOf2022(): React.ReactNode {
         layout="responsive"
         width={1200}
       />
+
+      <p>
+        I also want to give a special shoutout to the{" "}
+        <A href="https://letterboxd.com/mknepprath/tag/kaiju/reviews/">
+          classic Godzilla movies
+        </A>
+        , which I had a blast watching this year with my son as well. This is a
+        project we&apos;re continuing in 2023.
+      </p>
 
       <p>
         On top of that, I decided to complete the filmographies of three
@@ -478,16 +494,8 @@ export default function FilmsOf2022(): React.ReactNode {
       </p>
 
       <p>
-        I also want to give a special shoutout to the{" "}
-        <A href="https://letterboxd.com/mknepprath/tag/kaiju/reviews/">
-          classic Godzilla movies
-        </A>
-        , which I had a blast watching this year with my son as well.
-      </p>
-
-      <p>
         Overall, it was a great year of movie-watching for me and I am looking
-        forward to see what 2023 brings.
+        forward to seeing what 2023 brings.
       </p>
     </BlogPage>
   );

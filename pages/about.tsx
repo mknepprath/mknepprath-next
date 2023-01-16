@@ -103,7 +103,7 @@ export default function About(): React.ReactNode {
                       ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
                       : "#"
                   }
-                  imgSrc={m.attributes.artwork.url
+                  imgSrc={m.attributes.artwork?.url // Artwork isn't always available.
                     .replace("{w}", "200")
                     .replace("{h}", "200")}
                   key={m.id}
