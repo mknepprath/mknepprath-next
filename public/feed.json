@@ -13,6 +13,24 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/2022-in-film",
+      "url": "https://mknepprath.com/writing/2022-in-film",
+      "title": "2022 in Film",
+      "content_text": "Reviewing the many movies I watched during 2022. • https://mknepprath.com/writing/2022-in-film",
+      "summary": "Reviewing the many movies I watched during 2022.",
+      "image": "https://mknepprath.com/assets/2022-in-review-2.jpg",
+      "date_published": "2023-01-16T15:00:00Z"
+    },
+    {
+      "id": "https://mknepprath.com/writing/2022",
+      "url": "https://mknepprath.com/writing/2022",
+      "title": "2022 in Review",
+      "content_text": "A look at my accomplishments during the past year. • https://mknepprath.com/writing/2022",
+      "summary": "A look at my accomplishments during the past year.",
+      "image": "https://mknepprath.com/assets/2022-in-review-6.jpg",
+      "date_published": "2023-01-01T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/2021",
       "url": "https://mknepprath.com/writing/2021",
       "title": "2021 in Review",

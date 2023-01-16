@@ -16,6 +16,8 @@
 .card .img {
   border-radius: 2px;
   height: 44px;
+  max-width: 44px;
+  object-fit: cover;
   margin-right: var(--card-spacing);
   transition: rotate 0.2s, transform 0.2s;
 }

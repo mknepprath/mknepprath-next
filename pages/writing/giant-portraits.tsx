@@ -1,5 +1,6 @@
 import Image from "next/legacy/image";
 
+import A from "@core/a";
 import BlogPage from "@core/blog-page";
 
 export const meta = {
@@ -123,10 +124,17 @@ export default function GiantPortraits(): React.ReactNode {
         width={730}
       />
 
-      <p>
-        I was on a lift for a full day hanging it up. For context, check out the
-        size of the artwork below my portrait:
-      </p>
+      <p>I was on a lift for a full day hanging it up.</p>
+
+      <blockquote>
+        Does anyone want to assist me in sticking paper to a wall? Any help
+        would be appreciated! YFAC 2:30pm. <br />
+        <br /> — Michael Knepprath (@mknepprath){" "}
+        <A href="https://twitter.mknepprath.com/12934777027/">April 27, 2010</A>
+      </blockquote>
+
+      <p>For context, check out the size of the artwork below my portrait:</p>
+
       <Image
         alt="Giant photo."
         className="corner-radius-8"

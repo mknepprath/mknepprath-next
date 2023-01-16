@@ -103,7 +103,7 @@ export default async (
       };
     });
 
-  const gamePosts = games?.data
+  const gamePosts = (games?.data || [])
     ?.filter(
       (tweet) =>
         tweet?.entities?.urls?.length <= 1 &&
@@ -157,14 +157,20 @@ export default async (
         toot.favourites_count >= rating / 2 &&
         // ...and has content...
         !!(toot.content || toot.media_attachments[0]?.url) &&
-        // ...and doesn't start with a link.
+        // ...and doesn't start with a link, because this might indicate a
+        // message to another user.
         !toot.content.startsWith(`<p><span class="h-card"><a href="`)
     )
     .map((toot) => ({
       action: "Tooted",
       date: new Date(toot.created_at).toISOString(),
       id: `toot-${toot.id}`,
-      image: toot.media_attachments[0]?.url,
+      image:
+        toot.media_attachments.length > 0
+          ? toot.media_attachments[0].type === "image"
+            ? toot.media_attachments[0]?.url // For GIFs or videos.
+            : toot.media_attachments[0]?.preview_url
+          : null,
       summary: toot.content,
       title: toot.content,
       type: "TOOT" as PostListItem["type"],
@@ -174,7 +180,12 @@ export default async (
   const typedPosts = posts
     .map(
       (post) =>
-        ({ ...post, id: `post-${post.id}`, type: "POST" } as PostListItem)
+        ({
+          ...post,
+          id: `post-${post.id}`,
+          url: `/writing/${post.id}`,
+          type: "POST",
+        } as PostListItem)
     )
     // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort

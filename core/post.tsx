@@ -6,10 +6,10 @@ import A from "@core/a";
 
 import styles from "./post.module.css";
 
-const Post = ({ date, id, image, title }: PostListItem) => (
+const Post = ({ date, id, image, title, url }: PostListItem) => (
   <article key={id}>
     <header>
-      <Link href={`/writing/${id}`}>
+      <Link href={`${url}`}>
         {image ? (
           <div className="fill-image bordered-image" style={{ height: 200 }}>
             <Image
