@@ -24,7 +24,8 @@ export default function Card({
       {imgSrc ? <img alt={title} className={styles.img} src={imgSrc} /> : null}
       <div>
         <h3>
-          {title} <span className={styles.arrow}>&rarr;</span>
+          <span dangerouslySetInnerHTML={{ __html: title }} />{" "}
+          <span className={styles.arrow}>&rarr;</span>
         </h3>
         <p>{description}</p>
       </div>
