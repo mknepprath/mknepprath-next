@@ -14,7 +14,7 @@ export const meta = {
   publishedAt: "2023-01-16",
   summary: "Reviewing the many movies I watched during 2022.",
   title: "2022 in Film",
-  // tweetId: "1609679621267537920",
+  tweetId: "1615084669233680384",
 };
 
 export default function FilmsOf2022(): React.ReactNode {
@@ -24,7 +24,7 @@ export default function FilmsOf2022(): React.ReactNode {
       description={meta.summary}
       ogImage={meta.image}
       title={meta.title}
-      // tweetId={meta.tweetId}
+      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
