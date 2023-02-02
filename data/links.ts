@@ -98,8 +98,8 @@ export const projectLinks: ProjectLink[] = [
     title: "Sequential Art™",
   },
   {
-    description: "Battle your friends on Twitter",
-    href: "https://twitter.com/bout_bot",
+    description: "Battle your friends on Mastodon",
+    href: "https://botsin.space/@bout",
     title: "Bout",
   },
   {
