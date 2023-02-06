@@ -36,7 +36,7 @@
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
     "@next/font": "^13.1.6",
-    "@sentry/nextjs": "^7.34.0",
+    "@sentry/nextjs": "^7.36.0",
     "@vercel/analytics": "^0.1.8",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
