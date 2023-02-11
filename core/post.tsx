@@ -124,6 +124,8 @@ const RepoPost = ({ action, date, id, summary, title, url }: PostListItem) => (
         <h3 className={styles.title}>
           {url
             ?.replace("https://twitter.com/", "@")
+            ?.replace("https://mastodon.social/", "@")
+            ?.replace("https://botsin.space/", "@")
             ?.replace("https://", "") || (
             <>
               <span style={{ fontWeight: 300 }}>mknepprath /</span> {title}

@@ -1,13 +1,13 @@
-describe('About', () => {
+describe("About", () => {
   before(() => {
-    cy.visit('/about')
-  })
+    cy.visit("/about");
+  });
 
-  it('should render About page', () => {
-    cy.get('[data-cy="about-page"]').should('be.visible')
-  })
+  it("should render About page", () => {
+    cy.get('[data-cy="about-page"]').should("be.visible");
+  });
 
-  it("should render Recent Books section", () => {
+  it.only("should render Recent Books section", () => {
     cy.contains("Recent Books").scrollIntoView().should("be.visible");
   });
 
@@ -18,4 +18,4 @@ describe('About', () => {
   it.skip("should render Recent Music section", () => {
     cy.contains("Recent Music").scrollIntoView().should("be.visible");
   });
-})
+});
