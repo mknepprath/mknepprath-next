@@ -29,7 +29,7 @@ const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
 interface Props {
-  isDesktop: boolean;
+  isDesktopSafari: boolean;
 }
 
 export default function Home(props: Props): React.ReactNode {
@@ -44,11 +44,11 @@ export default function Home(props: Props): React.ReactNode {
       <Head />
       <Nav
         className={classnames("container", {
-          [styles.nav]: props.isDesktop,
+          [styles.nav]: props.isDesktopSafari,
         })}
       />
 
-      {props.isDesktop ? <Parallax /> : <Hero />}
+      {props.isDesktopSafari ? <Parallax /> : <Hero />}
 
       <div className={classnames("container", styles.container)}>
         <h2 className={styles.activityHeading}>Activity</h2>
@@ -121,12 +121,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req.headers["user-agent"] || "";
   return {
     props: {
-      isDesktop: isDesktop(userAgent),
+      isDesktopSafari: isDesktopSafari(userAgent),
     },
   };
 };
 
-function isDesktop(userAgent: string) {
+function isDesktopSafari(userAgent: string) {
   const ua = userAgent.toLowerCase();
-  return ua.includes("macintosh") || ua.includes("windows");
+  return (
+    ua.includes("macintosh") && ua.includes("safari") && !ua.includes("chrome")
+  );
 }
