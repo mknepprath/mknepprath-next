@@ -5,7 +5,7 @@ import BlogPage from "@core/blog-page";
 export const meta = {
   published: true,
   publishedAt: "2016-01-27",
-  title: "Creating Lilt — Part 3",
+  title: "Creating lilt — Part 3",
 };
 
 export default function CreatingLiltPart3(): React.ReactNode {
@@ -16,14 +16,14 @@ export default function CreatingLiltPart3(): React.ReactNode {
       </header>
 
       <p>
-        Work has begun on a prototype of Lilt, and I thought it’d be fun to go
+        Work has begun on a prototype of lilt, and I thought it’d be fun to go
         through the steps I’ve taken to build it out so far. Disclaimer, if you
         want to play the game spoiler-free… don’t read this, but do{" "}
         <a href="https://twitter.com/mknepprath">hit me up on Twitter</a>. Let’s
         jump in!
       </p>
       <Image
-        alt="Lilt prototype"
+        alt="lilt prototype"
         height={265}
         src="/assets/creating-lilt-part-3-1.png"
         layout="responsive"
@@ -119,7 +119,7 @@ export default function CreatingLiltPart3(): React.ReactNode {
         <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>.
         Phase 3 is where I decided to take care of that and move all of my data
         (positions, moves, responses) into <a href="http://parse.com/">Parse</a>
-        . Despite the number of possible moves in Lilt increases by 5x, I was
+        . Despite the number of possible moves in lilt increases by 5x, I was
         able to cut{" "}
         <a href="https://gist.github.com/mknepprath/d3228826c3cedc61d4f9">
           my game.js file in half

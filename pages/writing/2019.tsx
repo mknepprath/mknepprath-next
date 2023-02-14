@@ -183,7 +183,7 @@ export default function ReviewOf2019(): React.ReactNode {
       <h3>Twitter bots</h3>
       <p>
         I don&apos;t have much to show for it, but I worked on my Twitter bots
-        quite a bit. <a href="https://twitter.com/FamiliarLilt">Lilt</a> was
+        quite a bit. <a href="https://twitter.com/FamiliarLilt">lilt</a> was
         almost{" "}
         <a href="https://github.com/mknepprath/lilt/commit/285034e77ef43505c119f6f459c87695eff51719">
           entirely rewritten
@@ -214,14 +214,14 @@ export default function ReviewOf2019(): React.ReactNode {
         I added this blog to my website in August and averaged one post per
         month. This should be achievable.
       </p>
-      <h3>Release the next chapter of Lilt</h3>
+      <h3>Release the next chapter of lilt</h3>
       <p>
         I have a couple goals for{" "}
-        <a href="https://twitter.com/familiarlilt">Lilt</a>. First, I hope to
+        <a href="https://twitter.com/familiarlilt">lilt</a>. First, I hope to
         develop a user interface to help manage moves, locations, and items in
         the game (likely with React). Second, I want to introduce more areas to
         explore. While the interface would be nice for me, it doesn&apos;t add
-        anything of interest for Lilt&apos;s players. This is why I want to
+        anything of interest for lilt&apos;s players. This is why I want to
         focus on expanding the game first.
       </p>
       <h3>Complete 3 online courses</h3>

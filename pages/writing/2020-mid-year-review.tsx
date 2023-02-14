@@ -168,7 +168,7 @@ export default function MidyearReviewOf2020(): React.ReactNode {
         </li>
       </ol>
 
-      <h2>Release the next chapter of Lilt</h2>
+      <h2>Release the next chapter of lilt</h2>
       <p>
         I created some additional areas to explore in{" "}
         <a

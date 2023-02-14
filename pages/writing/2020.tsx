@@ -151,9 +151,9 @@ export default function ReviewOf2020(): React.ReactNode {
         republished it:{" "}
         <Link href="/writing/giant-portraits">Giant Portraits</Link>.
       </p>
-      <h3>Release the next chapter of Lilt ✅</h3>
+      <h3>Release the next chapter of lilt ✅</h3>
       <p>
-        I had big dreams for Lilt that weren&apos;t realized this year.
+        I had big dreams for lilt that weren&apos;t realized this year.
         Regardless, I did add a few new areas to the game and announced it on
         Twitter, completing this goal.
       </p>

@@ -4,15 +4,15 @@ import Page from "@core/page";
 
 export default function Lilt(): React.ReactNode {
   return (
-    <Page title="Lilt">
+    <Page title="lilt">
       <article>
         <header>
-          <h1>Lilt</h1>
+          <h1>lilt</h1>
         </header>
 
         <div className="fill-image" style={{ height: 256 }}>
           <Image
-            alt="Lilt logo"
+            alt="lilt logo"
             src="/assets/lilt.png"
             layout="fill"
             objectFit="contain"
@@ -27,7 +27,7 @@ export default function Lilt(): React.ReactNode {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Lilt
+            lilt
           </a>
           &apos;s.
         </p>
@@ -39,7 +39,7 @@ export default function Lilt(): React.ReactNode {
 
         <h2>Tips</h2>
         <p>
-          While Lilt attempts to allow you to use natural language messages, it
+          While lilt attempts to allow you to use natural language messages, it
           works best if you follow certain patterns: &ldquo;look at the
           tree&rdquo;, &ldquo;pick up the coin&rdquo;, &ldquo;use water on the
           flower&rdquo;, and so on.

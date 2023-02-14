@@ -260,7 +260,7 @@ export default function ReviewOf2022(): React.ReactNode {
           description="A Twitter text adventure"
           href="https://twitter.com/familiarlilt"
           imgSrc="/assets/lilt.png"
-          title="Lilt"
+          title="lilt"
         />
         <Card
           description="AI Twitter bot"

@@ -49,7 +49,7 @@ export const projectLinks: ProjectLink[] = [
   {
     description: "A Twitter text adventure",
     href: "https://twitter.com/familiarlilt",
-    title: "Lilt",
+    title: "lilt",
     imgSrc: "/assets/lilt.png",
   },
   {

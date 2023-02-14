@@ -174,27 +174,27 @@ const posts: PostListItem[] = [
   {
     "date": "2016-05-17",
     "id": "creating-lilt-part-5",
-    "title": "Creating Lilt — Part 5"
+    "title": "Creating lilt — Part 5"
   },
   {
     "date": "2016-03-20",
     "id": "creating-lilt-part-4",
-    "title": "Creating Lilt — Part 4"
+    "title": "Creating lilt — Part 4"
   },
   {
     "date": "2016-01-27",
     "id": "creating-lilt-part-3",
-    "title": "Creating Lilt — Part 3"
+    "title": "Creating lilt — Part 3"
   },
   {
     "date": "2016-01-21",
     "id": "creating-lilt-part-2",
-    "title": "Creating Lilt — Part 2"
+    "title": "Creating lilt — Part 2"
   },
   {
     "date": "2015-11-21",
     "id": "creating-lilt-part-1",
-    "title": "Creating Lilt — Part 1"
+    "title": "Creating lilt — Part 1"
   },
   {
     "date": "2015-04-29",

@@ -5,7 +5,7 @@ import BlogPage from "@core/blog-page";
 export const meta = {
   published: true,
   publishedAt: "2016-01-21",
-  title: "Creating Lilt — Part 2",
+  title: "Creating lilt — Part 2",
 };
 
 export default function CreatingLiltPart2(): React.ReactNode {
@@ -38,7 +38,7 @@ export default function CreatingLiltPart2(): React.ReactNode {
         lists in Google Docs, lists in{" "}
         <a href="http://realmacsoftware.com/clear">Clear</a>, lists in a
         notebook… but none of these seemed to suffice. It became obvious that
-        for a multi-dimensional story like Lilt, I’d need a multi-dimensional
+        for a multi-dimensional story like lilt, I’d need a multi-dimensional
         tool.
       </p>
 
@@ -116,7 +116,7 @@ export default function CreatingLiltPart2(): React.ReactNode {
         solution that I’ve been running with so far… a spreadsheet.
       </p>
       <Image
-        alt="Screenshot of the Lilt spreadsheet"
+        alt="Screenshot of the lilt spreadsheet"
         className="corner-radius-8"
         height={768}
         src="/assets/creating-lilt-part-2-2.png"

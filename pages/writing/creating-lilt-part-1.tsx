@@ -3,7 +3,7 @@ import BlogPage from "@core/blog-page";
 export const meta = {
   published: true,
   publishedAt: "2015-11-21",
-  title: "Creating Lilt — Part 1",
+  title: "Creating lilt — Part 1",
 };
 
 export default function CreatingLiltPart1(): React.ReactNode {

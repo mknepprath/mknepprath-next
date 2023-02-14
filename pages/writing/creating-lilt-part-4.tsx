@@ -5,7 +5,7 @@ import BlogPage from "@core/blog-page";
 export const meta = {
   published: true,
   publishedAt: "2016-03-20",
-  title: "Creating Lilt — Part 4",
+  title: "Creating lilt — Part 4",
 };
 
 export default function CreatingLiltPart4(): React.ReactNode {
@@ -48,14 +48,14 @@ export default function CreatingLiltPart4(): React.ReactNode {
         so I decided to start fresh.
       </p>
 
-      <h2>Liltbot</h2>
+      <h2>liltbot</h2>
       <p>
-        The new Lilt Twitterbot is written in Python (requiring me to rewrite
+        The new lilt Twitterbot is written in Python (requiring me to rewrite
         all of what I’d written in JavaScript for the prototype), and deployed
         through Heroku like my ebooks bot. Instead of python-twitter, I’m using{" "}
         <a href="http://www.tweepy.org">Tweepy</a> to communicate with Twitter’s
         API. I was having a hard time figuring out how to get Twitter mentions
-        with python-twitter, which was the main functionality I’d need for Lilt.
+        with python-twitter, which was the main functionality I’d need for lilt.
         Tweepy has made that a very simple process.
       </p>
 
@@ -79,7 +79,7 @@ export default function CreatingLiltPart4(): React.ReactNode {
       </p>
       <ol>
         <li>
-          Users: When someone tweets at Lilt, Liltbot will get that tweet and
+          Users: When someone tweets at lilt, liltbot will get that tweet and
           grab their username, id, the id of that tweet, the tweet text, and
           initiate the position and inventory for that person. I can take a deep
           dive later into how the inventory is currently working, but it’s
@@ -104,13 +104,13 @@ export default function CreatingLiltPart4(): React.ReactNode {
       <h2>Gameplay Example</h2>
       <p>
         So what’s possible so far? Here’s an example of an interaction I’ve had
-        with Liltbot after I’d already picked up a few items:
+        with liltbot after I’d already picked up a few items:
       </p>
       <blockquote>
         <p>Me: @familiarlilt inventory</p>
-        <p>Liltbot: @mknepprath apple •••, rock, banana •••</p>
+        <p>liltbot: @mknepprath apple •••, rock, banana •••</p>
         <p>
-          M: @familiarlilt pick up BANANA…… (sidenote: Liltbot cleans up the
+          M: @familiarlilt pick up BANANA…… (sidenote: liltbot cleans up the
           tweet so it’s more readable, so this one would be read as ‘pick up
           banana’)
         </p>
@@ -122,7 +122,7 @@ export default function CreatingLiltPart4(): React.ReactNode {
       </blockquote>
       <p>
         Very excited about how far along this has come in the last couple
-        months. I’m hoping to launch a playable version of Lilt relatively soon
+        months. I’m hoping to launch a playable version of lilt relatively soon
         — can’t wait for all of you to jump in and play.
       </p>
       <p>
