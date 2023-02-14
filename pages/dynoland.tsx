@@ -57,8 +57,8 @@ export default function Dynoland(): React.ReactNode {
         ) : (
           <p>
             If you were planning on playing right now,{" "}
-            <a href="https://twitter.com/mknepprath">message me</a> and I will
-            look into it as soon as I&apos;m available.
+            <a href="mailto:mknepprath@gmail.com">message me</a> and I will look
+            into it as soon as I&apos;m available.
           </p>
         )}
 
@@ -88,7 +88,7 @@ export default function Dynoland(): React.ReactNode {
             ? "no"
             : `${data.players.online}/${data.players.max}`}{" "}
           players online. If you would like to be whitelisted to access this
-          server, contact <a href="https://twitter.com/mknepprath">Michael</a>.
+          server, contact <a href="mailto:mknepprath@gmail.com">Michael</a>.
         </p>
 
         {data.version.name ? (

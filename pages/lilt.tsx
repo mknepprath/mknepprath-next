@@ -23,7 +23,7 @@ export default function Lilt(): React.ReactNode {
         <p>
           Every game should have a guidebook. Here&apos;s{" "}
           <a
-            href="https://twitter.com/familiarlilt"
+            href="https://botsin.space/@familiarlilt"
             rel="noopener noreferrer"
             target="_blank"
           >

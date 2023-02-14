@@ -26,12 +26,12 @@ export default function Thd(): React.ReactNode {
       </header>
       <p>
         Born a Markov chain chatbot,{" "}
-        <A href="http://twitter.com/robot_mk">Robot MK</A> spent their early
-        days parroting random combinations of my fleeting thoughts of 2016. Many
-        bird folk had created similar chatbots inspired by a popular absurdist{" "}
-        <A href="https://twitter.com/horse_ebooks">account</A> that posted
-        cryptic snippets about horse e-books. Unlike this account, those bots
-        were made to crudely resemble the humans who created them.
+        <A href="https://mastodon.social/@robot_mk">Robot MK</A> spent their
+        early days parroting random combinations of my fleeting thoughts of
+        2016. Many bird folk had created similar chatbots inspired by a popular
+        absurdist <A href="https://twitter.com/horse_ebooks">account</A> that
+        posted cryptic snippets about horse e-books. Unlike this account, those
+        bots were made to crudely resemble the humans who created them.
       </p>
       <Image
         alt="Scarecrow."
