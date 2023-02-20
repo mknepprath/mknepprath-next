@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.3.1",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.0",
     "@types/prismjs": "^1.26.0",
     "@types/react": "^18.0.28",
     "@types/xml2js": "^0.4.11",
