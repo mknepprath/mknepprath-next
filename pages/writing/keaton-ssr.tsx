@@ -13,7 +13,12 @@ export const meta = {
 
 export default function KeatonSsr(): ReactNode {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage
+      dateTime={meta.publishedAt}
+      description={meta.summary}
+      ogImage={meta.image}
+      title={meta.title}
+    >
       <header>
         <h1>{meta.title}</h1>
       </header>
@@ -75,6 +80,7 @@ export default function KeatonSsr(): ReactNode {
         height="353"
         src="https://www.youtube.com/embed/pl4LEjA05oo"
         title="YouTube video player"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>
