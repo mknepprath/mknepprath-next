@@ -47,14 +47,14 @@ export const projectLinks: ProjectLink[] = [
     imgSrc: "/assets/culturally-irrelevant.png",
   },
   {
-    description: "A Twitter text adventure",
-    href: "https://twitter.com/familiarlilt",
+    description: "A text adventure",
+    href: "https://botsin.space/@lilt",
     title: "lilt",
     imgSrc: "/assets/lilt.png",
   },
   {
     description: "A prompt a day, every day",
-    href: "https://twitter.com/designprompts",
+    href: "https://botsin.space/@designprompts",
     title: "Design Prompts",
     imgSrc: "/assets/design-prompts.png",
   },
@@ -70,8 +70,8 @@ export const projectLinks: ProjectLink[] = [
     imgSrc: "/assets/dribbble-series.png",
   },
   {
-    description: "AI Twitter bot",
-    href: "https://twitter.com/robot_mk",
+    description: "AI bot",
+    href: "https://mastodon.social/@robot_mk",
     title: "Robot MK",
     imgSrc: "/assets/robot-mk.png",
   },

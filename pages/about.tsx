@@ -41,11 +41,11 @@ export default function About(): React.ReactNode {
           You can contact him via{" "}
           <a href="mailto:mknepprath@gmail.com">email</a> or send a message on{" "}
           <a
-            href="https://twitter.com/mknepprath"
+            href="https://mastodon.social/@mknepprath"
             rel="noopener noreferrer"
             target="_blank"
           >
-            Twitter
+            Mastodon
           </a>
           .
         </p>

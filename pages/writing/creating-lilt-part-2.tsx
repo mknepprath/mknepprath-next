@@ -138,6 +138,12 @@ export default function CreatingLiltPart2(): React.ReactNode {
         <a href="https://twitter.com/mknepprath">@mknepprath</a>, if you’d like
         to give it a shot!
       </p>
+
+      <small>
+        This is Part 2 of a series of posts about the game. Part 3 can be found{" "}
+        <a href="/writing/creating-lilt-part-3">here</a>. Or{" "}
+        <a href={"/writing/creating-lilt-part-1"}>start at the beginning</a>.
+      </small>
     </BlogPage>
   );
 }

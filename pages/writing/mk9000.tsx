@@ -35,7 +35,7 @@ export default function MK9000(): React.ReactNode {
         <em>
           51 years ago, one movie changed all movies forever. Here are scenes
           from that movie, now featuring the superior AI mind of{" "}
-          <a href="https://twitter.com/robot_mk">@robot_mk</a>.
+          <a href="https://mastodon.social/@robot_mk">@robot_mk</a>.
         </em>
       </p>
 

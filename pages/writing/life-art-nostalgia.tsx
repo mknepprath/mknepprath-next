@@ -222,11 +222,11 @@ export default function Life(): React.ReactNode {
         If you see any cool randomized drawings, please share a screenshot with
         me on{" "}
         <a
-          href="https://twitter.com/mknepprath"
+          href="https://mastodon.social/@mknepprath"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Twitter
+          Mastodon
         </a>
         . I&apos;d love to see them. Thanks for reading! 👋
       </p>

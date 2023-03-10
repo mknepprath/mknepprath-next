@@ -179,6 +179,12 @@ export default function CreatingLiltPart3(): React.ReactNode {
           Well, this certainly complicates a few things.
         </a>
       </p>
+
+      <small>
+        This is Part 3 of a series of posts about the game. Part 4 can be found{" "}
+        <a href="/writing/creating-lilt-part-4">here</a>. Or{" "}
+        <a href={"/writing/creating-lilt-part-1"}>start at the beginning</a>.
+      </small>
     </BlogPage>
   );
 }

@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2023-03-10",
+    "id": "keaton-ssr",
+    "image": "/assets/keaton-ssr-2.png",
+    "title": "KEATON × SSR"
+  },
+  {
     "date": "2023-01-16",
     "id": "2022-in-film",
     "image": "/assets/2022-in-review-2.jpg",

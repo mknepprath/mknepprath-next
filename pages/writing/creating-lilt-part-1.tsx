@@ -1,4 +1,5 @@
 import BlogPage from "@core/blog-page";
+import { ReactNode } from "react";
 
 export const meta = {
   published: true,
@@ -6,7 +7,7 @@ export const meta = {
   title: "Creating lilt — Part 1",
 };
 
-export default function CreatingLiltPart1(): React.ReactNode {
+export default function CreatingLiltPart1(): ReactNode {
   return (
     <BlogPage dateTime={meta.publishedAt} title={meta.title}>
       <header>
@@ -139,6 +140,11 @@ export default function CreatingLiltPart1(): React.ReactNode {
           <a href="https://twitter.com/wnd_go">@wnd_go</a>
         </li>
       </ul>
+
+      <small>
+        This is Part 1 of a series of posts about the game. Part 2 can be found{" "}
+        <a href="/writing/creating-lilt-part-2">here</a>.
+      </small>
     </BlogPage>
   );
 }
