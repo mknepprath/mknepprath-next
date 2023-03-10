@@ -15,6 +15,7 @@ export default function CreatingLiltPart6(): ReactNode {
       </header>
 
       <p>7 years later...</p>
+      <p>Heroku to AWS and Supabase. Twitter to Mastodon. GPT-3.</p>
 
       <small>
         This is Part 6 of a series of posts about the game. Part 1 can be found{" "}
