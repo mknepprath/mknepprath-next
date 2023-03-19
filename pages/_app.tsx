@@ -1,10 +1,9 @@
-import "../css/global.css";
-import "../css/prism.css";
-
-import { AppProps } from "next/app";
-
 import localFont from "@next/font/local";
 import { Analytics } from "@vercel/analytics/react";
+
+import { AppProps } from "next/app";
+import "../css/global.css";
+import "../css/prism.css";
 
 const headingFont = localFont({ src: "../fonts/Satoshi-Black.otf" });
 const bodyFont = localFont({ src: "../fonts/Satoshi-Regular.otf" });
@@ -27,7 +26,8 @@ export default function MyApp({
         h4,
         h5,
         a,
-        a span {
+        a span,
+        strong {
           font-family: ${headingFont.style.fontFamily};
         }
         p,
