@@ -83,7 +83,7 @@ export default function WhereGptBelongs(): ReactNode {
       </p>
       <p>
         <A href="https://www.cnbc.com/2023/02/16/microsofts-bing-ai-is-leading-to-creepy-experiences-for-users.html">
-          a Yet here we are.
+          Yet here we are.
         </A>
       </p>
       <p>Maybe it&#39;s too early to judge. This is a beta, after all. </p>
