@@ -3,8 +3,8 @@ import BlogPage from "@core/blog-page";
 import { ReactNode } from "react";
 
 export const meta = {
-  published: false,
-  publishedAt: "2023-03-19",
+  published: true,
+  publishedAt: "2023-03-23",
   title: "Microsoft Is Using GPT-4 Wrong",
 };
 
@@ -44,12 +44,12 @@ export default function WhereGptBelongs(): ReactNode {
       <p>
         It’s easy to lose sight of what GPT is in all the chatter about how GPT
         “feels” or what it “wants”. GPT is closer to a human language{" "}
-        <em>emulator</em> at best. It has no intelligence to call its own. When
-        asked, “What is the meaning of life in one word?”, it will predict an
-        answer letter-by-letter based on similar patterns of letters in its
-        corpus. In this case, it might return, “Purpose.” What it’s returning
-        here is not all that different from the autocomplete suggestions that
-        appear in your messaging app as you type.
+        <em>emulator</em>, it has no intelligence to call its own. When asked,
+        “What is the meaning of life in one word?”, it will predict an answer
+        letter-by-letter based on similar patterns of letters in its corpus. In
+        this case it might return, “Purpose.” What it’s returning here is not
+        all that different from the autocomplete suggestions that appear in your
+        messaging app as you type.
       </p>
       <h2 id="i-">I.</h2>
       <p>So, what’s the problem with how GPT is being used right now?</p>
@@ -89,20 +89,18 @@ export default function WhereGptBelongs(): ReactNode {
       <p>Maybe it’s too early to judge. This is a beta, after all. </p>
       <p>
         But I’d like to posit this: These companies are using GPT technology
-        poorly.{" "}
-        <strong>
-          They should not be outputting GPT results directly to customers.
-        </strong>{" "}
-        At best, it’s a novelty. At worst you have Bing, which uses GPT-4 to
-        serve inaccurate information in an authoritative voice.
+        poorly. In most cases, they should not be outputting GPT results
+        directly to customers. At best it’s a novelty. At worst you have Bing,
+        which uses GPT-4 to serve Microsoft’s customers inaccurate information
+        with an authoritative voice.
       </p>
       <h2 id="ii-">II.</h2>
       <p>Where do I think GPT would be most useful? </p>
       <p>
-        Instead of adding new, separate GPT-enabled experiences to interfaces it
+        Instead of adding separate GPT-enabled experiences to interfaces it
         should be used to augment existing interfaces. A few examples off the
-        top of my head: voice-activated home assistants (Alexa, Siri, Hey
-        Google), chatbots, search inputs and text games.
+        top of my head: voice-activated home assistants (Alexa, Siri, Google
+        Home), chatbots, search inputs and text games.
       </p>
       <p>
         Customers don’t need to be aware of the fact that GPT or “AI” is
@@ -110,11 +108,11 @@ export default function WhereGptBelongs(): ReactNode {
         (unless it’s making their experience worse).
       </p>
       <p>
-        The theme I will keep coming back to is:{" "}
-        <strong>
+        The theme I will keep coming back to is this:{" "}
+        <em>
           GPT should be used to infer user intent and convert it into a valid
           format the service understands.
-        </strong>
+        </em>
       </p>
       <h3 id="home-assistants">Home Assistants</h3>
       <p>
@@ -125,10 +123,10 @@ export default function WhereGptBelongs(): ReactNode {
         consistent result.
       </p>
       <p>
-        <strong>
+        <em>
           GPT should be used to infer user intent based on what they say and
           convert it into a valid format the home assistant understands.
-        </strong>
+        </em>
       </p>
       {/*<p>{panel 1: user says something, panel 2: home device incredulous look, panel 3: <em>ai whispering in ear</em>: I think they mean xyz, panel 4: ooooh}</p>*/}
       <p>
@@ -146,10 +144,10 @@ export default function WhereGptBelongs(): ReactNode {
         accept arbitrary user input.
       </p>
       <p>
-        <strong>
+        <em>
           GPT should be used to infer user intent based on what they message and
           convert it into a valid format the chatbot understands.
-        </strong>
+        </em>
       </p>
       {/*<p>{panel 1: user says something, panel 2: chatbot incredulous look, panel 3: <em>ai whispering in ear</em>: I think they mean xyz, panel 4: high five}</p>*/}
       <p>
@@ -158,15 +156,15 @@ export default function WhereGptBelongs(): ReactNode {
       </p>
       <h3 id="search-inputs">Search Inputs</h3>
       <p>
-        Search inputs on websites are typically quite naive. They typically
-        don’t do much more than text-matching across the contents of a site. If
-        you don’t know the exact text used on the site, you’ll struggle.
+        Search inputs on websites are typically quite naive. They often don’t do
+        much more than text-matching across the contents of a site. If you don’t
+        know the exact text used on the site, you’ll struggle.
       </p>
       <p>
-        <strong>
+        <em>
           GPT should be used to infer user intent based on what they search and
           convert it into a valid format the site’s search engine understands.
-        </strong>
+        </em>
       </p>
       {/*<p>{panel 1: input w/ normal search results, panel 2: confused face, panel 3: magic search results, panel 4: thumbs up meme}</p>*/}
       <p>
@@ -174,26 +172,24 @@ export default function WhereGptBelongs(): ReactNode {
         newfound natural language recognition abilities. If GPT is provided the
         site map, FAQs or even the customer-facing API interface, a user could
         type, “How do I change the location in my profile to Cleveland, OH?” and
-        be provided with a list of options that includes a link to a
-        step-by-step guide, a link to the profile editing page, or even the
-        option to make the change directly from the search input itself.
+        be provided with a list that includes a link to a step-by-step guide, a
+        link to the profile editing page, or even the option to make the change
+        directly from the search input itself.
       </p>
       <h3 id="text-games">Text Games</h3>
       <p>
-        Some text adventure games get around the lack-of-interface problem by
-        listing options for the player and letting them select an option by
-        entering a letter associated with that option. This is a big trade-off,
-        as it limits the options a player has at any given time and also
-        railroads the player instead of letting them explore. Historically, the
-        trade-off has been worth it because letting the player enter arbitrary
-        commands and fail repeatedly is a frustrating experience. With GPT, this
-        trade-off is moot.
+        Some text adventure games get around their lack of interface by listing
+        options for the player to select from. This is a big trade-off, as it
+        limits the options a player has at any given moment and prevents the
+        player from exploring. Historically, the trade-off has been worth it
+        because letting the player enter arbitrary commands and fail repeatedly
+        is a frustrating experience. With GPT, this trade-off is moot.
       </p>
       <p>
-        <strong>
+        <em>
           GPT should be used to infer player intent based on what they enter and
           convert it into a valid format the game understands.
-        </strong>
+        </em>
       </p>
       {/*<p>{panel 1: user says something, panel 2: company incredulous look, panel 3: <em>ai whispering in ear</em>: I think they mean xyz, panel 4: hand shake}</p>*/}
       <p>
@@ -213,10 +209,11 @@ export default function WhereGptBelongs(): ReactNode {
         now, though: marketing gimmickry.
       </p>
       <p>
-        I believe GPT will be a major part of our technological future, but this
-        is not what that future will look like. It will become an invisible
-        layer that closes the gap between human/computer communication.
+        I do believe GPT and others like it will be a major part of our
+        technological future. It will become an invisible layer that closes the
+        human/computer communication gap.
       </p>
+      <p>Thanks for reading! 👋</p>
     </BlogPage>
   );
 }
