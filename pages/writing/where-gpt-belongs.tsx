@@ -194,8 +194,8 @@ export default function WhereGptBelongs(): ReactNode {
       {/*<p>{panel 1: user says something, panel 2: company incredulous look, panel 3: <em>ai whispering in ear</em>: I think they mean xyz, panel 4: hand shake}</p>*/}
       <p>
         This is a particularly fun example for me because{" "}
-        <em>I have already implemented it in my text adventure game</em>,{" "}
-        <A href="https://botsin.space/@lilt">lilt</A>. That’s right, I have a
+        <strong>I have already implemented it in my text adventure game</strong>
+        , <A href="https://botsin.space/@lilt">lilt</A>. That’s right, I have a
         live example of the concept I’m proposing here and I’ll be writing a
         separate post about how I implemented it. Spoiler alert: It was not hard
         to do and makes the game infinitely more pleasant to interact with.
