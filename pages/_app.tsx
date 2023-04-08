@@ -1,4 +1,4 @@
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 
 import { AppProps } from "next/app";

@@ -47,6 +47,12 @@ export const projectLinks: ProjectLink[] = [
     imgSrc: "/assets/culturally-irrelevant.png",
   },
   {
+    description: "Movie review site",
+    href: "https://tardycritic.com",
+    title: "Tardy Critic",
+    imgSrc: "/assets/tardy-critic.png",
+  },
+  {
     description: "A text adventure",
     href: "https://botsin.space/@lilt",
     title: "lilt",
