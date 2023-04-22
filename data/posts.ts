@@ -209,7 +209,7 @@ const posts: PostListItem[] = [
   },
   {
     "date": "2015-04-29",
-    "id": "detective-comics",
+    "id": "defective-comics",
     "image": "/assets/detective-comics.jpg",
     "title": "How DC Is Failing Us All"
   },

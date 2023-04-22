@@ -1,6 +1,6 @@
-import Image from "next/legacy/image";
-
+import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
 export const meta = {
   image: "/assets/detective-comics.jpg",
@@ -10,7 +10,7 @@ export const meta = {
   title: "How DC Is Failing Us All",
 };
 
-export default function DetectiveComics(): React.ReactNode {
+export default function DefectiveComics(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
@@ -101,6 +101,14 @@ export default function DetectiveComics(): React.ReactNode {
         in the meantime. It doesn’t take a stretch of the imagination to see
         which one they currently value more.
       </p>
+
+      <hr />
+
+      <em>
+        Featured in Medium’s{" "}
+        <A href="https://medium.com/collections/10b58a4d5f4b">Popcorn time</A>{" "}
+        collection curated by Medium staff.
+      </em>
     </BlogPage>
   );
 }

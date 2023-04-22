@@ -60,6 +60,11 @@ const moduleExports = {
         destination: "https://twitter.com/mknepprath",
         permanent: true,
       },
+      {
+        source: "/writing/detective-comics",
+        destination: "/writing/defective-comics",
+        permanent: true,
+      },
     ];
   },
   images: {
