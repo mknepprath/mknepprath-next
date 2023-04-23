@@ -188,7 +188,7 @@ export default async (
         !toot.content.startsWith(`<p><span class="h-card"><a href="`) &&
         // ...and doesn't include "?i=" in the URL, because this indicates an
         //  auto-toot.
-        !toot.url.includes("?i=")
+        !toot.content.includes("?i=")
     )
     .map((toot) => ({
       action: "Tooted",
