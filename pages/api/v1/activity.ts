@@ -185,7 +185,10 @@ export default async (
         !!(toot.content || toot.media_attachments[0]?.url) &&
         // ...and doesn't start with a link, because this might indicate a
         // message to another user.
-        !toot.content.startsWith(`<p><span class="h-card"><a href="`)
+        !toot.content.startsWith(`<p><span class="h-card"><a href="`) &&
+        // ...and doesn't include "?i=" in the URL, because this indicates an
+        //  auto-toot.
+        !toot.url.includes("?i=")
     )
     .map((toot) => ({
       action: "Tooted",
