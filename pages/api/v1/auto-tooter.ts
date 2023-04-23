@@ -56,26 +56,30 @@ export default async (
   const newActivity = activity.slice(0, lastPostedIndex);
 
   // post new activity to Mastodon
-  newActivity.forEach((post) => {
-    fetch("https://mastodon.social/api/v1/statuses", {
-      body: JSON.stringify({
-        status: genStatus(post),
-        visibility: "unlisted",
-      }),
-      headers: {
-        Authorization: `Bearer ${process.env.MASTODON_ACCESS_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result.url);
+  const response = await Promise.all(
+    newActivity.map(async (post) => {
+      return await fetch("https://mastodon.social/api/v1/statuses", {
+        body: JSON.stringify({
+          status: genStatus(post),
+          visibility: "unlisted",
+        }),
+        headers: {
+          Authorization: `Bearer ${process.env.MASTODON_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        method: "POST",
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  });
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          return result;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          return error;
+        });
+    })
+  );
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -84,5 +88,5 @@ export default async (
       "Cache-Control",
       "max-age=0, s-maxage=1, stale-while-revalidate"
     );
-  res.end(JSON.stringify(newActivity));
+  res.end(JSON.stringify(response));
 };
