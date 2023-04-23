@@ -14,15 +14,23 @@ export default async (
   const { max_results, min_rating = "4" } = req.query;
   const rating = parseInt(min_rating as string);
 
-  const [films, books, tweets, games, repos, toots, music, highlights]: [
+  const [
+    films,
+    books,
+    tweets,
+    games,
+    repos,
+    toots,
+    highlights, // music
+  ]: [
     Film[],
     Book[],
     Tweets,
     Tweets,
     Repo[],
     Toot[],
-    Music[],
     Highlight[]
+    // Music[]
   ] = await Promise.all([
     fetch(`${BASE_URL}/api/v1/films?min_rating=${rating}`).then((response) =>
       response.json()
@@ -40,10 +48,10 @@ export default async (
       response.json()
     ),
     fetch(`${BASE_URL}/api/v1/mastodon`).then((response) => response.json()),
-    fetch(`${BASE_URL}/api/v1/music?limit=20`).then((response) =>
-      response.json()
-    ),
     fetch(`${BASE_URL}/api/v1/highlights`).then((response) => response.json()),
+    // fetch(`${BASE_URL}/api/v1/music?limit=20`).then((response) =>
+    //   response.json()
+    // ),
   ]);
 
   const highlightPosts = highlights
@@ -64,20 +72,20 @@ export default async (
       url: highlight.book.source_url,
     }));
 
-  const musicPosts = music?.map((m) => ({
-    action: "Added",
-    date: new Date(m.attributes.dateAdded).toISOString(),
-    id: `m${m.id}`,
-    image:
-      m.attributes.artwork?.url.replace("{w}", "500").replace("{h}", "500") ||
-      "",
-    summary: m.attributes.artistName,
-    title: m.attributes.name,
-    type: "MUSIC" as PostListItem["type"],
-    url: m.attributes.playParams.globalId
-      ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
-      : undefined,
-  }));
+  // const musicPosts = music?.map((m) => ({
+  //   action: "Added",
+  //   date: new Date(m.attributes.dateAdded).toISOString(),
+  //   id: `m${m.id}`,
+  //   image:
+  //     m.attributes.artwork?.url.replace("{w}", "500").replace("{h}", "500") ||
+  //     "",
+  //   summary: m.attributes.artistName,
+  //   title: m.attributes.name,
+  //   type: "MUSIC" as PostListItem["type"],
+  //   url: m.attributes.playParams.globalId
+  //     ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
+  //     : undefined,
+  // }));
 
   const filmPosts = films?.map((film) => ({
     action: film.rewatched ? "Rewatched" : "Watched",
@@ -211,7 +219,7 @@ export default async (
 
   const allPosts = [
     ...highlightPosts,
-    ...musicPosts,
+    // ...musicPosts,
     ...filmPosts,
     ...tweetPosts,
     ...gamePosts,
