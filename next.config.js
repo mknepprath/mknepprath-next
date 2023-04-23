@@ -73,6 +73,7 @@ const moduleExports = {
       "a.ltrbxd.com", // Letterboxed
       "i.gr-assets.com", // Goodreads
       "files.mastodon.social", // Mastodon
+      "daringfireball.net", // Daring Fireball
     ],
     remotePatterns: [
       {

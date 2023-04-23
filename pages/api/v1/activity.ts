@@ -14,14 +14,23 @@ export default async (
   const { max_results, min_rating = "4" } = req.query;
   const rating = parseInt(min_rating as string);
 
-  const [films, books, tweets, games, repos, toots, music]: [
+  const [
+    films,
+    books,
+    tweets,
+    games,
+    repos,
+    toots,
+    highlights, // music
+  ]: [
     Film[],
     Book[],
     Tweets,
     Tweets,
     Repo[],
     Toot[],
-    Music[]
+    Highlight[]
+    // Music[]
   ] = await Promise.all([
     fetch(`${BASE_URL}/api/v1/films?min_rating=${rating}`).then((response) =>
       response.json()
@@ -39,30 +48,49 @@ export default async (
       response.json()
     ),
     fetch(`${BASE_URL}/api/v1/mastodon`).then((response) => response.json()),
-    fetch(`${BASE_URL}/api/v1/music?limit=20`).then((response) =>
-      response.json()
-    ),
+    fetch(`${BASE_URL}/api/v1/highlights`).then((response) => response.json()),
+    // fetch(`${BASE_URL}/api/v1/music?limit=20`).then((response) =>
+    //   response.json()
+    // ),
   ]);
 
-  const musicPosts = music?.map((m) => ({
-    action: "Added",
-    date: new Date(m.attributes.dateAdded).toISOString(),
-    id: `music-${m.id}`,
-    image:
-      m.attributes.artwork?.url.replace("{w}", "500").replace("{h}", "500") ||
-      "",
-    summary: m.attributes.artistName,
-    title: m.attributes.name,
-    type: "MUSIC" as PostListItem["type"],
-    url: m.attributes.playParams.globalId
-      ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
-      : undefined,
-  }));
+  const highlightPosts = highlights
+    ?.filter((highlight) => highlight.highlighted_at)
+    .map((highlight) => ({
+      action: "Highlighted",
+      date: new Date(highlight.highlighted_at).toISOString(),
+      id: `h${highlight.id}`,
+      image: highlight.book.cover_image_url.includes("daringfireball.net")
+        ? highlight.book.cover_image_url
+        : "",
+      summary: `From ${highlight.book.title
+        // remove busted links like "httpst.coVS2psPjLqr" from Daring Fireball
+        .replace(/httpst\.co\w+/g, "")
+        .trim()}, ${highlight.book.author}`,
+      title: highlight.text,
+      type: "HIGHLIGHT" as PostListItem["type"],
+      url: highlight.book.source_url,
+    }));
+
+  // const musicPosts = music?.map((m) => ({
+  //   action: "Added",
+  //   date: new Date(m.attributes.dateAdded).toISOString(),
+  //   id: `m${m.id}`,
+  //   image:
+  //     m.attributes.artwork?.url.replace("{w}", "500").replace("{h}", "500") ||
+  //     "",
+  //   summary: m.attributes.artistName,
+  //   title: m.attributes.name,
+  //   type: "MUSIC" as PostListItem["type"],
+  //   url: m.attributes.playParams.globalId
+  //     ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
+  //     : undefined,
+  // }));
 
   const filmPosts = films?.map((film) => ({
     action: film.rewatched ? "Rewatched" : "Watched",
     date: new Date(film.published_at).toISOString(),
-    id: `film-${film.title.split(" ").join("_")}_${film.year}`,
+    id: `f${film.id}`,
     image: film.image_url,
     summary: film.review,
     title: film.title,
@@ -93,7 +121,7 @@ export default async (
       return {
         action: "Tweeted",
         date: new Date(tweet.created_at).toISOString(),
-        id: `tweet-${tweet.id}`,
+        id: `tw${tweet.id}`,
         image: media?.preview_image_url || media?.url,
         summary: text,
         title: text,
@@ -116,7 +144,7 @@ export default async (
       return {
         action: "Played",
         date: new Date(tweet.created_at).toISOString(),
-        id: `tweet-${tweet.id}`,
+        id: `tw${tweet.id}`,
         image: media?.preview_image_url || media?.url,
         summary: text,
         title: text,
@@ -130,7 +158,7 @@ export default async (
     ?.map((repo) => ({
       action: "Updated",
       date: repo.pushed_at,
-      id: `repo-${repo.id}`,
+      id: `r${repo.id}`,
       summary: repo.description,
       title: repo.name,
       type: "REPO" as PostListItem["type"],
@@ -140,7 +168,7 @@ export default async (
   const bookPosts = books?.map((book) => ({
     action: "Read",
     date: new Date(book.date_finished).toISOString(),
-    id: `book-${book.isbn}`,
+    id: `b${book.isbn}`,
     image: book.large_image_url,
     summary: book.author,
     title: book.title,
@@ -162,7 +190,7 @@ export default async (
     .map((toot) => ({
       action: "Tooted",
       date: new Date(toot.created_at).toISOString(),
-      id: `toot-${toot.id}`,
+      id: `t${toot.id}`,
       image:
         toot.media_attachments.length > 0
           ? toot.media_attachments[0].type === "image"
@@ -180,7 +208,7 @@ export default async (
       (post) =>
         ({
           ...post,
-          id: `post-${post.id}`,
+          id: `p${post.id}`,
           url: `/writing/${post.id}`,
           type: "POST",
         } as PostListItem)
@@ -190,7 +218,8 @@ export default async (
     .sort((a, b) => +parseISO(b.date) - +parseISO(a.date));
 
   const allPosts = [
-    ...musicPosts,
+    ...highlightPosts,
+    // ...musicPosts,
     ...filmPosts,
     ...tweetPosts,
     ...gamePosts,

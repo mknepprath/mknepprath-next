@@ -1,10 +1,3 @@
-import classnames from "classnames";
-import format from "date-fns/format";
-import parseISO from "date-fns/parseISO";
-import fetch from "isomorphic-unfetch";
-import { GetServerSideProps } from "next";
-import useSWR from "swr";
-
 import Card from "@core/card";
 import Footer from "@core/footer";
 import Head from "@core/head";
@@ -14,6 +7,7 @@ import Parallax from "@core/parallax";
 import {
   BookPost,
   FilmPost,
+  HighlightPost,
   MusicPost,
   Post,
   RepoPost,
@@ -22,6 +16,12 @@ import {
 } from "@core/post";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
+import classnames from "classnames";
+import format from "date-fns/format";
+import parseISO from "date-fns/parseISO";
+import fetch from "isomorphic-unfetch";
+import { GetServerSideProps } from "next";
+import useSWR from "swr";
 
 import styles from "./index.module.css";
 
@@ -66,6 +66,8 @@ export default function Home(props: Props): React.ReactNode {
                 return <RepoPost key={post.id} {...post} />;
               case "BOOK":
                 return <BookPost key={post.id} {...post} />;
+              case "HIGHLIGHT":
+                return <HighlightPost key={post.id} {...post} />;
               case "TOOT":
                 return <TootPost key={post.id} {...post} />;
               case "MUSIC":

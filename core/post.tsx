@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import styles from "./post.module.css";
 
-const Post = ({ date, id, image, title, url }: PostListItem) => (
+const Post = ({ action, date, id, image, title, url }: PostListItem) => (
   <article key={id}>
     <header>
       <Link href={`${url}`}>
@@ -22,7 +22,9 @@ const Post = ({ date, id, image, title, url }: PostListItem) => (
         ) : null}
         <h3 className={styles.title}>{title}</h3>
       </Link>{" "}
-      <small>{format(parseISO(date), "MMMM d, yyyy")}</small>
+      <small>
+        {action || "Published"} on {format(parseISO(date), "MMMM d, yyyy")}
+      </small>
     </header>
   </article>
 );
@@ -94,6 +96,7 @@ const BookPost = ({
             alt={`cover for ${title}`}
             className="bordered-image corner-radius-8"
             height={135}
+            objectFit="cover"
             src={image}
             width={90}
           />
@@ -102,6 +105,64 @@ const BookPost = ({
       <div>
         <a href={url} target="_blank" rel="noreferrer">
           <h3 className={styles.filmTitle}>{title}</h3>
+        </a>
+        <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
+        <small>
+          {action} on {format(parseISO(date), "MMMM d, yyyy")}
+        </small>
+      </div>
+    </header>
+  </article>
+);
+
+const HighlightPost = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
+  <article key={id}>
+    <header className={styles.filmPostHeader}>
+      {image ? (
+        <a
+          className={styles.filmPoster}
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            alt={`cover for ${title}`}
+            className="bordered-image corner-radius-8"
+            height={135}
+            objectFit="cover"
+            src={image}
+            width={90}
+          />
+        </a>
+      ) : null}
+      <div>
+        <a href={url} target="_blank" rel="noreferrer">
+          <h3 className={styles.filmTitle}>
+            <p
+              style={{
+                display: "inline-block",
+                margin: 0,
+                transform: "rotate(-1.5deg)",
+              }}
+            >
+              <em
+                style={{
+                  background: "#fdff32",
+                  padding: "0 0.6rem",
+                }}
+              >
+                “{title}”
+              </em>
+            </p>
+          </h3>
         </a>
         <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
         <small>
@@ -267,4 +328,13 @@ const MusicPost = ({
   </article>
 );
 
-export { Post, BookPost, FilmPost, RepoPost, TweetPost, TootPost, MusicPost };
+export {
+  Post,
+  BookPost,
+  HighlightPost,
+  FilmPost,
+  RepoPost,
+  TweetPost,
+  TootPost,
+  MusicPost,
+};
