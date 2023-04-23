@@ -66,7 +66,7 @@ export default async (
       summary: `From ${highlight.book.title
         // remove busted links like "httpst.coVS2psPjLqr" from Daring Fireball
         .replace(/httpst\.co\w+/g, "")
-        .trim()}, ${highlight.book.author}`,
+        .trim()} by ${highlight.book.author}`,
       title: highlight.text,
       type: "HIGHLIGHT" as PostListItem["type"],
       url: highlight.book.source_url,
