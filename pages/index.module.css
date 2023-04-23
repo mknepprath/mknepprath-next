@@ -9,10 +9,10 @@
   color: var(--primaryColor);
 }
 
-/* Accomodate for the absolutely positioned hero. */
+/* Accommodate for the absolutely positioned hero. */
 .container {
   background: var(--white);
-  padding-top: 2.4rem;
+  /*padding-top: 2.4rem;*/
   position: relative;
   z-index: 200;
 }
