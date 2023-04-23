@@ -18,7 +18,15 @@ interface PostListItem {
   image?: string;
   summary?: string;
   title: string;
-  type?: "FILM" | "TWEET" | "REPO" | "POST" | "BOOK" | "TOOT" | "MUSIC";
+  type?:
+    | "FILM"
+    | "TWEET"
+    | "REPO"
+    | "POST"
+    | "BOOK"
+    | "TOOT"
+    | "MUSIC"
+    | "HIGHLIGHT";
   url?: string;
 }
 
@@ -36,6 +44,7 @@ interface Book {
 }
 
 interface Film {
+  id: string;
   image_url: string;
   link: string;
   published_at: string;
@@ -239,4 +248,42 @@ interface Repo {
   html_url: string;
   description: string;
   homepage: string;
+}
+
+interface Highlight {
+  id: number;
+  text: string;
+  note: string;
+  location: number;
+  location_type: string;
+  highlighted_at: string;
+  url: string;
+  color: string;
+  updated: string;
+  book_id: number;
+  tags: {
+    id: number;
+    name: string;
+  }[];
+  book: HighlightBook;
+}
+
+interface HighlightBook {
+  id: number;
+  title: string;
+  author: string;
+  category: string;
+  source: string;
+  num_highlights: number;
+  last_highlight_at: string;
+  updated: string;
+  cover_image_url: string;
+  highlights_url: string;
+  source_url: string;
+  asin: string;
+  tags: {
+    id: number;
+    name: string;
+  }[];
+  document_note: string;
 }

@@ -20,9 +20,9 @@ export default async (
           const review = filmList[i].description[0].split(`</p>`);
           review.shift();
           films.push({
+            id: `l${filmList[i].guid[0]._.replace("letterboxd-list-", "")}`,
             image_url: filmList[i].description[0].split(`"`)[1],
             link: filmList[i].link[0],
-            // published_at: filmList[i]["letterboxd:watchedDate"]?.[0],
             published_at: filmList[i].pubDate[0],
             rating: filmList[i]["letterboxd:memberRating"]?.[0],
             review: review.join(`</p>`),

@@ -10,11 +10,13 @@ function genStatus(post: PostListItem): string {
   const url = post.url + "?i=" + post.id;
   switch (post.type) {
     case "BOOK":
-      return `I finished reading ${post.title} by ${post.summary}. ${url}`;
+      return `Finished reading ${post.title} by ${post.summary}. ${url}`;
+    case "HIGHLIGHT":
+      return `“${post.title}”\n\n${post.summary}. ${url}`;
     case "FILM":
-      return `I ${post.action?.toLowerCase()} ${
-        post.title
-      }. My review: ${post.summary?.replace(/<[^>]*>/g, "").trim()} ${url}`;
+      return `I ${post.action?.toLowerCase()} ${post.title}. ${post.summary
+        ?.replace(/<[^>]*>/g, "")
+        .trim()} ${url}`;
     case "REPO":
       return `I pushed an update to ${post.title}: ${post.summary} ${url}`;
     case "MUSIC":
