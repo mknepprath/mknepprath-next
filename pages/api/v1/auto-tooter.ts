@@ -3,29 +3,26 @@ import { NextApiRequest, NextApiResponse } from "next";
 // activity endpoint returns a list of recent activity as posts. only post new
 // activity to Mastodon that hasn't already been posted.
 
-const ACTIVITY_API = `https://mknepprath.com/api/v1/activity&max_results=3`;
+const ACTIVITY_API = `https://mknepprath.com/api/v1/activity?max_results=3`;
 
 // Create a social media status generator based on the type of post
 function genStatus(post: PostListItem): string {
+  const url = post.url + "?i=" + post.id;
   switch (post.type) {
     case "BOOK":
-      return `I finished reading ${post.title} by ${post.summary}. ${post.url}`;
+      return `I finished reading ${post.title} by ${post.summary}. ${url}`;
     case "FILM":
       return `I ${post.action?.toLowerCase()} ${
         post.title
-      }. My review: ${post.summary?.replace(/<[^>]*>/g, "").trim()} ${
-        post.url
-      }`;
+      }. My review: ${post.summary?.replace(/<[^>]*>/g, "").trim()} ${url}`;
     case "REPO":
-      return `I pushed an update to ${post.title}: ${post.summary} ${post.url}`;
+      return `I pushed an update to ${post.title}: ${post.summary} ${url}`;
     case "MUSIC":
-      return `I added ${post.title} by ${post.summary} to my Music library.${
-        post.url ? ` ${post.url}` : ""
-      }`;
+      return `I added ${post.title} by ${post.summary} to my Music library.${url}`;
     case "POST":
-      return `✍️New blog post: ${post.title} https://mknepprath.com${post.url}`;
+      return `✍️New blog post: ${post.title} https://mknepprath.com${url}`;
     default:
-      return `${post.summary?.replace(/<[^>]*>/g, "").trim()} ${post.url}`;
+      return `${post.summary?.replace(/<[^>]*>/g, "").trim()} ${url}`;
   }
 }
 
@@ -47,9 +44,7 @@ export default async (
 
   // Return the index of the latest item in `activity` that was posted to Mastodon
   const lastPostedIndex = activity.findIndex((post) =>
-    toots.find((toot) =>
-      toot.content.includes(post.summary?.replace(/<[^>]*>/g, "").trim() || "")
-    )
+    toots.find((toot) => toot.content.includes(post.id))
   );
 
   // slice at last posted index
