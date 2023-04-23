@@ -152,8 +152,7 @@ export default async (
     ?.filter(
       (toot) =>
         // Has at least half min_rating likes...
-        // TODO: remove the fraction.
-        toot.favourites_count >= rating / 2 &&
+        toot.favourites_count >= rating &&
         // ...and has content...
         !!(toot.content || toot.media_attachments[0]?.url) &&
         // ...and doesn't start with a link, because this might indicate a
