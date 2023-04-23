@@ -1,7 +1,6 @@
+import posts from "@data/posts";
 import parseISO from "date-fns/parseISO";
 import { NextApiRequest, NextApiResponse } from "next";
-
-import posts from "@data/posts";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
@@ -135,7 +134,7 @@ export default async (
       summary: repo.description,
       title: repo.name,
       type: "REPO" as PostListItem["type"],
-      url: repo.homepage,
+      url: repo.homepage || `https://github.com/mknepprath/${repo.name}`,
     }));
 
   const bookPosts = books?.map((book) => ({
