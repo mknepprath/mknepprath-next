@@ -32,7 +32,10 @@ export default function About(): React.ReactNode {
           <A href="https://hyper.online">Hyper</A>,{" "}
           <A href="https://whcc.com">WHCC</A>). He loves his family and working
           on side projects related to technology, design, film, video games,{" "}
-          <Link href="/activity">and so on</Link>.
+          <Link href="/activity" title="Recent Activity">
+            and so on
+          </Link>
+          .
         </p>
 
         <p>
