@@ -12,7 +12,7 @@ function genStatus(post: PostListItem): string {
     case "BOOK":
       return `Finished reading ${post.title} by ${post.summary}. ${url}`;
     case "HIGHLIGHT":
-      return `“${post.title}”\n\n${post.summary}. ${url}`;
+      return `“${post.title}”\n\n${post.summary} ${url}`;
     case "FILM":
       return `I ${post.action?.toLowerCase()} ${post.title}. ${post.summary
         ?.replace(/<[^>]*>/g, "")
