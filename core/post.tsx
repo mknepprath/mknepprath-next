@@ -1,8 +1,7 @@
+import A from "@core/a";
 import { format, parseISO } from "date-fns";
 import Image from "next/legacy/image";
 import Link from "next/link";
-
-import A from "@core/a";
 
 import styles from "./post.module.css";
 
@@ -116,11 +115,7 @@ const BookPost = ({
 const RepoPost = ({ action, date, id, summary, title, url }: PostListItem) => (
   <article key={id}>
     <header>
-      <a
-        href={url || `https://github.com/mknepprath/${title}`}
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href={url} target="_blank" rel="noreferrer">
         <h3 className={styles.title}>
           {url
             ?.replace("https://twitter.com/", "@")
