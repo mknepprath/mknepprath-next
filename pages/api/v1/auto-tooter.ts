@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 // activity endpoint returns a list of recent activity as posts. only post new
 // activity to Mastodon that hasn't already been posted.
 
-const ACTIVITY_API = `https://mknepprath.com/api/v1/activity?min_rating=0`;
+const ACTIVITY_API = `https://mknepprath.com/api/v1/activity&max_results=3`;
 
 // Create a social media status generator based on the type of post
 function genStatus(post: PostListItem): string {
