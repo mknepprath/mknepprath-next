@@ -136,7 +136,7 @@ const HighlightPost = ({
           <Image
             alt={`cover for ${title}`}
             className="bordered-image corner-radius-8"
-            height={135}
+            height={90}
             objectFit="cover"
             src={image}
             width={90}
