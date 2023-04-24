@@ -1,3 +1,4 @@
+import { convert } from "html-to-text";
 import { NextApiRequest, NextApiResponse } from "next";
 
 // activity endpoint returns a list of recent activity as posts. only post new
@@ -7,24 +8,23 @@ const ACTIVITY_API = `https://mknepprath.com/api/v1/activity?max_results=3`;
 
 // Create a social media status generator based on the type of post
 function genStatus(post: PostListItem): string {
-  const url = post.url + "?i=" + post.id;
-  switch (post.type) {
+  const { action, id, summary = "", title, type, url } = post;
+  const link = url + "?i=" + id;
+  switch (type) {
     case "BOOK":
-      return `Finished reading ${post.title} by ${post.summary}. ${url}`;
+      return `Finished reading ${title} by ${summary}. ${link}`;
     case "HIGHLIGHT":
-      return `“${post.title}”\n\n${post.summary} ${url}`;
+      return `“${title}”\n\n${summary} ${link}`;
     case "FILM":
-      return `I ${post.action?.toLowerCase()} ${post.title}. ${post.summary
-        ?.replace(/<[^>]*>/g, "")
-        .trim()} ${url}`;
+      return `${action} ${title}. ${convert(summary)} ${link}`;
     case "REPO":
-      return `I pushed an update to ${post.title}: ${post.summary} ${url}`;
+      return `I pushed an update to ${title}: ${summary} ${link}`;
     case "MUSIC":
-      return `I added ${post.title} by ${post.summary} to my Music library.${url}`;
+      return `I added ${title} by ${summary} to my Music library.${link}`;
     case "POST":
-      return `✍️New blog post: ${post.title} https://mknepprath.com${url}`;
+      return `✍️New blog post: ${title} https://mknepprath.com${link}`;
     default:
-      return `${post.summary?.replace(/<[^>]*>/g, "").trim()} ${url}`;
+      return `${convert(summary)} ${link}`;
   }
 }
 
