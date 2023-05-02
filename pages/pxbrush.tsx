@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-
 import Head from "@core/head";
 import PxBrush from "@core/pxbrush";
+import React, { useEffect } from "react";
 
 const INC = 2;
 
@@ -25,7 +24,7 @@ export default function PxBrushPage(): React.ReactNode {
     const scale = urlParams.get("scale") || INC;
     const quantity = urlParams.get("quantity") || 1;
 
-    for (let i = 0; i < quantity; i++) {
+    for (let i = 0; i < +quantity; i++) {
       const x = getRandomInt(innerWidth);
       const y = getRandomInt(innerHeight);
       setBrushes((prevBrushes) => [
