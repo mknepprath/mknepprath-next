@@ -35,7 +35,7 @@ export default async (
     .catch((error) => console.error(error));
 
   if (shelf !== "desk")
-    books = books.filter((book) => +book.rating >= min_rating).slice(0, 6);
+    books = books.filter((book) => +book.rating >= +min_rating).slice(0, 6);
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
