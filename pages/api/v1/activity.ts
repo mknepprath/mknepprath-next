@@ -69,7 +69,7 @@ export default async (
         .trim()} by ${highlight.book.author}`,
       title: highlight.text,
       type: "HIGHLIGHT" as PostListItem["type"],
-      url: highlight.book.source_url,
+      url: highlight.book.source_url.replace(/=$/, ""),
     }));
 
   // const musicPosts = music?.map((m) => ({
