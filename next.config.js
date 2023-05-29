@@ -1,18 +1,7 @@
 /* eslint-disable */
 const { join } = require("path");
-const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          { key: "Access-Control-Request-Headers", value: "sentry-trace" },
-        ],
-      },
-    ];
-  },
   async redirects() {
     return [
       {
@@ -86,10 +75,6 @@ const moduleExports = {
       },
     ],
   },
-  sentry: {
-    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
-    hideSourceMaps: true,
-  },
   webpack(config, options) {
     // Fix for a long-running react-spring bug. https://github.com/pmndrs/react-spring/issues/1078#issuecomment-743698325
     config.module.rules.push({
@@ -114,8 +99,4 @@ const moduleExports = {
   },
 };
 
-const sentryWebpackPluginOptions = {
-  silent: true, // Suppresses all logs
-};
-
-module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
+module.exports = moduleExports;

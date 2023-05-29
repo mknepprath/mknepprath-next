@@ -1,8 +1,0 @@
-{
-  "crons": [
-    {
-      "path": "/api/v1/auto-tooter",
-      "schedule": "0 12 * * *"
-    }
-  ]
-}

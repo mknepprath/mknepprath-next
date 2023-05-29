@@ -20,6 +20,5 @@ yarn-error.log*
 
 .vercel
 .env*.local
-# Sentry
-.sentryclirc
+
 .idea
