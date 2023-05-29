@@ -12,7 +12,7 @@ function genStatus(post: PostListItem): string {
   const link = url + "?i=" + id;
   switch (type) {
     case "BOOK":
-      return `Finished reading ${title} by ${summary}. ${link}`;
+      return `Finished reading ${title}. ${summary}. ${link}`;
     case "HIGHLIGHT":
       return `“${title}”\n\n${summary} ${link}`;
     case "FILM":

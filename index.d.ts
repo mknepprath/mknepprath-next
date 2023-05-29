@@ -39,6 +39,7 @@ interface Book {
   large_image_url: string;
   link: string;
   rating: string;
+  review: string;
   small_image_url: string;
   title: string;
 }

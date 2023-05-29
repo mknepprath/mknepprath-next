@@ -170,7 +170,7 @@ export default async (
     date: new Date(book.date_finished).toISOString(),
     id: `b${book.isbn}`,
     image: book.large_image_url,
-    summary: book.author,
+    summary: book.review,
     title: book.title,
     type: "BOOK" as PostListItem["type"],
     url: book.link,

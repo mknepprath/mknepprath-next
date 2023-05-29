@@ -28,6 +28,7 @@ export default async (
             date_started: bookList[i].user_date_added[0],
             date_finished: bookList[i].user_read_at[0],
             rating: bookList[i].user_rating[0],
+            review: bookList[i].user_review[0],
           });
         }
       });
