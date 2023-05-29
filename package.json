@@ -43,7 +43,7 @@
     "markov-strings": "^3.0.1",
     "mcproto": "^0.9.0",
     "next": "^13.4.4",
-    "octokit": "^2.0.16",
+    "octokit": "^2.0.19",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
