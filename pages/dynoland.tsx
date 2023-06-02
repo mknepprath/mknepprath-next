@@ -1,15 +1,16 @@
+import * as amplitude from "@amplitude/analytics-browser";
+import Page from "@core/page";
 import fetch from "isomorphic-unfetch";
 import Image from "next/legacy/image";
 import React, { SyntheticEvent } from "react";
 import useSWR from "swr";
 
-// Components
-import Page from "@core/page";
-
 // Styles
 import styles from "./dynoland.module.css";
 
 function onClickToCopy(e: SyntheticEvent) {
+  amplitude.track("Copy Dynoland IP");
+
   const text = e.currentTarget.getAttribute("data-clipboard-text") || "";
   const fakeElement = document.createElement("textarea");
   fakeElement.value = text;

@@ -1,9 +1,13 @@
-import localFont from "next/font/local";
+import * as amplitude from "@amplitude/analytics-browser";
 import { Analytics } from "@vercel/analytics/react";
 
 import { AppProps } from "next/app";
+import localFont from "next/font/local";
+import * as process from "process";
 import "../css/global.css";
 import "../css/prism.css";
+
+amplitude.init(`${process.env.AMPLITUDE_API_KEY}`);
 
 const headingFont = localFont({ src: "../fonts/Satoshi-Black.otf" });
 const bodyFont = localFont({ src: "../fonts/Satoshi-Regular.otf" });
