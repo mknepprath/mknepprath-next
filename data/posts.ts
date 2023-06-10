@@ -335,6 +335,11 @@ const posts: PostListItem[] = [
     "title": "How I Get Things Done"
   },
   {
+    "date": "2012-08-16",
+    "id": "keep-up-with-the-curiosity-rover",
+    "title": "Keep Up With the Curiosity Rover"
+  },
+  {
     "date": "2012-08-13",
     "id": "3d-printing",
     "title": "3D Printing and the End of the Industrial Age"
