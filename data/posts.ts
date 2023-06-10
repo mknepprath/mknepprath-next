@@ -330,6 +330,11 @@ const posts: PostListItem[] = [
     "title": "Highlighting Apple's Most Serious Problem"
   },
   {
+    "date": "2013-01-02",
+    "id": "leap-motion",
+    "title": "Leap Motion: Give Your Mouse A Break"
+  },
+  {
     "date": "2012-10-09",
     "id": "the-physical-turning-digital",
     "title": "The Physical Turning Digital"
