@@ -355,6 +355,11 @@ const posts: PostListItem[] = [
     "title": "Video Games Are Evolving!"
   },
   {
+    "date": "2012-07-13",
+    "id": "augmented-reality-and-the-future-of-gaming",
+    "title": "Augmented Reality and the Future of Gaming"
+  },
+  {
     "date": "2012-07-10",
     "id": "buffer",
     "title": "Become More Effective On Twitter with Buffer"

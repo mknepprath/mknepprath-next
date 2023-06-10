@@ -2,6 +2,7 @@ import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
 export const meta = {
+  published: true,
   publishedAt: "2012-07-13",
   title: "Augmented Reality and the Future of Gaming",
   ogImage: "/assets/AR.jpg",
