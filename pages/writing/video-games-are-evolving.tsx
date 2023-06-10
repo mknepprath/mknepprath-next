@@ -1,14 +1,20 @@
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
 export const meta = {
   published: true,
   publishedAt: "2012-07-19",
   title: "Video Games Are Evolving!",
+  ogImage: "/assets/poke.jpg",
 };
 
 export default function VideoGamesAreEvolving(): React.ReactNode {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage
+      dateTime={meta.publishedAt}
+      ogImage={meta.ogImage}
+      title={meta.title}
+    >
       <header>
         <h1>{meta.title}</h1>
       </header>
@@ -19,6 +25,19 @@ export default function VideoGamesAreEvolving(): React.ReactNode {
         to reinvigorate big franchise games. That’s right. It’s time to talk
         about Pokémon.
       </p>
+
+      <p>
+        <Image
+          alt="Evolving video games."
+          className="corner-radius-8"
+          height={471}
+          layout="responsive"
+          priority
+          src={meta.ogImage}
+          width={700}
+        />
+      </p>
+
       <p>
         Nintendo was one of the first gaming companies to introduce{" "}
         <a href="http://www.youtube.com/watch?v=yk3rSX-vOVw">
