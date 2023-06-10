@@ -340,6 +340,11 @@ const posts: PostListItem[] = [
     "title": "The Mistake of Being Meta"
   },
   {
+    "date": "2012-10-17",
+    "id": "the-limitations-of-the-mouse",
+    "title": "The Limitations of the Mouse"
+  },
+  {
     "date": "2012-10-09",
     "id": "the-physical-turning-digital",
     "title": "The Physical Turning Digital"
