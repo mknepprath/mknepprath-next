@@ -330,6 +330,11 @@ const posts: PostListItem[] = [
     "title": "Highlighting Apple's Most Serious Problem"
   },
   {
+    "date": "2012-10-09",
+    "id": "the-physical-turning-digital",
+    "title": "The Physical Turning Digital"
+  },
+  {
     "date": "2012-09-25",
     "id": "the-use-and-misuse-of-qr-codes",
     "title": "The Use and Misuse of QR Codes"
