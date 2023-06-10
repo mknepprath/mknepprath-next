@@ -340,6 +340,11 @@ const posts: PostListItem[] = [
     "title": "3D Printing and the End of the Industrial Age"
   },
   {
+    "date": "2012-08-13",
+    "id": "the-advent-of-crowdsourced-news",
+    "title": "The Advent of Crowdsourced News"
+  },
+  {
     "date": "2012-07-24",
     "id": "introducing-square",
     "title": "You Can Now Accept Credit Cards with Square"
