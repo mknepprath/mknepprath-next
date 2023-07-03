@@ -61,7 +61,7 @@
     "@types/react": "^18.2.14",
     "@types/xml2js": "^0.4.11",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
-    "@typescript-eslint/parser": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.1",
     "colors": "^1.4.0",
     "cypress": "^12.16.0",
     "diff": "^5.1.0",
