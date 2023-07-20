@@ -360,6 +360,11 @@ const posts: PostListItem[] = [
     "title": "How I Get Things Done"
   },
   {
+    "date": "2012-09-14",
+    "id": "niantics-dilemma",
+    "title": "Thoughts on 'The Dark Horse in the Metaverse Wars'"
+  },
+  {
     "date": "2012-08-16",
     "id": "keep-up-with-the-curiosity-rover",
     "title": "Keep Up With the Curiosity Rover"
