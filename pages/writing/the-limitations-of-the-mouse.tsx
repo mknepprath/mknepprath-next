@@ -18,12 +18,12 @@ export default function TheLimitationsOfTheMouse(): React.ReactNode {
         Well, you certainly wouldn&apos;t use a{" "}
         <a
           title="...despite how awesome that would be."
-          href="http://www.crocodilejoes.com/store/image/cache/data/63883%20T-Rex-500x500.jpg"
+          href="https://www.crocodilejoes.com/store/image/cache/data/63883%20T-Rex-500x500.jpg"
         >
           T-Rex grabber
         </a>
         , or try to direct{" "}
-        <a href="http://www.youtube.com/watch?v=W9t5ZqeHcYk">The Claw</a> to
+        <a href="https://www.youtube.com/watch?v=W9t5ZqeHcYk">The Claw</a> to
         pick it up for you. You might be surprised to learn, then, that you do
         this every day.
       </p>
@@ -45,7 +45,7 @@ export default function TheLimitationsOfTheMouse(): React.ReactNode {
       <p>
         <strong>Bendable technology.</strong> Up until now, bending our phones,
         tablets, or computers would break them. Samsung is about to change{" "}
-        <a href="http://www.youtube.com/watch?v=hZCiqkWCLqw">that</a>. Imagine
+        <a href="https://www.youtube.com/watch?v=hZCiqkWCLqw">that</a>. Imagine
         you had a digital newspaper that shut down when you rolled it up. Or a
         flashlight app that turned on with a twist. We might finally see that
         Bop It app we&apos;ve all been waiting for!
