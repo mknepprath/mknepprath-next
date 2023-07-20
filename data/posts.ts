@@ -29,6 +29,11 @@ const posts: PostListItem[] = [
     "title": "2021 in Review"
   },
   {
+    "date": "2021-11-09",
+    "id": "niantics-dilemma",
+    "title": "Thoughts on 'The Dark Horse in the Metaverse Wars'"
+  },
+  {
     "date": "2021-08-15",
     "id": "thd",
     "image": "/assets/thd-2.jpg",
@@ -358,11 +363,6 @@ const posts: PostListItem[] = [
     "date": "2012-09-17",
     "id": "get-things-done",
     "title": "How I Get Things Done"
-  },
-  {
-    "date": "2012-09-14",
-    "id": "niantics-dilemma",
-    "title": "Thoughts on 'The Dark Horse in the Metaverse Wars'"
   },
   {
     "date": "2012-08-16",

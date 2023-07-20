@@ -2,7 +2,7 @@ import BlogPage from "@core/blog-page";
 
 export const meta = {
   published: true,
-  publishedAt: "2012-09-14",
+  publishedAt: "2021-11-09",
   summary: "My thoughts on Casey Newton's piece about Niantic and Pokémon Go.",
   title: "Thoughts on 'The Dark Horse in the Metaverse Wars'",
 };
