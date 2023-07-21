@@ -29,6 +29,11 @@ const posts: PostListItem[] = [
     "title": "2021 in Review"
   },
   {
+    "date": "2021-11-09",
+    "id": "niantics-dilemma",
+    "title": "Thoughts on 'The Dark Horse in the Metaverse Wars'"
+  },
+  {
     "date": "2021-08-15",
     "id": "thd",
     "image": "/assets/thd-2.jpg",
