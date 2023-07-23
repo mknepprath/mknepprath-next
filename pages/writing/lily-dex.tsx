@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/lily-dex-hero.jpg",
   published: true,
   publishedAt: "2020-11-01",
@@ -27,7 +26,7 @@ export default function LilyDex(): React.ReactNode {
         height={1040}
         layout="responsive"
         priority
-        src={meta.image}
+        src="/assets/lily-dex-hero.jpg"
         width={2000}
       />
 

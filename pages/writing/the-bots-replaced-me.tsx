@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/dependabot-1.jpg",
   published: true,
   publishedAt: "2021-01-12",
@@ -27,7 +26,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         height={534}
         layout="responsive"
         priority
-        src={meta.image}
+        src="/assets/dependabot-1.jpg"
         width={1000}
       />
       <header>

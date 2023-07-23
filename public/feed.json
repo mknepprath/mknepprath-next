@@ -108,15 +108,6 @@
       "date_published": "2021-03-15T15:00:00Z"
     },
     {
-      "id": "https://mknepprath.com/writing/ping",
-      "url": "https://mknepprath.com/writing/ping",
-      "title": "Using the Apple Music API with Next.js",
-      "content_text": "How I hacked my way to displaying recently played music on my website. • https://mknepprath.com/writing/ping",
-      "summary": "How I hacked my way to displaying recently played music on my website.",
-      "image": "https://mknepprath.com/assets/ping.jpg",
-      "date_published": "2021-02-21T15:00:00Z"
-    },
-    {
       "id": "https://mknepprath.com/writing/sherlock-codes",
       "url": "https://mknepprath.com/writing/sherlock-codes",
       "title": "10x Detective",
@@ -357,6 +348,13 @@
       "date_published": "2014-11-29T15:00:00Z"
     },
     {
+      "id": "https://mknepprath.com/writing/thoughts-on-the-apple-watch",
+      "url": "https://mknepprath.com/writing/thoughts-on-the-apple-watch",
+      "title": "Thoughts on the Apple Watch",
+      "content_text": "https://mknepprath.com/writing/thoughts-on-the-apple-watch",
+      "date_published": "2014-09-10T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/family-sharing",
       "url": "https://mknepprath.com/writing/family-sharing",
       "title": "The Significance of Family Sharing",
@@ -536,6 +534,7 @@
       "url": "https://mknepprath.com/writing/the-physical-turning-digital",
       "title": "The Physical Turning Digital",
       "content_text": "https://mknepprath.com/writing/the-physical-turning-digital",
+      "image": "https://mknepprath.com/assets/virtualworld.jpg",
       "date_published": "2012-10-09T15:00:00Z"
     },
     {
@@ -543,6 +542,7 @@
       "url": "https://mknepprath.com/writing/the-use-and-misuse-of-qr-codes",
       "title": "The Use and Misuse of QR Codes",
       "content_text": "https://mknepprath.com/writing/the-use-and-misuse-of-qr-codes",
+      "image": "https://mknepprath.com/assets/qrcode.jpg",
       "date_published": "2012-09-25T15:00:00Z"
     },
     {
@@ -557,6 +557,7 @@
       "url": "https://mknepprath.com/writing/keep-up-with-the-curiosity-rover",
       "title": "Keep Up With the Curiosity Rover",
       "content_text": "https://mknepprath.com/writing/keep-up-with-the-curiosity-rover",
+      "image": "https://mknepprath.com/assets/mars.jpg",
       "date_published": "2012-08-16T15:00:00Z"
     },
     {
@@ -564,6 +565,7 @@
       "url": "https://mknepprath.com/writing/3d-printing",
       "title": "3D Printing and the End of the Industrial Age",
       "content_text": "https://mknepprath.com/writing/3d-printing",
+      "image": "https://mknepprath.comassets/3dprinting.jpg",
       "date_published": "2012-08-13T15:00:00Z"
     },
     {
@@ -571,6 +573,7 @@
       "url": "https://mknepprath.com/writing/the-advent-of-crowdsourced-news",
       "title": "The Advent of Crowdsourced News",
       "content_text": "https://mknepprath.com/writing/the-advent-of-crowdsourced-news",
+      "image": "https://mknepprath.com/assets/crowdsourcing-news.jpg",
       "date_published": "2012-08-13T15:00:00Z"
     },
     {
@@ -592,6 +595,7 @@
       "url": "https://mknepprath.com/writing/video-games-are-evolving",
       "title": "Video Games Are Evolving!",
       "content_text": "https://mknepprath.com/writing/video-games-are-evolving",
+      "image": "https://mknepprath.com/assets/poke.jpg",
       "date_published": "2012-07-19T15:00:00Z"
     },
     {
@@ -599,6 +603,7 @@
       "url": "https://mknepprath.com/writing/augmented-reality-and-the-future-of-gaming",
       "title": "Augmented Reality and the Future of Gaming",
       "content_text": "https://mknepprath.com/writing/augmented-reality-and-the-future-of-gaming",
+      "image": "https://mknepprath.com/assets/AR.jpg",
       "date_published": "2012-07-13T15:00:00Z"
     },
     {
@@ -614,6 +619,13 @@
       "title": "Stay On Task with Pocket",
       "content_text": "https://mknepprath.com/writing/pocket",
       "date_published": "2012-07-10T15:00:00Z"
+    },
+    {
+      "id": "https://mknepprath.com/writing/pinterest",
+      "url": "https://mknepprath.com/writing/pinterest",
+      "title": "Harness the Power of Pinterest",
+      "content_text": "https://mknepprath.com/writing/pinterest",
+      "date_published": "2012-07-06T15:00:00Z"
     }
   ]
 }

@@ -1,11 +1,10 @@
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
 import fetch from "isomorphic-unfetch";
 import Markov from "markov-strings";
 import Image from "next/legacy/image";
 import { Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
-
-import A from "@core/a";
-import BlogPage from "@core/blog-page";
 
 interface MarkovResult {
   string: string;
@@ -100,7 +99,7 @@ const cleanUp = (s = "") =>
     .join(" ")
     .replace("&amp;", "&");
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/guest-post.jpg",
   published: false,
   publishedAt: "2021-01-25",
@@ -121,7 +120,7 @@ export default function BillsPc(): React.ReactNode {
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
-    }
+    },
   );
 
   useEffect(() => {
@@ -137,7 +136,7 @@ export default function BillsPc(): React.ReactNode {
       setLines(results);
 
       const media = shuffle(tweets.includes.media).find(
-        (m) => m.type === "photo"
+        (m) => m.type === "photo",
       );
       setImage(media);
     }

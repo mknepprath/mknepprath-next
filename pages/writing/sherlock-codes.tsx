@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/sherlock-codes.jpg",
   published: true,
   publishedAt: "2021-02-15",
@@ -25,7 +24,7 @@ export default function TenXDetective(): React.ReactNode {
         alt="Bug Detective"
         className="bordered-image corner-radius-8"
         height={690}
-        src={meta.image}
+        src="/assets/sherlock-codes.jpg"
         layout="responsive"
         priority
         width={1200}

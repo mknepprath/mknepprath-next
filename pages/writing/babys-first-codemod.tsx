@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2020-03-21",
   summary: "A quick overview of my first experience with codemods.",
@@ -88,7 +88,7 @@ export default () => (
           {`
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2020-03-21",
   summary: "A description of the post.",
@@ -241,7 +241,7 @@ const transform = (file, api) => {
   // \`import BlogPage from "@core/blog-page";\`. This adds the metadata object
   // below that import.
   const LAST_IMPORT = root.find(j.ImportDeclaration).at(-1);
-  LAST_IMPORT.insertAfter(\`export const meta = {\${metaPropsStrings}
+  LAST_IMPORT.insertAfter(\`export const meta: Meta = {\${metaPropsStrings}
 };\`);
 
   return root.toSource();

@@ -1,18 +1,18 @@
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2012-10-09",
   title: "The Physical Turning Digital",
-  ogImage: "/assets/virtualworld.jpg",
+  image: "/assets/virtualworld.jpg",
 };
 
 export default function ThePhysicalTurningDigital(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
-      ogImage={meta.ogImage}
+      ogImage={meta.image}
       title={meta.title}
     >
       <header>
@@ -39,7 +39,7 @@ export default function ThePhysicalTurningDigital(): React.ReactNode {
           height={471}
           layout="responsive"
           priority
-          src={meta.ogImage}
+          src="/assets/virtualworld.jpg"
           width={700}
         />
       </p>

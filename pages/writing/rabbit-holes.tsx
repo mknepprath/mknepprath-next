@@ -1,14 +1,12 @@
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   image: "/assets/sherlock-codes.jpg",
   published: false,
   publishedAt: "2021-02-18",
   summary: "Mystery game mechanics as an allegory for debugging.",
   title: "10x Detective",
-  // tweetId: "1361426223470170117",
 };
 
 export default function RabbitHoles(): React.ReactNode {
@@ -24,7 +22,7 @@ export default function RabbitHoles(): React.ReactNode {
         alt="Bug Detective"
         className="bordered-image corner-radius-8"
         height={690}
-        src={meta.image}
+        src="/assets/sherlock-codes.jpg"
         layout="responsive"
         priority
         width={1200}

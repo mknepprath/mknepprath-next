@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-12-12",
   title: "SteamOS Available December 13th",

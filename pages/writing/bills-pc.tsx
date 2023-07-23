@@ -1,10 +1,9 @@
+import BlogPage from "@core/blog-page";
 import fetch from "isomorphic-unfetch";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
-
-import BlogPage from "@core/blog-page";
 
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
@@ -16,7 +15,7 @@ interface Pokemon {
   types: string[];
 }
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/bills-pc.jpg",
   published: true,
   publishedAt: "2020-12-04",
@@ -50,7 +49,7 @@ export default function BillsPc(): React.ReactNode {
         height={1040}
         layout="responsive"
         priority
-        src={meta.image}
+        src="/assets/bills-pc.jpg"
         width={2000}
       />
       <header>
@@ -170,7 +169,7 @@ export default function BillsPc(): React.ReactNode {
             <button
               onClick={() =>
                 setPokemonId(
-                  pokemons[Math.floor(Math.random() * pokemons.length)].id
+                  pokemons[Math.floor(Math.random() * pokemons.length)].id,
                 )
               }
             >

@@ -1,9 +1,8 @@
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   image: "/assets/ebooks.jpg",
   published: true,
   publishedAt: "2020-12-20",
@@ -27,7 +26,7 @@ export default function Ebooks(): React.ReactNode {
         height={1040}
         layout="responsive"
         priority
-        src={meta.image}
+        src="/assets/ebooks.jpg"
         width={2000}
       />
       <header>

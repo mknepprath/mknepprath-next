@@ -1,8 +1,7 @@
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2019-09-07",
   summary: "If I were to be asked to design an app, where would I start?",

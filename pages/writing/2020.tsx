@@ -1,10 +1,9 @@
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
-import A from "@core/a";
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   image: "/assets/2020-in-review-3.jpeg",
   published: true,
   publishedAt: "2020-12-28",

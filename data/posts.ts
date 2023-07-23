@@ -63,12 +63,6 @@ const posts: PostListItem[] = [
     "title": "iOS App Settings: A Study"
   },
   {
-    "date": "2021-02-21",
-    "id": "ping",
-    "image": "/assets/ping.jpg",
-    "title": "Using the Apple Music API with Next.js"
-  },
-  {
     "date": "2021-02-15",
     "id": "sherlock-codes",
     "image": "/assets/sherlock-codes.jpg",
@@ -230,6 +224,11 @@ const posts: PostListItem[] = [
     "title": "Giant Portraits"
   },
   {
+    "date": "2014-09-10",
+    "id": "thoughts-on-the-apple-watch",
+    "title": "Thoughts on the Apple Watch"
+  },
+  {
     "date": "2014-06-04",
     "id": "family-sharing",
     "title": "The Significance of Family Sharing"
@@ -357,11 +356,13 @@ const posts: PostListItem[] = [
   {
     "date": "2012-10-09",
     "id": "the-physical-turning-digital",
+    "image": "/assets/virtualworld.jpg",
     "title": "The Physical Turning Digital"
   },
   {
     "date": "2012-09-25",
     "id": "the-use-and-misuse-of-qr-codes",
+    "image": "/assets/qrcode.jpg",
     "title": "The Use and Misuse of QR Codes"
   },
   {
@@ -372,16 +373,19 @@ const posts: PostListItem[] = [
   {
     "date": "2012-08-16",
     "id": "keep-up-with-the-curiosity-rover",
+    "image": "/assets/mars.jpg",
     "title": "Keep Up With the Curiosity Rover"
   },
   {
     "date": "2012-08-13",
     "id": "3d-printing",
+    "image": "assets/3dprinting.jpg",
     "title": "3D Printing and the End of the Industrial Age"
   },
   {
     "date": "2012-08-13",
     "id": "the-advent-of-crowdsourced-news",
+    "image": "/assets/crowdsourcing-news.jpg",
     "title": "The Advent of Crowdsourced News"
   },
   {
@@ -397,11 +401,13 @@ const posts: PostListItem[] = [
   {
     "date": "2012-07-19",
     "id": "video-games-are-evolving",
+    "image": "/assets/poke.jpg",
     "title": "Video Games Are Evolving!"
   },
   {
     "date": "2012-07-13",
     "id": "augmented-reality-and-the-future-of-gaming",
+    "image": "/assets/AR.jpg",
     "title": "Augmented Reality and the Future of Gaming"
   },
   {
@@ -413,6 +419,11 @@ const posts: PostListItem[] = [
     "date": "2012-07-10",
     "id": "pocket",
     "title": "Stay On Task with Pocket"
+  },
+  {
+    "date": "2012-07-06",
+    "id": "pinterest",
+    "title": "Harness the Power of Pinterest"
   }
 ];
 export default posts;

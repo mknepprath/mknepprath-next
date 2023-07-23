@@ -1,11 +1,10 @@
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
+import Card from "@core/card";
 import fetch from "isomorphic-unfetch";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import useSWR from "swr";
-
-import A from "@core/a";
-import BlogPage from "@core/blog-page";
-import Card from "@core/card";
 
 import styles from "./ping.module.css";
 
@@ -18,7 +17,7 @@ const MusicSection = (props: { music: Music[] }): JSX.Element => (
       // Titlecase the kind of media this is.
       const kind = playlist.attributes.playParams.kind.replace(
         /([A-Z])/g,
-        " $1"
+        " $1",
       );
       return (
         <Card
@@ -39,9 +38,9 @@ const MusicSection = (props: { music: Music[] }): JSX.Element => (
   </div>
 );
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/ping.jpg",
-  published: true,
+  published: false,
   publishedAt: "2021-02-21",
   summary:
     "How I hacked my way to displaying recently played music on my website.",
@@ -53,17 +52,17 @@ export default function Ping(): React.ReactNode {
   const { data: musicSection1 } = useSWR<Music[]>(
     `/api/v1/music?limit=4`,
     fetcher,
-    { refreshInterval: 60000 }
+    { refreshInterval: 60000 },
   );
   const { data: musicSection2 } = useSWR<Music[]>(
     `/api/v1/music?limit=4&offset=4`,
     fetcher,
-    { refreshInterval: 60000 }
+    { refreshInterval: 60000 },
   );
   const { data: musicSection3 } = useSWR<Music[]>(
     `/api/v1/music?limit=4&offset=8`,
     fetcher,
-    { refreshInterval: 60000 }
+    { refreshInterval: 60000 },
   );
 
   return (
@@ -77,7 +76,7 @@ export default function Ping(): React.ReactNode {
       <Image
         alt="Musical lock"
         height={600}
-        src={meta.image}
+        src="/assets/ping.jpg"
         layout="responsive"
         priority
         width={1200}

@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-09-18",
   title: "iOS 7 Eve",

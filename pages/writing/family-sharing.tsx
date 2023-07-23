@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2014-06-04",
   title: "The Significance of Family Sharing",

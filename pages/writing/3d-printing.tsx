@@ -1,6 +1,8 @@
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
+  image: "assets/3dprinting.jpg",
   published: true,
   publishedAt: "2012-08-13",
   title: "3D Printing and the End of the Industrial Age",
@@ -8,7 +10,21 @@ export const meta = {
 
 export default function ThreeDimensionalPrinting(): React.ReactNode {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage
+      dateTime={meta.publishedAt}
+      ogImage={meta.image}
+      title={meta.title}
+    >
+      <Image
+        alt="3D printed cube illustration"
+        className="corner-radius-8"
+        height={471}
+        layout="responsive"
+        priority
+        src="/assets/3dprinting.jpg"
+        width={700}
+      />
+
       <header>
         <h1>{meta.title}</h1>
       </header>

@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2021-11-09",
   summary: "My thoughts on Casey Newton's piece about Niantic and Pokémon Go.",

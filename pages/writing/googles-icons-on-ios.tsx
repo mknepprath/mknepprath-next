@@ -1,8 +1,7 @@
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-10-25",
   title: "Google’s Icons On iOS",

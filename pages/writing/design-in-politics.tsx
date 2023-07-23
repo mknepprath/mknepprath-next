@@ -1,6 +1,7 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
+  published: false,
   publishedAt: "2012-09-14",
   title: "Design In Politics",
 };

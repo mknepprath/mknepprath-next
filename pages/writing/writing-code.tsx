@@ -1,8 +1,7 @@
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
-  // image: "/assets/breathe-1.jpg",
+export const meta: Meta = {
   published: true,
   publishedAt: "2023-07-22",
   summary: "Writing code is writing for humans.",
@@ -16,7 +15,6 @@ export default function WritingCode(): React.ReactNode {
       dateTime={meta.publishedAt}
       description={meta.summary}
       highlightCode
-      // ogImage={meta.image}
       title={meta.title}
       tweetId={meta.tweetId}
     >

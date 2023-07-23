@@ -3,11 +3,10 @@
 
 // TODO: Check accuracy of timestamp.
 
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2014-02-12",
   title: "My Only Suggestion For Facebook Paper",

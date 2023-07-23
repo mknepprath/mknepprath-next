@@ -288,3 +288,12 @@ interface HighlightBook {
   }[];
   document_note: string;
 }
+
+interface Meta {
+  image?: string;
+  published: boolean;
+  publishedAt: string;
+  summary?: string;
+  title: string;
+  tweetId?: string;
+}

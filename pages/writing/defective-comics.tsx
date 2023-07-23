@@ -2,7 +2,7 @@ import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/detective-comics.jpg",
   published: true,
   publishedAt: "2015-04-29",

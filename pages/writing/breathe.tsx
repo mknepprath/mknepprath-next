@@ -1,7 +1,7 @@
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/breathe-1.jpg",
   published: true,
   publishedAt: "2019-08-03",

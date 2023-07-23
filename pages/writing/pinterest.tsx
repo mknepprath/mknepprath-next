@@ -1,6 +1,7 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
+  published: true,
   publishedAt: "2012-07-06",
   title: "Harness the Power of Pinterest",
 };

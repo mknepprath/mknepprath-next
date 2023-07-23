@@ -1,18 +1,18 @@
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2012-09-25",
   title: "The Use and Misuse of QR Codes",
-  ogImage: "/assets/qrcode.jpg",
+  image: "/assets/qrcode.jpg",
 };
 
 export default function TheUseAndMisuseOfQrCodes(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
-      ogImage={meta.ogImage}
+      ogImage={meta.image}
       title={meta.title}
     >
       <header>
@@ -32,7 +32,7 @@ export default function TheUseAndMisuseOfQrCodes(): React.ReactNode {
           height={471}
           layout="responsive"
           priority
-          src={meta.ogImage}
+          src="/assets/qrcode.jpg"
           width={700}
         />
       </p>

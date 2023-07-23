@@ -1,8 +1,7 @@
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2016-01-27",
   title: "Creating lilt — Part 3",

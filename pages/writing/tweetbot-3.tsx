@@ -1,8 +1,8 @@
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
+  published: false,
   publishedAt: "2013-10-24",
   title: "Tweetbot 3",
 };

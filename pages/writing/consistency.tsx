@@ -1,7 +1,7 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2018-03-14",
   summary: "As featured in the Ultimate Guide to Small Business Web Design.",
