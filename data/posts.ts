@@ -379,7 +379,7 @@ const posts: PostListItem[] = [
   {
     "date": "2012-08-13",
     "id": "3d-printing",
-    "image": "assets/3dprinting.jpg",
+    "image": "/assets/3dprinting.jpg",
     "title": "3D Printing and the End of the Industrial Age"
   },
   {

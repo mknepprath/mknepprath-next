@@ -2,7 +2,7 @@ import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
 export const meta: Meta = {
-  image: "assets/3dprinting.jpg",
+  image: "/assets/3dprinting.jpg",
   published: true,
   publishedAt: "2012-08-13",
   title: "3D Printing and the End of the Industrial Age",
