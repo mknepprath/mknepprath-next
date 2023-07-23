@@ -1,7 +1,7 @@
 import fs, { PathLike } from "fs";
 import path from "path";
 
-const META = /export\s+const\s+meta\s+=\s+(\{(\r\n|\n|.)*?(\r\n|\n)\})/;
+const META = /export\s+const\s+meta:\sMeta\s+=\s+(\{(\r\n|\n|.)*?(\r\n|\n)\})/;
 
 const POSTS_DIR: PathLike = path.join(process.cwd(), "/pages/writing/");
 
@@ -46,7 +46,7 @@ function getContentFromFiles(postsArray: string[], dir: string) {
     .filter((meta: Post) => meta.published);
 
   posts.sort(
-    (a: Post, b: Post) => +new Date(b.publishedAt) - +new Date(a.publishedAt)
+    (a: Post, b: Post) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
   );
 
   return posts;

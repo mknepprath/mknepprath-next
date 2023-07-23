@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/giant-portraits-2.jpg",
   published: true,
   publishedAt: "2014-11-29",

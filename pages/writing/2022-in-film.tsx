@@ -1,14 +1,13 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Card from "@core/card";
 import { FilmPost } from "@core/post";
 import Shot from "@core/shot";
+import Image from "next/legacy/image";
 
 import styles from "./2022.module.css";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/2022-in-review-2.jpg",
   published: true,
   publishedAt: "2023-01-16",

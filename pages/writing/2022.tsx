@@ -1,18 +1,17 @@
+import A from "@core/a";
+import BlogPage from "@core/blog-page";
+import Card from "@core/card";
 import { parseISO } from "date-fns";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import useSWR from "swr";
-
-import A from "@core/a";
-import BlogPage from "@core/blog-page";
-import Card from "@core/card";
 
 import styles from "./2022.module.css";
 
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/2022-in-review-6.jpg",
   published: true,
   publishedAt: "2023-01-01",
@@ -24,7 +23,7 @@ export const meta = {
 export default function ReviewOf2022(): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity?max_results=6&min_rating=1`,
-    fetcher
+    fetcher,
   );
   return (
     <BlogPage

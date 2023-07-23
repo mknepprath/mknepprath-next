@@ -1,15 +1,14 @@
+import BlogPage from "@core/blog-page";
+import PxBrush from "@core/pxbrush";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
-
-import BlogPage from "@core/blog-page";
-import PxBrush from "@core/pxbrush";
 
 import styles from "./life-art-nostalgia.module.css";
 
 const GRID_SCALE = 8;
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/pxbrush.png",
   published: true,
   publishedAt: "2020-06-25",

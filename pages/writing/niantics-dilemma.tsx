@@ -1,13 +1,13 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2021-11-09",
   summary: "My thoughts on Casey Newton's piece about Niantic and Pokémon Go.",
   title: "Thoughts on 'The Dark Horse in the Metaverse Wars'",
 };
 
-export default function DesignInPolitics(): React.ReactNode {
+export default function NianticsDilemma(): React.ReactNode {
   return (
     <BlogPage dateTime={meta.publishedAt} title={meta.title}>
       <header>

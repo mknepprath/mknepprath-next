@@ -1,18 +1,18 @@
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2012-07-13",
   title: "Augmented Reality and the Future of Gaming",
-  ogImage: "/assets/AR.jpg",
+  image: "/assets/AR.jpg",
 };
 
 export default function Ar(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
-      ogImage={meta.ogImage}
+      ogImage={meta.image}
       title={meta.title}
     >
       <header>
@@ -42,7 +42,7 @@ export default function Ar(): React.ReactNode {
           height={471}
           layout="responsive"
           priority
-          src={meta.ogImage}
+          src="/assets/AR.jpg"
           width={700}
         />
       </p>

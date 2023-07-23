@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-01-02",
   title: "Leap Motion: Give Your Mouse A Break",
@@ -32,6 +32,7 @@ export default function LeapMotion(): React.ReactNode {
       <p>
         <iframe
           src="http://www.youtube.com/embed/1x-eAvASIFc?rel=0"
+          frameBorder="0"
           height="326"
           width="580"
         />
@@ -44,6 +45,7 @@ export default function LeapMotion(): React.ReactNode {
       <p>
         <iframe
           src="http://www.youtube.com/embed/_d6KuiuteIA?rel=0"
+          frameBorder="0"
           height="326"
           width="580"
         />
@@ -56,6 +58,7 @@ export default function LeapMotion(): React.ReactNode {
       <p>
         <iframe
           src="http://www.youtube.com/embed/mQkKyOOyLSs?rel=0"
+          frameBorder="0"
           height="326"
           width="580"
         />

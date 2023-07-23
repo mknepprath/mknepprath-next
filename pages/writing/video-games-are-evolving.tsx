@@ -1,18 +1,18 @@
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2012-07-19",
   title: "Video Games Are Evolving!",
-  ogImage: "/assets/poke.jpg",
+  image: "/assets/poke.jpg",
 };
 
 export default function VideoGamesAreEvolving(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
-      ogImage={meta.ogImage}
+      ogImage={meta.image}
       title={meta.title}
     >
       <header>
@@ -33,7 +33,7 @@ export default function VideoGamesAreEvolving(): React.ReactNode {
           height={471}
           layout="responsive"
           priority
-          src={meta.ogImage}
+          src="/assets/poke.jpg"
           width={700}
         />
       </p>

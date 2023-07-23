@@ -2,7 +2,7 @@ import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import { ReactNode } from "react";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2023-03-23",
   title: "Microsoft Is Using GPT-4 Wrong",

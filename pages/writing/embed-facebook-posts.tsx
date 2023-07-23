@@ -1,6 +1,7 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
+  published: false,
   publishedAt: "2013-10-17",
   title: "Embed Facebook Posts",
 };

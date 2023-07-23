@@ -3,7 +3,7 @@ import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 import { ReactNode } from "react";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/keaton-ssr-2.png",
   published: true,
   publishedAt: "2023-03-10",

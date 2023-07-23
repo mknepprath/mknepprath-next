@@ -1,18 +1,18 @@
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2012-08-13",
   title: "The Advent of Crowdsourced News",
-  ogImage: "/assets/crowdsourcing-news.jpg",
+  image: "/assets/crowdsourcing-news.jpg",
 };
 
 export default function TheAdventOfCrowdsourcedNews(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}
-      ogImage={meta.ogImage}
+      ogImage={meta.image}
       title={meta.title}
     >
       <header>
@@ -33,7 +33,7 @@ export default function TheAdventOfCrowdsourcedNews(): React.ReactNode {
           height={471}
           layout="responsive"
           priority
-          src={meta.ogImage}
+          src="/assets/crowdsourcing-news.jpg"
           width={700}
         />
       </p>

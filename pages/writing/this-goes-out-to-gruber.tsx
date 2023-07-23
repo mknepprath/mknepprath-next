@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-10-30",
   title: "Google's Android And The HTC/Amazon Rumor",

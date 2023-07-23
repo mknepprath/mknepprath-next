@@ -1,7 +1,7 @@
 import BlogPage from "@core/blog-page";
 import { ReactNode } from "react";
 
-export const meta = {
+export const meta: Meta = {
   published: false,
   publishedAt: "2023-02-13",
   title: "Creating lilt — Part 6",

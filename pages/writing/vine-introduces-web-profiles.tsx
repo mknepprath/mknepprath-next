@@ -3,7 +3,7 @@
 
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2014-01-03",
   title: "Vine Introduces Web Profiles",

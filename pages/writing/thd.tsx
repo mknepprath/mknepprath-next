@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/legacy/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/thd-2.jpg",
   published: true,
   publishedAt: "2021-08-15",
@@ -79,7 +78,7 @@ export default function Thd(): React.ReactNode {
         alt="Oz."
         className="corner-radius-8"
         height={901}
-        src={meta.image}
+        src="/assets/thd-2.jpg"
         layout="responsive"
         width={1200}
       />

@@ -1,8 +1,7 @@
+import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   image: "/assets/breathe-1.jpg",
   published: true,
   publishedAt: "2019-08-03",
@@ -183,15 +182,13 @@ export default function Breathe(): React.ReactNode {
         breathe.{" "}
       </p>
 
-      <a href="https://twitter.com/mknepprath/status/1057477764033458181">
-        <Image
-          alt="Fishing"
-          height={282}
-          src="/assets/breathe-2.jpg"
-          layout="responsive"
-          width={556}
-        />
-      </a>
+      <Image
+        alt="Fishing"
+        height={282}
+        src="/assets/breathe-2.jpg"
+        layout="responsive"
+        width={556}
+      />
     </BlogPage>
   );
 }
