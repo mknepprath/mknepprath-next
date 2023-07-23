@@ -13,6 +13,14 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/writing-code",
+      "url": "https://mknepprath.com/writing/writing-code",
+      "title": "Writing Code Is Writing",
+      "content_text": "Writing code is writing for humans. • https://mknepprath.com/writing/writing-code",
+      "summary": "Writing code is writing for humans.",
+      "date_published": "2023-07-22T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/where-gpt-belongs",
       "url": "https://mknepprath.com/writing/where-gpt-belongs",
       "title": "Microsoft Is Using GPT-4 Wrong",

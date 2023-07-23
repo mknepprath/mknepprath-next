@@ -7,7 +7,7 @@ export const meta = {
   title: "Thoughts on 'The Dark Horse in the Metaverse Wars'",
 };
 
-export default function DesignInPolitics(): React.ReactNode {
+export default function NianticsDilemma(): React.ReactNode {
   return (
     <BlogPage dateTime={meta.publishedAt} title={meta.title}>
       <header>

@@ -1,5 +1,10 @@
 const posts: PostListItem[] = [
   {
+    "date": "2023-07-22",
+    "id": "writing-code",
+    "title": "Writing Code Is Writing"
+  },
+  {
     "date": "2023-03-23",
     "id": "where-gpt-belongs",
     "title": "Microsoft Is Using GPT-4 Wrong"
