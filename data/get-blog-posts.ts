@@ -1,6 +1,8 @@
 import fs, { PathLike } from "fs";
 import path from "path";
 
+// The regex matches export const meta: Meta = { ... } inside a TS file ignoring
+//  whitespace. Note: The `\}` is necessary despite the WebStorm warning.
 const META = /export\s+const\s+meta:\sMeta\s+=\s+(\{(\r\n|\n|.)*?(\r\n|\n)\})/;
 
 const POSTS_DIR: PathLike = path.join(process.cwd(), "/pages/writing/");
