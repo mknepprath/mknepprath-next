@@ -93,8 +93,8 @@ Object.values(form.checkboxes)
       </p>
       <p>
         You aren’t a robot and your code shouldn’t appear to be written by one.
-        Don’t simplify your code blindly. What you choose to include or exclude
-        should depend a great deal on what makes it easier to read.
+        Don’t simplify your code without thinking. What you choose to include or
+        exclude should depend a great deal on what makes it easier to read.
       </p>
 
       <Image
