@@ -4,7 +4,8 @@ import BlogPage from "@core/blog-page";
 export const meta: Meta = {
   published: true,
   publishedAt: "2023-07-28",
-  summary: "About what ChatGPT is and isn't.",
+  summary:
+    "While this post is well-written and provides great insight into the song-writing process, it betrays a slight misunderstanding of what this AI is...",
   title: "Thoughts on Nick Cave's Response to ChatGPT",
   // tweetId: "1158369861996883968",
 };

@@ -4,7 +4,8 @@ import Image from "next/legacy/image";
 export const meta: Meta = {
   published: true,
   publishedAt: "2023-07-22",
-  summary: "Writing code is writing for humans.",
+  summary:
+    "While it’s easy to fall into that trap of thinking that you’re writing for the computer. You’re not. You’re writing for other engineers...",
   title: "Writing Code Is Writing",
   tweetId: "1158369861996883968",
 };

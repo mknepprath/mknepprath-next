@@ -5,7 +5,15 @@ import Link from "next/link";
 
 import styles from "./post.module.css";
 
-const Post = ({ action, date, id, image, title, url }: PostListItem) => (
+const Post = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
   <article key={id}>
     <header>
       <Link href={`${url}`}>
@@ -22,6 +30,7 @@ const Post = ({ action, date, id, image, title, url }: PostListItem) => (
         ) : null}
         <h3 className={styles.title}>{title}</h3>
       </Link>{" "}
+      {summary ? <p style={{ margin: "0.4em 0 0.2em" }}>{summary}</p> : null}
       <small>
         {action || "Published"} on {format(parseISO(date), "MMMM d, yyyy")}
       </small>

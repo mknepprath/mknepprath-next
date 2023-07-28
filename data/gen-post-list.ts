@@ -24,6 +24,7 @@ const postList = posts.map((post: Post) => ({
   date: post.publishedAt,
   id: post.id,
   image: post.image,
+  summary: post.summary,
   title: post.title,
 }));
 
@@ -34,7 +35,7 @@ function generatePostList() {
   const nextPosts = `const posts: PostListItem[] = ${JSON.stringify(
     postList,
     null,
-    "  "
+    "  ",
   )};
 export default posts;`;
 
