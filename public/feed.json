@@ -13,6 +13,14 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/gpt-funhouse",
+      "url": "https://mknepprath.com/writing/gpt-funhouse",
+      "title": "Thoughts on Nick Cave's Response to ChatGPT",
+      "content_text": "About what ChatGPT is and isn't. • https://mknepprath.com/writing/gpt-funhouse",
+      "summary": "About what ChatGPT is and isn't.",
+      "date_published": "2023-07-28T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/writing-code",
       "url": "https://mknepprath.com/writing/writing-code",
       "title": "Writing Code Is Writing",
