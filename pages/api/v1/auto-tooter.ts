@@ -16,7 +16,10 @@ function genStatus(post: PostListItem): string {
     case "HIGHLIGHT":
       return `“${title}”\n\n${summary} ${link}`;
     case "FILM":
-      return `${action} ${title}. ${convert(summary)} ${link}`;
+      return `${action} ${title}. ${convert(summary, {
+        preserveNewlines: true,
+        wordwrap: false,
+      })} ${link}`;
     case "REPO":
       return `I pushed an update to ${title}: ${summary} ${link}`;
     case "MUSIC":
@@ -30,23 +33,23 @@ function genStatus(post: PostListItem): string {
 
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ): Promise<void> => {
   const allActivity: PostListItem[] = await fetch(ACTIVITY_API).then(
-    (response) => response.json()
+    (response) => response.json(),
   );
   const activity = allActivity.filter(
-    (activity) => activity.type !== "TOOT" && activity.url
+    (activity) => activity.type !== "TOOT" && activity.url,
   );
 
   // get mastodon posts
   const toots: Toot[] = await fetch(
-    `https://mastodon.social/api/v1/accounts/231610/statuses?limit=20&exclude_replies=1`
+    `https://mastodon.social/api/v1/accounts/231610/statuses?limit=20&exclude_replies=1`,
   ).then((response) => response.json());
 
   // Return the index of the latest item in `activity` that was posted to Mastodon
   const lastPostedIndex = activity.findIndex((post) =>
-    toots.find((toot) => toot.content.includes(post.id))
+    toots.find((toot) => toot.content.includes(post.id)),
   );
 
   // slice at last posted index
@@ -75,7 +78,7 @@ export default async (
           console.error("Error:", error);
           return error;
         });
-    })
+    }),
   );
 
   res.statusCode = 200;
@@ -83,7 +86,7 @@ export default async (
   if (process.env.NODE_ENV === "production")
     res.setHeader(
       "Cache-Control",
-      "max-age=0, s-maxage=1, stale-while-revalidate"
+      "max-age=0, s-maxage=1, stale-while-revalidate",
     );
   res.end(JSON.stringify(response));
 };
