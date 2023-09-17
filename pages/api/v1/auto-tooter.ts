@@ -23,7 +23,7 @@ function genStatus(post: PostListItem): string {
     case "REPO":
       return `I pushed an update to ${title}: ${summary} ${link}`;
     case "MUSIC":
-      return `I added ${title} by ${summary} to my Music library.${link}`;
+      return `I added ${title} by ${summary} to my Music library. ${link}`;
     case "POST":
       return `✍️New blog post: ${title} https://mknepprath.com${link}`;
     default:
@@ -60,6 +60,9 @@ export default async (
     newActivity.map(async (post) => {
       return await fetch("https://mastodon.social/api/v1/statuses", {
         body: JSON.stringify({
+          spoiler_text: post.summary?.includes("contain spoilers")
+            ? `${post.action} ${post.title}. This review may contain spoilers.`
+            : "",
           status: genStatus(post),
           visibility: "unlisted",
         }),

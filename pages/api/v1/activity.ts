@@ -9,7 +9,7 @@ const BASE_URL =
 
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ): Promise<void> => {
   const { max_results, min_rating = "4" } = req.query;
   const rating = parseInt(min_rating as string);
@@ -29,23 +29,23 @@ export default async (
     Tweets,
     Repo[],
     Toot[],
-    Highlight[]
+    Highlight[],
     // Music[]
   ] = await Promise.all([
     fetch(`${BASE_URL}/api/v1/films?min_rating=${rating}`).then((response) =>
-      response.json()
+      response.json(),
     ),
     fetch(`${BASE_URL}/api/v1/books?min_rating=${rating}`).then((response) =>
-      response.json()
+      response.json(),
     ),
     fetch(`${BASE_URL}/api/v1/timeline/15332057?max_results=20`).then(
-      (response) => response.json()
+      (response) => response.json(),
     ),
     fetch(`${BASE_URL}/api/v1/timeline/2634106687?max_results=5`).then(
-      (response) => response.json()
+      (response) => response.json(),
     ),
     fetch(`${BASE_URL}/api/v1/github/repos`).then((response) =>
-      response.json()
+      response.json(),
     ),
     fetch(`${BASE_URL}/api/v1/mastodon`).then((response) => response.json()),
     fetch(`${BASE_URL}/api/v1/highlights`).then((response) => response.json()),
@@ -55,7 +55,7 @@ export default async (
   ]);
 
   const highlightPosts = highlights
-    ?.filter((highlight) => highlight.highlighted_at)
+    ?.filter((highlight) => highlight.highlighted_at && highlight.book)
     .map((highlight) => ({
       action: "Highlighted",
       date: new Date(highlight.highlighted_at).toISOString(),
@@ -107,12 +107,12 @@ export default async (
           (tweet?.entities?.urls?.length === 1 &&
             !!tweet?.entities?.urls[0].media_key)) &&
         // ...and at least min_rating likes.
-        tweet.public_metrics.like_count >= rating
+        tweet.public_metrics.like_count >= rating,
     )
     .map((tweet) => {
       // Find the media object that matches the media key.
       const media = tweets?.includes.media.find(
-        (m) => m.media_key === tweet.attachments?.media_keys[0]
+        (m) => m.media_key === tweet.attachments?.media_keys[0],
       );
       // If the tweet has a URL for the media object, remove it from the text.
       const text = media
@@ -134,11 +134,11 @@ export default async (
     ?.filter(
       (tweet) =>
         tweet?.entities?.urls?.length <= 1 &&
-        !!tweet?.entities?.urls[0].media_key
+        !!tweet?.entities?.urls[0].media_key,
     )
     .map((tweet) => {
       const media = games?.includes.media.find(
-        (m) => m.media_key === tweet.attachments?.media_keys[0]
+        (m) => m.media_key === tweet.attachments?.media_keys[0],
       );
       const text = tweet.text.replace(tweet.entities.urls[0].url, "").trim();
       return {
@@ -188,7 +188,7 @@ export default async (
         !toot.content.startsWith(`<p><span class="h-card"><a href="`) &&
         // ...and doesn't include "?i=" in the URL, because this indicates an
         //  auto-toot.
-        !toot.content.includes("?i=")
+        !toot.content.includes("?i="),
     )
     .map((toot) => ({
       action: "Tooted",
@@ -214,7 +214,7 @@ export default async (
           id: `p${post.id}`,
           url: `/writing/${post.id}`,
           type: "POST",
-        } as PostListItem)
+        }) as PostListItem,
     )
     // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -247,7 +247,7 @@ export default async (
   if (process.env.NODE_ENV === "production")
     res.setHeader(
       "Cache-Control",
-      "max-age=0, s-maxage=1, stale-while-revalidate"
+      "max-age=0, s-maxage=1, stale-while-revalidate",
     );
   res.end(JSON.stringify(allPosts));
 };
