@@ -65,7 +65,7 @@
     "colors": "^1.4.0",
     "cypress": "^12.17.4",
     "diff": "^5.1.0",
-    "eslint": "^8.49.0",
+    "eslint": "^8.50.0",
     "eslint-config-next": "^13.4.19",
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-cypress": "^2.14.0",
