@@ -1,9 +1,5 @@
-import React from "react";
-
-import A from "@core/a";
-import Card from "@core/card";
 import Page from "@core/page";
-import PhotoStack from "@core/photo-stack";
+import React from "react";
 
 export default function Guide(): JSX.Element {
   return (
