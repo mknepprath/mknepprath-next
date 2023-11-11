@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2023-11-11",
+    "id": "large-language-mayhem",
+    "summary": "LLMs are breaking the internet.",
+    "title": "It’s Not AI, and It Wasn’t Built to Be Accurate"
+  },
+  {
     "date": "2023-07-28",
     "id": "gpt-funhouse",
     "summary": "While this post is well-written and provides great insight into the song-writing process, it betrays a slight misunderstanding of what this AI is...",
