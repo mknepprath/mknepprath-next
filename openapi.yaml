@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: M. Knepprath Plugin
+  description: A plugin that allows the GPT to view M. Knepprath data.
+  version: 'v1'
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/v1/films:
+    get:
+      operationId: getFilms
+      summary: Get the list of recently watched films.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getFilmsResponse'
+
+components:
+  schemas:
+    getFilmsResponse:
+      type: object
+      properties:
+        films:
+          type: array
+          items:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: The ID of the film.
+                image_url:
+                    type: string
+                    description: The URL of the film's image.
+                link:
+                    type: string
+                    description: The URL of the film's Letterboxd page.
+                published_at:
+                    type: string
+                    description: The date the film was watched.
+                rating:
+                    type: string
+                    description: The rating given to the film.
+                review:
+                    type: string
+                    description: The review of the film.
+                rewatched:
+                    type: boolean
+                    description: Whether the film was rewatched.
+                title:
+                    type: string
+                    description: The title of the film.
+                year:
+                    type: string
+                    description: The year the film was released.
+          description: The list of films.
