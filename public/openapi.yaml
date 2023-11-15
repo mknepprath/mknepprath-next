@@ -4,12 +4,28 @@ info:
   description: A plugin that allows the GPT to view M. Knepprath data.
   version: 'v1'
 servers:
-  - url: http://localhost:3000
+  - url: https://mknepprath.com
 paths:
   /api/v1/films:
     get:
       operationId: getFilms
       summary: Get the list of recently watched films.
+      description: Returns a list of films with the option to specify the maximum number of results and the minimum rating.
+      parameters:
+            - in: query
+              name: max_results
+              required: false
+              schema:
+                type: integer
+                default: 5
+              description: The maximum number of film results to return.
+            - in: query
+              name: min_rating
+              required: false
+              schema:
+                type: integer
+                default: 3
+              description: The minimum rating of the films to return.
       responses:
         "200":
           description: OK
