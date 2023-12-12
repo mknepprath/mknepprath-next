@@ -1,10 +1,8 @@
 // External
-import classnames from "classnames";
-
 // Components
-import TwitterIcon from "@core/icon-twitter";
 // Data
 import { footerLinks } from "@data/links";
+import classnames from "classnames";
 
 // Styles
 import styles from "./footer.module.css";
@@ -27,16 +25,16 @@ export default function Footer({ className }: Props): JSX.Element {
         </a>
       </span>
       <ul>
-        <li>
-          <a
-            aria-label="Twitter"
-            className={styles.twitter}
-            href="https://twitter.com/mknepprath"
-            title="The Bird Site"
-          >
-            <TwitterIcon />
-          </a>
-        </li>
+        {/*<li>*/}
+        {/*  <a*/}
+        {/*    aria-label="Twitter"*/}
+        {/*    className={styles.twitter}*/}
+        {/*    href="https://twitter.com/mknepprath"*/}
+        {/*    title="The Bird Site"*/}
+        {/*  >*/}
+        {/*    <TwitterIcon />*/}
+        {/*  </a>*/}
+        {/*</li>*/}
         {footerLinks.map(({ href, key, title }) => (
           <li key={key}>
             <a

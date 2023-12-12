@@ -8,7 +8,7 @@ export const footerLinks: Link[] = [
   {
     href: "mailto:mknepprath@gmail.com",
     key: "email",
-    title: "Email Me",
+    title: "Contact Me",
   },
 ];
 
