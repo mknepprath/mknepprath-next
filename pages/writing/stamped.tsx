@@ -72,10 +72,11 @@ export default function TheLifeElectronic(): React.ReactNode {
       </p>
 
       <p>
-        Last year I stumbled upon the Tweetback project, a way to publish my
-        tweets to my own site. Luckily, I&apos;d been paranoid and downloaded my
-        Twitter archive every few years since 2012. I set up my own Tweetback
-        instance and got all of my tweets... back.
+        Last year I stumbled upon the{" "}
+        <a href="https://github.com/tweetback/tweetback">Tweetback</a> project,
+        a way to publish my tweets to my own site. Luckily, I&apos;d been
+        paranoid and downloaded my Twitter archive every few years since 2012. I
+        set up my own Tweetback instance and got all of my tweets... back.
       </p>
 
       <p>
