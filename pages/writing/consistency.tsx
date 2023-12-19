@@ -8,7 +8,7 @@ export const meta: Meta = {
   title: "Above All Else, Be Consistent",
 };
 
-export default function ReviewOf2020(): React.ReactNode {
+export default function Consistency(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}

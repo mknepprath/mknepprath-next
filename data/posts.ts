@@ -1,5 +1,12 @@
 const posts: PostListItem[] = [
   {
+    "date": "2023-12-19",
+    "id": "stamped",
+    "image": "/assets/zissou.jpg",
+    "summary": "Navigating the ephemeral nature of digital content.",
+    "title": "The Life Electronic"
+  },
+  {
     "date": "2023-11-11",
     "id": "large-language-mayhem",
     "summary": "LLMs are breaking the internet.",

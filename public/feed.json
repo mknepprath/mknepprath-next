@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/stamped",
+      "url": "https://mknepprath.com/writing/stamped",
+      "title": "The Life Electronic",
+      "content_text": "Navigating the ephemeral nature of digital content. • https://mknepprath.com/writing/stamped",
+      "summary": "Navigating the ephemeral nature of digital content.",
+      "image": "https://mknepprath.com/assets/zissou.jpg",
+      "date_published": "2023-12-19T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/large-language-mayhem",
       "url": "https://mknepprath.com/writing/large-language-mayhem",
       "title": "It’s Not AI, and It Wasn’t Built to Be Accurate",
