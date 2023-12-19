@@ -7,7 +7,7 @@ export const meta: Meta = {
   publishedAt: "2023-12-19",
   title: "The Life Electronic",
   summary: "Navigating the ephemeral nature of digital content.",
-  image: "/assets/zissou.jpg",
+  image: "/assets/zissou-1.jpg",
 };
 
 export default function TheLifeElectronic(): React.ReactNode {
@@ -20,6 +20,18 @@ export default function TheLifeElectronic(): React.ReactNode {
       <header>
         <h1>{meta.title}</h1>
       </header>
+
+      <p>
+        <Image
+          alt="The Belafonte."
+          className="corner-radius-8"
+          height={456}
+          layout="responsive"
+          priority
+          src="/assets/zissou-1.jpg"
+          width={800}
+        />
+      </p>
 
       <blockquote>
         &ldquo;I had no idea what to expect going into this, but I was not

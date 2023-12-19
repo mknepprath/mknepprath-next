@@ -2,7 +2,7 @@ const posts: PostListItem[] = [
   {
     "date": "2023-12-19",
     "id": "stamped",
-    "image": "/assets/zissou.jpg",
+    "image": "/assets/zissou-1.jpg",
     "summary": "Navigating the ephemeral nature of digital content.",
     "title": "The Life Electronic"
   },
