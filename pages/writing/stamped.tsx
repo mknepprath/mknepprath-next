@@ -39,7 +39,7 @@ export default function TheLifeElectronic(): React.ReactNode {
         <p>
           - My review of{" "}
           <em>
-            <a href="https://www.imdb.com/title/tt0362270/">
+            <a href="https://letterboxd.com/mknepprath/film/the-life-aquatic-with-steve-zissou/1/">
               The Life Aquatic with Steve Zissou
             </a>
           </em>
@@ -83,7 +83,10 @@ export default function TheLifeElectronic(): React.ReactNode {
         I&apos;d written across the web and ticket stubs I&apos;d saved over the
         years. This particular review completed its journey from Stamped to
         Twitter to a ZIP file in iCloud to my website to Letterboxd and now
-        lives alongside my growing collection of movie reviews.
+        lives alongside my growing collection of movie reviews.{" "}
+        <a href="https://letterboxd.com/mknepprath/film/the-life-aquatic-with-steve-zissou/1/">
+          Here it is.
+        </a>
       </p>
 
       <p>
