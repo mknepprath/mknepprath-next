@@ -81,8 +81,9 @@ export default function TheLifeElectronic(): React.ReactNode {
       <p>
         Finally, I decided to backfill my Letterboxd account using reviews
         I&apos;d written across the web and ticket stubs I&apos;d saved over the
-        years. This particular review completed its journey and now lives
-        alongside my growing collection of movie reviews.
+        years. This particular review completed its journey from Stamped to
+        Twitter to a ZIP file in iCloud to my website to Letterboxd and now
+        lives alongside my growing collection of movie reviews.
       </p>
 
       <p>
