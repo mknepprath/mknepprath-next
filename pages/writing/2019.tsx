@@ -44,7 +44,7 @@ export default function ReviewOf2019(): React.ReactNode {
         remote-friendly company. I wanted to be free to easily move to wherever
         her school of choice would be. In February, I landed an interview at
         Walmart Labs and got a position on my first fully-remote team. I&apos;m
-        less than a year in, but enjoying it!
+        less than a year in and enjoying it!
       </p>
       <h3>Read books ✅</h3>
       <p>

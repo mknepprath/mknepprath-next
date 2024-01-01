@@ -45,7 +45,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/242701">
               277: Dribbble Stories (feat. Zack Onisko)
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 <a href="https://twitter.com/marshallbock?ref_src=twsrc%5Etfw">
                   @marshallbock
@@ -67,7 +67,7 @@ export default function Podcasts(): React.ReactNode {
           </li>
           <li>
             <A href="https://designdetails.fm/episodes/253698">279: TWIGBY</A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 <a href="https://twitter.com/brian_lovin?ref_src=twsrc%5Etfw">
                   @brian_lovin
@@ -86,7 +86,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/297140">
               296: Google I/O
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 I don’t have the emotional bandwidth to comment on the{" "}
                 <a href="https://twitter.com/designdetailsfm?ref_src=twsrc%5Etfw">
@@ -104,7 +104,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/305408">
               307: iOS 13 Beta
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 Just finished it! This is what I use instead of Bartender: it’s
                 very nice / cc{" "}
@@ -130,7 +130,7 @@ export default function Podcasts(): React.ReactNode {
               321: Illustrations and the Side Effects of Free Resources (feat.
               Meg Robichaud & Ryan Putnam)
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 This sounds like a quote from an earlier version of Everyday
                 Things. Norman seems to have done a near-full reversal on this
@@ -151,7 +151,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/312744">
               323: Designing Social Proof
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 <a href="https://twitter.com/designdetailsfm?ref_src=twsrc%5Etfw">
                   @designdetailsfm
@@ -168,7 +168,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/313187">
               324: Interface Design and the Physical World
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 <a href="https://twitter.com/designdetailsfm?ref_src=twsrc%5Etfw">
                   @designdetailsfm
@@ -202,7 +202,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/314231">
               327: Organizing Component Systems
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 Shocked by the latest{" "}
                 <a href="https://twitter.com/designdetailsfm?ref_src=twsrc%5Etfw">
@@ -226,7 +226,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/319028">
               342: Critiquing Our Early Work
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 <a href="https://twitter.com/designdetailsfm?ref_src=twsrc%5Etfw">
                   @designdetailsfm
@@ -245,7 +245,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/319300">
               343: Over and Undervalued Design Skills
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 For context, they typically choose 3 topics and cover those,
                 then do a Cool Things-type segment at the end, and the bonus
@@ -277,7 +277,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/VlL1gBvI">
               380: Designing WhatsApp ft. Priyanka Kodikal
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 <a href="https://twitter.com/designdetailsfm?ref_src=twsrc%5Etfw">
                   @designdetailsfm
@@ -296,7 +296,7 @@ export default function Podcasts(): React.ReactNode {
             <A href="https://designdetails.fm/episodes/">
               385: Raising Your Team&apos;s UI Bar
             </A>
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 <a href="https://twitter.com/designdetailsfm?ref_src=twsrc%5Etfw">
                   @designdetailsfm
@@ -337,7 +337,7 @@ export default function Podcasts(): React.ReactNode {
           <li>
             <A href="https://www.relay.fm/isometric/34">34: PokeRapper.com</A> -
             1:33:19
-            <blockquote className="twitter-tweet">
+            <blockquote>
               <p lang="en" dir="ltr">
                 Friends, Romans, countrymen, listen to{" "}
                 <a href="https://twitter.com/Isometricshow?ref_src=twsrc%5Etfw">

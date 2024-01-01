@@ -22,13 +22,6 @@ export default function Head({
 }: Props): JSX.Element {
   const router = useRouter();
 
-  React.useEffect(() => {
-    const script = document.createElement("script");
-    script.setAttribute("src", "https://platform.twitter.com/widgets.js");
-    script.setAttribute("async", "true");
-    document.head.appendChild(script);
-  }, []);
-
   return (
     <NextHead>
       <meta charSet="UTF-8" />

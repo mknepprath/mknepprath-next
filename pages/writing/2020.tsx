@@ -156,7 +156,7 @@ export default function ReviewOf2020(): React.ReactNode {
         Regardless, I did add a few new areas to the game and announced it on
         Twitter, completing this goal.
       </p>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           my twitter text adventure,{" "}
           <A href="https://twitter.com/FamiliarLilt?ref_src=twsrc%5Etfw">

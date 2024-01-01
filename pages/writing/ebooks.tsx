@@ -40,7 +40,7 @@ export default function Ebooks(): React.ReactNode {
         expected and I was able to switch to my other Twitter bot ideas within a
         few weeks.
       </p>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           Nothing is certain except Star Wars clothing.
         </p>
@@ -62,7 +62,7 @@ export default function Ebooks(): React.ReactNode {
         life since. People still find joy and entertainment from its tweets and
         frequently play along with their weird responses.
       </p>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           Wow you seem to get more relatable each month 🤔😂
         </p>
@@ -76,7 +76,7 @@ export default function Ebooks(): React.ReactNode {
         would repeat my tweets verbatim. Here, the bot turned one of my tweets
         into a sort of ouroboros.
       </p>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           <a href="https://twitter.com/mknepprath?ref_src=twsrc%5Etfw">
             @mknepprath
@@ -93,7 +93,7 @@ export default function Ebooks(): React.ReactNode {
         It&apos;s not all fun and games, however. Sometimes the account seems to
         tweet veiled threats.
       </p>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           I might have an army of bots.
         </p>
@@ -102,7 +102,7 @@ export default function Ebooks(): React.ReactNode {
           March 25, 2019
         </a>
       </blockquote>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           you leave Mars alone
         </p>
@@ -111,7 +111,7 @@ export default function Ebooks(): React.ReactNode {
           September 28, 2016
         </a>
       </blockquote>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="und" dir="ltr">
           {" "}
           <a href="https://t.co/tYoGkCMEtr">pic.twitter.com/tYoGkCMEtr</a>

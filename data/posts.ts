@@ -51,6 +51,13 @@ const posts: PostListItem[] = [
     "title": "2022 in Review"
   },
   {
+    "date": "2022-09-21",
+    "id": "dredd",
+    "image": "/assets/dredd-film.jpeg",
+    "summary": "In which I coin the term “yassified bullet time”.",
+    "title": "My Review of Dredd (2012)"
+  },
+  {
     "date": "2021-12-30",
     "id": "2021",
     "image": "/assets/2021-in-review-3.jpg",

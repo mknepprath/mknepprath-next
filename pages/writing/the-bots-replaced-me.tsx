@@ -62,7 +62,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         </A>{" "}
         suggested a way to make it even better.
       </p>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           Add some tests + auto merging + auto deploying and put that on
           autopilot 🚀
@@ -163,7 +163,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         merged, and deployed without any hand-holding from me - all I see are
         the merge notifications after the fact. Nice!
       </p>
-      <blockquote className="twitter-tweet" data-conversation="none">
+      <blockquote data-conversation="none">
         <p lang="en" dir="ltr">
           Copied that action over to a couple of my repos yesterday, can&#39;t
           wait for the automerge magic to begin!
