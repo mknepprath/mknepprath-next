@@ -1,3 +1,4 @@
+import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
@@ -91,6 +92,16 @@ export default function TheNotebook(): React.ReactNode {
         I want all of you, forever, everyday. You and me… everyday.” – Noah
         Calhoun
       </blockquote>
+
+      <hr />
+
+      <em>
+        Published on{" "}
+        <A href="https://letterboxd.com/tardycritic/film/the-notebook/">
+          Tardy Critic
+        </A>
+        , a film blog where movies are reviewed ten years late.
+      </em>
     </BlogPage>
   );
 }

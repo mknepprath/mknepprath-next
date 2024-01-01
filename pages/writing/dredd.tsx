@@ -1,3 +1,4 @@
+import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
@@ -116,6 +117,16 @@ export default function Dredd(): React.ReactNode {
         of streaming television, it’s safe to say <i>Dredd</i> has aged well.
       </p>
       <blockquote>“Negotiation&apos;s over. Sentence is death.”</blockquote>
+
+      <hr />
+
+      <em>
+        Published on{" "}
+        <A href="https://letterboxd.com/tardycritic/film/dredd/">
+          Tardy Critic
+        </A>
+        , a film blog where movies are reviewed ten years late.
+      </em>
     </BlogPage>
   );
 }
