@@ -59,7 +59,7 @@
     "@types/prismjs": "^1.26.3",
     "@types/react": "^18.2.46",
     "@types/xml2js": "^0.4.14",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.15.0",
     "colors": "^1.4.0",
     "cypress": "^12.17.4",
