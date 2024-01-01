@@ -7,7 +7,6 @@ export const meta: Meta = {
   publishedAt: "2022-09-21",
   summary: "In which I coin the term “yassified bullet time”.",
   title: "My Review of Dredd (2012)",
-  tweetId: "1158369861996883968",
 };
 
 export default function Dredd(): React.ReactNode {
@@ -18,7 +17,6 @@ export default function Dredd(): React.ReactNode {
       highlightCode
       ogImage={meta.image}
       title={meta.title}
-      tweetId={meta.tweetId}
     >
       <header>
         <h1>{meta.title}</h1>
