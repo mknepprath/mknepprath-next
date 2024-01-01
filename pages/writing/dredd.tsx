@@ -31,13 +31,13 @@ export default function Dredd(): React.ReactNode {
         width={1000}
       />
       <blockquote>
-        Anderson: <i>“Sir, he&apos;s thinking about going for your gun.”</i>
+        Anderson: “Sir, he&apos;s thinking about going for your gun.”
         <br />
-        Dredd: <i>“Yeah.”</i>
+        Dredd: “Yeah.”
         <br />
-        Anderson: <i>“He just changed his mind.”</i>
+        Anderson: “He just changed his mind.”
         <br />
-        Dredd: <i>“Yeah.”</i>
+        Dredd: “Yeah.”
       </blockquote>
       <h2>A Quick Summary</h2>
       <p>
@@ -115,9 +115,7 @@ export default function Dredd(): React.ReactNode {
         hyper-violent series <i>The Boys</i> (also starring Urban) is the king
         of streaming television, it’s safe to say <i>Dredd</i> has aged well.
       </p>
-      <blockquote>
-        <i>“Negotiation&apos;s over. Sentence is death.”</i>
-      </blockquote>
+      <blockquote>“Negotiation&apos;s over. Sentence is death.”</blockquote>
     </BlogPage>
   );
 }

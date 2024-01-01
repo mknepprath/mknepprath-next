@@ -288,6 +288,13 @@ const posts: PostListItem[] = [
     "title": "Thoughts on the Apple Watch"
   },
   {
+    "date": "2014-06-25",
+    "id": "the-notebook",
+    "image": "/assets/the-notebook-film.jpeg",
+    "summary": "Love is like the wind, you can’t see it but you can feel it.",
+    "title": "My Review of The Notebook (2004)"
+  },
+  {
     "date": "2014-06-04",
     "id": "family-sharing",
     "title": "The Significance of Family Sharing"
