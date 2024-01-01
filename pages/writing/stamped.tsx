@@ -48,8 +48,8 @@ export default function TheLifeElectronic(): React.ReactNode {
       </blockquote>
 
       <p>
-        I&apos;d like to walk through a little case study. Back in 2012, I
-        posted a movie review on a fledgling platform at the time,{" "}
+        Back in 2012, I posted a movie review on a fledgling platform at the
+        time,{" "}
         <A href="https://web.archive.org/web/20140226032433/http://mashable.com/2011/11/25/stamped-iphone-recommendation-app/">
           Stamped
         </A>
