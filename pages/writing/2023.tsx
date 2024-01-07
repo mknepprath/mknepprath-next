@@ -217,9 +217,8 @@ export default function ReviewOf2023(): React.ReactNode {
       </p>
 
       <p>
-        Lastly, despite limited opportunities for board games, I couldn&apos;t
-        resist picking up Root—a beautifully designed game where teams with
-        unique abilities vie for control of the board.
+        Lastly, I couldn&apos;t resist picking up Root—a beautifully designed
+        game where teams with unique abilities vie for control of the board.
       </p>
 
       <Image
