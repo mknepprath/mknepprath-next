@@ -357,9 +357,11 @@ export default function ReviewOf2023(): React.ReactNode {
         At this point, it’s becoming clear to me that most of my interests are
         converging on one mega-interest: movies. I’m either watching them or
         reading about them or listening to podcasts about them or building
-        websites for them or just straight up making them. I have ideas and
-        tentative plans to do more with this in 2024. I want to slow down on the
-        consumption and start creating more. Let’s go.
+        websites for them or just straight up{" "}
+        <A href="https://www.youtube.com/watch?v=pl4LEjA05oo">making</A>{" "}
+        <A href="https://www.youtube.com/watch?v=_qMKKNXe8Jo">them</A>. I have
+        ideas and tentative plans to do more with this in 2024. I want to slow
+        down on the consumption and start creating more. Let’s go.
       </p>
 
       <Image
