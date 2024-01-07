@@ -1,5 +1,12 @@
 const posts: PostListItem[] = [
   {
+    "date": "2024-01-07",
+    "id": "2023",
+    "image": "/assets/2023-in-review-2.jpg",
+    "summary": "A look at my accomplishments during the past year.",
+    "title": "2023 in Review"
+  },
+  {
     "date": "2023-12-19",
     "id": "stamped",
     "image": "/assets/zissou-1.jpg",
