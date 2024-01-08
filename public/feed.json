@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/2023-in-film",
+      "url": "https://mknepprath.com/writing/2023-in-film",
+      "title": "2023 in Film",
+      "content_text": "Reviewing the many movies I watched during 2023. • https://mknepprath.com/writing/2023-in-film",
+      "summary": "Reviewing the many movies I watched during 2023.",
+      "image": "https://mknepprath.com/assets/2022-in-review-2.jpg",
+      "date_published": "2024-01-07T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/2023",
       "url": "https://mknepprath.com/writing/2023",
       "title": "2023 in Review",
