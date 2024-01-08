@@ -1,13 +1,6 @@
 const posts: PostListItem[] = [
   {
     "date": "2024-01-07",
-    "id": "2023-in-film",
-    "image": "/assets/2022-in-review-2.jpg",
-    "summary": "Reviewing the many movies I watched during 2023.",
-    "title": "2023 in Film"
-  },
-  {
-    "date": "2024-01-07",
     "id": "2023",
     "image": "/assets/2023-in-review-2.jpg",
     "summary": "A look at my accomplishments during the past year.",
