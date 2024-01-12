@@ -9,7 +9,7 @@ import styles from "./2023.module.css";
 
 export const meta: Meta = {
   image: "/assets/2023-in-film-1.jpg",
-  published: false,
+  published: true,
   publishedAt: "2024-01-12",
   summary: "Reviewing the many movies I watched during 2023.",
   title: "2023 in Film",
@@ -38,24 +38,23 @@ export default function FilmsOf2023(): React.ReactNode {
       />
 
       <p>
-        Hey there, movie lovers! Continuing the tradition I started the{" "}
+        Hey, movie lovers! Continuing the tradition I started the{" "}
         <A href="/writing/2022-in-film">previous year</A>, here&apos;s an
-        overview of what I saw in 2023. I watched a total of 438 movies, far
-        exceeding my goal of 365. By my rough estimation, my film reviews
+        overview of what I saw in 2023. I watched a total of 438 movies,
+        surpassing my goal of 365. By my rough estimation, my film reviews
         totaled around 14,000 words.
       </p>
 
       <h2>My Top Films of 2023</h2>
 
       <p>
-        I saw a lot of great films released last year, many in theaters. In
-        fact, I made it to the theater at least twenty times. Feels great after
-        a couple years of not being able to go. My favorite theatrical
-        experiences were seeing{" "}
+        I saw many great films released last year, with many trips to the
+        theater – at least twenty times. Feels great after a couple of years of
+        not being able to go. My favorite theatrical experiences were watching{" "}
         <A href="https://letterboxd.com/mknepprath/film/rrr/">RRR (2022)</A>{" "}
-        with my wife and friends who were first-timers and loved it, seeing
+        with my wife and friends, who were first-timers and loved it, seeing
         Killers of the Flower Moon after waiting in anticipation all year, and
-        seeing Godzilla Minus One with my wife and Godzilla-obsessed son.
+        watching Godzilla Minus One with my wife and Godzilla-obsessed son.
       </p>
 
       <div className={styles.cardContainer}>
@@ -70,20 +69,19 @@ export default function FilmsOf2023(): React.ReactNode {
             <A href="https://letterboxd.com/mknepprath/film/killers-of-the-flower-moon/">
               Killers of the Flower Moon
             </A>{" "}
-            is a thrilling adaptation of a book I love. I think that it&apos;s
-            the most important film of the year because of how it sheds like on
-            a dark part of American history that I didn&apos;t know about until
-            reading the book. I appreciate that it approaches the subject matter
-            from a different perspective, making it a great companion piece to
-            the book instead of a redundant retelling.
+            is a thrilling adaptation of a book I love. I consider it the most
+            important film of the year due to how it sheds light on a dark part
+            of American history that I wasn&apos;t aware of until reading the
+            book. I appreciate its different perspective, making it a great
+            companion piece to the book rather than a redundant retelling.
           </p>
           <p>
-            This is my favorite film of the year and I&apos;m excited to see
+            It&apos;s my favorite film of the year, and I&apos;m excited to see
             what Scorsese does with David Grann&apos;s next book,{" "}
             <A href="https://www.goodreads.com/en/book/show/61714633">
               The Wager
-            </A>
-            , which was one of my favorite reads of the 2023.
+            </A>{" "}
+            one of my favorite reads of 2023.
           </p>
         </div>
       </div>
@@ -103,18 +101,14 @@ export default function FilmsOf2023(): React.ReactNode {
             is Toho&apos;s first Godzilla film since Shin Godzilla in 2016. I
             wasn&apos;t sure if they could top that film, but they did. In fact,
             I&apos;m close to admitting that this is my favorite Godzilla film
-            of all time. It has a great story, the effects are amazing, and the
-            set pieces are perfectly constructed.
+            of all time. It has a great story, amazing effects, and perfectly
+            constructed set pieces.
           </p>
           <p>
-            My son and I spent the last couple years watching all the Showa era
-            Godzilla films. We didn&apos;t realize this would owe so much to
-            those films, so all the direct visual and thematic references made
-            us so happy. I can&apos;t wait to watch this one again (in{" "}
-            <A href="https://www.youtube.com/watch?v=PShgB-ielBI">
-              black & white
-            </A>
-            ?).
+            My son and I spent the last couple of years watching all the Showa
+            era Godzilla films, and we didn&apos;t realize this one would owe so
+            much to those films. All the direct visual and thematic references
+            made us so happy.
           </p>
         </div>
       </div>
@@ -187,7 +181,7 @@ export default function FilmsOf2023(): React.ReactNode {
       <h2>My Top Films Watched in 2023</h2>
 
       <p>
-        Next I&apos;d like to highlight my favorite films I watched for the
+        Next, I&apos;d like to highlight my favorite films I watched for the
         first time in 2023 that were not released during that year. Here are the
         top ten that have stuck with me to the point where I still think about
         them and bring them up in conversation with friends.
@@ -260,15 +254,16 @@ export default function FilmsOf2023(): React.ReactNode {
 
       <p>
         I&apos;d love to draw your attention to some great films you might not
-        have bumped into yet. Here my favorite obscure films watched last year;
-        calculated by sorting my Letterboxd list by popularity and picking the
-        last 10 films that I&apos;ve rated 4 stars or higher.
+        have bumped into yet. Here are my favorite obscure films watched last
+        year, calculated by sorting my Letterboxd list by popularity and picking
+        the last 10 films that I&apos;ve rated 4 stars or higher.
       </p>
       <p>
-        I&apos;d like to highlight The High Sign, one of my favorite Buster
-        Keaton shorts. I also really enjoyed The Natural History of the Chicken
-        and Cane Toads: An Unnatural History which are humorous documentaries by
-        Mark Lewis, an Australian filmmaker I&apos;d never heard of before.
+        I&apos;d like to highlight &ldquo;The High Sign,&rdquo; one of my
+        favorite Buster Keaton shorts. I also really enjoyed &ldquo;The Natural
+        History of the Chicken&rdquo; and &ldquo;Cane Toads: An Unnatural
+        History,&rdquo; which are humorous documentaries by Mark Lewis, an
+        Australian filmmaker I&apos;d never heard of before.
       </p>
 
       <div className={styles.cardContainer}>
@@ -349,14 +344,15 @@ export default function FilmsOf2023(): React.ReactNode {
       <p>
         I tried something new this past October; I did a Horror Survey where I
         sorted my watchlist from earliest to latest and watched all the horror
-        films I could find that were available to stream.
+        films available to stream.
       </p>
       <p>
-        I watched 42 horror films during this time starting with The Cat and the
-        Canary (1927) and ending with Blade II (2002). I really enjoyed
-        experiencing film history through the lens of horror, starting with the
-        silent era to talkies to the rise of the slasher and beyond. Here are my
-        top 10 horror films I watched in October.
+        I watched 42 horror films during this time, starting with &ldquo;The Cat
+        and the Canary&rdquo; (1927) and ending with &ldquo;Blade II&rdquo;
+        (2002). I really enjoyed experiencing film history through the lens of
+        horror, starting with the silent era to talkies to the rise of the
+        slasher and beyond. Here are my top 10 horror films I watched in
+        October.
       </p>
 
       <div className={styles.cardContainer}>
@@ -521,7 +517,7 @@ I would be honored to be called “chicken”"
       </div>
 
       <p>
-        For the second year in a row, my most watched actor and director were
+        For the second year in a row, my most-watched actor and director were
         the same:{" "}
         <A href="https://letterboxd.com/mknepprath/films/diary/for/2023/genre/-documentary/with/actor/buster-keaton/">
           Buster Keaton
@@ -534,17 +530,17 @@ I would be honored to be called “chicken”"
       <h2>Shout Outs</h2>
 
       <p>
-        My movie chat group, #BongHive, remains undefeated. In December we did a
-        Secret Santa where we each gifted a film or film-adjacent item to
+        My movie chat group, #BongHive, remains undefeated. In December, we did
+        a Secret Santa where we each gifted a film or film-adjacent item to
         another member. I received the Criterion edition of{" "}
         <A href="https://letterboxd.com/mknepprath/film/drunken-angel/">
           Drunken Angel (1948)
-        </A>{" "}
-        which I loved!
+        </A>
+        , which I loved!
       </p>
 
       <p>
-        This coming year we&apos;re doing a monthly challenge where one member
+        This coming year, we&apos;re doing a monthly challenge where one member
         of the group picks a film for the rest of us to watch. The first was{" "}
         <A href="https://letterboxd.com/mknepprath/film/army-of-shadows">
           Army of Shadows (1969)
@@ -563,9 +559,9 @@ I would be honored to be called “chicken”"
       />
 
       <p>
-        I also want to give a shout out to my wife who gifted me The Criterion
-        Channel last year for Christmas. I watched a lot of great films
-        including many mentioned above. 82 in total during the year!
+        I also want to give a shout-out to my wife who gifted me The Criterion
+        Channel last year for Christmas. I watched a lot of great films,
+        including many mentioned above – 82 in total during the year!
       </p>
 
       <p>
@@ -577,9 +573,9 @@ I would be honored to be called “chicken”"
 
       <p>
         That&apos;s all for now! I&apos;ve already kicked off 2024 with some
-        great films and I&apos;m looking forward more during the coming year. If
-        you check out any of the films I mentioned above, let me know what you
-        think! Happy watching!
+        great films and I&apos;m looking forward to more during the coming year.
+        If you check out any of the films I mentioned above, let me know what
+        you think! Happy watching!
       </p>
 
       <Image
