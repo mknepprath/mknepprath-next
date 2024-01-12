@@ -80,8 +80,8 @@ export default function FilmsOf2023(): React.ReactNode {
             what Scorsese does with David Grann&apos;s next book,{" "}
             <A href="https://www.goodreads.com/en/book/show/61714633">
               The Wager
-            </A>{" "}
-            one of my favorite reads of 2023.
+            </A>
+            , one of my favorite reads of 2023.
           </p>
         </div>
       </div>
