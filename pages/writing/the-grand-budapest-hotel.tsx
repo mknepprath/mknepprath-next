@@ -35,7 +35,7 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
       />
       <blockquote>
         “You see, there are still faint glimmers of civilization left in this
-        barbaric slaughterhouse that was once known as humanity. Indeed that's
+        barbaric slaughterhouse that was once known as humanity. Indeed that’s
         what we provide in our own modest, humble, insignificant... oh, f***
         it.” — M. Gustave
       </blockquote>
@@ -43,7 +43,7 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
       <p>
         With the help of his lobby boy, a philandering concierge steals a
         painting bequeathed to him by a wealthy hotel patron whom he is accused
-        of murdering. On the run from both the patron's family and the law, as
+        of murdering. On the run from both the patron’s family and the law, as
         well as a fascistic regime, Zero and Gustave must embark on a daring
         journey to clear the name of Monsieur Gustave H.
       </p>
@@ -84,7 +84,7 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
         that opens and closes this film eventually takes center stage in{" "}
         <i>Asteroid City</i> last year, and especially in his recent short, The
         Wonderful Story of Henry Sugar. I believe these elements have only
-        increased <i>Grand Budapest's</i> standing as a film that balances where
+        increased <i>Grand Budapest’s</i> standing as a film that balances where
         Wes was heading with a more standard storytelling structure.
       </p>
       <p>
@@ -111,7 +111,7 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
       <p>
         I’d also like to give a shout-out to a few standout sequences: the
         jailbreak, the museum chase, and the ski chase. Taken together, you get
-        a good idea of the breadth of Anderson's abilities. They are all of a
+        a good idea of the breadth of Anderson’s abilities. They are all of a
         piece in that they fit the aesthetic of the film, but are all
         interesting and fun in their own right.
       </p>
