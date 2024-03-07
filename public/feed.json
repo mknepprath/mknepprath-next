@@ -13,6 +13,15 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/the-grand-budapest-hotel",
+      "url": "https://mknepprath.com/writing/the-grand-budapest-hotel",
+      "title": "The Grand Budapest Hotel (2014)",
+      "content_text": "My review celebrating the 10th anniversary of Wes Anderson's masterpiece. • https://mknepprath.com/writing/the-grand-budapest-hotel",
+      "summary": "My review celebrating the 10th anniversary of Wes Anderson's masterpiece.",
+      "image": "https://mknepprath.com/assets/the-grand-budapest-hotel.jpeg",
+      "date_published": "2024-03-07T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/2023-in-film",
       "url": "https://mknepprath.com/writing/2023-in-film",
       "title": "2023 in Film",
