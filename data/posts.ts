@@ -4,7 +4,7 @@ const posts: PostListItem[] = [
     "id": "the-grand-budapest-hotel",
     "image": "/assets/the-grand-budapest-hotel.jpeg",
     "summary": "My review celebrating the 10th anniversary of Wes Anderson's masterpiece.",
-    "title": "The Grand Budapest Hotel (2014)"
+    "title": "My Review of The Grand Budapest Hotel (2014)"
   },
   {
     "date": "2024-01-12",

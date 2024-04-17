@@ -9,7 +9,7 @@ export const meta: Meta = {
   publishedAt: "2024-03-07",
   summary:
     "My review celebrating the 10th anniversary of Wes Anderson's masterpiece.",
-  title: "The Grand Budapest Hotel (2014)",
+  title: "My Review of The Grand Budapest Hotel (2014)",
 };
 
 export default function TheGrandBudapestHotel(): React.ReactNode {
