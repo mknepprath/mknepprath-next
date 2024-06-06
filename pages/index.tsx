@@ -123,19 +123,17 @@ export default function Home(props: Props): React.ReactNode {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.info(context.req.headers["user-agent"] || "");
-  // const userAgent = context.req.headers["user-agent"] || "";
+  const userAgent = context.req.headers["user-agent"] || "";
   return {
     props: {
-      // FIXME: Hard-coded to force parallax view for a bit.
-      isDesktopSafari: true, // isDesktopSafari(userAgent),
+      isDesktopSafari: isDesktopSafari(userAgent),
     },
   };
 };
 
-// function isDesktopSafari(userAgent: string) {
-//   const ua = userAgent.toLowerCase();
-//   return (
-//     ua.includes("macintosh") && ua.includes("safari") && !ua.includes("chrome")
-//   );
-// }
+function isDesktopSafari(userAgent: string) {
+  const ua = userAgent.toLowerCase();
+  return (
+    ua.includes("macintosh") && ua.includes("safari") && !ua.includes("chrome")
+  );
+}
