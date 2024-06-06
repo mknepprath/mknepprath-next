@@ -182,6 +182,30 @@ const HighlightPost = ({
   </article>
 );
 
+const PhotoPost = ({ action, date, id, image, title, url }: PostListItem) => (
+  <article key={id}>
+    <header>
+      <Link href={`${url}`}>
+        <div
+          className="fill-image bordered-image"
+          style={{ height: `calc(100vw / 2)`, maxHeight: 420 }}
+        >
+          <Image
+            alt={`cover image for ${title}`}
+            className="corner-radius-8"
+            src={image || ""}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      </Link>{" "}
+      <small>
+        {action} on {format(parseISO(date), "MMMM d, yyyy")}
+      </small>
+    </header>
+  </article>
+);
+
 const RepoPost = ({ action, date, id, summary, title, url }: PostListItem) => (
   <article key={id}>
     <header>
@@ -345,5 +369,6 @@ export {
   RepoPost,
   TweetPost,
   TootPost,
+  PhotoPost,
   MusicPost,
 };

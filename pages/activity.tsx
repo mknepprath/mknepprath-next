@@ -4,6 +4,7 @@ import {
   FilmPost,
   HighlightPost,
   MusicPost,
+  PhotoPost,
   Post,
   RepoPost,
   TootPost,
@@ -19,7 +20,7 @@ const fetcher = (url: RequestInfo) =>
 export default function Home(): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity?max_results=100&min_rating=0`,
-    fetcher
+    fetcher,
   );
 
   return (
@@ -47,6 +48,8 @@ export default function Home(): React.ReactNode {
                 return <HighlightPost key={post.id} {...post} />;
               case "TOOT":
                 return <TootPost key={post.id} {...post} />;
+              case "PHOTO":
+                return <PhotoPost key={post.id} {...post} />;
               case "MUSIC":
                 return <MusicPost key={post.id} {...post} />;
               default:

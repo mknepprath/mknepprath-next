@@ -63,6 +63,7 @@ const moduleExports = {
       "i.gr-assets.com", // Goodreads
       "files.mastodon.social", // Mastodon
       "daringfireball.net", // Daring Fireball
+      "pxscdn.com", // Pixelfed
     ],
     remotePatterns: [
       {
@@ -92,7 +93,7 @@ const moduleExports = {
     // `import Nav from "@core/Nav";`
     const paths = ["core", "data", "hooks"];
     paths.forEach(
-      (path) => (config.resolve.alias[`@${path}`] = join(__dirname, path))
+      (path) => (config.resolve.alias[`@${path}`] = join(__dirname, path)),
     );
 
     return config;

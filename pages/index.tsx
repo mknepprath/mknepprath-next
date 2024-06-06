@@ -9,6 +9,7 @@ import {
   FilmPost,
   HighlightPost,
   MusicPost,
+  PhotoPost,
   Post,
   RepoPost,
   TootPost,
@@ -35,7 +36,7 @@ interface Props {
 export default function Home(props: Props): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
-    fetcher
+    fetcher,
   );
   const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
 
@@ -70,6 +71,8 @@ export default function Home(props: Props): React.ReactNode {
                 return <HighlightPost key={post.id} {...post} />;
               case "TOOT":
                 return <TootPost key={post.id} {...post} />;
+              case "PHOTO":
+                return <PhotoPost key={post.id} {...post} />;
               case "MUSIC":
                 return <MusicPost key={post.id} {...post} />;
               default:

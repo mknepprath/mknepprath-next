@@ -21,6 +21,7 @@ export default async (
     games,
     repos,
     toots,
+    photos,
     highlights, // music
   ]: [
     Film[],
@@ -28,6 +29,7 @@ export default async (
     Tweets,
     Tweets,
     Repo[],
+    Toot[],
     Toot[],
     Highlight[],
     // Music[]
@@ -48,6 +50,7 @@ export default async (
       response.json(),
     ),
     fetch(`${BASE_URL}/api/v1/mastodon`).then((response) => response.json()),
+    fetch(`${BASE_URL}/api/v1/photos`).then((response) => response.json()),
     fetch(`${BASE_URL}/api/v1/highlights`).then((response) => response.json()),
     // fetch(`${BASE_URL}/api/v1/music?limit=20`).then((response) =>
     //   response.json()
@@ -206,6 +209,36 @@ export default async (
       url: toot.url,
     }));
 
+  const photoPosts = photos
+    ?.filter(
+      (photo) =>
+        // Has at least half min_rating likes...
+        // photo.favourites_count >= rating &&
+        // ...and has content...
+        !!(photo.content || photo.media_attachments[0]?.url) &&
+        // ...and doesn't start with a link, because this might indicate a
+        // message to another user.
+        !photo.content.startsWith(`<p><span class="h-card"><a href="`) &&
+        // ...and doesn't include "?i=" in the URL, because this indicates an
+        //  auto-toot.
+        !photo.content.includes("?i="),
+    )
+    .map((photo) => ({
+      action: "Captured",
+      date: new Date(photo.created_at).toISOString(),
+      id: `ph${photo.id}`,
+      image:
+        photo.media_attachments.length > 0
+          ? photo.media_attachments[0].type === "image"
+            ? photo.media_attachments[0]?.url // For GIFs or videos.
+            : photo.media_attachments[0]?.preview_url
+          : null,
+      summary: photo.content,
+      title: photo.content,
+      type: "PHOTO" as PostListItem["type"],
+      url: photo.url,
+    }));
+
   const typedPosts = posts
     .map(
       (post) =>
@@ -229,6 +262,7 @@ export default async (
     ...repoPosts,
     ...bookPosts,
     ...tootPosts,
+    ...photoPosts,
     ...typedPosts,
   ] // The `sort` method can be conveniently used with function expressions:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort

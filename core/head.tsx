@@ -17,7 +17,7 @@ interface Props {
 export default function Head({
   children,
   title = "Michael Knepprath, Developer & Designer",
-  description = "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.",
+  description = "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: software development, design, film, video games, and so on.",
   ogImage = "/assets/og-image.jpg",
 }: Props): JSX.Element {
   const router = useRouter();

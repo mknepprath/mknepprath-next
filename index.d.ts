@@ -25,6 +25,7 @@ interface PostListItem {
     | "POST"
     | "BOOK"
     | "TOOT"
+    | "PHOTO"
     | "MUSIC"
     | "HIGHLIGHT";
   url?: string;
