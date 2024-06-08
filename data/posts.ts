@@ -1,5 +1,12 @@
 const posts: PostListItem[] = [
   {
+    "date": "2024-06-07",
+    "id": "sunsquints",
+    "image": "/assets/sunsquints.png",
+    "summary": "Looking back at a band that barely existed.",
+    "title": "Sunsquints"
+  },
+  {
     "date": "2024-03-07",
     "id": "the-grand-budapest-hotel",
     "image": "/assets/the-grand-budapest-hotel.jpeg",
