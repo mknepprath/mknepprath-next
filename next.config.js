@@ -64,6 +64,7 @@ const moduleExports = {
       "files.mastodon.social", // Mastodon
       "daringfireball.net", // Daring Fireball
       "pxscdn.com", // Pixelfed
+      "pixelfed.social", // Pixelfed
     ],
     remotePatterns: [
       {
