@@ -218,10 +218,10 @@ export default async (
         !!(photo.content || photo.media_attachments[0]?.url) &&
         // ...and doesn't start with a link, because this might indicate a
         // message to another user.
-        !photo.content.startsWith(`<p><span class="h-card"><a href="`) &&
+        !photo.content?.startsWith(`<p><span class="h-card"><a href="`) &&
         // ...and doesn't include "?i=" in the URL, because this indicates an
         //  auto-toot.
-        !photo.content.includes("?i="),
+        !photo.content?.includes("?i="),
     )
     .map((photo) => ({
       action: "Captured",
