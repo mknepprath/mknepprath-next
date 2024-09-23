@@ -6,6 +6,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2024-09-23",
   title: "The Vanilla Layer",
+  summary: "A proposal for a two-tiered design system.",
 };
 
 export default function VanillaLayer(): React.ReactNode {

@@ -3,6 +3,7 @@ const posts: PostListItem[] = [
     "date": "2024-09-23",
     "id": "vanilla-layer",
     "image": "/assets/vanilla-layer.jpeg",
+    "summary": "A proposal for a two-tiered design system.",
     "title": "The Vanilla Layer"
   },
   {
