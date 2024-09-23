@@ -15,7 +15,8 @@ export default function NianticsDilemma(): React.ReactNode {
       </header>
 
       <em>
-        My thoughts on <a href="https://twitter.com/mjleyrer">Casey Newton</a>
+        My thoughts on{" "}
+        <a href="https://twitter.com/CaseyNewton">Casey Newton</a>
         &apos;s piece{" "}
         <a href="https://www.platformer.news/p/the-dark-horse-in-the-metaverse-wars">
           The Dark Horse in the Metaverse Wars

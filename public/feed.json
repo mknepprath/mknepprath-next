@@ -13,6 +13,14 @@
   },
   "items": [
     {
+      "id": "https://mknepprath.com/writing/vanilla-layer",
+      "url": "https://mknepprath.com/writing/vanilla-layer",
+      "title": "The Vanilla Layer",
+      "content_text": "https://mknepprath.com/writing/vanilla-layer",
+      "image": "https://mknepprath.com/assets/vanilla-layer.jpeg",
+      "date_published": "2024-09-23T15:00:00Z"
+    },
+    {
       "id": "https://mknepprath.com/writing/sunsquints",
       "url": "https://mknepprath.com/writing/sunsquints",
       "title": "Sunsquints",

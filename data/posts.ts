@@ -1,5 +1,11 @@
 const posts: PostListItem[] = [
   {
+    "date": "2024-09-23",
+    "id": "vanilla-layer",
+    "image": "/assets/vanilla-layer.jpeg",
+    "title": "The Vanilla Layer"
+  },
+  {
     "date": "2024-06-07",
     "id": "sunsquints",
     "image": "/assets/sunsquints.png",
