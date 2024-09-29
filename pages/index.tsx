@@ -13,6 +13,7 @@ import {
   Post,
   RepoPost,
   TootPost,
+  TrophyPost,
   TweetPost,
 } from "@core/post";
 import Shot from "@core/shot";
@@ -75,6 +76,8 @@ export default function Home(props: Props): React.ReactNode {
                 return <PhotoPost key={post.id} {...post} />;
               case "MUSIC":
                 return <MusicPost key={post.id} {...post} />;
+              case "TROPHY":
+                return <TrophyPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }

@@ -27,7 +27,8 @@ interface PostListItem {
     | "TOOT"
     | "PHOTO"
     | "MUSIC"
-    | "HIGHLIGHT";
+    | "HIGHLIGHT"
+    | "TROPHY";
   url?: string;
 }
 
@@ -250,6 +251,24 @@ interface Repo {
   html_url: string;
   description: string;
   homepage: string;
+}
+
+interface Trophy {
+  gameImg: string; // URL for the game's image
+  trophyImg: string; // URL for the trophy's image
+  gameUrl: string; // Full URL to the game's trophy page
+  trophyUrl: string; // Full URL to the specific trophy
+  trophyTitle: string; // Title of the trophy
+  trophyDesc: string; // Description of the trophy
+  rank: string; // Rank or position (e.g., "#158")
+  earnedDate: string; // Date when the trophy was earned
+  earnedTime: string; // Time when the trophy was earned
+  earnedTimestamp: string; // ISO 8601 timestamp of the earned date and time
+  achievers: string; // Number of players who earned the trophy
+  owners: string; // Number of players who own the game
+  rarity: string; // Percentage of players who earned the trophy
+  rarityType: string; // Type of rarity (e.g., "Common", "Rare")
+  trophyType: string; // Trophy type (e.g., "Bronze", "Silver", "Gold")
 }
 
 interface Highlight {

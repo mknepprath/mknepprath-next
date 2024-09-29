@@ -166,6 +166,17 @@ const formatMusicData = (music: Music[]): Partial<PostListItem>[] =>
       : undefined,
   }));
 
+const formatTrophyData = (trophies: Trophy[]): Partial<PostListItem>[] =>
+  trophies.map((trophy) => ({
+    action: "Earned",
+    date: trophy.earnedTimestamp,
+    id: `t${trophy.trophyTitle}`,
+    title: trophy.trophyTitle,
+    summary: trophy.trophyDesc,
+    image: trophy.gameImg,
+    url: trophy.trophyUrl,
+  }));
+
 // Main handler function for the API route
 export default async (
   req: NextApiRequest,
@@ -216,6 +227,11 @@ export default async (
       url: `/api/v1/music?limit=20`,
       type: "MUSIC" as PostListItem["type"],
       format: formatMusicData,
+    },
+    {
+      url: `/api/v1/psn?username=mknepprath`,
+      type: "TROPHY" as PostListItem["type"],
+      format: formatTrophyData,
     },
   ];
 
