@@ -1,12 +1,11 @@
 // External
-import parseISO from "date-fns/parseISO";
-import Link from "next/link";
-import { withRouter } from "next/router";
-
 // Data
 import allPosts from "@data/posts";
 // Hooks
-import useKeyPress from "@hooks/useKeyPress";
+import useKeyPress from "@lib/useKeyPress";
+import parseISO from "date-fns/parseISO";
+import Link from "next/link";
+import { withRouter } from "next/router";
 
 // Styles
 import styles from "./blog-nav.module.css";
@@ -25,7 +24,7 @@ interface Props {
 
 const BlogNav = ({ router }: Props) => {
   const postIndex = posts.findIndex(
-    (post) => post.id === router.pathname.replace("/writing/", "")
+    (post) => post.id === router.pathname.replace("/writing/", ""),
   );
 
   const nextPost = posts[postIndex - 1];
