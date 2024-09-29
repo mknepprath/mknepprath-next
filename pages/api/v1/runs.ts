@@ -31,7 +31,7 @@ async function refreshAccessToken(): Promise<void> {
     console.log("Access token refreshed successfully.");
   } catch (error) {
     console.error("Error refreshing access token:", error);
-    throw new Error("Failed to refresh access token");
+    throw new Error("Failed to refresh access token.");
   }
 }
 
