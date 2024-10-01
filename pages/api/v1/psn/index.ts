@@ -1,6 +1,6 @@
 import { parse } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
-import puppeteer from "puppeteer";
+import playwright from "playwright-core"; // Use playwright-core for browser automation
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,16 +14,22 @@ export default async function handler(
 
   const psnLogUrl = `https://psnprofiles.com/${username}/log`;
 
+  let browser: playwright.Browser | null = null;
+
   try {
-    const browser = await puppeteer.launch({ headless: true });
+    // Launch Playwright browser
+    browser = await playwright.chromium.launch({
+      headless: true, // Always run in headless mode
+    });
+
     const page = await browser.newPage();
 
     // Navigate to the PSNProfiles log page for the user
-    await page.goto(psnLogUrl, { waitUntil: "networkidle2" });
+    await page.goto(psnLogUrl, { waitUntil: "networkidle" });
 
     // Scrape the trophy log data
     const trophies = await page.evaluate(() => {
-      const rows = document.querySelectorAll("tr"); // Select all table rows (each row represents a trophy log
+      const rows = document.querySelectorAll("tr"); // Select all table rows (each row represents a trophy log)
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return Array.from(rows).map((el: any) => {
@@ -57,8 +63,8 @@ export default async function handler(
         return {
           gameImg,
           trophyImg,
-          gameUrl: gameUrl, // Full game URL
-          trophyUrl: trophyUrl, // Full trophy URL
+          gameUrl,
+          trophyUrl,
           trophyTitle,
           trophyDesc,
           rank,
@@ -104,6 +110,11 @@ export default async function handler(
     res.status(200).json(filteredTrophies);
   } catch (error) {
     console.error("Error scraping PSNProfiles log:", error);
+
+    if (browser) {
+      await browser.close();
+    }
+
     res.status(500).json({ error: "Failed to scrape trophy log data" });
   }
 }
