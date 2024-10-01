@@ -1,6 +1,8 @@
+import chromium from "chrome-aws-lambda"; // For production environments
 import { parse } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
-import puppeteer from "puppeteer";
+import { executablePath as localExecutablePath } from "puppeteer"; // For local development
+import puppeteer from "puppeteer-core"; // Lightweight Puppeteer for production
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,8 +16,24 @@ export default async function handler(
 
   const psnLogUrl = `https://psnprofiles.com/${username}/log`;
 
+  let browser: puppeteer.Browser | null = null;
+
   try {
-    const browser = await puppeteer.launch({ headless: true });
+    const isProduction = process.env.NODE_ENV === "production";
+
+    // Set the executable path for the browser based on the environment
+    const executablePath = isProduction
+      ? await chromium.executablePath // Use chrome-aws-lambda in production
+      : localExecutablePath(); // Use Puppeteer local executable in development
+
+    // Launch Puppeteer with the correct executable path and arguments
+    browser = await puppeteer.launch({
+      args: isProduction ? chromium.args : [], // Pass necessary args in production
+      executablePath, // Correct executable path depending on the environment
+      headless: true, // Always run in headless mode
+      ignoreHTTPSErrors: true,
+    });
+
     const page = await browser.newPage();
 
     // Navigate to the PSNProfiles log page for the user
@@ -23,7 +41,7 @@ export default async function handler(
 
     // Scrape the trophy log data
     const trophies = await page.evaluate(() => {
-      const rows = document.querySelectorAll("tr"); // Select all table rows (each row represents a trophy log
+      const rows = document.querySelectorAll("tr"); // Select all table rows (each row represents a trophy log)
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return Array.from(rows).map((el: any) => {
@@ -57,8 +75,8 @@ export default async function handler(
         return {
           gameImg,
           trophyImg,
-          gameUrl: gameUrl, // Full game URL
-          trophyUrl: trophyUrl, // Full trophy URL
+          gameUrl,
+          trophyUrl,
           trophyTitle,
           trophyDesc,
           rank,
@@ -104,6 +122,11 @@ export default async function handler(
     res.status(200).json(filteredTrophies);
   } catch (error) {
     console.error("Error scraping PSNProfiles log:", error);
+
+    if (browser) {
+      await browser.close();
+    }
+
     res.status(500).json({ error: "Failed to scrape trophy log data" });
   }
 }
