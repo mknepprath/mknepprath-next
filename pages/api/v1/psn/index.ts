@@ -23,14 +23,26 @@ export default async function handler(
 
     // Set the executable path for the browser based on the environment
     const executablePath = isProduction
-      ? await chromium.executablePath // Use chrome-aws-lambda in production
+      ? await chromium.executablePath
       : localExecutablePath(); // Use Puppeteer local executable in development
+
+    // Debugging: Log the environment and executable path
+    console.log("Environment:", isProduction ? "Production" : "Development");
+    console.log("Chromium executable path:", executablePath);
+
+    if (!executablePath && isProduction) {
+      throw new Error("Could not find Chrome executable in production");
+    }
 
     // Launch Puppeteer with the correct executable path and arguments
     browser = await puppeteer.launch({
-      args: isProduction ? chromium.args : [], // Pass necessary args in production
+      args: [
+        ...chromium.args,
+        "--disable-setuid-sandbox",
+        "--no-sandbox", // Add no-sandbox argument to work in serverless environments
+      ],
       executablePath, // Correct executable path depending on the environment
-      headless: true, // Always run in headless mode
+      headless: chromium.headless, // Chromium headless mode for production
       ignoreHTTPSErrors: true,
     });
 
