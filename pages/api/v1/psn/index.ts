@@ -1,4 +1,4 @@
-import chromium from "chrome-aws-lambda"; // For production environments
+import chromium from "@sparticuz/chrome-aws-lambda"; // Use @sparticuz/chrome-aws-lambda for production environments
 import { parse } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
 import { executablePath as localExecutablePath } from "puppeteer"; // For local development
