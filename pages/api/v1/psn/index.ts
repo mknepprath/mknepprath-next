@@ -1,8 +1,6 @@
-import chromium from "@sparticuz/chrome-aws-lambda"; // Use @sparticuz/chrome-aws-lambda for production environments
 import { parse } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
-import { executablePath as localExecutablePath } from "puppeteer"; // For local development
-import puppeteer from "puppeteer-core"; // Lightweight Puppeteer for production
+import playwright from "playwright-core"; // Use playwright-core for browser automation
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,40 +14,18 @@ export default async function handler(
 
   const psnLogUrl = `https://psnprofiles.com/${username}/log`;
 
-  let browser: puppeteer.Browser | null = null;
+  let browser: playwright.Browser | null = null;
 
   try {
-    const isProduction = process.env.NODE_ENV === "production";
-
-    // Set the executable path for the browser based on the environment
-    const executablePath = isProduction
-      ? await chromium.executablePath
-      : localExecutablePath(); // Use Puppeteer local executable in development
-
-    // Debugging: Log the environment and executable path
-    console.log("Environment:", isProduction ? "Production" : "Development");
-    console.log("Chromium executable path:", executablePath);
-
-    if (!executablePath && isProduction) {
-      throw new Error("Could not find Chrome executable in production");
-    }
-
-    // Launch Puppeteer with the correct executable path and arguments
-    browser = await puppeteer.launch({
-      args: [
-        ...chromium.args,
-        "--disable-setuid-sandbox",
-        "--no-sandbox", // Add no-sandbox argument to work in serverless environments
-      ],
-      executablePath, // Correct executable path depending on the environment
-      headless: chromium.headless, // Chromium headless mode for production
-      ignoreHTTPSErrors: true,
+    // Launch Playwright browser
+    browser = await playwright.chromium.launch({
+      headless: true, // Always run in headless mode
     });
 
     const page = await browser.newPage();
 
     // Navigate to the PSNProfiles log page for the user
-    await page.goto(psnLogUrl, { waitUntil: "networkidle2" });
+    await page.goto(psnLogUrl, { waitUntil: "networkidle" });
 
     // Scrape the trophy log data
     const trophies = await page.evaluate(() => {
