@@ -75,7 +75,7 @@ const formatBookData = (books: Book[]): Partial<PostListItem>[] =>
 
 const formatRunData = (runs: Run[]): Partial<PostListItem>[] =>
   runs.map((run) => ({
-    action: "Ran",
+    action: run.type === "Run" ? "Ran" : "Walked",
     date: run.start_date_local,
     id: `ru${run.id}`,
     title: run.name,
