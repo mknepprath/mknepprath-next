@@ -7,7 +7,7 @@ export const meta: Meta = {
   publishedAt: "2024-10-05",
   title: "Load Creep",
   summary:
-    "How we we ensure our domain doesn't exceed our capacity to manage it?",
+    "How do we ensure our domain doesn't exceed our capacity to manage it?",
 };
 
 export default function LoadCreep(): React.ReactNode {

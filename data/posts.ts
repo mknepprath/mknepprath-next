@@ -3,7 +3,7 @@ const posts: PostListItem[] = [
     "date": "2024-10-05",
     "id": "load-creep",
     "image": "/assets/load-creep.jpg",
-    "summary": "How we we ensure our domain doesn't exceed our capacity to manage it?",
+    "summary": "How do we ensure our domain doesn't exceed our capacity to manage it?",
     "title": "Load Creep"
   },
   {
