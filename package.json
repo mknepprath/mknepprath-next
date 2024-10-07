@@ -42,7 +42,7 @@
     "isomorphic-unfetch": "^4.0.2",
     "markov-strings": "^3.0.1",
     "mcproto": "^0.9.0",
-    "next": "^14.2.13",
+    "next": "^14.2.14",
     "octokit": "^3.2.1",
     "prismjs": "^1.29.0",
     "puppeteer": "^23.4.1",
