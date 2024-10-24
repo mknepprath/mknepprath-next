@@ -1,12 +1,10 @@
 // External
-import format from "date-fns/format";
-import parseISO from "date-fns/parseISO";
-import Link from "next/link";
-
 // Components
 import Page from "@core/page";
 // Data
 import posts from "@data/posts";
+import { format, parseISO } from "date-fns";
+import Link from "next/link";
 
 // Styles
 import styles from "./writing.module.css";

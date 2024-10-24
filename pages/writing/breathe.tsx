@@ -70,7 +70,7 @@ export default function Breathe(): React.ReactNode {
         <code className="language-js">
           {`
   // External
-  import parseISO from "date-fns/parseISO";
+  import { parseISO } from "date-fns";
   import Link from "next/link";
   import { withRouter } from "next/router";
 

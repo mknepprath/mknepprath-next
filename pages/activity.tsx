@@ -9,7 +9,7 @@ import {
   TootPost,
   TweetPost,
 } from "@core/post";
-import parseISO from "date-fns/parseISO";
+import { parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 
@@ -19,7 +19,7 @@ const fetcher = (url: RequestInfo) =>
 export default function Home(): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity?max_results=100&min_rating=0`,
-    fetcher
+    fetcher,
   );
 
   return (
