@@ -95,7 +95,9 @@ export default async function handler(
   try {
     const runs = await fetchRecentRuns(minMiles);
     res.status(200).json(runs);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching runs" });
+  } catch (error: unknown) {
+    res.status(500).json({
+      message: error instanceof Error ? error.message : "Unknown error",
+    });
   }
 }
