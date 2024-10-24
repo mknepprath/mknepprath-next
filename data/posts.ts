@@ -1,5 +1,12 @@
 const posts: PostListItem[] = [
   {
+    "date": "2024-10-23",
+    "id": "sometown-usa",
+    "image": "/assets/sometown-usa-1.jpg",
+    "summary": "The search for Buster Keaton's lost short film.",
+    "title": "“Life in Sometown, U.S.A.”"
+  },
+  {
     "date": "2024-10-05",
     "id": "load-creep",
     "image": "/assets/load-creep.jpg",
