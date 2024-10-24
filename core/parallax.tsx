@@ -1,6 +1,6 @@
 import Hero from "@core/hero";
 import Layer from "@core/layer";
-import useScrollPosition from "@hooks/useScrollPosition";
+import useScrollPosition from "@lib/useScrollPosition";
 
 import layerStyles from "./layer.module.css";
 import styles from "./parallax.module.css";

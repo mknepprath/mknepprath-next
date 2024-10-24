@@ -1,15 +1,13 @@
-import classnames from "classnames";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import parseISO from "date-fns/parseISO";
-import Prism from "prismjs";
-import React from "react";
-import useSWR from "swr";
-
 import BlogNav from "@core/blog-nav";
 import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
 import TwitterMetrics from "@core/twitter-metrics";
+import classnames from "classnames";
+import { formatDistanceToNow, parseISO } from "date-fns";
+import Prism from "prismjs";
+import React from "react";
+import useSWR from "swr";
 
 const fetcher = (url: RequestInfo): Promise<Tweet> =>
   fetch(url).then((response) => response.json());

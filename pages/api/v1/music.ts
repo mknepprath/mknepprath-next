@@ -1,51 +1,49 @@
+import getMusicToken from "@lib/getMusicToken";
 import fetch from "isomorphic-unfetch";
-import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async (
-  req: NextApiRequest,
-  res: NextApiResponse
-): Promise<void> => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     query: { offset = 0, limit = 6 },
   } = req;
 
-  const jwtToken = jwt.sign({}, `${process.env.MUSIC_PRIVATE_KEY}`, {
-    algorithm: "ES256",
-    expiresIn: "180d",
-    issuer: process.env.MUSIC_TEAM_ID,
-    header: {
-      alg: "ES256",
-      kid: process.env.MUSIC_KEY_ID,
-    },
-  });
+  try {
+    // Get the Developer Token
+    const developerToken = getMusicToken();
 
-  const myHeaders = new Headers();
-  myHeaders.append("Authorization", `Bearer ${jwtToken}`);
-  myHeaders.append("Music-User-Token", `${process.env.MUSIC_USER_TOKEN}`);
+    // Music User Token should come from environment variables or another source
+    const musicUserToken = process.env.MUSIC_USER_TOKEN;
 
-  const requestOptions: RequestInit = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
+    if (!musicUserToken) {
+      return res.status(401).json({ error: "Music User Token is missing" });
+    }
 
-  return new Promise((resolve) => {
-    fetch(
-      `https://api.music.apple.com/v1/me/library/recently-added?limit=${limit}&offset=${offset}`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
-        res.end(JSON.stringify(JSON.parse(result).data));
-        resolve();
-      })
-      .catch((error) => {
-        res.json(error);
-        res.status(404).end();
-        return resolve();
-      });
-  });
+    // Prepare the request headers
+    const headers = {
+      Authorization: `Bearer ${developerToken}`,
+      "Music-User-Token": musicUserToken,
+    };
+
+    // Make the API request to Apple Music
+    const response = await fetch(
+      `https://api.music.apple.com/v1/me/library/recently-added?limit=${limit}&offset=${offset}`,
+      {
+        method: "GET",
+        headers: headers,
+      },
+    );
+
+    if (!response.ok) {
+      return res
+        .status(response.status)
+        .json({ error: "Failed to fetch data from Apple Music" });
+    }
+
+    // Parse and send the response
+    const data = await response.json();
+    res.status(200).json(data.data);
+  } catch (error) {
+    console.error("Error fetching Apple Music data:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 };

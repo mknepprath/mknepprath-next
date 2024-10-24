@@ -13,13 +13,13 @@ import {
   Post,
   RepoPost,
   TootPost,
+  TrophyPost,
   TweetPost,
 } from "@core/post";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
 import classnames from "classnames";
-import format from "date-fns/format";
-import parseISO from "date-fns/parseISO";
+import { format, parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import { GetServerSideProps } from "next";
 import useSWR from "swr";
@@ -75,6 +75,8 @@ export default function Home(props: Props): React.ReactNode {
                 return <PhotoPost key={post.id} {...post} />;
               case "MUSIC":
                 return <MusicPost key={post.id} {...post} />;
+              case "TROPHY":
+                return <TrophyPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }

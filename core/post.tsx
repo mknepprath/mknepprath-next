@@ -83,6 +83,46 @@ const FilmPost = ({
   </article>
 );
 
+const TrophyPost = ({
+  action,
+  date,
+  id,
+  image,
+  summary,
+  title,
+  url,
+}: PostListItem) => (
+  <article key={id}>
+    <header className={styles.filmPostHeader}>
+      {image ? (
+        <a
+          className={styles.filmPoster}
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            alt={`cover image for ${title}`}
+            className="bordered-image corner-radius-8"
+            height={90}
+            src={image}
+            width={90}
+          />
+        </a>
+      ) : null}
+      <div>
+        <a href={url} target="_blank" rel="noreferrer">
+          <h3 className={styles.filmTitle}>{title}</h3>
+        </a>
+        <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
+        <small>
+          {action} on {format(parseISO(date), "MMMM d, yyyy")}
+        </small>
+      </div>
+    </header>
+  </article>
+);
+
 const BookPost = ({
   action,
   date,
@@ -369,6 +409,7 @@ export {
   RepoPost,
   TweetPost,
   TootPost,
+  TrophyPost,
   PhotoPost,
   MusicPost,
 };

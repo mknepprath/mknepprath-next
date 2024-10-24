@@ -1,5 +1,26 @@
 const posts: PostListItem[] = [
   {
+    "date": "2024-10-23",
+    "id": "sometown-usa",
+    "image": "/assets/sometown-usa-1.jpg",
+    "summary": "The search for Buster Keaton's lost short film.",
+    "title": "“Life in Sometown, U.S.A.”"
+  },
+  {
+    "date": "2024-10-05",
+    "id": "load-creep",
+    "image": "/assets/load-creep.jpg",
+    "summary": "How do we ensure our domain doesn't exceed our capacity to manage it?",
+    "title": "Load Creep"
+  },
+  {
+    "date": "2024-09-23",
+    "id": "vanilla-layer",
+    "image": "/assets/vanilla-layer.jpeg",
+    "summary": "A proposal for a two-tiered design system.",
+    "title": "The Vanilla Layer"
+  },
+  {
     "date": "2024-06-07",
     "id": "sunsquints",
     "image": "/assets/sunsquints.png",

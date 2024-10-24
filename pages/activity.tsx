@@ -8,9 +8,10 @@ import {
   Post,
   RepoPost,
   TootPost,
+  TrophyPost,
   TweetPost,
 } from "@core/post";
-import parseISO from "date-fns/parseISO";
+import { parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 
@@ -52,6 +53,8 @@ export default function Home(): React.ReactNode {
                 return <PhotoPost key={post.id} {...post} />;
               case "MUSIC":
                 return <MusicPost key={post.id} {...post} />;
+              case "TROPHY":
+                return <TrophyPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }
