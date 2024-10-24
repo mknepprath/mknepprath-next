@@ -25,8 +25,10 @@ interface PostListItem {
     | "POST"
     | "BOOK"
     | "TOOT"
+    | "PHOTO"
     | "MUSIC"
-    | "HIGHLIGHT";
+    | "HIGHLIGHT"
+    | "TROPHY";
   url?: string;
 }
 
@@ -251,6 +253,24 @@ interface Repo {
   homepage: string;
 }
 
+interface Trophy {
+  gameImg: string; // URL for the game's image
+  trophyImg: string; // URL for the trophy's image
+  gameUrl: string; // Full URL to the game's trophy page
+  trophyUrl: string; // Full URL to the specific trophy
+  trophyTitle: string; // Title of the trophy
+  trophyDesc: string; // Description of the trophy
+  rank: string; // Rank or position (e.g., "#158")
+  earnedDate: string; // Date when the trophy was earned
+  earnedTime: string; // Time when the trophy was earned
+  earnedTimestamp: string; // ISO 8601 timestamp of the earned date and time
+  achievers: string; // Number of players who earned the trophy
+  owners: string; // Number of players who own the game
+  rarity: string; // Percentage of players who earned the trophy
+  rarityType: string; // Type of rarity (e.g., "Common", "Rare")
+  trophyType: string; // Trophy type (e.g., "Bronze", "Silver", "Gold")
+}
+
 interface Highlight {
   id: number;
   text: string;
@@ -296,4 +316,61 @@ interface Meta {
   summary?: string;
   title: string;
   tweetId?: string;
+}
+
+interface Run {
+  resource_state: number;
+  athlete: {
+    id: number;
+    resource_state: number;
+  };
+  name: string;
+  distance: number; // Distance in meters
+  moving_time: number; // Moving time in seconds
+  elapsed_time: number; // Elapsed time in seconds
+  total_elevation_gain: number; // Elevation gain in meters
+  type: string; // Activity type, e.g., "Run", "Walk"
+  sport_type: string; // Sport type, e.g., "Run", "Walk"
+  id: number;
+  start_date: string; // ISO 8601 date string
+  start_date_local: string; // Local start date as ISO 8601 string
+  timezone: string; // Timezone of the activity
+  utc_offset: number; // Offset in seconds from UTC
+  location_city: string | null; // City of the activity, if available
+  location_state: string | null; // State of the activity, if available
+  location_country: string | null; // Country of the activity
+  achievement_count: number; // Number of achievements
+  kudos_count: number; // Number of kudos received
+  comment_count: number; // Number of comments
+  athlete_count: number; // Number of athletes in the activity
+  photo_count: number; // Number of photos
+  map: {
+    id: string;
+    summary_polyline: string; // Encoded polyline of the route
+    resource_state: number;
+  };
+  trainer: boolean; // Indicates if the activity was done on a trainer
+  commute: boolean; // Indicates if the activity was a commute
+  manual: boolean; // Indicates if the activity was manually entered
+  private: boolean; // Privacy flag
+  visibility: string; // Visibility setting, e.g., "everyone", "only_me"
+  flagged: boolean; // Indicates if the activity was flagged
+  gear_id: string | null; // ID of the gear used, if any
+  start_latlng: [number, number] | []; // Start latitude and longitude
+  end_latlng: [number, number] | []; // End latitude and longitude
+  average_speed: number; // Average speed in m/s
+  max_speed: number; // Maximum speed in m/s
+  has_heartrate: boolean; // Indicates if heartrate data is available
+  heartrate_opt_out: boolean; // Indicates if the user opted out of heartrate tracking
+  display_hide_heartrate_option: boolean; // Indicates if the heartrate display option is hidden
+  elev_high: number | null; // Highest elevation point
+  elev_low: number | null; // Lowest elevation point
+  upload_id: number; // Upload ID
+  upload_id_str: string; // Upload ID as a string
+  external_id: string | null; // External ID of the activity
+  from_accepted_tag: boolean; // Indicates if the activity was created from an accepted tag
+  pr_count: number; // Personal records count
+  total_photo_count: number; // Total number of photos
+  has_kudoed: boolean; // Indicates if the user has kudoed the activity
+  workout_type?: number | null; // Optional workout type, if available
 }

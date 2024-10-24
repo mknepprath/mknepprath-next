@@ -4,9 +4,11 @@ import {
   FilmPost,
   HighlightPost,
   MusicPost,
+  PhotoPost,
   Post,
   RepoPost,
   TootPost,
+  TrophyPost,
   TweetPost,
 } from "@core/post";
 import { parseISO } from "date-fns";
@@ -47,8 +49,12 @@ export default function Home(): React.ReactNode {
                 return <HighlightPost key={post.id} {...post} />;
               case "TOOT":
                 return <TootPost key={post.id} {...post} />;
+              case "PHOTO":
+                return <PhotoPost key={post.id} {...post} />;
               case "MUSIC":
                 return <MusicPost key={post.id} {...post} />;
+              case "TROPHY":
+                return <TrophyPost key={post.id} {...post} />;
               default:
                 return <Post key={post.id} {...post} />;
             }
