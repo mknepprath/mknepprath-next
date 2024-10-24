@@ -17,7 +17,8 @@ function onClickToCopy(e: SyntheticEvent) {
   let succeeded;
   try {
     succeeded = document.execCommand("copy");
-  } catch (err) {
+  } catch (error: unknown) {
+    console.error(error instanceof Error ? error.message : "Unknown error");
     succeeded = false;
   }
   if (succeeded)
