@@ -1,42 +1,44 @@
+import { Endpoints } from "@octokit/types";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Octokit } from "octokit";
 
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ): Promise<void> => {
   const octokit = new Octokit({
     auth: process.env.GITHUB_AUTH_TOKEN,
   });
 
   // get repo list
-  const repos = await octokit.request("GET /user/repos", {
-    owner: "mknepprath",
-    sort: "updated",
-    direction: "desc",
-    visibility: "all",
-  });
+  const repos: Endpoints["GET /user/repos"]["response"] = await octokit.request(
+    "GET /user/repos",
+    {
+      owner: "mknepprath",
+      sort: "updated",
+      direction: "desc",
+      visibility: "all",
+    },
+  );
 
   // get commits for each repo
   const reposAndLastCommit = await Promise.all(
     repos.data
       .filter((repo) => !repo.fork)
       .map(async (repo) => {
-        const commits = await octokit.request(
-          "GET /repos/{owner}/{repo}/commits",
-          {
+        const commits: Endpoints["GET /repos/{owner}/{repo}/commits"]["response"] =
+          await octokit.request("GET /repos/{owner}/{repo}/commits", {
             owner: repo.owner.login,
             repo: repo.name,
-          }
-        );
+          });
         // get last commit by me
         const lastCommit = commits.data.find(
-          (commit) => commit?.author?.login === "mknepprath"
+          (commit) => commit?.author?.login === "mknepprath",
         );
 
         return {
           description: lastCommit?.commit?.committer?.email?.includes(
-            "mknepprath"
+            "mknepprath",
           )
             ? lastCommit?.commit?.message
             : repo.description,
@@ -46,7 +48,7 @@ export default async (
           name: repo.name,
           pushed_at: lastCommit?.commit?.committer?.date,
         };
-      })
+      }),
   );
 
   const filteredRepos = reposAndLastCommit.filter((repo) => repo.pushed_at);
@@ -56,7 +58,7 @@ export default async (
   if (process.env.NODE_ENV === "production")
     res.setHeader(
       "Cache-Control",
-      "max-age=0, s-maxage=1, stale-while-revalidate"
+      "max-age=0, s-maxage=1, stale-while-revalidate",
     );
   res.end(JSON.stringify(filteredRepos));
 };

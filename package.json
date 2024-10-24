@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
+    "@octokit/types": "^13.6.1",
     "@vercel/analytics": "^1.3.1",
     "classnames": "^2.5.1",
     "date-fns": "^2.30.0",
