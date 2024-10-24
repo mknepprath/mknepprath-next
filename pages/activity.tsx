@@ -11,7 +11,7 @@ import {
   TrophyPost,
   TweetPost,
 } from "@core/post";
-import parseISO from "date-fns/parseISO";
+import { parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import useSWR from "swr";
 

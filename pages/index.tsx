@@ -19,8 +19,7 @@ import {
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
 import classnames from "classnames";
-import format from "date-fns/format";
-import parseISO from "date-fns/parseISO";
+import { format, parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import { GetServerSideProps } from "next";
 import useSWR from "swr";
