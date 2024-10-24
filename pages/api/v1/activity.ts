@@ -1,5 +1,5 @@
 import posts from "@data/posts";
-import parseISO from "date-fns/parseISO";
+import { parseISO } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const BASE_URL =

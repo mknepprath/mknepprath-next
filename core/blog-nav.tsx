@@ -1,9 +1,6 @@
-// External
-// Data
 import allPosts from "@data/posts";
-// Hooks
+import { parseISO } from "date-fns";
 import useKeyPress from "@lib/useKeyPress";
-import parseISO from "date-fns/parseISO";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
