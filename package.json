@@ -57,7 +57,7 @@
   "devDependencies": {
     "@octokit/types": "^13.6.1",
     "@types/classnames": "^2.3.4",
-    "@types/diff": "^5.2.3",
+    "@types/diff": "^6.0.0",
     "@types/html-to-text": "^9.0.4",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.8.1",
