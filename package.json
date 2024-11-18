@@ -57,7 +57,7 @@
   "devDependencies": {
     "@eslint/compat": "^1.2.3",
     "@eslint/eslintrc": "^3.2.0",
-    "@eslint/js": "^9.14.0",
+    "@eslint/js": "^9.15.0",
     "@octokit/types": "^13.6.1",
     "@types/classnames": "^2.3.4",
     "@types/diff": "^6.0.0",
