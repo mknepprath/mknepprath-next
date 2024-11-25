@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
-    "@vercel/analytics": "^1.4.0",
+    "@vercel/analytics": "^1.4.1",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "html-to-text": "^9.0.5",
