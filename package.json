@@ -63,7 +63,7 @@
     "@types/diff": "^6.0.0",
     "@types/html-to-text": "^9.0.4",
     "@types/jsonwebtoken": "^9.0.7",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^18.3.12",
     "@types/xml2js": "^0.4.14",
