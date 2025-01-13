@@ -11,7 +11,7 @@ export const meta: Meta = {
   image: "/assets/2024-in-review-6.jpg",
   published: true,
   publishedAt: "2025-01-12",
-  summary: "A look at my accomplishments during the past year.",
+  summary: "A look at the past year.",
   title: "2024 in Review",
 };
 

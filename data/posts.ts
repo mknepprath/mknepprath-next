@@ -3,7 +3,7 @@ const posts: PostListItem[] = [
     "date": "2025-01-12",
     "id": "2024",
     "image": "/assets/2024-in-review-6.jpg",
-    "summary": "A look at my accomplishments during the past year.",
+    "summary": "A look at the past year.",
     "title": "2024 in Review"
   },
   {
