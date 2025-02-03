@@ -62,7 +62,7 @@
     "@types/classnames": "^2.3.4",
     "@types/diff": "^6.0.0",
     "@types/html-to-text": "^9.0.4",
-    "@types/jsonwebtoken": "^9.0.7",
+    "@types/jsonwebtoken": "^9.0.8",
     "@types/node": "^22.10.10",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^18.3.12",
