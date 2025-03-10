@@ -75,7 +75,7 @@
     "eslint": "^9.22.0",
     "eslint-config-next": "^15.2.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-cypress": "^4.1.0",
+    "eslint-plugin-cypress": "^4.2.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
