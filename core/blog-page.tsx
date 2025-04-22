@@ -32,7 +32,7 @@ export default function BlogPage({
   ogImage,
   title,
   tweetId,
-}: Props): JSX.Element {
+}: Props) {
   React.useEffect(() => {
     if (highlightCode) Prism.highlightAll();
   }, [highlightCode]);
