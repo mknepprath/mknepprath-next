@@ -1,10 +1,9 @@
 // External
+// Data
+import { navLinks } from "@data/links";
 import classnames from "classnames";
 import Image from "next/legacy/image";
 import Link from "next/link";
-
-// Data
-import { navLinks } from "@data/links";
 
 import styles from "./nav.module.css";
 
@@ -12,7 +11,7 @@ interface Props {
   className?: string;
 }
 
-export default function Nav({ className }: Props): JSX.Element {
+export default function Nav({ className }: Props) {
   return (
     <nav className={classnames(styles.nav, className)}>
       <a className={styles.siteLogo} href="/">

@@ -7,12 +7,7 @@ interface Props {
   title: string;
 }
 
-export default function Shot({
-  description,
-  href,
-  imgSrc,
-  title,
-}: Props): JSX.Element {
+export default function Shot({ description, href, imgSrc, title }: Props) {
   return (
     <a
       className={styles.card}

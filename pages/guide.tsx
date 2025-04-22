@@ -1,7 +1,7 @@
 import Page from "@core/page";
 import React from "react";
 
-export default function Guide(): JSX.Element {
+export default function Guide() {
   return (
     <Page title="Guide">
       <article>

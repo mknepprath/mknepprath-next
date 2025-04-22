@@ -1,6 +1,6 @@
 import styles from "./icon-github.module.css";
 
-export default function GithubIcon(): JSX.Element {
+export default function GithubIcon() {
   return (
     <svg className={styles.svg} viewBox="0 0 438.549 438.549">
       <path

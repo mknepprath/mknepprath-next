@@ -3,10 +3,10 @@
 
 // See documentation: https://github.com/zeit/next.js#custom-document
 
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
-  render(): JSX.Element {
+  render() {
     return (
       // This is the reason this file was added - to set the `lang` attribute.
       <Html lang="en">

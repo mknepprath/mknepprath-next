@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-export default function Hero({ className }: Props): JSX.Element {
+export default function Hero({ className }: Props) {
   return (
     <div className={classnames("container", styles.hero, className)}>
       <h1 className={styles.greeting}>

@@ -1,6 +1,6 @@
 import styles from "./icon-twitter.module.css";
 
-export default function TwitterIcon(): JSX.Element {
+export default function TwitterIcon() {
   return (
     <svg className={styles.svg} viewBox="0 0 400 400">
       <path
