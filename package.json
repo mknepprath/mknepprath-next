@@ -78,7 +78,7 @@
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "globals": "^15.15.0",
+    "globals": "^16.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
