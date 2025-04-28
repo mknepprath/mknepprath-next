@@ -1,6 +1,6 @@
 import styles from "./icon-replies.module.css";
 
-export default function RepliesIcon(): JSX.Element {
+export default function RepliesIcon() {
   return (
     <svg className={styles.svg} viewBox="0 0 100 97">
       <path

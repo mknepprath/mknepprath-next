@@ -1,7 +1,6 @@
-import React from "react";
-
 import A from "@core/a";
 import RepliesIcon from "@core/icon-replies";
+import React from "react";
 
 interface Props {
   like_count: number;
@@ -13,7 +12,7 @@ export default function SocialMetrics({
   like_count,
   reply_count,
   tweetId,
-}: Props): JSX.Element {
+}: Props) {
   return (
     <>
       {like_count ? (

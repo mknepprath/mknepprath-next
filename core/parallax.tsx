@@ -5,7 +5,7 @@ import useScrollPosition from "@lib/useScrollPosition";
 import layerStyles from "./layer.module.css";
 import styles from "./parallax.module.css";
 
-export default function Parallax(): JSX.Element {
+export default function Parallax() {
   const scrollPosition = useScrollPosition();
 
   return (

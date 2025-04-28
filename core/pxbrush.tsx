@@ -1,5 +1,5 @@
-import React from "react";
 import classnames from "classnames";
+import React from "react";
 
 import styles from "./pxbrush.module.css";
 
@@ -18,7 +18,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default function PxBrushPage(props: Props): JSX.Element {
+export default function PxBrushPage(props: Props) {
   const [x, y] = props.coordinates;
 
   const colors = props.colors || [

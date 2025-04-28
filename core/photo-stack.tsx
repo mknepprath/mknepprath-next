@@ -3,7 +3,7 @@
 // Also the current version of the react-spring beta is kinda broken: https://github.com/pmndrs/react-spring/issues/1078
 // Applying this change fixes it: https://github.com/pmndrs/react-spring/issues/1078#issuecomment-663635523
 import React from "react";
-import { useSprings, animated, to } from "react-spring";
+import { animated, to, useSprings } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
 import styles from "./photo-stack.module.css";
@@ -25,14 +25,14 @@ const into = (i: number) => ({
   rot: -10 + Math.random() * 20,
   delay: i * 100,
 });
-const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });  
+const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const transform = (r: number, s: number) =>
   `perspective(1500px) rotateX(20deg) rotateY(${
     r / 10
   }deg) rotateZ(${r}deg) scale(${s})`;
 
-export default function PhotoStack(): JSX.Element {
+export default function PhotoStack() {
   const [gone] = React.useState(() => new Set()); // The set flags all the photos that are flicked out
   const [props, setProps] = useSprings(photos.length, (i) => ({
     ...into(i),
@@ -64,7 +64,7 @@ export default function PhotoStack(): JSX.Element {
           setProps((i: number) => into(i));
         }, 600);
       }
-    }
+    },
   );
 
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
@@ -72,19 +72,21 @@ export default function PhotoStack(): JSX.Element {
     <>
       {/* eslint-disable-next-line react/prop-types */}
       {props.map(({ x, y, rot, scale }, i) => (
+        // @ts-expect-error idk it just is
         <animated.div
           className={styles.stack}
           key={i}
           style={{
             transform: to(
               [x, y],
-              (x: number, y: number) => `translate3d(${x}px,${y}px,0)`
+              (x: number, y: number) => `translate3d(${x}px,${y}px,0)`,
             ),
           }}
         >
           {/* This is the photo itself, we're binding our gesture to it (and inject its index so we know which is which) */}
           <animated.div
             {...bind(i)}
+            // @ts-expect-error idk
             className={styles.photo}
             style={{
               transform: to([rot, scale], transform),

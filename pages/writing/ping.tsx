@@ -11,7 +11,7 @@ import styles from "./ping.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-const MusicSection = (props: { music: Music[] }): JSX.Element => (
+const MusicSection = (props: { music: Music[] }) => (
   <div className={styles.cardContainer}>
     {props.music.map((playlist) => {
       // Titlecase the kind of media this is.
