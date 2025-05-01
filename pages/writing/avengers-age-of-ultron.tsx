@@ -3,7 +3,7 @@ import BlogPage from "@core/blog-page";
 import Image from "next/legacy/image";
 
 export const meta: Meta = {
-  image: "/assets/avengers-age-of-ultron.jpeg",
+  image: "/assets/avengers-age-of-ultron.jpg",
   published: true,
   publishedAt: "2025-05-01",
   summary:

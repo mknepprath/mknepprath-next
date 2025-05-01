@@ -2,7 +2,7 @@ const posts: PostListItem[] = [
   {
     "date": "2025-05-01",
     "id": "avengers-age-of-ultron",
-    "image": "/assets/avengers-age-of-ultron.jpeg",
+    "image": "/assets/avengers-age-of-ultron.jpg",
     "summary": "My review celebrating the 10th anniversary of Avengers: Age of Ultron.",
     "title": "My Review of Avengers: Age of Ultron (2015)"
   },
