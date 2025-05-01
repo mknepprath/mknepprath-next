@@ -5,7 +5,7 @@ import Image from "next/legacy/image";
 export const meta: Meta = {
   image: "/assets/avengers-age-of-ultron.jpeg",
   published: true,
-  publishedAt: "2024-05-01",
+  publishedAt: "2025-05-01",
   summary:
     "My review celebrating the 10th anniversary of Avengers: Age of Ultron.",
   title: "My Review of Avengers: Age of Ultron (2015)",
