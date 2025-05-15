@@ -1,5 +1,12 @@
 const posts: PostListItem[] = [
   {
+    "date": "2025-05-15",
+    "id": "mad-max-fury-road",
+    "image": "/assets/mad-max-fury-road.jpg",
+    "summary": "My review celebrating the 10th anniversary of Mad Max: Fury Road.",
+    "title": "My Review of Mad Max: Fury Road (2015)"
+  },
+  {
     "date": "2025-05-01",
     "id": "avengers-age-of-ultron",
     "image": "/assets/avengers-age-of-ultron.jpg",
