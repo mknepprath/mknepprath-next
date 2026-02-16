@@ -61,7 +61,7 @@
     "@types/classnames": "^2.3.4",
     "@types/html-to-text": "^9.0.4",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^22.15.29",
+    "@types/node": "^25.2.3",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^18.3.12",
     "@types/xml2js": "^0.4.14",
