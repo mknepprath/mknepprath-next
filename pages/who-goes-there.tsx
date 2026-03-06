@@ -233,14 +233,14 @@ export default function WhoGoesThere(): React.ReactNode {
 
         if (card) {
           // Existing card
-          const isInfected = gameState.phase === 'revealed' &&
+          const isInfected = !!(gameState.phase === 'revealed' &&
                            gameState.thingSuit &&
                            card.suit === gameState.thingSuit &&
-                           card.value !== 0; // Start card stays (value 0 is the Queen)
+                           card.value !== 0);
           const isRevealed = gameState.phase === 'revealed';
-          const isOnPath = gameState.phase === 'revealed' &&
+          const isOnPath = !!(gameState.phase === 'revealed' &&
                           gameState.escapePath &&
-                          gameState.escapePath.includes(key);
+                          gameState.escapePath.includes(key));
           const isExit = gameState.phase === 'revealed' && gameState.exitPosition === key;
           cells.push(renderCard(card, key, isInfected, isOnPath, isExit, isRevealed));
         } else if (gameState.phase === 'playing' && canPlaceAt(x, y)) {
