@@ -134,7 +134,6 @@ export default function WhoGoesThere(): React.ReactNode {
       clearInterval(heartbeatInterval);
       newSocket.close();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array - only run once on mount
 
   const createGame = () => {
