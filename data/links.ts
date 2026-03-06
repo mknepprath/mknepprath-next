@@ -35,6 +35,11 @@ interface ProjectLink {
 /** @type {Array<{ description: string, href: string, title: string, imgSrc: string }>} */
 export const projectLinks: ProjectLink[] = [
   {
+    description: "A multiplayer map-building deduction game",
+    href: "/who-goes-there",
+    title: "Who Goes There?",
+  },
+  {
     description: "A simple Pokédex app for Go",
     href: "https://lilydex.com",
     title: "lily dex",
