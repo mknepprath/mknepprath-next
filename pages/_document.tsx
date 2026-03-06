@@ -10,7 +10,12 @@ export default class MyDocument extends Document {
     return (
       // This is the reason this file was added - to set the `lang` attribute.
       <Html lang="en">
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&family=Creepster&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
