@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(/Users/mknepprath/Developer/mknepprath-next/.env.local << 'EOF'\n# Set this to your ngrok URL when testing with friends\nNEXT_PUBLIC_GAME_SERVER_URL=http://localhost:3001\nEOF)",
+      "Bash(python3:*)",
+      "Bash(ngrok update:*)",
+      "Bash(sudo ngrok update:*)",
+      "Bash(npm run dev:custom:*)"
+    ]
+  }
+}
