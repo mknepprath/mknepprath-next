@@ -87,11 +87,6 @@ export const projectLinks: ProjectLink[] = [
     imgSrc: "/assets/robot-mk.png",
   },
   {
-    description: "A thread of Cinema 4D renders",
-    href: "https://twitter.com/mknepprath/status/959812218119512065",
-    title: "Cinema 4D Animations",
-  },
-  {
     description: "Chrome extension",
     href: "/patched-tomatoes",
     title: "Patched Tomatoes",
@@ -115,17 +110,11 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "College projects",
-    href: "https://vimeo.com/mknepprath",
-    title: "Film & Animation",
-    imgSrc: "/assets/film.png",
-  },
-  {
-    description: "College projects",
     href: "/writing/giant-portraits",
     title: "Giant Portraits",
     imgSrc: "/assets/giant-portraits.png",
   },
-  {
+{
     description: "A Minecraft server",
     href: "/dynoland",
     title: "Dynoland",
