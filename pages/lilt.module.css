@@ -1,37 +1,23 @@
 .container {
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100dvh;
   max-width: 640px;
   margin: 0 auto;
   padding: 2rem 1rem 0;
-  overflow: hidden;
-  touch-action: none;
 }
 
 .terminal {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  min-height: 0;
   font-family: "Courier Prime", "Courier New", Courier, monospace;
   font-size: 0.95rem;
   line-height: 1.5;
-  justify-content: flex-end;
 }
 
 .log {
   list-style: none;
   padding: 0;
   margin: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-  touch-action: pan-y;
   padding-bottom: 1rem;
 }
 
@@ -63,7 +49,6 @@
   flex-shrink: 0;
   padding: 0.75rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
 }
 
 .prompt {
@@ -87,7 +72,6 @@
 .input::placeholder {
   color: #999;
 }
-
 
 .loading {
   color: #999;
@@ -124,7 +108,31 @@
 
 @media (max-width: 480px) {
   .container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100dvh;
     padding: 1rem 0.75rem 0;
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .terminal {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .log {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+  }
+
+  .inputRow {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   }
 
   .header {
@@ -134,5 +142,4 @@
   .logo {
     height: 40px;
   }
-
 }

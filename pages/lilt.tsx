@@ -25,8 +25,12 @@ export default function Lilt(): React.ReactNode {
   const inputRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLUListElement>(null);
 
-  // Lock body scroll so the page doesn't bounce on mobile
+  const isMobile = () =>
+    typeof window !== "undefined" && window.innerWidth <= 480;
+
+  // Lock body scroll on mobile so the page doesn't bounce
   useEffect(() => {
+    if (!isMobile()) return;
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
     document.body.style.width = "100%";
@@ -52,6 +56,7 @@ export default function Lilt(): React.ReactNode {
   // On iOS, the keyboard doesn't shrink the viewport — it overlaps it.
   // Use visualViewport to pin the container to the actual visible area.
   useEffect(() => {
+    if (!isMobile()) return;
     if (typeof window === "undefined" || !window.visualViewport) return;
     const vv = window.visualViewport;
     const update = () => {
