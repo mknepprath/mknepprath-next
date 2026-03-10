@@ -4,11 +4,16 @@
   max-width: 640px;
   margin: 0 auto;
   padding: 2rem 1rem 0;
+  height: 100dvh;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .terminal {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
   font-family: "Courier Prime", "Courier New", Courier, monospace;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -19,6 +24,8 @@
   padding: 0;
   margin: 0;
   padding-bottom: 1rem;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .entry {
@@ -124,20 +131,10 @@
 
 @media (max-width: 768px) {
   .container {
-    height: 100dvh;
-    box-sizing: border-box;
     padding: 1rem 0.75rem 0;
-    overflow: hidden;
-  }
-
-  .terminal {
-    flex: 1;
-    min-height: 0;
   }
 
   .log {
-    flex: 1;
-    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
   }
