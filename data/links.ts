@@ -105,7 +105,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "Battle your friends on Mastodon",
-    href: "https://mastodon.social/@bout",
+    href: "https://mastodon.social/@boutbot",
     title: "Bout",
   },
   {
