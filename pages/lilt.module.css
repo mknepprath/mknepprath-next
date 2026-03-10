@@ -73,6 +73,30 @@
   color: #999;
 }
 
+.sendButton {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .sendButton {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--primaryColor);
+    font-family: "Courier Prime", "Courier New", Courier, monospace;
+    font-size: 1.25rem;
+    padding: 0;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  .sendButton:disabled {
+    opacity: 0.2;
+  }
+}
+
 .loading {
   color: #999;
   animation: blink 1s step-end infinite;

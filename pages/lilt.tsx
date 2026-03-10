@@ -138,6 +138,14 @@ export default function Lilt(): React.ReactNode {
             spellCheck={false}
             enterKeyHint="send"
           />
+          <button
+            type="submit"
+            className={styles.sendButton}
+            disabled={!state || loading || !input.trim()}
+            aria-label="Send"
+          >
+            &rarr;
+          </button>
         </form>
       </div>
     </div>
