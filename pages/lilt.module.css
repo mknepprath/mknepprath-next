@@ -112,6 +112,7 @@
 .logo {
   height: 48px;
   width: auto;
+  margin-left: -25%;
 }
 
 .subtitle {
