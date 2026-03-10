@@ -10,6 +10,7 @@
   margin: 0 auto;
   padding: 2rem 1rem 0;
   overflow: hidden;
+  touch-action: none;
 }
 
 .terminal {
@@ -29,6 +30,8 @@
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
   padding-bottom: 1rem;
 }
 

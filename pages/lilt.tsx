@@ -25,6 +25,20 @@ export default function Lilt(): React.ReactNode {
   const inputRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLUListElement>(null);
 
+  // Lock body scroll so the page doesn't bounce on mobile
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.height = "100%";
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+    };
+  }, []);
+
   const scrollToBottom = () => {
     if (logRef.current) {
       logRef.current.scrollTop = logRef.current.scrollHeight;
