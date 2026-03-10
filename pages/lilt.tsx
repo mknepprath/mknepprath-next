@@ -22,10 +22,12 @@ export default function Lilt(): React.ReactNode {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const logRef = useRef<HTMLUListElement>(null);
 
   const scrollToBottom = () => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (logRef.current) {
+      logRef.current.scrollTop = logRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -94,7 +96,7 @@ export default function Lilt(): React.ReactNode {
       <p className={styles.subtitle}>a text adventure</p>
 
       <div className={styles.terminal}>
-        <ul className={styles.log}>
+        <ul ref={logRef} className={styles.log}>
           {log.map((entry, i) => (
             <li
               key={i}
@@ -127,7 +129,6 @@ export default function Lilt(): React.ReactNode {
             spellCheck={false}
           />
         </form>
-        <div ref={bottomRef} />
       </div>
     </div>
   );

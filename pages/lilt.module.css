@@ -1,14 +1,17 @@
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100dvh;
   max-width: 640px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 0;
 }
 
 .terminal {
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  min-height: 0;
   font-family: "Courier Prime", "Courier New", Courier, monospace;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -17,7 +20,11 @@
 .log {
   list-style: none;
   padding: 0;
-  margin: 0 0 1rem 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
 }
 
 .entry {
@@ -45,6 +52,10 @@
   gap: 0.5rem;
   font-family: "Courier Prime", "Courier New", Courier, monospace;
   font-size: 0.95rem;
+  flex-shrink: 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
 }
 
 .prompt {
@@ -59,7 +70,7 @@
   border: none;
   outline: none;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 16px;
   color: var(--black);
   padding: 0;
   line-height: 1.5;
@@ -91,5 +102,19 @@
   font-family: "Courier Prime", "Courier New", Courier, monospace;
   font-size: 0.85rem;
   color: #999;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.75rem 0;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    margin-bottom: 0.75rem;
+  }
 }
