@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.terminal {
+  flex: 1;
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.log {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.entry {
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.move {
+  color: var(--primaryColor);
+}
+
+.move::before {
+  content: "> ";
+  opacity: 0.5;
+}
+
+.response {
+  color: var(--black);
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+}
+
+.prompt {
+  color: var(--primaryColor);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--black);
+  padding: 0;
+  line-height: 1.5;
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.loading {
+  color: #999;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.title {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: 0.1em;
+}
+
+.subtitle {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0 0 2rem 0;
+}
