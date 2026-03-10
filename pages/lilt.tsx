@@ -46,6 +46,7 @@ export default function Lilt(): React.ReactNode {
       setLog([{ type: "response", text: "Failed to connect to game server." }]);
     }
     setLoading(false);
+    setTimeout(() => inputRef.current?.focus(), 0);
   }, []);
 
   useEffect(() => {
@@ -83,7 +84,8 @@ export default function Lilt(): React.ReactNode {
       ]);
     }
     setLoading(false);
-    inputRef.current?.focus();
+    // Focus after React re-renders with loading=false (input no longer disabled)
+    setTimeout(() => inputRef.current?.focus(), 0);
   };
 
   const focusInput = () => {
