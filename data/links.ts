@@ -59,7 +59,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "A text adventure",
-    href: "https://mastodon.social/@familiarlilt",
+    href: "/lilt",
     title: "lilt",
     imgSrc: "/assets/lilt.png",
   },
