@@ -74,7 +74,18 @@
 }
 
 .sendButton {
-  display: none;
+  background: none;
+  border: none;
+  color: var(--primaryColor);
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: inherit;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sendButton:disabled {
+  opacity: 0.2;
 }
 
 .loading {
@@ -132,22 +143,6 @@
 
   .inputRow {
     padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
-  }
-
-  .sendButton {
-    display: block;
-    background: none;
-    border: none;
-    color: var(--primaryColor);
-    font-family: inherit;
-    font-size: inherit;
-    padding: 0;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .sendButton:disabled {
-    opacity: 0.2;
   }
 
   .header {
