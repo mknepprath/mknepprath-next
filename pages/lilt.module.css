@@ -109,6 +109,7 @@
 @media (max-width: 480px) {
   .container {
     height: 100dvh;
+    box-sizing: border-box;
     padding: 1rem 0.75rem 0;
     overflow: hidden;
   }
