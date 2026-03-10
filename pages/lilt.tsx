@@ -102,7 +102,7 @@ export default function Lilt(): React.ReactNode {
                 entry.type === "move" ? styles.move : styles.response
               }`}
             >
-              {entry.text}
+              {entry.text.replace(/\\n/g, "\n")}
             </li>
           ))}
           {loading && (
