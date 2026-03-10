@@ -1,3 +1,4 @@
+import NextHead from "next/head";
 import Head from "@core/head";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -21,27 +22,8 @@ export default function Lilt(): React.ReactNode {
   const [log, setLog] = useState<LogEntry[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLUListElement>(null);
-
-  const isMobile = () =>
-    typeof window !== "undefined" && window.innerWidth <= 480;
-
-  // Lock body scroll on mobile so the page doesn't bounce
-  useEffect(() => {
-    if (!isMobile()) return;
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.height = "100%";
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.height = "";
-    };
-  }, []);
 
   const scrollToBottom = () => {
     if (logRef.current) {
@@ -52,27 +34,6 @@ export default function Lilt(): React.ReactNode {
   useEffect(() => {
     scrollToBottom();
   }, [log]);
-
-  // On iOS, the keyboard doesn't shrink the viewport — it overlaps it.
-  // Use visualViewport to pin the container to the actual visible area.
-  useEffect(() => {
-    if (!isMobile()) return;
-    if (typeof window === "undefined" || !window.visualViewport) return;
-    const vv = window.visualViewport;
-    const update = () => {
-      if (!containerRef.current) return;
-      containerRef.current.style.height = `${vv.height}px`;
-      containerRef.current.style.transform = `translateY(${vv.offsetTop}px)`;
-      scrollToBottom();
-    };
-    update();
-    vv.addEventListener("resize", update);
-    vv.addEventListener("scroll", update);
-    return () => {
-      vv.removeEventListener("resize", update);
-      vv.removeEventListener("scroll", update);
-    };
-  }, []);
 
   const startGame = useCallback(async () => {
     setLoading(true);
@@ -130,7 +91,13 @@ export default function Lilt(): React.ReactNode {
   };
 
   return (
-    <div ref={containerRef} className={styles.container} onClick={focusInput}>
+    <div className={styles.container} onClick={focusInput}>
+      <NextHead>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, interactive-widget=resizes-content"
+        />
+      </NextHead>
       <Head title="Lilt" description="A text adventure game." />
       <div className={styles.header}>
         <img src="/assets/lilt.png" alt="Lilt" className={styles.logo} />

@@ -108,14 +108,9 @@
 
 @media (max-width: 480px) {
   .container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 100dvh;
     padding: 1rem 0.75rem 0;
     overflow: hidden;
-    touch-action: none;
   }
 
   .terminal {
@@ -128,7 +123,6 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    touch-action: pan-y;
   }
 
   .inputRow {
