@@ -21,6 +21,7 @@ export default function Lilt(): React.ReactNode {
   const [log, setLog] = useState<LogEntry[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLUListElement>(null);
 
@@ -33,6 +34,21 @@ export default function Lilt(): React.ReactNode {
   useEffect(() => {
     scrollToBottom();
   }, [log]);
+
+  // Resize to visual viewport on iOS to account for keyboard
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.visualViewport) return;
+    const vv = window.visualViewport;
+    const onResize = () => {
+      if (containerRef.current) {
+        containerRef.current.style.height = `${vv.height}px`;
+      }
+      scrollToBottom();
+    };
+    onResize();
+    vv.addEventListener("resize", onResize);
+    return () => vv.removeEventListener("resize", onResize);
+  }, []);
 
   const startGame = useCallback(async () => {
     setLoading(true);
@@ -90,7 +106,7 @@ export default function Lilt(): React.ReactNode {
   };
 
   return (
-    <div className={styles.container} onClick={focusInput}>
+    <div ref={containerRef} className={styles.container} onClick={focusInput}>
       <Head title="Lilt" description="A text adventure game." />
       <h1 className={styles.title}>LILT</h1>
       <p className={styles.subtitle}>a text adventure</p>
@@ -127,7 +143,16 @@ export default function Lilt(): React.ReactNode {
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck={false}
+            enterKeyHint="send"
           />
+          <button
+            type="submit"
+            className={styles.sendButton}
+            disabled={!state || loading || !input.trim()}
+            aria-label="Send"
+          >
+            →
+          </button>
         </form>
       </div>
     </div>
