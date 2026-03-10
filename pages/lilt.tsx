@@ -35,19 +35,24 @@ export default function Lilt(): React.ReactNode {
     scrollToBottom();
   }, [log]);
 
-  // Resize to visual viewport on iOS to account for keyboard
+  // On iOS, the keyboard doesn't shrink the viewport — it overlaps it.
+  // Use visualViewport to pin the container to the actual visible area.
   useEffect(() => {
     if (typeof window === "undefined" || !window.visualViewport) return;
     const vv = window.visualViewport;
-    const onResize = () => {
-      if (containerRef.current) {
-        containerRef.current.style.height = `${vv.height}px`;
-      }
+    const update = () => {
+      if (!containerRef.current) return;
+      containerRef.current.style.height = `${vv.height}px`;
+      containerRef.current.style.transform = `translateY(${vv.offsetTop}px)`;
       scrollToBottom();
     };
-    onResize();
-    vv.addEventListener("resize", onResize);
-    return () => vv.removeEventListener("resize", onResize);
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+    };
   }, []);
 
   const startGame = useCallback(async () => {
@@ -145,14 +150,6 @@ export default function Lilt(): React.ReactNode {
             spellCheck={false}
             enterKeyHint="send"
           />
-          <button
-            type="submit"
-            className={styles.sendButton}
-            disabled={!state || loading || !input.trim()}
-            aria-label="Send"
-          >
-            →
-          </button>
         </form>
       </div>
     </div>

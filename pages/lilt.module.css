@@ -1,6 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 100dvh;
   max-width: 640px;
   margin: 0 auto;
@@ -81,24 +85,6 @@
   color: #999;
 }
 
-.sendButton {
-  display: none;
-  background: none;
-  border: 1px solid var(--primaryColor);
-  color: var(--primaryColor);
-  font-family: inherit;
-  font-size: 1rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  cursor: pointer;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.sendButton:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
 
 .loading {
   color: #999;
@@ -138,13 +124,4 @@
     margin-bottom: 0.75rem;
   }
 
-  .sendButton {
-    display: block;
-  }
-}
-
-@media (pointer: coarse) {
-  .sendButton {
-    display: block;
-  }
 }
