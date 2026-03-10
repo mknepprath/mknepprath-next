@@ -18,6 +18,122 @@ interface LogEntry {
   text: string;
 }
 
+// Map layout: each node has a position, label, and connections
+const MAP_NODES: Record<string, { x: number; y: number; label: string }> = {
+  start:      { x: 0, y: 0, label: "start" },
+  room:       { x: 2, y: 0, label: "room" },
+  cellar:     { x: 2, y: 1, label: "cellar" },
+  tunnels:    { x: 2, y: 2, label: "tunnels" },
+  reservoir:  { x: 0, y: 2, label: "reserv." },
+  crescent:   { x: 4, y: 0, label: "cresc." },
+  garden:     { x: 4, y: 2, label: "garden" },
+  spookytown: { x: 6, y: 0, label: "spooky" },
+  graveyard:  { x: 8, y: 0, label: "grave" },
+  swamp:      { x: 6, y: 1, label: "swamp" },
+  tower:      { x: 8, y: 1, label: "tower" },
+  void:       { x: 8, y: 2, label: "void" },
+};
+
+const MAP_EDGES: [string, string][] = [
+  ["start", "room"],
+  ["room", "crescent"],
+  ["room", "cellar"],
+  ["cellar", "tunnels"],
+  ["tunnels", "reservoir"],
+  ["tunnels", "garden"],
+  ["crescent", "garden"],
+  ["crescent", "spookytown"],
+  ["spookytown", "graveyard"],
+  ["spookytown", "swamp"],
+  ["spookytown", "tower"],
+  ["spookytown", "garden"],
+  ["tower", "void"],
+];
+
+function buildMap(visited: Set<string>, current: string): string {
+  // Grid: each cell is 9 chars wide, 3 lines tall
+  const CW = 9;
+  const CH = 3;
+  const cols = 9;
+  const rows = 3;
+  const W = cols * CW;
+  const H = rows * CH;
+  const grid: string[][] = Array.from({ length: H }, () =>
+    Array(W).fill(" ")
+  );
+
+  const put = (x: number, y: number, s: string) => {
+    for (let i = 0; i < s.length; i++) {
+      if (x + i >= 0 && x + i < W && y >= 0 && y < H) grid[y][x + i] = s[i];
+    }
+  };
+
+  // Draw edges first
+  for (const [a, b] of MAP_EDGES) {
+    const na = MAP_NODES[a];
+    const nb = MAP_NODES[b];
+    if (!na || !nb) continue;
+    const bothVisited = visited.has(a) && visited.has(b);
+    const ax = na.x * CW + Math.floor(CW / 2);
+    const ay = na.y * CH + 1;
+    const bx = nb.x * CW + Math.floor(CW / 2);
+    const by = nb.y * CH + 1;
+
+    if (ay === by) {
+      // Horizontal
+      const minX = Math.min(ax, bx);
+      const maxX = Math.max(ax, bx);
+      for (let x = minX + 1; x < maxX; x++) {
+        put(x, ay, bothVisited ? "-" : "·");
+      }
+    } else if (ax === bx) {
+      // Vertical
+      const minY = Math.min(ay, by);
+      const maxY = Math.max(ay, by);
+      for (let y = minY + 1; y < maxY; y++) {
+        put(ax, y, bothVisited ? "|" : "·");
+      }
+    } else {
+      // Diagonal — draw L-shape (go vertical then horizontal)
+      const midY = by;
+      const minY = Math.min(ay, midY);
+      const maxY = Math.max(ay, midY);
+      for (let y = minY + 1; y < maxY; y++) {
+        put(ax, y, bothVisited ? "|" : "·");
+      }
+      const minX = Math.min(ax, bx);
+      const maxX = Math.max(ax, bx);
+      for (let x = minX + 1; x < maxX; x++) {
+        put(x, midY, bothVisited ? "-" : "·");
+      }
+      if (minY !== maxY || minX !== maxX) {
+        put(ax, midY, bothVisited ? "+" : "·");
+      }
+    }
+  }
+
+  // Draw nodes on top
+  for (const [id, node] of Object.entries(MAP_NODES)) {
+    const cx = node.x * CW + Math.floor(CW / 2);
+    const cy = node.y * CH + 1;
+    const isCurrent = id === current;
+    const isVisited = visited.has(id);
+
+    let label: string;
+    if (isCurrent) {
+      label = `[${node.label.toUpperCase()}]`;
+    } else if (isVisited) {
+      label = node.label;
+    } else {
+      label = "?";
+    }
+    const startX = cx - Math.floor(label.length / 2);
+    put(startX, cy, label);
+  }
+
+  return grid.map((row) => row.join("").trimEnd()).join("\n");
+}
+
 function loadSession(): { state: GameState; log: LogEntry[] } | null {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
@@ -91,6 +207,18 @@ export default function Lilt(): React.ReactNode {
       setInput("");
       sessionStorage.removeItem(STORAGE_KEY);
       await startGame();
+      return;
+    }
+
+    if (move.toLowerCase() === "map") {
+      setInput("");
+      const visited = new Set(Object.keys(state.events));
+      const mapText = buildMap(visited, state.position);
+      setLog((prev) => [
+        ...prev,
+        { type: "move", text: move },
+        { type: "response", text: mapText },
+      ]);
       return;
     }
 
