@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./lilt.module.css";
 
 const API_URL = "https://lilt.up.railway.app";
+const STORAGE_KEY = "lilt-session";
 
 interface GameState {
   position: string;
@@ -15,6 +16,24 @@ interface GameState {
 interface LogEntry {
   type: "move" | "response";
   text: string;
+}
+
+function loadSession(): { state: GameState; log: LogEntry[] } | null {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function saveSession(state: GameState, log: LogEntry[]) {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ state, log }));
+  } catch {
+    // sessionStorage unavailable (e.g. private browsing)
+  }
 }
 
 export default function Lilt(): React.ReactNode {
@@ -35,6 +54,11 @@ export default function Lilt(): React.ReactNode {
     scrollToBottom();
   }, [log]);
 
+  // Save to session storage whenever state or log changes
+  useEffect(() => {
+    if (state) saveSession(state, log);
+  }, [state, log]);
+
   const startGame = useCallback(async () => {
     setLoading(true);
     try {
@@ -46,11 +70,16 @@ export default function Lilt(): React.ReactNode {
       setLog([{ type: "response", text: "Failed to connect to game server." }]);
     }
     setLoading(false);
-    setTimeout(() => inputRef.current?.focus(), 0);
   }, []);
 
   useEffect(() => {
-    startGame();
+    const saved = loadSession();
+    if (saved) {
+      setState(saved.state);
+      setLog(saved.log);
+    } else {
+      startGame();
+    }
   }, [startGame]);
 
   const submitMove = async (e: React.FormEvent) => {
@@ -60,6 +89,7 @@ export default function Lilt(): React.ReactNode {
 
     if (move.toLowerCase() === "restart") {
       setInput("");
+      sessionStorage.removeItem(STORAGE_KEY);
       await startGame();
       return;
     }
@@ -84,16 +114,10 @@ export default function Lilt(): React.ReactNode {
       ]);
     }
     setLoading(false);
-    // Focus after React re-renders with loading=false (input no longer disabled)
-    setTimeout(() => inputRef.current?.focus(), 0);
-  };
-
-  const focusInput = () => {
-    inputRef.current?.focus();
   };
 
   return (
-    <div className={styles.container} onClick={focusInput}>
+    <div className={styles.container} onClick={() => inputRef.current?.focus()}>
       <NextHead>
         <meta
           name="viewport"
@@ -132,7 +156,6 @@ export default function Lilt(): React.ReactNode {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={state ? "type a command" : "connecting..."}
-            disabled={!state || loading}
             autoFocus
             autoComplete="off"
             autoCorrect="off"
@@ -146,7 +169,7 @@ export default function Lilt(): React.ReactNode {
             disabled={!state || loading || !input.trim()}
             aria-label="Send"
           >
-&rarr;
+            &rarr;
           </button>
         </form>
       </div>
