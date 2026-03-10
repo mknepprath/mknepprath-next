@@ -195,7 +195,7 @@ export default function WhereGptBelongs(): ReactNode {
       <p>
         This is a particularly fun example for me because{" "}
         <strong>I have already implemented it in my text adventure game</strong>
-        , <A href="https://botsin.space/@lilt">lilt</A>. That’s right, I have a
+        , <A href="https://mastodon.social/@familiarlilt">lilt</A>. That’s right, I have a
         live example of the concept I’m proposing here and I’ll be writing a
         separate post about how I implemented it. Spoiler alert: It was not hard
         to do and makes the game infinitely more pleasant to interact with.

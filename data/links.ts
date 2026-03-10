@@ -59,13 +59,13 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "A text adventure",
-    href: "https://botsin.space/@lilt",
+    href: "https://mastodon.social/@familiarlilt",
     title: "lilt",
     imgSrc: "/assets/lilt.png",
   },
   {
     description: "A prompt a day, every day",
-    href: "https://botsin.space/@designprompts",
+    href: "https://mastodon.social/@designprompts",
     title: "Design Prompts",
     imgSrc: "/assets/design-prompts.png",
   },
@@ -105,7 +105,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "Battle your friends on Mastodon",
-    href: "https://botsin.space/@bout",
+    href: "https://mastodon.social/@bout",
     title: "Bout",
   },
   {
