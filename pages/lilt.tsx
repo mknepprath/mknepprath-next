@@ -113,8 +113,10 @@ export default function Lilt(): React.ReactNode {
   return (
     <div ref={containerRef} className={styles.container} onClick={focusInput}>
       <Head title="Lilt" description="A text adventure game." />
-      <h1 className={styles.title}>LILT</h1>
-      <p className={styles.subtitle}>a text adventure</p>
+      <div className={styles.header}>
+        <img src="/assets/lilt.png" alt="Lilt" className={styles.logo} />
+        <p className={styles.subtitle}>a text adventure</p>
+      </div>
 
       <div className={styles.terminal}>
         <ul ref={logRef} className={styles.log}>
