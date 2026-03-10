@@ -78,8 +78,8 @@
   border: none;
   color: var(--primaryColor);
   font-family: "Courier Prime", "Courier New", Courier, monospace;
-  font-size: inherit;
-  padding: 0;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
   cursor: pointer;
   flex-shrink: 0;
 }
