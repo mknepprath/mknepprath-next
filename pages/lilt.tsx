@@ -144,7 +144,7 @@ export default function Lilt(): React.ReactNode {
             disabled={!state || loading || !input.trim()}
             aria-label="Send"
           >
-            &rarr;
+&rarr;
           </button>
         </form>
       </div>
