@@ -1,3 +1,4 @@
+import React from "react";
 import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
@@ -16,7 +17,7 @@ export default function Page({
   description,
   ogImage,
   title,
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <div className={"container " + className}>
       <Head title={title} description={description} ogImage={ogImage} />

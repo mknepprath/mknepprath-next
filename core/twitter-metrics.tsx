@@ -13,7 +13,7 @@ export default function SocialMetrics({
   like_count,
   reply_count,
   tweetId,
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <>
       {like_count ? (
