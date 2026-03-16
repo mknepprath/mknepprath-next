@@ -1,9 +1,10 @@
+import React from "react";
 import classnames from "classnames";
 
 import styles from "./layer.module.css";
 
 interface Props {
-  children?: JSX.Element;
+  children?: React.JSX.Element;
   id: string;
   position: number;
   speed: number;
@@ -14,7 +15,7 @@ export default function Layer({
   id,
   position,
   speed,
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <div
       className={classnames(styles.keyartLayer, styles.parallax)}

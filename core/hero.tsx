@@ -1,3 +1,4 @@
+import React from "react";
 import classnames from "classnames";
 
 import styles from "./hero.module.css";
@@ -6,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-export default function Hero({ className }: Props): JSX.Element {
+export default function Hero({ className }: Props): React.JSX.Element {
   return (
     <div className={classnames("container", styles.hero, className)}>
       <h1 className={styles.greeting}>

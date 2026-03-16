@@ -1,3 +1,4 @@
+import React from "react";
 import Hero from "@core/hero";
 import Layer from "@core/layer";
 import useScrollPosition from "@lib/useScrollPosition";
@@ -5,7 +6,7 @@ import useScrollPosition from "@lib/useScrollPosition";
 import layerStyles from "./layer.module.css";
 import styles from "./parallax.module.css";
 
-export default function Parallax(): JSX.Element {
+export default function Parallax(): React.JSX.Element {
   const scrollPosition = useScrollPosition();
 
   return (

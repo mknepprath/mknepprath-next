@@ -32,7 +32,7 @@ const transform = (r: number, s: number) =>
     r / 10
   }deg) rotateZ(${r}deg) scale(${s})`;
 
-export default function PhotoStack(): JSX.Element {
+export default function PhotoStack(): React.JSX.Element {
   const [gone] = React.useState(() => new Set()); // The set flags all the photos that are flicked out
   const [props, setProps] = useSprings(photos.length, (i) => ({
     ...into(i),

@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./shot.module.css";
 
 interface Props {
@@ -12,7 +13,7 @@ export default function Shot({
   href,
   imgSrc,
   title,
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   return (
     <a
       className={styles.card}

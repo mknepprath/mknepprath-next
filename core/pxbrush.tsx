@@ -18,7 +18,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default function PxBrushPage(props: Props): JSX.Element {
+export default function PxBrushPage(props: Props): React.JSX.Element {
   const [x, y] = props.coordinates;
 
   const colors = props.colors || [

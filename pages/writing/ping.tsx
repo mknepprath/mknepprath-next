@@ -1,3 +1,4 @@
+import React from "react";
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Card from "@core/card";
@@ -11,7 +12,7 @@ import styles from "./ping.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-const MusicSection = (props: { music: Music[] }): JSX.Element => (
+const MusicSection = (props: { music: Music[] }): React.JSX.Element => (
   <div className={styles.cardContainer}>
     {props.music.map((playlist) => {
       // Titlecase the kind of media this is.
