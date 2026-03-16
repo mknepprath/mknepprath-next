@@ -1,3 +1,4 @@
+import React from "react";
 // External
 import classnames from "classnames";
 import Image from "next/legacy/image";
@@ -12,7 +13,7 @@ interface Props {
   className?: string;
 }
 
-export default function Nav({ className }: Props): JSX.Element {
+export default function Nav({ className }: Props): React.JSX.Element {
   return (
     <nav className={classnames(styles.nav, className)}>
       <a className={styles.siteLogo} href="/">

@@ -1,3 +1,4 @@
+import React from "react";
 // External
 // Components
 // Data
@@ -11,7 +12,7 @@ interface Props {
   className?: string;
 }
 
-export default function Footer({ className }: Props): JSX.Element {
+export default function Footer({ className }: Props): React.JSX.Element {
   return (
     <footer className={classnames(styles.footer, className)}>
       <span className={styles.footerMeta}>
