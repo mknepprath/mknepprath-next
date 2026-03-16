@@ -1,5 +1,6 @@
 import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import cypressPlugin from "eslint-plugin-cypress";
 import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
 import path from "node:path";
@@ -23,9 +24,8 @@ export default [{
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:cypress/recommended",
     "prettier",
-)), {
+)), cypressPlugin.configs.recommended, {
     plugins: {
         "@typescript-eslint": fixupPluginRules(typescriptEslint),
     },
