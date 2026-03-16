@@ -68,6 +68,7 @@ const moduleExports = {
       },
     ],
   },
+  turbopack: {},
   webpack(config, options) {
     // Fix for a long-running react-spring bug. https://github.com/pmndrs/react-spring/issues/1078#issuecomment-743698325
     config.module.rules.push({
