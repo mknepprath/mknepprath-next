@@ -1,5 +1,12 @@
 const posts: PostListItem[] = [
   {
+    "date": "2026-03-19",
+    "id": "lily-dex-revisited",
+    "image": "/assets/lily-dex-hero.jpg",
+    "summary": "lily dex grew from a simple catch tracker into a full Pokémon GO companion",
+    "title": "lily dex, revisited"
+  },
+  {
     "date": "2025-05-15",
     "id": "mad-max-fury-road",
     "image": "/assets/mad-max-fury-road.jpg",

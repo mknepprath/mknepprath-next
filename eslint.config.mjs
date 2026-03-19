@@ -25,7 +25,17 @@ export default [{
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
-)), cypressPlugin.configs.recommended, {
+)), {
+    plugins: {
+        cypress: cypressPlugin,
+    },
+    rules: {
+        "cypress/no-assigning-return-values": "error",
+        "cypress/no-unnecessary-waiting": "error",
+        "cypress/no-async-tests": "error",
+        "cypress/unsafe-to-chain-command": "error",
+    },
+}, {
     plugins: {
         "@typescript-eslint": fixupPluginRules(typescriptEslint),
     },
