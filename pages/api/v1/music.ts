@@ -6,15 +6,16 @@ const USERNAME = "mknepprath";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
-    query: { limit = 6 },
+    query: { limit = 6, raw },
   } = req;
 
   const max = parseInt(limit as string) || 6;
+  const isRaw = raw === "1";
 
   try {
-    // Fetch more than needed so we have enough after deduping
+    const fetchLimit = isRaw ? max : max * 5;
     const response = await fetch(
-      `${STATSFM_API}/users/${USERNAME}/streams/recent?limit=${max * 5}`,
+      `${STATSFM_API}/users/${USERNAME}/streams/recent?limit=${fetchLimit}`,
     );
 
     if (!response.ok) {
@@ -24,6 +25,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const data = await response.json();
+
+    if (isRaw) {
+      // Return raw streams (for activity feed album grouping)
+      return res.status(200).json(data.items);
+    }
 
     // Dedupe by track ID, keep most recent stream per track
     const seen = new Set<number>();

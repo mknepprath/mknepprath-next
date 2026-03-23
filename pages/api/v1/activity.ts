@@ -294,7 +294,7 @@ export default async (
       format: formatHighlightData,
     },
     {
-      url: `/api/v1/music?limit=20`,
+      url: `/api/v1/music?limit=200&raw=1`,
       type: "MUSIC" as PostListItem["type"],
       format: formatMusicData,
     },
