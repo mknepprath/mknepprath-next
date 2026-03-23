@@ -28,8 +28,17 @@ interface PostListItem {
     | "PHOTO"
     | "MUSIC"
     | "HIGHLIGHT"
-    | "TROPHY";
+    | "TROPHY"
+    | "GAME";
   url?: string;
+}
+
+interface Steam {
+  appid: number;
+  name: string;
+  playtime_2weeks: number;
+  playtime_forever: number;
+  img_icon_url: string;
 }
 
 interface Book {

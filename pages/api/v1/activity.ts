@@ -247,6 +247,17 @@ const formatTrophyData = (trophies: Trophy[]): Partial<PostListItem>[] =>
     url: trophy.trophyUrl,
   }));
 
+const formatSteamData = (games: Steam[]): Partial<PostListItem>[] =>
+  games.map((game) => ({
+    action: "Played",
+    date: new Date().toISOString(),
+    id: `s${game.appid}`,
+    title: game.name,
+    summary: `${Math.round((game.playtime_2weeks / 60) * 10) / 10} hours in the last 2 weeks`,
+    image: `https://cdn.cloudflare.steamstatic.com/steam/apps/${game.appid}/header.jpg`,
+    url: `https://store.steampowered.com/app/${game.appid}`,
+  }));
+
 // Main handler function for the API route
 export default async (
   req: NextApiRequest,
@@ -302,6 +313,11 @@ export default async (
       url: `/api/v1/psn?username=mknepprath`,
       type: "TROPHY" as PostListItem["type"],
       format: formatTrophyData,
+    },
+    {
+      url: `/api/v1/steam`,
+      type: "GAME" as PostListItem["type"],
+      format: formatSteamData,
     },
   ];
 
