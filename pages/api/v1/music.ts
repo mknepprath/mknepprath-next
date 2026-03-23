@@ -9,9 +9,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     query: { limit = 6 },
   } = req;
 
+  const max = parseInt(limit as string) || 6;
+
   try {
+    // Fetch more than needed so we have enough after deduping
     const response = await fetch(
-      `${STATSFM_API}/users/${USERNAME}/streams/recent?limit=${limit}`,
+      `${STATSFM_API}/users/${USERNAME}/streams/recent?limit=${max * 5}`,
     );
 
     if (!response.ok) {
@@ -21,7 +24,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const data = await response.json();
-    res.status(200).json(data.items);
+
+    // Dedupe by track ID, keep most recent stream per track
+    const seen = new Set<number>();
+    const unique = (data.items as Music[]).filter((m) => {
+      if (seen.has(m.track.id)) return false;
+      seen.add(m.track.id);
+      return true;
+    });
+
+    res.status(200).json(unique.slice(0, max));
   } catch (error) {
     console.error("Error fetching stats.fm data:", error);
     res.status(500).json({ error: "Internal server error" });
