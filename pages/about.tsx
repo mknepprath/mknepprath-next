@@ -14,7 +14,7 @@ const fetcher = (url: RequestInfo) =>
 export default function About(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books`, fetcher);
   const { data: films } = useSWR<Film[]>(`/api/v1/films?min_rating=2`, fetcher);
-  const { data: music } = useSWR<Music[]>(`/api/v1/music`, fetcher);
+  const { data: music } = useSWR<Music[]>(`/api/v1/music?limit=6`, fetcher);
   return (
     <Page className={styles.pageContainer} title="About Michael Knepprath">
       <article data-cy="about-page">
