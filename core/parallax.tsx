@@ -1,9 +1,11 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Hero from "@core/hero";
 import Layer from "@core/layer";
 
 import layerStyles from "./layer.module.css";
 import styles from "./parallax.module.css";
+
+const CAT_INDEX = 7; // index of layer "5" (the cat) in LAYERS
 
 const LAYERS = [
   { id: "0", speed: 0.02 },
@@ -21,6 +23,7 @@ const MOBILE_QUERY = "(max-width: 632px)";
 export default function Parallax(): React.JSX.Element {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rafId = useRef(0);
+  const [showCat, setShowCat] = useState(false);
 
   const setLayerRef = useCallback(
     (index: number) => (el: HTMLDivElement | null) => {
@@ -28,6 +31,11 @@ export default function Parallax(): React.JSX.Element {
     },
     [],
   );
+
+  const handleTypingComplete = useCallback(() => {
+    // Small delay before the cat starts peeking
+    setTimeout(() => setShowCat(true), 400);
+  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia(MOBILE_QUERY);
@@ -38,6 +46,7 @@ export default function Parallax(): React.JSX.Element {
       rafId.current = requestAnimationFrame(() => {
         const y = window.pageYOffset;
         for (let i = 0; i < LAYERS.length; i++) {
+          if (i === CAT_INDEX && !showCat) continue;
           const el = layerRefs.current[i];
           if (el) {
             el.style.transform = `translate3d(0px,${y * -LAYERS[i].speed}px,0px)`;
@@ -51,13 +60,26 @@ export default function Parallax(): React.JSX.Element {
       window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(rafId.current);
     };
-  }, []);
+  }, [showCat]);
 
   return (
     <div className={styles.keyart} id="parallax">
       {LAYERS.map((layer, i) => (
-        <Layer key={layer.id} id={layer.id} ref={setLayerRef(i)}>
-          {layer.id === "7" ? <Hero className={styles.hero} /> : undefined}
+        <Layer
+          key={layer.id}
+          id={layer.id}
+          ref={setLayerRef(i)}
+          className={
+            i === CAT_INDEX
+              ? showCat
+                ? styles.catVisible
+                : styles.catHidden
+              : undefined
+          }
+        >
+          {layer.id === "7" ? (
+            <Hero className={styles.hero} onComplete={handleTypingComplete} />
+          ) : undefined}
         </Layer>
       ))}
       <div className={layerStyles.keyartLayer} id="keyart-6" />

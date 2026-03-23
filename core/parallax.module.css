@@ -6,7 +6,22 @@
 }
 
 .hero {
-  margin-top: 80px;
+  margin-top: 120px;
+}
+
+.catHidden {
+  transform: translateY(150px);
+}
+
+.catVisible {
+  animation: catPeek 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes catPeek {
+  0% { transform: translateY(150px); }
+  40% { transform: translateY(40px); }
+  55% { transform: translateY(50px); }
+  100% { transform: translateY(0px); }
 }
 
 @media (min-width: 632px) {
@@ -15,5 +30,14 @@
   }
   .hero {
     margin-top: 200px;
+  }
+  .catHidden {
+    transform: translateY(300px);
+  }
+  @keyframes catPeek {
+    0% { transform: translateY(300px); }
+    40% { transform: translateY(80px); }
+    55% { transform: translateY(100px); }
+    100% { transform: translateY(0px); }
   }
 }

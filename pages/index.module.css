@@ -3,7 +3,7 @@
   left: 0px;
   right: 0px;
   z-index: 200;
-  padding-top: 44px;
+  padding-top: 16px;
 }
 @media (min-width: 632px) {
   .nav {

@@ -20,6 +20,19 @@
   }
 }
 
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background: var(--black);
+  margin-left: 2px;
+  vertical-align: baseline;
+  animation: blink 0.6s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 .link {
   color: var(--primaryColor);
 }

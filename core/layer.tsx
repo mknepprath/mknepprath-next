@@ -5,16 +5,17 @@ import styles from "./layer.module.css";
 
 interface Props {
   children?: React.JSX.Element;
+  className?: string;
   id: string;
 }
 
 const Layer = forwardRef<HTMLDivElement, Props>(function Layer(
-  { children, id },
+  { children, className, id },
   ref,
 ) {
   return (
     <div
-      className={classnames(styles.keyartLayer, styles.parallax)}
+      className={classnames(styles.keyartLayer, styles.parallax, className)}
       id={`keyart-${id}`}
       ref={ref}
       style={{ willChange: "transform" }}
