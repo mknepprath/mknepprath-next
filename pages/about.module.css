@@ -1,6 +1,5 @@
 .pageContainer {
   overscroll-behavior-y: contain;
-  overflow: hidden;
 }
 
 .photoStackContainer {

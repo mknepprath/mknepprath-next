@@ -88,8 +88,6 @@ export default function About(): React.ReactNode {
             </div>
           </>
         ) : null}
-      </article>
-
         {music?.length ? (
           <>
             <h2>Recent Music</h2>
@@ -110,6 +108,7 @@ export default function About(): React.ReactNode {
             </div>
           </>
         ) : null}
+      </article>
     </Page>
   );
 }
