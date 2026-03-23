@@ -1,7 +1,6 @@
 import Card from "@core/card";
 import Footer from "@core/footer";
 import Head from "@core/head";
-import Hero from "@core/hero";
 import Nav from "@core/nav";
 import Parallax from "@core/parallax";
 import {
@@ -21,7 +20,6 @@ import { projectLinks } from "@data/links";
 import classnames from "classnames";
 import { format, parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
-import { GetServerSideProps } from "next";
 import useSWR from "swr";
 
 import styles from "./index.module.css";
@@ -29,11 +27,7 @@ import styles from "./index.module.css";
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-interface Props {
-  isDesktopSafari: boolean;
-}
-
-export default function Home(props: Props): React.ReactNode {
+export default function Home(): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
     fetcher,
@@ -43,13 +37,9 @@ export default function Home(props: Props): React.ReactNode {
   return (
     <>
       <Head />
-      <Nav
-        className={classnames("container", {
-          [styles.nav]: props.isDesktopSafari,
-        })}
-      />
+      <Nav className={classnames("container", styles.nav)} />
 
-      {props.isDesktopSafari ? <Parallax /> : <Hero />}
+      <Parallax />
 
       <div className={classnames("container", styles.container)}>
         <h2 className={styles.activityHeading}>Activity</h2>
@@ -124,18 +114,3 @@ export default function Home(props: Props): React.ReactNode {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const userAgent = context.req.headers["user-agent"] || "";
-  return {
-    props: {
-      isDesktopSafari: isDesktopSafari(userAgent),
-    },
-  };
-};
-
-function isDesktopSafari(userAgent: string) {
-  const ua = userAgent.toLowerCase();
-  return (
-    ua.includes("macintosh") && ua.includes("safari") && !ua.includes("chrome")
-  );
-}

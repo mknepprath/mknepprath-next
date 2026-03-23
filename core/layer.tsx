@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import classnames from "classnames";
 
 import styles from "./layer.module.css";
@@ -6,25 +6,22 @@ import styles from "./layer.module.css";
 interface Props {
   children?: React.JSX.Element;
   id: string;
-  position: number;
-  speed: number;
 }
 
-export default function Layer({
-  children,
-  id,
-  position,
-  speed,
-}: Props): React.JSX.Element {
+const Layer = forwardRef<HTMLDivElement, Props>(function Layer(
+  { children, id },
+  ref,
+) {
   return (
     <div
       className={classnames(styles.keyartLayer, styles.parallax)}
       id={`keyart-${id}`}
-      style={{
-        transform: `translate3d(0px, ${position * -speed}px, 0px)`,
-      }}
+      ref={ref}
+      style={{ willChange: "transform" }}
     >
       {children}
     </div>
   );
-}
+});
+
+export default Layer;

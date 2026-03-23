@@ -1,26 +1,60 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import Hero from "@core/hero";
 import Layer from "@core/layer";
-import useScrollPosition from "@lib/useScrollPosition";
 
 import layerStyles from "./layer.module.css";
 import styles from "./parallax.module.css";
 
+const LAYERS = [
+  { id: "0", speed: 0.02 },
+  { id: "1", speed: 0.11 },
+  { id: "2", speed: 0.26 },
+  { id: "3b", speed: 0.39 },
+  { id: "3", speed: 0.49 },
+  { id: "7", speed: 0.49 },
+  { id: "4", speed: 0.69 },
+  { id: "5", speed: 0.79 },
+] as const;
+
 export default function Parallax(): React.JSX.Element {
-  const scrollPosition = useScrollPosition();
+  const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rafId = useRef(0);
+
+  const setLayerRef = useCallback(
+    (index: number) => (el: HTMLDivElement | null) => {
+      layerRefs.current[index] = el;
+    },
+    [],
+  );
+
+  useEffect(() => {
+    const onScroll = () => {
+      cancelAnimationFrame(rafId.current);
+      rafId.current = requestAnimationFrame(() => {
+        const y = window.pageYOffset;
+        for (let i = 0; i < LAYERS.length; i++) {
+          const el = layerRefs.current[i];
+          if (el) {
+            el.style.transform = `translate3d(0px,${y * -LAYERS[i].speed}px,0px)`;
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafId.current);
+    };
+  }, []);
 
   return (
     <div className={styles.keyart} id="parallax">
-      <Layer id="0" position={scrollPosition} speed={0.02} />
-      <Layer id="1" position={scrollPosition} speed={0.11} />
-      <Layer id="2" position={scrollPosition} speed={0.26} />
-      <Layer id="3b" position={scrollPosition} speed={0.39} />
-      <Layer id="3" position={scrollPosition} speed={0.49} />
-      <Layer id="7" position={scrollPosition} speed={0.49}>
-        <Hero className={styles.hero} />
-      </Layer>
-      <Layer id="4" position={scrollPosition} speed={0.69} />
-      <Layer id="5" position={scrollPosition} speed={0.79} />
+      {LAYERS.map((layer, i) => (
+        <Layer key={layer.id} id={layer.id} ref={setLayerRef(i)}>
+          {layer.id === "7" ? <Hero className={styles.hero} /> : undefined}
+        </Layer>
+      ))}
       <div className={layerStyles.keyartLayer} id="keyart-6" />
     </div>
   );
