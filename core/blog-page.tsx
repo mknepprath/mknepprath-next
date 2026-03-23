@@ -2,6 +2,7 @@ import BlogNav from "@core/blog-nav";
 import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
+import ReadingProgress from "@core/reading-progress";
 import TwitterMetrics from "@core/twitter-metrics";
 import classnames from "classnames";
 import { formatDistanceToNow, parseISO } from "date-fns";
@@ -42,6 +43,7 @@ export default function BlogPage({
   return (
     <div className={classnames("container", className)}>
       <Head title={title} description={description} ogImage={ogImage} />
+      <ReadingProgress />
       <Nav />
 
       <article>

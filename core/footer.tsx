@@ -1,9 +1,10 @@
 import React from "react";
 // External
+import classnames from "classnames";
 // Components
+import NowPlaying from "./now-playing";
 // Data
 import { footerLinks } from "@data/links";
-import classnames from "classnames";
 
 // Styles
 import styles from "./footer.module.css";
@@ -24,6 +25,7 @@ export default function Footer({ className }: Props): React.JSX.Element {
         >
           View on GitHub
         </a>
+        <NowPlaying />
       </span>
       <ul>
         {/*<li>*/}
