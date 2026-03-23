@@ -16,6 +16,8 @@ const LAYERS = [
   { id: "5", speed: 0.79 },
 ] as const;
 
+const MOBILE_QUERY = "(max-width: 632px)";
+
 export default function Parallax(): React.JSX.Element {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rafId = useRef(0);
@@ -28,6 +30,9 @@ export default function Parallax(): React.JSX.Element {
   );
 
   useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    if (mq.matches) return;
+
     const onScroll = () => {
       cancelAnimationFrame(rafId.current);
       rafId.current = requestAnimationFrame(() => {
