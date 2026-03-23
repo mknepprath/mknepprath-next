@@ -90,7 +90,7 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
 
         {!activity.length && <div>What have I been up to...</div>}
 
-        <div className={styles.projectContainer}>
+        <div className={styles.projectContainer} id="projects">
           <h2>Projects</h2>
           <div className={styles.cardContainer}>
             {projectLinks.map(({ description, href, imgSrc, title }) => (
