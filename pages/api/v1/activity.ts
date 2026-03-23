@@ -205,26 +205,26 @@ const formatHighlightData = (
     }));
 
 const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
-  // Dedupe by album — keep only the most recent stream per album
-  const albumMap = new Map<string, Music>();
+  // Dedupe by primary artist — keep only the most recent stream per artist
+  const artistMap = new Map<number, Music>();
   for (const m of music) {
-    const albumName = m.track.albums[0]?.name;
-    if (!albumName) continue;
-    if (!albumMap.has(albumName) || m.endTime > albumMap.get(albumName)!.endTime) {
-      albumMap.set(albumName, m);
+    const artist = m.track.artists[0];
+    if (!artist) continue;
+    if (!artistMap.has(artist.id) || m.endTime > artistMap.get(artist.id)!.endTime) {
+      artistMap.set(artist.id, m);
     }
   }
 
-  return Array.from(albumMap.values())
+  return Array.from(artistMap.values())
     .slice(0, 3)
     .map((m) => ({
       action: "Listened to",
       date: m.endTime,
-      id: `m${m.track.albums[0]?.id}`,
-      title: m.track.albums[0]?.name || m.track.name,
-      summary: m.track.artists.map((a) => a.name).join(", "),
-      image: m.track.albums[0]?.image || "",
-      url: `https://stats.fm/album/${m.track.albums[0]?.id}`,
+      id: `m${m.track.artists[0]?.id}`,
+      title: m.track.artists[0]?.name,
+      summary: m.track.albums[0]?.name || m.track.name,
+      image: m.track.artists[0]?.image || m.track.albums[0]?.image || "",
+      url: `https://stats.fm/artist/${m.track.artists[0]?.id}`,
     }));
 };
 
