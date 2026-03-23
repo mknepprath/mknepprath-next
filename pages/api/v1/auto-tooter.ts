@@ -23,7 +23,7 @@ function genStatus(post: PostListItem): string {
     case "REPO":
       return `I pushed an update to ${title}: ${summary} ${link}`;
     case "MUSIC":
-      return `I added ${title} by ${summary} to my music library. ${link}`;
+      return `Listening to ${title} by ${summary}. ${link}`;
     case "POST":
       return `✍️ New blog post: ${title} https://mknepprath.com${link}`;
     default:

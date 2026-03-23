@@ -20,19 +20,35 @@ import { projectLinks } from "@data/links";
 import classnames from "classnames";
 import { format, parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
+import { GetStaticProps } from "next";
 import useSWR from "swr";
 
 import styles from "./index.module.css";
 
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://mknepprath.com"
+    : "http://localhost:3000";
+
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export default function Home(): React.ReactNode {
-  const { data: activity = [] } = useSWR<PostListItem[]>(
+interface Props {
+  initialActivity: PostListItem[];
+  initialShots: Shot[];
+}
+
+export default function Home({ initialActivity, initialShots }: Props): React.ReactNode {
+  const { data: activity = initialActivity } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
     fetcher,
+    { fallbackData: initialActivity },
   );
-  const { data: shots = [] } = useSWR<Shot[]>(`/api/v1/dribbble`, fetcher);
+  const { data: shots = initialShots } = useSWR<Shot[]>(
+    `/api/v1/dribbble`,
+    fetcher,
+    { fallbackData: initialShots },
+  );
 
   return (
     <>
@@ -113,4 +129,25 @@ export default function Home(): React.ReactNode {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  let initialActivity: PostListItem[] = [];
+  let initialShots: Shot[] = [];
+
+  try {
+    const [activityRes, shotsRes] = await Promise.all([
+      fetch(`${BASE_URL}/api/v1/activity`),
+      fetch(`${BASE_URL}/api/v1/dribbble`),
+    ]);
+    if (activityRes.ok) initialActivity = await activityRes.json();
+    if (shotsRes.ok) initialShots = await shotsRes.json();
+  } catch {
+    // Fall back to empty arrays — SWR will retry client-side
+  }
+
+  return {
+    props: { initialActivity, initialShots },
+    revalidate: 300, // Regenerate every 5 minutes
+  };
+};
 
