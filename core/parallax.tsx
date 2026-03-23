@@ -23,7 +23,9 @@ const MOBILE_QUERY = "(max-width: 632px)";
 export default function Parallax(): React.JSX.Element {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rafId = useRef(0);
-  const [showCat, setShowCat] = useState(false);
+  const [catPhase, setCatPhase] = useState<"hidden" | "animating" | "done">(
+    "hidden",
+  );
 
   const setLayerRef = useCallback(
     (index: number) => (el: HTMLDivElement | null) => {
@@ -33,8 +35,11 @@ export default function Parallax(): React.JSX.Element {
   );
 
   const handleTypingComplete = useCallback(() => {
-    // Small delay before the cat starts peeking
-    setTimeout(() => setShowCat(true), 400);
+    setTimeout(() => setCatPhase("animating"), 400);
+  }, []);
+
+  const handleCatAnimationEnd = useCallback(() => {
+    setCatPhase("done");
   }, []);
 
   useEffect(() => {
@@ -46,7 +51,7 @@ export default function Parallax(): React.JSX.Element {
       rafId.current = requestAnimationFrame(() => {
         const y = window.pageYOffset;
         for (let i = 0; i < LAYERS.length; i++) {
-          if (i === CAT_INDEX && !showCat) continue;
+          if (i === CAT_INDEX && catPhase !== "done") continue;
           const el = layerRefs.current[i];
           if (el) {
             el.style.transform = `translate3d(0px,${y * -LAYERS[i].speed}px,0px)`;
@@ -60,7 +65,7 @@ export default function Parallax(): React.JSX.Element {
       window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(rafId.current);
     };
-  }, [showCat]);
+  }, [catPhase]);
 
   return (
     <div className={styles.keyart} id="parallax">
@@ -71,10 +76,13 @@ export default function Parallax(): React.JSX.Element {
           ref={setLayerRef(i)}
           className={
             i === CAT_INDEX
-              ? showCat
-                ? styles.catVisible
-                : styles.catHidden
+              ? catPhase === "hidden"
+                ? styles.catHidden
+                : styles.catVisible
               : undefined
+          }
+          onAnimationEnd={
+            i === CAT_INDEX ? handleCatAnimationEnd : undefined
           }
         >
           {layer.id === "7" ? (

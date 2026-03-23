@@ -7,16 +7,18 @@ interface Props {
   children?: React.JSX.Element;
   className?: string;
   id: string;
+  onAnimationEnd?: () => void;
 }
 
 const Layer = forwardRef<HTMLDivElement, Props>(function Layer(
-  { children, className, id },
+  { children, className, id, onAnimationEnd },
   ref,
 ) {
   return (
     <div
       className={classnames(styles.keyartLayer, styles.parallax, className)}
       id={`keyart-${id}`}
+      onAnimationEnd={onAnimationEnd}
       ref={ref}
       style={{ willChange: "transform" }}
     >
