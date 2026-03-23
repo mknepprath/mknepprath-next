@@ -3,6 +3,7 @@
   left: 0px;
   right: 0px;
   z-index: 200;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 .nav a,
 .nav span {
