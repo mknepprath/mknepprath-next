@@ -3,7 +3,12 @@
   left: 0px;
   right: 0px;
   z-index: 200;
-  padding-top: env(safe-area-inset-top, 0px);
+  padding-top: 44px;
+}
+@media (min-width: 632px) {
+  .nav {
+    padding-top: 0;
+  }
 }
 .nav a,
 .nav span {
