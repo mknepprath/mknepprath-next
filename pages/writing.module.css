@@ -1,3 +1,35 @@
+.page {
+  font-family: Charter, Georgia, serif;
+}
+
+.heading {
+  font-family: Charter, Georgia, serif;
+  font-size: 48px;
+  font-weight: normal;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background: currentColor;
+  margin-left: 2px;
+  vertical-align: baseline;
+  animation: blink 0.6s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.post {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 .title {
+  font-family: Charter, Georgia, serif;
+  font-weight: normal;
   margin-bottom: 0px;
 }
