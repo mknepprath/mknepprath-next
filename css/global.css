@@ -8,6 +8,40 @@
   --hoverColor: #6cd48f;
   --primaryColor: #62bf9b;
   --selectedColor: #b984c8;
+
+  color-scheme: light dark;
+}
+
+/* System preference: dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: #e8e8e8;
+    --grey: #2a2a2a;
+    --white: #1a1a1a;
+    --hoverColor: #6cd48f;
+    --primaryColor: #6ec9a5;
+    --selectedColor: #c49bd3;
+  }
+}
+
+/* Manual override: light */
+[data-theme="light"] {
+  --black: #333333;
+  --grey: #eceff1;
+  --white: #ffffff;
+  --hoverColor: #6cd48f;
+  --primaryColor: #62bf9b;
+  --selectedColor: #b984c8;
+}
+
+/* Manual override: dark */
+[data-theme="dark"] {
+  --black: #e8e8e8;
+  --grey: #2a2a2a;
+  --white: #1a1a1a;
+  --hoverColor: #6cd48f;
+  --primaryColor: #6ec9a5;
+  --selectedColor: #c49bd3;
 }
 
 ::selection {
@@ -16,12 +50,14 @@
 }
 
 body {
+  background-color: var(--white);
   color: var(--black);
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
     sans-serif;
   font-size: 1.2em;
   line-height: 1.6em;
   margin: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 h1,

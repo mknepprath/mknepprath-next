@@ -1,0 +1,77 @@
+.intro {
+  color: var(--meta);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.item + .item {
+  border-top: 1px solid var(--border);
+}
+
+.thumbnail {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.itemText {
+  min-width: 0;
+}
+
+.itemTitle {
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemSubtitle {
+  color: var(--meta);
+  margin: 0;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nowPlaying {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--meta);
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+}
+
+.pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1db954;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
