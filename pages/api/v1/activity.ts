@@ -205,18 +205,27 @@ const formatHighlightData = (
     }));
 
 const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
-  // Dedupe by album — keep only the most recent stream per album
-  const albumMap = new Map<string, Music>();
+  // Group by album, counting unique tracks per album
+  const albumTracks = new Map<string, { tracks: Set<number>; latest: Music }>();
   for (const m of music) {
     const albumName = m.track.albums[0]?.name;
     if (!albumName) continue;
-    if (!albumMap.has(albumName) || m.endTime > albumMap.get(albumName)!.endTime) {
-      albumMap.set(albumName, m);
+    const entry = albumTracks.get(albumName);
+    if (entry) {
+      entry.tracks.add(m.track.id);
+      if (m.endTime > entry.latest.endTime) entry.latest = m;
+    } else {
+      albumTracks.set(albumName, {
+        tracks: new Set([m.track.id]),
+        latest: m,
+      });
     }
   }
 
-  return Array.from(albumMap.values())
-    .map((m) => ({
+  // Only include albums with 2+ unique tracks — filters out playlist noise
+  return Array.from(albumTracks.values())
+    .filter((entry) => entry.tracks.size >= 2)
+    .map(({ latest: m }) => ({
       action: "Listened to",
       date: m.endTime,
       id: `m${m.track.albums[0]?.id}`,
