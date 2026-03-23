@@ -1,18 +1,10 @@
-.page {
-  font-family: Charter, Georgia, serif;
-}
-
 .heading {
-  font-family: Charter, Georgia, serif;
-  font-size: 48px;
-  font-weight: normal;
-  font-style: italic;
   margin-bottom: 32px;
 }
 
 .cursor {
   display: inline-block;
-  width: 3px;
+  width: 4px;
   height: 0.85em;
   background: currentColor;
   margin-left: 2px;
@@ -29,7 +21,6 @@
 }
 
 .title {
-  font-family: Charter, Georgia, serif;
-  font-weight: normal;
   margin-bottom: 0px;
+  color: var(--black);
 }
