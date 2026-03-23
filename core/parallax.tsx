@@ -78,7 +78,9 @@ export default function Parallax(): React.JSX.Element {
             i === CAT_INDEX
               ? catPhase === "hidden"
                 ? styles.catHidden
-                : styles.catVisible
+                : catPhase === "animating"
+                  ? styles.catVisible
+                  : undefined
               : undefined
           }
           onAnimationEnd={
