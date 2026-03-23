@@ -206,17 +206,15 @@ const formatHighlightData = (
 
 const formatMusicData = (music: Music[]): Partial<PostListItem>[] =>
   music.map((m) => ({
-    action: "Added",
-    date: m.attributes.dateAdded,
-    id: `m${m.id}`,
-    title: m.attributes.name,
-    summary: m.attributes.artistName,
-    image:
-      m.attributes.artwork?.url.replace("{w}", "500").replace("{h}", "500") ||
-      "",
-    url: m.attributes.playParams.globalId
-      ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
-      : undefined,
+    action: "Listened to",
+    date: m.endTime,
+    id: `m${m.streamId}`,
+    title: m.track.name,
+    summary: m.track.artists.map((a) => a.name).join(", "),
+    image: m.track.albums[0]?.image || "",
+    url: m.track.externalIds.spotify?.[0]
+      ? `https://open.spotify.com/track/${m.track.externalIds.spotify[0]}`
+      : `https://stats.fm/track/${m.track.id}`,
   }));
 
 const formatTrophyData = (trophies: Trophy[]): Partial<PostListItem>[] =>

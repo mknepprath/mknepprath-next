@@ -14,28 +14,19 @@ const fetcher = (url: RequestInfo) =>
 
 const MusicSection = (props: { music: Music[] }): React.JSX.Element => (
   <div className={styles.cardContainer}>
-    {props.music.map((playlist) => {
-      // Titlecase the kind of media this is.
-      const kind = playlist.attributes.playParams.kind.replace(
-        /([A-Z])/g,
-        " $1",
-      );
-      return (
-        <Card
-          description={kind.charAt(0).toUpperCase() + kind.slice(1)}
-          href={
-            playlist.attributes.playParams.globalId
-              ? `https://music.apple.com/us/${playlist.attributes.playParams.kind}/${playlist.attributes.playParams.globalId}`
-              : "#"
-          }
-          imgSrc={playlist.attributes.artwork.url
-            .replace("{w}", "200")
-            .replace("{h}", "200")}
-          key={playlist.id}
-          title={playlist.attributes.name}
-        />
-      );
-    })}
+    {props.music.map((m) => (
+      <Card
+        description={m.track.artists.map((a) => a.name).join(", ")}
+        href={
+          m.track.externalIds.spotify?.[0]
+            ? `https://open.spotify.com/track/${m.track.externalIds.spotify[0]}`
+            : `https://stats.fm/track/${m.track.id}`
+        }
+        imgSrc={m.track.albums[0]?.image}
+        key={m.streamId}
+        title={m.track.name}
+      />
+    ))}
   </div>
 );
 

@@ -195,28 +195,20 @@ interface RecentPlayed {
 }
 
 interface Music {
-  id: string;
-  type: "library-albums" | "library-songs" | "library-playlists";
-  href: string;
-  attributes: {
-    isPublic?: boolean;
-    trackCount: number;
-    genreNames: string[];
-    releaseDate: string;
+  streamId: string;
+  endTime: string;
+  platform: string;
+  track: {
+    id: number;
     name: string;
-    artistName: string;
-    artwork: {
-      width: number;
-      height: number;
-      url: string;
+    durationMs: number;
+    explicit: boolean;
+    externalIds: {
+      spotify?: string[];
+      appleMusic?: string[];
     };
-    playParams: {
-      id: string;
-      kind: "album" | "song" | "playlist";
-      isLibrary: boolean;
-      globalId?: string;
-    };
-    dateAdded: string;
+    albums: { id: number; image: string; name: string }[];
+    artists: { id: number; name: string; image: string }[];
   };
 }
 
