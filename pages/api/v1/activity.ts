@@ -204,18 +204,29 @@ const formatHighlightData = (
       url: highlight.book.source_url.replace(/=$/, ""),
     }));
 
-const formatMusicData = (music: Music[]): Partial<PostListItem>[] =>
-  music.map((m) => ({
-    action: "Listened to",
-    date: m.endTime,
-    id: `m${m.streamId}`,
-    title: m.track.name,
-    summary: m.track.artists.map((a) => a.name).join(", "),
-    image: m.track.albums[0]?.image || "",
-    url: m.track.externalIds.spotify?.[0]
-      ? `https://open.spotify.com/track/${m.track.externalIds.spotify[0]}`
-      : `https://stats.fm/track/${m.track.id}`,
-  }));
+const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
+  // Dedupe by album — keep only the most recent stream per album
+  const albumMap = new Map<string, Music>();
+  for (const m of music) {
+    const albumName = m.track.albums[0]?.name;
+    if (!albumName) continue;
+    if (!albumMap.has(albumName) || m.endTime > albumMap.get(albumName)!.endTime) {
+      albumMap.set(albumName, m);
+    }
+  }
+
+  return Array.from(albumMap.values())
+    .slice(0, 3)
+    .map((m) => ({
+      action: "Listened to",
+      date: m.endTime,
+      id: `m${m.track.albums[0]?.id}`,
+      title: m.track.albums[0]?.name || m.track.name,
+      summary: m.track.artists.map((a) => a.name).join(", "),
+      image: m.track.albums[0]?.image || "",
+      url: `https://stats.fm/album/${m.track.albums[0]?.id}`,
+    }));
+};
 
 const formatTrophyData = (trophies: Trophy[]): Partial<PostListItem>[] =>
   trophies.map((trophy) => ({
