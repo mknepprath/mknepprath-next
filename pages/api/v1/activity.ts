@@ -216,7 +216,6 @@ const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
   }
 
   return Array.from(albumMap.values())
-    .slice(0, 3)
     .map((m) => ({
       action: "Listened to",
       date: m.endTime,
