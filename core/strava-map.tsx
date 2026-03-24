@@ -92,9 +92,8 @@ const StravaMap = ({ polyline }: StravaMapProps) => {
     <div className={styles.container}>
       <svg
         viewBox={`0 0 ${WIDTH} ${height}`}
-        width={WIDTH}
-        height={height}
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
       >
         <path
           ref={pathRef}

@@ -1,5 +1,15 @@
 .container {
   margin-top: 8px;
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container svg {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
 }
 
 .route {
