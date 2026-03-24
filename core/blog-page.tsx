@@ -49,14 +49,10 @@ export default function BlogPage({
       <Nav />
 
       <article className={styles.article}>
-        <header>
-          <div className={styles.articleMeta}>
-            Published {format(parseISO(dateTime), "MMMM d, yyyy")} ·{" "}
-            {formatDistanceToNow(parseISO(dateTime))} ago
-          </div>
-          <h1 className={styles.articleTitle}>{title}</h1>
-          <div className={styles.articleRule} />
-        </header>
+        <div className={styles.articleMeta}>
+          Published {format(parseISO(dateTime), "MMMM d, yyyy")} ·{" "}
+          {formatDistanceToNow(parseISO(dateTime))} ago
+        </div>
         <div className={styles.articleBody}>
           {children}
         </div>

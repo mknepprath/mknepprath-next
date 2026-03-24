@@ -38,6 +38,27 @@
 }
 
 /* Article body typography */
+.articleBody h1 {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 36px;
+  line-height: 1.15;
+  color: #2a2218;
+  margin-bottom: 6px;
+}
+@media (min-width: 632px) {
+  .articleBody h1 {
+    font-size: 44px;
+  }
+}
+.articleBody h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 1.5px;
+  background: #c0b8a8;
+  margin-top: 16px;
+}
+
 .articleBody h2,
 .articleBody h3,
 .articleBody h4 {
@@ -64,10 +85,10 @@
   .blogContainer {
     background: #2a2820;
   }
-  .articleTitle {
+  .articleBody h1 {
     color: #e8e0d0;
   }
-  .articleRule {
+  .articleBody h1::after {
     background: #4a4438;
   }
   .articleBody h2,
