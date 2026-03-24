@@ -30,8 +30,20 @@ interface PostListItem {
     | "HIGHLIGHT"
     | "TROPHY"
     | "GAME"
-    | "RUN";
+    | "RUN"
+    | "CHESS";
   url?: string;
+}
+
+interface Chess {
+  url: string;
+  result: "win" | "loss" | "draw";
+  opponent: string;
+  rating: number;
+  accuracy: number;
+  timeClass: string;
+  opening: string;
+  endTime: number;
 }
 
 interface Steam {

@@ -247,6 +247,23 @@ const formatTrophyData = (trophies: Trophy[]): Partial<PostListItem>[] =>
     url: trophy.trophyUrl,
   }));
 
+const formatChessData = (games: Chess[]): Partial<PostListItem>[] =>
+  games.map((game) => {
+    const actionMap: Record<string, string> = {
+      win: "Won against",
+      loss: "Lost to",
+      draw: "Drew with",
+    };
+    return {
+      action: actionMap[game.result] || "Played",
+      date: new Date(game.endTime * 1000).toISOString(),
+      id: `ch${game.endTime}`,
+      title: game.opponent,
+      summary: `Rating: ${game.rating} · Accuracy: ${game.accuracy}% · ${game.opening}`,
+      url: game.url,
+    };
+  });
+
 const formatSteamData = (games: Steam[]): Partial<PostListItem>[] =>
   games.map((game) => ({
     action: "Played",
@@ -318,6 +335,11 @@ export default async (
       url: `/api/v1/steam`,
       type: "GAME" as PostListItem["type"],
       format: formatSteamData,
+    },
+    {
+      url: `/api/v1/chess`,
+      type: "CHESS" as PostListItem["type"],
+      format: formatChessData,
     },
   ];
 
