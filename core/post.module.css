@@ -41,3 +41,120 @@
 .tweet:hover {
   color: var(--primaryColor);
 }
+
+/* ─────────────────────────────────────────────────
+   RUN STICKER
+   Inspired by vintage travel/luggage sticker design.
+   Outer border → inset border → content area.
+   ───────────────────────────────────────────────── */
+.runSticker {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  background: #f5f0e8;
+  border: 3px solid #2c3e2d;
+  border-radius: 12px;
+  padding: 6px;
+  max-width: 340px;
+
+  /* Sticker shadow — physical thickness */
+  box-shadow:
+    0 0 0 2px #f5f0e8,
+    3px 4px 0 0 rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.runSticker:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 2px #f5f0e8,
+    4px 6px 0 0 rgba(0, 0, 0, 0.18);
+}
+
+/* Inset frame — the second border inside */
+.runInner {
+  border: 2px solid #2c3e2d;
+  border-radius: 8px;
+  padding: 14px 16px 12px;
+  position: relative;
+}
+
+/* Top row: dot accent + action label */
+.runTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.runDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e05a2b;
+  flex-shrink: 0;
+}
+
+.runLabel {
+  background: #2c3e2d;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+.runAction {
+  color: #e8dfd0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+/* Title */
+.runTitle {
+  margin: 4px 0 10px;
+  font-size: 18px;
+  color: #2c3e2d;
+  line-height: 1.2;
+}
+
+/* Map area */
+.runMap {
+  margin: 8px 0;
+  border-top: 1px solid #c8bfb0;
+  border-bottom: 1px solid #c8bfb0;
+  padding: 8px 0;
+}
+
+/* Stats row */
+.runStats {
+  display: flex;
+  gap: 0;
+  margin: 8px 0 4px;
+}
+
+.runStat {
+  flex: 1;
+  text-align: center;
+  padding: 4px 0;
+  border-right: 1px solid #c8bfb0;
+}
+.runStat:last-child {
+  border-right: none;
+}
+.runStatValue {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2c3e2d;
+  letter-spacing: 0.3px;
+}
+
+/* Date footer */
+.runDate {
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8a7f70;
+  margin-top: 6px;
+  border-top: 1px solid #c8bfb0;
+  padding-top: 8px;
+}

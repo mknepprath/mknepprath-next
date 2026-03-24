@@ -452,22 +452,66 @@ const RunPost = ({
   summary,
   title,
   url,
-}: PostProps) => (
-  <ActivityCard id={id} type="RUN" index={index}>
-    <article key={id}>
-      <header>
-        <a href={url} target="_blank" rel="noreferrer">
-          <h3 className={styles.title}>{title}</h3>
-        </a>
-        {summary ? <p style={{ margin: "0.4em 0 0.2em" }}>{summary}</p> : null}
-        {image ? <StravaMap polyline={image} /> : null}
-        <small>
-          {action} on {format(parseISO(date), "MMMM d, yyyy")}
-        </small>
-      </header>
-    </article>
-  </ActivityCard>
-);
+}: PostProps) => {
+  // Parse "Distance: 3.2 mi, Time: 28 min, Elevation: 45 ft"
+  const stats: Record<string, string> = {};
+  if (summary) {
+    summary.split(", ").forEach((part) => {
+      const [key, val] = part.split(": ");
+      if (key && val) stats[key.trim()] = val.trim();
+    });
+  }
+
+  return (
+    <ActivityCard id={id} type="RUN" index={index}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.runSticker}
+      >
+        <div className={styles.runInner}>
+          <div className={styles.runTop}>
+            <div className={styles.runDot} />
+            <div className={styles.runLabel}>
+              <span className={styles.runAction}>{action}</span>
+            </div>
+          </div>
+
+          <h3 className={styles.runTitle}>{title}</h3>
+
+          {image ? (
+            <div className={styles.runMap}>
+              <StravaMap polyline={image} />
+            </div>
+          ) : null}
+
+          <div className={styles.runStats}>
+            {stats["Distance"] && (
+              <div className={styles.runStat}>
+                <span className={styles.runStatValue}>{stats["Distance"]}</span>
+              </div>
+            )}
+            {stats["Time"] && (
+              <div className={styles.runStat}>
+                <span className={styles.runStatValue}>{stats["Time"]}</span>
+              </div>
+            )}
+            {stats["Elevation"] && (
+              <div className={styles.runStat}>
+                <span className={styles.runStatValue}>{stats["Elevation"]}</span>
+              </div>
+            )}
+          </div>
+
+          <div className={styles.runDate}>
+            {format(parseISO(date), "MMM d, yyyy")}
+          </div>
+        </div>
+      </a>
+    </ActivityCard>
+  );
+};
 
 export {
   Post,
