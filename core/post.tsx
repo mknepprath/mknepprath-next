@@ -647,8 +647,12 @@ const ChessPost = ({
           <span className={`${styles.chessPlayer} ${isWin ? styles.chessCircled : ""}`}>
             mknepprath
             {isWin && (
-              <svg className={styles.chessCircleSvg} viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="60" cy="25" rx="56" ry="20" className={styles.chessCircle} />
+              <svg className={styles.chessCircleSvg} viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  className={styles.chessCircle}
+                  d="M 40 12 C 70 4, 140 2, 170 14 C 192 24, 196 42, 178 56 C 156 70, 110 76, 60 68 C 24 62, 6 44, 12 28 C 16 18, 28 13, 44 14"
+                  fill="none"
+                />
               </svg>
             )}
           </span>
@@ -666,8 +670,12 @@ const ChessPost = ({
           <span className={`${styles.chessPlayer} ${styles.chessOpponent} ${isLoss ? styles.chessCircled : ""}`}>
             {title}
             {isLoss && (
-              <svg className={styles.chessCircleSvg} viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="60" cy="25" rx="56" ry="20" className={styles.chessCircle} />
+              <svg className={styles.chessCircleSvg} viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  className={styles.chessCircle}
+                  d="M 40 12 C 70 4, 140 2, 170 14 C 192 24, 196 42, 178 56 C 156 70, 110 76, 60 68 C 24 62, 6 44, 12 28 C 16 18, 28 13, 44 14"
+                  fill="none"
+                />
               </svg>
             )}
           </span>

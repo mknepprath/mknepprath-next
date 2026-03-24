@@ -927,14 +927,14 @@
   overflow: visible;
 }
 .chessCircle {
-  fill: none;
   stroke: #c0392b;
-  stroke-width: 2;
+  stroke-width: 2.5;
   stroke-linecap: round;
-  stroke-dasharray: 8 3 12 4 6 5 14 3;
-  animation: drawCircle 0.6s ease forwards;
-  animation-delay: 0.3s;
-  stroke-dashoffset: 200;
+  stroke-linejoin: round;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawCircle 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.4s;
 }
 @keyframes drawCircle {
   to {
