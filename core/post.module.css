@@ -310,3 +310,92 @@
   border-top: 1px solid #c8bfb0;
   padding-top: 8px;
 }
+
+/* ─────────────────────────────────────────────────
+   REPO — thermal receipt / terminal printout
+   Monospace, narrow, perforated top + bottom edges.
+   ───────────────────────────────────────────────── */
+
+.receipt {
+  display: block;
+  text-decoration: none;
+  max-width: 340px;
+  background: #f5f0e8;
+  border: 8px solid #f5f0e8;
+  border-radius: 4px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.receipt:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Perforated edges — top and bottom */
+.receiptPerfTop,
+.receiptPerfBottom {
+  border-bottom: 2px dashed #d0c8b8;
+  margin: 0 4px;
+}
+.receiptPerfBottom {
+  border-bottom: none;
+  border-top: 2px dashed #d0c8b8;
+}
+
+/* Body — the paper content */
+.receiptBody {
+  padding: 14px 16px;
+  background: #faf8f4;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+/* Repo name */
+.receiptRepo {
+  font-size: 12px;
+  color: #62bf9b;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Commit message */
+.receiptMessage {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+/* Date footer */
+.receiptFooter {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a09888;
+  border-top: 1px solid #e0d8cc;
+  padding-top: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .receiptBody {
+    background: #1a1a1a;
+  }
+  .receiptMessage {
+    color: #d0d0d0;
+  }
+  .receiptFooter {
+    border-top-color: #333;
+    color: #666;
+  }
+  .receipt {
+    background: #222;
+    border-color: #222;
+  }
+  .receiptPerfTop,
+  .receiptPerfBottom {
+    border-color: #333;
+  }
+}

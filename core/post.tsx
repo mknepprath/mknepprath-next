@@ -325,27 +325,26 @@ const RepoPost = ({
   url,
 }: PostProps) => (
   <ActivityCard id={id} type="REPO" index={index}>
-    <article key={id}>
-      <header>
-        <a href={url} target="_blank" rel="noreferrer">
-          <h3 className={styles.title}>
-            {url
-              ?.replace("https://twitter.com/", "@")
-              ?.replace("https://mastodon.social/", "")
-              ?.replace("https://botsin.space/", "")
-              ?.replace("https://", "") || (
-              <>
-                <span style={{ fontWeight: 300 }}>mknepprath /</span> {title}
-              </>
-            )}
-          </h3>
-        </a>{" "}
-        <p style={{ margin: "0.4em 0 0.2em" }}>{summary}</p>
-        <small>
-          {action} on {format(parseISO(date), "MMMM d, yyyy")}
-        </small>
-      </header>
-    </article>
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={styles.receipt}
+    >
+      <div className={styles.receiptPerfTop} />
+      <div className={styles.receiptBody}>
+        <div className={styles.receiptRepo}>
+          mknepprath / {title}
+        </div>
+        <div className={styles.receiptMessage}>
+          {summary}
+        </div>
+        <div className={styles.receiptFooter}>
+          {action} · {format(parseISO(date), "MMM d, yyyy")}
+        </div>
+      </div>
+      <div className={styles.receiptPerfBottom} />
+    </a>
   </ActivityCard>
 );
 
