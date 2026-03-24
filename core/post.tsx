@@ -59,40 +59,50 @@ const FilmPost = ({
   url,
 }: PostProps) => (
   <ActivityCard id={id} type="FILM" index={index}>
-    <article key={id}>
-      <header className={styles.filmPostHeader}>
-        {image ? (
-          <a
-            className={styles.filmPoster}
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              alt={`cover image for ${title}`}
-              className="bordered-image corner-radius-8"
-              height={135}
-              src={image}
-              width={90}
-            />
-          </a>
-        ) : null}
-        <div>
-          <a href={url} target="_blank" rel="noreferrer">
-            <h3 className={styles.filmTitle}>{title}</h3>
-          </a>
-          {summary ? (
-            <div
-              className={styles.filmReview}
-              dangerouslySetInnerHTML={{ __html: summary }}
-            />
-          ) : null}
-          <small>
-            {action} on {format(parseISO(date), "MMMM d, yyyy")}
-          </small>
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={`${styles.filmSticker} ${action === "Rewatched" ? styles.filmVariantRewatch : styles.filmVariantDefault}`}
+    >
+      <div className={styles.filmInner}>
+        <div className={styles.filmHeader}>
+          <span className={styles.filmBadge}>★ {action}</span>
+          <span className={styles.filmHeaderDate}>
+            {format(parseISO(date), "MMM d, yyyy")}
+          </span>
         </div>
-      </header>
-    </article>
+
+        <div className={styles.filmBody}>
+          {image ? (
+            <div className={styles.filmPosterWrap}>
+              <Image
+                alt={`poster for ${title}`}
+                className="corner-radius-4"
+                height={120}
+                src={image}
+                width={80}
+              />
+            </div>
+          ) : null}
+          <div className={styles.filmContent}>
+            <h3 className={styles.filmTitle}>{title}</h3>
+            {summary ? (
+              <div
+                className={styles.filmReview}
+                dangerouslySetInnerHTML={{ __html: summary }}
+              />
+            ) : null}
+          </div>
+        </div>
+
+        <div className={styles.filmTear} />
+
+        <div className={styles.filmFooter}>
+          <span>ADMIT ONE</span>
+        </div>
+      </div>
+    </a>
   </ActivityCard>
 );
 
