@@ -18,7 +18,7 @@ function hashToRotation(id: string): number {
 }
 
 const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC", "TOOT", "POST", "BOOK", "PHOTO", "CHESS"]);
-const GLOSSY_TYPES = new Set(["FILM", "MUSIC", "PHOTO"]);
+const GLOSSY_TYPES = new Set(["MUSIC", "PHOTO"]);
 
 const typeClassMap: Record<string, string> = {
   FILM: styles.film,
