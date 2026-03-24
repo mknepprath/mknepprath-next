@@ -213,7 +213,6 @@ const BookPost = ({
           )}
         </div>
       </div>
-      <div className={styles.catalogHole} />
       <div className={styles.catalogFooter}>
         {action} · {format(parseISO(date), "MMM d, yyyy")}
       </div>
