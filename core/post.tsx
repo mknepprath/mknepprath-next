@@ -613,14 +613,10 @@ const ChessPost = ({
     });
   }
 
-  const circlePaths = [
-    "M 40 12 C 70 4, 140 2, 170 14 C 192 24, 196 42, 178 56 C 156 70, 110 76, 60 68 C 24 62, 6 44, 12 28 C 16 18, 28 13, 44 14",
-    "M 36 16 C 68 6, 136 4, 168 18 C 190 28, 194 48, 174 60 C 150 72, 106 74, 54 66 C 20 58, 4 40, 14 24 C 20 14, 32 12, 40 16",
-    "M 44 10 C 78 2, 142 6, 172 16 C 194 26, 198 44, 176 58 C 152 72, 108 78, 56 70 C 22 64, 2 46, 10 30 C 14 16, 30 10, 48 12",
-  ];
+  // Slight rotation variation per game
   let circleHash = 0;
   for (let i = 0; i < id.length; i++) circleHash = ((circleHash << 5) + circleHash + id.charCodeAt(i)) | 0;
-  const circlePath = circlePaths[Math.abs(circleHash) % circlePaths.length];
+  const circleRotate = (Math.abs(circleHash) % 20) - 10; // -10 to 10 degrees
 
   const isWin = action?.startsWith("Won");
   const isLoss = action?.startsWith("Lost");
@@ -656,12 +652,13 @@ const ChessPost = ({
           <span className={`${styles.chessPlayer} ${isWin ? styles.chessCircled : ""}`}>
             mknepprath
             {isWin && (
-              <svg className={styles.chessCircleSvg} viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  className={styles.chessCircle}
-                  d={circlePath}
-                  fill="none"
-                />
+              <svg
+                className={styles.chessCircleSvg}
+                viewBox="0 0 100 40"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ transform: `translate(-50%, -50%) rotate(${circleRotate}deg)` }}
+              >
+                <ellipse cx="50" cy="20" rx="46" ry="16" className={styles.chessCircle} />
               </svg>
             )}
           </span>
@@ -680,12 +677,13 @@ const ChessPost = ({
           <span className={`${styles.chessPlayer} ${styles.chessOpponent} ${isLoss ? styles.chessCircled : ""}`}>
             {title}
             {isLoss && (
-              <svg className={styles.chessCircleSvg} viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  className={styles.chessCircle}
-                  d={circlePath}
-                  fill="none"
-                />
+              <svg
+                className={styles.chessCircleSvg}
+                viewBox="0 0 100 40"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ transform: `translate(-50%, -50%) rotate(${circleRotate}deg)` }}
+              >
+                <ellipse cx="50" cy="20" rx="46" ry="16" className={styles.chessCircle} />
               </svg>
             )}
           </span>
