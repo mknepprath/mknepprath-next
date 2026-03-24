@@ -9,8 +9,9 @@
   min-height: 100dvh;
 }
 
+:global(html:has(.blogContainer)),
 :global(body:has(.blogContainer)) {
-  background: #f4f1eb;
+  background: #f4f1eb !important;
 }
 
 .article {
@@ -89,8 +90,9 @@
   .blogContainer {
     background: #2a2820;
   }
+  :global(html:has(.blogContainer)),
   :global(body:has(.blogContainer)) {
-    background: #2a2820;
+    background: #2a2820 !important;
   }
   .articleBody h1 {
     color: #e8e0d0;
