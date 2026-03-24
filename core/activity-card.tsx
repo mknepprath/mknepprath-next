@@ -18,8 +18,8 @@ function hashToRotation(id: string): number {
   for (let i = 0; i < id.length; i++) {
     hash = (hash * 31 + id.charCodeAt(i)) | 0;
   }
-  // Map to [-3, 3] degrees
-  return ((hash % 600) / 600) * 6 - 3;
+  // Map to [-1.5, 1.5] degrees
+  return ((hash % 600) / 600) * 3 - 1.5;
 }
 
 const typeClassMap: Record<string, string> = {
