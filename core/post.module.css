@@ -453,6 +453,128 @@
 }
 
 /* ─────────────────────────────────────────────────
+   BOOK — library catalog card
+   Manila card, ruled lines, red header, catalog hole.
+   ───────────────────────────────────────────────── */
+
+.catalogCard {
+  display: block;
+  text-decoration: none;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 26px,
+      #e0d4be 26px,
+      #e0d4be 27px
+    ),
+    #f5ecd7;
+  border: 8px solid #f5f0e8;
+  border-radius: 6px;
+  padding: 0 20px 16px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.catalogCard:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Red/brown header line */
+.catalogRedLine {
+  height: 2px;
+  background: #b85c3a;
+  margin: 0 -20px 14px;
+}
+
+/* Body: cover + info side by side */
+.catalogBody {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+/* Book cover thumbnail */
+.catalogCover {
+  flex-shrink: 0;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  line-height: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Text info */
+.catalogInfo {
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.catalogTitle {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 18px;
+  line-height: 1.25;
+  color: #2a2010;
+  margin: 0 0 4px;
+}
+
+.catalogAuthor {
+  font-size: 14px;
+  color: #5a4a30;
+  line-height: 1.4;
+}
+
+/* Catalog rod hole */
+.catalogHole {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #c8b898;
+  border-radius: 50%;
+  margin: 8px auto 8px;
+}
+
+/* Footer */
+.catalogFooter {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9a8a68;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .catalogCard {
+    background:
+      repeating-linear-gradient(
+        180deg,
+        transparent 0px,
+        transparent 26px,
+        #3a3420 26px,
+        #3a3420 27px
+      ),
+      #2a2618;
+    border-color: #222;
+  }
+  .catalogRedLine {
+    background: #8a4a2a;
+  }
+  .catalogTitle {
+    color: #e0d8c0;
+  }
+  .catalogAuthor {
+    color: #a09878;
+  }
+  .catalogHole {
+    border-color: #4a4430;
+  }
+  .catalogFooter {
+    color: #6a6048;
+  }
+}
+
+/* ─────────────────────────────────────────────────
    POST — newspaper clipping
    ───────────────────────────────────────────────── */
 

@@ -187,36 +187,37 @@ const BookPost = ({
   url,
 }: PostProps) => (
   <ActivityCard id={id} type="BOOK" index={index}>
-    <article key={id}>
-      <header className={styles.filmPostHeader}>
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={styles.catalogCard}
+    >
+      <div className={styles.catalogRedLine} />
+      <div className={styles.catalogBody}>
         {image ? (
-          <a
-            className={styles.filmPoster}
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <div className={styles.catalogCover}>
             <Image
               alt={`cover for ${title}`}
-              className="bordered-image corner-radius-8"
-              height={135}
-              objectFit="cover"
               src={image}
-              width={90}
+              width={70}
+              height={105}
+              className="corner-radius-4"
             />
-          </a>
+          </div>
         ) : null}
-        <div>
-          <a href={url} target="_blank" rel="noreferrer">
-            <h3 className={styles.filmTitle}>{title}</h3>
-          </a>
-          <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
-          <small>
-            {action} on {format(parseISO(date), "MMMM d, yyyy")}
-          </small>
+        <div className={styles.catalogInfo}>
+          <h3 className={styles.catalogTitle}>{title}</h3>
+          {summary && (
+            <div className={styles.catalogAuthor}>{summary}</div>
+          )}
         </div>
-      </header>
-    </article>
+      </div>
+      <div className={styles.catalogHole} />
+      <div className={styles.catalogFooter}>
+        {action} · {format(parseISO(date), "MMM d, yyyy")}
+      </div>
+    </a>
   </ActivityCard>
 );
 
