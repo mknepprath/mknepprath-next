@@ -469,7 +469,7 @@
       #e0d4be 27px
     ),
     #f5ecd7;
-  border: 8px solid #f5f0e8;
+  border: none;
   border-radius: 6px;
   padding: 0 20px 16px;
   box-shadow:
@@ -526,13 +526,14 @@
   line-height: 1.4;
 }
 
-/* Catalog rod hole */
+/* Catalog rod hole — small punched circle */
 .catalogHole {
-  width: 14px;
-  height: 14px;
-  border: 2px solid #c8b898;
+  width: 10px;
+  height: 10px;
+  background: var(--white);
   border-radius: 50%;
-  margin: 8px auto 8px;
+  margin: 10px auto 8px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer */
@@ -555,7 +556,6 @@
         #3a3420 27px
       ),
       #2a2618;
-    border-color: #222;
   }
   .catalogRedLine {
     background: #8a4a2a;
@@ -567,7 +567,8 @@
     color: #a09878;
   }
   .catalogHole {
-    border-color: #4a4430;
+    background: #1a1a1a;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
   }
   .catalogFooter {
     color: #6a6048;
