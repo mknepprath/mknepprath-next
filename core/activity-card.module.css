@@ -1,82 +1,224 @@
 .card {
   background: var(--white);
-  border-radius: 8px;
-  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-  padding: 12px 16px;
+  border-radius: 10px;
+  padding: 16px 20px;
   position: relative;
-  transition: box-shadow 0.2s ease;
+  overflow: hidden;
   will-change: transform;
 }
 
 /* Overlap and scatter layout */
 .card:not(:first-child) {
-  margin-top: -8px;
+  margin-top: -6px;
 }
 .card:nth-child(odd) {
-  margin-left: 4px;
+  margin-left: 6px;
 }
 .card:nth-child(even) {
-  margin-left: -4px;
+  margin-left: -6px;
 }
 
-/* Per-type left border accents */
+/* ── FILM: dark cinematic card with gold accent ── */
 .film {
-  border-left: 4px solid transparent;
-  background-image:
-    linear-gradient(var(--white), var(--white)),
-    repeating-linear-gradient(
-      180deg,
-      #222 0px,
-      #222 6px,
-      #555 6px,
-      #555 8px,
-      #222 8px,
-      #222 14px
-    );
-  background-origin: padding-box, border-box;
-  background-clip: padding-box, border-box;
+  background: #1c1c1e;
+  color: #f0e6d3;
+  border: 1px solid #333;
+}
+.film::before {
+  content: "🎬";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  opacity: 0.4;
+}
+.film a, .film h3, .film p, .film small {
+  color: #f0e6d3 !important;
+}
+.film a:hover {
+  color: #ffd700 !important;
 }
 
+/* ── BOOK: warm parchment with stitched spine ── */
 .book {
-  border-left: 5px solid #8B4513;
+  background: #faf6f0;
+  border-left: 6px double #8B4513;
+  border-right: 1px solid #e0d5c5;
+  border-top: 1px solid #e0d5c5;
+  border-bottom: 1px solid #e0d5c5;
+}
+.book::before {
+  content: "📖";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  opacity: 0.3;
 }
 
+/* ── MUSIC: vinyl sleeve ── */
 .music {
-  border-left: 4px solid var(--primaryColor);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e0e0e0;
+  border: 1px solid #2a2a4a;
+}
+.music::before {
+  content: "♫";
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 22px;
+  opacity: 0.3;
+  color: var(--primaryColor);
+}
+.music a, .music h3, .music p, .music small {
+  color: #e0e0e0 !important;
+}
+.music a:hover {
+  color: var(--primaryColor) !important;
 }
 
+/* ── TOOT: speech bubble ── */
 .toot {
-  border-left: 4px solid #6364FF;
+  background: var(--white);
+  border: 2px solid #6364FF;
+  border-radius: 16px 16px 16px 4px;
+}
+.toot::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border-bottom: 2px solid #6364FF;
+  border-left: 2px solid #6364FF;
+  transform: rotate(-45deg);
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
 }
 
+/* ── REPO: terminal card ── */
 .repo {
-  border-left: 4px solid #333;
+  background: #0d1117;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  font-family: Consolas, Monaco, "Andale Mono", monospace;
+}
+.repo::before {
+  content: "$ ";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 14px;
+  opacity: 0.3;
+  color: #58a6ff;
+  font-family: Consolas, Monaco, monospace;
+}
+.repo a, .repo h3, .repo p, .repo small {
+  color: #c9d1d9 !important;
+}
+.repo a:hover {
+  color: #58a6ff !important;
 }
 
+/* ── HIGHLIGHT: sticky note ── */
 .highlight {
-  border-left: 4px solid #FFD700;
+  background: #fff9c4;
+  border: none;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.12);
+  transform-origin: top center;
+}
+.highlight a, .highlight h3, .highlight p, .highlight small {
+  color: #5d4037 !important;
 }
 
+/* ── PHOTO: polaroid ── */
 .photo {
-  padding: 8px;
+  background: #fefefe;
+  padding: 8px 8px 24px 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* ── TROPHY: achievement badge ── */
 .trophy {
-  border-left: 4px solid #c4a032;
+  background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #ffd700;
+  border: 2px solid #c4a032;
+}
+.trophy::before {
+  content: "🏆";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  opacity: 0.4;
+}
+.trophy a, .trophy h3, .trophy p, .trophy small {
+  color: #e8e8e8 !important;
+}
+.trophy h3 {
+  color: #ffd700 !important;
 }
 
+/* ── TWEET: classic twitter card ── */
 .tweet {
+  background: var(--white);
+  border: 1px solid #cfd9de;
   border-left: 4px solid #1DA1F2;
 }
 
+/* ── POST: blog clipping with torn edge feel ── */
 .post {
-  border-left: 4px solid var(--primaryColor);
+  background: var(--white);
+  border-top: 3px solid var(--primaryColor);
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px dashed #ccc;
+}
+.post::before {
+  content: "✍️";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 18px;
+  opacity: 0.3;
 }
 
+/* ── RUN: race bib ── */
 .run {
-  border-left: 4px solid #FC4C02;
+  background: #fff;
+  border: 2px solid #FC4C02;
+  border-radius: 4px;
+  position: relative;
+}
+.run::before {
+  content: "🏃";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  opacity: 0.4;
 }
 
+/* ── GAME: controller card ── */
 .game {
-  border-left: 4px solid #6441A5;
+  background: linear-gradient(145deg, #1b2838 0%, #2a475e 100%);
+  color: #c7d5e0;
+  border: 1px solid #3d6078;
+}
+.game::before {
+  content: "🎮";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  opacity: 0.4;
+}
+.game a, .game h3, .game p, .game small {
+  color: #c7d5e0 !important;
+}
+.game a:hover {
+  color: #66c0f4 !important;
 }
