@@ -34,12 +34,13 @@ export default function Writing(): React.ReactNode {
     : Math.floor(charsAfterStart / (POST_STAGGER / CHAR_DELAY));
 
   return (
-    <Page title="Michael Knepprath, Occasional Writer">
+    <Page title="Michael Knepprath, Occasional Writer" className={styles.writingPage}>
       <header data-cy="writing-page">
         <h1 className={styles.heading}>
           {HEADING.slice(0, charCount)}
           {!done && <span className={styles.cursor} />}
         </h1>
+        <div className={styles.headingRule} />
       </header>
 
       <>
@@ -56,8 +57,10 @@ export default function Writing(): React.ReactNode {
             <header>
               <Link href={`/writing/${post.id}`}>
                 <h2 className={styles.title}>{post.title}</h2>
-              </Link>{" "}
-              <small>{format(parseISO(post.date), "MMMM d, yyyy")}</small>
+              </Link>
+              <div className={styles.date}>
+                {format(parseISO(post.date), "MMMM d, yyyy")}
+              </div>
             </header>
           </article>
         ))}

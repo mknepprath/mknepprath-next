@@ -1,5 +1,21 @@
+.writingPage {
+  background: #f4f1eb;
+  min-height: 100vh;
+}
+
 .heading {
-  margin-bottom: 32px;
+  font-family: Charter, Georgia, serif !important;
+  font-size: 44px;
+  font-weight: bold;
+  color: #2a2218;
+  margin-bottom: 8px;
+}
+
+.headingRule {
+  width: 80px;
+  height: 1.5px;
+  background: #c0b8a8;
+  margin: 0 0 32px;
 }
 
 .cursor {
@@ -18,8 +34,46 @@
 
 .post {
   transition: opacity 0.4s ease, transform 0.4s ease;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd8cc;
 }
 
 .title {
-  margin-bottom: 0px;
+  font-family: Charter, Georgia, serif !important;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2a2218;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+.title:hover {
+  color: var(--primaryColor);
+}
+
+.date {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9a9080;
+}
+
+@media (prefers-color-scheme: dark) {
+  .writingPage {
+    background: #2a2820;
+  }
+  .heading {
+    color: #e8e0d0;
+  }
+  .headingRule {
+    background: #4a4438;
+  }
+  .post {
+    border-bottom-color: #3a3830;
+  }
+  .title {
+    color: #e8e0d0;
+  }
+  .date {
+    color: #6a6458;
+  }
 }

@@ -1,0 +1,85 @@
+/* ─────────────────────────────────────────────────
+   BLOG PAGE — newspaper clipping design language
+   Matches the Post activity card: newsprint bg,
+   serif headlines, thin rules, editorial feel.
+   ───────────────────────────────────────────────── */
+
+.blogContainer {
+  background: #f4f1eb;
+  min-height: 100vh;
+}
+
+.article {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Title */
+.articleTitle {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 36px;
+  line-height: 1.15;
+  color: #2a2218;
+  margin: 0 0 6px;
+}
+@media (min-width: 632px) {
+  .articleTitle {
+    font-size: 44px;
+  }
+}
+
+/* Rule under title */
+.articleRule {
+  width: 80px;
+  height: 1.5px;
+  background: #c0b8a8;
+  margin: 16px 0 24px;
+}
+
+/* Article body typography */
+.articleBody h2,
+.articleBody h3,
+.articleBody h4 {
+  font-family: Charter, Georgia, serif !important;
+  color: #2a2218;
+}
+
+.articleBody p,
+.articleBody li {
+  color: #3a3228;
+  line-height: 1.7;
+}
+
+/* Dateline / meta */
+.articleMeta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #9a9080;
+  margin-bottom: 24px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blogContainer {
+    background: #2a2820;
+  }
+  .articleTitle {
+    color: #e8e0d0;
+  }
+  .articleRule {
+    background: #4a4438;
+  }
+  .articleBody h2,
+  .articleBody h3,
+  .articleBody h4 {
+    color: #e8e0d0;
+  }
+  .articleBody p,
+  .articleBody li {
+    color: #c0b8a8;
+  }
+  .articleMeta {
+    color: #6a6458;
+  }
+}

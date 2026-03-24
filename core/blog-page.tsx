@@ -5,10 +5,12 @@ import Nav from "@core/nav";
 import ReadingProgress from "@core/reading-progress";
 import TwitterMetrics from "@core/twitter-metrics";
 import classnames from "classnames";
-import { formatDistanceToNow, parseISO } from "date-fns";
+import { format, formatDistanceToNow, parseISO } from "date-fns";
 import Prism from "prismjs";
 import React from "react";
 import useSWR from "swr";
+
+import styles from "./blog-page.module.css";
 
 const fetcher = (url: RequestInfo): Promise<Tweet> =>
   fetch(url).then((response) => response.json());
@@ -41,23 +43,26 @@ export default function BlogPage({
   const { data: tweet } = useSWR(`/api/v1/tweet/${tweetId}`, fetcher);
 
   return (
-    <div className={classnames("container", className)}>
+    <div className={classnames("container", styles.blogContainer, className)}>
       <Head title={title} description={description} ogImage={ogImage} />
       <ReadingProgress />
       <Nav />
 
-      <article>
-        {children}
-        <p className="blog-meta">
-          <time dateTime={dateTime}>
-            Published {formatDistanceToNow(parseISO(dateTime))} ago
-          </time>
-          {tweet?.data ? (
-            <TwitterMetrics tweetId={tweetId} {...tweet.data.public_metrics} />
-          ) : (
-            ""
-          )}
-        </p>
+      <article className={styles.article}>
+        <header>
+          <div className={styles.articleMeta}>
+            Published {format(parseISO(dateTime), "MMMM d, yyyy")} ·{" "}
+            {formatDistanceToNow(parseISO(dateTime))} ago
+          </div>
+          <h1 className={styles.articleTitle}>{title}</h1>
+          <div className={styles.articleRule} />
+        </header>
+        <div className={styles.articleBody}>
+          {children}
+        </div>
+        {tweet?.data ? (
+          <TwitterMetrics tweetId={tweetId} {...tweet.data.public_metrics} />
+        ) : null}
       </article>
 
       <BlogNav />
