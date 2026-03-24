@@ -655,13 +655,12 @@ const ChessPost = ({
               <svg
                 className={styles.chessCircleSvg}
                 viewBox="0 0 200 80"
-                preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ transform: `rotate(${circleRotate}deg)` }}
               >
                 <path
                   className={styles.chessCircle}
-                  d="M 12 12 C 50 2, 150 2, 188 12 C 198 22, 198 58, 188 68 C 150 78, 50 78, 12 68 C 2 58, 2 22, 12 12"
+                  d="M 40 12 C 70 4, 140 2, 170 14 C 192 24, 196 42, 178 56 C 156 70, 110 76, 60 68 C 24 62, 6 44, 12 28 C 16 18, 28 13, 44 14"
                   fill="none"
                 />
               </svg>
@@ -685,13 +684,12 @@ const ChessPost = ({
               <svg
                 className={styles.chessCircleSvg}
                 viewBox="0 0 200 80"
-                preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ transform: `rotate(${circleRotate}deg)` }}
               >
                 <path
                   className={styles.chessCircle}
-                  d="M 12 12 C 50 2, 150 2, 188 12 C 198 22, 198 58, 188 68 C 150 78, 50 78, 12 68 C 2 58, 2 22, 12 12"
+                  d="M 40 12 C 70 4, 140 2, 170 14 C 192 24, 196 42, 178 56 C 156 70, 110 76, 60 68 C 24 62, 6 44, 12 28 C 16 18, 28 13, 44 14"
                   fill="none"
                 />
               </svg>
