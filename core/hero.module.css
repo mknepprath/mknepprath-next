@@ -3,7 +3,7 @@
   justify-content: center;
   pointer-events: auto;
 
-  color: var(--black);
+  color: #333333;
 }
 
 .greeting {
@@ -34,7 +34,7 @@
 }
 
 .link {
-  color: var(--primaryColor);
+  color: #62bf9b;
 }
 .greeting a {
   text-decoration: none;
