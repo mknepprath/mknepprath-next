@@ -44,9 +44,6 @@ export default function Nav({ className }: Props): React.JSX.Element {
           <Link href="/#projects">Projects</Link>
         </li>
         <li>
-          <Link href="/now">Now</Link>
-        </li>
-        <li>
           <Link href="/about">About</Link>
         </li>
       </ul>
