@@ -20,10 +20,10 @@ export default function MyApp({
 
   const transitions = useTransition(router.pathname, {
     key: router.pathname,
-    from: { opacity: 0, transform: "translateY(8px)" },
-    enter: { opacity: 1, transform: "translateY(0px)" },
-    leave: { opacity: 0, transform: "translateY(0px)", position: "absolute" as const },
-    config: { duration: 250 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0, position: "absolute" as const },
+    config: { duration: 200 },
   });
 
   return (
