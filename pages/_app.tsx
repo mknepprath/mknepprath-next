@@ -20,6 +20,7 @@ export default function MyApp({
 
   const transitions = useTransition(router.pathname, {
     key: router.pathname,
+    initial: { opacity: 1 },
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0, position: "absolute" as const },
