@@ -321,8 +321,8 @@ const TootPost = ({
 }: PostListItem) => (
   <article key={id}>
     <header>
-      <A href={url || ""}>
-        {image ? (
+      {image ? (
+        <A href={url || ""}>
           <div className="fill-image bordered-image" style={{ height: 200 }}>
             <Image
               alt={`cover image for ${title}`}
@@ -332,25 +332,16 @@ const TootPost = ({
               objectFit="cover"
             />
           </div>
-        ) : null}
-        {!image ? (
-          <span className={styles.tweet}>
-            <span
-              className={styles.filmReview}
-              dangerouslySetInnerHTML={{ __html: summary || "" }}
-            />
-          </span>
-        ) : (
-          <p className={styles.tweet} style={{ margin: "0.4em 0 0.2em" }}>
-            <em
-              className={styles.filmReview}
-              dangerouslySetInnerHTML={{ __html: summary || "" }}
-            />
-          </p>
-        )}
-      </A>
+        </A>
+      ) : null}
+      <div
+        className={styles.tweet}
+        dangerouslySetInnerHTML={{ __html: summary || "" }}
+      />
       <small>
-        {action} on {format(parseISO(date), "MMMM d, yyyy")}
+        <A href={url || ""}>
+          {action} on {format(parseISO(date), "MMMM d, yyyy")}
+        </A>
       </small>
     </header>
   </article>
