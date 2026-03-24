@@ -1,5 +1,5 @@
 import { useSpring, animated } from "react-spring";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./activity-card.module.css";
 
 interface ActivityCardProps {
@@ -14,7 +14,6 @@ function hashToRotation(id: string): number {
   for (let i = 0; i < id.length; i++) {
     hash = ((hash << 5) + hash + id.charCodeAt(i)) | 0;
   }
-  // Use absolute value, mod to get 0-999, map to [-1.5, 1.5]
   return ((Math.abs(hash) % 1000) / 1000) * 3 - 1.5;
 }
 
@@ -43,22 +42,35 @@ export default function ActivityCard({
 }: ActivityCardProps) {
   const isStyled = type ? STYLED_TYPES.has(type) : false;
   const baseRotation = isStyled ? hashToRotation(id) : 0;
+  const slideFrom = index % 2 === 0 ? -60 : 60;
   const [hovered, setHovered] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const spring = useSpring({
-    from: isStyled
-      ? { opacity: 0, transform: `rotate(${baseRotation * 2}deg) translateY(16px)` }
-      : { opacity: 1, transform: "none" },
-    to: {
-      opacity: 1,
-      transform: isStyled
-        ? hovered
-          ? "rotate(0deg) translateY(-2px)"
-          : `rotate(${baseRotation}deg) translateY(0px)`
-        : "none",
-    },
-    delay: isStyled ? Math.min(index * 60, 400) : 0,
-    config: { mass: 1, tension: 280, friction: 22 },
+    opacity: visible ? 1 : 0,
+    transform: visible
+      ? hovered
+        ? `translateX(0px) rotate(0deg) translateY(-2px)`
+        : `translateX(0px) rotate(${baseRotation}deg) translateY(0px)`
+      : `translateX(${slideFrom}px) rotate(${baseRotation * 3}deg) translateY(10px)`,
+    config: { mass: 1, tension: 200, friction: 24 },
   });
 
   const handleMouseEnter = useCallback(() => setHovered(true), []);
@@ -69,6 +81,7 @@ export default function ActivityCard({
   return (
     <animated.div
       className={`${styles.card} ${typeClass}`}
+      ref={ref}
       style={isStyled ? spring : undefined}
       onMouseEnter={isStyled ? handleMouseEnter : undefined}
       onMouseLeave={isStyled ? handleMouseLeave : undefined}
