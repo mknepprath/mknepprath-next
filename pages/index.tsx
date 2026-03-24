@@ -140,8 +140,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       fetch(`${BASE_URL}/api/v1/activity`),
       fetch(`${BASE_URL}/api/v1/dribbble`),
     ]);
-    if (activityRes.ok) initialActivity = await activityRes.json();
-    if (shotsRes.ok) initialShots = await shotsRes.json();
+    if (activityRes.ok) {
+      const data = await activityRes.json();
+      if (Array.isArray(data)) initialActivity = data;
+    }
+    if (shotsRes.ok) {
+      const data = await shotsRes.json();
+      if (Array.isArray(data)) initialShots = data;
+    }
   } catch {
     // Fall back to empty arrays — SWR will retry client-side
   }

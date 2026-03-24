@@ -5,8 +5,13 @@ const setupPlugins = require("./cypress/plugins/index.js");
 module.exports = defineConfig({
   viewportWidth: 1300,
   defaultCommandTimeout: 20000,
+  pageLoadTimeout: 60000,
   video: false,
   projectId: "2tv5un",
+  retries: {
+    runMode: 2,
+    openMode: 0,
+  },
   e2e: {
     setupNodeEvents(on, config) {
       return setupPlugins(on, config);

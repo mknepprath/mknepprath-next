@@ -51,13 +51,31 @@ const WIDTH = 200;
 
 const StravaMap = ({ polyline }: StravaMapProps) => {
   const pathRef = useRef<SVGPathElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [pathLength, setPathLength] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (pathRef.current) {
       setPathLength(pathRef.current.getTotalLength());
     }
   }, [polyline]);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const points = decodePolyline(polyline);
 
@@ -89,7 +107,7 @@ const StravaMap = ({ polyline }: StravaMapProps) => {
   const d = `M${svgPoints.join("L")}`;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <svg
         viewBox={`0 0 ${WIDTH} ${height}`}
         xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +118,7 @@ const StravaMap = ({ polyline }: StravaMapProps) => {
           className={styles.route}
           d={d}
           style={
-            pathLength
+            pathLength && visible
               ? ({
                   strokeDasharray: pathLength,
                   "--path-length": pathLength,
