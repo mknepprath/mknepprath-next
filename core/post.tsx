@@ -471,41 +471,45 @@ const RunPost = ({
         className={styles.runSticker}
       >
         <div className={styles.runInner}>
-          <div className={styles.runTop}>
-            <div className={styles.runDot} />
-            <div className={styles.runLabel}>
-              <span className={styles.runAction}>{action}</span>
+          <div className={styles.runLayout}>
+            {image ? (
+              <div className={styles.runMapCol}>
+                <StravaMap polyline={image} />
+              </div>
+            ) : null}
+
+            <div className={styles.runInfoCol}>
+              <div className={styles.runTop}>
+                <div className={styles.runDot} />
+                <div className={styles.runLabel}>
+                  <span className={styles.runAction}>{action}</span>
+                </div>
+              </div>
+
+              <h3 className={styles.runTitle}>{title}</h3>
+
+              <div className={styles.runStats}>
+                {stats["Distance"] && (
+                  <div className={styles.runStat}>
+                    <span className={styles.runStatValue}>{stats["Distance"]}</span>
+                  </div>
+                )}
+                {stats["Time"] && (
+                  <div className={styles.runStat}>
+                    <span className={styles.runStatValue}>{stats["Time"]}</span>
+                  </div>
+                )}
+                {stats["Elevation"] && (
+                  <div className={styles.runStat}>
+                    <span className={styles.runStatValue}>{stats["Elevation"]}</span>
+                  </div>
+                )}
+              </div>
+
+              <div className={styles.runDate}>
+                {format(parseISO(date), "MMM d, yyyy")}
+              </div>
             </div>
-          </div>
-
-          <h3 className={styles.runTitle}>{title}</h3>
-
-          {image ? (
-            <div className={styles.runMap}>
-              <StravaMap polyline={image} />
-            </div>
-          ) : null}
-
-          <div className={styles.runStats}>
-            {stats["Distance"] && (
-              <div className={styles.runStat}>
-                <span className={styles.runStatValue}>{stats["Distance"]}</span>
-              </div>
-            )}
-            {stats["Time"] && (
-              <div className={styles.runStat}>
-                <span className={styles.runStatValue}>{stats["Time"]}</span>
-              </div>
-            )}
-            {stats["Elevation"] && (
-              <div className={styles.runStat}>
-                <span className={styles.runStatValue}>{stats["Elevation"]}</span>
-              </div>
-            )}
-          </div>
-
-          <div className={styles.runDate}>
-            {format(parseISO(date), "MMM d, yyyy")}
           </div>
         </div>
       </a>
