@@ -124,6 +124,7 @@
 @media (min-width: 632px) {
   .runLayout {
     flex-direction: row;
+    align-items: start;
     gap: 16px;
   }
 }
@@ -146,6 +147,7 @@
     border-left: 1px solid #c8bfb0;
     padding: 0 0 0 16px;
     margin: 0;
+    align-self: center;
   }
 }
 
