@@ -44,15 +44,25 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Blog page background — covers entire viewport */
-html:has([data-page="blog"]),
-body:has([data-page="blog"]) {
+/* Blog/writing pages — newsprint background everywhere */
+[data-page="blog"],
+[data-page="blog"] ~ *,
+main:has([data-page="blog"]) {
   background-color: #f4f1eb;
 }
+html:has([data-page="blog"]),
+body:has([data-page="blog"]) {
+  background-color: #f4f1eb !important;
+}
 @media (prefers-color-scheme: dark) {
+  [data-page="blog"],
+  [data-page="blog"] ~ *,
+  main:has([data-page="blog"]) {
+    background-color: #2a2820;
+  }
   html:has([data-page="blog"]),
   body:has([data-page="blog"]) {
-    background-color: #2a2820;
+    background-color: #2a2820 !important;
   }
 }
 

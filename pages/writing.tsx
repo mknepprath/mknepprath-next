@@ -34,7 +34,7 @@ export default function Writing(): React.ReactNode {
     : Math.floor(charsAfterStart / (POST_STAGGER / CHAR_DELAY));
 
   return (
-    <Page title="Michael Knepprath, Occasional Writer" className={styles.writingPage}>
+    <Page title="Michael Knepprath, Occasional Writer" className={styles.writingPage} data-page="blog">
       <header data-cy="writing-page">
         <h1 className={styles.heading}>
           {HEADING.slice(0, charCount)}

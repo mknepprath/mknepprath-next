@@ -6,6 +6,7 @@ import Nav from "@core/nav";
 interface Props {
   children: React.ReactNode;
   className?: string;
+  "data-page"?: string;
   description?: string;
   ogImage?: string;
   title: string;
@@ -14,12 +15,13 @@ interface Props {
 export default function Page({
   children,
   className,
+  "data-page": dataPage,
   description,
   ogImage,
   title,
 }: Props): React.JSX.Element {
   return (
-    <div className={"container " + className}>
+    <div className={"container " + className} data-page={dataPage}>
       <Head title={title} description={description} ogImage={ogImage} />
       <Nav />
       {children}
