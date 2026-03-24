@@ -856,8 +856,8 @@
   margin-bottom: 8px;
 }
 .chessPiece {
-  font-size: 18px;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 0;
   color: #555;
 }
 .chessTimeClass {
