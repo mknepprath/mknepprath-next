@@ -135,7 +135,7 @@ const formatRunData = (runs: Run[]): Partial<PostListItem>[] =>
     summary: `Distance: ${Math.round((run.distance / 1609.34) * 100) / 100} mi, Time: ${Math.floor(run.moving_time / 60)} min, Elevation: ${Math.round(
       run.total_elevation_gain * 3.281,
     )} ft`,
-    // image: run.map?.summary_polyline,
+    image: run.map?.summary_polyline,
     url: `https://www.strava.com/activities/${run.id}`,
   }));
 

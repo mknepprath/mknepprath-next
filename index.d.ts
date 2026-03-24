@@ -29,7 +29,8 @@ interface PostListItem {
     | "MUSIC"
     | "HIGHLIGHT"
     | "TROPHY"
-    | "GAME";
+    | "GAME"
+    | "RUN";
   url?: string;
 }
 

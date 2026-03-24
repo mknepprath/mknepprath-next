@@ -7,6 +7,7 @@ import {
   PhotoPost,
   Post,
   RepoPost,
+  RunPost,
   TootPost,
   TrophyPost,
   TweetPost,
@@ -32,31 +33,31 @@ export default function Home(): React.ReactNode {
         </header>
 
         {activity
-          // The `sort` method can be conveniently used with function expressions:
-          // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
           .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-          .map((post) => {
+          .map((post, index) => {
             switch (post.type) {
               case "FILM":
-                return <FilmPost key={post.id} {...post} />;
+                return <FilmPost key={post.id} {...post} index={index} />;
               case "TWEET":
-                return <TweetPost key={post.id} {...post} />;
+                return <TweetPost key={post.id} {...post} index={index} />;
               case "REPO":
-                return <RepoPost key={post.id} {...post} />;
+                return <RepoPost key={post.id} {...post} index={index} />;
               case "BOOK":
-                return <BookPost key={post.id} {...post} />;
+                return <BookPost key={post.id} {...post} index={index} />;
               case "HIGHLIGHT":
-                return <HighlightPost key={post.id} {...post} />;
+                return <HighlightPost key={post.id} {...post} index={index} />;
               case "TOOT":
-                return <TootPost key={post.id} {...post} />;
+                return <TootPost key={post.id} {...post} index={index} />;
               case "PHOTO":
-                return <PhotoPost key={post.id} {...post} />;
+                return <PhotoPost key={post.id} {...post} index={index} />;
               case "MUSIC":
-                return <MusicPost key={post.id} {...post} />;
+                return <MusicPost key={post.id} {...post} index={index} />;
               case "TROPHY":
-                return <TrophyPost key={post.id} {...post} />;
+                return <TrophyPost key={post.id} {...post} index={index} />;
+              case "RUN":
+                return <RunPost key={post.id} {...post} index={index} />;
               default:
-                return <Post key={post.id} {...post} />;
+                return <Post key={post.id} {...post} index={index} />;
             }
           })}
 

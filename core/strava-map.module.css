@@ -1,0 +1,21 @@
+.container {
+  margin-top: 8px;
+}
+
+.route {
+  stroke: var(--primaryColor);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  animation: drawRoute 1.5s ease forwards;
+}
+
+@keyframes drawRoute {
+  from {
+    stroke-dashoffset: var(--path-length);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
