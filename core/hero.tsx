@@ -41,21 +41,30 @@ export default function Hero({ className, onComplete }: Props): React.JSX.Elemen
   return (
     <div className={classnames("container", styles.hero, className)}>
       <h1 className={styles.greeting}>
-        <a
-          className={styles.link}
-          href="https://youtu.be/5-CEGCXDVgI"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          {HELLO.slice(0, helloLen)}
-        </a>
-        {phase !== "hello" && (
-          <>
-            <br />
-            {BODY.slice(0, bodyLen)}
-          </>
-        )}
-        <span className={styles.cursor} />
+        {/* Invisible full text to hold the layout */}
+        <span className={styles.ghost}>
+          <span>{HELLO}</span>
+          <br />
+          {BODY}
+        </span>
+        {/* Visible typed text overlaid */}
+        <span className={styles.typed}>
+          <a
+            className={styles.link}
+            href="https://youtu.be/5-CEGCXDVgI"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {HELLO.slice(0, helloLen)}
+          </a>
+          {phase !== "hello" && (
+            <>
+              <br />
+              {BODY.slice(0, bodyLen)}
+            </>
+          )}
+          <span className={styles.cursor} />
+        </span>
       </h1>
     </div>
   );
