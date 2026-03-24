@@ -644,19 +644,33 @@ const ChessPost = ({
         <div className={styles.chessRule} />
 
         <div className={styles.chessMatch}>
-          <span className={styles.chessYou}>mknepprath</span>
+          <span className={`${styles.chessPlayer} ${isWin ? styles.chessCircled : ""}`}>
+            mknepprath
+            {isWin && (
+              <svg className={styles.chessCircleSvg} viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="25" rx="56" ry="20" className={styles.chessCircle} />
+              </svg>
+            )}
+          </span>
           <div className={styles.chessCenter}>
             <span className={styles.chessResult}>
-              {isWin ? "★ WIN" : isLoss ? "LOSS" : "DRAW"}
+              {isWin ? "WIN" : isLoss ? "LOSS" : "DRAW"}
             </span>
             <div className={styles.chessMeta}>
               {parts["Accuracy"] && (
-                <span>{parts["Accuracy"]} accuracy</span>
+                <span>{parts["Accuracy"]} acc</span>
               )}
               <span>{summary?.split(" · ").pop()}</span>
             </div>
           </div>
-          <span className={styles.chessOpponent}>{title}</span>
+          <span className={`${styles.chessPlayer} ${styles.chessOpponent} ${isLoss ? styles.chessCircled : ""}`}>
+            {title}
+            {isLoss && (
+              <svg className={styles.chessCircleSvg} viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="25" rx="56" ry="20" className={styles.chessCircle} />
+              </svg>
+            )}
+          </span>
         </div>
       </a>
     </ActivityCard>
