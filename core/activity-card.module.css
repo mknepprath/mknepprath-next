@@ -1,42 +1,155 @@
+/*
+ * Activity Card Sticker System
+ *
+ * Design principles:
+ * - Consistent 2.5px stroke on ALL cards (the unifier)
+ * - Harmonious color palette derived from site primary #62bf9b
+ * - Each type has a distinct shape/personality
+ * - White sticker outline + drop shadow for physical feel
+ * - Content stays readable regardless of shape
+ */
+
 .card {
   background: var(--white);
-  border-radius: 6px;
-  border: 1px solid var(--grey);
   padding: 14px 16px;
   position: relative;
   will-change: transform;
+
+  /* The consistent stroke — ties everything together */
+  border: 2.5px solid currentColor;
+
+  /* Physical sticker feel */
+  box-shadow:
+    0 0 0 3px var(--white),
+    2px 3px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* Slight scatter */
+/* Scatter layout */
 .card:not(:first-child) {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
-/* ── Per-type top accent stripe ── */
-.film { border-top: 3px solid #e8b004; }
-.book { border-top: 3px solid #8B4513; }
-.music { border-top: 3px solid var(--primaryColor); }
-.toot { border-top: 3px solid #6364FF; }
-.repo { border-top: 3px solid #333; }
+/* ────────────────────────────────────────────
+   MUSIC — round vinyl sticker
+   ──────────────────────────────────────────── */
+.music {
+  color: #62bf9b;
+  border-radius: 50px;
+  padding: 16px 22px;
+}
+
+/* ────────────────────────────────────────────
+   FILM — ticket stub with notched ends
+   ──────────────────────────────────────────── */
+.film {
+  color: #d4a037;
+  border-radius: 4px;
+  /* Notch effect via radial gradients on the edges */
+  background:
+    radial-gradient(circle at 0 50%, transparent 8px, var(--white) 8.5px),
+    radial-gradient(circle at 100% 50%, transparent 8px, var(--white) 8.5px);
+  /* Pull border inward to avoid clipping the notch */
+  padding: 14px 28px;
+}
+
+/* ────────────────────────────────────────────
+   BOOK — bookmark shape (rounded top, pointed bottom)
+   ──────────────────────────────────────────── */
+.book {
+  color: #a0522d;
+  border-radius: 8px 8px 4px 4px;
+  border-bottom-width: 4px;
+}
+
+/* ────────────────────────────────────────────
+   TOOT — rounded speech bubble
+   ──────────────────────────────────────────── */
+.toot {
+  color: #7B68EE;
+  border-radius: 20px 20px 20px 6px;
+}
+
+/* ────────────────────────────────────────────
+   REPO — badge / shield shape
+   ──────────────────────────────────────────── */
+.repo {
+  color: #5B7FA5;
+  border-radius: 6px 6px 50% 50%;
+  padding-bottom: 24px;
+}
+
+/* ────────────────────────────────────────────
+   HIGHLIGHT — torn edge sticky note
+   ──────────────────────────────────────────── */
 .highlight {
-  border-top: 3px solid #FFD700;
-  background: #fffdf0;
+  color: #D4A037;
+  background: #fffbeb;
+  border-radius: 2px;
+  border-style: dashed;
+  transform-origin: top left;
 }
-.photo { border-top: 3px solid #e0e0e0; }
-.trophy { border-top: 3px solid #c4a032; }
-.tweet { border-top: 3px solid #1DA1F2; }
-.post { border-top: 3px solid var(--primaryColor); }
-.run { border-top: 3px solid #FC4C02; }
-.game { border-top: 3px solid #1b2838; }
-
 @media (prefers-color-scheme: dark) {
   .highlight {
-    background: #2a2820;
+    background: #2a2618;
   }
-  .repo {
-    border-top-color: #58a6ff;
-  }
-  .game {
-    border-top-color: #66c0f4;
-  }
+}
+
+/* ────────────────────────────────────────────
+   PHOTO — polaroid
+   ──────────────────────────────────────────── */
+.photo {
+  color: #b0b0b0;
+  border-radius: 2px;
+  padding: 6px 6px 28px 6px;
+}
+
+/* ────────────────────────────────────────────
+   TROPHY — star badge
+   ──────────────────────────────────────────── */
+.trophy {
+  color: #C4A032;
+  border-radius: 50px;
+  padding: 16px 22px;
+  border-width: 3px;
+  border-style: double;
+}
+
+/* ────────────────────────────────────────────
+   TWEET — classic rounded rect
+   ──────────────────────────────────────────── */
+.tweet {
+  color: #5BA3D9;
+  border-radius: 16px;
+}
+
+/* ────────────────────────────────────────────
+   POST — postage stamp (perforated edges)
+   ──────────────────────────────────────────── */
+.post {
+  color: #62bf9b;
+  border-radius: 2px;
+  border-style: dashed;
+  border-width: 2.5px;
+  padding: 18px 20px;
+  background:
+    radial-gradient(circle, transparent 3px, var(--white) 3.5px) -6px -6px / 12px 12px;
+}
+
+/* ────────────────────────────────────────────
+   RUN — oval race sticker
+   ──────────────────────────────────────────── */
+.run {
+  color: #E8601C;
+  border-radius: 50%;
+  padding: 20px 24px;
+  text-align: center;
+}
+
+/* ────────────────────────────────────────────
+   GAME — rounded rectangle with thick border
+   ──────────────────────────────────────────── */
+.game {
+  color: #6B7FA0;
+  border-radius: 12px;
+  border-width: 3px;
 }
