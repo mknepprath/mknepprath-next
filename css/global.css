@@ -23,7 +23,7 @@
     --selectedColor: #c49bd3;
   }
   #keyart-6 {
-    background-image: linear-gradient(170deg, transparent 55%, #1a1a1a 55%) !important;
+    background-image: linear-gradient(170deg, transparent 82%, #1a1a1a 82%) !important;
   }
 }
 
@@ -50,7 +50,7 @@
   --selectedColor: #c49bd3;
 }
 [data-theme="dark"] #keyart-6 {
-  background-image: linear-gradient(170deg, transparent 55%, #1a1a1a 55%) !important;
+  background-image: linear-gradient(170deg, transparent 82%, #1a1a1a 82%) !important;
 }
 
 ::selection {
