@@ -462,22 +462,28 @@ const RunPost = ({
     });
   }
 
+  // Variant based on distance and activity type
+  const distance = parseFloat(stats["Distance"] || "0");
+  const elevation = parseFloat(stats["Elevation"] || "0");
+  let variant = styles.runVariantDefault;
+  if (action === "Hiked" || action === "Walked") {
+    variant = styles.runVariantHike;
+  } else if (distance >= 10) {
+    variant = styles.runVariantLong;
+  } else if (elevation >= 300) {
+    variant = styles.runVariantHilly;
+  }
+
   return (
     <ActivityCard id={id} type="RUN" index={index}>
       <a
         href={url}
         target="_blank"
         rel="noreferrer"
-        className={styles.runSticker}
+        className={`${styles.runSticker} ${variant}`}
       >
         <div className={styles.runInner}>
           <div className={styles.runLayout}>
-            {image ? (
-              <div className={styles.runMapCol}>
-                <StravaMap polyline={image} />
-              </div>
-            ) : null}
-
             <div className={styles.runInfoCol}>
               <div className={styles.runTop}>
                 <div className={styles.runDot} />
@@ -510,6 +516,12 @@ const RunPost = ({
                 {format(parseISO(date), "MMM d, yyyy")}
               </div>
             </div>
+
+            {image ? (
+              <div className={styles.runMapCol}>
+                <StravaMap polyline={image} />
+              </div>
+            ) : null}
           </div>
         </div>
       </a>

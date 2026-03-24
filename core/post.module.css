@@ -54,10 +54,10 @@
   background: #f5f0e8;
   border: 3px solid #2c3e2d;
   border-radius: 12px;
-  padding: 6px;
-  /* Sticker shadow — soft, consistent with site */
+  padding: 10px;
+  /* Sticker shadow — wide parchment bleed + soft shadow */
   box-shadow:
-    0 0 0 2px #f5f0e8,
+    0 0 0 8px #f5f0e8,
     0px 2px 4px rgba(0, 0, 0, 0.1),
     0px 4px 12px rgba(0, 0, 0, 0.06);
 
@@ -66,7 +66,7 @@
 .runSticker:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 0 0 2px #f5f0e8,
+    0 0 0 8px #f5f0e8,
     0px 4px 8px rgba(0, 0, 0, 0.12),
     0px 8px 20px rgba(0, 0, 0, 0.08);
 }
@@ -143,8 +143,8 @@
     flex: 0 0 30%;
     border-top: none;
     border-bottom: none;
-    border-right: 1px solid #c8bfb0;
-    padding: 0 16px 0 0;
+    border-left: 1px solid #c8bfb0;
+    padding: 0 0 0 16px;
     margin: 0;
   }
 }
@@ -177,6 +177,51 @@
   color: #2c3e2d;
   letter-spacing: 0.3px;
 }
+
+/* ── Variants ── */
+
+/* Default: olive green + orange dot */
+.runVariantDefault .runDot { background: #e05a2b; }
+.runVariantDefault .runLabel { background: #2c3e2d; }
+
+/* Long run (10+ mi): deep navy + gold */
+.runVariantLong {
+  border-color: #1a2744;
+  background: #eae5da;
+}
+.runVariantLong .runInner { border-color: #1a2744; }
+.runVariantLong .runDot { background: #d4a037; }
+.runVariantLong .runLabel { background: #1a2744; }
+.runVariantLong .runTitle { color: #1a2744; }
+.runVariantLong .runStatValue { color: #1a2744; }
+.runVariantLong .runSticker {
+  box-shadow:
+    0 0 0 2px #eae5da,
+    0px 2px 4px rgba(0, 0, 0, 0.1),
+    0px 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Hilly (300+ ft elevation): terracotta + cream */
+.runVariantHilly {
+  border-color: #8b4513;
+  background: #f5ede0;
+}
+.runVariantHilly .runInner { border-color: #8b4513; }
+.runVariantHilly .runDot { background: #c75b2a; }
+.runVariantHilly .runLabel { background: #8b4513; }
+.runVariantHilly .runTitle { color: #8b4513; }
+.runVariantHilly .runStatValue { color: #8b4513; }
+
+/* Hike/Walk: forest green + lighter background */
+.runVariantHike {
+  border-color: #3a5a40;
+  background: #ecf0e8;
+}
+.runVariantHike .runInner { border-color: #3a5a40; }
+.runVariantHike .runDot { background: #6b8f5e; }
+.runVariantHike .runLabel { background: #3a5a40; }
+.runVariantHike .runTitle { color: #3a5a40; }
+.runVariantHike .runStatValue { color: #3a5a40; }
 
 /* Date footer */
 .runDate {
