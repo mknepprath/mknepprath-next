@@ -7,3 +7,25 @@
 .card:not(:first-child) {
   margin-top: 0;
 }
+
+/* Glossy specular highlight — rendered as a div, positioned by JS */
+.glossHighlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.glossy:hover .glossHighlight {
+  opacity: 1;
+}
+
+/* On touch devices, always show (driven by gyro) */
+@media (hover: none) {
+  .glossHighlight {
+    opacity: 1;
+  }
+}
