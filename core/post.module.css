@@ -16,14 +16,14 @@
   display: flex;
   text-decoration: none;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: visible;
+  border: 8px solid #f5f0e8;
   box-shadow:
     0px 2px 6px rgba(0, 0, 0, 0.12),
     0px 6px 16px rgba(0, 0, 0, 0.07);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .ticket:hover {
-  transform: translateY(-2px) rotate(-0.5deg);
   box-shadow:
     0px 4px 10px rgba(0, 0, 0, 0.14),
     0px 10px 24px rgba(0, 0, 0, 0.09);
