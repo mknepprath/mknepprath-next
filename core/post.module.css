@@ -825,3 +825,156 @@
     color: #7a7040;
   }
 }
+
+/* ─────────────────────────────────────────────────
+   CHESS — tournament result slip
+   Cool grey-blue, two-player layout, result accent.
+   ───────────────────────────────────────────────── */
+
+.chessCard {
+  display: block;
+  text-decoration: none;
+  background: #eef1f5;
+  border-radius: 4px;
+  padding: 16px 20px;
+  max-width: 320px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.08),
+    0px 6px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.chessCard:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.1),
+    0px 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Header: piece + time class */
+.chessHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.chessPiece {
+  font-size: 18px;
+  line-height: 1;
+  color: #555;
+}
+.chessTimeClass {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8090a0;
+  font-family: Consolas, Monaco, monospace;
+}
+
+/* Thin ruled line */
+.chessRule {
+  height: 1px;
+  background: #d0d8e0;
+  margin: 8px 0;
+}
+
+/* Players */
+.chessPlayers {
+  text-align: center;
+  padding: 6px 0;
+}
+.chessYou {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2a3040;
+}
+.chessVs {
+  display: block;
+  font-size: 11px;
+  color: #8090a0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 4px 0;
+}
+.chessOpponent {
+  display: block;
+  font-size: 16px;
+  color: #4a5568;
+}
+
+/* Result — changes by outcome */
+.chessResult {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 0;
+}
+.chessWin .chessResult {
+  color: #2d7a3a;
+}
+.chessLoss .chessResult {
+  color: #a04040;
+}
+.chessDraw .chessResult {
+  color: #8090a0;
+}
+
+/* Win/loss accent on the left edge */
+.chessWin {
+  border-left: 4px solid #2d7a3a;
+}
+.chessLoss {
+  border-left: 4px solid #a04040;
+}
+.chessDraw {
+  border-left: 4px solid #8090a0;
+}
+
+/* Meta: accuracy + opening */
+.chessMeta {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6a7a8a;
+  margin-top: 4px;
+}
+
+/* Date */
+.chessDate {
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8a9aaa;
+  margin-top: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .chessCard {
+    background: #1e2430;
+  }
+  .chessRule {
+    background: #2a3444;
+  }
+  .chessYou {
+    color: #d0d8e8;
+  }
+  .chessOpponent {
+    color: #8a9ab0;
+  }
+  .chessPiece {
+    color: #8a9ab0;
+  }
+  .chessTimeClass {
+    color: #5a6a80;
+  }
+  .chessMeta {
+    color: #5a6a80;
+  }
+  .chessDate {
+    color: #4a5a70;
+  }
+}

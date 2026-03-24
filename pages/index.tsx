@@ -5,6 +5,7 @@ import Nav from "@core/nav";
 import Parallax from "@core/parallax";
 import {
   BookPost,
+  ChessPost,
   FilmPost,
   HighlightPost,
   MusicPost,
@@ -84,6 +85,8 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
                 return <TrophyPost key={post.id} {...post} index={index} />;
               case "RUN":
                 return <RunPost key={post.id} {...post} index={index} />;
+              case "CHESS":
+                return <ChessPost key={post.id} {...post} index={index} />;
               default:
                 return <Post key={post.id} {...post} index={index} />;
             }

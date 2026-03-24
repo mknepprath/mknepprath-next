@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Page from "@core/page";
 import {
   BookPost,
+  ChessPost,
   FilmPost,
   HighlightPost,
   MusicPost,
@@ -39,6 +40,7 @@ const POST_MAP: Record<string, React.ComponentType<PostListItem & { index?: numb
   MUSIC: MusicPost,
   TROPHY: TrophyPost,
   RUN: RunPost,
+  CHESS: ChessPost,
 };
 
 interface Props {

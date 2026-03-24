@@ -595,9 +595,83 @@ const RunPost = ({
   );
 };
 
+const ChessPost = ({
+  action,
+  date,
+  id,
+  index = 0,
+  summary,
+  title,
+  url,
+}: PostProps) => {
+  // Parse "Rating: 780 · Accuracy: 79.9% · King's Pawn Opening"
+  const parts: Record<string, string> = {};
+  if (summary) {
+    summary.split(" · ").forEach((part) => {
+      const [key, ...rest] = part.split(": ");
+      if (key && rest.length) parts[key.trim()] = rest.join(":").trim();
+    });
+  }
+
+  const isWin = action?.startsWith("Won");
+  const isLoss = action?.startsWith("Lost");
+  const resultClass = isWin
+    ? styles.chessWin
+    : isLoss
+      ? styles.chessLoss
+      : styles.chessDraw;
+
+  return (
+    <ActivityCard id={id} type="CHESS" index={index}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={`${styles.chessCard} ${resultClass}`}
+      >
+        <div className={styles.chessHeader}>
+          <span className={styles.chessPiece}>♚</span>
+          <span className={styles.chessTimeClass}>
+            {parts["Rating"] ? `RATED ${parts["Rating"]}` : "CHESS"}
+          </span>
+        </div>
+
+        <div className={styles.chessRule} />
+
+        <div className={styles.chessPlayers}>
+          <span className={styles.chessYou}>mknepprath</span>
+          <span className={styles.chessVs}>vs</span>
+          <span className={styles.chessOpponent}>{title}</span>
+        </div>
+
+        <div className={styles.chessRule} />
+
+        <div className={styles.chessResult}>
+          {isWin ? "★ WIN" : isLoss ? "LOSS" : "DRAW"}
+        </div>
+
+        <div className={styles.chessMeta}>
+          {parts["Accuracy"] && (
+            <span>{parts["Accuracy"]} accuracy</span>
+          )}
+          {parts["Accuracy"] && summary?.includes("·") && <span>·</span>}
+          <span>
+            {summary?.split(" · ").pop()}
+          </span>
+        </div>
+
+        <div className={styles.chessDate}>
+          {format(parseISO(date), "MMM d, yyyy")}
+        </div>
+      </a>
+    </ActivityCard>
+  );
+};
+
 export {
   Post,
   BookPost,
+  ChessPost,
   HighlightPost,
   FilmPost,
   RepoPost,
