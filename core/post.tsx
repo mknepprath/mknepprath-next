@@ -664,6 +664,7 @@ const ChessPost = ({
               {parts["Accuracy"] && (
                 <span>{parts["Accuracy"]} acc</span>
               )}
+              {parts["Accuracy"] && <span>·</span>}
               <span>{summary?.split(" · ").pop()}</span>
             </div>
           </div>
