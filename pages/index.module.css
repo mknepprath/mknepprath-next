@@ -11,7 +11,8 @@
   }
 }
 .nav a,
-.nav span {
+.nav span,
+.nav button {
   color: var(--primaryColor);
 }
 
