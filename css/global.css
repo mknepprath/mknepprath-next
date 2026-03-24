@@ -44,6 +44,18 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Blog page background — covers entire viewport */
+html:has([data-page="blog"]),
+body:has([data-page="blog"]) {
+  background-color: #f4f1eb;
+}
+@media (prefers-color-scheme: dark) {
+  html:has([data-page="blog"]),
+  body:has([data-page="blog"]) {
+    background-color: #2a2820;
+  }
+}
+
 h1,
 h2,
 h3,

@@ -7,9 +7,6 @@
 .blogContainer {
   background: #f4f1eb;
   min-height: 100dvh;
-  /* Extend bg behind nav/status bar area */
-  margin: -100px 0 0;
-  padding-top: 100px;
 }
 
 

@@ -44,7 +44,7 @@ export default function BlogPage({
   const { data: tweet } = useSWR(`/api/v1/tweet/${tweetId}`, fetcher);
 
   return (
-    <div className={classnames("container", styles.blogContainer, className)}>
+    <div className={classnames("container", styles.blogContainer, className)} data-page="blog">
       <Head title={title} description={description} ogImage={ogImage} />
       <ReadingProgress />
       <Nav />
