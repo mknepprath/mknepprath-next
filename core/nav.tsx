@@ -7,7 +7,6 @@ import Link from "next/link";
 // Data
 import { navLinks } from "@data/links";
 
-import ThemeToggle from "./theme-toggle";
 import styles from "./nav.module.css";
 
 interface Props {
@@ -47,7 +46,6 @@ export default function Nav({ className }: Props): React.JSX.Element {
           <Link href="/about">About</Link>
         </li>
       </ul>
-      <ThemeToggle />
     </nav>
   );
 }

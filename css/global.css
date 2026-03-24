@@ -27,31 +27,6 @@
   }
 }
 
-/* Manual override: light */
-[data-theme="light"] {
-  --black: #333333;
-  --grey: #eceff1;
-  --white: #ffffff;
-  --hoverColor: #6cd48f;
-  --primaryColor: #62bf9b;
-  --selectedColor: #b984c8;
-}
-[data-theme="light"] #keyart-6 {
-  background-image: url('/assets/parallax-6.png') !important;
-}
-
-/* Manual override: dark */
-[data-theme="dark"] {
-  --black: #e8e8e8;
-  --grey: #2a2a2a;
-  --white: #1a1a1a;
-  --hoverColor: #6cd48f;
-  --primaryColor: #6ec9a5;
-  --selectedColor: #c49bd3;
-}
-[data-theme="dark"] #keyart-6 {
-  background-image: linear-gradient(185deg, transparent 88%, #1a1a1a 88%) !important;
-}
 
 ::selection {
   background-color: var(--selectedColor);
