@@ -17,6 +17,8 @@
 /* Invisible text that holds the full layout width */
 .ghost {
   visibility: hidden;
+  font: inherit !important;
+  font-weight: bold !important;
 }
 
 /* Visible typed text positioned over the ghost */
@@ -25,6 +27,8 @@
   top: 0;
   left: 8px;
   right: 0;
+  font: inherit !important;
+  font-weight: bold !important;
 }
 
 @media (min-width: 632px) {
