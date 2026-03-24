@@ -654,11 +654,15 @@ const ChessPost = ({
             {isWin && (
               <svg
                 className={styles.chessCircleSvg}
-                viewBox="0 0 100 40"
+                viewBox="0 0 200 80"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ transform: `translate(-50%, -50%) rotate(${circleRotate}deg)` }}
               >
-                <ellipse cx="50" cy="20" rx="46" ry="16" className={styles.chessCircle} />
+                <path
+                  className={styles.chessCircle}
+                  d="M 40 12 C 70 4, 140 2, 170 14 C 192 24, 196 42, 178 56 C 156 70, 110 76, 60 68 C 24 62, 6 44, 12 28 C 16 18, 28 13, 44 14"
+                  fill="none"
+                />
               </svg>
             )}
           </span>
@@ -679,11 +683,15 @@ const ChessPost = ({
             {isLoss && (
               <svg
                 className={styles.chessCircleSvg}
-                viewBox="0 0 100 40"
+                viewBox="0 0 200 80"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ transform: `translate(-50%, -50%) rotate(${circleRotate}deg)` }}
               >
-                <ellipse cx="50" cy="20" rx="46" ry="16" className={styles.chessCircle} />
+                <path
+                  className={styles.chessCircle}
+                  d="M 40 12 C 70 4, 140 2, 170 14 C 192 24, 196 42, 178 56 C 156 70, 110 76, 60 68 C 24 62, 6 44, 12 28 C 16 18, 28 13, 44 14"
+                  fill="none"
+                />
               </svg>
             )}
           </span>
