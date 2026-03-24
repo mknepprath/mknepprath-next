@@ -630,38 +630,33 @@ const ChessPost = ({
         className={`${styles.chessCard} ${resultClass}`}
       >
         <div className={styles.chessHeader}>
-          <span className={styles.chessPiece}>♚</span>
-          <span className={styles.chessTimeClass}>
-            {parts["Rating"] ? `RATED ${parts["Rating"]}` : "CHESS"}
+          <div className={styles.chessHeaderLeft}>
+            <span className={styles.chessPiece}>♚</span>
+            <span className={styles.chessTimeClass}>
+              {parts["Rating"] ? `RATED ${parts["Rating"]}` : "CHESS"}
+            </span>
+          </div>
+          <span className={styles.chessDate}>
+            {format(parseISO(date), "MMM d, yyyy")}
           </span>
         </div>
 
         <div className={styles.chessRule} />
 
-        <div className={styles.chessPlayers}>
+        <div className={styles.chessMatch}>
           <span className={styles.chessYou}>mknepprath</span>
-          <span className={styles.chessVs}>vs</span>
+          <div className={styles.chessCenter}>
+            <span className={styles.chessResult}>
+              {isWin ? "★ WIN" : isLoss ? "LOSS" : "DRAW"}
+            </span>
+            <div className={styles.chessMeta}>
+              {parts["Accuracy"] && (
+                <span>{parts["Accuracy"]} accuracy</span>
+              )}
+              <span>{summary?.split(" · ").pop()}</span>
+            </div>
+          </div>
           <span className={styles.chessOpponent}>{title}</span>
-        </div>
-
-        <div className={styles.chessRule} />
-
-        <div className={styles.chessResult}>
-          {isWin ? "★ WIN" : isLoss ? "LOSS" : "DRAW"}
-        </div>
-
-        <div className={styles.chessMeta}>
-          {parts["Accuracy"] && (
-            <span>{parts["Accuracy"]} accuracy</span>
-          )}
-          {parts["Accuracy"] && summary?.includes("·") && <span>·</span>}
-          <span>
-            {summary?.split(" · ").pop()}
-          </span>
-        </div>
-
-        <div className={styles.chessDate}>
-          {format(parseISO(date), "MMM d, yyyy")}
         </div>
       </a>
     </ActivityCard>
