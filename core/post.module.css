@@ -453,6 +453,74 @@
 }
 
 /* ─────────────────────────────────────────────────
+   PHOTO — Polaroid
+   ───────────────────────────────────────────────── */
+
+.polaroid {
+  display: block;
+  text-decoration: none;
+  background: #faf9f6;
+  padding: 10px 10px 0;
+  border-radius: 3px;
+  max-width: 360px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.polaroid:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Photo frame */
+.polaroidFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+
+/* Caption area — the thick bottom */
+.polaroidCaption {
+  padding: 12px 4px 16px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.polaroidText {
+  font-family: 'Caveat', cursive !important;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.3;
+}
+
+.polaroidDate {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .polaroid {
+    background: #2a2a2a;
+  }
+  .polaroidFrame {
+    background: #1a1a1a;
+  }
+  .polaroidText {
+    color: #bbb;
+  }
+  .polaroidDate {
+    color: #666;
+  }
+}
+
+/* ─────────────────────────────────────────────────
    BOOK — library catalog card
    Manila card, ruled lines, red header, catalog hole.
    ───────────────────────────────────────────────── */

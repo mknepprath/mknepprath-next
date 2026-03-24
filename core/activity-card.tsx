@@ -17,7 +17,7 @@ function hashToRotation(id: string): number {
   return ((Math.abs(hash) % 1000) / 1000) * 3 - 1.5;
 }
 
-const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC", "TOOT", "POST", "BOOK"]);
+const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC", "TOOT", "POST", "BOOK", "PHOTO"]);
 
 const typeClassMap: Record<string, string> = {
   FILM: styles.film,

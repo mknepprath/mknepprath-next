@@ -291,27 +291,29 @@ const PhotoPost = ({
   url,
 }: PostProps) => (
   <ActivityCard id={id} type="PHOTO" index={index}>
-    <article key={id}>
-      <header>
-        <Link href={`${url}`}>
-          <div
-            className="fill-image bordered-image"
-            style={{ height: `calc(100vw / 2)`, maxHeight: 420 }}
-          >
-            <Image
-              alt={`cover image for ${title}`}
-              className="corner-radius-8"
-              src={image || ""}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        </Link>{" "}
-        <small>
-          {action} on {format(parseISO(date), "MMMM d, yyyy")}
-        </small>
-      </header>
-    </article>
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={styles.polaroid}
+    >
+      <div className={styles.polaroidFrame}>
+        {image && (
+          <Image
+            alt={title || "photo"}
+            src={image}
+            layout="fill"
+            objectFit="cover"
+          />
+        )}
+      </div>
+      <div className={styles.polaroidCaption}>
+        {title && <span className={styles.polaroidText}>{title}</span>}
+        <span className={styles.polaroidDate}>
+          {action} · {format(parseISO(date), "MMM d")}
+        </span>
+      </div>
+    </a>
   </ActivityCard>
 );
 
