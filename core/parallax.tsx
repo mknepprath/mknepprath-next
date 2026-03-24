@@ -38,26 +38,8 @@ export default function Parallax(): React.JSX.Element {
     setTimeout(() => setCatPhase("animating"), 400);
   }, []);
 
-
-  const keyartRef = useRef<HTMLDivElement>(null);
-
-  // Reset cat when parallax scrolls out of view, re-animate when it returns
-  useEffect(() => {
-    const el = keyartRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setCatPhase((prev) => {
-          if (!entry.isIntersecting && prev === "done") return "hidden";
-          if (entry.isIntersecting && prev === "hidden") return "animating";
-          return prev;
-        });
-      },
-      { threshold: 0.1 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+  const handleCatAnimationEnd = useCallback(() => {
+    setCatPhase("done");
   }, []);
 
   useEffect(() => {
@@ -86,7 +68,7 @@ export default function Parallax(): React.JSX.Element {
   }, [catPhase]);
 
   return (
-    <div className={styles.keyart} id="parallax" ref={keyartRef}>
+    <div className={styles.keyart} id="parallax">
       {LAYERS.map((layer, i) => (
         <Layer
           key={layer.id}
@@ -102,13 +84,7 @@ export default function Parallax(): React.JSX.Element {
               : undefined
           }
           onAnimationEnd={
-            i === CAT_INDEX
-              ? () => {
-                  if (catPhase === "animating") {
-                    setCatPhase("done");
-                  }
-                }
-              : undefined
+            i === CAT_INDEX ? handleCatAnimationEnd : undefined
           }
         >
           {layer.id === "7" ? (
