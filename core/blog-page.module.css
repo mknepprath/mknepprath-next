@@ -6,7 +6,11 @@
 
 .blogContainer {
   background: #f4f1eb;
-  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+:global(body:has(.blogContainer)) {
+  background: #f4f1eb;
 }
 
 .article {
@@ -83,6 +87,9 @@
 
 @media (prefers-color-scheme: dark) {
   .blogContainer {
+    background: #2a2820;
+  }
+  :global(body:has(.blogContainer)) {
     background: #2a2820;
   }
   .articleBody h1 {
