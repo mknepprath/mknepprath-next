@@ -36,6 +36,9 @@
   --primaryColor: #62bf9b;
   --selectedColor: #b984c8;
 }
+[data-theme="light"] #keyart-6 {
+  background-image: url('/assets/parallax-6.png') !important;
+}
 
 /* Manual override: dark */
 [data-theme="dark"] {
