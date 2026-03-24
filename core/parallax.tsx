@@ -60,7 +60,7 @@ export default function Parallax(): React.JSX.Element {
         // Hide cat when scrolled down, show when back near top
         if (catPhase === "done" && y > CAT_HIDE_THRESHOLD) {
           setCatPhase("scrolledAway");
-        } else if (catPhase === "scrolledAway" && y <= CAT_HIDE_THRESHOLD) {
+        } else if (catPhase === "scrolledAway" && y <= 20) {
           setCatPhase("returning");
         }
       });
