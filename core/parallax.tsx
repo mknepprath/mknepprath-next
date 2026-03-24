@@ -23,7 +23,7 @@ const MOBILE_QUERY = "(max-width: 632px)";
 export default function Parallax(): React.JSX.Element {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rafId = useRef(0);
-  const [catPhase, setCatPhase] = useState<"hidden" | "animating" | "done" | "scrolledAway" | "returning">(
+  const [catPhase, setCatPhase] = useState<"hidden" | "animating" | "done">(
     "hidden",
   );
 
@@ -39,7 +39,26 @@ export default function Parallax(): React.JSX.Element {
   }, []);
 
 
-  const CAT_HIDE_THRESHOLD = 150;
+  const keyartRef = useRef<HTMLDivElement>(null);
+
+  // Reset cat when parallax scrolls out of view, re-animate when it returns
+  useEffect(() => {
+    const el = keyartRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setCatPhase((prev) => {
+          if (!entry.isIntersecting && prev === "done") return "hidden";
+          if (entry.isIntersecting && prev === "hidden") return "animating";
+          return prev;
+        });
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia(MOBILE_QUERY);
@@ -56,13 +75,6 @@ export default function Parallax(): React.JSX.Element {
             el.style.transform = `translate3d(0px,${y * -LAYERS[i].speed}px,0px)`;
           }
         }
-
-        // Hide cat when scrolled down, show when back near top
-        if (catPhase === "done" && y > CAT_HIDE_THRESHOLD) {
-          setCatPhase("scrolledAway");
-        } else if (catPhase === "scrolledAway" && y <= 20) {
-          setCatPhase("returning");
-        }
       });
     };
 
@@ -74,7 +86,7 @@ export default function Parallax(): React.JSX.Element {
   }, [catPhase]);
 
   return (
-    <div className={styles.keyart} id="parallax">
+    <div className={styles.keyart} id="parallax" ref={keyartRef}>
       {LAYERS.map((layer, i) => (
         <Layer
           key={layer.id}
@@ -84,17 +96,15 @@ export default function Parallax(): React.JSX.Element {
             i === CAT_INDEX
               ? catPhase === "hidden"
                 ? styles.catHidden
-                : catPhase === "animating" || catPhase === "returning"
+                : catPhase === "animating"
                   ? styles.catVisible
-                  : catPhase === "scrolledAway"
-                    ? styles.catHiding
-                    : undefined
+                  : undefined
               : undefined
           }
           onAnimationEnd={
             i === CAT_INDEX
               ? () => {
-                  if (catPhase === "animating" || catPhase === "returning") {
+                  if (catPhase === "animating") {
                     setCatPhase("done");
                   }
                 }

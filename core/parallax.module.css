@@ -17,20 +17,11 @@
   animation: catPeek 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.catHiding {
-  animation: catDuck 0.6s cubic-bezier(0.55, 0, 1, 0.45) forwards;
-}
-
 @keyframes catPeek {
   0% { transform: translateY(150px); }
   40% { transform: translateY(40px); }
   55% { transform: translateY(50px); }
   100% { transform: translateY(0px); }
-}
-
-@keyframes catDuck {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(150px); }
 }
 
 @media (min-width: 632px) {
@@ -48,9 +39,5 @@
     40% { transform: translateY(80px); }
     55% { transform: translateY(100px); }
     100% { transform: translateY(0px); }
-  }
-  @keyframes catDuck {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(300px); }
   }
 }
