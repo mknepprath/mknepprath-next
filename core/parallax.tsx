@@ -23,7 +23,7 @@ const MOBILE_QUERY = "(max-width: 632px)";
 export default function Parallax(): React.JSX.Element {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rafId = useRef(0);
-  const [catPhase, setCatPhase] = useState<"hidden" | "animating" | "done">(
+  const [catPhase, setCatPhase] = useState<"hidden" | "animating" | "done" | "scrolledAway" | "returning">(
     "hidden",
   );
 
@@ -38,9 +38,8 @@ export default function Parallax(): React.JSX.Element {
     setTimeout(() => setCatPhase("animating"), 400);
   }, []);
 
-  const handleCatAnimationEnd = useCallback(() => {
-    setCatPhase("done");
-  }, []);
+
+  const CAT_HIDE_THRESHOLD = 150;
 
   useEffect(() => {
     const mq = window.matchMedia(MOBILE_QUERY);
@@ -51,11 +50,18 @@ export default function Parallax(): React.JSX.Element {
       rafId.current = requestAnimationFrame(() => {
         const y = window.pageYOffset;
         for (let i = 0; i < LAYERS.length; i++) {
-          if (i === CAT_INDEX && catPhase !== "done") continue;
+          if (i === CAT_INDEX && catPhase !== "done" && catPhase !== "scrolledAway" && catPhase !== "returning") continue;
           const el = layerRefs.current[i];
           if (el) {
             el.style.transform = `translate3d(0px,${y * -LAYERS[i].speed}px,0px)`;
           }
+        }
+
+        // Hide cat when scrolled down, show when back near top
+        if (catPhase === "done" && y > CAT_HIDE_THRESHOLD) {
+          setCatPhase("scrolledAway");
+        } else if (catPhase === "scrolledAway" && y <= CAT_HIDE_THRESHOLD) {
+          setCatPhase("returning");
         }
       });
     };
@@ -78,13 +84,21 @@ export default function Parallax(): React.JSX.Element {
             i === CAT_INDEX
               ? catPhase === "hidden"
                 ? styles.catHidden
-                : catPhase === "animating"
+                : catPhase === "animating" || catPhase === "returning"
                   ? styles.catVisible
-                  : undefined
+                  : catPhase === "scrolledAway"
+                    ? styles.catHiding
+                    : undefined
               : undefined
           }
           onAnimationEnd={
-            i === CAT_INDEX ? handleCatAnimationEnd : undefined
+            i === CAT_INDEX
+              ? () => {
+                  if (catPhase === "animating" || catPhase === "returning") {
+                    setCatPhase("done");
+                  }
+                }
+              : undefined
           }
         >
           {layer.id === "7" ? (
