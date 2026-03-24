@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import A from "@core/a";
 import ActivityCard from "@core/activity-card";
 import StravaMap from "@core/strava-map";
 import { format, parseISO } from "date-fns";
@@ -428,36 +427,33 @@ const TootPost = ({
   image,
   index = 0,
   summary,
-  title,
   url,
 }: PostProps) => (
   <ActivityCard id={id} type="TOOT" index={index}>
-    <article key={id}>
-      <header>
-        {image ? (
-          <A href={url || ""}>
-            <div className="fill-image bordered-image" style={{ height: 200 }}>
-              <Image
-                alt={`cover image for ${title}`}
-                className="corner-radius-8"
-                src={image}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          </A>
-        ) : null}
-        <div
-          className={styles.tweet}
-          dangerouslySetInnerHTML={{ __html: summary || "" }}
-        />
-        <small>
-          <A href={url || ""}>
-            {action} on {format(parseISO(date), "MMMM d, yyyy")}
-          </A>
-        </small>
-      </header>
-    </article>
+    <a
+      href={url || "#"}
+      target="_blank"
+      rel="noreferrer"
+      className={styles.stickyNote}
+    >
+      {image ? (
+        <div className={styles.stickyImage}>
+          <Image
+            alt="attached image"
+            src={image}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      ) : null}
+      <div
+        className={styles.stickyText}
+        dangerouslySetInnerHTML={{ __html: summary || "" }}
+      />
+      <div className={styles.stickyDate}>
+        {action} · {format(parseISO(date), "MMM d")}
+      </div>
+    </a>
   </ActivityCard>
 );
 

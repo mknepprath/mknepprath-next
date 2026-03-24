@@ -10,14 +10,15 @@ interface ActivityCardProps {
 }
 
 function hashToRotation(id: string): number {
-  let hash = 0;
+  let hash = 5381;
   for (let i = 0; i < id.length; i++) {
-    hash = (hash * 31 + id.charCodeAt(i)) | 0;
+    hash = ((hash << 5) + hash + id.charCodeAt(i)) | 0;
   }
-  return ((hash % 600) / 600) * 3 - 1.5;
+  // Use absolute value, mod to get 0-999, map to [-1.5, 1.5]
+  return ((Math.abs(hash) % 1000) / 1000) * 3 - 1.5;
 }
 
-const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC"]);
+const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC", "TOOT"]);
 
 const typeClassMap: Record<string, string> = {
   FILM: styles.film,
