@@ -1,6 +1,19 @@
 .writingPage {
   background: #f4f1eb;
   min-height: 100vh;
+  position: relative;
+}
+
+/* Paper noise texture overlay */
+.writingPage::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  mix-blend-mode: multiply;
 }
 
 .heading {
@@ -33,9 +46,20 @@
 }
 
 .post {
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  padding: 12px 0;
+  transition: opacity 0.4s ease, transform 0.4s ease, border-left-color 0.3s ease;
+  padding: 12px 0 12px 12px;
   border-bottom: 1px solid #ddd8cc;
+  border-left: 2px solid transparent;
+}
+.post:hover {
+  border-left-color: var(--primaryColor);
+}
+
+/* Section sign before each title */
+.title::before {
+  content: "§";
+  margin-right: 8px;
+  color: #c0b8a8;
 }
 
 .title {
@@ -51,6 +75,7 @@
 }
 
 .date {
+  font-family: Charter, Georgia, serif !important;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -60,6 +85,10 @@
 @media (prefers-color-scheme: dark) {
   .writingPage {
     background: #2a2820;
+  }
+  .writingPage::after {
+    mix-blend-mode: soft-light;
+    opacity: 0.3;
   }
   .heading {
     color: #e8e0d0;
@@ -72,6 +101,9 @@
   }
   .title {
     color: #e8e0d0;
+  }
+  .title::before {
+    color: #4a4438;
   }
   .date {
     color: #6a6458;

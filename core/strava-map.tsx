@@ -114,6 +114,18 @@ const StravaMap = ({ polyline }: StravaMapProps) => {
         preserveAspectRatio="xMidYMid meet"
       >
         <path
+          className={styles.routeGlow}
+          d={d}
+          style={
+            pathLength && visible
+              ? ({
+                  strokeDasharray: pathLength,
+                  "--path-length": pathLength,
+                } as React.CSSProperties)
+              : { opacity: 0 }
+          }
+        />
+        <path
           ref={pathRef}
           className={styles.route}
           d={d}

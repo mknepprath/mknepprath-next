@@ -12,9 +12,18 @@
   max-height: 200px;
 }
 
+.routeGlow {
+  stroke: rgba(44, 110, 73, 0.25);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  animation: drawRoute 1.5s ease forwards;
+}
+
 .route {
-  stroke: var(--primaryColor);
-  stroke-width: 2;
+  stroke: #2c6e49;
+  stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
