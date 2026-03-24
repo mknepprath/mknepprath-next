@@ -459,21 +459,30 @@
 .stickyNote {
   display: block;
   text-decoration: none;
-  background: #fff4b8;
-  border: 8px solid #f5f0e8;
-  border-radius: 6px;
-  padding: 18px 20px 14px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 40%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.03) 100%
+    ),
+    #fff4b8;
+  border: none;
+  border-radius: 2px 2px 4px 4px;
+  padding: 20px 22px 16px;
+  /* Asymmetric shadow — curled bottom-right corner */
   box-shadow:
-    0px 2px 4px rgba(0, 0, 0, 0.06),
-    0px 6px 12px rgba(0, 0, 0, 0.04),
-    3px 6px 8px rgba(0, 0, 0, 0.03);
+    0px 1px 2px rgba(0, 0, 0, 0.06),
+    2px 4px 6px rgba(0, 0, 0, 0.05),
+    4px 8px 10px -2px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .stickyNote:hover {
   box-shadow:
-    0px 4px 8px rgba(0, 0, 0, 0.08),
-    0px 10px 20px rgba(0, 0, 0, 0.05),
-    4px 8px 12px rgba(0, 0, 0, 0.04);
+    0px 2px 4px rgba(0, 0, 0, 0.08),
+    3px 6px 10px rgba(0, 0, 0, 0.06),
+    6px 12px 16px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Image attachment */
@@ -512,8 +521,15 @@
 
 @media (prefers-color-scheme: dark) {
   .stickyNote {
-    background: #3a3418;
-    border-color: #2a2a2a;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 40%,
+        transparent 85%,
+        rgba(0, 0, 0, 0.06) 100%
+      ),
+      #3a3418;
   }
   .stickyText {
     color: #e0d8a0;
