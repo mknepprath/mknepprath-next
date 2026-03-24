@@ -1,5 +1,6 @@
 import { useSpring, animated } from "react-spring";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { playPop } from "@lib/sounds";
 import styles from "./activity-card.module.css";
 
 interface ActivityCardProps {
@@ -54,6 +55,7 @@ export default function ActivityCard({
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+          if (isStyled) playPop();
           observer.disconnect();
         }
       },

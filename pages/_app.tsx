@@ -1,5 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { useTransition, animated } from "react-spring";
+import { useEffect, useRef } from "react";
+import { playPageTurn } from "@lib/sounds";
 
 import { AppProps } from "next/app";
 import localFont from "next/font/local";
@@ -17,6 +19,15 @@ export default function MyApp({
   pageProps,
 }: AppProps): React.ReactNode {
   const router = useRouter();
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    playPageTurn();
+  }, [router.pathname]);
 
   const transitions = useTransition(router.pathname, {
     key: router.pathname,

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Hero from "@core/hero";
 import Layer from "@core/layer";
+import { playCatChirp } from "@lib/sounds";
 
 import layerStyles from "./layer.module.css";
 import styles from "./parallax.module.css";
@@ -35,7 +36,10 @@ export default function Parallax(): React.JSX.Element {
   );
 
   const handleTypingComplete = useCallback(() => {
-    setTimeout(() => setCatPhase("animating"), 400);
+    setTimeout(() => {
+      setCatPhase("animating");
+      playCatChirp();
+    }, 400);
   }, []);
 
   const handleCatAnimationEnd = useCallback(() => {
