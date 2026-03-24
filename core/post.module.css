@@ -8,120 +8,98 @@
 }
 
 /* ─────────────────────────────────────────────────
-   FILM — ticket stub
-   Stub on the left (info), poster bleeds right.
-   Vertical perforated tear between them.
+   FILM — vintage movie ticket
+   Solid color stock, big title, edge serial numbers.
    ───────────────────────────────────────────────── */
 
-.ticketStub {
-  display: block;
+.ticket {
+  display: flex;
   text-decoration: none;
-  color: #2a1a1a;
-  background: #ede4d8;
   border-radius: 8px;
   overflow: hidden;
   box-shadow:
-    0 0 0 5px #ede4d8,
-    0px 2px 6px rgba(0, 0, 0, 0.1),
-    0px 6px 16px rgba(0, 0, 0, 0.06);
+    0 0 0 5px currentColor,
+    0px 2px 6px rgba(0, 0, 0, 0.12),
+    0px 6px 16px rgba(0, 0, 0, 0.07);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.ticketStub:hover {
-  transform: translateY(-2px);
+.ticket:hover {
+  transform: translateY(-2px) rotate(-0.5deg);
   box-shadow:
-    0 0 0 5px #ede4d8,
-    0px 4px 10px rgba(0, 0, 0, 0.12),
-    0px 10px 24px rgba(0, 0, 0, 0.08);
+    0 0 0 5px currentColor,
+    0px 4px 10px rgba(0, 0, 0, 0.14),
+    0px 10px 24px rgba(0, 0, 0, 0.09);
 }
 
-/* Inner layout: info | tear | poster */
-.ticketStubInner {
+/* Vertical serial number edges */
+.ticketEdge {
+  writing-mode: vertical-lr;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 8px 4px;
   display: flex;
-  min-height: 160px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.5;
+  user-select: none;
+}
+.ticketEdge:last-child {
+  writing-mode: vertical-rl;
 }
 
-/* Left side: the stub you keep */
-.ticketInfo {
+/* Main body */
+.ticketBody {
   flex: 1;
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
+  padding: 14px 10px;
   min-width: 0;
 }
 
-/* Action label */
-.ticketAction {
+/* Top row: admit text + poster thumbnail */
+.ticketTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.ticketAdmit {
   font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #8a6a5a;
-  margin-bottom: 6px;
+  opacity: 0.7;
 }
 
-/* Title */
+/* Title — the star of the show */
 .ticketTitle {
-  margin: 0 0 8px;
-  font-size: 18px;
-  line-height: 1.2;
-  color: #2a1a1a;
+  margin: 0 0 6px;
+  font-size: 22px;
+  line-height: 1.15;
 }
 
 /* Review */
 .ticketReview {
   font-size: 13px;
-  line-height: 1.45;
-  color: #5a4438;
-  flex: 1;
+  line-height: 1.4;
+  opacity: 0.85;
 }
 .ticketReview > * {
   margin: 0.25em 0;
 }
 
-/* Date at the bottom of the stub */
+/* Date + action footer */
 .ticketDate {
   font-size: 10px;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #a08a7a;
   margin-top: 10px;
+  opacity: 0.6;
 }
 
-/* Vertical perforated tear */
-.ticketTear {
-  width: 0;
-  border-left: 2px dashed #c8b8a8;
-  align-self: stretch;
-  flex-shrink: 0;
-}
-
-/* Right side: poster image, shown in full */
-.ticketPoster {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  padding: 12px 14px 12px 0;
-}
-
-/* On mobile: stack vertically, poster on top */
-@media (max-width: 631px) {
-  .ticketStubInner {
-    flex-direction: column-reverse;
-    min-height: auto;
-  }
-  .ticketPoster {
-    padding: 12px 12px 0;
-    justify-content: center;
-  }
-  .ticketTear {
-    width: auto;
-    height: 0;
-    border-left: none;
-    border-top: 2px dashed #c8b8a8;
-  }
-}
-
-/* Keep these for backwards compat with any remaining references */
+/* Compat */
 .filmTitle {
   color: var(--black);
   margin: 0px;
