@@ -63,44 +63,35 @@ const FilmPost = ({
       href={url}
       target="_blank"
       rel="noreferrer"
-      className={`${styles.filmSticker} ${action === "Rewatched" ? styles.filmVariantRewatch : styles.filmVariantDefault}`}
+      className={styles.ticketStub}
     >
-      <div className={styles.filmInner}>
-        <div className={styles.filmHeader}>
-          <span className={styles.filmBadge}>★ {action}</span>
-          <span className={styles.filmHeaderDate}>
-            {format(parseISO(date), "MMM d, yyyy")}
-          </span>
-        </div>
-
-        <div className={styles.filmBody}>
-          {image ? (
-            <div className={styles.filmPosterWrap}>
-              <Image
-                alt={`poster for ${title}`}
-                className="corner-radius-4"
-                height={120}
-                src={image}
-                width={80}
-              />
-            </div>
+      <div className={styles.ticketStubInner}>
+        <div className={styles.ticketInfo}>
+          <span className={styles.ticketAction}>{action}</span>
+          <h3 className={styles.ticketTitle}>{title}</h3>
+          {summary ? (
+            <div
+              className={styles.ticketReview}
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
           ) : null}
-          <div className={styles.filmContent}>
-            <h3 className={styles.filmTitle}>{title}</h3>
-            {summary ? (
-              <div
-                className={styles.filmReview}
-                dangerouslySetInnerHTML={{ __html: summary }}
-              />
-            ) : null}
+          <div className={styles.ticketDate}>
+            {format(parseISO(date), "MMM d, yyyy")}
           </div>
         </div>
 
-        <div className={styles.filmTear} />
+        <div className={styles.ticketTear} />
 
-        <div className={styles.filmFooter}>
-          <span>ADMIT ONE</span>
-        </div>
+        {image ? (
+          <div className={styles.ticketPoster}>
+            <Image
+              alt={`poster for ${title}`}
+              src={image}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : null}
       </div>
     </a>
   </ActivityCard>

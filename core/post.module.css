@@ -8,126 +8,128 @@
 }
 
 /* ─────────────────────────────────────────────────
-   FILM STICKER — movie ticket stub
-   Double frame, burgundy on cream, perforated tear.
+   FILM — ticket stub
+   Stub on the left (info), poster bleeds right.
+   Vertical perforated tear between them.
    ───────────────────────────────────────────────── */
 
-/* Outer sticker — ticket paper bleed */
-.filmSticker {
+.ticketStub {
   display: block;
   text-decoration: none;
-  color: #4a1a1a;
-  background: #faf5ed;
-  border: 3px solid #5c1a1a;
-  border-radius: 10px;
-  padding: 7px;
+  color: #2a1a1a;
+  background: #ede4d8;
+  border-radius: 8px;
+  overflow: hidden;
   box-shadow:
-    0 0 0 6px #faf5ed,
+    0 0 0 5px #ede4d8,
     0px 2px 6px rgba(0, 0, 0, 0.1),
     0px 6px 16px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.filmSticker:hover {
+.ticketStub:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 0 0 6px #faf5ed,
+    0 0 0 5px #ede4d8,
     0px 4px 10px rgba(0, 0, 0, 0.12),
     0px 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Inner frame */
-.filmInner {
-  border: 2px solid #5c1a1a;
-  border-radius: 6px;
-  padding: 12px 14px 10px;
+/* Inner layout: info | tear | poster */
+.ticketStubInner {
+  display: flex;
+  min-height: 160px;
 }
 
-/* Header: badge + date */
-.filmHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.filmBadge {
-  font-size: 11px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: #faf5ed;
-  background: #5c1a1a;
-  padding: 2px 9px;
-  border-radius: 3px;
-}
-.filmHeaderDate {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #9a8578;
-}
-
-/* Body: poster + title/review */
-.filmBody {
-  display: flex;
-  gap: 14px;
-}
-.filmPosterWrap {
-  flex-shrink: 0;
-}
-.filmContent {
+/* Left side: the stub you keep */
+.ticketInfo {
   flex: 1;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 
-.filmTitle {
-  color: #4a1a1a;
-  margin: 0 0 4px;
-  font-size: 17px;
-  line-height: 1.2;
-}
-.filmReview {
-  font-size: 14px;
-  line-height: 1.4;
-  color: #6a4a3a;
-}
-.filmReview > * {
-  margin: 0.3em 0 0.2em;
-}
-
-/* Perforated tear line */
-.filmTear {
-  border-top: 1px dashed #c8b8a8;
-  margin: 12px -14px 0;
-  padding: 0 14px;
-}
-
-/* Footer below tear */
-.filmFooter {
-  text-align: center;
+/* Action label */
+.ticketAction {
   font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #9a8578;
-  padding-top: 8px;
+  letter-spacing: 1.5px;
+  color: #8a6a5a;
+  margin-bottom: 6px;
 }
 
-/* ── Film Variants ── */
-.filmVariantDefault {}
-
-/* Rewatch: deep navy */
-.filmVariantRewatch {
-  border-color: #1a2744;
-  background: #f0eee8;
+/* Title */
+.ticketTitle {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #2a1a1a;
 }
-.filmVariantRewatch .filmInner { border-color: #1a2744; }
-.filmVariantRewatch .filmBadge { background: #1a2744; }
-.filmVariantRewatch .filmTitle { color: #1a2744; }
-.filmVariantRewatch .filmSticker {
-  box-shadow:
-    0 0 0 6px #f0eee8,
-    0px 2px 6px rgba(0, 0, 0, 0.1),
-    0px 6px 16px rgba(0, 0, 0, 0.06);
+
+/* Review */
+.ticketReview {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #5a4438;
+  flex: 1;
+}
+.ticketReview > * {
+  margin: 0.25em 0;
+}
+
+/* Date at the bottom of the stub */
+.ticketDate {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a08a7a;
+  margin-top: 10px;
+}
+
+/* Vertical perforated tear */
+.ticketTear {
+  width: 0;
+  border-left: 2px dashed #c8b8a8;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+/* Right side: poster image */
+.ticketPoster {
+  position: relative;
+  flex: 0 0 35%;
+  min-height: 160px;
+}
+
+/* On mobile: stack vertically, poster on top */
+@media (max-width: 631px) {
+  .ticketStubInner {
+    flex-direction: column-reverse;
+    min-height: auto;
+  }
+  .ticketPoster {
+    height: 200px;
+    flex: none;
+  }
+  .ticketTear {
+    width: auto;
+    height: 0;
+    border-left: none;
+    border-top: 2px dashed #c8b8a8;
+  }
+}
+
+/* Keep these for backwards compat with any remaining references */
+.filmTitle {
+  color: var(--black);
+  margin: 0px;
+}
+.filmTitle:hover {
+  color: var(--primaryColor);
+}
+.filmReview > * {
+  margin: 0.4em 0 0.2em;
 }
 
 .tweet {
