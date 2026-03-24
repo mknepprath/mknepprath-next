@@ -473,39 +473,39 @@ const MusicPost = ({
   url,
 }: PostProps) => (
   <ActivityCard id={id} type="MUSIC" index={index}>
-    <article key={id}>
-      <header className={styles.filmPostHeader}>
-        {image ? (
-          <a
-            className={styles.filmPoster}
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-          >
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={styles.musicCard}
+    >
+      {image && (
+        <div
+          className={styles.musicBg}
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      )}
+      <div className={styles.musicContent}>
+        {image && (
+          <div className={styles.musicArt}>
             <Image
               alt={`album art for ${title}`}
-              className="bordered-image corner-radius-8"
-              height={90}
               src={image}
-              width={90}
+              width={80}
+              height={80}
+              className="corner-radius-8"
             />
-          </a>
-        ) : null}
-        <div>
-          <a href={url} target="_blank" rel="noreferrer">
-            <h3 className={styles.filmTitle}>{title}</h3>
-          </a>
-          {summary ? (
-            <div className={styles.filmReview}>
-              <p>{summary}</p>
-            </div>
-          ) : null}
-          <small>
-            {action} on {format(parseISO(date), "MMMM d, yyyy")}
+          </div>
+        )}
+        <div className={styles.musicInfo}>
+          <h3 className={styles.musicTitle}>{title}</h3>
+          {summary && <p className={styles.musicArtist}>{summary}</p>}
+          <small className={styles.musicDate}>
+            {action} · {format(parseISO(date), "MMM d, yyyy")}
           </small>
         </div>
-      </header>
-    </article>
+      </div>
+    </a>
   </ActivityCard>
 );
 
