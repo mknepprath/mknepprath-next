@@ -334,12 +334,12 @@ const TootPost = ({
           </div>
         ) : null}
         {!image ? (
-          <div className={styles.tweet}>
-            <em
+          <span className={styles.tweet}>
+            <span
               className={styles.filmReview}
               dangerouslySetInnerHTML={{ __html: summary || "" }}
             />
-          </div>
+          </span>
         ) : (
           <p className={styles.tweet} style={{ margin: "0.4em 0 0.2em" }}>
             <em
