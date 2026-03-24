@@ -914,17 +914,16 @@
 /* Hand-drawn circle around the winner */
 .chessCircled {
   position: relative;
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .chessCircleSvg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 250%;
-  transform: translate(-50%, -50%);
+  inset: -8px -14px;
+  width: calc(100% + 28px);
+  height: calc(100% + 16px);
   pointer-events: none;
-  overflow: visible;
 }
 .chessCircle {
   stroke: #c0392b;
