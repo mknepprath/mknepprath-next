@@ -40,6 +40,18 @@ export default function BlogPage({
     if (highlightCode) Prism.highlightAll();
   }, [highlightCode]);
 
+  React.useEffect(() => {
+    const bg = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "#2a2820"
+      : "#f4f1eb";
+    document.documentElement.style.background = bg;
+    document.body.style.background = bg;
+    return () => {
+      document.documentElement.style.background = "";
+      document.body.style.background = "";
+    };
+  }, []);
+
   const { data: tweet } = useSWR(`/api/v1/tweet/${tweetId}`, fetcher);
 
   return (

@@ -9,10 +9,6 @@
   min-height: 100dvh;
 }
 
-:global(html:has(.blogContainer)),
-:global(body:has(.blogContainer)) {
-  background: #f4f1eb !important;
-}
 
 .article {
   max-width: 680px;
@@ -89,10 +85,6 @@
 @media (prefers-color-scheme: dark) {
   .blogContainer {
     background: #2a2820;
-  }
-  :global(html:has(.blogContainer)),
-  :global(body:has(.blogContainer)) {
-    background: #2a2820 !important;
   }
   .articleBody h1 {
     color: #e8e0d0;
