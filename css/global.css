@@ -22,6 +22,9 @@
     --primaryColor: #6ec9a5;
     --selectedColor: #c49bd3;
   }
+  #keyart-6 {
+    background-image: none !important;
+  }
 }
 
 /* Manual override: light */
@@ -42,6 +45,9 @@
   --hoverColor: #6cd48f;
   --primaryColor: #6ec9a5;
   --selectedColor: #c49bd3;
+}
+[data-theme="dark"] #keyart-6 {
+  background-image: none !important;
 }
 
 ::selection {
