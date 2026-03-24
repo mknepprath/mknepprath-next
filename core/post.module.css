@@ -495,14 +495,17 @@
 }
 
 /* Toot text */
-.stickyText {
-  font-family: 'Caveat', cursive;
+.stickyText,
+.stickyText p,
+.stickyText span,
+.stickyText a {
+  font-family: 'Caveat', cursive !important;
   font-size: 20px;
   line-height: 1.4;
   color: #4a3800;
 }
 .stickyText a {
-  color: #7a5a00;
+  color: #7a5a00 !important;
   text-decoration: underline;
 }
 .stickyText p {
@@ -514,11 +517,13 @@
 
 /* Date — scribbled in the corner */
 .stickyDate {
+  display: block;
   text-align: right;
-  font-family: 'Caveat', cursive;
+  font-family: 'Caveat', cursive !important;
   font-size: 16px;
   color: #a08a40;
   margin-top: 10px;
+  text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
