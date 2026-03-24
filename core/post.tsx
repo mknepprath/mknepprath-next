@@ -470,7 +470,6 @@ const RunPostAlt = ({
     });
   }
 
-  // Calculate pace (min/mi)
   const distNum = parseFloat(stats["Distance"] || "0");
   const timeNum = parseFloat(stats["Time"] || "0");
   const pace =
@@ -480,9 +479,8 @@ const RunPostAlt = ({
         ).padStart(2, "0")}`
       : null;
 
-  // Accent color by type
-  let accent = "#FC4C02"; // Strava orange
-  if (action === "Hiked" || action === "Walked") accent = "#3a5a40";
+  let accent = "#e05a2b";
+  if (action === "Hiked" || action === "Walked") accent = "#6b8f5e";
 
   return (
     <ActivityCard id={id} type="RUN" index={index}>
@@ -490,52 +488,58 @@ const RunPostAlt = ({
         href={url}
         target="_blank"
         rel="noreferrer"
-        className={styles.runAlt}
+        className={styles.runSticker}
       >
-        {image ? (
-          <div className={styles.runAltMap}>
-            <StravaMap polyline={image} />
-          </div>
-        ) : null}
-
-        <div className={styles.runAltBody}>
-          <div className={styles.runAltHeader}>
-            <span
-              className={styles.runAltTag}
-              style={{ background: accent }}
-            >
-              {action}
-            </span>
-            <span className={styles.runAltTitle}>{title}</span>
-          </div>
-
-          <div className={styles.runAltHero}>
-            {stats["Distance"] && (
-              <div className={styles.runAltHeroStat}>
-                <span className={styles.runAltHeroValue}>
-                  {stats["Distance"].replace(/ mi$/, "")}
+        <div className={styles.runInner}>
+          <div className={styles.runLayout}>
+            <div className={styles.runInfoCol}>
+              <div className={styles.runTop}>
+                <div className={styles.runDot} style={{ background: accent }} />
+                <span
+                  className={styles.runAction}
+                  style={{ background: accent }}
+                >
+                  {action}
                 </span>
-                <span className={styles.runAltHeroUnit}>mi</span>
+                <span className={styles.runTitleSmall}>{title}</span>
               </div>
-            )}
-            {pace && (
-              <div className={styles.runAltHeroStat}>
-                <span className={styles.runAltHeroValue}>{pace}</span>
-                <span className={styles.runAltHeroUnit}>/mi</span>
-              </div>
-            )}
-          </div>
 
-          <div className={styles.runAltMeta}>
-            {stats["Time"] && (
-              <span className={styles.runAltMetaItem}>{stats["Time"]}</span>
-            )}
-            {stats["Elevation"] && (
-              <span className={styles.runAltMetaItem}>↑ {stats["Elevation"]}</span>
-            )}
-            <span className={styles.runAltMetaItem}>
-              {format(parseISO(date), "MMM d")}
-            </span>
+              <div className={styles.runHero}>
+                {stats["Distance"] && (
+                  <div className={styles.runHeroStat}>
+                    <span className={styles.runHeroValue}>
+                      {stats["Distance"].replace(/ mi$/, "")}
+                    </span>
+                    <span className={styles.runHeroUnit}>mi</span>
+                  </div>
+                )}
+                {pace && (
+                  <div className={styles.runHeroStat}>
+                    <span className={styles.runHeroValue}>{pace}</span>
+                    <span className={styles.runHeroUnit}>/mi</span>
+                  </div>
+                )}
+              </div>
+
+              <div className={styles.runMeta}>
+                {stats["Time"] && (
+                  <span className={styles.runMetaItem}>{stats["Time"]}</span>
+                )}
+                {stats["Elevation"] && (
+                  <span className={styles.runMetaItem}>↑ {stats["Elevation"]}</span>
+                )}
+              </div>
+
+              <div className={styles.runDate}>
+                {format(parseISO(date), "MMM d, yyyy")}
+              </div>
+            </div>
+
+            {image ? (
+              <div className={styles.runMapCol}>
+                <StravaMap polyline={image} />
+              </div>
+            ) : null}
           </div>
         </div>
       </a>
