@@ -236,3 +236,115 @@
   border-top: 1px solid #c8bfb0;
   padding-top: 8px;
 }
+
+/* ─────────────────────────────────────────────────
+   RUN ALT — GPS watch / data-forward design
+   ───────────────────────────────────────────────── */
+.runAlt {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  background: #f8f8f8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0px 2px 4px rgba(0, 0, 0, 0.08),
+    0px 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.runAlt:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0px 4px 8px rgba(0, 0, 0, 0.1),
+    0px 8px 20px rgba(0, 0, 0, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  .runAlt {
+    background: #222;
+  }
+}
+
+/* Map — hero visual, full width across top */
+.runAltMap {
+  background: #f0f0f0;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  .runAltMap {
+    background: #1a1a1a;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* Body content below map */
+.runAltBody {
+  padding: 16px 20px 14px;
+}
+
+/* Header: tag + title */
+.runAltHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.runAltTag {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.runAltTitle {
+  font-size: 13px;
+  color: #888;
+}
+
+/* Hero stats — big distance + pace */
+.runAltHero {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+.runAltHeroStat {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+.runAltHeroValue {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--black);
+}
+.runAltHeroUnit {
+  font-size: 14px;
+  color: #999;
+  font-weight: normal;
+}
+
+/* Meta row — time, elevation, date */
+.runAltMeta {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 10px;
+}
+.runAltMetaItem {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.3px;
+}
+@media (prefers-color-scheme: dark) {
+  .runAltMeta {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+}

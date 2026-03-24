@@ -443,7 +443,16 @@ const MusicPost = ({
   </ActivityCard>
 );
 
-const RunPost = ({
+/*
+ * Original sticker design preserved below (commented out).
+ * To restore: uncomment, rename to RunPost, remove RunPostAlt,
+ * and update the export.
+ *
+ * const RunPostSticker = ({ ... }: PostProps) => { ... };
+ * See git history for full implementation.
+ */
+
+const RunPostAlt = ({
   action,
   date,
   id,
@@ -453,7 +462,6 @@ const RunPost = ({
   title,
   url,
 }: PostProps) => {
-  // Parse "Distance: 3.2 mi, Time: 28 min, Elevation: 45 ft"
   const stats: Record<string, string> = {};
   if (summary) {
     summary.split(", ").forEach((part) => {
@@ -462,17 +470,19 @@ const RunPost = ({
     });
   }
 
-  // Variant based on distance and activity type
-  const distance = parseFloat(stats["Distance"] || "0");
-  const elevation = parseFloat(stats["Elevation"] || "0");
-  let variant = styles.runVariantDefault;
-  if (action === "Hiked" || action === "Walked") {
-    variant = styles.runVariantHike;
-  } else if (distance >= 10) {
-    variant = styles.runVariantLong;
-  } else if (elevation >= 300) {
-    variant = styles.runVariantHilly;
-  }
+  // Calculate pace (min/mi)
+  const distNum = parseFloat(stats["Distance"] || "0");
+  const timeNum = parseFloat(stats["Time"] || "0");
+  const pace =
+    distNum > 0 && timeNum > 0
+      ? `${Math.floor(timeNum / distNum)}:${String(
+          Math.round((timeNum / distNum - Math.floor(timeNum / distNum)) * 60),
+        ).padStart(2, "0")}`
+      : null;
+
+  // Accent color by type
+  let accent = "#FC4C02"; // Strava orange
+  if (action === "Hiked" || action === "Walked") accent = "#3a5a40";
 
   return (
     <ActivityCard id={id} type="RUN" index={index}>
@@ -480,48 +490,52 @@ const RunPost = ({
         href={url}
         target="_blank"
         rel="noreferrer"
-        className={`${styles.runSticker} ${variant}`}
+        className={styles.runAlt}
       >
-        <div className={styles.runInner}>
-          <div className={styles.runLayout}>
-            <div className={styles.runInfoCol}>
-              <div className={styles.runTop}>
-                <div className={styles.runDot} />
-                <div className={styles.runLabel}>
-                  <span className={styles.runAction}>{action}</span>
-                </div>
-              </div>
+        {image ? (
+          <div className={styles.runAltMap}>
+            <StravaMap polyline={image} />
+          </div>
+        ) : null}
 
-              <h3 className={styles.runTitle}>{title}</h3>
+        <div className={styles.runAltBody}>
+          <div className={styles.runAltHeader}>
+            <span
+              className={styles.runAltTag}
+              style={{ background: accent }}
+            >
+              {action}
+            </span>
+            <span className={styles.runAltTitle}>{title}</span>
+          </div>
 
-              <div className={styles.runStats}>
-                {stats["Distance"] && (
-                  <div className={styles.runStat}>
-                    <span className={styles.runStatValue}>{stats["Distance"]}</span>
-                  </div>
-                )}
-                {stats["Time"] && (
-                  <div className={styles.runStat}>
-                    <span className={styles.runStatValue}>{stats["Time"]}</span>
-                  </div>
-                )}
-                {stats["Elevation"] && (
-                  <div className={styles.runStat}>
-                    <span className={styles.runStatValue}>{stats["Elevation"]}</span>
-                  </div>
-                )}
+          <div className={styles.runAltHero}>
+            {stats["Distance"] && (
+              <div className={styles.runAltHeroStat}>
+                <span className={styles.runAltHeroValue}>
+                  {stats["Distance"].replace(/ mi$/, "")}
+                </span>
+                <span className={styles.runAltHeroUnit}>mi</span>
               </div>
+            )}
+            {pace && (
+              <div className={styles.runAltHeroStat}>
+                <span className={styles.runAltHeroValue}>{pace}</span>
+                <span className={styles.runAltHeroUnit}>/mi</span>
+              </div>
+            )}
+          </div>
 
-              <div className={styles.runDate}>
-                {format(parseISO(date), "MMM d, yyyy")}
-              </div>
-            </div>
-
-            {image ? (
-              <div className={styles.runMapCol}>
-                <StravaMap polyline={image} />
-              </div>
-            ) : null}
+          <div className={styles.runAltMeta}>
+            {stats["Time"] && (
+              <span className={styles.runAltMetaItem}>{stats["Time"]}</span>
+            )}
+            {stats["Elevation"] && (
+              <span className={styles.runAltMetaItem}>↑ {stats["Elevation"]}</span>
+            )}
+            <span className={styles.runAltMetaItem}>
+              {format(parseISO(date), "MMM d")}
+            </span>
           </div>
         </div>
       </a>
@@ -535,7 +549,7 @@ export {
   HighlightPost,
   FilmPost,
   RepoPost,
-  RunPost,
+  RunPostAlt as RunPost,  // swap with RunPostSticker from git history to restore sticker design
   TweetPost,
   TootPost,
   TrophyPost,
