@@ -430,12 +430,7 @@ const TootPost = ({
   url,
 }: PostProps) => (
   <ActivityCard id={id} type="TOOT" index={index}>
-    <a
-      href={url || "#"}
-      target="_blank"
-      rel="noreferrer"
-      className={styles.stickyNote}
-    >
+    <div className={styles.stickyNote}>
       {image ? (
         <div className={styles.stickyImage}>
           <Image
@@ -450,10 +445,15 @@ const TootPost = ({
         className={styles.stickyText}
         dangerouslySetInnerHTML={{ __html: summary || "" }}
       />
-      <div className={styles.stickyDate}>
+      <a
+        href={url || "#"}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.stickyDate}
+      >
         {action} · {format(parseISO(date), "MMM d")}
-      </div>
-    </a>
+      </a>
+    </div>
   </ActivityCard>
 );
 
