@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useRef, useState } from "react";
 import Page from "@core/page";
 import {
   BookPost,
@@ -25,16 +26,54 @@ const BASE_URL =
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
+const PAGE_SIZE = 30;
+
+const POST_MAP: Record<string, React.ComponentType<PostListItem & { index?: number }>> = {
+  FILM: FilmPost,
+  TWEET: TweetPost,
+  REPO: RepoPost,
+  BOOK: BookPost,
+  HIGHLIGHT: HighlightPost,
+  TOOT: TootPost,
+  PHOTO: PhotoPost,
+  MUSIC: MusicPost,
+  TROPHY: TrophyPost,
+  RUN: RunPost,
+};
+
 interface Props {
   initialActivity: PostListItem[];
 }
 
 export default function Home({ initialActivity }: Props): React.ReactNode {
   const { data: activity = initialActivity } = useSWR<PostListItem[]>(
-    `/api/v1/activity?max_results=30&min_rating=0`,
+    `/api/v1/activity?max_results=100&min_rating=0`,
     fetcher,
     { fallbackData: initialActivity },
   );
+
+  const [visible, setVisible] = useState(PAGE_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  const sorted = activity
+    .sort((a, b) => +parseISO(b.date) - +parseISO(a.date));
+
+  const loadMore = useCallback(() => {
+    setVisible((v) => Math.min(v + PAGE_SIZE, sorted.length));
+  }, [sorted.length]);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) loadMore();
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [loadMore]);
 
   return (
     <Page title="Activity">
@@ -43,36 +82,16 @@ export default function Home({ initialActivity }: Props): React.ReactNode {
           <h1>Activity</h1>
         </header>
 
-        {activity
-          .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
-          .map((post, index) => {
-            switch (post.type) {
-              case "FILM":
-                return <FilmPost key={post.id} {...post} index={index} />;
-              case "TWEET":
-                return <TweetPost key={post.id} {...post} index={index} />;
-              case "REPO":
-                return <RepoPost key={post.id} {...post} index={index} />;
-              case "BOOK":
-                return <BookPost key={post.id} {...post} index={index} />;
-              case "HIGHLIGHT":
-                return <HighlightPost key={post.id} {...post} index={index} />;
-              case "TOOT":
-                return <TootPost key={post.id} {...post} index={index} />;
-              case "PHOTO":
-                return <PhotoPost key={post.id} {...post} index={index} />;
-              case "MUSIC":
-                return <MusicPost key={post.id} {...post} index={index} />;
-              case "TROPHY":
-                return <TrophyPost key={post.id} {...post} index={index} />;
-              case "RUN":
-                return <RunPost key={post.id} {...post} index={index} />;
-              default:
-                return <Post key={post.id} {...post} index={index} />;
-            }
-          })}
+        {sorted.slice(0, visible).map((post, index) => {
+          const PostComponent = (post.type && POST_MAP[post.type]) || Post;
+          return <PostComponent key={post.id} {...post} index={index} />;
+        })}
 
         {!activity.length && <div>What have I been up to...</div>}
+
+        {visible < sorted.length && (
+          <div ref={sentinelRef} style={{ height: 1 }} />
+        )}
       </article>
     </Page>
   );
@@ -83,7 +102,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   try {
     const res = await fetch(
-      `${BASE_URL}/api/v1/activity?max_results=30&min_rating=0`,
+      `${BASE_URL}/api/v1/activity?max_results=100&min_rating=0`,
     );
     if (res.ok) initialActivity = await res.json();
   } catch {
