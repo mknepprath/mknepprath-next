@@ -14,15 +14,26 @@ import {
 } from "@core/post";
 import { parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
+import { GetStaticProps } from "next";
 import useSWR from "swr";
+
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://mknepprath.com"
+    : "http://localhost:3000";
 
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export default function Home(): React.ReactNode {
-  const { data: activity = [] } = useSWR<PostListItem[]>(
-    `/api/v1/activity?max_results=100&min_rating=0`,
+interface Props {
+  initialActivity: PostListItem[];
+}
+
+export default function Home({ initialActivity }: Props): React.ReactNode {
+  const { data: activity = initialActivity } = useSWR<PostListItem[]>(
+    `/api/v1/activity?max_results=30&min_rating=0`,
     fetcher,
+    { fallbackData: initialActivity },
   );
 
   return (
@@ -66,3 +77,21 @@ export default function Home(): React.ReactNode {
     </Page>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  let initialActivity: PostListItem[] = [];
+
+  try {
+    const res = await fetch(
+      `${BASE_URL}/api/v1/activity?max_results=30&min_rating=0`,
+    );
+    if (res.ok) initialActivity = await res.json();
+  } catch {
+    // SWR will retry client-side
+  }
+
+  return {
+    props: { initialActivity },
+    revalidate: 300,
+  };
+};
