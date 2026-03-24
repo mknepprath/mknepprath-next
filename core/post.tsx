@@ -308,7 +308,9 @@ const PhotoPost = ({
         )}
       </div>
       <div className={styles.polaroidCaption}>
-        {title && <span className={styles.polaroidText}>{title}</span>}
+        {title && title !== "Untitled" && (
+          <span className={styles.polaroidText}>{title}</span>
+        )}
         <span className={styles.polaroidDate}>
           {action} · {format(parseISO(date), "MMM d")}
         </span>
