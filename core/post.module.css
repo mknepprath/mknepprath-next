@@ -851,16 +851,18 @@
         transparent 85%,
         rgba(0, 0, 0, 0.06) 100%
       ),
-      #3a3418;
+      #4a4428;
   }
-  .stickyText {
-    color: #e0d8a0;
+  .stickyText,
+  .stickyText p,
+  .stickyText span {
+    color: #f0e8c0 !important;
   }
   .stickyText a {
-    color: #c8b860;
+    color: #e8d880 !important;
   }
   .stickyDate {
-    color: #7a7040;
+    color: #a09860;
   }
 }
 
