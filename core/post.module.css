@@ -7,6 +7,28 @@
   color: var(--primaryColor);
 }
 
+/* Dark mode: swap light tan borders/bleeds for dark */
+@media (prefers-color-scheme: dark) {
+  .ticket,
+  .musicCard,
+  .clipping {
+    border-color: #2a2a2a;
+  }
+  .runSticker {
+    border-color: #2a2a2a;
+    box-shadow:
+      0 0 0 8px #2a2a2a,
+      0px 2px 6px rgba(0, 0, 0, 0.2),
+      0px 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  .runSticker:hover {
+    box-shadow:
+      0 0 0 8px #2a2a2a,
+      0px 4px 10px rgba(0, 0, 0, 0.25),
+      0px 10px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
 /* ─────────────────────────────────────────────────
    FILM — vintage movie ticket
    Solid color stock, big title, edge serial numbers.
