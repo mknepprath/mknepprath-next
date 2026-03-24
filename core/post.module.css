@@ -43,9 +43,13 @@
 }
 
 /* ─────────────────────────────────────────────────
-   RUN STICKER — data-forward + physical sticker
-   Double frame, parchment bg, big stats, map on right
+   RUN STICKER
+   Physical sticker: double border frame, parchment.
+   Data-forward: distance + pace prominent in stats row.
+   Side-by-side on desktop, stacked on mobile.
    ───────────────────────────────────────────────── */
+
+/* Outer sticker — parchment bleed + border */
 .runSticker {
   display: block;
   text-decoration: none;
@@ -53,29 +57,64 @@
   background: #f5f0e8;
   border: 3px solid #2c3e2d;
   border-radius: 12px;
-  padding: 8px;
+  padding: 7px;
   box-shadow:
     0 0 0 6px #f5f0e8,
-    0px 2px 4px rgba(0, 0, 0, 0.1),
-    0px 4px 12px rgba(0, 0, 0, 0.06);
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .runSticker:hover {
   transform: translateY(-2px);
   box-shadow:
     0 0 0 6px #f5f0e8,
-    0px 4px 8px rgba(0, 0, 0, 0.12),
-    0px 8px 20px rgba(0, 0, 0, 0.08);
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Inset frame */
+/* Inner frame */
 .runInner {
   border: 2px solid #2c3e2d;
-  border-radius: 8px;
-  padding: 16px 18px 14px;
+  border-radius: 7px;
+  padding: 14px 16px 12px;
 }
 
-/* Layout: stacks mobile, side-by-side desktop (map right) */
+/* Header: dot + label badge */
+.runTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.runDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e05a2b;
+  flex-shrink: 0;
+}
+.runLabel {
+  background: #2c3e2d;
+  padding: 2px 9px;
+  border-radius: 3px;
+}
+.runAction {
+  color: #e8dfd0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+}
+
+/* Title */
+.runTitle {
+  margin: 2px 0 10px;
+  font-size: 17px;
+  color: #2c3e2d;
+  line-height: 1.2;
+}
+
+/* Side-by-side layout: info left, map right */
 .runLayout {
   display: flex;
   flex-direction: column;
@@ -83,101 +122,93 @@
 @media (min-width: 632px) {
   .runLayout {
     flex-direction: row;
-    align-items: stretch;
+    gap: 0;
   }
 }
 
+/* Info column */
 .runInfoCol {
   flex: 1;
   min-width: 0;
 }
 
+/* Map column */
 .runMapCol {
-  padding: 10px 0 0;
-  margin: 10px 0 0;
+  border-top: 1px solid #c8bfb0;
+  border-bottom: 1px solid #c8bfb0;
+  padding: 8px 0;
+  margin: 8px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 @media (min-width: 632px) {
   .runMapCol {
-    flex: 0 0 40%;
-    padding: 0;
-    margin: 0 0 0 16px;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 6px;
+    flex: 0 0 38%;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid #c8bfb0;
+    padding: 0 0 0 14px;
+    margin: 0;
+    align-self: center;
   }
 }
 
-/* Top row: dot + tag + title */
-.runTop {
+/* Stats row — distance | pace | time, divided */
+.runStats {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  margin: 0 0 4px;
 }
-.runDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.runAction {
-  font-size: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #f5f0e8;
-  padding: 2px 7px;
-  border-radius: 3px;
-  flex-shrink: 0;
-}
-.runTitleSmall {
-  font-size: 12px;
-  color: #a89f90;
-}
-
-/* Hero stats — big distance + pace */
-.runHero {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 4px;
-}
-.runHeroStat {
+.runStat {
+  flex: 1;
+  text-align: center;
+  padding: 4px 0;
+  border-right: 1px solid #c8bfb0;
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 2px;
 }
-.runHeroValue {
-  font-size: 26px;
-  font-weight: bold;
-  line-height: 1;
-  color: #2c3e2d;
+.runStat:first-child {
+  text-align: left;
+  justify-content: flex-start;
 }
-.runHeroUnit {
-  font-size: 12px;
+.runStat:last-child {
+  border-right: none;
+}
+.runStatValue {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e2d;
+  line-height: 1;
+}
+.runStatUnit {
+  font-size: 11px;
   color: #8a7f70;
   font-weight: normal;
 }
-
-/* Secondary meta — time, elevation, date all in one row */
-.runMeta {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
+.runStatSecondary {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2c3e2d;
 }
-.runMetaItem {
+
+/* Elevation — small line below stats */
+.runElevation {
   font-size: 11px;
   color: #8a7f70;
   letter-spacing: 0.3px;
+  margin-bottom: 2px;
 }
 
-/* Date */
+/* Date footer */
 .runDate {
+  text-align: center;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #a89f90;
-  margin-top: 10px;
+  letter-spacing: 1.5px;
+  color: #8a7f70;
+  margin-top: 8px;
+  border-top: 1px solid #c8bfb0;
+  padding-top: 8px;
 }

@@ -443,16 +443,7 @@ const MusicPost = ({
   </ActivityCard>
 );
 
-/*
- * Original sticker design preserved below (commented out).
- * To restore: uncomment, rename to RunPost, remove RunPostAlt,
- * and update the export.
- *
- * const RunPostSticker = ({ ... }: PostProps) => { ... };
- * See git history for full implementation.
- */
-
-const RunPostAlt = ({
+const RunPostFinal = ({
   action,
   date,
   id,
@@ -479,9 +470,6 @@ const RunPostAlt = ({
         ).padStart(2, "0")}`
       : null;
 
-  let accent = "#e05a2b";
-  if (action === "Hiked" || action === "Walked") accent = "#6b8f5e";
-
   return (
     <ActivityCard id={id} type="RUN" index={index}>
       <a
@@ -491,48 +479,44 @@ const RunPostAlt = ({
         className={styles.runSticker}
       >
         <div className={styles.runInner}>
+          <div className={styles.runTop}>
+            <div className={styles.runDot} />
+            <div className={styles.runLabel}>
+              <span className={styles.runAction}>{action}</span>
+            </div>
+          </div>
+
+          <h3 className={styles.runTitle}>{title}</h3>
+
           <div className={styles.runLayout}>
             <div className={styles.runInfoCol}>
-              <div className={styles.runTop}>
-                <div className={styles.runDot} style={{ background: accent }} />
-                <span
-                  className={styles.runAction}
-                  style={{ background: accent }}
-                >
-                  {action}
-                </span>
-                <span className={styles.runTitleSmall}>{title}</span>
-              </div>
-
-              <div className={styles.runHero}>
+              <div className={styles.runStats}>
                 {stats["Distance"] && (
-                  <div className={styles.runHeroStat}>
-                    <span className={styles.runHeroValue}>
+                  <div className={styles.runStat}>
+                    <span className={styles.runStatValue}>
                       {stats["Distance"].replace(/ mi$/, "")}
                     </span>
-                    <span className={styles.runHeroUnit}>mi</span>
+                    <span className={styles.runStatUnit}>mi</span>
                   </div>
                 )}
                 {pace && (
-                  <div className={styles.runHeroStat}>
-                    <span className={styles.runHeroValue}>{pace}</span>
-                    <span className={styles.runHeroUnit}>/mi</span>
+                  <div className={styles.runStat}>
+                    <span className={styles.runStatValue}>{pace}</span>
+                    <span className={styles.runStatUnit}>/mi</span>
+                  </div>
+                )}
+                {stats["Time"] && (
+                  <div className={styles.runStat}>
+                    <span className={styles.runStatSecondary}>
+                      {stats["Time"]}
+                    </span>
                   </div>
                 )}
               </div>
 
-              <div className={styles.runMeta}>
-                {stats["Time"] && (
-                  <span className={styles.runMetaItem}>{stats["Time"]}</span>
-                )}
-                {stats["Elevation"] && (
-                  <span className={styles.runMetaItem}>↑ {stats["Elevation"]}</span>
-                )}
-              </div>
-
-              <div className={styles.runDate}>
-                {format(parseISO(date), "MMM d, yyyy")}
-              </div>
+              {stats["Elevation"] && (
+                <div className={styles.runElevation}>↑ {stats["Elevation"]}</div>
+              )}
             </div>
 
             {image ? (
@@ -540,6 +524,10 @@ const RunPostAlt = ({
                 <StravaMap polyline={image} />
               </div>
             ) : null}
+          </div>
+
+          <div className={styles.runDate}>
+            {format(parseISO(date), "MMM d, yyyy")}
           </div>
         </div>
       </a>
@@ -553,7 +541,7 @@ export {
   HighlightPost,
   FilmPost,
   RepoPost,
-  RunPostAlt as RunPost,  // swap with RunPostSticker from git history to restore sticker design
+  RunPostFinal as RunPost,
   TweetPost,
   TootPost,
   TrophyPost,
