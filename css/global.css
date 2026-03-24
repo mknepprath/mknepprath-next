@@ -199,6 +199,7 @@ pre {
 }
 #keyart-6 {
 	background-image: url('/assets/parallax-6.png');
+	background-color: var(--white);
   top: 2px; /* Fix for low res screens */
 }
 #keyart-scrim {
