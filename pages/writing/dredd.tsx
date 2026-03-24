@@ -19,9 +19,6 @@ export default function Dredd(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
       <Image
         alt="A still featuring Anderson and Dredd from the film Dredd (2012)."
         className="corner-radius-8"
@@ -31,6 +28,9 @@ export default function Dredd(): React.ReactNode {
         priority
         width={1000}
       />
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
       <blockquote>
         Anderson: “Sir, he&apos;s thinking about going for your gun.”
         <br />

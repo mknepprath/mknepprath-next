@@ -19,9 +19,6 @@ export default function MadMaxFuryRoad(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
       <Image
         alt="A still from the film Mad Max: Fury Road (2015)."
         className="corner-radius-8"
@@ -31,6 +28,9 @@ export default function MadMaxFuryRoad(): React.ReactNode {
         priority
         width={1000}
       />
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
       <blockquote>
         “How much more can they take from me? They’ve got my blood, now it’s my
         car!”

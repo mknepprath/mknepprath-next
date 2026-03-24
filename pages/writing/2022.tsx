@@ -33,10 +33,6 @@ export default function ReviewOf2022(): React.ReactNode {
       title={meta.title}
       tweetId={meta.tweetId}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Three photos from 2022."
         className="corner-radius-8"
@@ -46,6 +42,10 @@ export default function ReviewOf2022(): React.ReactNode {
         priority
         width={1170}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>Hey everyone,</p>
 

@@ -19,10 +19,6 @@ export default function SometownUsa(): ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Title card for Life in Sometown, U.S.A."
         className="bordered-image corner-radius-8"
@@ -30,6 +26,10 @@ export default function SometownUsa(): ReactNode {
         src="/assets/sometown-usa-1.jpg"
         width={650}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         I’ve become quite the Buster Keaton enthusiast who, along with Charlie

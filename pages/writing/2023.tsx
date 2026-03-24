@@ -22,10 +22,6 @@ export default function ReviewOf2023(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Three photos from 2023."
         className="corner-radius-8"
@@ -35,6 +31,10 @@ export default function ReviewOf2023(): React.ReactNode {
         priority
         width={1170}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>Hi all, and Happy New Year!</p>
 

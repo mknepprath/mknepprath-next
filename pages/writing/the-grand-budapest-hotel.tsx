@@ -21,9 +21,6 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
       <Image
         alt="A still featuring Gustave H and Zero from the film The Grand Budapest Hotel (2014)."
         className="corner-radius-8"
@@ -33,6 +30,9 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
         priority
         width={1000}
       />
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
       <blockquote>
         “You see, there are still faint glimmers of civilization left in this
         barbaric slaughterhouse that was once known as humanity. Indeed that’s

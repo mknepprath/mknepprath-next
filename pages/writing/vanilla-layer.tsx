@@ -16,10 +16,6 @@ export default function VanillaLayer(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="A drawing of a neopolitan ice cream sandwich."
         className="corner-radius-8"
@@ -29,6 +25,10 @@ export default function VanillaLayer(): React.ReactNode {
         src="/assets/vanilla-layer.jpeg"
         width={1000}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         Having evaluated and discussed a number of design systems at this point,

@@ -17,10 +17,6 @@ export default function TheLifeElectronic(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <p>
         <Image
           alt="The Belafonte."
@@ -32,6 +28,10 @@ export default function TheLifeElectronic(): React.ReactNode {
           width={800}
         />
       </p>
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <blockquote>
         &ldquo;I had no idea what to expect going into this, but I was not

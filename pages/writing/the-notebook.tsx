@@ -19,9 +19,6 @@ export default function TheNotebook(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
       <Image
         alt="A still featuring the stars of The Notebook (2004)."
         className="corner-radius-8"
@@ -31,6 +28,9 @@ export default function TheNotebook(): React.ReactNode {
         priority
         width={1280}
       />
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
       <blockquote>
         “Love is like the wind, you can’t see it but you can feel it.”
       </blockquote>

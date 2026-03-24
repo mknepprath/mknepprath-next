@@ -19,10 +19,6 @@ export default function DesignProcess(): React.ReactNode {
       title={meta.title}
       tweetId={meta.tweetId}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Rubber duck"
         height={540}
@@ -31,6 +27,10 @@ export default function DesignProcess(): React.ReactNode {
         layout="responsive"
         width={896}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>I was recently asked,</p>
       <blockquote>

@@ -21,10 +21,6 @@ export default function ReviewOf2021(): React.ReactNode {
       title={meta.title}
       tweetId={meta.tweetId}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Three photos from 2021."
         className="corner-radius-8"
@@ -34,6 +30,10 @@ export default function ReviewOf2021(): React.ReactNode {
         priority
         width={1170}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         Goals create a conflict between what I want to do at any given moment

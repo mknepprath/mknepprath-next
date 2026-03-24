@@ -18,10 +18,6 @@ export default function Mem(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Michael Knepprath doing a brain dump."
         className="corner-radius-8"
@@ -31,6 +27,10 @@ export default function Mem(): React.ReactNode {
         src="/assets/mem.jpg"
         width={1000}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         It&apos;s the same old story: your current note-taking app is just not

@@ -20,9 +20,6 @@ export default function AvengersAgeOfUltron(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
       <Image
         alt="A still featuring Vision and Ultron from the film Avengers: Age of Ultron (2015)."
         className="corner-radius-8"
@@ -32,6 +29,9 @@ export default function AvengersAgeOfUltron(): React.ReactNode {
         priority
         width={1000}
       />
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
       <blockquote>
         “I am not Ultron. I am not J.A.R.V.I.S. I am… I am.” — Vision
       </blockquote>

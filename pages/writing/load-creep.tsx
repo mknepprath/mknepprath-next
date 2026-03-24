@@ -17,10 +17,6 @@ export default function LoadCreep(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="A drawing of a neopolitan ice cream sandwich."
         className="corner-radius-8"
@@ -30,6 +26,10 @@ export default function LoadCreep(): React.ReactNode {
         src="/assets/load-creep.jpg"
         width={1600}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         In project management, we often talk about scope creep, but I&apos;d

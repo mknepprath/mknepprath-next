@@ -19,10 +19,6 @@ export default function KeatonSsr(): ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Buster Keaton and S. S. Rajamouli"
         className="bordered-image corner-radius-8"
@@ -30,6 +26,10 @@ export default function KeatonSsr(): ReactNode {
         src="/assets/keaton-ssr-1.png"
         width={800}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         If you know me, you know I&apos;ve been obsessed with the film{" "}

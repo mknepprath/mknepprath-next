@@ -23,10 +23,6 @@ export default function FilmsOf2023(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Three photos from 2023."
         className="corner-radius-8"
@@ -36,6 +32,10 @@ export default function FilmsOf2023(): React.ReactNode {
         priority
         width={1170}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         Hey, movie lovers! Continuing the tradition I started the{" "}
