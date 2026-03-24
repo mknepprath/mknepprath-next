@@ -37,89 +37,83 @@ export default function MadMaxFuryRoad(): React.ReactNode {
       </blockquote>
       <h2>A Quick Summary</h2>
       <p>
-        Max is captured by someone else’s story: Furiosa makes a mad dash to
-        rescue Immortan Joe’s enslaved wives by hauling them to The Green Place,
-        only to discover their true green place was back where they’d started.
+        Max gets captured and strapped to the front of a car. Meanwhile,
+        Furiosa steals Immortan Joe’s wives and makes a run for The Green
+        Place. Max eventually tags along. Turns out The Green Place is gone, so
+        they have to go back the way they came. The whole movie is basically
+        one long car chase, and it rules.
       </p>
       <h2>Reception at the Time</h2>
       <p>
-        <i>Mad Max: Fury Road</i> received a standing ovation from critics and
-        audiences alike. The question on everyone’s lips was: is it too soon to
-        call this one of the greatest action films ever made?
+        <i>Mad Max: Fury Road</i> came out and everyone lost their minds.
+        Critics were falling over themselves asking if it was too soon to call
+        it one of the greatest action films ever made.
       </p>
       <p>
-        In my memory, the film came out of nowhere. As someone who hadn’t seen
-        the previous <i>Mad Max</i> movies and had no particular affection for
-        them, the trailers were difficult to decipher but incredibly intriguing.
-        I saw it in theaters twice—once with my wife, and again when we dragged
-        my dad to it after being utterly blown away.
+        In my memory, this film came out of nowhere. I hadn’t seen the previous{" "}
+        <i>Mad Max</i> movies and didn’t have any particular attachment to
+        them. The trailers were hard to parse but looked cool. I saw
+        it in theaters twice, once with my wife, and again when we dragged my
+        dad to it after being completely blown away.
       </p>
       <h2>How It’s Aged</h2>
       <p>
-        A film’s reception is shaped by its release context—marketing, current
-        events, cultural trends. That and recency bias can distort its perceived
-        importance, for better or worse. Critics are often cautious about
-        proclaiming something an instant classic, understandably so.
+        How a film lands is always shaped by context. Marketing, current
+        events, what else came out that year. Critics are usually cautious
+        about calling something an instant classic, and that makes sense.
       </p>
       <p>
-        But ten years later, <i>Fury Road</i> makes that hesitation feel
-        unnecessary.
+        Ten years later, that caution feels unnecessary.
       </p>
       <p>
-        Its legacy is now undeniable. The book Blood, Sweat & Chrome has taken
-        on a near-mythic status—part filmmaking guide, part cautionary tale. The
-        sequel, released nearly a decade later, had to contend with the
-        impossible question: how do you follow perfection? And culturally,{" "}
-        <i>Fury Road</i> has embedded itself in a way the earlier <i>Mad Max</i>{" "}
-        films never did—from “Witness me!” to references in The LEGO Movie 2,
-        Deadpool & Wolverine, and Space Jam: A New Legacy.
+        The book <i>Blood, Sweat & Chrome</i> is great if you&apos;re into
+        filmmaking. The sequel had to figure out how you follow something
+        this good. And
+        culturally, <i>Fury Road</i> stuck in a way the earlier films never
+        did. “Witness me!” shows up everywhere, from <i>The LEGO Movie 2</i>{" "}
+        to <i>Deadpool & Wolverine</i>.
       </p>
       <p>
-        Personally, it changed how I view modern filmmaking—not as a disposable
-        medium, but as a way to build artifacts for the future. If{" "}
-        <i>Fury Road</i>
-        will ever show its age, ten years wasn’t enough. Its technique, its
-        pace, and its fully realized world still feel as fresh as they did on
-        opening day.
+        For me, it changed how I think about movies. Not as stuff you
+        watch once and forget, but as things that can last. If{" "}
+        <i>Fury Road</i> is going to show its age, ten years wasn’t enough.
+        The technique, the pace, the world. It all still holds up.
       </p>
       <h2>Best Parts</h2>
       <p>
-        Furiosa was the breakout character. Charlize Theron was already a star,
-        but this role vaulted her into a different tier—creating one of cinema’s
-        truly iconic characters. It was bold to make a <i>Mad Max</i> film that
-        largely sidelines Max, handing the emotional arc to someone new and
-        giving him all the muted laugh lines. But it works. Furiosa is that
-        compelling. No surprise that we got a film about her later on, despite
-        the idea sounding almost absurd on paper. That’s how strong the legacy
-        of Fury Road is.
+        Furiosa. Charlize Theron was already a star, but this put her
+        somewhere else entirely. Making a <i>Mad Max</i>{" "}
+        film where Max is basically a side character is a weird call, but it
+        works because Furiosa is that good. She got her own movie later. That’s
+        how good this character is.
       </p>
       <p>
-        Of all the characters, Nux ends up with the most memorable lines and the
-        greatest transformation—from battle-hungry zealot to selfless hero. On
-        my first viewing, I lost track of his arc in the chaos. Now, he feels
-        like a near co-lead. “Oh, what a day. What a lovely day!”
+        Nux surprised me on rewatch. He ends up with the most memorable lines
+        and the biggest transformation in the whole film. First time I saw it,
+        I lost track of him in the chaos. Now he feels like a co-lead. “Oh,
+        what a day. What a lovely day!”
       </p>
       <p>
-        The set pieces are unmatched. After watching the earlier <i>Mad Max</i>{" "}
-        films, I realized the first thirty minutes of <i>Fury Road</i> alone is
-        the best <i>Mad Max</i> movie ever made—and then it just keeps
-        escalating. Despite the single-environment setting, each sequence has
-        its own flavor, its own rhythm, seemingly engineered to ratchet the
-        tension up with surgical precision.
+        The set pieces are unreal. After going back and watching the earlier{" "}
+        <i>Mad Max</i> films, I realized the first thirty minutes of{" "}
+        <i>Fury Road</i> alone is the best <i>Mad Max</i> movie ever made.
+        And then it just keeps going. Each sequence has its own thing going on,
+        its own rhythm, and somehow it keeps escalating.
       </p>
       <p>
-        Finally, the world-building—through the dialogue in particular—is some
-        of the best that’s ever been written. It’s so well-considered and
-        economical that you truly buy that you’re watching scenes from a future
-        Earth. “I should be McFeasting with the heroes of all time.”
+        The world-building through dialogue is incredible. You get just
+        enough to completely buy this as a future Earth. “I should be
+        McFeasting with the heroes of all
+        time.”
       </p>
       <h2>Overall</h2>
       <p>
-        <i>Fury Road</i> is exactly the kind of film Tardy Critic was made for.
-        A film apart. Where once there was hesitation, there is now no doubt:
-        it’s time to give <i>Mad Max: Fury Road</i> its crown.
+        <i>Fury Road</i> is exactly the kind of film Tardy Critic was made
+        for. Critics hedged ten years ago. I won’t.{" "}
+        <i>Mad Max: Fury Road</i> is one of the greatest action films ever
+        made.
       </p>
-      <blockquote>“Mediocre!”</blockquote>
+      <blockquote>”Mediocre!”</blockquote>
 
       <hr />
 
