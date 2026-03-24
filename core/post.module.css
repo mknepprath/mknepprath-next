@@ -357,6 +357,20 @@
   word-break: break-word;
 }
 
+/* Blinking cursor */
+.receiptCursor {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  background: #62bf9b;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: receiptBlink 0.6s step-end infinite;
+}
+@keyframes receiptBlink {
+  50% { opacity: 0; }
+}
+
 /* Date footer */
 .receiptFooter {
   font-size: 11px;
