@@ -453,6 +453,92 @@
 }
 
 /* ─────────────────────────────────────────────────
+   POST — newspaper clipping
+   ───────────────────────────────────────────────── */
+
+.clipping {
+  display: block;
+  text-decoration: none;
+  background: #f4f1eb;
+  border: 8px solid #f5f0e8;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.clipping:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Cover image */
+.clippingImage {
+  position: relative;
+  height: 180px;
+}
+
+/* Text body */
+.clippingBody {
+  padding: 16px 20px 14px;
+}
+
+/* Headline — serif, editorial */
+.clippingHeadline {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #2a2218;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Thin rule under headline */
+.clippingRule {
+  width: 60px;
+  height: 1px;
+  background: #c0b8a8;
+  margin: 10px 0;
+}
+
+/* Summary excerpt */
+.clippingSummary {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #5a5040;
+  margin: 0 0 10px;
+}
+
+/* Dateline */
+.clippingDateline {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9a9080;
+}
+
+@media (prefers-color-scheme: dark) {
+  .clipping {
+    background: #2a2820;
+    border-color: #222;
+  }
+  .clippingHeadline {
+    color: #e8e0d0;
+  }
+  .clippingSummary {
+    color: #a8a090;
+  }
+  .clippingRule {
+    background: #4a4438;
+  }
+  .clippingDateline {
+    color: #6a6458;
+  }
+}
+
+/* ─────────────────────────────────────────────────
    TOOT — Post-it / sticky note
    ───────────────────────────────────────────────── */
 

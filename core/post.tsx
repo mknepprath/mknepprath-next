@@ -23,28 +23,28 @@ const Post = ({
   url,
 }: PostProps) => (
   <ActivityCard id={id} type={type || "POST"} index={index}>
-    <article key={id}>
-      <header>
-        <Link href={`${url}`}>
-          {image ? (
-            <div className="fill-image bordered-image" style={{ height: 200 }}>
-              <Image
-                alt={`cover image for ${title}`}
-                className="corner-radius-8"
-                src={image}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          ) : null}
-          <h3 className={styles.title}>{title}</h3>
-        </Link>{" "}
-        {summary ? <p style={{ margin: "0.4em 0 0.2em" }}>{summary}</p> : null}
-        <small>
-          {action || "Published"} on {format(parseISO(date), "MMMM d, yyyy")}
-        </small>
-      </header>
-    </article>
+    <Link href={`${url}`} className={styles.clipping}>
+      {image ? (
+        <div className={styles.clippingImage}>
+          <Image
+            alt={`cover image for ${title}`}
+            src={image}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      ) : null}
+      <div className={styles.clippingBody}>
+        <h3 className={styles.clippingHeadline}>{title}</h3>
+        <div className={styles.clippingRule} />
+        {summary ? (
+          <p className={styles.clippingSummary}>{summary}</p>
+        ) : null}
+        <div className={styles.clippingDateline}>
+          {action || "Published"} · {format(parseISO(date), "MMM d, yyyy")}
+        </div>
+      </div>
+    </Link>
   </ActivityCard>
 );
 
