@@ -443,7 +443,7 @@ const MusicPost = ({
   </ActivityCard>
 );
 
-const RunPostFinal = ({
+const RunPost = ({
   action,
   date,
   id,
@@ -453,6 +453,7 @@ const RunPostFinal = ({
   title,
   url,
 }: PostProps) => {
+  // Parse "Distance: 3.2 mi, Time: 28 min, Elevation: 45 ft"
   const stats: Record<string, string> = {};
   if (summary) {
     summary.split(", ").forEach((part) => {
@@ -461,14 +462,17 @@ const RunPostFinal = ({
     });
   }
 
-  const distNum = parseFloat(stats["Distance"] || "0");
-  const timeNum = parseFloat(stats["Time"] || "0");
-  const pace =
-    distNum > 0 && timeNum > 0
-      ? `${Math.floor(timeNum / distNum)}:${String(
-          Math.round((timeNum / distNum - Math.floor(timeNum / distNum)) * 60),
-        ).padStart(2, "0")}`
-      : null;
+  // Variant based on distance and activity type
+  const distance = parseFloat(stats["Distance"] || "0");
+  const elevation = parseFloat(stats["Elevation"] || "0");
+  let variant = styles.runVariantDefault;
+  if (action === "Hiked" || action === "Walked") {
+    variant = styles.runVariantHike;
+  } else if (distance >= 10) {
+    variant = styles.runVariantLong;
+  } else if (elevation >= 300) {
+    variant = styles.runVariantHilly;
+  }
 
   return (
     <ActivityCard id={id} type="RUN" index={index}>
@@ -476,47 +480,41 @@ const RunPostFinal = ({
         href={url}
         target="_blank"
         rel="noreferrer"
-        className={styles.runSticker}
+        className={`${styles.runSticker} ${variant}`}
       >
         <div className={styles.runInner}>
-          <div className={styles.runTop}>
-            <div className={styles.runDot} />
-            <div className={styles.runLabel}>
-              <span className={styles.runAction}>{action}</span>
-            </div>
-          </div>
-
-          <h3 className={styles.runTitle}>{title}</h3>
-
           <div className={styles.runLayout}>
             <div className={styles.runInfoCol}>
+              <div className={styles.runTop}>
+                <div className={styles.runDot} />
+                <div className={styles.runLabel}>
+                  <span className={styles.runAction}>{action}</span>
+                </div>
+              </div>
+
+              <h3 className={styles.runTitle}>{title}</h3>
+
               <div className={styles.runStats}>
                 {stats["Distance"] && (
                   <div className={styles.runStat}>
-                    <span className={styles.runStatValue}>
-                      {stats["Distance"].replace(/ mi$/, "")}
-                    </span>
-                    <span className={styles.runStatUnit}>mi</span>
-                  </div>
-                )}
-                {pace && (
-                  <div className={styles.runStat}>
-                    <span className={styles.runStatValue}>{pace}</span>
-                    <span className={styles.runStatUnit}>/mi</span>
+                    <span className={styles.runStatValue}>{stats["Distance"]}</span>
                   </div>
                 )}
                 {stats["Time"] && (
                   <div className={styles.runStat}>
-                    <span className={styles.runStatSecondary}>
-                      {stats["Time"]}
-                    </span>
+                    <span className={styles.runStatValue}>{stats["Time"]}</span>
+                  </div>
+                )}
+                {stats["Elevation"] && (
+                  <div className={styles.runStat}>
+                    <span className={styles.runStatValue}>{stats["Elevation"]}</span>
                   </div>
                 )}
               </div>
 
-              {stats["Elevation"] && (
-                <div className={styles.runElevation}>↑ {stats["Elevation"]}</div>
-              )}
+              <div className={styles.runDate}>
+                {format(parseISO(date), "MMM d, yyyy")}
+              </div>
             </div>
 
             {image ? (
@@ -524,10 +522,6 @@ const RunPostFinal = ({
                 <StravaMap polyline={image} />
               </div>
             ) : null}
-          </div>
-
-          <div className={styles.runDate}>
-            {format(parseISO(date), "MMM d, yyyy")}
           </div>
         </div>
       </a>
@@ -541,7 +535,7 @@ export {
   HighlightPost,
   FilmPost,
   RepoPost,
-  RunPostFinal as RunPost,
+  RunPost,
   TweetPost,
   TootPost,
   TrophyPost,
