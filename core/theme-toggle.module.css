@@ -1,18 +1,14 @@
 .toggle {
   background: none;
-  border: 1px solid var(--grey);
-  border-radius: 6px;
+  border: none;
   color: var(--black);
   cursor: pointer;
-  font-size: 16px;
-  line-height: 1;
-  padding: 4px 8px;
-  transition: border-color 0.2s, transform 0.2s;
-  display: flex;
-  align-items: center;
+  font-size: 13px;
+  padding: 0 8px;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .toggle:hover {
-  border-color: var(--primaryColor);
+  color: var(--primaryColor);
   transform: translate(0, -2px);
 }
