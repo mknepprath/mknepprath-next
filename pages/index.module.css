@@ -19,7 +19,7 @@
 /* Accommodate for the absolutely positioned hero. */
 .container {
   background: var(--white);
-  padding-top: 2rem;
+  /*padding-top: 2.4rem;*/
   position: relative;
   z-index: 200;
 }
