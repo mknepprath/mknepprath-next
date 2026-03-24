@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
-import { playKeyClick } from "@lib/sounds";
 
 import styles from "./hero.module.css";
 
@@ -22,10 +21,7 @@ export default function Hero({ className, onComplete }: Props): React.JSX.Elemen
   useEffect(() => {
     if (phase === "hello") {
       if (helloLen < HELLO.length) {
-        const t = setTimeout(() => {
-          setHelloLen(helloLen + 1);
-          playKeyClick();
-        }, CHAR_DELAY);
+        const t = setTimeout(() => setHelloLen(helloLen + 1), CHAR_DELAY);
         return () => clearTimeout(t);
       }
       setPhase("pause");
@@ -34,10 +30,7 @@ export default function Hero({ className, onComplete }: Props): React.JSX.Elemen
       return () => clearTimeout(t);
     } else if (phase === "body") {
       if (bodyLen < BODY.length) {
-        const t = setTimeout(() => {
-          setBodyLen(bodyLen + 1);
-          playKeyClick();
-        }, CHAR_DELAY);
+        const t = setTimeout(() => setBodyLen(bodyLen + 1), CHAR_DELAY);
         return () => clearTimeout(t);
       }
       setPhase("done");

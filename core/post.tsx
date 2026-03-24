@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import ActivityCard from "@core/activity-card";
 import StravaMap from "@core/strava-map";
-import { playTerminalKey } from "@lib/sounds";
 import { format, parseISO } from "date-fns";
 import Image from "next/legacy/image";
 import Link from "next/link";
@@ -352,10 +351,7 @@ const RepoPost = ({
 
   useEffect(() => {
     if (!started || charCount >= text.length) return;
-    const t = setTimeout(() => {
-      setCharCount(charCount + 1);
-      if (charCount % 3 === 0) playTerminalKey();
-    }, 25);
+    const t = setTimeout(() => setCharCount(charCount + 1), 25);
     return () => clearTimeout(t);
   }, [started, charCount, text]);
 
