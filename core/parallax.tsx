@@ -50,7 +50,7 @@ export default function Parallax(): React.JSX.Element {
       rafId.current = requestAnimationFrame(() => {
         const y = window.pageYOffset;
         for (let i = 0; i < LAYERS.length; i++) {
-          if (i === CAT_INDEX && catPhase !== "done" && catPhase !== "scrolledAway" && catPhase !== "returning") continue;
+          if (i === CAT_INDEX && catPhase !== "done") continue;
           const el = layerRefs.current[i];
           if (el) {
             el.style.transform = `translate3d(0px,${y * -LAYERS[i].speed}px,0px)`;
