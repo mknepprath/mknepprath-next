@@ -95,11 +95,12 @@
   flex-shrink: 0;
 }
 
-/* Right side: poster image */
+/* Right side: poster image, shown in full */
 .ticketPoster {
-  position: relative;
-  flex: 0 0 35%;
-  min-height: 160px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 12px 14px 12px 0;
 }
 
 /* On mobile: stack vertically, poster on top */
@@ -109,8 +110,8 @@
     min-height: auto;
   }
   .ticketPoster {
-    height: 200px;
-    flex: none;
+    padding: 12px 12px 0;
+    justify-content: center;
   }
   .ticketTear {
     width: auto;

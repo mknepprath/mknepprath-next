@@ -87,8 +87,8 @@ const FilmPost = ({
             <Image
               alt={`poster for ${title}`}
               src={image}
-              layout="fill"
-              objectFit="cover"
+              width={120}
+              height={180}
             />
           </div>
         ) : null}
