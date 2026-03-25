@@ -17,7 +17,7 @@ function hashToRotation(id: string): number {
   return ((Math.abs(hash) % 1000) / 1000) * 3 - 1.5;
 }
 
-const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC", "TOOT", "POST", "BOOK", "PHOTO", "CHESS"]);
+const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC", "TOOT", "POST", "BOOK", "PHOTO", "CHESS", "ROBOT"]);
 const GLOSSY_TYPES = new Set(["MUSIC", "PHOTO"]);
 
 const typeClassMap: Record<string, string> = {
@@ -34,6 +34,7 @@ const typeClassMap: Record<string, string> = {
   RUN: styles.run,
   GAME: styles.game,
   CHESS: styles.chess,
+  ROBOT: styles.robot,
 };
 
 export default function ActivityCard({

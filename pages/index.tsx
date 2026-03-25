@@ -12,6 +12,7 @@ import {
   PhotoPost,
   Post,
   RepoPost,
+  RobotPost,
   RunPost,
   TootPost,
   TrophyPost,
@@ -87,6 +88,10 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
                 return <RunPost key={post.id} {...post} index={index} />;
               case "CHESS":
                 return <ChessPost key={post.id} {...post} index={index} />;
+              case "ROBOT":
+                return <RobotPost key={post.id} {...post} index={index} />;
+              case "SKEET":
+                return <TootPost key={post.id} {...post} index={index} />;
               default:
                 return <Post key={post.id} {...post} index={index} />;
             }
