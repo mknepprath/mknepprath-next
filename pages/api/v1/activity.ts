@@ -162,6 +162,24 @@ const formatBlueskyData = (skeets: Skeet[]): Partial<PostListItem>[] =>
       url: skeet.url,
     }));
 
+const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] =>
+  toots
+    .filter(
+      (toot) =>
+        !!(toot.content || toot.media_attachments[0]?.url) &&
+        !toot.content.startsWith(`<p><span class="h-card"><a href="`),
+    )
+    .map((toot) => ({
+      action: "Computed",
+      date: toot.created_at,
+      id: `bot${toot.id}`,
+      title: toot.content.replace(/<[^>]+>/g, ""),
+      summary: toot.content,
+      image:
+        toot.media_attachments.length > 0 ? toot.media_attachments[0].url : "",
+      url: toot.url,
+    }));
+
 const formatTootData = (toots: Toot[]): Partial<PostListItem>[] =>
   toots
     .filter(
@@ -323,6 +341,11 @@ export default async (
       url: `/api/v1/mastodon`,
       type: "TOOT" as PostListItem["type"],
       format: formatTootData,
+    },
+    {
+      url: `/api/v1/robot-mk`,
+      type: "ROBOT" as PostListItem["type"],
+      format: formatRobotData,
     },
     {
       url: `/api/v1/bluesky`,

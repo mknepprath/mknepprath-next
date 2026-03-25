@@ -1053,3 +1053,85 @@
     color: #5a6a80;
   }
 }
+
+/* ─────────────────────────────────────────────────
+   ROBOT — doppelganger bot commentary
+   CRT / terminal aesthetic, green-on-dark.
+   ───────────────────────────────────────────────── */
+
+.robotCard {
+  display: block;
+  text-decoration: none;
+  background: #0a0a0a;
+  border: 2px solid #1a3a1a;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 0 30px rgba(0, 255, 0, 0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.robotCard:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0px 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 0 40px rgba(0, 255, 0, 0.05);
+}
+
+/* Scanline overlay */
+.robotCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+}
+
+.robotHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.robotIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.robotName {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #3a7a3a;
+}
+
+.robotText {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4ade4a;
+}
+.robotText p {
+  margin: 0;
+}
+
+.robotDate {
+  font-size: 10px;
+  color: #2a5a2a;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .robotCard {
+    border-color: #1a3a1a;
+  }
+}

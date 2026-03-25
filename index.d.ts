@@ -32,7 +32,8 @@ interface PostListItem {
     | "GAME"
     | "RUN"
     | "CHESS"
-    | "SKEET";
+    | "SKEET"
+    | "ROBOT";
   url?: string;
 }
 

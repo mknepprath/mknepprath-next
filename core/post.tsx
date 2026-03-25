@@ -701,6 +701,35 @@ const ChessPost = ({
   );
 };
 
+const RobotPost = ({
+  date,
+  id,
+  index = 0,
+  summary,
+  url,
+}: PostProps) => (
+  <ActivityCard id={id} type="ROBOT" index={index}>
+    <a
+      href={url || "#"}
+      target="_blank"
+      rel="noreferrer"
+      className={styles.robotCard}
+    >
+      <div className={styles.robotHeader}>
+        <span className={styles.robotIcon}>🤖</span>
+        <span className={styles.robotName}>robot_mk</span>
+      </div>
+      <div
+        className={styles.robotText}
+        dangerouslySetInnerHTML={{ __html: summary || "" }}
+      />
+      <div className={styles.robotDate}>
+        {format(parseISO(date), "MMM d, h:mm a")}
+      </div>
+    </a>
+  </ActivityCard>
+);
+
 export {
   Post,
   BookPost,
@@ -708,6 +737,7 @@ export {
   HighlightPost,
   FilmPost,
   RepoPost,
+  RobotPost,
   RunPost,
   TweetPost,
   TootPost,

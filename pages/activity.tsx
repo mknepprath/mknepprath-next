@@ -9,6 +9,7 @@ import {
   PhotoPost,
   Post,
   RepoPost,
+  RobotPost,
   RunPost,
   TootPost,
   TrophyPost,
@@ -42,6 +43,7 @@ const POST_MAP: Record<string, React.ComponentType<PostListItem & { index?: numb
   TROPHY: TrophyPost,
   RUN: RunPost,
   CHESS: ChessPost,
+  ROBOT: RobotPost,
 };
 
 interface Props {
