@@ -890,6 +890,56 @@
   }
 }
 
+/* Blue sticky — Bluesky posts */
+.stickyBlue {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 40%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.03) 100%
+    ),
+    #b8d8f4;
+}
+.stickyBlueText,
+.stickyBlueText p,
+.stickyBlueText span,
+.stickyBlueText a {
+  color: #1a3a5a !important;
+}
+.stickyBlueText a {
+  color: #2a5a8a !important;
+}
+.stickyBlueDate {
+  color: #5a8ab0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stickyBlue {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 40%,
+        transparent 85%,
+        rgba(0, 0, 0, 0.06) 100%
+      ),
+      #283848;
+  }
+  .stickyBlueText,
+  .stickyBlueText p,
+  .stickyBlueText span {
+    color: #c0d8f0 !important;
+  }
+  .stickyBlueText a {
+    color: #80b0e0 !important;
+  }
+  .stickyBlueDate {
+    color: #6088b0;
+  }
+}
+
 /* ─────────────────────────────────────────────────
    CHESS — tournament result slip
    Cool grey-blue, two-player layout, result accent.
@@ -1062,23 +1112,25 @@
 .robotCard {
   display: block;
   text-decoration: none;
-  background: #0a0a0a;
-  border: 2px solid #1a3a1a;
-  border-radius: 8px;
+  background: #050a05;
+  border: 8px solid #1a3a1a;
+  border-radius: 12px;
   padding: 14px 16px;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   position: relative;
   overflow: hidden;
   box-shadow:
     0px 2px 6px rgba(0, 0, 0, 0.15),
-    inset 0 0 30px rgba(0, 255, 0, 0.03);
+    inset 0 0 40px rgba(0, 255, 0, 0.04),
+    0 0 15px rgba(0, 255, 0, 0.06);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .robotCard:hover {
   transform: translateY(-2px);
   box-shadow:
     0px 4px 12px rgba(0, 0, 0, 0.2),
-    inset 0 0 40px rgba(0, 255, 0, 0.05);
+    inset 0 0 50px rgba(0, 255, 0, 0.06),
+    0 0 25px rgba(0, 255, 0, 0.1);
 }
 
 /* Scanline overlay */
@@ -1089,10 +1141,31 @@
   background: repeating-linear-gradient(
     transparent,
     transparent 2px,
-    rgba(0, 0, 0, 0.15) 2px,
-    rgba(0, 0, 0, 0.15) 4px
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
   );
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Phosphor glow — soft vignette from center */
+.robotCard::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(0, 255, 0, 0.05) 0%,
+    rgba(0, 255, 0, 0.02) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: phosphorPulse 4s ease-in-out infinite;
+}
+
+@keyframes phosphorPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 .robotHeader {
@@ -1100,6 +1173,8 @@
   align-items: center;
   gap: 6px;
   margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
 }
 
 .robotIcon {
@@ -1112,12 +1187,16 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: #3a7a3a;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
 }
 
 .robotText {
   font-size: 14px;
   line-height: 1.5;
   color: #4ade4a;
+  text-shadow: 0 0 6px rgba(74, 222, 74, 0.25);
+  position: relative;
+  z-index: 2;
 }
 .robotText p {
   margin: 0;
@@ -1128,6 +1207,9 @@
   color: #2a5a2a;
   margin-top: 10px;
   letter-spacing: 0.5px;
+  text-shadow: 0 0 4px rgba(0, 255, 0, 0.15);
+  position: relative;
+  z-index: 2;
 }
 
 @media (prefers-color-scheme: dark) {

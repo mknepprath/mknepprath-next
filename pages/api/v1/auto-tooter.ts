@@ -7,27 +7,33 @@ import { NextApiRequest, NextApiResponse } from "next";
 const ACTIVITY_API = `https://mknepprath.com/api/v1/activity?max_results=3`;
 
 // Create a social media status generator based on the type of post
-function genStatus(post: PostListItem): string {
+function genStatus(post: PostListItem): string | null {
   const { action, id, summary = "", title, type, url } = post;
   const link = url + "?i=" + id;
   switch (type) {
     case "BOOK":
       return `Finished reading ${title}. ${summary}. ${link}`;
     case "HIGHLIGHT":
-      return `“${title}”\n\n${summary} ${link}`;
+      return `"${title}"\n\n${summary} ${link}`;
     case "FILM":
       return `${action} ${title}. ${convert(summary, {
         preserveNewlines: true,
         wordwrap: false,
       })} ${link}`;
+    case "RUN":
+      return `${summary} ${link}`;
     case "REPO":
-      return `I pushed an update to ${title}: ${summary} ${link}`;
+    case "CHESS":
+    case "TROPHY":
+    case "GAME":
+      // skip — these are noisy and don't make good social posts
+      return null;
     case "MUSIC":
       return `Listening to ${title} by ${summary}. ${link}`;
     case "POST":
       return `✍️ New blog post: ${title} https://mknepprath.com${link}`;
     default:
-      return `${convert(summary)} ${link}`;
+      return null;
   }
 }
 
@@ -38,8 +44,9 @@ export default async (
   const allActivity: PostListItem[] = await fetch(ACTIVITY_API).then(
     (response) => response.json(),
   );
+  const skipTypes = new Set(["TOOT", "SKEET", "ROBOT", "REPO", "CHESS", "TROPHY", "GAME"]);
   const activity = allActivity.filter(
-    (activity) => activity.type !== "TOOT" && activity.url,
+    (activity) => !skipTypes.has(activity.type || "") && activity.url,
   );
 
   // get mastodon posts
@@ -57,13 +64,13 @@ export default async (
 
   // post new activity to Mastodon
   const response = await Promise.all(
-    newActivity.map(async (post) => {
+    newActivity.filter((post) => genStatus(post) !== null).map(async (post) => {
       return await fetch("https://mastodon.social/api/v1/statuses", {
         body: JSON.stringify({
           spoiler_text: post.summary?.includes("contain spoilers")
             ? `${post.action} ${post.title}. This review may contain spoilers.`
             : "",
-          status: genStatus(post),
+          status: genStatus(post) as string,
           visibility: "public",
         }),
         headers: {

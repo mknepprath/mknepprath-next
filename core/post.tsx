@@ -461,6 +461,43 @@ const TootPost = ({
   </ActivityCard>
 );
 
+const SkeetPost = ({
+  action,
+  date,
+  id,
+  image,
+  index = 0,
+  summary,
+  url,
+}: PostProps) => (
+  <ActivityCard id={id} type="SKEET" index={index}>
+    <div className={`${styles.stickyNote} ${styles.stickyBlue}`}>
+      {image ? (
+        <div className={styles.stickyImage}>
+          <Image
+            alt="attached image"
+            src={image}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      ) : null}
+      <div
+        className={`${styles.stickyText} ${styles.stickyBlueText}`}
+        dangerouslySetInnerHTML={{ __html: summary || "" }}
+      />
+      <a
+        href={url || "#"}
+        target="_blank"
+        rel="noreferrer"
+        className={`${styles.stickyDate} ${styles.stickyBlueDate}`}
+      >
+        {action} · {format(parseISO(date), "MMM d")}
+      </a>
+    </div>
+  </ActivityCard>
+);
+
 // FIXME: Fix case when no link is available.
 const MusicPost = ({
   action,
@@ -739,6 +776,7 @@ export {
   RepoPost,
   RobotPost,
   RunPost,
+  SkeetPost,
   TweetPost,
   TootPost,
   TrophyPost,
