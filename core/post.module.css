@@ -13,7 +13,8 @@
   .musicCard,
   .clipping,
   .polaroid,
-  .runSticker {
+  .runSticker,
+  .receipt {
     border-color: #2a2a2a !important;
   }
   .runSticker {

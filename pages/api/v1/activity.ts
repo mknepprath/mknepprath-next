@@ -149,6 +149,19 @@ const formatRepoData = (repos: Repo[]): Partial<PostListItem>[] =>
     url: repo.homepage || `https://github.com/mknepprath/${repo.name}`,
   }));
 
+const formatBlueskyData = (skeets: Skeet[]): Partial<PostListItem>[] =>
+  skeets
+    .filter((skeet) => skeet.text)
+    .map((skeet) => ({
+      action: "Posted",
+      date: skeet.created_at,
+      id: `sk${skeet.id}`,
+      title: skeet.text,
+      summary: skeet.text,
+      image: skeet.image || "",
+      url: skeet.url,
+    }));
+
 const formatTootData = (toots: Toot[]): Partial<PostListItem>[] =>
   toots
     .filter(
@@ -310,6 +323,11 @@ export default async (
       url: `/api/v1/mastodon`,
       type: "TOOT" as PostListItem["type"],
       format: formatTootData,
+    },
+    {
+      url: `/api/v1/bluesky`,
+      type: "SKEET" as PostListItem["type"],
+      format: formatBlueskyData,
     },
     {
       url: `/api/v1/photos`,

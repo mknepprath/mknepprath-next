@@ -31,7 +31,8 @@ interface PostListItem {
     | "TROPHY"
     | "GAME"
     | "RUN"
-    | "CHESS";
+    | "CHESS"
+    | "SKEET";
   url?: string;
 }
 
@@ -85,6 +86,15 @@ interface TootRss {
   id: string;
   image: string;
   published_at: string;
+}
+
+interface Skeet {
+  id: string;
+  created_at: string;
+  text: string;
+  like_count: number;
+  image: string;
+  url: string;
 }
 
 interface Toot {

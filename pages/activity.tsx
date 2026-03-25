@@ -36,6 +36,7 @@ const POST_MAP: Record<string, React.ComponentType<PostListItem & { index?: numb
   BOOK: BookPost,
   HIGHLIGHT: HighlightPost,
   TOOT: TootPost,
+  SKEET: TootPost,
   PHOTO: PhotoPost,
   MUSIC: MusicPost,
   TROPHY: TrophyPost,
