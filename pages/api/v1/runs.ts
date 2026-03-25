@@ -1,4 +1,3 @@
-import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
 
 // State for tokens
@@ -7,32 +6,34 @@ let refreshToken = process.env.STRAVA_REFRESH_TOKEN || "";
 
 // Function to refresh the access token
 async function refreshAccessToken(): Promise<void> {
-  try {
-    const response = await fetch("https://www.strava.com/oauth/token", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        client_id: process.env.STRAVA_CLIENT_ID,
-        client_secret: process.env.STRAVA_CLIENT_SECRET,
-        grant_type: "refresh_token",
-        refresh_token: refreshToken,
-      }),
-    });
+  const body = {
+    client_id: process.env.STRAVA_CLIENT_ID,
+    client_secret: process.env.STRAVA_CLIENT_SECRET,
+    grant_type: "refresh_token",
+    refresh_token: refreshToken,
+  };
 
-    if (!response.ok) {
-      throw new Error(`Failed to refresh access token: ${response.statusText}`);
-    }
+  console.log("Refreshing token with client_id:", process.env.STRAVA_CLIENT_ID);
+  console.log("Refresh token starts with:", refreshToken.slice(0, 8));
 
-    const data = await response.json();
-    accessToken = data.access_token;
-    refreshToken = data.refresh_token; // Update with the latest refresh token
-    console.log("Access token refreshed successfully.");
-  } catch (error) {
-    console.error("Error refreshing access token:", error);
-    throw new Error("Failed to refresh access token.", { cause: error });
+  const response = await fetch("https://www.strava.com/oauth/token", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    console.error("Token refresh failed:", response.status, text);
+    throw new Error(`Failed to refresh access token: ${response.status} ${text}`);
   }
+
+  const data = await response.json();
+  accessToken = data.access_token;
+  refreshToken = data.refresh_token;
+  console.log("Access token refreshed successfully.");
 }
 
 // Function to fetch recent runs
