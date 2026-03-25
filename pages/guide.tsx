@@ -1,23 +1,96 @@
 import Page from "@core/page";
 import Prism from "prismjs";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+type Tool = "claude" | "codex";
+
+const TOOLS = {
+  claude: {
+    name: "Claude Code",
+    short: "Claude",
+    command: "claude",
+    install: "npm install -g @anthropic-ai/claude-code",
+    cost: "Claude Pro subscription: $20/month",
+    costDetail:
+      "this gives you access to Claude Code. This is the main cost. The Max plan ($100/month) gives you more usage if you hit limits, but Pro is fine to start.",
+    cancelNote:
+      "And once your site is built, you can cancel Claude Pro and only resubscribe when you want to make changes.",
+    provider: "Claude",
+    providerSub: "Claude Pro",
+  },
+  codex: {
+    name: "ChatGPT Codex",
+    short: "Codex",
+    command: "codex",
+    install: "npm install -g @openai/codex",
+    cost: "ChatGPT Pro subscription: $20/month",
+    costDetail:
+      "this gives you access to Codex. This is the main cost. The Plus plan ($20/month) works fine to start.",
+    cancelNote:
+      "And once your site is built, you can cancel ChatGPT Pro and only resubscribe when you want to make changes.",
+    provider: "Codex",
+    providerSub: "ChatGPT Pro",
+  },
+};
 
 export default function Guide(): React.JSX.Element {
+  const [tool, setTool] = useState<Tool>("claude");
+  const t = TOOLS[tool];
+
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  }, [tool]);
 
   return (
-    <Page title="Build Your Website with Claude Code">
+    <Page title={`Build Your Website with ${t.name}`}>
       <article>
         <header>
-          <h1>Build Your Website with Claude Code</h1>
+          <h1>Build Your Website with {t.name}</h1>
         </header>
+
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            marginBottom: 24,
+          }}
+        >
+          <button
+            onClick={() => setTool("claude")}
+            style={{
+              padding: "6px 16px",
+              borderRadius: 6,
+              border: "1px solid",
+              borderColor: tool === "claude" ? "var(--primaryColor)" : "#ccc",
+              background: tool === "claude" ? "var(--primaryColor)" : "transparent",
+              color: tool === "claude" ? "#fff" : "inherit",
+              cursor: "pointer",
+              fontWeight: tool === "claude" ? "bold" : "normal",
+            }}
+          >
+            Claude Code
+          </button>
+          <button
+            onClick={() => setTool("codex")}
+            style={{
+              padding: "6px 16px",
+              borderRadius: 6,
+              border: "1px solid",
+              borderColor: tool === "codex" ? "var(--primaryColor)" : "#ccc",
+              background: tool === "codex" ? "var(--primaryColor)" : "transparent",
+              color: tool === "codex" ? "#fff" : "inherit",
+              cursor: "pointer",
+              fontWeight: tool === "codex" ? "bold" : "normal",
+            }}
+          >
+            ChatGPT Codex
+          </button>
+        </div>
 
         <p>
           So you want a website that does more than what Squarespace lets you do,
           but you don&apos;t want to learn to code. Good news: you don&apos;t
-          have to. Claude Code is an AI that lives in your terminal and builds
+          have to. {t.name} is an AI that lives in your terminal and builds
           things for you. You describe what you want, it writes the code, and
           your site updates automatically.
         </p>
@@ -34,10 +107,7 @@ export default function Guide(): React.JSX.Element {
         </p>
         <ul>
           <li>
-            <strong>Claude Pro subscription: $20/month</strong> &mdash; this
-            gives you access to Claude Code. This is the main cost. The Max plan
-            ($100/month) gives you more usage if you hit limits, but Pro is
-            fine to start.
+            <strong>{t.cost}</strong> &mdash; {t.costDetail}
           </li>
           <li>
             <strong>Vercel hosting: free</strong> &mdash; for personal sites,
@@ -47,7 +117,7 @@ export default function Guide(): React.JSX.Element {
             <strong>Domain name: you already have one.</strong> You&apos;ll
             point it at Vercel instead of Squarespace. This is a one-time
             change in your domain registrar&apos;s settings (wherever you
-            bought the domain). Claude can walk you through it, or Vercel has a{" "}
+            bought the domain). {t.short} can walk you through it, or Vercel has a{" "}
             <a href="https://vercel.com/docs/projects/domains">step-by-step guide</a>.
           </li>
           <li>
@@ -56,11 +126,10 @@ export default function Guide(): React.JSX.Element {
         </ul>
         <p>
           So realistically: <strong>$20/month</strong>, compared to Squarespace
-          at $16-49/month. The difference is that Claude Code gives you
+          at $16-49/month. The difference is that {t.name} gives you
           unlimited flexibility and you actually own everything. No lock-in, no
-          &ldquo;upgrade to Business to unlock this feature.&rdquo; And once
-          your site is built, you can cancel Claude Pro and only resubscribe
-          when you want to make changes.
+          &ldquo;upgrade to Business to unlock this feature.&rdquo;{" "}
+          {t.cancelNote}
         </p>
 
         <h2>About the Terminal</h2>
@@ -73,16 +142,16 @@ export default function Guide(): React.JSX.Element {
         <ol>
           <li>Open it (search &ldquo;Terminal&rdquo; on Mac)</li>
           <li>Paste a command and press Enter</li>
-          <li>Type <code>claude</code> to start talking to Claude Code</li>
+          <li>Type <code>{t.command}</code> to start talking to {t.name}</li>
         </ol>
         <p>
-          That&apos;s it. Once Claude Code is running, you&apos;re just having a
+          That&apos;s it. Once {t.name} is running, you&apos;re just having a
           conversation in plain English. It handles all the technical stuff. If
           something goes wrong, you can literally say &ldquo;something went
           wrong, help&rdquo; and it will fix it.
         </p>
         <p>
-          You will never need to read or write code. Claude Code reads and
+          You will never need to read or write code. {t.name} reads and
           writes it for you. The terminal is just where you talk to it.
         </p>
 
@@ -94,7 +163,7 @@ export default function Guide(): React.JSX.Element {
             The ability to change anything by describing what you want in plain
             English
           </li>
-          <li>No monthly platform fees beyond the Claude subscription</li>
+          <li>No monthly platform fees beyond the {t.providerSub} subscription</li>
         </ul>
 
         <h2>Part 1: One-Time Setup</h2>
@@ -149,9 +218,9 @@ export default function Guide(): React.JSX.Element {
           <code className="language-bash">brew install node git</code>
         </pre>
 
-        <h4>Install Claude Code</h4>
+        <h4>Install {t.name}</h4>
         <pre>
-          <code className="language-bash">npm install -g @anthropic-ai/claude-code</code>
+          <code className="language-bash">{t.install}</code>
         </pre>
 
         <h3>Step 3: Create Your Site</h3>
@@ -200,11 +269,11 @@ gh repo create my-site --public --push`}
         <pre>
           <code className="language-bash">
             {`cd my-site
-claude`}
+${t.command}`}
           </code>
         </pre>
         <p>
-          This opens Claude Code. You&apos;re now in a conversation. It can see
+          This opens {t.name}. You&apos;re now in a conversation. It can see
           all your site&apos;s files and knows how to change them.
         </p>
 
@@ -220,7 +289,7 @@ claude`}
           <li>&ldquo;I don&apos;t like the color scheme, make it more warm and earthy&rdquo;</li>
         </ul>
         <p>
-          Claude will make the changes and show you what it did. If you
+          {t.short} will make the changes and show you what it did. If you
           don&apos;t like something, just say so: &ldquo;actually make the
           header smaller&rdquo; or &ldquo;undo that.&rdquo;
         </p>
@@ -233,12 +302,12 @@ claude`}
         <p>
           Then open{" "}
           <a href="http://localhost:3000">localhost:3000</a> in your browser.
-          This is a live preview of your site. Every time Claude makes a change,
-          refresh the page to see it.
+          This is a live preview of your site. Every time {t.short} makes a
+          change, refresh the page to see it.
         </p>
 
         <h3>4. Publish</h3>
-        <p>When you&apos;re happy with the changes, tell Claude:</p>
+        <p>When you&apos;re happy with the changes, tell {t.short}:</p>
         <ul>
           <li>&ldquo;Commit this and push it&rdquo;</li>
         </ul>
@@ -267,16 +336,16 @@ claude`}
         </pre>
         <p>
           Save this as a file called <code>SPEC.md</code> in your project
-          folder. Then when you open Claude Code, start with:
+          folder. Then when you open {t.name}, start with:
         </p>
         <ul>
           <li>&ldquo;Read SPEC.md and build this site for me&rdquo;</li>
         </ul>
         <p>
-          Claude will read your spec and start building. You can watch it work,
-          and jump in with feedback as it goes. This is much more effective than
-          giving one-off instructions because Claude understands the big
-          picture.
+          {t.short} will read your spec and start building. You can watch it
+          work, and jump in with feedback as it goes. This is much more
+          effective than giving one-off instructions because {t.short}{" "}
+          understands the big picture.
         </p>
         <p>
           As your site evolves, update the spec. It&apos;s your source of truth
@@ -292,9 +361,9 @@ claude`}
           </li>
           <li>
             <strong>Send screenshots.</strong> If you see something you
-            don&apos;t like, take a screenshot and drag it into the Claude Code
-            terminal. Then say &ldquo;fix this&rdquo; or &ldquo;I want it to
-            look more like [description].&rdquo;
+            don&apos;t like, take a screenshot and drag it into the terminal.
+            Then say &ldquo;fix this&rdquo; or &ldquo;I want it to look more
+            like [description].&rdquo;
           </li>
           <li>
             <strong>Reference other sites.</strong> &ldquo;Make my portfolio
@@ -304,7 +373,7 @@ claude`}
             <strong>Don&apos;t worry about breaking things.</strong> Everything
             is saved in git, which keeps a history of every version. If
             something goes wrong, you can say &ldquo;undo the last change&rdquo;
-            and Claude will revert it.
+            and {t.short} will revert it.
           </li>
           <li>
             <strong>Start simple.</strong> Get the basics up first (pages,
@@ -312,15 +381,15 @@ claude`}
           </li>
           <li>
             <strong>Keep your spec updated.</strong> When you add a new feature
-            or change direction, update <code>SPEC.md</code> so Claude always
-            knows what the site should be.
+            or change direction, update <code>SPEC.md</code> so {t.short}{" "}
+            always knows what the site should be.
           </li>
         </ul>
 
         <h2>Adding Content</h2>
         <p>
-          To add new pages, blog posts, images, or anything else, just tell
-          Claude:
+          To add new pages, blog posts, images, or anything else, just tell{" "}
+          {t.short}:
         </p>
         <ul>
           <li>&ldquo;Add a new blog post called [title] with this content: [paste your text]&rdquo;</li>
@@ -334,10 +403,10 @@ claude`}
         </p>
         <ol>
           <li>
-            <strong>Ask Claude.</strong>{" "}It can explain what&apos;s happening,
-            fix errors, and walk you through anything. You can say &ldquo;I
-            don&apos;t understand what just happened&rdquo; and it will explain
-            in plain English.
+            <strong>Ask {t.short}.</strong>{" "}It can explain what&apos;s
+            happening, fix errors, and walk you through anything. You can say
+            &ldquo;I don&apos;t understand what just happened&rdquo; and it
+            will explain in plain English.
           </li>
           <li>
             <strong>Ask a friend.</strong>{" "}If you know someone technical, the
