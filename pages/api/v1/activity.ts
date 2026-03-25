@@ -162,6 +162,16 @@ const formatBlueskyData = (skeets: Skeet[]): Partial<PostListItem>[] =>
       url: skeet.url,
     }));
 
+const decodeEntities = (str: string): string =>
+  str
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#x27;/g, "'")
+    .replace(/&apos;/g, "'");
+
 const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] =>
   toots
     .filter(
@@ -173,10 +183,8 @@ const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] =>
       action: "Computed",
       date: toot.created_at,
       id: `bot${toot.id}`,
-      title: toot.content.replace(/<[^>]+>/g, ""),
+      title: decodeEntities(toot.content.replace(/<[^>]+>/g, "")),
       summary: toot.content,
-      image:
-        toot.media_attachments.length > 0 ? toot.media_attachments[0].url : "",
       url: toot.url,
     }));
 
