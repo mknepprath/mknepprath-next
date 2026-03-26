@@ -99,6 +99,15 @@ export default function ActivityCard({
     return () => window.removeEventListener("deviceorientation", handler);
   }, [isGlossy]);
 
+  // Push gloss position to CSS custom properties imperatively
+  // (animated.div from react-spring doesn't forward unknown CSS vars)
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !isGlossy) return;
+    el.style.setProperty("--mx", `${glossPos.x}%`);
+    el.style.setProperty("--my", `${glossPos.y}%`);
+  }, [glossPos, isGlossy]);
+
   const spring = useSpring({
     opacity: visible ? 1 : 0,
     transform: visible
@@ -134,10 +143,7 @@ export default function ActivityCard({
     <animated.div
       className={`${styles.card} ${typeClass} ${isGlossy ? styles.glossy : ""}`}
       ref={ref}
-      style={{
-        ...(isStyled ? spring : {}),
-        ...(isGlossy ? { "--mx": `${glossPos.x}%`, "--my": `${glossPos.y}%` } as React.CSSProperties : {}),
-      }}
+      style={isStyled ? spring : undefined}
       onMouseEnter={isStyled ? handleMouseEnter : undefined}
       onMouseLeave={isStyled ? handleMouseLeave : undefined}
       onMouseMove={isGlossy ? handleMouseMove : undefined}

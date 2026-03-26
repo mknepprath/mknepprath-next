@@ -79,7 +79,7 @@
   .polaroid::after,
   .musicCard::after,
   .receipt::after {
-    opacity: 0.5;
+    opacity: 0.25;
   }
 }
 
@@ -94,7 +94,7 @@
     .polaroid::after,
     .musicCard::after,
     .receipt::after {
-      opacity: 0.6;
+      opacity: 0.35;
     }
   }
 }
