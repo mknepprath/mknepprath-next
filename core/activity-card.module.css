@@ -22,10 +22,3 @@
 .glossy:hover .glossHighlight {
   opacity: 1;
 }
-
-/* On touch devices, always show (driven by gyro) */
-@media (hover: none) {
-  .glossHighlight {
-    opacity: 1;
-  }
-}

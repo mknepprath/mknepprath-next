@@ -13,14 +13,12 @@
    ───────────────────────────────────────────────── */
 
 .polaroid,
-.musicCard,
-.receipt {
+.musicCard {
   position: relative;
 }
 
 .polaroid::after,
-.musicCard::after,
-.receipt::after {
+.musicCard::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -69,33 +67,15 @@
 }
 
 .polaroid:hover::after,
-.musicCard:hover::after,
-.receipt:hover::after {
+.musicCard:hover::after {
   opacity: 0.5;
-}
-
-/* On touch devices, always show gloss (driven by gyro) */
-@media (hover: none) {
-  .polaroid::after,
-  .musicCard::after,
-  .receipt::after {
-    opacity: 0.25;
-  }
 }
 
 /* Dark mode: boost gloss slightly for better visibility */
 @media (prefers-color-scheme: dark) {
   .polaroid:hover::after,
-  .musicCard:hover::after,
-  .receipt:hover::after {
+  .musicCard:hover::after {
     opacity: 0.6;
-  }
-  @media (hover: none) {
-    .polaroid::after,
-    .musicCard::after,
-    .receipt::after {
-      opacity: 0.35;
-    }
   }
 }
 
