@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.content {
+  position: relative;
+}
+
+.heading {
+  font-size: clamp(8rem, 20vw, 16rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  filter: url(#distort);
+  color: var(--black);
+  opacity: 0.15;
+}
+
+.subheading {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem;
+  color: var(--black);
+}
+
+.link {
+  font-size: 1rem;
+  color: var(--primaryColor);
+  text-decoration: none;
+}
+.link:hover {
+  color: var(--hoverColor);
+}
