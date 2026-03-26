@@ -289,35 +289,37 @@ const PhotoPost = ({
   index = 0,
   title,
   url,
-}: PostProps) => (
-  <ActivityCard id={id} type="PHOTO" index={index}>
-    <a
-      href={url}
-      target="_blank"
-      rel="noreferrer"
-      className={styles.polaroid}
-    >
-      <div className={styles.polaroidFrame}>
-        {image && (
-          <Image
-            alt={title || "photo"}
-            src={image}
-            layout="fill"
-            objectFit="cover"
-          />
-        )}
-      </div>
-      <div className={styles.polaroidCaption}>
-        {title && title !== "Untitled" && (
-          <span className={styles.polaroidText}>{title}</span>
-        )}
-        <span className={styles.polaroidDate}>
-          {action} · {format(parseISO(date), "MMM d")}
-        </span>
-      </div>
-    </a>
-  </ActivityCard>
-);
+}: PostProps) => {
+  return (
+    <ActivityCard id={id} type="PHOTO" index={index}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.polaroid}
+      >
+        <div className={styles.polaroidFrame}>
+          {image && (
+            <Image
+              alt={title || "photo"}
+              src={image}
+              layout="fill"
+              objectFit="cover"
+            />
+          )}
+        </div>
+        <div className={styles.polaroidCaption}>
+          {title && title !== "Untitled" && (
+            <span className={styles.polaroidText}>{title}</span>
+          )}
+          <span className={styles.polaroidDate}>
+            {action} · {format(parseISO(date), "MMM d")}
+          </span>
+        </div>
+      </a>
+    </ActivityCard>
+  );
+};
 
 const RepoPost = ({
   action,
@@ -508,43 +510,45 @@ const MusicPost = ({
   summary,
   title,
   url,
-}: PostProps) => (
-  <ActivityCard id={id} type="MUSIC" index={index}>
-    <a
-      href={url}
-      target="_blank"
-      rel="noreferrer"
-      className={styles.musicCard}
-    >
-      {image && (
-        <div
-          className={styles.musicBg}
-          style={{ backgroundImage: `url(${image})` }}
-        />
-      )}
-      <div className={styles.musicContent}>
+}: PostProps) => {
+  return (
+    <ActivityCard id={id} type="MUSIC" index={index}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.musicCard}
+      >
         {image && (
-          <div className={styles.musicArt}>
-            <Image
-              alt={`album art for ${title}`}
-              src={image}
-              width={80}
-              height={80}
-              className="corner-radius-8"
-            />
-          </div>
+          <div
+            className={styles.musicBg}
+            style={{ backgroundImage: `url(${image})` }}
+          />
         )}
-        <div className={styles.musicInfo}>
-          <h3 className={styles.musicTitle}>{title}</h3>
-          {summary && <p className={styles.musicArtist}>{summary}</p>}
-          <small className={styles.musicDate}>
-            {action} · {format(parseISO(date), "MMM d, yyyy")}
-          </small>
+        <div className={styles.musicContent}>
+          {image && (
+            <div className={styles.musicArt}>
+              <Image
+                alt={`album art for ${title}`}
+                src={image}
+                width={80}
+                height={80}
+                className="corner-radius-8"
+              />
+            </div>
+          )}
+          <div className={styles.musicInfo}>
+            <h3 className={styles.musicTitle}>{title}</h3>
+            {summary && <p className={styles.musicArtist}>{summary}</p>}
+            <small className={styles.musicDate}>
+              {action} · {format(parseISO(date), "MMM d, yyyy")}
+            </small>
+          </div>
         </div>
-      </div>
-    </a>
-  </ActivityCard>
-);
+      </a>
+    </ActivityCard>
+  );
+};
 
 const RunPost = ({
   action,

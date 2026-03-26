@@ -14,6 +14,7 @@ interface Post {
   image?: string;
   summary?: string;
   title: string;
+  contentHtml?: string;
 }
 
 enum Color {
@@ -40,6 +41,7 @@ const feed = {
     id: `https://mknepprath.com/writing/${post.id}`,
     url: `https://mknepprath.com/writing/${post.id}`,
     title: post.title,
+    content_html: post.contentHtml || undefined,
     content_text: `${
       post.summary ? post.summary + " • " : ""
     }https://mknepprath.com/writing/${post.id}`,

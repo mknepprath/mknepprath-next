@@ -18,7 +18,7 @@ function hashToRotation(id: string): number {
 }
 
 const STYLED_TYPES = new Set(["RUN", "FILM", "REPO", "MUSIC", "TOOT", "POST", "BOOK", "PHOTO", "CHESS", "ROBOT", "SKEET"]);
-const GLOSSY_TYPES = new Set(["MUSIC", "PHOTO"]);
+const GLOSSY_TYPES = new Set(["MUSIC", "PHOTO", "REPO"]);
 
 const typeClassMap: Record<string, string> = {
   FILM: styles.film,
@@ -134,7 +134,10 @@ export default function ActivityCard({
     <animated.div
       className={`${styles.card} ${typeClass} ${isGlossy ? styles.glossy : ""}`}
       ref={ref}
-      style={isStyled ? spring : undefined}
+      style={{
+        ...(isStyled ? spring : {}),
+        ...(isGlossy ? { "--mx": `${glossPos.x}%`, "--my": `${glossPos.y}%` } as React.CSSProperties : {}),
+      }}
       onMouseEnter={isStyled ? handleMouseEnter : undefined}
       onMouseLeave={isStyled ? handleMouseLeave : undefined}
       onMouseMove={isGlossy ? handleMouseMove : undefined}

@@ -67,4 +67,11 @@ export default [{
             version: "detect",
         },
     },
+}, {
+    // React Three Fiber uses custom JSX props (args, attach, etc.)
+    files: ["core/404-scene.tsx"],
+    rules: {
+        "react/no-unknown-property": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+    },
 }];

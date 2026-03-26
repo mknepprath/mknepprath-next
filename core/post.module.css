@@ -7,6 +7,98 @@
   color: var(--primaryColor);
 }
 
+/* ─────────────────────────────────────────────────
+   GLOSS — holographic shine overlay for select cards
+   Uses --mx / --my custom properties set by JS on mousemove.
+   ───────────────────────────────────────────────── */
+
+.polaroid,
+.musicCard,
+.receipt {
+  position: relative;
+}
+
+.polaroid::after,
+.musicCard::after,
+.receipt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: color-dodge;
+
+  background-image:
+    repeating-linear-gradient(
+      133deg,
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgb(255, 119, 115) 0%,
+      rgba(255, 237, 95, 1) 14.3%,
+      rgba(168, 255, 95, 1) 28.6%,
+      rgba(131, 255, 247, 1) 42.9%,
+      rgba(120, 148, 255, 1) 57.2%,
+      rgb(216, 117, 255) 71.5%,
+      rgb(255, 119, 115) 100%
+    ),
+    radial-gradient(
+      farthest-corner circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(0, 0, 0, 0.5) 90%
+    );
+
+  background-blend-mode: hard-light, hue;
+  background-size: 300% 300%, 200% 700%, 200% 200%;
+  background-position:
+    var(--mx, 50%) var(--my, 50%),
+    0% var(--my, 50%),
+    var(--mx, 50%) var(--my, 50%);
+
+  filter: brightness(0.7) contrast(2.5) saturate(0.6);
+}
+
+.polaroid:hover::after,
+.musicCard:hover::after,
+.receipt:hover::after {
+  opacity: 0.5;
+}
+
+/* On touch devices, always show gloss (driven by gyro) */
+@media (hover: none) {
+  .polaroid::after,
+  .musicCard::after,
+  .receipt::after {
+    opacity: 0.5;
+  }
+}
+
+/* Dark mode: boost gloss slightly for better visibility */
+@media (prefers-color-scheme: dark) {
+  .polaroid:hover::after,
+  .musicCard:hover::after,
+  .receipt:hover::after {
+    opacity: 0.6;
+  }
+  @media (hover: none) {
+    .polaroid::after,
+    .musicCard::after,
+    .receipt::after {
+      opacity: 0.6;
+    }
+  }
+}
+
 /* Dark mode: swap light tan borders/bleeds for dark */
 @media (prefers-color-scheme: dark) {
   .ticket,
@@ -957,6 +1049,7 @@
     0px 2px 6px rgba(0, 0, 0, 0.08),
     0px 6px 16px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
 }
 .chessCard:hover {
   box-shadow:
@@ -1015,6 +1108,10 @@
   font-size: 16px;
   font-weight: bold;
   color: #2a3040;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 .chessOpponent {
   text-align: right;
@@ -1081,6 +1178,10 @@
   font-size: 11px;
   color: #6a7a8a;
   margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
 }
 
 @media (prefers-color-scheme: dark) {

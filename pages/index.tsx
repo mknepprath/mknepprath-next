@@ -54,6 +54,24 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
     { fallbackData: initialShots },
   );
 
+  const githubRepos = projectLinks
+    .filter((p) => p.githubRepo)
+    .map((p) => p.githubRepo)
+    .join(",");
+  const { data: repoData } = useSWR<Record<string, { pushedAt: string }>>(
+    githubRepos ? `/api/v1/github/projects?repos=${githubRepos}` : null,
+    fetcher,
+  );
+
+  const sortedProjects = [...projectLinks].sort((a, b) => {
+    const aDate = a.githubRepo && repoData?.[a.githubRepo]?.pushedAt;
+    const bDate = b.githubRepo && repoData?.[b.githubRepo]?.pushedAt;
+    if (aDate && bDate) return +new Date(bDate) - +new Date(aDate);
+    if (aDate) return -1;
+    if (bDate) return 1;
+    return 0;
+  });
+
   return (
     <>
       <Head />
@@ -103,7 +121,7 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
         <div className={styles.projectContainer} id="projects">
           <h2>Projects</h2>
           <div className={styles.cardContainer}>
-            {projectLinks.map(({ description, href, imgSrc, title }) => (
+            {sortedProjects.map(({ description, href, imgSrc, title }) => (
               <Card
                 description={description}
                 href={href}

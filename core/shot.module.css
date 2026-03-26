@@ -1,13 +1,22 @@
 .card {
   --card-spacing: 16px;
+  --mx: 50%;
+  --my: 50%;
+  --rx: 0deg;
+  --ry: 0deg;
 
   background: var(--white);
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   line-height: normal;
   text-decoration: none;
-  transition: box-shadow 0.2s, transform 0.2s;
   overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  transform: rotateX(var(--ry)) rotateY(var(--rx));
+  transition: box-shadow 0.2s, transform 0.15s ease-out;
+  will-change: transform;
 }
 
 .card .body {
@@ -16,6 +25,7 @@
 
 .card .img {
   width: 100%;
+  display: block;
 }
 
 .card .arrow {
@@ -38,10 +48,63 @@
   margin: 0;
 }
 
-/* Card (and children) hover styles */
+/* Holographic shine overlay */
+.shine {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: color-dodge;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+
+  background-image:
+    repeating-linear-gradient(
+      133deg,
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgb(255, 119, 115) 0%,
+      rgba(255, 237, 95, 1) 14.3%,
+      rgba(168, 255, 95, 1) 28.6%,
+      rgba(131, 255, 247, 1) 42.9%,
+      rgba(120, 148, 255, 1) 57.2%,
+      rgb(216, 117, 255) 71.5%,
+      rgb(255, 119, 115) 100%
+    ),
+    radial-gradient(
+      farthest-corner circle at var(--mx) var(--my),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(0, 0, 0, 0.5) 90%
+    );
+
+  background-blend-mode: hard-light, hue;
+  background-size: 300% 300%, 200% 700%, 200% 200%;
+  background-position:
+    var(--mx) var(--my),
+    0% var(--my),
+    var(--mx) var(--my);
+
+  filter: brightness(0.7) contrast(2.5) saturate(0.6);
+}
+
+/* Card hover styles */
 .card:hover {
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
-  transform: translate(0, -2px);
+  box-shadow:
+    0px 10px 20px -5px rgba(0, 0, 0, 0.25),
+    0 0 15px rgba(120, 148, 255, 0.15);
+}
+
+.card:hover .shine {
+  opacity: 0.5;
 }
 
 .card:hover .arrow {
