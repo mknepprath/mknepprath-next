@@ -8,7 +8,7 @@
 }
 
 /* ─────────────────────────────────────────────────
-   GLOSS — holographic shine overlay for select cards
+   GLOSS — card shine effects
    Uses --mx / --my custom properties set by JS on mousemove.
    ───────────────────────────────────────────────── */
 
@@ -17,7 +17,31 @@
   position: relative;
 }
 
-.polaroid::after,
+/* Photo: realistic glossy print shine */
+.polaroid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+
+  background: radial-gradient(
+    ellipse at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    transparent 70%
+  );
+}
+
+.polaroid:hover::after {
+  opacity: 1;
+}
+
+/* Music: holographic shine */
 .musicCard::after {
   content: "";
   position: absolute;
@@ -66,14 +90,11 @@
   filter: brightness(0.7) contrast(2.5) saturate(0.6);
 }
 
-.polaroid:hover::after,
 .musicCard:hover::after {
   opacity: 0.5;
 }
 
-/* Dark mode: boost gloss slightly for better visibility */
 @media (prefers-color-scheme: dark) {
-  .polaroid:hover::after,
   .musicCard:hover::after {
     opacity: 0.6;
   }

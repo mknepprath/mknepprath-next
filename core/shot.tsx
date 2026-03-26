@@ -1,4 +1,5 @@
 import React, { useRef, useCallback } from "react";
+import Image from "next/image";
 import styles from "./shot.module.css";
 
 interface Props {
@@ -46,7 +47,16 @@ export default function Shot({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <img alt={title} className={styles.img} src={imgSrc} />
+      {imgSrc ? (
+        <Image
+          alt={title}
+          className={styles.img}
+          src={imgSrc}
+          width={400}
+          height={300}
+          style={{ width: "100%", height: "auto" }}
+        />
+      ) : null}
       <div className={styles.shine} />
       <div className={styles.body}>
         <h3>
