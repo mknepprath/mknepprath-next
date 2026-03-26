@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -31,7 +31,7 @@ export default function GooglesIconsOnIos(): React.ReactNode {
         alt="Google's icons on iOS"
         className="corner-radius-8"
         height={1136}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         src="/assets/googles-icons-on-ios.jpg"
         priority
         width={640}

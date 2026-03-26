@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/mad-max-fury-road.jpg",
@@ -24,8 +24,8 @@ export default function MadMaxFuryRoad(): React.ReactNode {
         className="corner-radius-8"
         height={413}
         src="/assets/mad-max-fury-road.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <header>

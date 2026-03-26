@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export const meta: Meta = {
@@ -90,7 +90,7 @@ export default function MidyearReviewOf2021(): React.ReactNode {
           className="corner-radius-8"
           height={1600}
           src="/assets/2021-mid-year-1.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
       </A>
@@ -146,7 +146,7 @@ export default function MidyearReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={1183}
         src="/assets/2021-mid-year-3.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -174,7 +174,7 @@ export default function MidyearReviewOf2021(): React.ReactNode {
           className="corner-radius-8"
           height={900}
           src="/assets/2021-mid-year-4.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
       </A>

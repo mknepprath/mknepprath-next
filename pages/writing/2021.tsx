@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export const meta: Meta = {
@@ -26,9 +26,9 @@ export default function ReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2021-in-review-3.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <header>
@@ -130,7 +130,7 @@ export default function ReviewOf2021(): React.ReactNode {
           className="corner-radius-8"
           height={1600}
           src="/assets/2021-mid-year-1.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
       </A>
@@ -152,8 +152,8 @@ export default function ReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2021-in-review-4.jpg"
-        layout="responsive"
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h2 id="write-10-blog-posts">Write 10 blog posts (6/10)</h2>
@@ -227,8 +227,8 @@ export default function ReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2021-in-review-2.jpg"
-        layout="responsive"
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h2>Other stuff</h2>
@@ -265,8 +265,8 @@ export default function ReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={728}
         src="/assets/2021-in-review-6.jpg"
-        layout="responsive"
         width={1024}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -300,8 +300,8 @@ export default function ReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={974}
         src="/assets/2021-in-review-7.jpg"
-        layout="responsive"
         width={1440}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -355,8 +355,8 @@ export default function ReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={942}
         src="/assets/2021-in-review-8.png"
-        layout="responsive"
         width={1798}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -386,8 +386,8 @@ export default function ReviewOf2021(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2021-in-review-1.jpg"
-        layout="responsive"
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>

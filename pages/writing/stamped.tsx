@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -22,7 +22,7 @@ export default function TheLifeElectronic(): React.ReactNode {
           alt="The Belafonte."
           className="corner-radius-8"
           height={456}
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           priority
           src="/assets/zissou-1.jpg"
           width={800}
@@ -104,7 +104,7 @@ export default function TheLifeElectronic(): React.ReactNode {
           alt="An illustration of Zissou."
           className="corner-radius-8"
           height={911}
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           priority
           src="/assets/zissou.jpg"
           width={600}

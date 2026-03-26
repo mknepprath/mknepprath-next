@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
@@ -26,7 +26,7 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
         className="corner-radius-8"
         height={753}
         src="/assets/the-grand-budapest-hotel.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1000}
       />

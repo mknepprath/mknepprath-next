@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/2019-in-review-1.png",
@@ -32,7 +32,7 @@ export default function ReviewOf2019(): React.ReactNode {
         className="corner-radius-8"
         height={345}
         src="/assets/2019-in-review-1.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1064}
       />
@@ -144,7 +144,7 @@ export default function ReviewOf2019(): React.ReactNode {
         className="corner-radius-8"
         height={344}
         src="/assets/2019-in-review-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1064}
       />
       <h2>Cool Things</h2>
@@ -160,7 +160,7 @@ export default function ReviewOf2019(): React.ReactNode {
         className="corner-radius-8"
         height={997}
         src="/assets/2019-in-review-flights.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1242}
       />
       <p>Some highlights:</p>
@@ -195,7 +195,7 @@ export default function ReviewOf2019(): React.ReactNode {
         className="corner-radius-8"
         height={345}
         src="/assets/2019-in-review-3.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1064}
       />
       <h2>2020 Goals</h2>

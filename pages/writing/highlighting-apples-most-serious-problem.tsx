@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -27,8 +27,8 @@ export default function IosHighlights(): React.ReactNode {
         alt="Screenshot of iOS app icons with highlights"
         height={337}
         src="/assets/highlighting-apple-1.png"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={779}
       />
 
@@ -43,7 +43,7 @@ export default function IosHighlights(): React.ReactNode {
         alt="Screenshot of more iOS app icons with faux highlights"
         height={336}
         src="/assets/highlighting-apple-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={762}
       />
 

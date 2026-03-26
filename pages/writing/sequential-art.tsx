@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -38,9 +38,9 @@ export default function SequentialArt(): React.ReactNode {
         alt="A pumpkin illustration"
         className="corner-radius-8"
         height={1200}
-        layout="responsive"
         priority
         src="/assets/comics-01.jpeg"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p></p>
@@ -49,7 +49,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={1024}
         src="/assets/comics-02.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1024}
       />
       <p>
@@ -67,7 +67,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-03.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -82,7 +82,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-04.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -99,7 +99,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-05.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -117,7 +117,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-06.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -130,7 +130,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={539}
         src="/assets/comics-07.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>And exercise.</p>
@@ -139,7 +139,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={520}
         src="/assets/comics-08.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -151,7 +151,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={736}
         src="/assets/comics-09.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -164,7 +164,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={707}
         src="/assets/comics-10.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>My son and I take pictures of our silly faces sometimes.</p>
@@ -173,7 +173,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={607}
         src="/assets/comics-11.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -185,7 +185,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-12.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -198,7 +198,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={559}
         src="/assets/comics-13.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -212,7 +212,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={2048}
         src="/assets/comics-14.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1392}
       />
 
@@ -222,7 +222,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={608}
         src="/assets/comics-15.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -235,7 +235,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={558}
         src="/assets/comics-16.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -247,7 +247,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={616}
         src="/assets/comics-17.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>
@@ -261,7 +261,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={653}
         src="/assets/comics-18.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -274,7 +274,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-19.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -284,7 +284,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-20.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -298,7 +298,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-21.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -311,7 +311,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={675}
         src="/assets/comics-22.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 
@@ -321,7 +321,7 @@ export default function SequentialArt(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/comics-23.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <p>

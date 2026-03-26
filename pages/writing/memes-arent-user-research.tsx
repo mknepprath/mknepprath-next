@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/memes-arent-user-research.jpg",
@@ -24,7 +24,7 @@ export default function MemesArentUserResearch(): React.ReactNode {
       <Image
         alt="Katamari App"
         height={677}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/memes-arent-user-research.jpg"
         width={1200}

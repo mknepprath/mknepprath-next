@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -103,7 +103,7 @@ Object.values(form.checkboxes)
         className="corner-radius-8"
         height={559}
         src="/assets/comics-13.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
     </BlogPage>

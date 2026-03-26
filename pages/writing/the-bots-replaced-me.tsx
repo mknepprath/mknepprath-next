@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/dependabot-1.jpg",
@@ -24,9 +24,9 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         alt="Pull request as an Unown."
         className="corner-radius-8"
         height={534}
-        layout="responsive"
         priority
         src="/assets/dependabot-1.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <header>
@@ -141,9 +141,9 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         alt="My GitHub Action in action."
         className="corner-radius-8 bordered-image"
         height={1100}
-        layout="responsive"
         priority
         src="/assets/dependabot-2.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={1880}
       />
       <p>

@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export const meta: Meta = {
@@ -35,9 +35,9 @@ export default function ReviewOf2020(): React.ReactNode {
         className="corner-radius-8"
         height={410}
         src="/assets/2020-in-review-3.jpeg"
-        layout="responsive"
         priority
         width={1242}
+        style={{ width: '100%', height: 'auto' }}
       />
       <h2>2020 Goals</h2>
       <h3>Read 10 books ✅</h3>
@@ -209,7 +209,7 @@ export default function ReviewOf2020(): React.ReactNode {
           className="corner-radius-8"
           height={1534}
           src="/assets/2020-in-review-1.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={2048}
         />
       </A>
@@ -247,9 +247,9 @@ export default function ReviewOf2020(): React.ReactNode {
         className="corner-radius-8"
         height={410}
         src="/assets/2020-in-review-4.jpeg"
-        layout="responsive"
         priority
         width={1242}
+        style={{ width: '100%', height: 'auto' }}
       />
       <h2>Cool Things</h2>
       <h3>Side projects</h3>
@@ -280,9 +280,9 @@ export default function ReviewOf2020(): React.ReactNode {
         className="corner-radius-8"
         height={531}
         src="/assets/2020-in-review-8.gif"
-        layout="responsive"
         priority
         width={600}
+        style={{ width: '100%', height: 'auto' }}
       />
       <p>
         Finally, I did a bunch of work on my personal site, including
@@ -298,9 +298,9 @@ export default function ReviewOf2020(): React.ReactNode {
         className="corner-radius-8"
         height={410}
         src="/assets/2020-in-review-5.jpeg"
-        layout="responsive"
         priority
         width={1242}
+        style={{ width: '100%', height: 'auto' }}
       />
       <h3>Gaming</h3>
       <p>
@@ -318,9 +318,9 @@ export default function ReviewOf2020(): React.ReactNode {
         className="corner-radius-8"
         height={554}
         src="/assets/2020-in-review-9.jpg"
-        layout="responsive"
         priority
         width={1200}
+        style={{ width: '100%', height: 'auto' }}
       />
       <h2>2021 Goals</h2>
       <p>Time to up the stakes. Here are my revised goals for 2021.</p>
@@ -372,9 +372,9 @@ export default function ReviewOf2020(): React.ReactNode {
         className="corner-radius-8"
         height={410}
         src="/assets/2020-in-review-6.jpeg"
-        layout="responsive"
         priority
         width={1242}
+        style={{ width: '100%', height: 'auto' }}
       />
       <h2>Parting Thoughts</h2>
       <p>

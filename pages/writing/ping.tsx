@@ -3,7 +3,7 @@ import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Card from "@core/card";
 import fetch from "isomorphic-unfetch";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 
@@ -69,7 +69,7 @@ export default function Ping(): React.ReactNode {
         alt="Musical lock"
         height={600}
         src="/assets/ping.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1200}
       />

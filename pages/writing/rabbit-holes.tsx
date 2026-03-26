@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/sherlock-codes.jpg",
@@ -23,8 +23,8 @@ export default function RabbitHoles(): React.ReactNode {
         className="bordered-image corner-radius-8"
         height={690}
         src="/assets/sherlock-codes.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <header>

@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/adding-rss.jpg",
@@ -24,7 +24,7 @@ export default function RSS(): React.ReactNode {
       <Image
         alt="A big shiny subscribe button."
         height={629}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         src="/assets/adding-rss.jpg"
         width={800}
       />

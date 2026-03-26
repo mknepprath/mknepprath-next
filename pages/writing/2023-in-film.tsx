@@ -3,7 +3,7 @@ import BlogPage from "@core/blog-page";
 import Card from "@core/card";
 import { FilmPost } from "@core/post";
 import Shot from "@core/shot";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import styles from "./2023.module.css";
 
@@ -28,7 +28,7 @@ export default function FilmsOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-film-1.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1170}
       />
@@ -334,7 +334,7 @@ export default function FilmsOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-film-3.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1170}
       />
@@ -553,7 +553,7 @@ I would be honored to be called “chicken”"
         className="corner-radius-8"
         height={588}
         src="/assets/2023-in-film-4.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1236}
       />
@@ -583,7 +583,7 @@ I would be honored to be called “chicken”"
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-film-2.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1170}
       />

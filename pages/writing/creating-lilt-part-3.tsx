@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -25,8 +25,8 @@ export default function CreatingLiltPart3(): React.ReactNode {
         alt="lilt prototype"
         height={265}
         src="/assets/creating-lilt-part-3-1.png"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={700}
       />
 
@@ -130,7 +130,7 @@ export default function CreatingLiltPart3(): React.ReactNode {
         className="corner-radius-8"
         height={322}
         src="/assets/creating-lilt-part-3-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={700}
       />
       <p>
@@ -146,7 +146,7 @@ export default function CreatingLiltPart3(): React.ReactNode {
         className="corner-radius-8"
         height={301}
         src="/assets/creating-lilt-part-3-3.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={500}
       />
       <p>

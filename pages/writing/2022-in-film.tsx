@@ -3,7 +3,7 @@ import BlogPage from "@core/blog-page";
 import Card from "@core/card";
 import { FilmPost } from "@core/post";
 import Shot from "@core/shot";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import styles from "./2022.module.css";
 
@@ -30,9 +30,9 @@ export default function FilmsOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-2.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <header>
@@ -462,8 +462,8 @@ export default function FilmsOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={675}
         src="https://a.ltrbxd.com/resized/sm/upload/5w/bn/ff/yt/sherlock-jr-1200-1200-675-675-crop-000000.jpg?v=a44af93dd3"
-        layout="responsive"
         width={1200}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>

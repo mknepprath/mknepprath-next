@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 import PxBrush from "@core/pxbrush";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
@@ -170,7 +170,7 @@ export default function Life(): React.ReactNode {
         className="corner-radius-8"
         height={400}
         src="/assets/pxbrush-1.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <ul>
@@ -183,7 +183,7 @@ export default function Life(): React.ReactNode {
         className="corner-radius-8"
         height={400}
         src="/assets/pxbrush-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <ul>
@@ -198,7 +198,7 @@ export default function Life(): React.ReactNode {
         className="corner-radius-8"
         height={400}
         src="/assets/pxbrush-3.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <ul>
@@ -213,7 +213,7 @@ export default function Life(): React.ReactNode {
         className="corner-radius-8"
         height={400}
         src="/assets/pxbrush-4.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
 

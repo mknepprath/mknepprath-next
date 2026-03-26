@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/vanilla-layer.jpeg",
@@ -20,7 +20,7 @@ export default function VanillaLayer(): React.ReactNode {
         alt="A drawing of a neopolitan ice cream sandwich."
         className="corner-radius-8"
         height={753}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/vanilla-layer.jpeg"
         width={1000}

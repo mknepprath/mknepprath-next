@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { ReactNode } from "react";
 
 export const meta: Meta = {
@@ -24,6 +24,7 @@ export default function KeatonSsr(): ReactNode {
         className="bordered-image corner-radius-8"
         height={447}
         src="/assets/keaton-ssr-1.png"
+        style={{ maxWidth: '100%', height: 'auto' }}
         width={800}
       />
 

@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 // Components
 import A from "@core/a";
@@ -17,7 +17,7 @@ export default function WecomeToShowside(): React.ReactNode {
           className="corner-radius-8"
           height={638}
           src="/assets/welcome-to-showside.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
 

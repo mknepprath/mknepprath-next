@@ -1,7 +1,7 @@
 import React from "react";
 // External
 import classnames from "classnames";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 // Data
@@ -20,7 +20,6 @@ export default function Nav({ className }: Props): React.JSX.Element {
         <Image
           alt="Michael Knepprath Memoji"
           height={32}
-          layout="fixed"
           priority
           src="/assets/mk-profile-pic.png"
           width={32}

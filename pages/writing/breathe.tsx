@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/breathe-1.jpg",
@@ -24,7 +24,7 @@ export default function Breathe(): React.ReactNode {
         alt="A feather"
         height={450}
         src="/assets/breathe-1.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={800}
       />
@@ -186,7 +186,7 @@ export default function Breathe(): React.ReactNode {
         alt="Fishing"
         height={282}
         src="/assets/breathe-2.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={556}
       />
     </BlogPage>

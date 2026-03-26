@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import Page from "@core/page";
 
@@ -10,8 +10,8 @@ export default function PatchedTomatoes(): React.ReactNode {
           <Image
             alt="Patched Tomatoes artwork"
             src="/assets/patched-tomatoes.png"
-            layout="fill"
-            objectFit="contain"
+            fill
+            style={{ objectFit: 'contain' }}
             priority
           />
         </div>

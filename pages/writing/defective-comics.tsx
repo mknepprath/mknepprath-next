@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/detective-comics.jpg",
@@ -22,7 +22,7 @@ export default function DefectiveComics(): React.ReactNode {
         alt="The Joker in a box office booth"
         className="corner-radius-8"
         height={675}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/detective-comics.jpg"
         width={900}

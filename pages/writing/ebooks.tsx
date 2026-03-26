@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export const meta: Meta = {
@@ -24,9 +24,9 @@ export default function Ebooks(): React.ReactNode {
         alt="Two robot heads."
         className="corner-radius-8"
         height={1040}
-        layout="responsive"
         priority
         src="/assets/ebooks.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={2000}
       />
       <header>

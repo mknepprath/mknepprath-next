@@ -1,7 +1,7 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Card from "@core/card";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./2023.module.css";
@@ -27,9 +27,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-2.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <header>
@@ -57,9 +57,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-3.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -108,9 +108,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-11.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h2>Books</h2>
@@ -131,9 +131,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-1.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h2>Film</h2>
@@ -226,9 +226,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-10.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h2>Projects</h2>
@@ -264,9 +264,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-7.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h3>The Activity Feed</h3>
@@ -290,9 +290,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-8.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h3>Bot Migration</h3>
@@ -312,9 +312,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-5.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h3>Personal Film Preservation Project</h3>
@@ -346,9 +346,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-6.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <h2>Onward...</h2>
@@ -369,9 +369,9 @@ export default function ReviewOf2023(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2023-in-review-9.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
     </BlogPage>
   );

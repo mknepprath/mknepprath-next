@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/the-notebook-film.jpeg",
@@ -24,7 +24,7 @@ export default function TheNotebook(): React.ReactNode {
         className="corner-radius-8"
         height={720}
         src="/assets/the-notebook-film.jpeg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1280}
       />

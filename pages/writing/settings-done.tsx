@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 // Styles
 import styles from "./settings-done.module.css";
@@ -28,7 +28,7 @@ export default function IosAppSettings(): React.ReactNode {
         className="bordered-image corner-radius-8"
         height={690}
         src="/assets/settings-done.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1200}
       />

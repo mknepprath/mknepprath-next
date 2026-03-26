@@ -2,7 +2,7 @@ import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Card from "@core/card";
 import { FilmPost } from "@core/post";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./2024.module.css";
@@ -28,8 +28,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-6.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -81,8 +81,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-13.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -106,8 +106,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-8.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -128,8 +128,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-2.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -146,8 +146,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-5.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -165,8 +165,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-7.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -183,8 +183,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-10.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -229,8 +229,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-3.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -276,8 +276,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-14.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -307,8 +307,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-9.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -444,8 +444,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-15.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -481,8 +481,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-11.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -537,8 +537,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-1.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -556,8 +556,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-4.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
 
@@ -577,8 +577,8 @@ export default function ReviewOf2024(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2024-in-review-12.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1170}
       />
     </BlogPage>

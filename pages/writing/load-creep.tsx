@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/load-creep.jpg",
@@ -21,7 +21,7 @@ export default function LoadCreep(): React.ReactNode {
         alt="A drawing of a neopolitan ice cream sandwich."
         className="corner-radius-8"
         height={1200}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/load-creep.jpg"
         width={1600}

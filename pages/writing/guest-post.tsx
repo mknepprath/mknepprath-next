@@ -2,7 +2,7 @@ import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import fetch from "isomorphic-unfetch";
 import Markov from "markov-strings";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
 
@@ -155,9 +155,9 @@ export default function BillsPc(): React.ReactNode {
           alt="An image from Twitter."
           className="corner-radius-8"
           height={image.height}
-          layout="responsive"
           priority
           src={image.url}
+          style={{ width: '100%', height: 'auto' }}
           width={image.width}
         />
       ) : null}

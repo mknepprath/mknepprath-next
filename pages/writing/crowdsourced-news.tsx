@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "crowdsourcing-news.jpg",
@@ -19,7 +19,7 @@ export default function CrowdsourcedNews(): React.ReactNode {
         alt="Crowdsourcing news illustration"
         className="corner-radius-8"
         height={471}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/crowdsourcing-news.jpg"
         width={700}

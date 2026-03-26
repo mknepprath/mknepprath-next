@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/sunsquints.png",
@@ -51,8 +51,8 @@ export default function Sunsquints(): React.ReactNode {
         className="corner-radius-8"
         height={1040}
         src="/assets/sunsquints.png"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1642}
       />
 
@@ -121,8 +121,8 @@ export default function Sunsquints(): React.ReactNode {
         className="corner-radius-8"
         height={1388}
         src="/assets/sunsquints-bunkers.png"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1612}
       />
 
@@ -150,8 +150,8 @@ export default function Sunsquints(): React.ReactNode {
         className="corner-radius-8"
         height={911}
         src="/assets/sunsquints-soalive.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={600}
       />
       <p>

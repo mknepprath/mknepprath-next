@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -24,7 +24,7 @@ export default function DesignProcess(): React.ReactNode {
         height={540}
         priority
         src="/assets/design-process.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={896}
       />
 

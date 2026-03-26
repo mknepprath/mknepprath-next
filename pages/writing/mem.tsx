@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export const meta: Meta = {
@@ -22,7 +22,7 @@ export default function Mem(): React.ReactNode {
         alt="Michael Knepprath doing a brain dump."
         className="corner-radius-8"
         height={704}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/mem.jpg"
         width={1000}

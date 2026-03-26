@@ -1,6 +1,6 @@
 import BlogPage from "@core/blog-page";
 import fetch from "isomorphic-unfetch";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
@@ -47,7 +47,7 @@ export default function BillsPc(): React.ReactNode {
         alt="Colored lines."
         className="corner-radius-8"
         height={1040}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/bills-pc.jpg"
         width={2000}

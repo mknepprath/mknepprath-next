@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/home-screen-1.png",
@@ -24,7 +24,7 @@ export default function HomeScreenHack(): React.ReactNode {
         alt="iOS home screen"
         height={2858}
         src="/assets/home-screen-1.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={3400}
       />
 

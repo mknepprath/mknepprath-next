@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ActivityCard from "@core/activity-card";
 import StravaMap from "@core/strava-map";
 import { format, parseISO } from "date-fns";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./post.module.css";
@@ -29,8 +29,8 @@ const Post = ({
           <Image
             alt={`cover image for ${title}`}
             src={image}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
       ) : null}
@@ -244,7 +244,7 @@ const HighlightPost = ({
               alt={`cover for ${title}`}
               className="bordered-image corner-radius-8"
               height={90}
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               src={image}
               width={90}
             />
@@ -303,8 +303,8 @@ const PhotoPost = ({
             <Image
               alt={title || "photo"}
               src={image}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
             />
           )}
         </div>
@@ -403,8 +403,8 @@ const TweetPost = ({
                 alt={`cover image for ${title}`}
                 className="corner-radius-8"
                 src={image}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: 'cover' }}
               />
             </div>
           ) : null}
@@ -442,8 +442,8 @@ const TootPost = ({
           <Image
             alt="attached image"
             src={image}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
       ) : null}
@@ -479,8 +479,8 @@ const SkeetPost = ({
           <Image
             alt="attached image"
             src={image}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
       ) : null}

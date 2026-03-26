@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: false,
@@ -25,7 +25,7 @@ export default function Tweetbot3(): React.ReactNode {
         alt="Screenshot of Tweetbot 3 in the App Store"
         className="corner-radius-8"
         height={1136}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/tweetbot-3.jpg"
         width={640}

@@ -1,6 +1,6 @@
 import A from "@core/a";
 import Page from "@core/page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import useSWR from "swr";
 
 const fetcher = (url: RequestInfo) =>
@@ -21,7 +21,7 @@ export default function Uses(): React.ReactNode {
           className="corner-radius-8"
           height={714}
           src="/assets/uses.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
 

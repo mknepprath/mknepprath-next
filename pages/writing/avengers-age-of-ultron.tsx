@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   image: "/assets/avengers-age-of-ultron.jpg",
@@ -25,8 +25,8 @@ export default function AvengersAgeOfUltron(): React.ReactNode {
         className="corner-radius-8"
         height={562}
         src="/assets/avengers-age-of-ultron.jpg"
-        layout="responsive"
         priority
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <header>

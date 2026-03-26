@@ -1,6 +1,6 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { ReactNode } from "react";
 
 export const meta: Meta = {
@@ -49,7 +49,7 @@ export default function SometownUsa(): ReactNode {
           alt="Buster Keaton working on Life in Sometown, U.S.A."
           width={702}
           height={901}
-          layout="intrinsic"
+          style={{ maxWidth: '100%', height: 'auto' }}
         />
       </div>
       <p>
@@ -85,7 +85,7 @@ export default function SometownUsa(): ReactNode {
           alt="Buster Keaton working on Life in Sometown, U.S.A."
           width={640}
           height={831}
-          layout="intrinsic"
+          style={{ maxWidth: '100%', height: 'auto' }}
         />
       </div>
       <p>

@@ -1,6 +1,6 @@
 import Page from "@core/page";
 import fetch from "isomorphic-unfetch";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { SyntheticEvent } from "react";
 import useSWR from "swr";
 
@@ -66,7 +66,7 @@ export default function Dynoland(): React.ReactNode {
           className="corner-radius-8"
           height={600}
           src="/assets/dynoland.png"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
 

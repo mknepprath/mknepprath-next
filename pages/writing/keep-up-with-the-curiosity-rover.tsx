@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export const meta: Meta = {
   published: true,
@@ -28,9 +28,9 @@ export default function KeepUpWithTheCuriosityRover(): React.ReactNode {
           alt="Mars."
           className="corner-radius-8"
           height={471}
-          layout="responsive"
           priority
           src="/assets/mars.jpg"
+          style={{ width: '100%', height: 'auto' }}
           width={700}
         />
       </p>

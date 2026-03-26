@@ -1,5 +1,5 @@
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export const meta: Meta = {
@@ -24,7 +24,7 @@ export default function MinecraftStatusPage(): React.ReactNode {
         alt="A render of a Minecraft castle."
         className="corner-radius-8"
         height={1000}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/dynoland-1.jpg"
         width={2000}
@@ -54,7 +54,7 @@ export default function MinecraftStatusPage(): React.ReactNode {
         className="corner-radius-8"
         height={1000}
         src="/assets/dynoland-2.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={2000}
       />
       <p>
@@ -87,7 +87,7 @@ MinecraftStatusPage.getInitialProps = async function () {
         className="corner-radius-8"
         height={1000}
         src="/assets/dynoland-3.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={2000}
       />
       <p>
@@ -124,7 +124,7 @@ MinecraftStatusPage.getInitialProps = async function () {
         className="corner-radius-8"
         height={1000}
         src="/assets/dynoland-4.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={2000}
       />
       <p>
