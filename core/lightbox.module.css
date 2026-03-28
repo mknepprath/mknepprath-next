@@ -1,0 +1,126 @@
+/* ─────────────────────────────────────────────────
+   LIGHTBOX — full-screen photo viewer
+   ───────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+.close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 1001;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.15s;
+}
+.close:hover {
+  color: #fff;
+}
+
+.imageWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  max-height: 80vh;
+  max-width: 90vw;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #ccc;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 4px;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+  z-index: 1001;
+}
+.navBtn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+.navPrev {
+  left: -60px;
+}
+.navNext {
+  right: -60px;
+}
+
+/* On smaller screens, overlay the nav buttons on the image */
+@media (max-width: 900px) {
+  .navPrev {
+    left: 8px;
+  }
+  .navNext {
+    right: 8px;
+  }
+}
+
+.caption {
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.captionText {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: #ddd;
+  line-height: 1.3;
+}
+
+.captionDate {
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}

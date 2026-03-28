@@ -1,0 +1,144 @@
+/* ─────────────────────────────────────────────────
+   PHOTOGRAPHY — contact sheet / light table
+   ───────────────────────────────────────────────── */
+
+.page {
+  padding: 0 16px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+@media (min-width: 632px) {
+  .page {
+    padding: 0 32px;
+  }
+}
+
+/* Header */
+.header {
+  padding: 0 0 8px;
+}
+
+.title {
+  font-size: 2em;
+  margin-top: 2.4rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ── Contact sheet grid ───────────────────────── */
+
+.contactSheet {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 520px) {
+  .contactSheet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 860px) {
+  .contactSheet {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+/* ── Individual frame ─────────────────────────── */
+
+.frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.frame:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+}
+
+.frame:hover .frameOverlay {
+  opacity: 1;
+}
+
+/* ── Sprocket holes ───────────────────────────── */
+
+.sprocketRow {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px 12px;
+  flex-shrink: 0;
+}
+
+.sprocket {
+  width: 10px;
+  height: 6px;
+  border-radius: 1px;
+  background: #2a2a2a;
+  border: 1px solid #333;
+}
+
+/* ── Photo area ───────────────────────────────── */
+
+.frameImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #111;
+  margin: 0 auto;
+}
+
+/* Hover: faint red grease-pencil circle */
+.frameOverlay {
+  position: absolute;
+  inset: 8%;
+  border: 2.5px solid rgba(220, 60, 40, 0.7);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  /* Rough pencil feel */
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='r'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' type='fractalNoise'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='2'/%3E%3C/filter%3E%3C/svg%3E#r");
+}
+
+/* ── Frame number ─────────────────────────────── */
+
+.frameNumber {
+  position: absolute;
+  bottom: 14px;
+  right: 8px;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 9px;
+  color: #555;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+/* ── Light mode adjustments ───────────────────── */
+
+@media (prefers-color-scheme: light) {
+  .frame {
+    background: #222;
+  }
+
+  .sprocket {
+    background: #333;
+    border-color: #3a3a3a;
+  }
+
+  .frameNumber {
+    color: #666;
+  }
+}
