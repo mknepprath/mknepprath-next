@@ -1108,8 +1108,6 @@
   font-size: 16px;
   font-weight: bold;
   color: #2a3040;
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
   min-width: 0;
 }
