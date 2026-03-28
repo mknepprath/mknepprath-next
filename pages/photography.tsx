@@ -102,7 +102,7 @@ export default function Photography(): React.ReactNode {
                     onClick={() => setLightboxIndex(getGlobalIndex(photo))}
                     aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
                     style={{
-                      gridRowEnd: `span ${Math.ceil(((photo.height || 400) / (photo.width || 600)) * 28) + 3}`,
+                      gridRowEnd: `span ${Math.ceil(((photo.height || 400) / (photo.width || 600)) * 28) + 6}`,
                     }}
                   >
                     <Image
