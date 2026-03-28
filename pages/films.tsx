@@ -233,15 +233,14 @@ export default function Films(): React.ReactNode {
   return (
     <>
       <Head
-        title="Tardy Critic — Michael Knepprath"
+        title="Michael Knepprath, Film Critic"
         description="Film reviews and essays by Michael Knepprath"
       />
       <Nav className="container" />
 
       <div className={styles.page} data-page="films">
         <header className={styles.header}>
-          <h1 className={styles.title}>Tardy Critic</h1>
-          <p className={styles.subtitle}>Reviews, usually about a decade late.</p>
+          <h1 className={styles.title}>Films</h1>
         </header>
 
         <div className={styles.stream}>
