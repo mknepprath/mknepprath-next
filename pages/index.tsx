@@ -134,33 +134,44 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
 
         {photos.length > 0 && (
           <div className={styles.projectContainer}>
-            <h2>
-              <Link href="/photography" className={styles.sectionLink}>
-                Photography
-              </Link>
-            </h2>
-            <div className={styles.photoGrid}>
-              {photos.map((photo: Toot) => (
-                <Link
-                  key={photo.id}
-                  href="/photography"
-                  className={styles.photoThumb}
-                >
-                  <Image
-                    alt={
-                      photo.media_attachments[0].description ||
-                      photo.content?.replace(/<[^>]+>/g, "") ||
-                      "photo"
-                    }
-                    src={photo.media_attachments[0].url}
-                    width={photo.media_attachments[0].meta?.original?.width || 400}
-                    height={photo.media_attachments[0].meta?.original?.height || 300}
-                    sizes="(max-width: 632px) 33vw, 200px"
-                    style={{ width: "100%", height: "auto" }}
-                  />
-                </Link>
-              ))}
-            </div>
+            <h2>Photography</h2>
+            <Link href="/photography" className={styles.photoSpread}>
+              {photos.map((photo: Toot, i: number) => {
+                // Deterministic rotation from ID
+                let h = 0;
+                for (let c = 0; c < photo.id.length; c++)
+                  h = ((h << 5) + h + photo.id.charCodeAt(c)) | 0;
+                const rotate = ((Math.abs(h) % 10) - 5);
+                const isPortrait =
+                  (photo.media_attachments[0].meta?.original?.height || 0) >
+                  (photo.media_attachments[0].meta?.original?.width || 0);
+
+                return (
+                  <div
+                    key={photo.id}
+                    className={`${styles.photoPrint} ${isPortrait ? styles.photoPrintPortrait : ""}`}
+                    style={{
+                      transform: `rotate(${rotate}deg)`,
+                      zIndex: photos.length - i,
+                    }}
+                  >
+                    <Image
+                      alt={
+                        photo.media_attachments[0].description ||
+                        photo.content?.replace(/<[^>]+>/g, "") ||
+                        "photo"
+                      }
+                      src={photo.media_attachments[0].url}
+                      width={photo.media_attachments[0].meta?.original?.width || 400}
+                      height={photo.media_attachments[0].meta?.original?.height || 300}
+                      sizes="(max-width: 632px) 45vw, 200px"
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </div>
+                );
+              })}
+              <span className={styles.photoSeeMore}>see more &rarr;</span>
+            </Link>
           </div>
         )}
 

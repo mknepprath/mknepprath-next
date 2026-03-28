@@ -52,41 +52,75 @@
   }
 }
 
-/* ── Photography section ──────────────────────── */
+/* ── Photography — prints scattered on a surface ─ */
 
-.sectionLink {
-  color: var(--black) !important;
+.photoSpread {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  transition: color 0.15s;
+  padding: 20px 0 12px;
+  position: relative;
+  transition: transform 0.2s ease;
 }
-.sectionLink:hover {
-  color: var(--primaryColor) !important;
+.photoSpread:hover {
+  transform: scale(1.01);
 }
 
-.photoGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+.photoPrint {
+  width: 42%;
+  background: #faf9f6;
+  padding: 6px 6px 20px;
+  border-radius: 1px;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 4px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.25s ease;
+  position: relative;
 }
+
+.photoPrint img {
+  display: block;
+}
+
+.photoPrintPortrait {
+  width: 30%;
+}
+
 @media (min-width: 632px) {
-  .photoGrid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
+  .photoPrint {
+    width: 28%;
+    padding: 8px 8px 28px;
+  }
+  .photoPrintPortrait {
+    width: 20%;
   }
 }
 
-.photoThumb {
-  display: block;
-  border-radius: 2px;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.photoThumb:hover {
-  transform: translateY(-2px);
+.photoSpread:hover .photoPrint {
   box-shadow:
-    0px 3px 8px rgba(0, 0, 0, 0.1),
-    0px 8px 20px rgba(0, 0, 0, 0.06);
+    0px 3px 8px rgba(0, 0, 0, 0.12),
+    0px 8px 20px rgba(0, 0, 0, 0.08);
 }
-.photoThumb img {
-  display: block;
+
+.photoSeeMore {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: var(--black);
+  opacity: 0.5;
+  transition: opacity 0.2s, color 0.2s;
+  align-self: flex-end;
+  margin-left: 4px;
+}
+.photoSpread:hover .photoSeeMore {
+  opacity: 1;
+  color: var(--primaryColor);
+}
+
+@media (prefers-color-scheme: dark) {
+  .photoPrint {
+    background: #2a2a2a;
+  }
 }
