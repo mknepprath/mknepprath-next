@@ -51,6 +51,7 @@
 .hero {
   display: block;
   width: 100%;
+  max-width: 900px;
   border: none;
   background: none;
   padding: 0;
@@ -62,9 +63,7 @@
 
 .hero img {
   display: block;
-  max-width: 100%;
-  max-height: 70vh;
-  width: auto;
+  width: 100%;
   height: auto;
   border-radius: 2px;
   box-shadow:
