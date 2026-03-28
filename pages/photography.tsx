@@ -55,7 +55,7 @@ function hashId(id: string): number {
 }
 
 export default function Photography(): React.ReactNode {
-  const { data: photos = [] } = useSWR<Photo[]>("/api/v1/photos", fetcher);
+  const { data: photos = [] } = useSWR<Photo[]>("/api/v1/photos?limit=80", fetcher);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (

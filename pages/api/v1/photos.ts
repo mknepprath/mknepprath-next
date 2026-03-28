@@ -5,9 +5,10 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
+  const limit = Math.min(parseInt(req.query.limit as string) || 9, 80);
   return new Promise((resolve) => {
     fetch(
-      `https://pixelfed.social/api/pixelfed/v1/accounts/677260415239635730/statuses?limit=9&only_media=true&min_id=1`,
+      `https://pixelfed.social/api/pixelfed/v1/accounts/677260415239635730/statuses?limit=${limit}&only_media=true&min_id=1`,
     )
       .then((response) => response.text())
       .then((result) => {
