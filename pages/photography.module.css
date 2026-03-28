@@ -8,6 +8,8 @@
   padding: 0 16px 80px;
   max-width: 920px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 632px) {
