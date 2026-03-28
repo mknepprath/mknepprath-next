@@ -48,6 +48,15 @@ const Post = ({
   </ActivityCard>
 );
 
+const FILM_PALETTE = [
+  { bg: "#e8833a", text: "#2a1400", accent: "#ffecd6" },  // orange
+  { bg: "#c9b896", text: "#2a2014", accent: "#f0e8d8" },  // tan
+  { bg: "#b898c0", text: "#2a1430", accent: "#f0e0f4" },  // lavender
+  { bg: "#7ea888", text: "#0a2014", accent: "#d8f0e0" },  // green
+  { bg: "#8abcc8", text: "#0a2030", accent: "#d0eaf0" },  // blue
+  { bg: "#d4a04a", text: "#2a1a00", accent: "#f8ecd0" },  // gold
+];
+
 const FilmPost = ({
   action,
   date,
@@ -57,81 +66,70 @@ const FilmPost = ({
   summary,
   title,
   url,
-}: PostProps) => (
-  (() => {
-    // Rotating color palette — each film gets a color based on its id
-    const palette = [
-      { bg: "#e8833a", text: "#2a1400", accent: "#ffecd6" },  // orange
-      { bg: "#c9b896", text: "#2a2014", accent: "#f0e8d8" },  // tan
-      { bg: "#b898c0", text: "#2a1430", accent: "#f0e0f4" },  // lavender
-      { bg: "#7ea888", text: "#0a2014", accent: "#d8f0e0" },  // green
-      { bg: "#8abcc8", text: "#0a2030", accent: "#d0eaf0" },  // blue
-      { bg: "#d4a04a", text: "#2a1a00", accent: "#f8ecd0" },  // gold
-    ];
-    let hash = 0;
-    for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) | 0;
-    const colors = palette[Math.abs(hash) % palette.length];
+}: PostProps) => {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) | 0;
+  const colors = FILM_PALETTE[Math.abs(hash) % FILM_PALETTE.length];
 
-    return (
-      <ActivityCard id={id} type="FILM" index={index}>
-        <a
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          className={styles.ticket}
-          style={{ background: colors.bg }}
-        >
-          <div className={styles.ticketEdge} style={{ color: colors.accent }}>
-            {id.replace(/\D/g, "").slice(0, 6).split("").join(" ")}
-          </div>
+  return (
+    <ActivityCard id={id} type="FILM" index={index}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.ticket}
+        style={{ background: colors.bg }}
+      >
+        <div className={styles.ticketEdge} style={{ color: colors.accent }}>
+          {id.replace(/\D/g, "").slice(0, 6).split("").join(" ")}
+        </div>
 
-          <div className={styles.ticketBody}>
-            <div className={styles.ticketTop}>
-              <span
-                className={styles.ticketAdmit}
-                style={{ color: colors.accent }}
-              >
-                {action === "Rewatched" ? "Return Visit" : "Admit One"}
-              </span>
-              {image ? (
-                <Image
-                  alt={`poster for ${title}`}
-                  className="corner-radius-4"
-                  src={image}
-                  width={44}
-                  height={66}
-                />
-              ) : null}
-            </div>
-
-            <h3 className={styles.ticketTitle} style={{ color: colors.text }}>
-              {title}
-            </h3>
-
-            {summary ? (
-              <div
-                className={styles.ticketReview}
-                style={{ color: colors.text }}
-                dangerouslySetInnerHTML={{ __html: summary }}
-              />
-            ) : null}
-
-            <div
-              className={styles.ticketDate}
+        <div className={styles.ticketBody}>
+          <div className={styles.ticketTop}>
+            <span
+              className={styles.ticketAdmit}
               style={{ color: colors.accent }}
             >
-              {format(parseISO(date), "MMM d, yyyy")} · {action}
-            </div>
+              {action === "Rewatched" ? "Return Visit" : "Admit One"}
+            </span>
+            {image ? (
+              <Image
+                alt={`poster for ${title}`}
+                className="corner-radius-4"
+                src={image}
+                width={44}
+                height={66}
+              />
+            ) : null}
           </div>
 
-          <div className={styles.ticketEdge} style={{ color: colors.accent }}>
-            {id.replace(/\D/g, "").slice(0, 6).split("").join(" ")}
+          <h3 className={styles.ticketTitle} style={{ color: colors.text }}>
+            {title}
+          </h3>
+
+          {summary ? (
+            <div
+              className={styles.ticketReview}
+              style={{ color: colors.text }}
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
+          ) : null}
+
+          <div
+            className={styles.ticketDate}
+            style={{ color: colors.accent }}
+          >
+            {format(parseISO(date), "MMM d, yyyy")} · {action}
           </div>
-        </a>
-      </ActivityCard>
-    );
-  })()
-);
+        </div>
+
+        <div className={styles.ticketEdge} style={{ color: colors.accent }}>
+          {id.replace(/\D/g, "").slice(0, 6).split("").join(" ")}
+        </div>
+      </a>
+    </ActivityCard>
+  );
+};
 
 const TrophyPost = ({
   action,
