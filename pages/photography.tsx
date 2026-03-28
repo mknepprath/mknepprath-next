@@ -3,28 +3,41 @@ import Footer from "@core/footer";
 import Head from "@core/head";
 import Lightbox from "@core/lightbox";
 import Nav from "@core/nav";
-import { fetchPhotos, Photo } from "@lib/photography";
+import { Photo } from "@lib/photography";
 import Image from "next/image";
-import { GetStaticProps } from "next";
 import useSWR from "swr";
 
 import styles from "./photography.module.css";
 
-interface Props {
-  photos: Photo[];
-}
-
 const fetcher = (url: string) =>
   fetch(url)
     .then((r) => r.json())
-    .then((d) => (Array.isArray(d) ? d : []));
+    .then((data: Toot[]) => {
+      if (!Array.isArray(data)) return [];
+      return data
+        .filter(
+          (photo) =>
+            photo.media_attachments.length > 0 &&
+            photo.media_attachments[0].type === "image" &&
+            !photo.content?.startsWith(
+              `<p><span class="h-card"><a href="`,
+            ) &&
+            !photo.content?.includes("?i="),
+        )
+        .map((photo) => ({
+          id: photo.id,
+          date: photo.created_at,
+          caption: photo.content.replace(/<[^>]+>/g, ""),
+          url: photo.url,
+          image: photo.media_attachments[0].url,
+          width: photo.media_attachments[0].meta?.original?.width || 0,
+          height: photo.media_attachments[0].meta?.original?.height || 0,
+          alt: photo.media_attachments[0].description || "",
+        }));
+    });
 
-export default function Photography({ photos: initialPhotos }: Props): React.ReactNode {
-  const { data: photos = initialPhotos } = useSWR<Photo[]>(
-    "/api/v1/photography",
-    fetcher,
-    { fallbackData: initialPhotos },
-  );
+export default function Photography(): React.ReactNode {
+  const { data: photos = [] } = useSWR<Photo[]>("/api/v1/photos", fetcher);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
@@ -42,7 +55,6 @@ export default function Photography({ photos: initialPhotos }: Props): React.Rea
 
         <div className={styles.contactSheet}>
           {photos.map((photo, i) => {
-            // Frame number from last 3 digits of ID
             const frameNum = String(
               parseInt(photo.id.slice(-4)) % 36,
             ).padStart(2, "0");
@@ -99,18 +111,3 @@ export default function Photography({ photos: initialPhotos }: Props): React.Rea
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  let photos: Photo[] = [];
-
-  try {
-    photos = await fetchPhotos();
-  } catch {
-    // SWR will retry client-side
-  }
-
-  return {
-    props: { photos },
-    revalidate: 300,
-  };
-};
