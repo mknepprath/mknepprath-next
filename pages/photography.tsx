@@ -101,13 +101,17 @@ export default function Photography(): React.ReactNode {
                     className={styles.cell}
                     onClick={() => setLightboxIndex(getGlobalIndex(photo))}
                     aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
+                    style={{
+                      gridRowEnd: `span ${Math.ceil(((photo.height || 400) / (photo.width || 600)) * 28) + 3}`,
+                    }}
                   >
                     <Image
                       alt={photo.alt || photo.caption || "photo"}
                       src={photo.image}
-                      fill
+                      width={photo.width || 600}
+                      height={photo.height || 400}
                       sizes="(max-width: 632px) 50vw, 440px"
-                      style={{ objectFit: "cover" }}
+                      style={{ width: "100%", height: "auto" }}
                     />
                     {photo.caption && photo.caption !== "Untitled" && (
                       <span className={styles.cellCaption}>{photo.caption}</span>

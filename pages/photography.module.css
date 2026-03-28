@@ -46,17 +46,18 @@
   padding-left: 2px;
 }
 
-/* ── Grid — 2 columns, uniform row height ─────── */
+/* ── Grid — 2 columns, natural aspect ratios ──── */
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-auto-rows: 4px;
+  gap: 0 12px;
 }
 
 @media (min-width: 632px) {
   .grid {
-    gap: 16px;
+    gap: 0 16px;
   }
 }
 
@@ -65,19 +66,22 @@
   border: none;
   background: none;
   padding: 0;
+  padding-bottom: 12px;
   cursor: pointer;
   position: relative;
   text-align: left;
-  overflow: hidden;
-  border-radius: 2px;
-  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 632px) {
+  .cell {
+    padding-bottom: 16px;
+  }
 }
 
 .cell img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   border-radius: 2px;
   box-shadow:
     0px 1px 4px rgba(0, 0, 0, 0.2),
