@@ -46,28 +46,35 @@
   padding-left: 2px;
 }
 
-/* ── Grid — 2 columns, natural aspect ratios ──── */
+/* ── Masonry via CSS columns ──────────────────── */
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  column-count: 2;
+  column-gap: 12px;
 }
 
 @media (min-width: 632px) {
   .grid {
-    gap: 16px;
+    column-gap: 16px;
   }
 }
 
 .cell {
   display: block;
+  break-inside: avoid;
   border: none;
   background: none;
   padding: 0;
+  margin-bottom: 12px;
   cursor: pointer;
   position: relative;
   text-align: left;
+}
+
+@media (min-width: 632px) {
+  .cell {
+    margin-bottom: 16px;
+  }
 }
 
 .cell img {
