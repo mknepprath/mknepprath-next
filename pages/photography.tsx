@@ -42,16 +42,15 @@ interface PhotoGroup {
   photos: Photo[];
 }
 
-// Group photos posted on the same day into series
 function groupByDay(photos: Photo[]): PhotoGroup[] {
   const groups: PhotoGroup[] = [];
   let current: PhotoGroup | null = null;
 
   for (const photo of photos) {
-    const day = format(parseISO(photo.date), "MMMM d, yyyy");
+    const day = format(parseISO(photo.date), "yyyy-MM-dd");
     const label = format(parseISO(photo.date), "MMMM yyyy");
 
-    if (!current || format(parseISO(current.photos[0].date), "MMMM d, yyyy") !== day) {
+    if (!current || format(parseISO(current.photos[0].date), "yyyy-MM-dd") !== day) {
       current = { label, photos: [] };
       groups.push(current);
     }
@@ -66,8 +65,6 @@ export default function Photography(): React.ReactNode {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const groups = useMemo(() => groupByDay(photos), [photos]);
-
-  // Build a flat index map so lightbox can navigate across groups
   const flatPhotos = useMemo(() => groups.flatMap((g) => g.photos), [groups]);
 
   function getGlobalIndex(photo: Photo): number {
@@ -88,10 +85,8 @@ export default function Photography(): React.ReactNode {
         </header>
 
         {groups.map((group, gi) => {
-          const [hero, ...rest] = group.photos;
           const showLabel =
-            gi === 0 ||
-            groups[gi - 1].label !== group.label;
+            gi === 0 || groups[gi - 1].label !== group.label;
 
           return (
             <section key={`group-${gi}`} className={styles.group}>
@@ -99,51 +94,28 @@ export default function Photography(): React.ReactNode {
                 <span className={styles.groupLabel}>{group.label}</span>
               )}
 
-              {/* Hero — first photo of the group, full width */}
-              <button
-                className={styles.hero}
-                onClick={() => setLightboxIndex(getGlobalIndex(hero))}
-                aria-label={`View photo: ${hero.caption || hero.alt || "untitled"}`}
-              >
-                <Image
-                  alt={hero.alt || hero.caption || "photo"}
-                  src={hero.image}
-                  width={hero.width || 1200}
-                  height={hero.height || 800}
-                  sizes="(max-width: 632px) 100vw, 1100px"
-                  style={{ width: "100%", height: "auto" }}
-                  priority={gi === 0}
-                />
-                {hero.caption && hero.caption !== "Untitled" && (
-                  <span className={styles.heroCaption}>{hero.caption}</span>
-                )}
-              </button>
-
-              {/* Remaining photos in a 2-col flow */}
-              {rest.length > 0 && (
-                <div className={styles.grid}>
-                  {rest.map((photo) => (
-                    <button
-                      key={photo.id}
-                      className={styles.cell}
-                      onClick={() => setLightboxIndex(getGlobalIndex(photo))}
-                      aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
-                    >
-                      <Image
-                        alt={photo.alt || photo.caption || "photo"}
-                        src={photo.image}
-                        width={photo.width || 600}
-                        height={photo.height || 400}
-                        sizes="(max-width: 632px) 50vw, 520px"
-                        style={{ width: "100%", height: "auto" }}
-                      />
-                      {photo.caption && photo.caption !== "Untitled" && (
-                        <span className={styles.cellCaption}>{photo.caption}</span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <div className={styles.grid}>
+                {group.photos.map((photo) => (
+                  <button
+                    key={photo.id}
+                    className={styles.cell}
+                    onClick={() => setLightboxIndex(getGlobalIndex(photo))}
+                    aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
+                  >
+                    <Image
+                      alt={photo.alt || photo.caption || "photo"}
+                      src={photo.image}
+                      width={photo.width || 600}
+                      height={photo.height || 400}
+                      sizes="(max-width: 632px) 50vw, 440px"
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                    {photo.caption && photo.caption !== "Untitled" && (
+                      <span className={styles.cellCaption}>{photo.caption}</span>
+                    )}
+                  </button>
+                ))}
+              </div>
             </section>
           );
         })}

@@ -1,12 +1,12 @@
 /* ─────────────────────────────────────────────────
    PHOTOGRAPHY — gallery exhibition
-   Dark walls, grouped series, hero + grid rhythm.
-   The photos are the only light in the room.
+   Dark walls, grouped series, 2-col grid.
+   Photos are the only light in the room.
    ───────────────────────────────────────────────── */
 
 .page {
   padding: 0 16px 80px;
-  max-width: 960px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -32,7 +32,7 @@
 /* ── Series group ─────────────────────────────── */
 
 .group {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
 .groupLabel {
@@ -42,54 +42,11 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #6a6560;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   padding-left: 2px;
 }
 
-/* ── Hero — first photo, full width ───────────── */
-
-.hero {
-  display: block;
-  width: 100%;
-  max-width: 900px;
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  text-align: left;
-  margin-bottom: 12px;
-}
-
-.hero img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 2px;
-  box-shadow:
-    0px 2px 8px rgba(0, 0, 0, 0.3),
-    0px 8px 32px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.hero:hover img {
-  box-shadow:
-    0px 4px 16px rgba(0, 0, 0, 0.4),
-    0px 16px 48px rgba(0, 0, 0, 0.25);
-  transform: translateY(-2px);
-}
-
-.heroCaption {
-  display: block;
-  font-family: 'Caveat', cursive;
-  font-size: 18px;
-  color: #a09888;
-  margin-top: 10px;
-  padding-left: 2px;
-  line-height: 1.3;
-}
-
-/* ── Grid — remaining photos, 2 columns ───────── */
+/* ── Grid — 2 columns, natural aspect ratios ──── */
 
 .grid {
   display: grid;
@@ -99,7 +56,7 @@
 
 @media (min-width: 632px) {
   .grid {
-    gap: 14px;
+    gap: 16px;
   }
 }
 
