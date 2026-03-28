@@ -14,7 +14,10 @@ interface Props {
   photos: Photo[];
 }
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) =>
+  fetch(url)
+    .then((r) => r.json())
+    .then((d) => (Array.isArray(d) ? d : []));
 
 export default function Photography({ photos: initialPhotos }: Props): React.ReactNode {
   const { data: photos = initialPhotos } = useSWR<Photo[]>(

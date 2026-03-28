@@ -10,13 +10,14 @@ export interface Photo {
 }
 
 export async function fetchPhotos(): Promise<Photo[]> {
+  const headers: Record<string, string> = {};
+  if (process.env.PIXELFED_ACCESS_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.PIXELFED_ACCESS_TOKEN}`;
+  }
+
   const response = await fetch(
     `https://pixelfed.social/api/pixelfed/v1/accounts/677260415239635730/statuses?limit=40&only_media=true&min_id=1`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.PIXELFED_ACCESS_TOKEN}`,
-      },
-    },
+    { headers },
   );
 
   if (!response.ok) {
@@ -24,6 +25,10 @@ export async function fetchPhotos(): Promise<Photo[]> {
   }
 
   const data: Toot[] = await response.json();
+
+  if (!Array.isArray(data)) {
+    throw new Error("Pixelfed API returned non-array response");
+  }
 
   return data
     .filter(
