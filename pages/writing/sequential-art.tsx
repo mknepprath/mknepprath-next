@@ -6,6 +6,7 @@ export const meta: Meta = {
   publishedAt: "2019-12-12",
   summary: "A comic retrospective.",
   image: "/assets/comics-05.jpeg",
+  tags: ["film"],
   title: "Sequential Art™",
   tweetId: "1205319311029485569",
 };

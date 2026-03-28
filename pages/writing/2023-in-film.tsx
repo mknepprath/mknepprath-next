@@ -12,6 +12,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2024-01-12",
   summary: "Reviewing the many movies I watched during 2023.",
+  tags: ["film"],
   title: "2023 in Film",
 };
 

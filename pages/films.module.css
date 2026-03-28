@@ -1,0 +1,286 @@
+/* ─────────────────────────────────────────────────
+   FILMS — Tardy Critic
+   Dark velvet theater lobby, warm marquee glow.
+   Three tiers: playbills, full tickets, stub strips.
+   ───────────────────────────────────────────────── */
+
+.page {
+  padding: 0 16px 64px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+@media (min-width: 632px) {
+  .page {
+    padding: 0 32px 80px;
+  }
+}
+
+/* ── Theater background ───────────────────────── */
+
+/* Applied via data-page="films" on global.css level */
+
+/* Header */
+.header {
+  padding: 48px 0 36px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 2.6em;
+  font-weight: normal;
+  margin: 0;
+  color: #f0e6d6;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: #8a7a6a;
+  margin: 8px 0 0;
+}
+
+/* ── The stream — single column flow ──────────── */
+
+.stream {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+/* ── TIER 1: Playbill — blog essays ───────────── */
+
+.playbill {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  background: #f4f0e8;
+  border: 1px solid #d8d0c4;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow:
+    0px 2px 8px rgba(0, 0, 0, 0.2),
+    0px 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.playbill:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0px 4px 12px rgba(0, 0, 0, 0.25),
+    0px 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.playbillImage {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.playbillBody {
+  padding: 20px 24px 24px;
+}
+
+.playbillTitle {
+  font-family: Charter, 'Bitstream Charter', Georgia, serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a1410;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.playbillSummary {
+  font-family: Charter, 'Bitstream Charter', Georgia, serif;
+  font-size: 14px;
+  color: #4a4030;
+  margin: 0 0 12px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.playbillDate {
+  font-size: 11px;
+  color: #9a8a7a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Special Elite', 'Courier New', monospace;
+}
+
+/* Decorative top rule */
+.playbill::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c4a060 15%,
+    #d4b070 50%,
+    #c4a060 85%,
+    transparent 100%
+  );
+}
+
+/* ── TIER 2: Full ticket — real reviews ───────── */
+
+.ticket {
+  display: flex;
+  align-items: stretch;
+  text-decoration: none;
+  width: 92%;
+  max-width: 560px;
+  border: 8px solid #f5f0e8;
+  border-radius: 14px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.15),
+    0px 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.2),
+    0px 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.ticketEdge {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  opacity: 0.5;
+  padding: 8px 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ticketBody {
+  flex: 1;
+  padding: 14px 16px;
+  min-width: 0;
+}
+
+.ticketTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.ticketAdmit {
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ticketTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.ticketYear {
+  font-weight: normal;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.ticketReview {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+  opacity: 0.85;
+}
+
+.ticketDate {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}
+
+/* ── TIER 3: Stub strips — one-liners ─────────── */
+
+.stubRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+  justify-content: center;
+}
+
+.stub {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  border: 3px solid rgba(245, 240, 232, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.stub:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.stubTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.stubRating {
+  font-size: 9px;
+  letter-spacing: -1px;
+  flex-shrink: 0;
+}
+
+/* ── Dark mode (theater is always dark) ───────── */
+
+@media (prefers-color-scheme: dark) {
+  .ticket {
+    border-color: #2a2520;
+  }
+
+  .playbill {
+    background: #2a2520;
+    border-color: #3a3530;
+  }
+  .playbillTitle {
+    color: #e8e0d4;
+  }
+  .playbillSummary {
+    color: #a09888;
+  }
+  .playbillDate {
+    color: #6a6050;
+  }
+  .playbill::before {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #6a5030 15%,
+      #7a6040 50%,
+      #6a5030 85%,
+      transparent 100%
+    );
+  }
+
+  .stub {
+    border-color: rgba(60, 50, 40, 0.5);
+  }
+}

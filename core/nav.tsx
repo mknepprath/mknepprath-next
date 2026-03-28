@@ -42,6 +42,9 @@ export default function Nav({ className }: Props): React.JSX.Element {
           <Link href="/photography">Photography</Link>
         </li>
         <li>
+          <Link href="/films">Films</Link>
+        </li>
+        <li>
           <Link href="/#projects">Projects</Link>
         </li>
         <li>

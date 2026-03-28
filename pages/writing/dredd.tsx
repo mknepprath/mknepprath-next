@@ -7,6 +7,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2022-09-21",
   summary: "In which I coin the term “yassified bullet time”.",
+  tags: ["film"],
   title: "My Review of Dredd (2012)",
 };
 

@@ -11,6 +11,9 @@ const posts: PostListItem[] = [
     "id": "mad-max-fury-road",
     "image": "/assets/mad-max-fury-road.jpg",
     "summary": "My review celebrating the 10th anniversary of Mad Max: Fury Road.",
+    "tags": [
+      "film"
+    ],
     "title": "My Review of Mad Max: Fury Road (2015)"
   },
   {
@@ -18,6 +21,9 @@ const posts: PostListItem[] = [
     "id": "avengers-age-of-ultron",
     "image": "/assets/avengers-age-of-ultron.jpg",
     "summary": "My review celebrating the 10th anniversary of Avengers: Age of Ultron.",
+    "tags": [
+      "film"
+    ],
     "title": "My Review of Avengers: Age of Ultron (2015)"
   },
   {
@@ -38,6 +44,9 @@ const posts: PostListItem[] = [
     "date": "2024-12-19",
     "id": "two-types-of-filmmakers",
     "summary": "Jafar Panahi on artistic vision versus commercial appeal in filmmaking.",
+    "tags": [
+      "film"
+    ],
     "title": "Two Types of Filmmakers"
   },
   {
@@ -45,6 +54,9 @@ const posts: PostListItem[] = [
     "id": "sometown-usa",
     "image": "/assets/sometown-usa-1.jpg",
     "summary": "The search for Buster Keaton's lost short film.",
+    "tags": [
+      "film"
+    ],
     "title": "“Life in Sometown, U.S.A.”"
   },
   {
@@ -73,6 +85,9 @@ const posts: PostListItem[] = [
     "id": "the-grand-budapest-hotel",
     "image": "/assets/the-grand-budapest-hotel.jpeg",
     "summary": "My review celebrating the 10th anniversary of Wes Anderson's masterpiece.",
+    "tags": [
+      "film"
+    ],
     "title": "My Review of The Grand Budapest Hotel (2014)"
   },
   {
@@ -80,6 +95,9 @@ const posts: PostListItem[] = [
     "id": "2023-in-film",
     "image": "/assets/2023-in-film-1.jpg",
     "summary": "Reviewing the many movies I watched during 2023.",
+    "tags": [
+      "film"
+    ],
     "title": "2023 in Film"
   },
   {
@@ -131,6 +149,9 @@ const posts: PostListItem[] = [
     "id": "2022-in-film",
     "image": "/assets/2022-in-review-2.jpg",
     "summary": "Reviewing the many movies I watched during 2022.",
+    "tags": [
+      "film"
+    ],
     "title": "2022 in Film"
   },
   {
@@ -145,6 +166,9 @@ const posts: PostListItem[] = [
     "id": "dredd",
     "image": "/assets/dredd-film.jpeg",
     "summary": "In which I coin the term “yassified bullet time”.",
+    "tags": [
+      "film"
+    ],
     "title": "My Review of Dredd (2012)"
   },
   {
@@ -297,6 +321,9 @@ const posts: PostListItem[] = [
     "id": "sequential-art",
     "image": "/assets/comics-05.jpeg",
     "summary": "A comic retrospective.",
+    "tags": [
+      "film"
+    ],
     "title": "Sequential Art™"
   },
   {
@@ -382,6 +409,9 @@ const posts: PostListItem[] = [
     "id": "the-notebook",
     "image": "/assets/the-notebook-film.jpeg",
     "summary": "Love is like the wind, you can’t see it but you can feel it.",
+    "tags": [
+      "film"
+    ],
     "title": "My Review of The Notebook (2004)"
   },
   {

@@ -17,6 +17,7 @@ interface PostListItem {
   id: string;
   image?: string;
   summary?: string;
+  tags?: string[];
   title: string;
   type?:
     | "FILM"
@@ -339,6 +340,7 @@ interface Meta {
   published: boolean;
   publishedAt: string;
   summary?: string;
+  tags?: string[];
   title: string;
   tweetId?: string;
 }

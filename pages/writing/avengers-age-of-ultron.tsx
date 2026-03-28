@@ -8,6 +8,7 @@ export const meta: Meta = {
   publishedAt: "2025-05-01",
   summary:
     "My review celebrating the 10th anniversary of Avengers: Age of Ultron.",
+  tags: ["film"],
   title: "My Review of Avengers: Age of Ultron (2015)",
 };
 

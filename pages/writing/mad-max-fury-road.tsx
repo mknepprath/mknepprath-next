@@ -7,6 +7,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2025-05-15",
   summary: "My review celebrating the 10th anniversary of Mad Max: Fury Road.",
+  tags: ["film"],
   title: "My Review of Mad Max: Fury Road (2015)",
 };
 

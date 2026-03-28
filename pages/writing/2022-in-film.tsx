@@ -12,6 +12,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2023-01-16",
   summary: "Reviewing the many movies I watched during 2022.",
+  tags: ["film"],
   title: "2022 in Film",
   tweetId: "1615084669233680384",
 };

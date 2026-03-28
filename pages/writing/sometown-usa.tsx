@@ -8,6 +8,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2024-10-23",
   summary: "The search for Buster Keaton's lost short film.",
+  tags: ["film"],
   title: "“Life in Sometown, U.S.A.”",
 };
 

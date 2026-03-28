@@ -4,6 +4,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2024-12-19",
   summary: "Jafar Panahi on artistic vision versus commercial appeal in filmmaking.",
+  tags: ["film"],
   title: "Two Types of Filmmakers",
 };
 

@@ -10,6 +10,7 @@ interface Post {
   id: string;
   image?: string;
   summary?: string;
+  tags?: string[];
   title: string;
 }
 
@@ -24,6 +25,7 @@ const postList = posts.map((post: Post) => ({
   id: post.id,
   image: post.image,
   summary: post.summary,
+  ...(post.tags?.length ? { tags: post.tags } : {}),
   title: post.title,
 }));
 

@@ -45,6 +45,21 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Films page — dark velvet theater lobby */
+[data-page="films"],
+[data-page="films"] ~ *,
+main:has([data-page="films"]) {
+  background-color: #1a0f0f;
+  color: #e0d6c8;
+}
+html:has([data-page="films"]),
+body:has([data-page="films"]) {
+  background-color: #1a0f0f !important;
+}
+[data-page="films"] a {
+  color: #e0d6c8;
+}
+
 /* Blog/writing pages — newsprint background everywhere */
 [data-page="blog"],
 [data-page="blog"] ~ *,

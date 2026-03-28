@@ -7,6 +7,7 @@ export const meta: Meta = {
   published: true,
   publishedAt: "2014-06-25",
   summary: "Love is like the wind, you can’t see it but you can feel it.",
+  tags: ["film"],
   title: "My Review of The Notebook (2004)",
 };
 
