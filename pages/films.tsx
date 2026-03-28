@@ -12,7 +12,6 @@ import styles from "./films.module.css";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-// Review length threshold for "real review" vs "one-liner"
 const REVIEW_THRESHOLD = 200;
 
 const FILM_PALETTE = [
@@ -38,18 +37,17 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, "").trim();
 }
 
-// Film blog posts tagged with "film"
-const filmPosts = posts.filter((p) => p.tags?.includes("film"));
+const filmPosts = posts
+  .filter((p) => p.tags?.includes("film"))
+  .sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
 interface MergedItem {
   kind: "essay" | "review" | "stub";
   date: string;
-  // Essay fields
   id?: string;
   title: string;
   summary?: string;
   image?: string;
-  // Film fields
   film?: Film;
   reviewText?: string;
   colors?: { bg: string; text: string; accent: string };
@@ -61,50 +59,80 @@ export default function Films(): React.ReactNode {
     fetcher,
   );
 
-  const items = useMemo(() => {
-    const merged: MergedItem[] = [];
+  const { essays, reviews, stubs } = useMemo(() => {
+    const essays: MergedItem[] = filmPosts.map((post) => ({
+      kind: "essay" as const,
+      date: post.date,
+      id: post.id,
+      title: post.title,
+      summary: post.summary,
+      image: post.image,
+    }));
 
-    // Add film blog posts as essays
-    for (const post of filmPosts) {
-      merged.push({
-        kind: "essay",
-        date: post.date,
-        id: post.id,
-        title: post.title,
-        summary: post.summary,
-        image: post.image,
-      });
-    }
+    const reviews: MergedItem[] = [];
+    const stubs: MergedItem[] = [];
 
-    // Add Letterboxd films as reviews or stubs
     for (const film of films) {
       const plainReview = stripHtml(film.review || "");
-      const isReal = plainReview.length >= REVIEW_THRESHOLD;
-      merged.push({
-        kind: isReal ? "review" : "stub",
+      const item: MergedItem = {
+        kind: plainReview.length >= REVIEW_THRESHOLD ? "review" : "stub",
         date: film.published_at,
         title: film.title,
         film,
         reviewText: plainReview,
         colors: getColors(film.id),
-      });
+      };
+      if (item.kind === "review") reviews.push(item);
+      else stubs.push(item);
     }
 
-    // Sort chronologically, newest first
-    merged.sort((a, b) => +new Date(b.date) - +new Date(a.date));
-
-    return merged;
+    return { essays, reviews, stubs };
   }, [films]);
 
-  // Group stubs into clusters
+  // Build the stream: essay → stubs → reviews → essay → stubs → reviews...
+  // This ensures essays punctuate the flow and lead the page.
   const rendered: React.ReactNode[] = [];
-  let stubBuffer: MergedItem[] = [];
+  let reviewIdx = 0;
+  let stubIdx = 0;
+  let ticketCount = 0;
 
-  function flushStubs() {
-    if (stubBuffer.length === 0) return;
+  function renderEssay(item: MergedItem) {
     rendered.push(
-      <div key={`stubs-${stubBuffer[0].date}`} className={styles.stubRow}>
-        {stubBuffer.map((item) => {
+      <Link
+        key={`essay-${item.id}`}
+        href={`/writing/${item.id}`}
+        className={styles.playbill}
+      >
+        {item.image && (
+          <div className={styles.playbillImage}>
+            <Image
+              alt={`cover for ${item.title}`}
+              src={item.image}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        )}
+        <div className={styles.playbillBody}>
+          <h3 className={styles.playbillTitle}>{item.title}</h3>
+          {item.summary && (
+            <p className={styles.playbillSummary}>{item.summary}</p>
+          )}
+          <span className={styles.playbillDate}>
+            {format(parseISO(item.date), "MMMM d, yyyy")}
+          </span>
+        </div>
+      </Link>,
+    );
+  }
+
+  function renderStubCluster(count: number) {
+    const cluster = stubs.slice(stubIdx, stubIdx + count);
+    if (cluster.length === 0) return;
+    stubIdx += cluster.length;
+    rendered.push(
+      <div key={`stubs-${stubIdx}`} className={styles.stubRow}>
+        {cluster.map((item) => {
           const colors = item.colors!;
           const film = item.film!;
           return (
@@ -127,52 +155,17 @@ export default function Films(): React.ReactNode {
         })}
       </div>,
     );
-    stubBuffer = [];
   }
 
-  for (const item of items) {
-    if (item.kind === "stub") {
-      stubBuffer.push(item);
-      // Flush every 4-6 stubs
-      if (stubBuffer.length >= 5) flushStubs();
-      continue;
-    }
-
-    // Flush any pending stubs before a feature item
-    flushStubs();
-
-    if (item.kind === "essay") {
-      rendered.push(
-        <Link
-          key={`essay-${item.id}`}
-          href={`/writing/${item.id}`}
-          className={styles.playbill}
-        >
-          {item.image && (
-            <div className={styles.playbillImage}>
-              <Image
-                alt={`cover for ${item.title}`}
-                src={item.image}
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          )}
-          <div className={styles.playbillBody}>
-            <h3 className={styles.playbillTitle}>{item.title}</h3>
-            {item.summary && (
-              <p className={styles.playbillSummary}>{item.summary}</p>
-            )}
-            <span className={styles.playbillDate}>
-              {format(parseISO(item.date), "MMMM d, yyyy")}
-            </span>
-          </div>
-        </Link>,
-      );
-    } else if (item.kind === "review") {
+  function renderReviews(count: number) {
+    const batch = reviews.slice(reviewIdx, reviewIdx + count);
+    reviewIdx += batch.length;
+    for (const item of batch) {
       const film = item.film!;
       const colors = item.colors!;
-      const rotate = (hashString(film.id) % 6) - 3;
+      const rotate = (hashString(film.id) % 8) - 4;
+      const side = ticketCount % 2 === 0 ? "left" : "right";
+      ticketCount++;
 
       rendered.push(
         <a
@@ -180,7 +173,7 @@ export default function Films(): React.ReactNode {
           href={film.link}
           target="_blank"
           rel="noreferrer"
-          className={styles.ticket}
+          className={`${styles.ticket} ${side === "right" ? styles.ticketRight : styles.ticketLeft}`}
           style={{
             background: colors.bg,
             transform: `rotate(${rotate}deg)`,
@@ -227,8 +220,18 @@ export default function Films(): React.ReactNode {
     }
   }
 
-  // Flush remaining stubs
-  flushStubs();
+  // Layout rhythm: essay → reviews → stubs → essay → reviews → stubs...
+  for (let i = 0; i < essays.length; i++) {
+    renderEssay(essays[i]);
+    renderReviews(2);
+    renderStubCluster(5);
+  }
+
+  // Remaining reviews and stubs
+  while (reviewIdx < reviews.length || stubIdx < stubs.length) {
+    renderReviews(3);
+    renderStubCluster(5);
+  }
 
   return (
     <>
