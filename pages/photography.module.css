@@ -46,41 +46,38 @@
   padding-left: 2px;
 }
 
-/* ── Masonry via CSS columns ──────────────────── */
+/* ── Grid — 2 columns, uniform row height ─────── */
 
 .grid {
-  column-count: 2;
-  column-gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 @media (min-width: 632px) {
   .grid {
-    column-gap: 16px;
+    gap: 16px;
   }
 }
 
 .cell {
   display: block;
-  break-inside: avoid;
   border: none;
   background: none;
   padding: 0;
-  margin-bottom: 12px;
   cursor: pointer;
   position: relative;
   text-align: left;
-}
-
-@media (min-width: 632px) {
-  .cell {
-    margin-bottom: 16px;
-  }
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 4 / 3;
 }
 
 .cell img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: 2px;
   box-shadow:
     0px 1px 4px rgba(0, 0, 0, 0.2),

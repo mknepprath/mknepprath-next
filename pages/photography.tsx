@@ -105,10 +105,9 @@ export default function Photography(): React.ReactNode {
                     <Image
                       alt={photo.alt || photo.caption || "photo"}
                       src={photo.image}
-                      width={photo.width || 600}
-                      height={photo.height || 400}
+                      fill
                       sizes="(max-width: 632px) 50vw, 440px"
-                      style={{ width: "100%", height: "auto" }}
+                      style={{ objectFit: "cover" }}
                     />
                     {photo.caption && photo.caption !== "Untitled" && (
                       <span className={styles.cellCaption}>{photo.caption}</span>
