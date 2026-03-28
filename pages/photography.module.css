@@ -131,9 +131,11 @@
 
 .greasePencil {
   position: absolute;
-  inset: -4% -6%;
-  width: 112%;
-  height: 108%;
+  /* Cover the image area, extend slightly beyond */
+  top: -4%;
+  left: -4%;
+  width: 108%;
+  height: calc(108% - 32px); /* don't cover the caption */
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.25s ease;
@@ -142,12 +144,12 @@
 
 .greasePencilPath {
   fill: none;
-  stroke: rgba(200, 45, 25, 0.6);
-  stroke-width: 2.5;
+  stroke: rgba(200, 45, 25, 0.55);
+  stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 900;
-  stroke-dashoffset: 900;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
   transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

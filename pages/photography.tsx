@@ -37,13 +37,6 @@ const fetcher = (url: string) =>
         }));
     });
 
-// Hand-drawn circle paths — wobbly ovals, each unique
-const CIRCLE_PATHS = [
-  "M 30 18 C 65 4, 160 2, 195 20 C 218 38, 220 72, 198 88 C 168 108, 100 114, 45 100 C 14 90, 2 66, 8 42 C 12 26, 24 18, 36 20",
-  "M 38 14 C 80 2, 150 6, 190 22 C 216 36, 222 68, 200 90 C 172 112, 95 116, 40 102 C 10 92, -2 62, 6 38 C 12 20, 28 12, 42 16",
-  "M 26 22 C 58 6, 155 -2, 198 18 C 224 32, 226 70, 204 92 C 178 114, 108 120, 48 106 C 16 96, 0 68, 4 44 C 8 24, 20 16, 32 22",
-  "M 34 16 C 72 0, 148 4, 192 24 C 220 40, 218 74, 196 94 C 166 112, 98 118, 42 104 C 12 94, -4 64, 6 40 C 14 22, 26 14, 38 18",
-];
 
 function hashId(id: string): number {
   let h = 0;
@@ -73,8 +66,7 @@ export default function Photography(): React.ReactNode {
           {photos.map((photo, i) => {
             const hash = hashId(photo.id);
             const frameNum = String(hash % 36).padStart(2, "0");
-            const circlePath = CIRCLE_PATHS[i % CIRCLE_PATHS.length];
-            const rotate = (hash % 14) - 7;
+            const rotate = (hash % 10) - 5;
 
             return (
               <button
@@ -92,19 +84,21 @@ export default function Photography(): React.ReactNode {
                     sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw"
                     style={{ width: "100%", height: "auto" }}
                   />
-                  <svg
-                    className={styles.greasePencil}
-                    viewBox="0 0 224 120"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ transform: `rotate(${rotate}deg)` }}
-                  >
-                    <path
-                      className={styles.greasePencilPath}
-                      d={circlePath}
-                    />
-                  </svg>
                   <span className={styles.frameNumber}>{frameNum}A</span>
                 </div>
+                <svg
+                  className={styles.greasePencil}
+                  viewBox="0 0 200 200"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ transform: `rotate(${rotate}deg)` }}
+                >
+                  <ellipse
+                    className={styles.greasePencilPath}
+                    cx="100" cy="100"
+                    rx="88" ry="90"
+                  />
+                </svg>
 
                 <div className={styles.printCaption}>
                   {photo.caption && photo.caption !== "Untitled" && (
