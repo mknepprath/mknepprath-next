@@ -71,6 +71,22 @@ export default function Photography(): React.ReactNode {
     return flatPhotos.findIndex((p) => p.id === photo.id);
   }
 
+  // Split a group's photos into rows of 2, pairing a portrait with a landscape when possible
+  function buildRows(photos: Photo[]): Photo[][] {
+    const rows: Photo[][] = [];
+    const remaining = [...photos];
+
+    while (remaining.length > 0) {
+      if (remaining.length === 1) {
+        rows.push([remaining.shift()!]);
+      } else {
+        rows.push([remaining.shift()!, remaining.shift()!]);
+      }
+    }
+
+    return rows;
+  }
+
   return (
     <>
       <Head
@@ -85,8 +101,8 @@ export default function Photography(): React.ReactNode {
         </header>
 
         {groups.map((group, gi) => {
-          const showLabel =
-            gi === 0 || groups[gi - 1].label !== group.label;
+          const showLabel = gi === 0 || groups[gi - 1].label !== group.label;
+          const rows = buildRows(group.photos);
 
           return (
             <section key={`group-${gi}`} className={styles.group}>
@@ -94,31 +110,33 @@ export default function Photography(): React.ReactNode {
                 <span className={styles.groupLabel}>{group.label}</span>
               )}
 
-              <div className={styles.grid}>
-                {group.photos.map((photo) => (
-                  <button
-                    key={photo.id}
-                    className={styles.cell}
-                    onClick={() => setLightboxIndex(getGlobalIndex(photo))}
-                    aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
-                    style={{
-                      gridRowEnd: `span ${Math.ceil(((photo.height || 400) / (photo.width || 600)) * 28) + 6}`,
-                    }}
-                  >
-                    <Image
-                      alt={photo.alt || photo.caption || "photo"}
-                      src={photo.image}
-                      width={photo.width || 600}
-                      height={photo.height || 400}
-                      sizes="(max-width: 632px) 50vw, 440px"
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                    {photo.caption && photo.caption !== "Untitled" && (
-                      <span className={styles.cellCaption}>{photo.caption}</span>
-                    )}
-                  </button>
-                ))}
-              </div>
+              {rows.map((row, ri) => (
+                <div
+                  key={`row-${gi}-${ri}`}
+                  className={row.length === 1 ? styles.soloRow : styles.pairRow}
+                >
+                  {row.map((photo) => (
+                    <button
+                      key={photo.id}
+                      className={styles.cell}
+                      onClick={() => setLightboxIndex(getGlobalIndex(photo))}
+                      aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
+                    >
+                      <Image
+                        alt={photo.alt || photo.caption || "photo"}
+                        src={photo.image}
+                        width={photo.width || 600}
+                        height={photo.height || 400}
+                        sizes="(max-width: 632px) 50vw, 440px"
+                        className={styles.cellImg}
+                      />
+                      {photo.caption && photo.caption !== "Untitled" && (
+                        <span className={styles.cellCaption}>{photo.caption}</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              ))}
             </section>
           );
         })}

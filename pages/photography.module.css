@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────────
    PHOTOGRAPHY — gallery exhibition
-   Dark walls, grouped series, 2-col grid.
-   Photos are the only light in the room.
+   Dark walls, grouped series, paired rows.
+   Simple flexbox rows — no grid tricks.
    ───────────────────────────────────────────────── */
 
 .page {
@@ -32,7 +32,7 @@
 /* ── Series group ─────────────────────────────── */
 
 .group {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .groupLabel {
@@ -46,39 +46,47 @@
   padding-left: 2px;
 }
 
-/* ── Grid — 2 columns, natural aspect ratios ──── */
+/* ── Rows — flexbox, align tops ───────────────── */
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 4px;
-  gap: 0 12px;
+.pairRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 @media (min-width: 632px) {
-  .grid {
-    gap: 0 16px;
+  .pairRow {
+    gap: 16px;
+    margin-bottom: 16px;
   }
 }
 
+.soloRow {
+  display: flex;
+  margin-bottom: 12px;
+  max-width: 50%;
+}
+
+@media (min-width: 632px) {
+  .soloRow {
+    margin-bottom: 16px;
+  }
+}
+
+/* ── Photo cell ───────────────────────────────── */
+
 .cell {
+  flex: 1;
+  min-width: 0;
   display: block;
   border: none;
   background: none;
   padding: 0;
-  padding-bottom: 12px;
   cursor: pointer;
-  position: relative;
   text-align: left;
 }
 
-@media (min-width: 632px) {
-  .cell {
-    padding-bottom: 16px;
-  }
-}
-
-.cell img {
+.cellImg {
   display: block;
   width: 100%;
   height: auto;
@@ -89,7 +97,7 @@
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-.cell:hover img {
+.cell:hover .cellImg {
   box-shadow:
     0px 3px 8px rgba(0, 0, 0, 0.3),
     0px 8px 24px rgba(0, 0, 0, 0.18);
