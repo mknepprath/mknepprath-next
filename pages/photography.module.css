@@ -1,24 +1,24 @@
 /* ─────────────────────────────────────────────────
-   PHOTOGRAPHY — prints on a light table
-   Organic masonry, natural aspect ratios,
-   handwritten captions, photojournalist feel.
+   PHOTOGRAPHY — gallery exhibition
+   Dark walls, grouped series, hero + grid rhythm.
+   The photos are the only light in the room.
    ───────────────────────────────────────────────── */
 
 .page {
-  padding: 0 16px 64px;
+  padding: 0 16px 80px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 @media (min-width: 632px) {
   .page {
-    padding: 0 32px 80px;
+    padding: 0 40px 100px;
   }
 }
 
 /* Header */
 .header {
-  padding: 48px 0 32px;
+  padding: 48px 0 40px;
 }
 
 .title {
@@ -26,169 +26,116 @@
   font-size: 3em;
   font-weight: normal;
   margin: 0;
-  color: var(--black);
+  color: #e8e4de;
 }
 
-/* ── Masonry via CSS columns ──────────────────── */
+/* ── Series group ─────────────────────────────── */
 
-.masonry {
-  column-count: 1;
-  column-gap: 24px;
+.group {
+  margin-bottom: 56px;
 }
 
-@media (min-width: 520px) {
-  .masonry {
-    column-count: 2;
-    column-gap: 28px;
-  }
+.groupLabel {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6a6560;
+  margin-bottom: 16px;
+  padding-left: 2px;
 }
 
-@media (min-width: 900px) {
-  .masonry {
-    column-count: 3;
-    column-gap: 32px;
-  }
-}
+/* ── Hero — first photo, full width ───────────── */
 
-/* ── Individual print ─────────────────────────── */
-
-.print {
-  break-inside: avoid;
+.hero {
   display: block;
   width: 100%;
   border: none;
   background: none;
   padding: 0;
-  margin-bottom: 28px;
   cursor: pointer;
+  position: relative;
   text-align: left;
-  position: relative;
-  transition: transform 0.25s ease;
+  margin-bottom: 12px;
 }
 
-.print:hover {
-  transform: translateY(-2px);
-}
-
-.print:hover .greasePencil {
-  opacity: 1;
-}
-
-.print:hover .greasePencilPath {
-  stroke-dashoffset: 0;
-}
-
-/* The photo itself — natural aspect ratio */
-.printImage {
-  position: relative;
-  width: 100%;
-  border-radius: 1px;
-  overflow: hidden;
-  background: var(--grey);
-  box-shadow:
-    0px 1px 4px rgba(0, 0, 0, 0.08),
-    0px 4px 12px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.25s ease;
-}
-
-.print:hover .printImage {
-  box-shadow:
-    0px 3px 8px rgba(0, 0, 0, 0.12),
-    0px 8px 24px rgba(0, 0, 0, 0.06);
-}
-
-.printImage img {
+.hero img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 2px;
+  box-shadow:
+    0px 2px 8px rgba(0, 0, 0, 0.3),
+    0px 8px 32px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Caption area — handwritten notes below the print */
-.printCaption {
-  padding: 8px 2px 0;
+.hero:hover img {
+  box-shadow:
+    0px 4px 16px rgba(0, 0, 0, 0.4),
+    0px 16px 48px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
 }
 
-.printText {
+.heroCaption {
+  display: block;
   font-family: 'Caveat', cursive;
-  font-size: 17px;
-  color: var(--black);
+  font-size: 18px;
+  color: #a09888;
+  margin-top: 10px;
+  padding-left: 2px;
   line-height: 1.3;
+}
+
+/* ── Grid — remaining photos, 2 columns ───────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 632px) {
+  .grid {
+    gap: 14px;
+  }
+}
+
+.cell {
   display: block;
-  opacity: 0.8;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
 }
 
-.printDate {
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  font-size: 10px;
-  color: var(--black);
-  opacity: 0.35;
-  letter-spacing: 0.5px;
+.cell img {
   display: block;
-  margin-top: 2px;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow:
+    0px 1px 4px rgba(0, 0, 0, 0.2),
+    0px 4px 12px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-/* ── Hand-drawn grease pencil circle (SVG) ────── */
-
-.greasePencil {
-  position: absolute;
-  /* Cover the image area, extend slightly beyond */
-  top: -4%;
-  left: -4%;
-  width: 108%;
-  height: calc(108% - 32px); /* don't cover the caption */
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  z-index: 2;
+.cell:hover img {
+  box-shadow:
+    0px 3px 8px rgba(0, 0, 0, 0.3),
+    0px 8px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
 }
 
-.greasePencilPath {
-  fill: none;
-  stroke: rgba(200, 45, 25, 0.55);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 3000;
-  stroke-dashoffset: 3000;
-  transition: stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ── Frame number — film edge marker ──────────── */
-
-.frameNumber {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  font-size: 9px;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 1px;
-  pointer-events: none;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.print:hover .frameNumber {
-  opacity: 1;
-}
-
-/* ── Dark mode ────────────────────────────────── */
-
-@media (prefers-color-scheme: dark) {
-  .printImage {
-    box-shadow:
-      0px 1px 4px rgba(0, 0, 0, 0.2),
-      0px 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .print:hover .printImage {
-    box-shadow:
-      0px 3px 8px rgba(0, 0, 0, 0.3),
-      0px 8px 24px rgba(0, 0, 0, 0.2);
-  }
-
-  .frameNumber {
-    color: rgba(255, 255, 255, 0.4);
-  }
+.cellCaption {
+  display: block;
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
+  color: #8a8278;
+  margin-top: 6px;
+  padding-left: 2px;
+  line-height: 1.3;
 }

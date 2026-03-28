@@ -45,6 +45,22 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Photography page — dark gallery walls */
+[data-page="photography"],
+[data-page="photography"] ~ *,
+main:has([data-page="photography"]) {
+  background-color: #141210;
+}
+html:has([data-page="photography"]),
+body:has([data-page="photography"]) {
+  background-color: #141210 !important;
+}
+html:has([data-page="photography"]) {
+  --black: #e0dcd6;
+  --white: #141210;
+  --grey: #242220;
+}
+
 /* Films page — dark velvet theater lobby */
 [data-page="films"],
 [data-page="films"] ~ *,
