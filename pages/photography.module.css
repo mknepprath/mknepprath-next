@@ -1,189 +1,192 @@
 /* ─────────────────────────────────────────────────
-   PHOTOGRAPHY — contact sheet / light table
+   PHOTOGRAPHY — prints on a light table
+   Organic masonry, natural aspect ratios,
+   handwritten captions, photojournalist feel.
    ───────────────────────────────────────────────── */
 
 .page {
-  padding: 0 16px;
+  padding: 0 16px 64px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 @media (min-width: 632px) {
   .page {
-    padding: 0 32px;
+    padding: 0 32px 80px;
   }
 }
 
 /* Header */
 .header {
-  padding: 0 0 8px;
+  padding: 48px 0 32px;
 }
 
 .title {
-  font-size: 2em;
-  margin-top: 2.4rem;
-  margin-bottom: 0.4rem;
+  font-family: 'Caveat', cursive;
+  font-size: 3em;
+  font-weight: normal;
+  margin: 0;
+  color: var(--black);
 }
 
-/* ── Contact sheet grid ───────────────────────── */
+/* ── Masonry via CSS columns ──────────────────── */
 
-.contactSheet {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding-bottom: 48px;
+.masonry {
+  column-count: 1;
+  column-gap: 24px;
 }
 
 @media (min-width: 520px) {
-  .contactSheet {
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 180px;
-    gap: 14px;
+  .masonry {
+    column-count: 2;
+    column-gap: 28px;
   }
 }
 
-@media (min-width: 860px) {
-  .contactSheet {
-    grid-auto-rows: 200px;
-    gap: 16px;
+@media (min-width: 900px) {
+  .masonry {
+    column-count: 3;
+    column-gap: 32px;
   }
 }
 
-/* ── Layout pattern — repeating 8-frame cycle ─── */
+/* ── Individual print ─────────────────────────── */
 
-/* On mobile: single column, no spans needed */
-
-@media (min-width: 520px) {
-  /* Default: 2 columns wide, 1 row tall */
-  .frame {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
-  /* Hero frame: 4 wide, 2 tall — the "select" */
-  .frameHero {
-    grid-column: span 4;
-    grid-row: span 2;
-  }
-
-  /* Tall frame: 2 wide, 2 tall — portrait emphasis */
-  .frameTall {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  /* Wide frame: 3 wide, 1 tall — panoramic feel */
-  .frameWide {
-    grid-column: span 3;
-    grid-row: span 1;
-  }
-}
-
-/* ── Individual frame ─────────────────────────── */
-
-.frame {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: #1a1a1a;
+.print {
+  break-inside: avoid;
+  display: block;
+  width: 100%;
   border: none;
+  background: none;
   padding: 0;
+  margin-bottom: 28px;
   cursor: pointer;
-  border-radius: 2px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: left;
+  position: relative;
+  transition: transform 0.25s ease;
 }
 
-.frame:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+.print:hover {
+  transform: translateY(-2px);
 }
 
-.frame:hover .greasePencil {
+.print:hover .greasePencil {
   opacity: 1;
 }
 
-.frame:hover .greasePencilPath {
+.print:hover .greasePencilPath {
   stroke-dashoffset: 0;
 }
 
-/* ── Sprocket holes ───────────────────────────── */
-
-.sprocketRow {
-  display: flex;
-  justify-content: space-around;
-  padding: 4px 12px;
-  flex-shrink: 0;
-}
-
-.sprocket {
-  width: 10px;
-  height: 6px;
-  border-radius: 1px;
-  background: #2a2a2a;
-  border: 1px solid #333;
-}
-
-/* ── Photo area ───────────────────────────────── */
-
-.frameImage {
+/* The photo itself — natural aspect ratio */
+.printImage {
   position: relative;
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  border-radius: 1px;
   overflow: hidden;
-  background: #111;
+  background: var(--grey);
+  box-shadow:
+    0px 1px 4px rgba(0, 0, 0, 0.08),
+    0px 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s ease;
+}
+
+.print:hover .printImage {
+  box-shadow:
+    0px 3px 8px rgba(0, 0, 0, 0.12),
+    0px 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.printImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Caption area — handwritten notes below the print */
+.printCaption {
+  padding: 8px 2px 0;
+}
+
+.printText {
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  color: var(--black);
+  line-height: 1.3;
+  display: block;
+  opacity: 0.8;
+}
+
+.printDate {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--black);
+  opacity: 0.35;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-top: 2px;
 }
 
 /* ── Hand-drawn grease pencil circle (SVG) ────── */
 
 .greasePencil {
   position: absolute;
-  inset: 4%;
+  inset: -4% -6%;
+  width: 112%;
+  height: 108%;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
   z-index: 2;
 }
 
 .greasePencilPath {
   fill: none;
-  stroke: rgba(210, 50, 30, 0.75);
-  stroke-width: 3;
+  stroke: rgba(200, 45, 25, 0.6);
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 900;
   stroke-dashoffset: 900;
-  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Frame number ─────────────────────────────── */
+/* ── Frame number — film edge marker ──────────── */
 
 .frameNumber {
   position: absolute;
-  bottom: 14px;
-  right: 8px;
+  top: 8px;
+  right: 10px;
   font-family: 'Courier Prime', 'Courier New', monospace;
   font-size: 9px;
-  color: #555;
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 1px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-/* ── Light mode adjustments ───────────────────── */
+.print:hover .frameNumber {
+  opacity: 1;
+}
 
-@media (prefers-color-scheme: light) {
-  .frame {
-    background: #222;
+/* ── Dark mode ────────────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  .printImage {
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.2),
+      0px 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  .sprocket {
-    background: #333;
-    border-color: #3a3a3a;
+  .print:hover .printImage {
+    box-shadow:
+      0px 3px 8px rgba(0, 0, 0, 0.3),
+      0px 8px 24px rgba(0, 0, 0, 0.2);
   }
 
   .frameNumber {
-    color: #666;
+    color: rgba(255, 255, 255, 0.4);
   }
 }
