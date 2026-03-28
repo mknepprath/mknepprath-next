@@ -56,8 +56,11 @@ html:has([data-page="films"]),
 body:has([data-page="films"]) {
   background-color: #1a0f0f !important;
 }
-[data-page="films"] a {
-  color: #e0d6c8;
+/* Nav + links need light text on dark background */
+html:has([data-page="films"]) {
+  --black: #e0d6c8;
+  --white: #1a0f0f;
+  --grey: #2a1f1f;
 }
 
 /* Blog/writing pages — newsprint background everywhere */
