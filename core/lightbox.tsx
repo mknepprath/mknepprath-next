@@ -1,19 +1,9 @@
 import { useCallback, useEffect } from "react";
 import Image from "next/image";
 import { format, parseISO } from "date-fns";
+import { Photo } from "@lib/photography";
 
 import styles from "./lightbox.module.css";
-
-interface Photo {
-  id: string;
-  date: string;
-  caption: string;
-  url: string;
-  image: string;
-  width: number;
-  height: number;
-  alt: string;
-}
 
 interface Props {
   photos: Photo[];

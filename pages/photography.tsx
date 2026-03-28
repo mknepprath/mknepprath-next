@@ -3,32 +3,25 @@ import Footer from "@core/footer";
 import Head from "@core/head";
 import Lightbox from "@core/lightbox";
 import Nav from "@core/nav";
+import { fetchPhotos, Photo } from "@lib/photography";
 import Image from "next/image";
 import { GetStaticProps } from "next";
+import useSWR from "swr";
 
 import styles from "./photography.module.css";
-
-interface Photo {
-  id: string;
-  date: string;
-  caption: string;
-  url: string;
-  image: string;
-  width: number;
-  height: number;
-  alt: string;
-}
 
 interface Props {
   photos: Photo[];
 }
 
-const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://mknepprath.com"
-    : "http://localhost:3000";
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-export default function Photography({ photos }: Props): React.ReactNode {
+export default function Photography({ photos: initialPhotos }: Props): React.ReactNode {
+  const { data: photos = initialPhotos } = useSWR<Photo[]>(
+    "/api/v1/photography",
+    fetcher,
+    { fallbackData: initialPhotos },
+  );
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
@@ -108,10 +101,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   let photos: Photo[] = [];
 
   try {
-    const res = await fetch(`${BASE_URL}/api/v1/photography`);
-    if (res.ok) photos = await res.json();
+    photos = await fetchPhotos();
   } catch {
-    // Will show empty state
+    // SWR will retry client-side
   }
 
   return {
