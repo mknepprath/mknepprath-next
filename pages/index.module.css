@@ -51,3 +51,42 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ── Photography section ──────────────────────── */
+
+.sectionLink {
+  color: var(--black) !important;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.sectionLink:hover {
+  color: var(--primaryColor) !important;
+}
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+@media (min-width: 632px) {
+  .photoGrid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+}
+
+.photoThumb {
+  display: block;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.photoThumb:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0px 3px 8px rgba(0, 0, 0, 0.1),
+    0px 8px 20px rgba(0, 0, 0, 0.06);
+}
+.photoThumb img {
+  display: block;
+}

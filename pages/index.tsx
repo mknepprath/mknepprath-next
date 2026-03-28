@@ -25,6 +25,8 @@ import classnames from "classnames";
 import { format, parseISO } from "date-fns";
 import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import useSWR from "swr";
 
 import styles from "./index.module.css";
@@ -62,6 +64,18 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
     githubRepos ? `/api/v1/github/projects?repos=${githubRepos}` : null,
     fetcher,
   );
+
+  const { data: photoData } = useSWR<Toot[]>(
+    "/api/v1/photos?limit=24",
+    fetcher,
+  );
+  const photos = (Array.isArray(photoData) ? photoData : [])
+    .filter(
+      (p: Toot) =>
+        p.media_attachments?.length > 0 &&
+        p.media_attachments[0].type === "image",
+    )
+    .slice(0, 6);
 
   const sortedProjects = [...projectLinks].sort((a, b) => {
     const aDate = a.githubRepo && repoData?.[a.githubRepo]?.pushedAt;
@@ -117,6 +131,38 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
           })}
 
         {!activity.length && <div>What have I been up to...</div>}
+
+        {photos.length > 0 && (
+          <div className={styles.projectContainer}>
+            <h2>
+              <Link href="/photography" className={styles.sectionLink}>
+                Photography
+              </Link>
+            </h2>
+            <div className={styles.photoGrid}>
+              {photos.map((photo: Toot) => (
+                <Link
+                  key={photo.id}
+                  href="/photography"
+                  className={styles.photoThumb}
+                >
+                  <Image
+                    alt={
+                      photo.media_attachments[0].description ||
+                      photo.content?.replace(/<[^>]+>/g, "") ||
+                      "photo"
+                    }
+                    src={photo.media_attachments[0].url}
+                    width={photo.media_attachments[0].meta?.original?.width || 400}
+                    height={photo.media_attachments[0].meta?.original?.height || 300}
+                    sizes="(max-width: 632px) 33vw, 200px"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className={styles.projectContainer} id="projects">
           <h2>Projects</h2>
