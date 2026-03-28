@@ -105,19 +105,6 @@
     0px 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.photoSeeMore {
-  font-family: 'Caveat', cursive;
-  font-size: 20px;
-  color: var(--black);
-  opacity: 0.5;
-  transition: opacity 0.2s, color 0.2s;
-  align-self: flex-end;
-  margin-left: 4px;
-}
-.photoSpread:hover .photoSeeMore {
-  opacity: 1;
-  color: var(--primaryColor);
-}
 
 @media (prefers-color-scheme: dark) {
   .photoPrint {

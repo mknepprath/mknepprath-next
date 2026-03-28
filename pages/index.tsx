@@ -170,7 +170,6 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
                   </div>
                 );
               })}
-              <span className={styles.photoSeeMore}>see more &rarr;</span>
             </Link>
           </div>
         )}
