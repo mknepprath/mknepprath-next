@@ -6,7 +6,7 @@
 
 .page {
   padding: 0 16px 80px;
-  max-width: 1100px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -62,7 +62,9 @@
 
 .hero img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
   height: auto;
   border-radius: 2px;
   box-shadow:
