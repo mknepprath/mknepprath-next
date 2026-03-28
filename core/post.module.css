@@ -1050,7 +1050,6 @@
     0px 2px 6px rgba(0, 0, 0, 0.08),
     0px 6px 16px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s, box-shadow 0.2s;
-  overflow: hidden;
 }
 .chessCard:hover {
   box-shadow:
@@ -1179,10 +1178,12 @@
   font-size: 11px;
   color: #6a7a8a;
   margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 140px;
+}
+
+@media (max-width: 631px) {
+  .chessMeta {
+    display: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
