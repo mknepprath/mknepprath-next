@@ -81,7 +81,7 @@ const FilmPost = ({
         style={{ background: colors.bg }}
       >
         <div className={styles.ticketEdge} style={{ color: colors.accent }}>
-          {id.replace(/\D/g, "").slice(0, 6).split("").join(" ")}
+          {(id.replace(/\D/g, "").slice(0, 6) || String(Math.abs(hash)).slice(0, 6)).split("").join(" ")}
         </div>
 
         <div className={styles.ticketBody}>
@@ -124,7 +124,7 @@ const FilmPost = ({
         </div>
 
         <div className={styles.ticketEdge} style={{ color: colors.accent }}>
-          {id.replace(/\D/g, "").slice(0, 6).split("").join(" ")}
+          {(id.replace(/\D/g, "").slice(0, 6) || String(Math.abs(hash)).slice(0, 6)).split("").join(" ")}
         </div>
       </a>
     </ActivityCard>

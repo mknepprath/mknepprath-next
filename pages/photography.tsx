@@ -47,6 +47,7 @@ function groupByMonth(photos: Photo[]): MonthGroup[] {
   let current: MonthGroup | null = null;
 
   for (const photo of photos) {
+    if (!photo.date) continue;
     const label = format(parseISO(photo.date), "MMMM yyyy");
     if (!current || current.label !== label) {
       current = { label, photos: [] };
