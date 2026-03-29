@@ -48,12 +48,12 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
   const { data: activity = initialActivity } = useSWR<PostListItem[]>(
     `/api/v1/activity`,
     fetcher,
-    { fallbackData: initialActivity, revalidateOnMount: false },
+    { fallbackData: initialActivity, revalidateOnFocus: false },
   );
   const { data: shots = initialShots } = useSWR<Shot[]>(
     `/api/v1/dribbble`,
     fetcher,
-    { fallbackData: initialShots, revalidateOnMount: false },
+    { fallbackData: initialShots, revalidateOnFocus: false },
   );
 
   const githubRepos = projectLinks
