@@ -1,7 +1,6 @@
 /* ─────────────────────────────────────────────────
    PHOTOGRAPHY — gallery exhibition
-   Dark walls, grouped series, paired rows.
-   Simple flexbox rows — no grid tricks.
+   Dark walls, CSS column masonry, month labels.
    ───────────────────────────────────────────────── */
 
 .page {
@@ -29,56 +28,48 @@
   color: #e8e4de;
 }
 
-/* ── Series group ─────────────────────────────── */
+/* ── Masonry ──────────────────────────────────── */
 
-.group {
-  margin-bottom: 20px;
+.masonry {
+  column-count: 2;
+  column-gap: 14px;
 }
 
-.groupLabel {
+@media (min-width: 632px) {
+  .masonry {
+    column-gap: 18px;
+  }
+}
+
+/* ── Individual item ──────────────────────────── */
+
+.item {
+  break-inside: avoid;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 632px) {
+  .item {
+    margin-bottom: 18px;
+  }
+}
+
+.monthLabel {
   display: block;
   font-family: 'Courier Prime', 'Courier New', monospace;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #6a6560;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   padding-left: 2px;
-}
-
-/* ── Rows — flexbox, align tops ───────────────── */
-
-.pairRow {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-@media (min-width: 632px) {
-  .pairRow {
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-}
-
-.soloRow {
-  display: flex;
-  margin-bottom: 12px;
-  max-width: 50%;
-}
-
-@media (min-width: 632px) {
-  .soloRow {
-    margin-bottom: 16px;
-  }
 }
 
 /* ── Photo cell ───────────────────────────────── */
 
 .cell {
-  flex: 1;
-  min-width: 0;
   display: block;
+  width: 100%;
   border: none;
   background: none;
   padding: 0;

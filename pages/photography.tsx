@@ -37,55 +37,12 @@ const fetcher = (url: string) =>
         }));
     });
 
-interface PhotoGroup {
-  label: string;
-  photos: Photo[];
-}
-
-function groupByDay(photos: Photo[]): PhotoGroup[] {
-  const groups: PhotoGroup[] = [];
-  let current: PhotoGroup | null = null;
-
-  for (const photo of photos) {
-    const day = format(parseISO(photo.date), "yyyy-MM-dd");
-    const label = format(parseISO(photo.date), "MMMM yyyy");
-
-    if (!current || format(parseISO(current.photos[0].date), "yyyy-MM-dd") !== day) {
-      current = { label, photos: [] };
-      groups.push(current);
-    }
-    current.photos.push(photo);
-  }
-
-  return groups;
-}
-
 export default function Photography(): React.ReactNode {
   const { data: photos = [] } = useSWR<Photo[]>("/api/v1/photos?limit=80", fetcher);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const groups = useMemo(() => groupByDay(photos), [photos]);
-  const flatPhotos = useMemo(() => groups.flatMap((g) => g.photos), [groups]);
-
-  function getGlobalIndex(photo: Photo): number {
-    return flatPhotos.findIndex((p) => p.id === photo.id);
-  }
-
-  // Split a group's photos into rows of 2, pairing a portrait with a landscape when possible
-  function buildRows(photos: Photo[]): Photo[][] {
-    const rows: Photo[][] = [];
-    const remaining = [...photos];
-
-    while (remaining.length > 0) {
-      if (remaining.length === 1) {
-        rows.push([remaining.shift()!]);
-      } else {
-        rows.push([remaining.shift()!, remaining.shift()!]);
-      }
-    }
-
-    return rows;
-  }
+  // Track which month labels we've shown
+  const shownMonths = useMemo(() => new Set<string>(), [photos]);
 
   return (
     <>
@@ -100,53 +57,45 @@ export default function Photography(): React.ReactNode {
           <h1 className={styles.title}>Photography</h1>
         </header>
 
-        {groups.map((group, gi) => {
-          const showLabel = gi === 0 || groups[gi - 1].label !== group.label;
-          const rows = buildRows(group.photos);
+        <div className={styles.masonry}>
+          {photos.map((photo, i) => {
+            const month = format(parseISO(photo.date), "MMMM yyyy");
+            const showMonth = !shownMonths.has(month);
+            if (showMonth) shownMonths.add(month);
 
-          return (
-            <section key={`group-${gi}`} className={styles.group}>
-              {showLabel && (
-                <span className={styles.groupLabel}>{group.label}</span>
-              )}
-
-              {rows.map((row, ri) => (
-                <div
-                  key={`row-${gi}-${ri}`}
-                  className={row.length === 1 ? styles.soloRow : styles.pairRow}
+            return (
+              <div key={photo.id} className={styles.item}>
+                {showMonth && (
+                  <span className={styles.monthLabel}>{month}</span>
+                )}
+                <button
+                  className={styles.cell}
+                  onClick={() => setLightboxIndex(i)}
+                  aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
                 >
-                  {row.map((photo) => (
-                    <button
-                      key={photo.id}
-                      className={styles.cell}
-                      onClick={() => setLightboxIndex(getGlobalIndex(photo))}
-                      aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
-                    >
-                      <Image
-                        alt={photo.alt || photo.caption || "photo"}
-                        src={photo.image}
-                        width={photo.width || 600}
-                        height={photo.height || 400}
-                        sizes="(max-width: 632px) 50vw, 440px"
-                        className={styles.cellImg}
-                      />
-                      {photo.caption && photo.caption !== "Untitled" && (
-                        <span className={styles.cellCaption}>{photo.caption}</span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              ))}
-            </section>
-          );
-        })}
+                  <Image
+                    alt={photo.alt || photo.caption || "photo"}
+                    src={photo.image}
+                    width={photo.width || 600}
+                    height={photo.height || 400}
+                    sizes="(max-width: 632px) 50vw, 440px"
+                    className={styles.cellImg}
+                  />
+                </button>
+                {photo.caption && photo.caption !== "Untitled" && (
+                  <span className={styles.cellCaption}>{photo.caption}</span>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <Footer className="container" />
 
       {lightboxIndex !== null && (
         <Lightbox
-          photos={flatPhotos}
+          photos={photos}
           index={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onNav={setLightboxIndex}
