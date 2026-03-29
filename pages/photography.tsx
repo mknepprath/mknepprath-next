@@ -59,7 +59,13 @@ function groupByMonth(photos: Photo[]): MonthGroup[] {
 }
 
 export default function Photography(): React.ReactNode {
-  const { data: photos = [] } = useSWR<Photo[]>("/api/v1/photos?limit=80", fetcher);
+  // Fetch first page fast, then backfill with more
+  const { data: firstPage = [] } = useSWR<Photo[]>("/api/v1/photos?limit=24", fetcher);
+  const { data: allPhotos } = useSWR<Photo[]>(
+    firstPage.length > 0 ? "/api/v1/photos?limit=80" : null,
+    fetcher,
+  );
+  const photos = allPhotos || firstPage;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const groups = useMemo(() => groupByMonth(photos), [photos]);
