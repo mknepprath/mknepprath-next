@@ -108,11 +108,12 @@ const FilmPost = ({
           </h3>
 
           {summary ? (
-            <div
+            <p
               className={styles.ticketReview}
               style={{ color: colors.text }}
-              dangerouslySetInnerHTML={{ __html: summary }}
-            />
+            >
+              {summary.replace(/<[^>]+>/g, "")}
+            </p>
           ) : null}
 
           <div
