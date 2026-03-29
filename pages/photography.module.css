@@ -1,6 +1,6 @@
 /* ─────────────────────────────────────────────────
    PHOTOGRAPHY — gallery exhibition
-   Dark walls, CSS column masonry, month labels.
+   Dark walls, masonry per month section.
    ───────────────────────────────────────────────── */
 
 .page {
@@ -17,7 +17,7 @@
 
 /* Header */
 .header {
-  padding: 48px 0 40px;
+  padding: 48px 0 24px;
 }
 
 .title {
@@ -28,7 +28,24 @@
   color: #e8e4de;
 }
 
-/* ── Masonry ──────────────────────────────────── */
+/* ── Month section ────────────────────────────── */
+
+.group {
+  margin-bottom: 40px;
+}
+
+.monthLabel {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6a6560;
+  margin: 0 0 14px;
+  padding-left: 2px;
+}
+
+/* ── Masonry per section ──────────────────────── */
 
 .masonry {
   column-count: 2;
@@ -41,40 +58,24 @@
   }
 }
 
-/* ── Individual item ──────────────────────────── */
-
-.item {
-  break-inside: avoid;
-  margin-bottom: 14px;
-}
-
-@media (min-width: 632px) {
-  .item {
-    margin-bottom: 18px;
-  }
-}
-
-.monthLabel {
-  display: block;
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #6a6560;
-  margin-bottom: 10px;
-  padding-left: 2px;
-}
-
 /* ── Photo cell ───────────────────────────────── */
 
 .cell {
   display: block;
   width: 100%;
+  break-inside: avoid;
   border: none;
   background: none;
   padding: 0;
+  margin-bottom: 14px;
   cursor: pointer;
   text-align: left;
+}
+
+@media (min-width: 632px) {
+  .cell {
+    margin-bottom: 18px;
+  }
 }
 
 .cellImg {

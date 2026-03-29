@@ -37,12 +37,36 @@ const fetcher = (url: string) =>
         }));
     });
 
+interface MonthGroup {
+  label: string;
+  photos: Photo[];
+}
+
+function groupByMonth(photos: Photo[]): MonthGroup[] {
+  const groups: MonthGroup[] = [];
+  let current: MonthGroup | null = null;
+
+  for (const photo of photos) {
+    const label = format(parseISO(photo.date), "MMMM yyyy");
+    if (!current || current.label !== label) {
+      current = { label, photos: [] };
+      groups.push(current);
+    }
+    current.photos.push(photo);
+  }
+
+  return groups;
+}
+
 export default function Photography(): React.ReactNode {
   const { data: photos = [] } = useSWR<Photo[]>("/api/v1/photos?limit=80", fetcher);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Track which month labels we've shown
-  const shownMonths = useMemo(() => new Set<string>(), [photos]);
+  const groups = useMemo(() => groupByMonth(photos), [photos]);
+
+  function getGlobalIndex(photo: Photo): number {
+    return photos.findIndex((p) => p.id === photo.id);
+  }
 
   return (
     <>
@@ -57,20 +81,15 @@ export default function Photography(): React.ReactNode {
           <h1 className={styles.title}>Photography</h1>
         </header>
 
-        <div className={styles.masonry}>
-          {photos.map((photo, i) => {
-            const month = format(parseISO(photo.date), "MMMM yyyy");
-            const showMonth = !shownMonths.has(month);
-            if (showMonth) shownMonths.add(month);
-
-            return (
-              <div key={photo.id} className={styles.item}>
-                {showMonth && (
-                  <span className={styles.monthLabel}>{month}</span>
-                )}
+        {groups.map((group) => (
+          <section key={group.label} className={styles.group}>
+            <h2 className={styles.monthLabel}>{group.label}</h2>
+            <div className={styles.masonry}>
+              {group.photos.map((photo) => (
                 <button
+                  key={photo.id}
                   className={styles.cell}
-                  onClick={() => setLightboxIndex(i)}
+                  onClick={() => setLightboxIndex(getGlobalIndex(photo))}
                   aria-label={`View photo: ${photo.caption || photo.alt || "untitled"}`}
                 >
                   <Image
@@ -81,14 +100,14 @@ export default function Photography(): React.ReactNode {
                     sizes="(max-width: 632px) 50vw, 440px"
                     className={styles.cellImg}
                   />
+                  {photo.caption && photo.caption !== "Untitled" && (
+                    <span className={styles.cellCaption}>{photo.caption}</span>
+                  )}
                 </button>
-                {photo.caption && photo.caption !== "Untitled" && (
-                  <span className={styles.cellCaption}>{photo.caption}</span>
-                )}
-              </div>
-            );
-          })}
-        </div>
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
 
       <Footer className="container" />
