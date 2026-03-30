@@ -52,62 +52,88 @@
   }
 }
 
-/* ── Photography — prints scattered on a surface ─ */
+/* ── Section heading links ─────────────────────── */
 
-.photoSpread {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
+.sectionLink {
+  color: var(--black) !important;
   text-decoration: none;
-  padding: 20px 0 12px;
-  position: relative;
-  transition: transform 0.2s ease;
+  transition: color 0.15s;
 }
-.photoSpread:hover {
-  transform: scale(1.01);
+.sectionLink:hover {
+  color: var(--primaryColor) !important;
 }
 
-.photoPrint {
-  width: 42%;
-  background: #faf9f6;
-  padding: 6px 6px 20px;
-  border-radius: 1px;
+/* ── Photography grid ─────────────────────────── */
+
+.photoGrid {
+  column-count: 2;
+  column-gap: 12px;
+}
+@media (min-width: 632px) {
+  .photoGrid {
+    column-gap: 16px;
+  }
+}
+
+.photoCell {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (min-width: 632px) {
+  .photoCell {
+    margin-bottom: 16px;
+  }
+}
+.photoCell:hover {
+  transform: translateY(-2px);
   box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.1),
-    0px 4px 12px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.25s ease;
-  position: relative;
+    0px 3px 8px rgba(0, 0, 0, 0.1),
+    0px 8px 20px rgba(0, 0, 0, 0.06);
 }
-
-.photoPrint img {
+.photoCell img {
   display: block;
 }
 
-.photoPrintPortrait {
-  width: 30%;
+/* ── Films row ────────────────────────────────── */
+
+.filmRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-@media (min-width: 632px) {
-  .photoPrint {
-    width: 28%;
-    padding: 8px 8px 28px;
-  }
-  .photoPrintPortrait {
-    width: 20%;
-  }
+.filmStub {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+  border: 4px solid rgba(245, 240, 232, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
+}
+.filmStub:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12);
 }
 
-.photoSpread:hover .photoPrint {
-  box-shadow:
-    0px 3px 8px rgba(0, 0, 0, 0.12),
-    0px 8px 20px rgba(0, 0, 0, 0.08);
+.filmStubTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
 }
 
-
-@media (prefers-color-scheme: dark) {
-  .photoPrint {
-    background: #2a2a2a;
-  }
+.filmStubRating {
+  font-size: 9px;
+  letter-spacing: -1px;
+  flex-shrink: 0;
+  opacity: 0.7;
 }

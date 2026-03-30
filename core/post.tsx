@@ -779,8 +779,25 @@ const RobotPost = ({
   );
 };
 
+const POST_MAP: Record<string, React.ComponentType<PostListItem & { index?: number }>> = {
+  FILM: FilmPost,
+  TWEET: TweetPost,
+  REPO: RepoPost,
+  BOOK: BookPost,
+  HIGHLIGHT: HighlightPost,
+  TOOT: TootPost,
+  SKEET: SkeetPost,
+  PHOTO: PhotoPost,
+  MUSIC: MusicPost,
+  TROPHY: TrophyPost,
+  RUN: RunPost,
+  CHESS: ChessPost,
+  ROBOT: RobotPost,
+};
+
 export {
   Post,
+  POST_MAP,
   BookPost,
   ChessPost,
   HighlightPost,

@@ -3,22 +3,7 @@ import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
 import Parallax from "@core/parallax";
-import {
-  BookPost,
-  ChessPost,
-  FilmPost,
-  HighlightPost,
-  MusicPost,
-  PhotoPost,
-  Post,
-  RepoPost,
-  RobotPost,
-  RunPost,
-  SkeetPost,
-  TootPost,
-  TrophyPost,
-  TweetPost,
-} from "@core/post";
+import { Post, POST_MAP } from "@core/post";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
 import classnames from "classnames";
@@ -75,7 +60,13 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
         p.media_attachments?.length > 0 &&
         p.media_attachments[0].type === "image",
     )
-    .slice(0, 6);
+    .slice(0, 4);
+
+  const { data: filmData } = useSWR<Film[]>(
+    "/api/v1/films?max_results=4&min_rating=0",
+    fetcher,
+  );
+  const recentFilms = Array.isArray(filmData) ? filmData.slice(0, 4) : [];
 
   const sortedProjects = [...projectLinks].sort((a, b) => {
     const aDate = a.githubRepo && repoData?.[a.githubRepo]?.pushedAt;
@@ -98,79 +89,76 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
         {activity
           .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
           .map((post, index) => {
-            switch (post.type) {
-              case "FILM":
-                return <FilmPost key={post.id} {...post} index={index} />;
-              case "TWEET":
-                return <TweetPost key={post.id} {...post} index={index} />;
-              case "REPO":
-                return <RepoPost key={post.id} {...post} index={index} />;
-              case "BOOK":
-                return <BookPost key={post.id} {...post} index={index} />;
-              case "HIGHLIGHT":
-                return <HighlightPost key={post.id} {...post} index={index} />;
-              case "TOOT":
-                return <TootPost key={post.id} {...post} index={index} />;
-              case "PHOTO":
-                return <PhotoPost key={post.id} {...post} index={index} />;
-              case "MUSIC":
-                return <MusicPost key={post.id} {...post} index={index} />;
-              case "TROPHY":
-                return <TrophyPost key={post.id} {...post} index={index} />;
-              case "RUN":
-                return <RunPost key={post.id} {...post} index={index} />;
-              case "CHESS":
-                return <ChessPost key={post.id} {...post} index={index} />;
-              case "ROBOT":
-                return <RobotPost key={post.id} {...post} index={index} />;
-              case "SKEET":
-                return <SkeetPost key={post.id} {...post} index={index} />;
-              default:
-                return <Post key={post.id} {...post} index={index} />;
-            }
+            const PostComponent = (post.type && POST_MAP[post.type]) || Post;
+            return <PostComponent key={post.id} {...post} index={index} />;
           })}
 
         {!activity.length && <div>What have I been up to...</div>}
 
         {photos.length > 0 && (
           <div className={styles.projectContainer}>
-            <h2>Photography</h2>
-            <Link href="/photography" className={styles.photoSpread}>
-              {photos.map((photo: Toot, i: number) => {
-                // Deterministic rotation from ID
-                let h = 0;
-                for (let c = 0; c < photo.id.length; c++)
-                  h = ((h << 5) + h + photo.id.charCodeAt(c)) | 0;
-                const rotate = ((Math.abs(h) % 10) - 5);
-                const isPortrait =
-                  (photo.media_attachments[0].meta?.original?.height || 0) >
-                  (photo.media_attachments[0].meta?.original?.width || 0);
+            <h2>
+              <Link href="/photography" className={styles.sectionLink}>Photography</Link>
+            </h2>
+            <div className={styles.photoGrid}>
+              {photos.map((photo: Toot) => (
+                <Link key={photo.id} href="/photography" className={styles.photoCell}>
+                  <Image
+                    alt={
+                      photo.media_attachments[0].description ||
+                      photo.content?.replace(/<[^>]+>/g, "") ||
+                      "photo"
+                    }
+                    src={photo.media_attachments[0].url}
+                    width={photo.media_attachments[0].meta?.original?.width || 400}
+                    height={photo.media_attachments[0].meta?.original?.height || 300}
+                    sizes="(max-width: 632px) 50vw, 300px"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
+        {recentFilms.length > 0 && (
+          <div className={styles.projectContainer}>
+            <h2>
+              <Link href="/films" className={styles.sectionLink}>Films</Link>
+            </h2>
+            <div className={styles.filmRow}>
+              {recentFilms.map((film: Film) => {
+                const palette = [
+                  { bg: "#e8833a", text: "#2a1400" },
+                  { bg: "#c9b896", text: "#2a2014" },
+                  { bg: "#b898c0", text: "#2a1430" },
+                  { bg: "#7ea888", text: "#0a2014" },
+                  { bg: "#8abcc8", text: "#0a2030" },
+                  { bg: "#d4a04a", text: "#2a1a00" },
+                ];
+                let h = 0;
+                for (let c = 0; c < film.id.length; c++)
+                  h = (h * 31 + film.id.charCodeAt(c)) | 0;
+                const colors = palette[Math.abs(h) % palette.length];
                 return (
-                  <div
-                    key={photo.id}
-                    className={`${styles.photoPrint} ${isPortrait ? styles.photoPrintPortrait : ""}`}
-                    style={{
-                      transform: `rotate(${rotate}deg)`,
-                      zIndex: photos.length - i,
-                    }}
+                  <a
+                    key={film.id}
+                    href={film.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.filmStub}
+                    style={{ background: colors.bg, color: colors.text }}
                   >
-                    <Image
-                      alt={
-                        photo.media_attachments[0].description ||
-                        photo.content?.replace(/<[^>]+>/g, "") ||
-                        "photo"
-                      }
-                      src={photo.media_attachments[0].url}
-                      width={photo.media_attachments[0].meta?.original?.width || 400}
-                      height={photo.media_attachments[0].meta?.original?.height || 300}
-                      sizes="(max-width: 632px) 45vw, 200px"
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                  </div>
+                    <span className={styles.filmStubTitle}>{film.title}</span>
+                    {film.rating && (
+                      <span className={styles.filmStubRating}>
+                        {"★".repeat(Math.round(+film.rating))}
+                      </span>
+                    )}
+                  </a>
                 );
               })}
-            </Link>
+            </div>
           </div>
         )}
 
