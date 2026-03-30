@@ -66,15 +66,15 @@
   break-inside: avoid;
   border: none;
   background: none;
-  padding: 0;
-  margin-bottom: 14px;
+  padding: 0 0 14px;
+  margin: 0;
   cursor: pointer;
   text-align: left;
 }
 
 @media (min-width: 632px) {
   .cell {
-    margin-bottom: 18px;
+    padding-bottom: 18px;
   }
 }
 
