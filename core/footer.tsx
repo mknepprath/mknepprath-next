@@ -1,12 +1,8 @@
 import React from "react";
-// External
 import classnames from "classnames";
-// Components
+import Link from "next/link";
 import NowPlaying from "./now-playing";
-// Data
-import { footerLinks } from "@data/links";
 
-// Styles
 import styles from "./footer.module.css";
 
 interface Props {
@@ -16,41 +12,34 @@ interface Props {
 export default function Footer({ className }: Props): React.JSX.Element {
   return (
     <footer className={classnames(styles.footer, className)}>
-      <span className={styles.footerMeta}>
-        Created by Michael Knepprath •
-        <a
-          href="https://github.com/mknepprath/mknepprath-next"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          View on GitHub
-        </a>
+      <div className={styles.footerGrid}>
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerHeading}>Explore</h4>
+          <Link href="/writing" className={styles.footerLink}>Writing</Link>
+          <Link href="/photography" className={styles.footerLink}>Photography</Link>
+          <Link href="/films" className={styles.footerLink}>Films</Link>
+          <Link href="/#projects" className={styles.footerLink}>Projects</Link>
+        </div>
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerHeading}>Elsewhere</h4>
+          <a href="https://github.com/mknepprath" className={styles.footerLink} rel="noopener noreferrer" target="_blank">GitHub</a>
+          <a href="https://mastodon.social/@mknepprath" className={styles.footerLink} rel="noopener noreferrer" target="_blank">Mastodon</a>
+          <a href="https://bsky.app/profile/mknepprath.com" className={styles.footerLink} rel="noopener noreferrer" target="_blank">Bluesky</a>
+          <a href="https://letterboxd.com/mknepprath/" className={styles.footerLink} rel="noopener noreferrer" target="_blank">Letterboxd</a>
+        </div>
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerHeading}>Info</h4>
+          <Link href="/about" className={styles.footerLink}>About</Link>
+          <a href="mailto:mknepprath@gmail.com" className={styles.footerLink}>Contact</a>
+        </div>
+      </div>
+
+      <div className={styles.footerBottom}>
+        <span className={styles.footerMeta}>
+          Michael Knepprath
+        </span>
         <NowPlaying />
-      </span>
-      <ul>
-        {/*<li>*/}
-        {/*  <a*/}
-        {/*    aria-label="Twitter"*/}
-        {/*    className={styles.twitter}*/}
-        {/*    href="https://twitter.com/mknepprath"*/}
-        {/*    title="The Bird Site"*/}
-        {/*  >*/}
-        {/*    <TwitterIcon />*/}
-        {/*  </a>*/}
-        {/*</li>*/}
-        {footerLinks.map(({ href, key, title }) => (
-          <li key={key}>
-            <a
-              href={href}
-              rel="noopener noreferrer"
-              target="_blank"
-              title={title}
-            >
-              {title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      </div>
     </footer>
   );
 }

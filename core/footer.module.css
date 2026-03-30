@@ -1,59 +1,65 @@
 .footer {
-  text-align: center;
+  padding: 48px 0 32px;
+  margin-top: 48px;
+  border-top: 1px solid var(--grey);
 }
-@media (min-width: 632px) {
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+/* ── Link grid ────────────────────────────────── */
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 480px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 }
 
-.footerMeta {
-  font-size: 13px;
-  color: var(--black);
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.footerMeta a {
-  display: inline-block;
 
+.footerHeading {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   color: var(--black);
-  font-size: 13px;
-  transition: transform 0.2s;
+  opacity: 0.4;
+  margin: 0 0 4px;
 }
-.footerMeta a:hover {
+
+.footerLink {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.15s;
+  line-height: 1.6;
+}
+
+.footerLink:hover {
   color: var(--primaryColor);
-  transform: translate(0, -2px);
 }
 
-.footer ul {
+/* ── Bottom row ───────────────────────────────── */
+
+.footerBottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0; /* Remove `ul` default left padding */
-}
-.footer li {
-  display: flex;
-  transition: transform 0.2s;
-}
-.footer a {
-  color: var(--black);
-  padding: 0 8px;
-  text-decoration: none;
-  font-size: 13px;
-}
-.footer li a.twitter {
-  line-height: 0;
-}
-.footer li a path {
-  fill: var(--black);
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.footer li:hover {
-  transform: translate(0, -2px);
-}
-.footer li:hover a {
-  color: var(--primaryColor);
-}
-.footer li:hover a path {
-  fill: var(--primaryColor);
+.footerMeta {
+  font-size: 12px;
+  color: var(--black);
+  opacity: 0.4;
 }
