@@ -1,7 +1,6 @@
 import React from "react";
 import classnames from "classnames";
 import Link from "next/link";
-import NowPlaying from "./now-playing";
 
 import styles from "./footer.module.css";
 
@@ -38,7 +37,6 @@ export default function Footer({ className }: Props): React.JSX.Element {
         <span className={styles.footerMeta}>
           Michael Knepprath
         </span>
-        <NowPlaying />
       </div>
     </footer>
   );
