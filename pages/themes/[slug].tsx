@@ -12,19 +12,19 @@ function hashCode(s: string): number {
   return Math.abs(h);
 }
 
-// Editorial weight — higher = shown first
+// Editorial weight — just a gentle nudge, not a hard sort
 const TYPE_WEIGHT: Record<string, number> = {
-  POST: 100,
-  FILM: 80,
-  BOOK: 70,
-  HIGHLIGHT: 60,
-  PHOTO: 50,
-  MUSIC: 40,
-  RUN: 30,
-  CHESS: 20,
-  TOOT: 10,
-  SKEET: 10,
-  ROBOT: 5,
+  POST: 20,
+  FILM: 15,
+  BOOK: 15,
+  HIGHLIGHT: 10,
+  PHOTO: 10,
+  MUSIC: 10,
+  RUN: 5,
+  CHESS: 5,
+  TOOT: 5,
+  SKEET: 5,
+  ROBOT: 0,
 };
 
 import styles from "./themes.module.css";
@@ -59,8 +59,8 @@ export default function ThemePage({ theme }: Props): React.ReactNode {
           {[...theme.items]
             .sort((a, b) => {
               // Weighted scramble: weight + random jitter
-              const wa = (TYPE_WEIGHT[a.type] || 0) + (hashCode(a.id) % 40);
-              const wb = (TYPE_WEIGHT[b.type] || 0) + (hashCode(b.id) % 40);
+              const wa = (TYPE_WEIGHT[a.type] || 0) + (hashCode(a.id) % 30);
+              const wb = (TYPE_WEIGHT[b.type] || 0) + (hashCode(b.id) % 30);
               return wb - wa;
             })
             .map((item, index) => {
