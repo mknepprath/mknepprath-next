@@ -18,6 +18,7 @@ export default function Footer({ className }: Props): React.JSX.Element {
           <Link href="/photography" className={styles.footerLink}>Photography</Link>
           <Link href="/films" className={styles.footerLink}>Films</Link>
           <Link href="/#projects" className={styles.footerLink}>Projects</Link>
+          <Link href="/themes" className={styles.footerLink}>Themes</Link>
         </div>
         <div className={styles.footerCol}>
           <h4 className={styles.footerHeading}>Elsewhere</h4>
