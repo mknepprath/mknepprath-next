@@ -29,6 +29,11 @@
   padding: 0 16px;
 }
 
+.article img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Title */
 .articleTitle {
   font-family: Charter, Georgia, serif !important;
