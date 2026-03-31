@@ -33,15 +33,7 @@
 .siteLogo {
   display: flex;
   align-items: center;
-
-  margin-top: 16px;
-
   cursor: pointer;
-}
-@media (min-width: 632px) {
-  .siteLogo {
-    margin-top: 0;
-  }
 }
 
 .siteLogo > * {
