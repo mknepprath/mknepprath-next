@@ -6,6 +6,12 @@ import { format, parseISO } from "date-fns";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 
+function hashCode(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
 // Editorial weight — higher = shown first
 const TYPE_WEIGHT: Record<string, number> = {
   POST: 100,
@@ -52,10 +58,10 @@ export default function ThemePage({ theme }: Props): React.ReactNode {
         <div className={styles.itemStream}>
           {[...theme.items]
             .sort((a, b) => {
-              const wa = TYPE_WEIGHT[a.type] || 0;
-              const wb = TYPE_WEIGHT[b.type] || 0;
-              if (wa !== wb) return wb - wa;
-              return +new Date(b.date) - +new Date(a.date);
+              // Weighted scramble: weight + random jitter
+              const wa = (TYPE_WEIGHT[a.type] || 0) + (hashCode(a.id) % 40);
+              const wb = (TYPE_WEIGHT[b.type] || 0) + (hashCode(b.id) % 40);
+              return wb - wa;
             })
             .map((item, index) => {
             const postData: PostListItem = {
