@@ -62,12 +62,6 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
     )
     .slice(0, 4);
 
-  const { data: filmData } = useSWR<Film[]>(
-    "/api/v1/films?max_results=4&min_rating=0",
-    fetcher,
-  );
-  const recentFilms = Array.isArray(filmData) ? filmData.slice(0, 4) : [];
-
   const sortedProjects = [...projectLinks].sort((a, b) => {
     const aDate = a.githubRepo && repoData?.[a.githubRepo]?.pushedAt;
     const bDate = b.githubRepo && repoData?.[b.githubRepo]?.pushedAt;
@@ -117,47 +111,6 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
                   />
                 </Link>
               ))}
-            </div>
-          </div>
-        )}
-
-        {recentFilms.length > 0 && (
-          <div className={styles.projectContainer}>
-            <h2>
-              <Link href="/films" className={styles.sectionLink}>Films</Link>
-            </h2>
-            <div className={styles.filmRow}>
-              {recentFilms.map((film: Film) => {
-                const palette = [
-                  { bg: "#e8833a", text: "#2a1400" },
-                  { bg: "#c9b896", text: "#2a2014" },
-                  { bg: "#b898c0", text: "#2a1430" },
-                  { bg: "#7ea888", text: "#0a2014" },
-                  { bg: "#8abcc8", text: "#0a2030" },
-                  { bg: "#d4a04a", text: "#2a1a00" },
-                ];
-                let h = 0;
-                for (let c = 0; c < film.id.length; c++)
-                  h = (h * 31 + film.id.charCodeAt(c)) | 0;
-                const colors = palette[Math.abs(h) % palette.length];
-                return (
-                  <a
-                    key={film.id}
-                    href={film.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.filmStub}
-                    style={{ background: colors.bg, color: colors.text }}
-                  >
-                    <span className={styles.filmStubTitle}>{film.title}</span>
-                    {film.rating && (
-                      <span className={styles.filmStubRating}>
-                        {"★".repeat(Math.round(+film.rating))}
-                      </span>
-                    )}
-                  </a>
-                );
-              })}
             </div>
           </div>
         )}
