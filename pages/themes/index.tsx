@@ -66,13 +66,9 @@ export default function ThemesIndex({ themes }: Props): React.ReactNode {
             >
               <h2 className={styles.themeTitle}>{theme.title}</h2>
               <p className={styles.themeDesc}>{theme.description}</p>
-              <div className={styles.themeMeta}>
-                <span>{theme.itemCount} items</span>
-                <span>·</span>
-                <span>{theme.types.join(", ")}</span>
-                <span>·</span>
-                <span>Updated {format(parseISO(theme.latestDate), "MMM yyyy")}</span>
-              </div>
+              <span className={styles.themeMeta}>
+                {theme.itemCount} items · {format(parseISO(theme.latestDate), "MMM yyyy")}
+              </span>
             </Link>
           ))}
         </div>
