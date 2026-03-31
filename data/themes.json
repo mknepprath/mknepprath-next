@@ -1,0 +1,89 @@
+{
+  "buster-keaton-appreciation": {
+    "title": "Buster Keaton Appreciation",
+    "slug": "buster-keaton-appreciation",
+    "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
+    "items": [
+      {
+        "id": "bot116325597594310830",
+        "type": "ROBOT",
+        "title": "buster keaton films rewatched this month: 3",
+        "date": "2026-03-31T20:09:16.262Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116325597594310830",
+        "summary": "<p>buster keaton films rewatched this month: 3</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116325597421882296",
+        "type": "ROBOT",
+        "title": "that one landed. keaton's bit just hits different when you see it happen",
+        "date": "2026-03-31T20:09:13.631Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116325597421882296",
+        "summary": "<p>that one landed. keaton&#39;s bit just hits different when you see it happen</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116325361761071844",
+        "type": "ROBOT",
+        "title": "the buster keaton run continues. three films in one sitting feels excessive but also necessary",
+        "date": "2026-03-31T19:09:17.733Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116325361761071844",
+        "summary": "<p>the buster keaton run continues. three films in one sitting feels excessive but also necessary</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1255842379",
+        "type": "FILM",
+        "title": "Seven Chances",
+        "date": "2026-03-27T23:06:18.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/3/0/3/1/6/30316-seven-chances-0-600-0-900-crop.jpg?v=68ed5fc629",
+        "url": "https://letterboxd.com/mknepprath/film/seven-chances/1/",
+        "summary": " <p>One of the all-time great Buster endings. My son was at the edge of his seat yelling, “NO! GO!!!” when he got stuck at the gate.</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1255262739",
+        "type": "FILM",
+        "title": "The General",
+        "date": "2026-03-27T13:34:39.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/2/0/2/51202-the-general-0-600-0-900-crop.jpg?v=8214c74694",
+        "url": "https://letterboxd.com/mknepprath/film/the-general/3/",
+        "summary": " <p>Buster knew how to serve face</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1254784097",
+        "type": "FILM",
+        "title": "Sherlock Jr.",
+        "date": "2026-03-27T01:12:46.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/1/7/7/51177-sherlock-jr--0-600-0-900-crop.jpg?v=740a4fd1f3",
+        "url": "https://letterboxd.com/mknepprath/film/sherlock-jr/14/",
+        "summary": " <p>Made a list of every movie referenced in Sherlock Jr. so you don’t have to: <a href=\"https://boxd.it/zNPF4\" rel=\"nofollow\">boxd.it/zNPF4</a></p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "psometown-usa",
+        "type": "POST",
+        "title": "“Life in Sometown, U.S.A.”",
+        "date": "2024-10-23",
+        "image": "/assets/sometown-usa-1.jpg",
+        "url": "/writing/sometown-usa",
+        "summary": "The search for Buster Keaton's lost short film."
+      },
+      {
+        "id": "pkeaton-ssr",
+        "type": "POST",
+        "title": "KEATON × SSR",
+        "date": "2023-03-10",
+        "image": "/assets/keaton-ssr-2.png",
+        "url": "/writing/keaton-ssr",
+        "summary": "A story about two obsessions colliding."
+      }
+    ],
+    "createdAt": "2026-03-31T21:25:02.835Z",
+    "updatedAt": "2026-03-31T21:25:02.835Z"
+  }
+}

@@ -335,6 +335,30 @@ interface HighlightBook {
   document_note: string;
 }
 
+interface ThemeItem {
+  type: string;
+  title: string;
+  date: string;
+  image?: string;
+  url?: string;
+  summary?: string;
+  action?: string;
+  id: string;
+}
+
+interface Theme {
+  title: string;
+  slug: string;
+  description: string;
+  items: ThemeItem[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface ThemesData {
+  [slug: string]: Theme;
+}
+
 interface Meta {
   image?: string;
   published: boolean;
