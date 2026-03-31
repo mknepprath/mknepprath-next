@@ -34,7 +34,7 @@ export default function KeatonSsr(): ReactNode {
 
       <p>
         If you know me, you know I&apos;ve been obsessed with the film{" "}
-        <A href="https://letterboxd.com/film/rrr/">RRR</A> since early last
+        <A href="https://letterboxd.com/film/rrr/">RRR</A>{" "}since early last
         year. I&apos;ve seen it half a dozen times, and my obsession hasn&apos;t
         stopped there - I&apos;ve gone back and watched most of the director S.
         S. Rajamouli&apos;s other films as well.
