@@ -6,6 +6,21 @@ import { format, parseISO } from "date-fns";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 
+// Editorial weight — higher = shown first
+const TYPE_WEIGHT: Record<string, number> = {
+  POST: 100,
+  FILM: 80,
+  BOOK: 70,
+  HIGHLIGHT: 60,
+  PHOTO: 50,
+  MUSIC: 40,
+  RUN: 30,
+  CHESS: 20,
+  TOOT: 10,
+  SKEET: 10,
+  ROBOT: 5,
+};
+
 import styles from "./themes.module.css";
 
 interface Props {
@@ -35,7 +50,14 @@ export default function ThemePage({ theme }: Props): React.ReactNode {
         </header>
 
         <div className={styles.itemStream}>
-          {theme.items.map((item, index) => {
+          {[...theme.items]
+            .sort((a, b) => {
+              const wa = TYPE_WEIGHT[a.type] || 0;
+              const wb = TYPE_WEIGHT[b.type] || 0;
+              if (wa !== wb) return wb - wa;
+              return +new Date(b.date) - +new Date(a.date);
+            })
+            .map((item, index) => {
             const postData: PostListItem = {
               id: item.id,
               title: item.title,
