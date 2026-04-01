@@ -1,0 +1,150 @@
+/* ─────────────────────────────────────────────────
+   VIDEO — screening room
+   Dark background, embedded players, film cards.
+   ───────────────────────────────────────────────── */
+
+.page {
+  padding: 0 16px 80px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (min-width: 632px) {
+  .page {
+    padding: 0 40px 100px;
+  }
+}
+
+/* Header */
+.header {
+  padding: 48px 0 24px;
+}
+
+.title {
+  font-size: 2em;
+  margin: 0;
+  color: #e8e4de;
+}
+
+/* ── Section ──────────────────────────────────── */
+
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6a6560;
+  margin: 0 0 16px;
+}
+
+/* ── Video grid ───────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+/* ── Video card ───────────────────────────────── */
+
+.videoCard {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.videoCard:hover {
+  transform: translateY(-2px);
+}
+
+/* ── YouTube embed ────────────────────────────── */
+
+.embedWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+}
+
+.embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── Vimeo thumbnail ──────────────────────────── */
+
+.thumbWrap {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.2s ease;
+}
+
+.videoCard:hover .thumb {
+  opacity: 0.85;
+}
+
+.duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+
+/* ── Video info ───────────────────────────────── */
+
+.videoInfo {
+  padding: 10px 2px 0;
+}
+
+.videoTitle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #e0dcd6;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.videoDesc {
+  font-size: 13px;
+  color: #8a8278;
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+
+.videoMeta {
+  font-size: 11px;
+  color: #5a5550;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}

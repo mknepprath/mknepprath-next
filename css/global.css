@@ -59,6 +59,17 @@ html:has([data-page="photography"]) body {
   background-blend-mode: soft-light;
 }
 
+/* Video page — screening room */
+html:has([data-page="video"]) {
+  --black: #e0dcd6;
+  --white: #111110;
+  --grey: #222220;
+}
+html:has([data-page="video"]),
+html:has([data-page="video"]) body {
+  background-color: #111110 !important;
+}
+
 /* Films page — dark velvet theater lobby */
 [data-page="films"],
 [data-page="films"] ~ *,
