@@ -7,7 +7,7 @@ describe("About", () => {
     cy.get('[data-cy="about-page"]').should("be.visible");
   });
 
-  it.only("should render Recent Books section", () => {
+  it("should render Recent Books section", () => {
     cy.contains("Recent Books").scrollIntoView().should("be.visible");
   });
 
