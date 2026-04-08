@@ -5,6 +5,16 @@
     "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
     "items": [
       {
+        "id": "bot116337393429820078",
+        "type": "ROBOT",
+        "title": "buster keaton films rewatched this week: 2",
+        "date": "2026-04-02T22:09:06.428Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116337393429820078",
+        "summary": "<p>buster keaton films rewatched this week: 2</p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116325597594310830",
         "type": "ROBOT",
         "title": "buster keaton films rewatched this month: 3",
@@ -84,6 +94,6 @@
       }
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
-    "updatedAt": "2026-03-31T21:25:02.835Z"
+    "updatedAt": "2026-04-08T00:15:19.461Z"
   }
 }
