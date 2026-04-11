@@ -48,6 +48,18 @@ const Post = ({
   </ActivityCard>
 );
 
+const stripHtml = (html: string): string =>
+  html
+    .replace(/<[^>]+>/g, "")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
+    .replace(/&nbsp;/g, " ")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
+
 const FILM_PALETTE = [
   { bg: "#e8833a", text: "#2a1400", accent: "#ffecd6" },  // orange
   { bg: "#c9b896", text: "#2a2014", accent: "#f0e8d8" },  // tan
@@ -112,7 +124,7 @@ const FilmPost = ({
               className={styles.ticketReview}
               style={{ color: colors.text }}
             >
-              {summary.replace(/<[^>]+>/g, "")}
+              {stripHtml(summary)}
             </p>
           ) : null}
 
