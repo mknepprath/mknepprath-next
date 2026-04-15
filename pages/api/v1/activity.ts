@@ -172,13 +172,24 @@ const decodeEntities = (str: string): string =>
     .replace(/&#x27;/g, "'")
     .replace(/&apos;/g, "'");
 
-const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] =>
-  toots
-    .filter(
-      (toot) =>
-        !!(toot.content || toot.media_attachments[0]?.url) &&
-        !toot.content.startsWith(`<p><span class="h-card"><a href="`),
-    )
+const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] => {
+  const filtered = toots.filter(
+    (toot) =>
+      !!(toot.content || toot.media_attachments[0]?.url) &&
+      !toot.content.startsWith(`<p><span class="h-card"><a href="`),
+  );
+
+  // Limit commentary posts (ones quoting other accounts) to a few per batch
+  const MAX_COMMENTARY = 3;
+  let commentaryCount = 0;
+
+  return filtered
+    .filter((toot) => {
+      const isCommentary = toot.content.includes("<a href=");
+      if (!isCommentary) return true;
+      commentaryCount++;
+      return commentaryCount <= MAX_COMMENTARY;
+    })
     .map((toot) => ({
       action: "Computed",
       date: toot.created_at,
@@ -187,6 +198,7 @@ const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] =>
       summary: toot.content,
       url: toot.url,
     }));
+};
 
 const formatTootData = (toots: Toot[]): Partial<PostListItem>[] =>
   toots
