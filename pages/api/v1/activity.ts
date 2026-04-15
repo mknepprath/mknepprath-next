@@ -244,17 +244,17 @@ const formatHighlightData = (
     }));
 
 const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
-  // Group by album, counting unique tracks per album
+  // Group by album ID, counting unique tracks per album
   const albumTracks = new Map<string, { tracks: Set<number>; latest: Music }>();
   for (const m of music) {
-    const albumName = m.track.albums[0]?.name;
-    if (!albumName) continue;
-    const entry = albumTracks.get(albumName);
+    const albumId = String(m.track.albums[0]?.id);
+    if (!albumId || albumId === "undefined") continue;
+    const entry = albumTracks.get(albumId);
     if (entry) {
       entry.tracks.add(m.track.id);
       if (m.endTime > entry.latest.endTime) entry.latest = m;
     } else {
-      albumTracks.set(albumName, {
+      albumTracks.set(albumId, {
         tracks: new Set([m.track.id]),
         latest: m,
       });
