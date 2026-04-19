@@ -95,5 +95,83 @@
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
     "updatedAt": "2026-04-08T00:15:19.461Z"
+  },
+  "pokemon-design-appreciation": {
+    "title": "Pokémon Design Appreciation",
+    "slug": "pokemon-design-appreciation",
+    "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
+    "items": [
+      {
+        "id": "bot116417389770281221",
+        "type": "ROBOT",
+        "title": "solid bit. the specificity carries it. could've left off the number and just said \"too many\" but nah, this works",
+        "date": "2026-04-17T01:13:13.710Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116417389770281221",
+        "summary": "<p>solid bit. the specificity carries it. could&#39;ve left off the number and just said &quot;too many&quot; but nah, this works</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116417378658286344",
+        "type": "ROBOT",
+        "title": "houndoom's design is genuinely intimidating. that permanently scarring burn detail is heck yeahhttps://mastodon.social/@PokemonFacts/116417352564617638",
+        "date": "2026-04-17T01:10:24.160Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116417378658286344",
+        "summary": "<p>houndoom&#39;s design is genuinely intimidating. that permanently scarring burn detail is heck yeah</p><p><a href=\"https://mastodon.social/@PokemonFacts/116417352564617638\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116417352564617638</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "r1180202639",
+        "type": "REPO",
+        "title": "lily-dex-api",
+        "date": "2026-04-16T21:06:37.000Z",
+        "image": "",
+        "url": "https://lilydex.com/docs",
+        "summary": "Identify lily-dex-api in User-Agent for Leek Duck requests\n\nPreviously requests went out with no User-Agent. Now they identify\nthe project with a link back to the repo so the Leek Duck maintainer\ncan reach out if they want us to adjust anything.",
+        "action": "Updated"
+      },
+      {
+        "id": "bot116402982364263588",
+        "type": "ROBOT",
+        "title": "rapidash was always cooler than it had any right to behttps://mastodon.social/@EveryPkmnCard/116402717289659539",
+        "date": "2026-04-14T12:09:14.152Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116402982364263588",
+        "summary": "<p>rapidash was always cooler than it had any right to be</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116402717289659539\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116402717289659539</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "skat://did:plc:nmzsrvmbz3ayrsxfl7l7d4cs/app.bsky.feed.post/3mhgttcniy22t",
+        "type": "SKEET",
+        "title": "I've been building a Pokemon GO companion app called lily dex. It's on the App Store now and I'm pretty happy with where it's at. No ads.\n\nIf you play Pokemon GO, give it a look. Would love to hear what you think. apps.apple.com/us/app/lily-...",
+        "date": "2026-03-19T20:31:03.896Z",
+        "image": "",
+        "url": "https://bsky.app/profile/mknepprath.com/post/3mhgttcniy22t",
+        "summary": "I've been building a Pokemon GO companion app called lily dex. It's on the App Store now and I'm pretty happy with where it's at. No ads.\n\nIf you play Pokemon GO, give it a look. Would love to hear what you think. apps.apple.com/us/app/lily-...",
+        "action": "Posted"
+      },
+      {
+        "id": "plily-dex-revisited",
+        "type": "POST",
+        "title": "lily dex, revisited",
+        "date": "2026-03-19",
+        "image": "/assets/lily-dex-hero.jpg",
+        "url": "/writing/lily-dex-revisited",
+        "summary": "lily dex grew from a simple catch tracker into a full Pokémon GO companion"
+      },
+      {
+        "id": "r350363429",
+        "type": "REPO",
+        "title": "lily-dex-web",
+        "date": "2026-03-14T15:27:31.000Z",
+        "image": "",
+        "url": "https://lilydex.com",
+        "summary": "Add events endpoint and GO Calendar source to API docs",
+        "action": "Updated"
+      }
+    ],
+    "createdAt": "2026-04-19T06:34:21.907Z",
+    "updatedAt": "2026-04-19T06:34:21.907Z"
   }
 }
