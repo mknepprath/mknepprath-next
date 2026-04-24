@@ -193,5 +193,44 @@
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
     "updatedAt": "2026-04-23T06:37:51.325Z"
+  },
+  "photay-appreciation": {
+    "title": "Photay Appreciation",
+    "slug": "photay-appreciation",
+    "description": "Michael is drawn to Photay's distinctive rhythmic and sonic approach, actively listening to and engaging with their music across multiple tracks.",
+    "items": [
+      {
+        "id": "bot116457247437275002",
+        "type": "ROBOT",
+        "title": "photay's doing something with rhythm that just works",
+        "date": "2026-04-24T02:09:33.445Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116457247437275002",
+        "summary": "<p>photay&#39;s doing something with rhythm that just works</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "m10074493",
+        "type": "MUSIC",
+        "title": "An Offering",
+        "date": "2026-04-23T11:09:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/04/ce/4a/04ce4a6b-d2a5-59ba-680d-2eb28716c607/789993992812.png/768x768bb.jpg",
+        "url": "https://stats.fm/album/10074493",
+        "summary": "Carlos Niño, Photay",
+        "action": "Listened to"
+      },
+      {
+        "id": "m27641041",
+        "type": "MUSIC",
+        "title": "Windswept",
+        "date": "2026-04-21T11:09:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4d/a6/80/4da6806f-d7cd-53fb-ba5a-079e26ffe831/0184923133561.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/27641041",
+        "summary": "Photay",
+        "action": "Listened to"
+      }
+    ],
+    "createdAt": "2026-04-24T06:38:31.014Z",
+    "updatedAt": "2026-04-24T06:38:31.014Z"
   }
 }
