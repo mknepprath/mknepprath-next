@@ -173,11 +173,14 @@ const decodeEntities = (str: string): string =>
     .replace(/&apos;/g, "'");
 
 const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] => {
-  const filtered = toots.filter(
-    (toot) =>
-      !!(toot.content || toot.media_attachments[0]?.url) &&
-      !toot.content.startsWith(`<p><span class="h-card"><a href="`),
-  );
+  const filtered = toots.filter((toot) => {
+    if (!(toot.content || toot.media_attachments[0]?.url)) return false;
+    if (toot.content.startsWith(`<p><span class="h-card"><a href="`))
+      return false;
+    const plain = toot.content.replace(/<[^>]+>/g, "").trim();
+    if (/:\s*\d+$/.test(plain)) return false;
+    return true;
+  });
 
   // Limit commentary posts (ones quoting other accounts) to a few per batch
   const MAX_COMMENTARY = 3;
