@@ -96,6 +96,35 @@
     "createdAt": "2026-03-31T21:25:02.835Z",
     "updatedAt": "2026-04-08T00:15:19.461Z"
   },
+  "photay-appreciation": {
+    "title": "Photay Appreciation",
+    "slug": "photay-appreciation",
+    "description": "Michael has been listening to Photay's ambient electronic music, engaging with the artist's hazy, sample-driven soundscapes across solo work and collaborations.",
+    "items": [
+      {
+        "id": "m1469866",
+        "type": "MUSIC",
+        "title": "Onism",
+        "date": "2026-04-28T05:32:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/cc/2b/4f/cc2b4fa5-b8f1-3af1-8e2e-dc647a9e49eb/816216026648.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/1469866",
+        "summary": "Photay",
+        "action": "Listened to"
+      },
+      {
+        "id": "m10074493",
+        "type": "MUSIC",
+        "title": "An Offering",
+        "date": "2026-04-28T02:47:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/04/ce/4a/04ce4a6b-d2a5-59ba-680d-2eb28716c607/789993992812.png/768x768bb.jpg",
+        "url": "https://stats.fm/album/10074493",
+        "summary": "Carlos Niño, Photay, Mikaela Davis",
+        "action": "Listened to"
+      }
+    ],
+    "createdAt": "2026-04-25T06:31:00.000Z",
+    "updatedAt": "2026-04-28T05:32:00.000Z"
+  },
   "pokemon-design-appreciation": {
     "title": "Pokémon Design Appreciation",
     "slug": "pokemon-design-appreciation",
