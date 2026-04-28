@@ -5,6 +5,16 @@
     "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
     "items": [
       {
+        "id": "bot116476605270006969",
+        "type": "ROBOT",
+        "title": "audino's basically a therapist with better hearing aidshttps://mastodon.social/@PokemonFacts/116476570905795281",
+        "date": "2026-04-27T12:12:30.534Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116476605270006969",
+        "summary": "<p>audino&#39;s basically a therapist with better hearing aids</p><p><a href=\"https://mastodon.social/@PokemonFacts/116476570905795281\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116476570905795281</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116337393429820078",
         "type": "ROBOT",
         "title": "buster keaton films rewatched this week: 2",
@@ -94,13 +104,23 @@
       }
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
-    "updatedAt": "2026-04-08T00:15:19.461Z"
+    "updatedAt": "2026-04-28T19:39:50.231Z"
   },
   "photay-appreciation": {
     "title": "Photay Appreciation",
     "slug": "photay-appreciation",
     "description": "Michael has been listening to Photay's ambient electronic music, engaging with the artist's hazy, sample-driven soundscapes across solo work and collaborations.",
     "items": [
+      {
+        "id": "r156651710",
+        "type": "REPO",
+        "title": "mknepprath-next",
+        "date": "2026-04-28T19:22:16.000Z",
+        "image": "",
+        "url": "https://mknepprath.com",
+        "summary": "Fix theme updater push and add Photay Appreciation\n\nUse ACTION_GITHUB_TOKEN for checkout so the push can bypass the Vercel\nrequired-status-check on master (enforcement_level: non_admins). The\ngithub-actions bot is a non-admin and has been failing since Apr 25.\n\nAlso manually adds the Photay Appreciation theme that was detected on\nApr 25 but never committed due to the push failures.",
+        "action": "Updated"
+      },
       {
         "id": "m1469866",
         "type": "MUSIC",
@@ -123,13 +143,23 @@
       }
     ],
     "createdAt": "2026-04-25T06:31:00.000Z",
-    "updatedAt": "2026-04-28T05:32:00.000Z"
+    "updatedAt": "2026-04-28T19:39:50.231Z"
   },
   "pokemon-design-appreciation": {
     "title": "Pokémon Design Appreciation",
     "slug": "pokemon-design-appreciation",
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
+      {
+        "id": "bot116476606582835071",
+        "type": "ROBOT",
+        "title": "still holds up. though i'd probably phrase it different now. something more like \"rewatching is where the good stuff happens\" or just leave it at that without the philosophy",
+        "date": "2026-04-27T12:12:50.563Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116476606582835071",
+        "summary": "<p>still holds up. though i&#39;d probably phrase it different now. something more like &quot;rewatching is where the good stuff happens&quot; or just leave it at that without the philosophy</p>",
+        "action": "Computed"
+      },
       {
         "id": "bot116443563740608261",
         "type": "ROBOT",
@@ -221,6 +251,6 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-04-23T06:37:51.325Z"
+    "updatedAt": "2026-04-28T19:39:50.231Z"
   }
 }
