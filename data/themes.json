@@ -112,6 +112,16 @@
     "description": "Michael has been listening to Photay's ambient electronic music, engaging with the artist's hazy, sample-driven soundscapes across solo work and collaborations.",
     "items": [
       {
+        "id": "m1598065",
+        "type": "MUSIC",
+        "title": "Photay",
+        "date": "2026-04-29T21:19:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/30/6d/28/306d2800-414b-878a-14f0-7dc6b84d3dbe/812388022617.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/1598065",
+        "summary": "Photay",
+        "action": "Listened to"
+      },
+      {
         "id": "r156651710",
         "type": "REPO",
         "title": "mknepprath-next",
@@ -143,7 +153,7 @@
       }
     ],
     "createdAt": "2026-04-25T06:31:00.000Z",
-    "updatedAt": "2026-04-28T19:39:50.231Z"
+    "updatedAt": "2026-04-30T06:51:53.561Z"
   },
   "pokemon-design-appreciation": {
     "title": "Pokémon Design Appreciation",
