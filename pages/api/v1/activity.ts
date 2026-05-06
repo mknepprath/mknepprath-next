@@ -172,13 +172,27 @@ const decodeEntities = (str: string): string =>
     .replace(/&#x27;/g, "'")
     .replace(/&apos;/g, "'");
 
-const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] =>
-  toots
-    .filter(
-      (toot) =>
-        !!(toot.content || toot.media_attachments[0]?.url) &&
-        !toot.content.startsWith(`<p><span class="h-card"><a href="`),
-    )
+const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] => {
+  const filtered = toots.filter((toot) => {
+    if (!(toot.content || toot.media_attachments[0]?.url)) return false;
+    if (toot.content.startsWith(`<p><span class="h-card"><a href="`))
+      return false;
+    const plain = toot.content.replace(/<[^>]+>/g, "").trim();
+    if (/:\s*\d+$/.test(plain)) return false;
+    return true;
+  });
+
+  // Limit commentary posts (ones quoting other accounts) to a few per batch
+  const MAX_COMMENTARY = 3;
+  let commentaryCount = 0;
+
+  return filtered
+    .filter((toot) => {
+      const isCommentary = toot.content.includes("<a href=");
+      if (!isCommentary) return true;
+      commentaryCount++;
+      return commentaryCount <= MAX_COMMENTARY;
+    })
     .map((toot) => ({
       action: "Computed",
       date: toot.created_at,
@@ -187,6 +201,7 @@ const formatRobotData = (toots: Toot[]): Partial<PostListItem>[] =>
       summary: toot.content,
       url: toot.url,
     }));
+};
 
 const formatTootData = (toots: Toot[]): Partial<PostListItem>[] =>
   toots
@@ -244,17 +259,17 @@ const formatHighlightData = (
     }));
 
 const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
-  // Group by album, counting unique tracks per album
+  // Group by album ID, counting unique tracks per album
   const albumTracks = new Map<string, { tracks: Set<number>; latest: Music }>();
   for (const m of music) {
-    const albumName = m.track.albums[0]?.name;
-    if (!albumName) continue;
-    const entry = albumTracks.get(albumName);
+    const albumId = String(m.track.albums[0]?.id);
+    if (!albumId || albumId === "undefined") continue;
+    const entry = albumTracks.get(albumId);
     if (entry) {
       entry.tracks.add(m.track.id);
       if (m.endTime > entry.latest.endTime) entry.latest = m;
     } else {
-      albumTracks.set(albumName, {
+      albumTracks.set(albumId, {
         tracks: new Set([m.track.id]),
         latest: m,
       });
