@@ -49,7 +49,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
           git add data/themes.json
-          git commit -m "Update themes (automated)"
+          git commit --no-verify -m "Update themes (automated)"
           git push origin "$BRANCH"
           gh pr create \
             --title "Update themes (automated)" \
