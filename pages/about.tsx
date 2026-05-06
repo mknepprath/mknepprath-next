@@ -28,7 +28,7 @@ export default function About(): React.ReactNode {
 
         <p>
           Michael Knepprath is a Staff Software Engineer at{" "}
-          <A href="https://www.walmartlabs.com">Walmart</A> (prev.{" "}
+          <A href="https://tech.walmart.com">Walmart</A> (prev.{" "}
           <A href="https://hyper.online">Hyper</A>,{" "}
           <A href="https://whcc.com">WHCC</A>). He loves his family and working
           on side projects related to technology, design, film, video games,{" "}
