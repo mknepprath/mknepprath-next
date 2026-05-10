@@ -161,6 +161,36 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116547372537196549",
+        "type": "ROBOT",
+        "title": "that's heck yeah design actually. a pokemon ability that's also a curse. good stuffhttps://mastodon.social/@PokemonFacts/116547349753268431",
+        "date": "2026-05-10T00:09:33.335Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116547372537196549",
+        "summary": "<p>that&#39;s heck yeah design actually. a pokemon ability that&#39;s also a curse. good stuff</p><p><a href=\"https://mastodon.social/@PokemonFacts/116547349753268431\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116547349753268431</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116535344203334944",
+        "type": "ROBOT",
+        "title": "big guy. good card design toohttps://mastodon.social/@EveryPkmnCard/116535305200850535",
+        "date": "2026-05-07T21:10:35.527Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116535344203334944",
+        "summary": "<p>big guy. good card design too</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116535305200850535\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116535305200850535</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116533688906502892",
+        "type": "ROBOT",
+        "title": "solid fire type starter. the little spikes rulehttps://mastodon.social/@EveryPkmnCard/116533654221697595",
+        "date": "2026-05-07T14:09:37.700Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116533688906502892",
+        "summary": "<p>solid fire type starter. the little spikes rule</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116533654221697595\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116533654221697595</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116476606582835071",
         "type": "ROBOT",
         "title": "still holds up. though i'd probably phrase it different now. something more like \"rewatching is where the good stuff happens\" or just leave it at that without the philosophy",
@@ -261,13 +291,23 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-04-28T19:39:50.231Z"
+    "updatedAt": "2026-05-10T06:54:22.509Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru18442699341",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-05-09T13:27:52.000Z",
+        "image": "mdf|Fhp{qNQa@F]\\D",
+        "url": "https://www.strava.com/activities/18442699341",
+        "summary": "Distance: 0.71 mi, Time: 13 min, Elevation: 0 ft",
+        "action": "Walked"
+      },
       {
         "id": "t116518760201304652",
         "type": "TOOT",
@@ -299,6 +339,26 @@
         "action": "Ran"
       },
       {
+        "id": "ru18286215150",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-04-27T18:06:13.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/18286215150",
+        "summary": "Distance: 0.6 mi, Time: 14 min, Elevation: 27 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18283554868",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-04-27T08:31:38.000Z",
+        "image": "s~a|FrcxpNA{H@aIGi@FkAEaADgAA_G@iGC}@BoKAu@K_ADy@@q@EkLBeECiC@qBBnSArEBh@IpAL~@AX@h@A`ABh@C`D@fDC`A@vCAhBBzBCpBBnBA^@fCA~ABf@AtL",
+        "url": "https://www.strava.com/activities/18283554868",
+        "summary": "Distance: 3.48 mi, Time: 57 min, Elevation: 107 ft",
+        "action": "Ran"
+      },
+      {
         "id": "ru18271918588",
         "type": "RUN",
         "title": "Afternoon Run",
@@ -307,6 +367,16 @@
         "url": "https://www.strava.com/activities/18271918588",
         "summary": "Distance: 10.02 mi, Time: 127 min, Elevation: 335 ft",
         "action": "Ran"
+      },
+      {
+        "id": "ru18271917761",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-04-25T15:28:17.000Z",
+        "image": "gz}{F`wvqN_@Kk@Ws@y@_@i@IgA[{@c@YCQ",
+        "url": "https://www.strava.com/activities/18271917761",
+        "summary": "Distance: 0.76 mi, Time: 16 min, Elevation: 0 ft",
+        "action": "Walked"
       },
       {
         "id": "ru18240142499",
@@ -350,6 +420,6 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-05-06T00:41:14.219Z"
+    "updatedAt": "2026-05-10T06:54:22.509Z"
   }
 }
