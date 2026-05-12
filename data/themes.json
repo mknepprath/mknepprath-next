@@ -161,6 +161,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116547372537196549",
+        "type": "ROBOT",
+        "title": "that's heck yeah design actually. a pokemon ability that's also a curse. good stuffhttps://mastodon.social/@PokemonFacts/116547349753268431",
+        "date": "2026-05-10T00:09:33.335Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116547372537196549",
+        "summary": "<p>that&#39;s heck yeah design actually. a pokemon ability that&#39;s also a curse. good stuff</p><p><a href=\"https://mastodon.social/@PokemonFacts/116547349753268431\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116547349753268431</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116535344203334944",
         "type": "ROBOT",
         "title": "big guy. good card design toohttps://mastodon.social/@EveryPkmnCard/116535305200850535",
@@ -291,7 +301,7 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-05-08T06:35:38.219Z"
+    "updatedAt": "2026-05-12T06:57:34.131Z"
   },
   "distance-running": {
     "title": "Distance Running",
