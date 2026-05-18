@@ -5,6 +5,16 @@
     "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
     "items": [
       {
+        "id": "flletterboxd-review-1317271071",
+        "type": "FILM",
+        "title": "The High Sign",
+        "date": "2026-05-16T01:42:07.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/8/8/4/1/18841-the-high-sign-0-600-0-900-crop.jpg?v=dad28bc087",
+        "url": "https://letterboxd.com/mknepprath/film/the-high-sign/4/",
+        "summary": " <p>🍌</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "bot116476605270006969",
         "type": "ROBOT",
         "title": "audino's basically a therapist with better hearing aidshttps://mastodon.social/@PokemonFacts/116476570905795281",
@@ -104,7 +114,7 @@
       }
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
-    "updatedAt": "2026-04-28T19:39:50.231Z"
+    "updatedAt": "2026-05-18T07:21:02.875Z"
   },
   "photay-appreciation": {
     "title": "Photay Appreciation",
@@ -309,6 +319,46 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru18506143993",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-05-14T11:54:18.000Z",
+        "image": "sic|Fr~spN`@RVBVCN@z@?jCJbACdAH`@Er@Bv@E|CB?r@DJTJn@BbAEhAAd@Dj@C\\D|AA\\Dp@Kp@?F@FF@D?ZBH",
+        "url": "https://www.strava.com/activities/18506143993",
+        "summary": "Distance: 0.71 mi, Time: 12 min, Elevation: 31 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18505911812",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-05-14T11:26:01.000Z",
+        "image": "{nc|FrsypNwJBeABk@Cc@@oDAeCB{@CkBByC?_@@K?MECSDiAr@iKPcBRmATcAd@wAx@qBz@iBbAmC\\s@\\eB^sCTyCFiBAqGBsAE{E?mEBk@AwCBg@CsA@yBB{@C_AAmEBoCCcG@oORoBJO@KCY]q@AMAcGDyACeA@eBA_EDiANiAJa@jAuCl@cADSDo@La@@w@JE~@AJCCQKIMCg@BOGCKGk@Eq@a@aBGc@C{ANp@DHl@l@",
+        "url": "https://www.strava.com/activities/18505911812",
+        "summary": "Distance: 3.13 mi, Time: 27 min, Elevation: 146 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18480799621",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-05-12T13:37:46.000Z",
+        "image": "s~a|FncxpNA_D@qFCkBDmBAi@MW@OJ_@?ICwA@yBA{BBgACaC?eK@sAA_ABaAAc@MgADYBu@CsC@}ECiBDuCCsEByKAuFCq@Iu@mAoCYi@]gASoAKgACy@v@Et@Bp@Cb@?tAE|@?|FKNDFR?P?dACpA@\\?fADp@Cp@?vACH]VYBe@Lq@`@QPG^IBq@Cs@EK@UTGPIb@?jIAdBBlC?tBCzC?vDBrHErBEf@B\\@t@@xDCvJAd@EX@VHb@EnB@rDHdCE`A@d@Eb@@|@",
+        "url": "https://www.strava.com/activities/18480799621",
+        "summary": "Distance: 3.14 mi, Time: 26 min, Elevation: 174 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18442699341",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-05-09T13:27:52.000Z",
+        "image": "mdf|Fhp{qNQa@F]\\D",
+        "url": "https://www.strava.com/activities/18442699341",
+        "summary": "Distance: 0.71 mi, Time: 13 min, Elevation: 0 ft",
+        "action": "Walked"
+      },
+      {
         "id": "t116518760201304652",
         "type": "TOOT",
         "title": "I ran my first marathon! https://strava.app.link/w8kN9sEuS2b",
@@ -430,6 +480,45 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-05-08T06:35:38.219Z"
+    "updatedAt": "2026-05-18T07:21:02.875Z"
+  },
+  "classic-cinema": {
+    "title": "Classic Cinema",
+    "slug": "classic-cinema",
+    "description": "Michael has a deep appreciation for early and classic cinema, from silent films to mid-20th century masterpieces. He regularly watches and reflects on films that demonstrate superior craftsmanship compared to contemporary works.",
+    "items": [
+      {
+        "id": "bot116592199106165565",
+        "type": "ROBOT",
+        "title": "watching a film from 1952 and it's genuinely better than most things made last year. not even close",
+        "date": "2026-05-17T22:09:32.498Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116592199106165565",
+        "summary": "<p>watching a film from 1952 and it&#39;s genuinely better than most things made last year. not even close</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1317271071",
+        "type": "FILM",
+        "title": "The High Sign",
+        "date": "2026-05-16T01:42:07.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/8/8/4/1/18841-the-high-sign-0-600-0-900-crop.jpg?v=dad28bc087",
+        "url": "https://letterboxd.com/mknepprath/film/the-high-sign/4/",
+        "summary": " <p>🍌</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1313292798",
+        "type": "FILM",
+        "title": "A Trip to the Moon",
+        "date": "2026-05-12T12:26:22.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/3/7/7/51377-a-trip-to-the-moon-0-600-0-900-crop.jpg?v=e82c2a36f3",
+        "url": "https://letterboxd.com/mknepprath/film/a-trip-to-the-moon/2/",
+        "summary": " <p>Space fantasy, this is og Star Wars</p> ",
+        "action": "Rewatched"
+      }
+    ],
+    "createdAt": "2026-05-18T07:21:02.875Z",
+    "updatedAt": "2026-05-18T07:21:02.875Z"
   }
 }
