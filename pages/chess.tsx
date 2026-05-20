@@ -1,5 +1,5 @@
 import Head from "@core/head";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, startTransition, useState } from "react";
 import { io, Socket } from "socket.io-client";
 import styles from "./chess.module.css";
 
@@ -43,7 +43,6 @@ const PIECE_GLYPHS: Record<Color, Record<PieceType, string>> = {
 };
 
 const FILES = ["a", "b", "c", "d", "e", "f", "g", "h"];
-const RANKS = [1, 2, 3, 4, 5, 6, 7, 8];
 const COOLDOWN_MS = 1500;
 
 // ── Move calculation (mirrors chess-server.js) ────────────────────────────
@@ -129,21 +128,22 @@ export default function Chess(): React.ReactNode {
   const [joinMode, setJoinMode] = useState<"create" | "join" | null>(null);
   const [errorMsg, setErrorMsg] = useState("");
   const [connectionError, setConnectionError] = useState(false);
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(() => Date.now());
   const [opponentCursor, setOpponentCursor] = useState<{ hover: string | null; selected: string | null }>({ hover: null, selected: null });
 
   // Keep stable refs to avoid stale closures in socket callbacks
   const myColorRef = useRef(myColor);
-  myColorRef.current = myColor;
   const gameCodeRef = useRef(gameCode);
-  gameCodeRef.current = gameCode;
   const playerIdRef = useRef(playerId);
-  playerIdRef.current = playerId;
   const socketRef = useRef<Socket | null>(null);
-  socketRef.current = socket;
   const selectedSquareRef = useRef<string | null>(null);
-  selectedSquareRef.current = selectedSquare;
   const hoveredSquareRef = useRef<string | null>(null);
+
+  useEffect(() => { myColorRef.current = myColor; }, [myColor]);
+  useEffect(() => { gameCodeRef.current = gameCode; }, [gameCode]);
+  useEffect(() => { playerIdRef.current = playerId; }, [playerId]);
+  useEffect(() => { socketRef.current = socket; }, [socket]);
+  useEffect(() => { selectedSquareRef.current = selectedSquare; }, [selectedSquare]);
 
   const emitCursor = useCallback((hover: string | null, selected: string | null) => {
     socketRef.current?.emit("cursorUpdate", { gameCode: gameCodeRef.current, hover, selected });
@@ -163,7 +163,7 @@ export default function Chess(): React.ReactNode {
       transports: ["websocket", "polling"],
     });
 
-    setSocket(newSocket);
+    startTransition(() => setSocket(newSocket));
 
     newSocket.on("connect", () => {
       setConnectionError(false);
