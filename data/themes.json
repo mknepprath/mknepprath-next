@@ -431,5 +431,54 @@
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
     "updatedAt": "2026-05-08T06:35:38.219Z"
+  },
+  "classic-cinema-study": {
+    "title": "Classic Cinema Study",
+    "slug": "classic-cinema-study",
+    "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
+    "items": [
+      {
+        "id": "bot116592199106165565",
+        "type": "ROBOT",
+        "title": "watching a film from 1952 and it's genuinely better than most things made last year. not even close",
+        "date": "2026-05-17T22:09:32.498Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116592199106165565",
+        "summary": "<p>watching a film from 1952 and it&#39;s genuinely better than most things made last year. not even close</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1317271071",
+        "type": "FILM",
+        "title": "The High Sign",
+        "date": "2026-05-16T01:42:07.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/8/8/4/1/18841-the-high-sign-0-600-0-900-crop.jpg?v=dad28bc087",
+        "url": "https://letterboxd.com/mknepprath/film/the-high-sign/4/",
+        "summary": " <p>🍌</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1313502639",
+        "type": "FILM",
+        "title": "The Backrooms (Found Footage)",
+        "date": "2026-05-12T17:35:17.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/8/8/1/9/5/4/881954-the-backrooms-found-footage--0-600-0-900-crop.jpg?v=a79df843a8",
+        "url": "https://letterboxd.com/mknepprath/film/the-backrooms-found-footage/1/",
+        "summary": " <p>I’ve always said the only thing that could improve this is Chiwetel Ejiofor</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1313292798",
+        "type": "FILM",
+        "title": "A Trip to the Moon",
+        "date": "2026-05-12T12:26:22.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/3/7/7/51377-a-trip-to-the-moon-0-600-0-900-crop.jpg?v=e82c2a36f3",
+        "url": "https://letterboxd.com/mknepprath/film/a-trip-to-the-moon/2/",
+        "summary": " <p>Space fantasy, this is og Star Wars</p> ",
+        "action": "Rewatched"
+      }
+    ],
+    "createdAt": "2026-05-20T07:11:52.669Z",
+    "updatedAt": "2026-05-20T07:11:52.669Z"
   }
 }
