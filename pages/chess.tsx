@@ -18,10 +18,12 @@ interface Player {
   name: string;
   color: Color;
   connected: boolean;
+  isBot?: boolean;
 }
 
 interface ChessGame {
   id: string;
+  singlePlayer?: boolean;
   players: Player[];
   board: Record<string, Piece>;
   cooldowns: Record<string, number>;
@@ -219,6 +221,12 @@ export default function Chess(): React.ReactNode {
 
   // ── Actions ──
 
+  const handlePlayVsBot = () => {
+    if (!socket || !playerName.trim()) return;
+    socket.emit("createSinglePlayerGame", { playerName: playerName.trim() });
+    setJoinMode("create");
+  };
+
   const handleCreate = () => {
     if (!socket || !playerName.trim()) return;
     socket.emit("createGame", { playerName: playerName.trim() });
@@ -385,7 +393,7 @@ export default function Chess(): React.ReactNode {
             placeholder="Your name"
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleCreate()}
+            onKeyDown={(e) => e.key === "Enter" && handlePlayVsBot()}
             maxLength={20}
           />
           {joinMode === "join" && (
@@ -398,9 +406,17 @@ export default function Chess(): React.ReactNode {
               autoFocus
             />
           )}
+          <button
+            className={`${styles.btn} ${styles.btnPrimary}`}
+            onClick={handlePlayVsBot}
+            disabled={!playerName.trim() || joinMode === "join"}
+            style={{ width: "100%" }}
+          >
+            Play vs Bot
+          </button>
           <div className={styles.lobbyButtons}>
             <button
-              className={`${styles.btn} ${styles.btnPrimary}`}
+              className={`${styles.btn} ${styles.btnSecondary}`}
               onClick={handleCreate}
               disabled={!playerName.trim() || joinMode === "join"}
             >
@@ -483,7 +499,7 @@ export default function Chess(): React.ReactNode {
             onClick={handlePlayAgain}
             style={{ width: "100%" }}
           >
-            Play again (colors swap)
+            {gameState.singlePlayer ? "Play again" : "Play again (colors swap)"}
           </button>
         </div>
       </div>
