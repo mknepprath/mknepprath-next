@@ -129,9 +129,13 @@ export default function Chess(): React.ReactNode {
   const [connectionError, setConnectionError] = useState(false);
   const [now, setNow] = useState(Date.now());
 
-  // Keep stable ref to myColor to avoid stale closure in socket callback
+  // Keep stable refs to avoid stale closures in socket callbacks
   const myColorRef = useRef(myColor);
   myColorRef.current = myColor;
+  const gameCodeRef = useRef(gameCode);
+  gameCodeRef.current = gameCode;
+  const playerIdRef = useRef(playerId);
+  playerIdRef.current = playerId;
 
   // Tick for cooldown countdowns
   useEffect(() => {
@@ -149,7 +153,16 @@ export default function Chess(): React.ReactNode {
 
     setSocket(newSocket);
 
-    newSocket.on("connect", () => setConnectionError(false));
+    newSocket.on("connect", () => {
+      setConnectionError(false);
+      const gc = gameCodeRef.current;
+      const pid = playerIdRef.current;
+      if (gc && pid) {
+        // Socket reconnected mid-game; re-associate the new socket ID with our player slot.
+        newSocket.emit("rejoinGame", { gameCode: gc, playerId: pid });
+        setPlayerId(newSocket.id!);
+      }
+    });
     newSocket.on("connect_error", () => setConnectionError(true));
 
     newSocket.on("gameCreated", ({ gameId, playerId: pid }: { gameId: string; playerId: string }) => {
