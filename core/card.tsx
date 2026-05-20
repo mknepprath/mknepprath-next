@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState } from "react";
+import React, { useRef, useCallback, useEffect, startTransition, useState } from "react";
 import { useSpring, animated, to } from "react-spring";
 import styles from "./card.module.css";
 
@@ -68,7 +68,7 @@ function useGyroTilt() {
       window.addEventListener("touchstart", requestOnTouch, { once: true });
     } else if ("DeviceOrientationEvent" in window) {
       initGyro();
-      setSupported(true);
+      startTransition(() => setSupported(true));
     }
   }, []);
 

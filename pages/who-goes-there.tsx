@@ -1,5 +1,5 @@
 import Head from "@core/head";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, startTransition, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
 // Styles
@@ -74,7 +74,7 @@ export default function WhoGoesThere(): React.ReactNode {
       transports: ['websocket', 'polling']
     });
 
-    setSocket(newSocket);
+    startTransition(() => setSocket(newSocket));
 
     newSocket.on('connect', () => {
       console.log('Connected to server');

@@ -1,6 +1,6 @@
 import NextHead from "next/head";
 import Head from "@core/head";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, startTransition, useState } from "react";
 
 import styles from "./lilt.module.css";
 
@@ -191,10 +191,12 @@ export default function Lilt(): React.ReactNode {
   useEffect(() => {
     const saved = loadSession();
     if (saved) {
-      setState(saved.state);
-      setLog(saved.log);
+      startTransition(() => {
+        setState(saved.state);
+        setLog(saved.log);
+      });
     } else {
-      startGame();
+      startTransition(() => { startGame(); });
     }
   }, [startGame]);
 

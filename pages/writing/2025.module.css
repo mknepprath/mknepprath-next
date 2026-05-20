@@ -1,0 +1,13 @@
+
+.cardContainer {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  margin: 24px 0;
+}
+@media (min-width: 632px) {
+  .cardContainer {
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+  }
+}

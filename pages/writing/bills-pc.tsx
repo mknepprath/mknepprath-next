@@ -2,7 +2,7 @@ import BlogPage from "@core/blog-page";
 import fetch from "isomorphic-unfetch";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, startTransition, useState } from "react";
 import useSWR from "swr";
 
 const fetcher = (url: RequestInfo) =>
@@ -30,7 +30,7 @@ export default function BillsPc(): React.ReactNode {
 
   useEffect(() => {
     if (pokemons?.length)
-      setPokemonId(pokemons[Math.floor(Math.random() * pokemons.length)].id);
+      startTransition(() => setPokemonId(pokemons[Math.floor(Math.random() * pokemons.length)].id));
   }, [pokemons]);
 
   const pokemon = pokemons?.find((p: Pokemon) => p.id === pokemonId);

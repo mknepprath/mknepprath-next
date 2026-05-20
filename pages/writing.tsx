@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, startTransition, useState } from "react";
 import Page from "@core/page";
 import posts from "@data/posts";
 import { format, parseISO } from "date-fns";
@@ -24,7 +24,7 @@ export default function Writing(): React.ReactNode {
       const t = setTimeout(() => setCharCount(charCount + 1), CHAR_DELAY);
       return () => clearTimeout(t);
     }
-    setDone(true);
+    startTransition(() => setDone(true));
   }, [charCount]);
 
   // How many posts are visible based on typing progress

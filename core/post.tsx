@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, startTransition, useState } from "react";
 import ActivityCard from "@core/activity-card";
 import StravaMap from "@core/strava-map";
 import { format, parseISO } from "date-fns";
@@ -761,7 +761,7 @@ const RobotPost = ({
   url,
 }: PostProps) => {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => { startTransition(() => setMounted(true)); }, []);
 
   return (
     <ActivityCard id={id} type="ROBOT" index={index}>

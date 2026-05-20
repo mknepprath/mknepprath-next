@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, startTransition, useState } from "react";
 import classnames from "classnames";
 
 import styles from "./hero.module.css";
@@ -24,7 +24,7 @@ export default function Hero({ className, onComplete }: Props): React.JSX.Elemen
         const t = setTimeout(() => setHelloLen(helloLen + 1), CHAR_DELAY);
         return () => clearTimeout(t);
       }
-      setPhase("pause");
+      startTransition(() => setPhase("pause"));
     } else if (phase === "pause") {
       const t = setTimeout(() => setPhase("body"), PAUSE_AFTER_HELLO);
       return () => clearTimeout(t);
@@ -33,7 +33,7 @@ export default function Hero({ className, onComplete }: Props): React.JSX.Elemen
         const t = setTimeout(() => setBodyLen(bodyLen + 1), CHAR_DELAY);
         return () => clearTimeout(t);
       }
-      setPhase("done");
+      startTransition(() => setPhase("done"));
       onComplete?.();
     }
   }, [phase, helloLen, bodyLen, onComplete]);

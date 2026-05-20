@@ -1,6 +1,6 @@
 import Head from "@core/head";
 import PxBrush from "@core/pxbrush";
-import React, { useEffect } from "react";
+import React, { useEffect, startTransition } from "react";
 
 const INC = 2;
 
@@ -24,17 +24,18 @@ export default function PxBrushPage(): React.ReactNode {
     const scale = urlParams.get("scale") || INC;
     const quantity = urlParams.get("quantity") || 1;
 
+    const newBrushes = [];
     for (let i = 0; i < +quantity; i++) {
       const x = getRandomInt(innerWidth);
       const y = getRandomInt(innerHeight);
-      setBrushes((prevBrushes) => [
-        ...prevBrushes,
-        [x - (x % +scale), y - (y % +scale)],
-      ]);
+      newBrushes.push([x - (x % +scale), y - (y % +scale)]);
     }
 
-    setScale(+scale);
-    setQuantity(+quantity);
+    startTransition(() => {
+      setBrushes(newBrushes);
+      setScale(+scale);
+      setQuantity(+quantity);
+    });
   }, []);
 
   if (!scale || !quantity) return null;

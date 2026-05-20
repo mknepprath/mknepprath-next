@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, startTransition, useState } from "react";
 import styles from "./theme-toggle.module.css";
 
 type Theme = "system" | "light" | "dark";
@@ -38,7 +38,7 @@ export default function ThemeToggle(): React.JSX.Element {
   useEffect(() => {
     const stored = localStorage.getItem(THEME_KEY) as Theme | null;
     if (stored && (stored === "light" || stored === "dark" || stored === "system")) {
-      setTheme(stored);
+      startTransition(() => setTheme(stored));
       applyTheme(stored);
     }
   }, []);

@@ -3,7 +3,7 @@ import BlogPage from "@core/blog-page";
 import fetch from "isomorphic-unfetch";
 import Markov from "markov-strings";
 import Image from "next/image";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, startTransition, useState } from "react";
 import useSWR from "swr";
 
 interface MarkovResult {
@@ -131,14 +131,14 @@ export default function BillsPc(): React.ReactNode {
         markov.addData(tweets?.data.map((d) => d.text));
         const result = markov.generate(options);
         results.push(result);
-        setTitle(cleanUp(result.string));
+        startTransition(() => setTitle(cleanUp(result.string)));
       }
-      setLines(results);
+      startTransition(() => setLines(results));
 
       const media = shuffle(tweets.includes.media).find(
         (m) => m.type === "photo",
       );
-      setImage(media);
+      startTransition(() => setImage(media));
     }
   }, [tweets?.data, tweets?.includes.media]);
 
