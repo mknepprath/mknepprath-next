@@ -128,6 +128,7 @@ export default function Chess(): React.ReactNode {
   const [errorMsg, setErrorMsg] = useState("");
   const [connectionError, setConnectionError] = useState(false);
   const [now, setNow] = useState(Date.now());
+  const [opponentCursor, setOpponentCursor] = useState<{ hover: string | null; selected: string | null }>({ hover: null, selected: null });
 
   // Keep stable refs to avoid stale closures in socket callbacks
   const myColorRef = useRef(myColor);
@@ -136,6 +137,15 @@ export default function Chess(): React.ReactNode {
   gameCodeRef.current = gameCode;
   const playerIdRef = useRef(playerId);
   playerIdRef.current = playerId;
+  const socketRef = useRef<Socket | null>(null);
+  socketRef.current = socket;
+  const selectedSquareRef = useRef<string | null>(null);
+  selectedSquareRef.current = selectedSquare;
+  const hoveredSquareRef = useRef<string | null>(null);
+
+  const emitCursor = useCallback((hover: string | null, selected: string | null) => {
+    socketRef.current?.emit("cursorUpdate", { gameCode: gameCodeRef.current, hover, selected });
+  }, []);
 
   // Tick for cooldown countdowns
   useEffect(() => {
@@ -190,6 +200,10 @@ export default function Chess(): React.ReactNode {
       if (state.gameEnded) { setSelectedSquare(null); setLegalMoves([]); }
     });
 
+    newSocket.on("opponentCursor", (data: { hover: string | null; selected: string | null }) => {
+      setOpponentCursor(data);
+    });
+
     newSocket.on("error", ({ message }: { message: string }) => {
       setErrorMsg(message);
       setTimeout(() => setErrorMsg(""), 3000);
@@ -238,9 +252,11 @@ export default function Chess(): React.ReactNode {
     const coolUntil = gameState.cooldowns?.[sq] ?? 0;
     if (coolUntil > Date.now()) return; // on cooldown
     const moves = getLegalMoves(gameState.board, sq, color);
+    selectedSquareRef.current = sq;
     setSelectedSquare(sq);
     setLegalMoves(moves);
-  }, [gameState]);
+    emitCursor(hoveredSquareRef.current, sq);
+  }, [gameState, emitCursor]);
 
   const handleSquareClick = useCallback((sq: string) => {
     if (!gameState?.gameStarted || gameState.gameEnded || !myColor || !socket || !gameCode) return;
@@ -249,18 +265,22 @@ export default function Chess(): React.ReactNode {
     if (selectedSquare) {
       if (legalMoves.includes(sq)) {
         socket.emit("movePiece", { gameCode, from: selectedSquare, to: sq });
+        selectedSquareRef.current = null;
         setSelectedSquare(null);
         setLegalMoves([]);
+        emitCursor(hoveredSquareRef.current, null);
       } else if (piece && piece.color === myColor) {
         selectSquare(sq);
       } else {
+        selectedSquareRef.current = null;
         setSelectedSquare(null);
         setLegalMoves([]);
+        emitCursor(hoveredSquareRef.current, null);
       }
     } else {
       if (piece && piece.color === myColor) selectSquare(sq);
     }
-  }, [gameState, myColor, socket, gameCode, selectedSquare, legalMoves, selectSquare]);
+  }, [gameState, myColor, socket, gameCode, selectedSquare, legalMoves, selectSquare, emitCursor]);
 
   // ── Render helpers ──
 
@@ -286,6 +306,8 @@ export default function Chess(): React.ReactNode {
 
         const showRankLabel = fi === 0;
         const showFileLabel = ri === 7;
+        const isOpponentSelected = opponentCursor.selected === sq;
+        const isOpponentHover = opponentCursor.hover === sq && !isOpponentSelected;
 
         return (
           <div
@@ -296,8 +318,14 @@ export default function Chess(): React.ReactNode {
               isSelected ? styles.selected : "",
               isLegal && !isCapture ? styles.legalMove : "",
               isCapture ? styles.legalCapture : "",
+              isOpponentSelected ? styles.opponentSelected : "",
+              isOpponentHover ? styles.opponentHover : "",
             ].filter(Boolean).join(" ")}
             onClick={() => handleSquareClick(sq)}
+            onMouseEnter={() => {
+              hoveredSquareRef.current = sq;
+              emitCursor(sq, selectedSquareRef.current);
+            }}
           >
             {showRankLabel && (
               <span className={styles.rankLabel}>{rank}</span>
@@ -323,6 +351,9 @@ export default function Chess(): React.ReactNode {
                   </span>
                 </div>
               </>
+            )}
+            {(isOpponentHover || isOpponentSelected) && (
+              <span className={styles.opponentHand}>👆</span>
             )}
           </div>
         );
@@ -486,7 +517,13 @@ export default function Chess(): React.ReactNode {
           )}
         </div>
 
-        <div className={styles.board}>{renderBoard()}</div>
+        <div
+          className={styles.board}
+          onMouseLeave={() => {
+            hoveredSquareRef.current = null;
+            emitCursor(null, selectedSquareRef.current);
+          }}
+        >{renderBoard()}</div>
 
         {errorMsg && <p className={styles.error}>{errorMsg}</p>}
       </div>

@@ -335,3 +335,24 @@
   text-align: center;
   margin: 0;
 }
+
+/* ── Opponent cursor ── */
+.opponentHover {
+  outline: 2px dashed rgba(74, 144, 217, 0.65);
+  outline-offset: -2px;
+}
+
+.opponentSelected {
+  background: rgba(74, 144, 217, 0.3) !important;
+}
+
+.opponentHand {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: clamp(9px, 1.8vw, 13px);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+}
