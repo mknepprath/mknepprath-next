@@ -21,4 +21,4 @@ yarn-error.log*
 .vercel
 .env*.local
 
-.idea
+.ideatsconfig.tsbuildinfo
