@@ -35,6 +35,15 @@ interface ChessGame {
   status: "waiting" | "playing" | "ended";
 }
 
+function countAttackers(board: Record<string, Piece>, square: string, attackerColor: Color): number {
+  let count = 0;
+  for (const from of Object.keys(board)) {
+    if (board[from].color !== attackerColor) continue;
+    if (getLegalMoves(board, from, attackerColor).includes(square)) count++;
+  }
+  return count;
+}
+
 // ── Constants ──────────────────────────────────────────────────────────────
 
 const PIECE_GLYPHS: Record<Color, Record<PieceType, string>> = {
@@ -259,7 +268,11 @@ export default function Chess(): React.ReactNode {
     if (!color) return;
     const coolUntil = gameState.cooldowns?.[sq] ?? 0;
     if (coolUntil > Date.now()) return; // on cooldown
-    const moves = getLegalMoves(gameState.board, sq, color);
+    const moves = getLegalMoves(gameState.board, sq, color).filter(to => {
+      const target = gameState.board[to];
+      if (target?.type === "king") return countAttackers(gameState.board, to, color) >= 2;
+      return true;
+    });
     selectedSquareRef.current = sq;
     setSelectedSquare(sq);
     setLegalMoves(moves);
