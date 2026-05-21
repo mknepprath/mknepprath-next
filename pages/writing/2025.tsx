@@ -33,8 +33,8 @@ export default function ReviewOf2025(): React.ReactNode {
         a review of all the fun things I did in 2025 felt borderline
         irresponsible in early 2026. Each time I sat down to write, another
         American citizen would be shot or killed by ICE, the goon squad sent to
-        my home state under false pretenses — that it was full of undocumented
-        immigrants, which itself is national policy backed by false pretenses —
+        my home state under false pretenses - that it was full of undocumented
+        immigrants, which itself is national policy backed by false pretenses -
         that immigrants are by and large dangerous, a fact not borne out by any
         measure of evidence.
       </p>
@@ -148,7 +148,7 @@ export default function ReviewOf2025(): React.ReactNode {
       <h3>CIFF49</h3>
 
       <p>
-        2024 was the first CIFF I attended; 2025 was my first CIFF on the
+        2024 was the first CIFF I attended, 2025 was my first CIFF on the
         screening team. Each week, I was assigned a slate of short and
         feature-length films to watch and review, ultimately helping to decide
         what would be shown at the festival.
@@ -246,8 +246,8 @@ export default function ReviewOf2025(): React.ReactNode {
         <li>
           <A href="https://www.goodreads.com/book/show/4153.Reconstruction_America_s_Unfinished_Revolution_1863_1877">
             Reconstruction
-          </A>{" "}
-          — a long-running battle to get through
+          </A>
+          , a long-running battle to get through
         </li>
         <li>
           <A href="https://www.goodreads.com/book/show/33917107-on-tyranny">
@@ -255,7 +255,7 @@ export default function ReviewOf2025(): React.ReactNode {
           </A>
         </li>
         <li>Astro Boy</li>
-        <li>The Metamorphosis by Kafka — listened while running</li>
+        <li>The Metamorphosis, Kafka while running</li>
         <li>Something Like an Autobiography</li>
         <li>Murderbot</li>
         <li>Enshittification</li>
@@ -265,32 +265,33 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <ul>
         <li>
-          <strong>Spamalot</strong> — went in not knowing it was literally The
-          Holy Grail. Luckily I had watched that movie with Owen within the last
-          year. One of my favorites; hilarious play!
+          <strong>Spamalot</strong> - went in not knowing it was literally The
+          Holy Grail. luckily I had watched that movie with Owen within the last
+          year. One of my favorites, hilarious play!
         </li>
         <li>
-          <strong>House renovations</strong> — hired a carpenter to convert the
+          <strong>House renovations</strong> - hired a carpenter to convert the
           office into a studio and the spare bedroom into an office with
           floor-to-ceiling shelves.
         </li>
         <li>
-          <strong>Marathon training</strong> — my sister signed me up for a
-          marathon in June, so I started training. Ran through the winter. More
-          details in the next year-in-review update.
+          <strong>Marathon training</strong> - My sister signed me up for a
+          marathon in June, so I started training. Ran through the winter. If
+          you&apos;ve seen my recent posts, you&apos;ll know the result - more
+          details in the next year in review update.
         </li>
         <li>
-          <strong>Kendrick&apos;s Super Bowl halftime show</strong> — I&apos;m
-          obsessed with Kendrick&apos;s music; a true lyricist and artist. The
-          Super Bowl was a real culminating moment. Not just a show, but a
-          capstone to a year of incredible work.
+          <strong>Kendrick Super Bowl, on artistry</strong> - I&apos;m obsessed
+          with Kendrick&apos;s music, a true lyricist and artist. The Super Bowl
+          was a real culminating moment. Not just a show, but a capstone to a
+          year of incredible work.
         </li>
         <li>
-          <strong>Biking</strong> — hadn&apos;t owned bikes in Ohio, bought a
-          pair for me and my son. He learned fast.
+          <strong>Biking</strong> - Had not owned bikes in ohio, bought a pair
+          for me and my son. He learned fast.
         </li>
         <li>
-          <strong>Walkabout</strong> — mini golf, new levels, great fun.
+          <strong>Walkabout</strong> - mini golf. new levels. great fun.
         </li>
       </ul>
 
@@ -306,9 +307,9 @@ export default function ReviewOf2025(): React.ReactNode {
       </p>
 
       <p>
-        Social media is not a neutral mediator, and removing that from my life
-        will only be positive — more direct interactions, hence more hanging out
-        with my family, friends, and neighbors.
+        Social media is not a neutral mediator and removing that will only be
+        positive, more direct interactions, hence more hanging out with my
+        family, friends, neighbors.
       </p>
 
       <p>This is an invitation to reach out.</p>
