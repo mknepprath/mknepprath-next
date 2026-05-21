@@ -240,19 +240,45 @@ export default function ReviewOf2025(): React.ReactNode {
         <li>
           <A href="https://www.goodreads.com/book/show/4153.Reconstruction_America_s_Unfinished_Revolution_1863_1877">
             Reconstruction
-          </A>
-          , a long-running battle to get through
+          </A>{" "}
+          by Eric Foner, a long-running battle to get through
         </li>
         <li>
           <A href="https://www.goodreads.com/book/show/33917107-on-tyranny">
             On Tyranny
-          </A>
+          </A>{" "}
+          by Timothy Snyder
         </li>
-        <li>Astro Boy</li>
-        <li>The Metamorphosis, Kafka while running</li>
-        <li>Something Like an Autobiography</li>
-        <li>Murderbot</li>
-        <li>Enshittification</li>
+        <li>
+          <A href="https://www.goodreads.com/series/64016-astro-boy">
+            Astro Boy
+          </A>{" "}
+          by Osamu Tezuka
+        </li>
+        <li>
+          <A href="https://www.goodreads.com/book/show/485894.The_Metamorphosis">
+            The Metamorphosis
+          </A>
+          , Kafka while running
+        </li>
+        <li>
+          <A href="https://www.goodreads.com/book/show/93389.Something_Like_an_Autobiography">
+            Something Like an Autobiography
+          </A>{" "}
+          by Akira Kurosawa
+        </li>
+        <li>
+          <A href="https://www.goodreads.com/series/191900-the-murderbot-diaries">
+            Murderbot
+          </A>{" "}
+          by Martha Wells
+        </li>
+        <li>
+          <A href="https://www.goodreads.com/book/show/222376640-enshittification">
+            Enshittification
+          </A>{" "}
+          by Cory Doctorow
+        </li>
       </ul>
 
       <h2>Highlights</h2>
