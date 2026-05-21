@@ -57,11 +57,6 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <h2>Travel</h2>
 
-      <p>
-        All that said, it was a remarkable year for travel, and I&apos;d be
-        doing myself a disservice not to document it.
-      </p>
-
       {/* TODO: add travel photo */}
 
       <h3>February: Minnesota</h3>
@@ -90,15 +85,15 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <h3>June: Michigan</h3>
 
-      <p>My parents retired!</p>
+      <p>Parents retired.</p>
 
       {/* TODO: add Michigan photo */}
 
       <h3>August: Japan</h3>
 
       <p>
-        A joint trip with my cousin and his family took us from Osaka to Kyoto
-        to Tokyo, ending in Tokyo Disneyland.
+        Joint trip with my cousin and his family from Osaka to Kyoto to Tokyo
+        and ended in Tokyo Disneyland.
       </p>
 
       {/* TODO: add Japan photo */}
@@ -108,17 +103,17 @@ export default function ReviewOf2025(): React.ReactNode {
       <h3>October/November: Disney World</h3>
 
       <p>
-        We went back to Disney and took full advantage of our park hopper
-        tickets. We also saw Cirque du Soleil.
+        Then we went back to Disney and took full advantage of our park hopper
+        tickets. We saw Cirque du Soleil.
       </p>
 
       {/* TODO: add Disney photo */}
 
-      <h3>December: El Paso &amp; Cancún</h3>
+      <h3>December: El Paso &amp; Cancun</h3>
 
       <p>
-        Visited family in El Paso and then our family split off to relax on the
-        beaches of Cancún.
+        Visited family and then our family split to relax on the beaches of
+        Cancun.
       </p>
 
       {/* TODO: add El Paso/Cancún photo */}
@@ -194,8 +189,7 @@ export default function ReviewOf2025(): React.ReactNode {
           puzzle boxes. They aren&apos;t thrill rides or epics. While movies can
           be all of these things, the best ones are those that plumb the depths
           of humanity for that which can&apos;t be mathed out. They uncover the
-          spark within each of us — a universal yearning to be, simply,
-          perceived.
+          spark within each of us—a universal yearning to be, simply, perceived
         </li>
         <li>
           <strong>Stop Making Sense (1984)</strong>: Crescendos perfectly.
