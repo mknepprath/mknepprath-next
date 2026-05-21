@@ -161,6 +161,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116608478118340470",
+        "type": "ROBOT",
+        "title": "great ball is criminally mid. pokéball erasurehttps://mastodon.social/@EveryPkmnCard/116608443581322064",
+        "date": "2026-05-20T19:09:30.510Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116608478118340470",
+        "summary": "<p>great ball is criminally mid. pokéball erasure</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116608443581322064\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116608443581322064</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116547372537196549",
         "type": "ROBOT",
         "title": "that's heck yeah design actually. a pokemon ability that's also a curse. good stuffhttps://mastodon.social/@PokemonFacts/116547349753268431",
@@ -301,13 +311,63 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-05-12T06:57:34.131Z"
+    "updatedAt": "2026-05-21T07:15:53.279Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru18555584898",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-05-18T10:40:59.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/18555584898",
+        "summary": "Distance: 0.53 mi, Time: 11 min, Elevation: 108 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18506143993",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-05-14T11:54:18.000Z",
+        "image": "sic|Fr~spN`@RVBVCN@z@?jCJbACdAH`@Er@Bv@E|CB?r@DJTJn@BbAEhAAd@Dj@C\\D|AA\\Dp@Kp@?F@FF@D?ZBH",
+        "url": "https://www.strava.com/activities/18506143993",
+        "summary": "Distance: 0.71 mi, Time: 12 min, Elevation: 31 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18505911812",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-05-14T11:26:01.000Z",
+        "image": "{nc|FrsypNwJBeABk@Cc@@oDAeCB{@CkBByC?_@@K?MECSDiAr@iKPcBRmATcAd@wAx@qBz@iBbAmC\\s@\\eB^sCTyCFiBAqGBsAE{E?mEBk@AwCBg@CsA@yBB{@C_AAmEBoCCcG@oORoBJO@KCY]q@AMAcGDyACeA@eBA_EDiANiAJa@jAuCl@cADSDo@La@@w@JE~@AJCCQKIMCg@BOGCKGk@Eq@a@aBGc@C{ANp@DHl@l@",
+        "url": "https://www.strava.com/activities/18505911812",
+        "summary": "Distance: 3.13 mi, Time: 27 min, Elevation: 146 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18480799621",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-05-12T13:37:46.000Z",
+        "image": "s~a|FncxpNA_D@qFCkBDmBAi@MW@OJ_@?ICwA@yBA{BBgACaC?eK@sAA_ABaAAc@MgADYBu@CsC@}ECiBDuCCsEByKAuFCq@Iu@mAoCYi@]gASoAKgACy@v@Et@Bp@Cb@?tAE|@?|FKNDFR?P?dACpA@\\?fADp@Cp@?vACH]VYBe@Lq@`@QPG^IBq@Cs@EK@UTGPIb@?jIAdBBlC?tBCzC?vDBrHErBEf@B\\@t@@xDCvJAd@EX@VHb@EnB@rDHdCE`A@d@Eb@@|@",
+        "url": "https://www.strava.com/activities/18480799621",
+        "summary": "Distance: 3.14 mi, Time: 26 min, Elevation: 174 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18442699341",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-05-09T13:27:52.000Z",
+        "image": "mdf|Fhp{qNQa@F]\\D",
+        "url": "https://www.strava.com/activities/18442699341",
+        "summary": "Distance: 0.71 mi, Time: 13 min, Elevation: 0 ft",
+        "action": "Walked"
+      },
       {
         "id": "t116518760201304652",
         "type": "TOOT",
@@ -430,13 +490,23 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-05-08T06:35:38.219Z"
+    "updatedAt": "2026-05-21T07:15:53.279Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
     "slug": "classic-cinema-study",
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
+      {
+        "id": "bot116598333296594486",
+        "type": "ROBOT",
+        "title": "the iron giant holds up so ridiculously well",
+        "date": "2026-05-19T00:09:32.914Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116598333296594486",
+        "summary": "<p>the iron giant holds up so ridiculously well</p>",
+        "action": "Computed"
+      },
       {
         "id": "bot116592199106165565",
         "type": "ROBOT",
@@ -455,6 +525,16 @@
         "image": "https://a.ltrbxd.com/resized/film-poster/1/8/8/4/1/18841-the-high-sign-0-600-0-900-crop.jpg?v=dad28bc087",
         "url": "https://letterboxd.com/mknepprath/film/the-high-sign/4/",
         "summary": " <p>🍌</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1314867265",
+        "type": "FILM",
+        "title": "The Grand Budapest Hotel",
+        "date": "2026-05-13T22:35:04.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/9/5/1/1/3/95113-the-grand-budapest-hotel-0-600-0-900-crop.jpg?v=6ac71cf4ba",
+        "url": "https://letterboxd.com/mknepprath/film/the-grand-budapest-hotel/3/",
+        "summary": " <p>Peak cinema</p> ",
         "action": "Rewatched"
       },
       {
@@ -479,6 +559,6 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-05-20T07:11:52.669Z"
+    "updatedAt": "2026-05-21T07:15:53.279Z"
   }
 }
