@@ -1,6 +1,8 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 
+import styles from "./2025.module.css";
+
 export const meta: Meta = {
   image: "/assets/2025-in-review-1.jpg",
   published: false,
@@ -23,7 +25,7 @@ export default function ReviewOf2025(): React.ReactNode {
         <h1>{meta.title}</h1>
       </header>
 
-      <p>
+      <p className={styles.noDropCap}>
         Oof. I know nearly halfway through the year is an odd time to drop a
         year-in-review for the previous year, but, I&apos;ll be honest, writing
         a review of all the fun things I did in 2025 felt borderline

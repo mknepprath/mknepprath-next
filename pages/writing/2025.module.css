@@ -1,4 +1,13 @@
 
+.noDropCap::first-letter {
+  font-size: 1em !important;
+  float: none !important;
+  line-height: inherit !important;
+  margin-right: 0 !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+}
+
 .cardContainer {
   display: grid;
   gap: 16px;
