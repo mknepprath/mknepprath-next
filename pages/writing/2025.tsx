@@ -85,15 +85,15 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <h3>June: Michigan</h3>
 
-      <p>Parents retired.</p>
+      <p>My parents retired.</p>
 
       {/* TODO: add Michigan photo */}
 
       <h3>August: Japan</h3>
 
       <p>
-        Joint trip with my cousin and his family from Osaka to Kyoto to Tokyo
-        and ended in Tokyo Disneyland.
+        We took a joint trip with my cousin and his family from Osaka to Kyoto
+        to Tokyo and ended in Tokyo Disneyland.
       </p>
 
       {/* TODO: add Japan photo */}
