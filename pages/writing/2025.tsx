@@ -25,8 +25,10 @@ export default function ReviewOf2025(): React.ReactNode {
         <h1>{meta.title}</h1>
       </header>
 
-      <p className={styles.noDropCap}>
-        Oof. I know nearly halfway through the year is an odd time to drop a
+      <p className={styles.noDropCap}>Oof.</p>
+
+      <p>
+        I know nearly halfway through the year is an odd time to drop a
         year-in-review for the previous year, but, I&apos;ll be honest, writing
         a review of all the fun things I did in 2025 felt borderline
         irresponsible in early 2026. Each time I sat down to write, another
