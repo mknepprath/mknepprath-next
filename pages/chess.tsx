@@ -387,7 +387,7 @@ export default function Chess(): React.ReactNode {
   if (connectionError) {
     return (
       <div className={styles.page}>
-        <h1 className={styles.title}>Chess</h1>
+        <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <p className={styles.error}>Could not connect to game server.</p>
       </div>
     );
@@ -397,9 +397,9 @@ export default function Chess(): React.ReactNode {
   if (!gameCode) {
     return (
       <div className={styles.page}>
-        <Head title="Chess" />
-        <h1 className={styles.title}>Chess</h1>
-        <p className={styles.subtitle}>Real-time · no turns · move as fast as you can</p>
+        <Head title="Knepprath's Double Check Chess" />
+        <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
+        <p className={styles.subtitle}>Real-time · double check to capture the king</p>
         <div className={styles.lobby}>
           <input
             className={styles.input}
@@ -464,8 +464,8 @@ export default function Chess(): React.ReactNode {
     const canStart = (gameState?.players.length ?? 0) >= 2 && gameState?.players.some(p => p.id === playerId);
     return (
       <div className={styles.page}>
-        <Head title="Chess" />
-        <h1 className={styles.title}>Chess</h1>
+        <Head title="Knepprath's Double Check Chess" />
+        <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <div className={styles.waiting}>
           <p>Share this code with your opponent:</p>
           <div className={styles.gameCode}>{gameCode}</div>
@@ -499,8 +499,8 @@ export default function Chess(): React.ReactNode {
     const iWon = gameState.winner === playerId;
     return (
       <div className={styles.page}>
-        <Head title="Chess" />
-        <h1 className={styles.title}>Chess</h1>
+        <Head title="Knepprath's Double Check Chess" />
+        <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <div className={styles.endScreen}>
           <div className={styles.endTitle}>{iWon ? "You win! 🏆" : `${gameState.winnerName} wins`}</div>
           <p className={styles.endSubtitle}>{iWon ? "You captured the king." : "The king was captured."}</p>
