@@ -125,7 +125,7 @@ export default function BillsPc(): React.ReactNode {
 
   useEffect(() => {
     if (tweets?.data) {
-      const results = [];
+      const results: MarkovResult[] = [];
       const markov = new Markov({ stateSize: 1 });
       for (let i = 0; i <= 17; i++) {
         markov.addData(tweets?.data.map((d) => d.text));
