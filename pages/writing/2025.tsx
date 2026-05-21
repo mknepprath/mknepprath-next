@@ -317,7 +317,7 @@ export default function ReviewOf2025(): React.ReactNode {
 
       {/* TODO: add highlights photo */}
 
-      <h2>The Neutral Mediator</h2>
+      <h2>Until Next Time</h2>
 
       <p>
         All of the technology cultivated by my heroes curdling into dystopian
