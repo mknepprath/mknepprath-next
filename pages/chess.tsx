@@ -85,6 +85,35 @@ function buildSwitchbackActive(): Set<string> {
   return s;
 }
 
+function buildArchipelagoActive(): Set<string> {
+  const s = new Set<string>();
+  const add = (f1: number, f2: number, r1: number, r2: number) => {
+    for (let f = f1; f <= f2; f++)
+      for (let r = r1; r <= r2; r++)
+        s.add(`${String.fromCharCode(97 + f)}${r + 1}`);
+  };
+  add(0, 7, 0, 2);  // White home (a-h, ranks 1-3)
+  add(0, 7, 7, 9);  // Black home (a-h, ranks 8-10)
+  add(3, 4, 3, 6);  // Central crossing (d-e, ranks 4-7)
+  add(0, 1, 4, 5);  // Left island (a-b, ranks 5-6) — knight-only
+  add(6, 7, 4, 5);  // Right island (g-h, ranks 5-6) — knight-only
+  return s;
+}
+
+function buildRingRoadActive(): Set<string> {
+  const s = new Set<string>();
+  const add = (f1: number, f2: number, r1: number, r2: number) => {
+    for (let f = f1; f <= f2; f++)
+      for (let r = r1; r <= r2; r++)
+        s.add(`${String.fromCharCode(97 + f)}${r + 1}`);
+  };
+  add(3, 8, 0, 2);  // White home (d-i, ranks 1-3)
+  add(2, 3, 2, 8);  // Left corridor (c-d, ranks 3-9)
+  add(8, 9, 2, 8);  // Right corridor (i-j, ranks 3-9)
+  add(3, 8, 8, 10); // Black home (d-i, ranks 9-11)
+  return s;
+}
+
 function buildWishboneActive(): Set<string> {
   const s = new Set<string>();
   const add = (f1: number, f2: number, r1: number, r2: number) => {
@@ -110,6 +139,17 @@ const CLIENT_MAPS: Record<string, MapDef> = {
   dumbbell: {
     id: "dumbbell", name: "The Dumbbell", files: 6, ranks: 14, active: buildDumbbellActive(), maxPlayers: 2,
     whitePawnStartR: 1, blackPawnStartR: 12, whitePromoteR: 13, blackPromoteR: 0,
+  },
+  archipelago: {
+    id: "archipelago", name: "The Archipelago", files: 8, ranks: 10, active: buildArchipelagoActive(), maxPlayers: 2,
+    whitePawnStartR: 1, blackPawnStartR: 8, whitePromoteR: 9, blackPromoteR: 0,
+  },
+  ringRoad: {
+    id: "ringRoad", name: "The Ring Road", files: 12, ranks: 11, active: buildRingRoadActive(), maxPlayers: 2,
+    playerSlots: [
+      { color: "white", homeFiles: [3,4,5,6,7,8], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 10, dir:  1 },
+      { color: "black", homeFiles: [3,4,5,6,7,8], backR: 10, pawnR: 9,  pawnStartR: 9,  promoteR: 0,  dir: -1 },
+    ],
   },
   switchback: {
     id: "switchback", name: "The Switchback", files: 10, ranks: 12, active: buildSwitchbackActive(), maxPlayers: 4,
