@@ -6,7 +6,7 @@ import styles from "./chess.module.css";
 // ── Types ──────────────────────────────────────────────────────────────────
 
 type PieceType = "king" | "queen" | "rook" | "bishop" | "knight" | "pawn";
-type Color = "white" | "black";
+type Color = "white" | "black" | "red" | "green";
 
 interface Piece {
   type: PieceType;
@@ -28,12 +28,22 @@ interface ChessGame {
   players: Player[];
   board: Record<string, Piece>;
   cooldowns: Record<string, number>;
-  inCheck: { white: boolean; black: boolean };
+  inCheck: Record<string, boolean>;
   gameStarted: boolean;
   gameEnded: boolean;
   winner: string | null;
   winnerName: string | null;
   status: "waiting" | "playing" | "ended";
+}
+
+interface PlayerSlot {
+  color: Color;
+  homeFiles: number[];
+  backR: number;
+  pawnR: number;
+  pawnStartR: number;
+  promoteR: number;
+  dir: number;
 }
 
 interface MapDef {
@@ -42,10 +52,12 @@ interface MapDef {
   files: number;
   ranks: number;
   active: Set<string> | null;
-  whitePawnStartR: number;
-  blackPawnStartR: number;
-  whitePromoteR: number;
-  blackPromoteR: number;
+  maxPlayers: number;
+  playerSlots?: PlayerSlot[];
+  whitePawnStartR?: number;
+  blackPawnStartR?: number;
+  whitePromoteR?: number;
+  blackPromoteR?: number;
 }
 
 // ── Map definitions (mirrors chess-maps.js) ───────────────────────────────
@@ -59,16 +71,37 @@ function buildDumbbellActive(): Set<string> {
   return s;
 }
 
+function buildSwitchbackActive(): Set<string> {
+  const s = new Set<string>();
+  const add = (f1: number, f2: number, r1: number, r2: number) => {
+    for (let f = f1; f <= f2; f++)
+      for (let r = r1; r <= r2; r++)
+        s.add(`${String.fromCharCode(97 + f)}${r + 1}`);
+  };
+  add(0, 3, 0, 2); add(6, 9, 0, 2); add(0, 3, 9, 11); add(6, 9, 9, 11);
+  add(3, 4, 3, 5); add(5, 6, 3, 4); add(3, 6, 4, 5);
+  add(2, 3, 5, 8); add(6, 7, 4, 8); add(3, 7, 7, 8);
+  add(2, 3, 8, 9); add(6, 7, 8, 9);
+  return s;
+}
+
 const CLIENT_MAPS: Record<string, MapDef> = {
   standard: {
-    id: "standard", name: "Standard",
-    files: 8, ranks: 8, active: null,
+    id: "standard", name: "Standard", files: 8, ranks: 8, active: null, maxPlayers: 2,
     whitePawnStartR: 1, blackPawnStartR: 6, whitePromoteR: 7, blackPromoteR: 0,
   },
   dumbbell: {
-    id: "dumbbell", name: "The Dumbbell",
-    files: 6, ranks: 14, active: buildDumbbellActive(),
+    id: "dumbbell", name: "The Dumbbell", files: 6, ranks: 14, active: buildDumbbellActive(), maxPlayers: 2,
     whitePawnStartR: 1, blackPawnStartR: 12, whitePromoteR: 13, blackPromoteR: 0,
+  },
+  switchback: {
+    id: "switchback", name: "The Switchback", files: 10, ranks: 12, active: buildSwitchbackActive(), maxPlayers: 4,
+    playerSlots: [
+      { color: "white", homeFiles: [0,1,2,3], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 11, dir:  1 },
+      { color: "green", homeFiles: [6,7,8,9], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 11, dir:  1 },
+      { color: "red",   homeFiles: [0,1,2,3], backR: 11, pawnR: 10, pawnStartR: 10, promoteR: 0,  dir: -1 },
+      { color: "black", homeFiles: [6,7,8,9], backR: 11, pawnR: 10, pawnStartR: 10, promoteR: 0,  dir: -1 },
+    ],
   },
 };
 
@@ -77,6 +110,22 @@ const CLIENT_MAPS: Record<string, MapDef> = {
 const PIECE_GLYPHS: Record<Color, Record<PieceType, string>> = {
   white: { king: "♔", queen: "♕", rook: "♖", bishop: "♗", knight: "♘", pawn: "♙" },
   black: { king: "♚", queen: "♛", rook: "♜", bishop: "♝", knight: "♞", pawn: "♟" },
+  red:   { king: "♔", queen: "♕", rook: "♖", bishop: "♗", knight: "♘", pawn: "♙" },
+  green: { king: "♚", queen: "♛", rook: "♜", bishop: "♝", knight: "♞", pawn: "♟" },
+};
+
+const PIECE_CSS: Record<Color, string> = {
+  white: styles.whitePiece,
+  black: styles.blackPiece,
+  red: styles.redPiece,
+  green: styles.greenPiece,
+};
+
+const PLAYER_TAG_CSS: Record<Color, string> = {
+  white: styles.playerTagWhite,
+  black: styles.playerTagBlack,
+  red: styles.playerTagRed,
+  green: styles.playerTagGreen,
 };
 
 const COOLDOWN_MS = 1500;
@@ -86,6 +135,15 @@ const COOLDOWN_MS = 1500;
 function fileIdx(f: string) { return f.charCodeAt(0) - 97; }
 function toPos(f: number, r: number) { return `${String.fromCharCode(97 + f)}${r + 1}`; }
 function fromPos(pos: string) { return { f: fileIdx(pos[0]), r: parseInt(pos.slice(1)) - 1 }; }
+
+function getPawnConfig(color: Color, map: MapDef): { dir: number; startR: number } {
+  if (map.playerSlots) {
+    const slot = map.playerSlots.find(s => s.color === color);
+    if (slot) return { dir: slot.dir, startR: slot.pawnStartR };
+  }
+  if (color === "white") return { dir: 1, startR: map.whitePawnStartR ?? 1 };
+  return { dir: -1, startR: map.blackPawnStartR ?? 6 };
+}
 
 function getLegalMoves(board: Record<string, Piece>, from: string, color: Color, map: MapDef): string[] {
   const piece = board[from];
@@ -120,8 +178,7 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color,
 
   switch (piece.type) {
     case "pawn": {
-      const dir = color === "white" ? 1 : -1;
-      const startR = color === "white" ? map.whitePawnStartR : map.blackPawnStartR;
+      const { dir, startR } = getPawnConfig(color, map);
       if (canLand(f, r + dir) && !board[toPos(f, r + dir)]) {
         moves.push(toPos(f, r + dir));
         if (r === startR && canLand(f, r + dir * 2) && !board[toPos(f, r + dir * 2)]) {
@@ -183,7 +240,6 @@ export default function Chess(): React.ReactNode {
   const [now, setNow] = useState(() => Date.now());
   const [opponentCursor, setOpponentCursor] = useState<{ hover: string | null; selected: string | null }>({ hover: null, selected: null });
 
-  // Keep stable refs to avoid stale closures in socket callbacks
   const myColorRef = useRef(myColor);
   const gameCodeRef = useRef(gameCode);
   const playerIdRef = useRef(playerId);
@@ -201,13 +257,11 @@ export default function Chess(): React.ReactNode {
     socketRef.current?.emit("cursorUpdate", { gameCode: gameCodeRef.current, hover, selected });
   }, []);
 
-  // Tick for cooldown countdowns
   useEffect(() => {
     const id = setInterval(() => setNow(Date.now()), 100);
     return () => clearInterval(id);
   }, []);
 
-  // Socket setup
   useEffect(() => {
     const url = process.env.NEXT_PUBLIC_GAME_SERVER_URL || "";
     const newSocket = io(`${url}/chess`, {
@@ -242,12 +296,8 @@ export default function Chess(): React.ReactNode {
 
     newSocket.on("gameStateUpdate", (state: ChessGame) => {
       setGameState(state);
-      const pid = newSocket.id;
-      const me = state.players.find((p) => p.id === pid);
-      if (me) {
-        setMyColor(me.color);
-        myColorRef.current = me.color;
-      }
+      const me = state.players.find((p) => p.id === newSocket.id);
+      if (me) { setMyColor(me.color); myColorRef.current = me.color; }
       if (state.gameEnded) { setSelectedSquare(null); setLegalMoves([]); }
     });
 
@@ -261,14 +311,16 @@ export default function Chess(): React.ReactNode {
     });
 
     const hb = setInterval(() => newSocket.emit("heartbeat"), 5000);
-
-    return () => {
-      clearInterval(hb);
-      newSocket.disconnect();
-    };
+    return () => { clearInterval(hb); newSocket.disconnect(); };
   }, []);
 
   // ── Actions ──
+
+  const handleReturnToLobby = useCallback(() => {
+    setGameCode(""); setGameState(null); setPlayerId(""); setMyColor(null);
+    setSelectedSquare(null); setLegalMoves([]); setJoinMode(null);
+    gameCodeRef.current = ""; playerIdRef.current = ""; myColorRef.current = null;
+  }, []);
 
   const handlePlayVsBot = () => {
     if (!socket || !playerName.trim()) return;
@@ -296,8 +348,7 @@ export default function Chess(): React.ReactNode {
   const handlePlayAgain = () => {
     if (!socket || !gameCode) return;
     socket.emit("playAgain", { gameCode });
-    setSelectedSquare(null);
-    setLegalMoves([]);
+    setSelectedSquare(null); setLegalMoves([]);
   };
 
   // ── Board interaction ──
@@ -307,8 +358,7 @@ export default function Chess(): React.ReactNode {
     const color = myColorRef.current;
     if (!color) return;
     const map = CLIENT_MAPS[gameState.mapId ?? "standard"] ?? CLIENT_MAPS.standard;
-    const coolUntil = gameState.cooldowns?.[sq] ?? 0;
-    if (coolUntil > Date.now()) return;
+    if ((gameState.cooldowns?.[sq] ?? 0) > Date.now()) return;
     const moves = getLegalMoves(gameState.board, sq, color, map).filter(to => {
       const target = gameState.board[to];
       if (target?.type === "king") return countAttackers(gameState.board, to, color, map) >= 2;
@@ -323,20 +373,17 @@ export default function Chess(): React.ReactNode {
   const handleSquareClick = useCallback((sq: string) => {
     if (!gameState?.gameStarted || gameState.gameEnded || !myColor || !socket || !gameCode) return;
     const piece = gameState.board[sq];
-
     if (selectedSquare) {
       if (legalMoves.includes(sq)) {
         socket.emit("movePiece", { gameCode, from: selectedSquare, to: sq });
         selectedSquareRef.current = null;
-        setSelectedSquare(null);
-        setLegalMoves([]);
+        setSelectedSquare(null); setLegalMoves([]);
         emitCursor(hoveredSquareRef.current, null);
       } else if (piece && piece.color === myColor) {
         selectSquare(sq);
       } else {
         selectedSquareRef.current = null;
-        setSelectedSquare(null);
-        setLegalMoves([]);
+        setSelectedSquare(null); setLegalMoves([]);
         emitCursor(hoveredSquareRef.current, null);
       }
     } else {
@@ -351,8 +398,12 @@ export default function Chess(): React.ReactNode {
 
     const rankList = Array.from({ length: map.ranks }, (_, i) => i + 1);
     const fileList = Array.from({ length: map.files }, (_, i) => String.fromCharCode(97 + i));
-    const rankOrder = myColor === "black" ? rankList : [...rankList].reverse();
-    const fileOrder = myColor === "black" ? [...fileList].reverse() : fileList;
+    const is4Player = (map.maxPlayers ?? 2) > 2;
+    // 4-player: red/black flip ranks only; 2-player: black flips ranks+files
+    const flipRanks = is4Player ? (myColor === "red" || myColor === "black") : myColor === "black";
+    const flipFiles = is4Player ? false : myColor === "black";
+    const rankOrder = flipRanks ? rankList : [...rankList].reverse();
+    const fileOrder = flipFiles ? [...fileList].reverse() : fileList;
     const totalRanks = rankOrder.length;
 
     return rankOrder.flatMap((rank, ri) =>
@@ -404,19 +455,17 @@ export default function Chess(): React.ReactNode {
             {piece && (
               <span className={[
                 styles.piece,
-                piece.color === "white" ? styles.whitePiece : styles.blackPiece,
+                PIECE_CSS[piece.color] ?? styles.whitePiece,
                 onCooldown ? styles.cooldownPiece : "",
               ].filter(Boolean).join(" ")}>
-                {PIECE_GLYPHS[piece.color][piece.type]}
+                {PIECE_GLYPHS[piece.color]?.[piece.type]}
               </span>
             )}
             {onCooldown && (
               <>
                 <div className={styles.cooldownBar} style={{ width: `${coolFrac * 100}%` }} />
                 <div className={styles.cooldownOverlay}>
-                  <span className={styles.cooldownBadge}>
-                    {((coolUntil - now) / 1000).toFixed(1)}s
-                  </span>
+                  <span className={styles.cooldownBadge}>{((coolUntil - now) / 1000).toFixed(1)}s</span>
                 </div>
               </>
             )}
@@ -442,6 +491,8 @@ export default function Chess(): React.ReactNode {
 
   // Lobby
   if (!gameCode) {
+    const selectedMap = CLIENT_MAPS[mapId] ?? CLIENT_MAPS.standard;
+    const botUnavailable = (selectedMap.maxPlayers ?? 2) > 2;
     return (
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
@@ -453,7 +504,7 @@ export default function Chess(): React.ReactNode {
             placeholder="Your name"
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handlePlayVsBot()}
+            onKeyDown={(e) => e.key === "Enter" && !botUnavailable && handlePlayVsBot()}
             maxLength={20}
           />
           {joinMode === "join" && (
@@ -478,14 +529,16 @@ export default function Chess(): React.ReactNode {
               </button>
             ))}
           </div>
-          <button
-            className={`${styles.btn} ${styles.btnPrimary}`}
-            onClick={handlePlayVsBot}
-            disabled={!playerName.trim() || joinMode === "join"}
-            style={{ width: "100%" }}
-          >
-            Play vs Bot
-          </button>
+          {!botUnavailable && (
+            <button
+              className={`${styles.btn} ${styles.btnPrimary}`}
+              onClick={handlePlayVsBot}
+              disabled={!playerName.trim() || joinMode === "join"}
+              style={{ width: "100%" }}
+            >
+              Play vs Bot
+            </button>
+          )}
           <div className={styles.lobbyButtons}>
             <button
               className={`${styles.btn} ${styles.btnSecondary}`}
@@ -520,26 +573,27 @@ export default function Chess(): React.ReactNode {
 
   // Waiting room
   if (!gameState?.gameStarted) {
-    const canStart = (gameState?.players.length ?? 0) >= 2 && gameState?.players.some(p => p.id === playerId);
     const waitingMap = CLIENT_MAPS[gameState?.mapId ?? mapId] ?? CLIENT_MAPS.standard;
+    const maxP = waitingMap.maxPlayers ?? 2;
+    const canStart = (gameState?.players.length ?? 0) >= maxP && gameState?.players.some(p => p.id === playerId);
     return (
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
         <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <div className={styles.waiting}>
-          <p>Share this code with your opponent:</p>
+          <p>Share this code with your {maxP === 4 ? "3 opponents" : "opponent"}:</p>
           <div className={styles.gameCode}>{gameCode}</div>
-          <p className={styles.status}>Map: {waitingMap.name}</p>
+          <p className={styles.status}>Map: {waitingMap.name} · {maxP} players</p>
           <ul className={styles.playerList}>
             {gameState?.players.map((p) => (
               <li key={p.id}>
-                <span className={`${styles.colorDot} ${p.color === "white" ? styles.colorDotWhite : styles.colorDotBlack}`} />
+                <span className={`${styles.colorDot} ${styles[`colorDot${p.color.charAt(0).toUpperCase() + p.color.slice(1)}`]}`} />
                 {p.name} {p.id === playerId && "(you)"}
               </li>
             ))}
-            {(gameState?.players.length ?? 0) < 2 && (
-              <li style={{ opacity: 0.5 }}>Waiting for opponent…</li>
-            )}
+            {Array.from({ length: Math.max(0, maxP - (gameState?.players.length ?? 0)) }).map((_, i) => (
+              <li key={`empty-${i}`} style={{ opacity: 0.5 }}>Waiting for player…</li>
+            ))}
           </ul>
           <button
             className={`${styles.btn} ${styles.btnPrimary}`}
@@ -556,14 +610,13 @@ export default function Chess(): React.ReactNode {
   }
 
   const currentMap = CLIENT_MAPS[gameState.mapId ?? "standard"] ?? CLIENT_MAPS.standard;
+  const is4Player = (currentMap.maxPlayers ?? 2) > 2;
   const boardStyle: React.CSSProperties = {
     gridTemplateColumns: `repeat(${currentMap.files}, 1fr)`,
     width: `min(${currentMap.files * 60}px, 100vw - 32px)`,
     aspectRatio: `${currentMap.files} / ${currentMap.ranks}`,
   };
-  const playerInfoStyle: React.CSSProperties = {
-    width: `min(${currentMap.files * 60}px, 100vw - 32px)`,
-  };
+  const boardWidth = `min(${currentMap.files * 60}px, 100vw - 32px)`;
 
   // End screen
   if (gameState.gameEnded) {
@@ -574,17 +627,19 @@ export default function Chess(): React.ReactNode {
         <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <div className={styles.endScreen}>
           <div className={styles.endTitle}>{iWon ? "You win! 🏆" : `${gameState.winnerName} wins`}</div>
-          <p className={styles.endSubtitle}>{iWon ? "You captured the king." : "The king was captured."}</p>
+          <p className={styles.endSubtitle}>{iWon ? "You captured the last king." : "The last king was captured."}</p>
           <div className={styles.board} style={{ ...boardStyle, marginBottom: 0 }}>
             {renderBoard(currentMap)}
           </div>
-          <button
-            className={`${styles.btn} ${styles.btnPrimary}`}
-            onClick={handlePlayAgain}
-            style={{ width: "100%" }}
-          >
-            {gameState.singlePlayer ? "Play again" : "Play again (colors swap)"}
-          </button>
+          {is4Player ? (
+            <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleReturnToLobby} style={{ width: "100%" }}>
+              Return to lobby
+            </button>
+          ) : (
+            <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={handlePlayAgain} style={{ width: "100%" }}>
+              {gameState.singlePlayer ? "Play again" : "Play again (colors swap)"}
+            </button>
+          )}
         </div>
       </div>
     );
@@ -592,30 +647,50 @@ export default function Chess(): React.ReactNode {
 
   // Active game
   const me = gameState.players.find((p) => p.id === playerId);
-  const opponent = gameState.players.find((p) => p.id !== playerId);
-  const myInCheck = myColor ? gameState.inCheck[myColor] : false;
-  const oppInCheck = myColor ? gameState.inCheck[myColor === "white" ? "black" : "white"] : false;
+  const myInCheck = myColor ? (gameState.inCheck[myColor] ?? false) : false;
 
   return (
     <div className={styles.page}>
       <Head title="Chess" />
       <div className={styles.gameLayout}>
-        <div className={styles.playerInfo} style={playerInfoStyle}>
-          {opponent && (
-            <div className={`${styles.playerTag} ${oppInCheck ? styles.inCheck : ""}`}>
-              <span>{PIECE_GLYPHS[opponent.color].king}</span>
-              {opponent.name}
-              {oppInCheck && " — check!"}
-            </div>
-          )}
-          {me && (
-            <div className={`${styles.playerTag} ${styles.isYou} ${myInCheck ? styles.inCheck : ""}`}>
-              <span>{PIECE_GLYPHS[me.color].king}</span>
-              {me.name} (you)
-              {myInCheck && " — check!"}
-            </div>
-          )}
-        </div>
+        {is4Player ? (
+          <div className={styles.playerInfo4} style={{ width: boardWidth }}>
+            {gameState.players.map(p => {
+              const inCheckForP = gameState.inCheck[p.color] ?? false;
+              const isMe = p.id === playerId;
+              return (
+                <div
+                  key={p.id}
+                  className={[
+                    styles.playerTag,
+                    PLAYER_TAG_CSS[p.color],
+                    isMe ? styles.isYou4 : "",
+                    inCheckForP ? styles.inCheck : "",
+                  ].filter(Boolean).join(" ")}
+                >
+                  <span>{PIECE_GLYPHS[p.color].king}</span>
+                  {p.name}{isMe && " ✓"}{inCheckForP && " ⚠"}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className={styles.playerInfo} style={{ width: boardWidth }}>
+            {gameState.players.filter(p => p.id !== playerId).map(opp => (
+              <div key={opp.id} className={`${styles.playerTag} ${gameState.inCheck[opp.color] ? styles.inCheck : ""}`}>
+                <span>{PIECE_GLYPHS[opp.color].king}</span>
+                {opp.name}
+                {gameState.inCheck[opp.color] && " — check!"}
+              </div>
+            ))}
+            {me && (
+              <div className={`${styles.playerTag} ${styles.isYou} ${myInCheck ? styles.inCheck : ""}`}>
+                <span>{PIECE_GLYPHS[me.color].king}</span>
+                {me.name} (you){myInCheck && " — check!"}
+              </div>
+            )}
+          </div>
+        )}
 
         <div
           className={styles.board}

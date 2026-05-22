@@ -142,6 +142,35 @@
 
 .colorDotWhite { background: #fff; }
 .colorDotBlack { background: #1a1a1a; }
+.colorDotRed   { background: #c0392b; }
+.colorDotGreen { background: #27ae60; }
+
+/* ── Player tag colors (4-player) ── */
+.playerTagWhite {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.playerTagBlack {
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.playerTagRed {
+  background: #c0392b;
+  color: #fff;
+}
+
+.playerTagGreen {
+  background: #27ae60;
+  color: #fff;
+}
+
+.isYou4 {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  font-weight: 700;
+}
 
 /* ── Board ── */
 .gameLayout {
@@ -155,6 +184,15 @@
 .playerInfo {
   display: flex;
   justify-content: space-between;
+  font-size: 0.875rem;
+  /* width set via inline style based on map */
+}
+
+.playerInfo4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
   font-size: 0.875rem;
   /* width set via inline style based on map */
 }
@@ -246,6 +284,18 @@
   color: #1a1a1a;
   text-shadow: 0 0 1px rgba(255,255,255,0.3);
   filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4));
+}
+
+.redPiece {
+  color: #c0392b;
+  text-shadow: 0 0 2px #000, 0 0 4px rgba(0,0,0,0.5);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+}
+
+.greenPiece {
+  color: #27ae60;
+  text-shadow: 0 0 2px #000, 0 0 4px rgba(0,0,0,0.5);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
 }
 
 .cooldownPiece {
