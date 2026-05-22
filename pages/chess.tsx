@@ -23,6 +23,7 @@ interface Player {
 
 interface ChessGame {
   id: string;
+  mapId?: string;
   singlePlayer?: boolean;
   players: Player[];
   board: Record<string, Piece>;
@@ -35,14 +36,41 @@ interface ChessGame {
   status: "waiting" | "playing" | "ended";
 }
 
-function countAttackers(board: Record<string, Piece>, square: string, attackerColor: Color): number {
-  let count = 0;
-  for (const from of Object.keys(board)) {
-    if (board[from].color !== attackerColor) continue;
-    if (getLegalMoves(board, from, attackerColor).includes(square)) count++;
-  }
-  return count;
+interface MapDef {
+  id: string;
+  name: string;
+  files: number;
+  ranks: number;
+  active: Set<string> | null;
+  whitePawnStartR: number;
+  blackPawnStartR: number;
+  whitePromoteR: number;
+  blackPromoteR: number;
 }
+
+// ── Map definitions (mirrors chess-maps.js) ───────────────────────────────
+
+function buildDumbbellActive(): Set<string> {
+  const s = new Set<string>();
+  const p = (f: number, r: number) => `${String.fromCharCode(97 + f)}${r + 1}`;
+  for (let r = 0; r < 4; r++) for (let f = 0; f < 6; f++) s.add(p(f, r));
+  for (let r = 4; r < 10; r++) for (const f of [2, 3]) s.add(p(f, r));
+  for (let r = 10; r < 14; r++) for (let f = 0; f < 6; f++) s.add(p(f, r));
+  return s;
+}
+
+const CLIENT_MAPS: Record<string, MapDef> = {
+  standard: {
+    id: "standard", name: "Standard",
+    files: 8, ranks: 8, active: null,
+    whitePawnStartR: 1, blackPawnStartR: 6, whitePromoteR: 7, blackPromoteR: 0,
+  },
+  dumbbell: {
+    id: "dumbbell", name: "The Dumbbell",
+    files: 6, ranks: 14, active: buildDumbbellActive(),
+    whitePawnStartR: 1, blackPawnStartR: 12, whitePromoteR: 13, blackPromoteR: 0,
+  },
+};
 
 // ── Constants ──────────────────────────────────────────────────────────────
 
@@ -51,25 +79,30 @@ const PIECE_GLYPHS: Record<Color, Record<PieceType, string>> = {
   black: { king: "♚", queen: "♛", rook: "♜", bishop: "♝", knight: "♞", pawn: "♟" },
 };
 
-const FILES = ["a", "b", "c", "d", "e", "f", "g", "h"];
 const COOLDOWN_MS = 1500;
 
 // ── Move calculation (mirrors chess-server.js) ────────────────────────────
 
 function fileIdx(f: string) { return f.charCodeAt(0) - 97; }
 function toPos(f: number, r: number) { return `${String.fromCharCode(97 + f)}${r + 1}`; }
-function fromPos(pos: string) { return { f: fileIdx(pos[0]), r: parseInt(pos[1]) - 1 }; }
+function fromPos(pos: string) { return { f: fileIdx(pos[0]), r: parseInt(pos.slice(1)) - 1 }; }
 
-function getLegalMoves(board: Record<string, Piece>, from: string, color: Color): string[] {
+function getLegalMoves(board: Record<string, Piece>, from: string, color: Color, map: MapDef): string[] {
   const piece = board[from];
   if (!piece || piece.color !== color) return [];
 
   const { f, r } = fromPos(from);
   const moves: string[] = [];
 
+  const canLand = (tf: number, tr: number) => {
+    if (tf < 0 || tf >= map.files || tr < 0 || tr >= map.ranks) return false;
+    if (map.active && !map.active.has(toPos(tf, tr))) return false;
+    return true;
+  };
+
   const slide = (df: number, dr: number) => {
     let tf = f + df, tr = r + dr;
-    while (tf >= 0 && tf <= 7 && tr >= 0 && tr <= 7) {
+    while (canLand(tf, tr)) {
       const dest = toPos(tf, tr);
       const dp = board[dest];
       if (dp) { if (dp.color !== color) moves.push(dest); break; }
@@ -80,7 +113,7 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color)
 
   const step = (df: number, dr: number) => {
     const tf = f + df, tr = r + dr;
-    if (tf < 0 || tf > 7 || tr < 0 || tr > 7) return;
+    if (!canLand(tf, tr)) return;
     const dest = toPos(tf, tr);
     if (!board[dest] || board[dest].color !== color) moves.push(dest);
   };
@@ -88,16 +121,16 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color)
   switch (piece.type) {
     case "pawn": {
       const dir = color === "white" ? 1 : -1;
-      const startR = color === "white" ? 1 : 6;
-      const fwd = toPos(f, r + dir);
-      if (r + dir >= 0 && r + dir <= 7 && !board[fwd]) {
-        moves.push(fwd);
-        if (r === startR) { const fwd2 = toPos(f, r + dir * 2); if (!board[fwd2]) moves.push(fwd2); }
+      const startR = color === "white" ? map.whitePawnStartR : map.blackPawnStartR;
+      if (canLand(f, r + dir) && !board[toPos(f, r + dir)]) {
+        moves.push(toPos(f, r + dir));
+        if (r === startR && canLand(f, r + dir * 2) && !board[toPos(f, r + dir * 2)]) {
+          moves.push(toPos(f, r + dir * 2));
+        }
       }
       for (const df of [-1, 1]) {
-        const tf = f + df, tr = r + dir;
-        if (tf >= 0 && tf <= 7 && tr >= 0 && tr <= 7) {
-          const cap = toPos(tf, tr);
+        if (canLand(f + df, r + dir)) {
+          const cap = toPos(f + df, r + dir);
           if (board[cap] && board[cap].color !== color) moves.push(cap);
         }
       }
@@ -122,6 +155,15 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color)
   return moves;
 }
 
+function countAttackers(board: Record<string, Piece>, square: string, attackerColor: Color, map: MapDef): number {
+  let count = 0;
+  for (const from of Object.keys(board)) {
+    if (board[from].color !== attackerColor) continue;
+    if (getLegalMoves(board, from, attackerColor, map).includes(square)) count++;
+  }
+  return count;
+}
+
 // ── Component ──────────────────────────────────────────────────────────────
 
 export default function Chess(): React.ReactNode {
@@ -135,6 +177,7 @@ export default function Chess(): React.ReactNode {
   const [selectedSquare, setSelectedSquare] = useState<string | null>(null);
   const [legalMoves, setLegalMoves] = useState<string[]>([]);
   const [joinMode, setJoinMode] = useState<"create" | "join" | null>(null);
+  const [mapId, setMapId] = useState("standard");
   const [errorMsg, setErrorMsg] = useState("");
   const [connectionError, setConnectionError] = useState(false);
   const [now, setNow] = useState(() => Date.now());
@@ -179,7 +222,6 @@ export default function Chess(): React.ReactNode {
       const gc = gameCodeRef.current;
       const pid = playerIdRef.current;
       if (gc && pid) {
-        // Socket reconnected mid-game; re-associate the new socket ID with our player slot.
         newSocket.emit("rejoinGame", { gameCode: gc, playerId: pid });
         setPlayerId(newSocket.id!);
       }
@@ -200,14 +242,12 @@ export default function Chess(): React.ReactNode {
 
     newSocket.on("gameStateUpdate", (state: ChessGame) => {
       setGameState(state);
-      // Resolve our color from the updated player list
       const pid = newSocket.id;
       const me = state.players.find((p) => p.id === pid);
       if (me) {
         setMyColor(me.color);
         myColorRef.current = me.color;
       }
-      // Clear selection when game ends
       if (state.gameEnded) { setSelectedSquare(null); setLegalMoves([]); }
     });
 
@@ -232,13 +272,13 @@ export default function Chess(): React.ReactNode {
 
   const handlePlayVsBot = () => {
     if (!socket || !playerName.trim()) return;
-    socket.emit("createSinglePlayerGame", { playerName: playerName.trim() });
+    socket.emit("createSinglePlayerGame", { playerName: playerName.trim(), mapId });
     setJoinMode("create");
   };
 
   const handleCreate = () => {
     if (!socket || !playerName.trim()) return;
-    socket.emit("createGame", { playerName: playerName.trim() });
+    socket.emit("createGame", { playerName: playerName.trim(), mapId });
     setJoinMode("create");
   };
 
@@ -266,11 +306,12 @@ export default function Chess(): React.ReactNode {
     if (!gameState) return;
     const color = myColorRef.current;
     if (!color) return;
+    const map = CLIENT_MAPS[gameState.mapId ?? "standard"] ?? CLIENT_MAPS.standard;
     const coolUntil = gameState.cooldowns?.[sq] ?? 0;
-    if (coolUntil > Date.now()) return; // on cooldown
-    const moves = getLegalMoves(gameState.board, sq, color).filter(to => {
+    if (coolUntil > Date.now()) return;
+    const moves = getLegalMoves(gameState.board, sq, color, map).filter(to => {
       const target = gameState.board[to];
-      if (target?.type === "king") return countAttackers(gameState.board, to, color) >= 2;
+      if (target?.type === "king") return countAttackers(gameState.board, to, color, map) >= 2;
       return true;
     });
     selectedSquareRef.current = sq;
@@ -305,17 +346,30 @@ export default function Chess(): React.ReactNode {
 
   // ── Render helpers ──
 
-  const renderBoard = () => {
+  const renderBoard = (map: MapDef) => {
     if (!gameState?.board) return null;
 
-    // White: rank 8 at top → ranks 8..1, files a..h
-    // Black: rank 1 at top → ranks 1..8, files h..a (flipped)
-    const rankOrder = myColor === "black" ? [1,2,3,4,5,6,7,8] : [8,7,6,5,4,3,2,1];
-    const fileOrder = myColor === "black" ? ["h","g","f","e","d","c","b","a"] : FILES;
+    const rankList = Array.from({ length: map.ranks }, (_, i) => i + 1);
+    const fileList = Array.from({ length: map.files }, (_, i) => String.fromCharCode(97 + i));
+    const rankOrder = myColor === "black" ? rankList : [...rankList].reverse();
+    const fileOrder = myColor === "black" ? [...fileList].reverse() : fileList;
+    const totalRanks = rankOrder.length;
 
     return rankOrder.flatMap((rank, ri) =>
       fileOrder.map((file, fi) => {
         const sq = `${file}${rank}`;
+        const isActive = !map.active || map.active.has(sq);
+        const showRankLabel = fi === 0;
+        const showFileLabel = ri === totalRanks - 1;
+
+        if (!isActive) {
+          return (
+            <div key={sq} className={styles.inactiveSquare}>
+              {showRankLabel && <span className={styles.rankLabel}>{rank}</span>}
+            </div>
+          );
+        }
+
         const piece = gameState.board[sq];
         const isLight = (fileIdx(file) + rank) % 2 === 1;
         const isSelected = selectedSquare === sq;
@@ -324,9 +378,6 @@ export default function Chess(): React.ReactNode {
         const coolUntil = gameState.cooldowns?.[sq] ?? 0;
         const onCooldown = coolUntil > now;
         const coolFrac = onCooldown ? Math.max(0, (coolUntil - now) / COOLDOWN_MS) : 0;
-
-        const showRankLabel = fi === 0;
-        const showFileLabel = ri === 7;
         const isOpponentSelected = opponentCursor.selected === sq;
         const isOpponentHover = opponentCursor.hover === sq && !isOpponentSelected;
 
@@ -348,12 +399,8 @@ export default function Chess(): React.ReactNode {
               emitCursor(sq, selectedSquareRef.current);
             }}
           >
-            {showRankLabel && (
-              <span className={styles.rankLabel}>{rank}</span>
-            )}
-            {showFileLabel && (
-              <span className={styles.fileLabel}>{file}</span>
-            )}
+            {showRankLabel && <span className={styles.rankLabel}>{rank}</span>}
+            {showFileLabel && <span className={styles.fileLabel}>{file}</span>}
             {piece && (
               <span className={[
                 styles.piece,
@@ -419,6 +466,18 @@ export default function Chess(): React.ReactNode {
               autoFocus
             />
           )}
+          <div className={styles.mapSelector}>
+            <span className={styles.mapLabel}>Map:</span>
+            {Object.values(CLIENT_MAPS).map(m => (
+              <button
+                key={m.id}
+                className={`${styles.btn} ${styles.mapBtn} ${mapId === m.id ? styles.btnPrimary : styles.btnSecondary}`}
+                onClick={() => setMapId(m.id)}
+              >
+                {m.name}
+              </button>
+            ))}
+          </div>
           <button
             className={`${styles.btn} ${styles.btnPrimary}`}
             onClick={handlePlayVsBot}
@@ -462,6 +521,7 @@ export default function Chess(): React.ReactNode {
   // Waiting room
   if (!gameState?.gameStarted) {
     const canStart = (gameState?.players.length ?? 0) >= 2 && gameState?.players.some(p => p.id === playerId);
+    const waitingMap = CLIENT_MAPS[gameState?.mapId ?? mapId] ?? CLIENT_MAPS.standard;
     return (
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
@@ -469,6 +529,7 @@ export default function Chess(): React.ReactNode {
         <div className={styles.waiting}>
           <p>Share this code with your opponent:</p>
           <div className={styles.gameCode}>{gameCode}</div>
+          <p className={styles.status}>Map: {waitingMap.name}</p>
           <ul className={styles.playerList}>
             {gameState?.players.map((p) => (
               <li key={p.id}>
@@ -494,6 +555,16 @@ export default function Chess(): React.ReactNode {
     );
   }
 
+  const currentMap = CLIENT_MAPS[gameState.mapId ?? "standard"] ?? CLIENT_MAPS.standard;
+  const boardStyle: React.CSSProperties = {
+    gridTemplateColumns: `repeat(${currentMap.files}, 1fr)`,
+    width: `min(${currentMap.files * 60}px, 100vw - 32px)`,
+    aspectRatio: `${currentMap.files} / ${currentMap.ranks}`,
+  };
+  const playerInfoStyle: React.CSSProperties = {
+    width: `min(${currentMap.files * 60}px, 100vw - 32px)`,
+  };
+
   // End screen
   if (gameState.gameEnded) {
     const iWon = gameState.winner === playerId;
@@ -504,8 +575,8 @@ export default function Chess(): React.ReactNode {
         <div className={styles.endScreen}>
           <div className={styles.endTitle}>{iWon ? "You win! 🏆" : `${gameState.winnerName} wins`}</div>
           <p className={styles.endSubtitle}>{iWon ? "You captured the king." : "The king was captured."}</p>
-          <div className={styles.board} style={{ marginBottom: 0 }}>
-            {renderBoard()}
+          <div className={styles.board} style={{ ...boardStyle, marginBottom: 0 }}>
+            {renderBoard(currentMap)}
           </div>
           <button
             className={`${styles.btn} ${styles.btnPrimary}`}
@@ -529,7 +600,7 @@ export default function Chess(): React.ReactNode {
     <div className={styles.page}>
       <Head title="Chess" />
       <div className={styles.gameLayout}>
-        <div className={styles.playerInfo}>
+        <div className={styles.playerInfo} style={playerInfoStyle}>
           {opponent && (
             <div className={`${styles.playerTag} ${oppInCheck ? styles.inCheck : ""}`}>
               <span>{PIECE_GLYPHS[opponent.color].king}</span>
@@ -548,11 +619,12 @@ export default function Chess(): React.ReactNode {
 
         <div
           className={styles.board}
+          style={boardStyle}
           onMouseLeave={() => {
             hoveredSquareRef.current = null;
             emitCursor(null, selectedSquareRef.current);
           }}
-        >{renderBoard()}</div>
+        >{renderBoard(currentMap)}</div>
 
         {errorMsg && <p className={styles.error}>{errorMsg}</p>}
       </div>

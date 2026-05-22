@@ -151,8 +151,8 @@
 .playerInfo {
   display: flex;
   justify-content: space-between;
-  width: min(480px, 100vw - 32px);
   font-size: 0.875rem;
+  /* width set via inline style based on map */
 }
 
 .playerTag {
@@ -177,9 +177,7 @@
 
 .board {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  width: min(480px, 100vw - 32px);
-  height: min(480px, 100vw - 32px);
+  /* grid-template-columns, width, aspect-ratio set via inline style based on map */
   border: 3px solid #1a1a1a;
   border-radius: 4px;
   overflow: hidden;
@@ -355,4 +353,30 @@
   pointer-events: none;
   z-index: 10;
   filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+}
+
+/* ── Inactive squares (wild maps) ── */
+.inactiveSquare {
+  position: relative;
+  background: #111;
+  aspect-ratio: 1;
+}
+
+/* ── Map selector ── */
+.mapSelector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mapLabel {
+  font-size: 0.875rem;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.mapBtn {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 0.875rem;
 }
