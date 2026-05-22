@@ -85,6 +85,23 @@ function buildSwitchbackActive(): Set<string> {
   return s;
 }
 
+function buildWishboneActive(): Set<string> {
+  const s = new Set<string>();
+  const add = (f1: number, f2: number, r1: number, r2: number) => {
+    for (let f = f1; f <= f2; f++)
+      for (let r = r1; r <= r2; r++)
+        s.add(`${String.fromCharCode(97 + f)}${r + 1}`);
+  };
+  add(0, 3, 0, 2);  // White home (a-d, ranks 1-3)
+  add(6, 9, 0, 2);  // Green home (g-j, ranks 1-3)
+  add(3, 4, 3, 5);  // White exit (d-e, ranks 4-6)
+  add(5, 6, 3, 4);  // Green exit (f-g, ranks 4-5)
+  add(3, 6, 4, 5);  // Lower crossing (d-g, ranks 5-6)
+  add(4, 5, 5, 7);  // Stem (e-f, ranks 6-8)
+  add(3, 6, 8, 10); // Red home (d-g, ranks 9-11)
+  return s;
+}
+
 const CLIENT_MAPS: Record<string, MapDef> = {
   standard: {
     id: "standard", name: "Standard", files: 8, ranks: 8, active: null, maxPlayers: 2,
@@ -101,6 +118,14 @@ const CLIENT_MAPS: Record<string, MapDef> = {
       { color: "green", homeFiles: [6,7,8,9], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 11, dir:  1 },
       { color: "red",   homeFiles: [0,1,2,3], backR: 11, pawnR: 10, pawnStartR: 10, promoteR: 0,  dir: -1 },
       { color: "black", homeFiles: [6,7,8,9], backR: 11, pawnR: 10, pawnStartR: 10, promoteR: 0,  dir: -1 },
+    ],
+  },
+  wishbone: {
+    id: "wishbone", name: "The Wishbone", files: 10, ranks: 11, active: buildWishboneActive(), maxPlayers: 3,
+    playerSlots: [
+      { color: "white", homeFiles: [0,1,2,3], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 10, dir:  1 },
+      { color: "green", homeFiles: [6,7,8,9], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 10, dir:  1 },
+      { color: "red",   homeFiles: [3,4,5,6], backR: 10, pawnR: 9,  pawnStartR: 9,  promoteR: 0,  dir: -1 },
     ],
   },
 };
@@ -398,10 +423,10 @@ export default function Chess(): React.ReactNode {
 
     const rankList = Array.from({ length: map.ranks }, (_, i) => i + 1);
     const fileList = Array.from({ length: map.files }, (_, i) => String.fromCharCode(97 + i));
-    const is4Player = (map.maxPlayers ?? 2) > 2;
-    // 4-player: red/black flip ranks only; 2-player: black flips ranks+files
-    const flipRanks = is4Player ? (myColor === "red" || myColor === "black") : myColor === "black";
-    const flipFiles = is4Player ? false : myColor === "black";
+    // Multi-player: flip based on slot dir; 2-player: black flips ranks+files
+    const mySlot = map.playerSlots?.find(s => s.color === myColor);
+    const flipRanks = mySlot ? mySlot.dir === -1 : myColor === "black";
+    const flipFiles = map.playerSlots ? false : myColor === "black";
     const rankOrder = flipRanks ? rankList : [...rankList].reverse();
     const fileOrder = flipFiles ? [...fileList].reverse() : fileList;
     const totalRanks = rankOrder.length;
@@ -581,7 +606,7 @@ export default function Chess(): React.ReactNode {
         <Head title="Knepprath's Double Check Chess" />
         <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <div className={styles.waiting}>
-          <p>Share this code with your {maxP === 4 ? "3 opponents" : "opponent"}:</p>
+          <p>Share this code with your {maxP - 1 === 1 ? "opponent" : `${maxP - 1} opponents`}:</p>
           <div className={styles.gameCode}>{gameCode}</div>
           <p className={styles.status}>Map: {waitingMap.name} · {maxP} players</p>
           <ul className={styles.playerList}>
@@ -610,7 +635,7 @@ export default function Chess(): React.ReactNode {
   }
 
   const currentMap = CLIENT_MAPS[gameState.mapId ?? "standard"] ?? CLIENT_MAPS.standard;
-  const is4Player = (currentMap.maxPlayers ?? 2) > 2;
+  const isMultiPlayer = (currentMap.maxPlayers ?? 2) > 2;
   const boardStyle: React.CSSProperties = {
     gridTemplateColumns: `repeat(${currentMap.files}, 1fr)`,
     width: `min(${currentMap.files * 60}px, 100vw - 32px)`,
@@ -631,7 +656,7 @@ export default function Chess(): React.ReactNode {
           <div className={styles.board} style={{ ...boardStyle, marginBottom: 0 }}>
             {renderBoard(currentMap)}
           </div>
-          {is4Player ? (
+          {isMultiPlayer ? (
             <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleReturnToLobby} style={{ width: "100%" }}>
               Return to lobby
             </button>
@@ -653,7 +678,7 @@ export default function Chess(): React.ReactNode {
     <div className={styles.page}>
       <Head title="Chess" />
       <div className={styles.gameLayout}>
-        {is4Player ? (
+        {isMultiPlayer ? (
           <div className={styles.playerInfo4} style={{ width: boardWidth }}>
             {gameState.players.map(p => {
               const inCheckForP = gameState.inCheck[p.color] ?? false;
