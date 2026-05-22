@@ -33,6 +33,7 @@ interface ChessGame {
   gameEnded: boolean;
   winner: string | null;
   winnerName: string | null;
+  winnerTeam?: string[] | null;
   status: "waiting" | "playing" | "ended";
 }
 
@@ -54,6 +55,7 @@ interface MapDef {
   active: Set<string> | null;
   maxPlayers: number;
   playerSlots?: PlayerSlot[];
+  teams?: string[][];
   whitePawnStartR?: number;
   blackPawnStartR?: number;
   whitePromoteR?: number;
@@ -153,6 +155,7 @@ const CLIENT_MAPS: Record<string, MapDef> = {
   },
   switchback: {
     id: "switchback", name: "The Switchback", files: 10, ranks: 12, active: buildSwitchbackActive(), maxPlayers: 4,
+    teams: [["white", "green"], ["red", "black"]],
     playerSlots: [
       { color: "white", homeFiles: [0,1,2,3], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 11, dir:  1 },
       { color: "green", homeFiles: [6,7,8,9], backR: 0,  pawnR: 1,  pawnStartR: 1,  promoteR: 11, dir:  1 },
@@ -195,12 +198,19 @@ const PLAYER_TAG_CSS: Record<Color, string> = {
 
 const COOLDOWN_MS = 1500;
 const KEY_SEQUENCE = "asdfghjklqwertyuiopzxcvbnm".split("");
+const VERSION = "1.8";
 
 // ── Move calculation (mirrors chess-server.js) ────────────────────────────
 
 function fileIdx(f: string) { return f.charCodeAt(0) - 97; }
 function toPos(f: number, r: number) { return `${String.fromCharCode(97 + f)}${r + 1}`; }
 function fromPos(pos: string) { return { f: fileIdx(pos[0]), r: parseInt(pos.slice(1)) - 1 }; }
+
+function getTeamAllies(color: Color, map: MapDef): Color[] {
+  if (!map.teams) return [];
+  const team = map.teams.find(t => t.includes(color));
+  return team ? (team.filter(c => c !== color) as Color[]) : [];
+}
 
 function getPawnConfig(color: Color, map: MapDef): { dir: number; startR: number } {
   if (map.playerSlots) {
@@ -211,7 +221,7 @@ function getPawnConfig(color: Color, map: MapDef): { dir: number; startR: number
   return { dir: -1, startR: map.blackPawnStartR ?? 6 };
 }
 
-function getLegalMoves(board: Record<string, Piece>, from: string, color: Color, map: MapDef): string[] {
+function getLegalMoves(board: Record<string, Piece>, from: string, color: Color, map: MapDef, allies: Color[] = []): string[] {
   const piece = board[from];
   if (!piece || piece.color !== color) return [];
 
@@ -229,7 +239,7 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color,
     while (canLand(tf, tr)) {
       const dest = toPos(tf, tr);
       const dp = board[dest];
-      if (dp) { if (dp.color !== color) moves.push(dest); break; }
+      if (dp) { if (dp.color !== color && !allies.includes(dp.color)) moves.push(dest); break; }
       moves.push(dest);
       tf += df; tr += dr;
     }
@@ -239,7 +249,7 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color,
     const tf = f + df, tr = r + dr;
     if (!canLand(tf, tr)) return;
     const dest = toPos(tf, tr);
-    if (!board[dest] || board[dest].color !== color) moves.push(dest);
+    if (!board[dest] || (board[dest].color !== color && !allies.includes(board[dest].color))) moves.push(dest);
   };
 
   switch (piece.type) {
@@ -254,7 +264,7 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color,
       for (const df of [-1, 1]) {
         if (canLand(f + df, r + dir)) {
           const cap = toPos(f + df, r + dir);
-          if (board[cap] && board[cap].color !== color) moves.push(cap);
+          if (board[cap] && board[cap].color !== color && !allies.includes(board[cap].color)) moves.push(cap);
         }
       }
       break;
@@ -278,11 +288,13 @@ function getLegalMoves(board: Record<string, Piece>, from: string, color: Color,
   return moves;
 }
 
-function countAttackers(board: Record<string, Piece>, square: string, attackerColor: Color, map: MapDef): number {
+function countAttackers(board: Record<string, Piece>, square: string, attackerColor: Color, map: MapDef, allies: Color[] = []): number {
+  const allColors = [attackerColor, ...allies];
   let count = 0;
   for (const from of Object.keys(board)) {
-    if (board[from].color !== attackerColor) continue;
-    if (getLegalMoves(board, from, attackerColor, map).includes(square)) count++;
+    if (!allColors.includes(board[from].color)) continue;
+    const fromAllies = getTeamAllies(board[from].color, map);
+    if (getLegalMoves(board, from, board[from].color, map, fromAllies).includes(square)) count++;
   }
   return count;
 }
@@ -434,6 +446,11 @@ export default function Chess(): React.ReactNode {
     setSelectedSquare(null); setLegalMoves([]);
   };
 
+  const handleFillWithBots = () => {
+    if (!socket || !gameCode) return;
+    socket.emit("fillWithBots", { gameCode });
+  };
+
   // ── Board interaction ──
 
   const selectSquare = useCallback((sq: string) => {
@@ -442,9 +459,10 @@ export default function Chess(): React.ReactNode {
     if (!color) return;
     const map = CLIENT_MAPS[gameState.mapId ?? "standard"] ?? CLIENT_MAPS.standard;
     if ((gameState.cooldowns?.[sq] ?? 0) > Date.now()) return;
-    const moves = getLegalMoves(gameState.board, sq, color, map).filter(to => {
+    const allies = getTeamAllies(color, map);
+    const moves = getLegalMoves(gameState.board, sq, color, map, allies).filter(to => {
       const target = gameState.board[to];
-      if (target?.type === "king") return countAttackers(gameState.board, to, color, map) >= 2;
+      if (target?.type === "king") return countAttackers(gameState.board, to, color, map, allies) >= 2;
       return true;
     });
     selectedSquareRef.current = sq;
@@ -626,7 +644,7 @@ export default function Chess(): React.ReactNode {
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
         <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
-        <p className={styles.subtitle}>Real-time · double check to capture the king</p>
+        <p className={styles.subtitle}>Real-time · double check to capture the king · v{VERSION}</p>
         <div className={styles.lobby}>
           <input
             className={styles.input}
@@ -732,6 +750,15 @@ export default function Chess(): React.ReactNode {
           >
             Start game
           </button>
+          {(gameState?.players.length ?? 0) < maxP && gameState?.players.some(p => p.id === playerId) && (
+            <button
+              className={`${styles.btn} ${styles.btnSecondary}`}
+              onClick={handleFillWithBots}
+              style={{ width: "100%" }}
+            >
+              Fill with bots &amp; start
+            </button>
+          )}
           {errorMsg && <p className={styles.error}>{errorMsg}</p>}
         </div>
       </div>
@@ -749,24 +776,38 @@ export default function Chess(): React.ReactNode {
 
   // End screen
   if (gameState.gameEnded) {
-    const iWon = gameState.winner === playerId;
+    const winnerTeam = gameState.winnerTeam ?? null;
+    const iTeamWon = winnerTeam ? (myColor ? winnerTeam.includes(myColor) : false) : null;
+    const iWon = iTeamWon ?? (gameState.winner === playerId);
     return (
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
         <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <div className={styles.endScreen}>
-          <div className={styles.endTitle}>{iWon ? "You win! 🏆" : `${gameState.winnerName} wins`}</div>
-          <p className={styles.endSubtitle}>{iWon ? "You captured the last king." : "The last king was captured."}</p>
+          <div className={styles.endTitle}>
+            {winnerTeam
+              ? (iTeamWon ? "Your team wins! 🏆" : "Other team wins")
+              : (iWon ? "You win! 🏆" : `${gameState.winnerName} wins`)}
+          </div>
+          <p className={styles.endSubtitle}>
+            {winnerTeam
+              ? (iTeamWon ? "Your team captured all enemy kings." : "All your kings were captured.")
+              : (iWon ? "You captured the last king." : "The last king was captured.")}
+          </p>
           <div className={styles.board} style={{ ...boardStyle, marginBottom: 0 }}>
             {renderBoard(currentMap)}
           </div>
-          {isMultiPlayer ? (
+          {gameState.singlePlayer ? (
+            <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={handlePlayAgain} style={{ width: "100%" }}>
+              Play again
+            </button>
+          ) : isMultiPlayer ? (
             <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={handleReturnToLobby} style={{ width: "100%" }}>
               Return to lobby
             </button>
           ) : (
             <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={handlePlayAgain} style={{ width: "100%" }}>
-              {gameState.singlePlayer ? "Play again" : "Play again (colors swap)"}
+              Play again (colors swap)
             </button>
           )}
         </div>

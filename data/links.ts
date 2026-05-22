@@ -42,6 +42,12 @@ export const projectLinks: ProjectLink[] = [
     title: "Who Goes There?",
   },
   {
+    description: "Real-time chess with wild maps and team modes",
+    githubRepo: "mknepprath/wgt-server",
+    href: "/chess",
+    title: "Double Check Chess",
+  },
+  {
     description: "A simple Pokédex app for Go",
     githubRepo: "mknepprath/lily-dex",
     href: "https://lilydex.com",
