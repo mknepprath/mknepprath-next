@@ -145,32 +145,8 @@
 .colorDotRed   { background: #c0392b; }
 .colorDotGreen { background: #27ae60; }
 
-/* ── Player tag colors (4-player) ── */
-.playerTagWhite {
-  background: #f0f0f0;
-  color: #1a1a1a;
-}
-
-.playerTagBlack {
-  background: #2c2c2c;
-  color: #fff;
-}
-
-.playerTagRed {
-  background: #c0392b;
-  color: #fff;
-}
-
-.playerTagGreen {
-  background: #27ae60;
-  color: #fff;
-}
-
-.isYou4 {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-  font-weight: 700;
-}
+/* ── Player tag colors (4-player / team) ── */
+/* NOTE: must appear after .playerTag so the color overrides the base background */
 
 /* ── Board ── */
 .gameLayout {
@@ -211,6 +187,32 @@
 .playerTag.isYou {
   background: #1a1a1a;
   color: #fff;
+}
+
+.playerTagWhite {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.playerTagBlack {
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.playerTagRed {
+  background: #c0392b;
+  color: #fff;
+}
+
+.playerTagGreen {
+  background: #27ae60;
+  color: #fff;
+}
+
+.isYou4 {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  font-weight: 700;
 }
 
 .inCheck {
