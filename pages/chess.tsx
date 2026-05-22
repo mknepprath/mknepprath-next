@@ -357,53 +357,6 @@ export default function Chess(): React.ReactNode {
     return () => { clearInterval(hb); newSocket.disconnect(); };
   }, []);
 
-  // ── Keyboard controls ──
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      const state = gameStateRef.current;
-      const color = myColorRef.current;
-      if (!state?.gameStarted || state.gameEnded || !color) return;
-      if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
-
-      const key = e.key.toLowerCase();
-
-      if (key === "escape") {
-        selectedSquareRef.current = null;
-        setSelectedSquare(null);
-        setLegalMoves([]);
-        emitCursor(hoveredSquareRef.current, null);
-        return;
-      }
-
-      if (!/^[a-z]$/.test(key)) return;
-
-      const selSq = selectedSquareRef.current;
-      const squares = selSq === null
-        ? Object.keys(state.board)
-            .filter(sq => state.board[sq]?.color === color && !((state.cooldowns?.[sq] ?? 0) > Date.now()))
-            .sort((a, b) => { const pa = fromPos(a), pb = fromPos(b); return pa.r !== pb.r ? pa.r - pb.r : pa.f - pb.f; })
-        : legalMovesRef.current;
-
-      const keyIdx = KEY_SEQUENCE.indexOf(key);
-      if (keyIdx < 0 || keyIdx >= squares.length) return;
-
-      e.preventDefault();
-      const targetSq = squares[keyIdx];
-
-      if (selSq === null) {
-        selectSquare(targetSq);
-      } else {
-        socketRef.current?.emit("movePiece", { gameCode: gameCodeRef.current, from: selSq, to: targetSq });
-        selectedSquareRef.current = null;
-        setSelectedSquare(null);
-        setLegalMoves([]);
-        emitCursor(hoveredSquareRef.current, null);
-      }
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [selectSquare, emitCursor]);
-
   // ── Actions ──
 
   const handleReturnToLobby = useCallback(() => {
@@ -459,6 +412,53 @@ export default function Chess(): React.ReactNode {
     setLegalMoves(moves);
     emitCursor(hoveredSquareRef.current, sq);
   }, [gameState, emitCursor]);
+
+  // ── Keyboard controls ──
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const state = gameStateRef.current;
+      const color = myColorRef.current;
+      if (!state?.gameStarted || state.gameEnded || !color) return;
+      if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+
+      const key = e.key.toLowerCase();
+
+      if (key === "escape") {
+        selectedSquareRef.current = null;
+        setSelectedSquare(null);
+        setLegalMoves([]);
+        emitCursor(hoveredSquareRef.current, null);
+        return;
+      }
+
+      if (!/^[a-z]$/.test(key)) return;
+
+      const selSq = selectedSquareRef.current;
+      const squares = selSq === null
+        ? Object.keys(state.board)
+            .filter(sq => state.board[sq]?.color === color && !((state.cooldowns?.[sq] ?? 0) > Date.now()))
+            .sort((a, b) => { const pa = fromPos(a), pb = fromPos(b); return pa.r !== pb.r ? pa.r - pb.r : pa.f - pb.f; })
+        : legalMovesRef.current;
+
+      const keyIdx = KEY_SEQUENCE.indexOf(key);
+      if (keyIdx < 0 || keyIdx >= squares.length) return;
+
+      e.preventDefault();
+      const targetSq = squares[keyIdx];
+
+      if (selSq === null) {
+        selectSquare(targetSq);
+      } else {
+        socketRef.current?.emit("movePiece", { gameCode: gameCodeRef.current, from: selSq, to: targetSq });
+        selectedSquareRef.current = null;
+        setSelectedSquare(null);
+        setLegalMoves([]);
+        emitCursor(hoveredSquareRef.current, null);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [selectSquare, emitCursor]);
 
   const handleSquareClick = useCallback((sq: string) => {
     if (!gameState?.gameStarted || gameState.gameEnded || !myColor || !socket || !gameCode) return;
