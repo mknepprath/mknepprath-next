@@ -198,6 +198,7 @@ const PLAYER_TAG_CSS: Record<Color, string> = {
 
 const COOLDOWN_MS = 1500;
 const KEY_SEQUENCE = "asdfghjklqwertyuiopzxcvbnm".split("");
+const VERSION = "1.8";
 
 // ── Move calculation (mirrors chess-server.js) ────────────────────────────
 
@@ -643,7 +644,7 @@ export default function Chess(): React.ReactNode {
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
         <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
-        <p className={styles.subtitle}>Real-time · double check to capture the king</p>
+        <p className={styles.subtitle}>Real-time · double check to capture the king · v{VERSION}</p>
         <div className={styles.lobby}>
           <input
             className={styles.input}
