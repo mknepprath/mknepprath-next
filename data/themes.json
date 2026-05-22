@@ -480,5 +480,44 @@
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
     "updatedAt": "2026-05-20T07:11:52.669Z"
+  },
+  "animation-appreciation": {
+    "title": "Animation Appreciation",
+    "slug": "animation-appreciation",
+    "description": "Michael appreciates animated films and shows for their visual artistry and storytelling, from classic animated films to modern animated series.",
+    "items": [
+      {
+        "id": "flletterboxd-review-1324471786",
+        "type": "FILM",
+        "title": "Pee-wee's Big Adventure",
+        "date": "2026-05-22T00:57:17.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/li/jl/a2/sr/2PT1qTPkD3UvP9zZ2EqZkDNyJl1-0-600-0-900-crop.jpg?v=9b6c097a6f",
+        "url": "https://letterboxd.com/mknepprath/film/pee-wees-big-adventure/",
+        "summary": " <p>Hadn’t seen anything Pee-wee before and I freaking loved it, feels like something I could play on repeat and never be bored.</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1323576240",
+        "type": "FILM",
+        "title": "The Man from Snowy River",
+        "date": "2026-05-21T03:33:08.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/3/6/8/9/7/36897-the-man-from-snowy-river-0-600-0-900-crop.jpg?v=7cccc8b931",
+        "url": "https://letterboxd.com/mknepprath/film/the-man-from-snowy-river/",
+        "summary": " <p>Looks nice, but a bit dull! Kirk Douglas is acting his heart out in this, but mostly during the half where they have him wearing an insane beard.</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "bot116598333296594486",
+        "type": "ROBOT",
+        "title": "the iron giant holds up so ridiculously well",
+        "date": "2026-05-19T00:09:32.914Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116598333296594486",
+        "summary": "<p>the iron giant holds up so ridiculously well</p>",
+        "action": "Computed"
+      }
+    ],
+    "createdAt": "2026-05-22T07:11:35.074Z",
+    "updatedAt": "2026-05-22T07:11:35.074Z"
   }
 }
