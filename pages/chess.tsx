@@ -154,6 +154,7 @@ const PLAYER_TAG_CSS: Record<Color, string> = {
 };
 
 const COOLDOWN_MS = 1500;
+const KEY_SEQUENCE = "asdfghjklqwertyuiopzxcvbnm".split("");
 
 // ── Move calculation (mirrors chess-server.js) ────────────────────────────
 
@@ -271,12 +272,16 @@ export default function Chess(): React.ReactNode {
   const socketRef = useRef<Socket | null>(null);
   const selectedSquareRef = useRef<string | null>(null);
   const hoveredSquareRef = useRef<string | null>(null);
+  const gameStateRef = useRef<ChessGame | null>(null);
+  const legalMovesRef = useRef<string[]>([]);
 
   useEffect(() => { myColorRef.current = myColor; }, [myColor]);
   useEffect(() => { gameCodeRef.current = gameCode; }, [gameCode]);
   useEffect(() => { playerIdRef.current = playerId; }, [playerId]);
   useEffect(() => { socketRef.current = socket; }, [socket]);
   useEffect(() => { selectedSquareRef.current = selectedSquare; }, [selectedSquare]);
+  useEffect(() => { gameStateRef.current = gameState; }, [gameState]);
+  useEffect(() => { legalMovesRef.current = legalMoves; }, [legalMoves]);
 
   const emitCursor = useCallback((hover: string | null, selected: string | null) => {
     socketRef.current?.emit("cursorUpdate", { gameCode: gameCodeRef.current, hover, selected });
@@ -286,6 +291,19 @@ export default function Chess(): React.ReactNode {
     const id = setInterval(() => setNow(Date.now()), 100);
     return () => clearInterval(id);
   }, []);
+
+  // ── Key badges (square → key label for rendering) ──
+  const squareKeys = React.useMemo(() => {
+    if (!gameState?.gameStarted || gameState.gameEnded || !myColor) return {} as Record<string, string>;
+    const squares = selectedSquare === null
+      ? Object.keys(gameState.board)
+          .filter(sq => gameState.board[sq]?.color === myColor && !((gameState.cooldowns?.[sq] ?? 0) > now))
+          .sort((a, b) => { const pa = fromPos(a), pb = fromPos(b); return pa.r !== pb.r ? pa.r - pb.r : pa.f - pb.f; })
+      : legalMoves;
+    const inv: Record<string, string> = {};
+    squares.forEach((sq, i) => { if (i < KEY_SEQUENCE.length) inv[sq] = KEY_SEQUENCE[i]; });
+    return inv;
+  }, [gameState, myColor, selectedSquare, legalMoves, now]);
 
   useEffect(() => {
     const url = process.env.NEXT_PUBLIC_GAME_SERVER_URL || "";
@@ -338,6 +356,53 @@ export default function Chess(): React.ReactNode {
     const hb = setInterval(() => newSocket.emit("heartbeat"), 5000);
     return () => { clearInterval(hb); newSocket.disconnect(); };
   }, []);
+
+  // ── Keyboard controls ──
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const state = gameStateRef.current;
+      const color = myColorRef.current;
+      if (!state?.gameStarted || state.gameEnded || !color) return;
+      if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+
+      const key = e.key.toLowerCase();
+
+      if (key === "escape") {
+        selectedSquareRef.current = null;
+        setSelectedSquare(null);
+        setLegalMoves([]);
+        emitCursor(hoveredSquareRef.current, null);
+        return;
+      }
+
+      if (!/^[a-z]$/.test(key)) return;
+
+      const selSq = selectedSquareRef.current;
+      const squares = selSq === null
+        ? Object.keys(state.board)
+            .filter(sq => state.board[sq]?.color === color && !((state.cooldowns?.[sq] ?? 0) > Date.now()))
+            .sort((a, b) => { const pa = fromPos(a), pb = fromPos(b); return pa.r !== pb.r ? pa.r - pb.r : pa.f - pb.f; })
+        : legalMovesRef.current;
+
+      const keyIdx = KEY_SEQUENCE.indexOf(key);
+      if (keyIdx < 0 || keyIdx >= squares.length) return;
+
+      e.preventDefault();
+      const targetSq = squares[keyIdx];
+
+      if (selSq === null) {
+        selectSquare(targetSq);
+      } else {
+        socketRef.current?.emit("movePiece", { gameCode: gameCodeRef.current, from: selSq, to: targetSq });
+        selectedSquareRef.current = null;
+        setSelectedSquare(null);
+        setLegalMoves([]);
+        emitCursor(hoveredSquareRef.current, null);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [selectSquare, emitCursor]);
 
   // ── Actions ──
 
@@ -477,6 +542,7 @@ export default function Chess(): React.ReactNode {
           >
             {showRankLabel && <span className={styles.rankLabel}>{rank}</span>}
             {showFileLabel && <span className={styles.fileLabel}>{file}</span>}
+            {squareKeys[sq] && <span className={styles.keyBadge}>{squareKeys[sq]}</span>}
             {piece && (
               <span className={[
                 styles.piece,

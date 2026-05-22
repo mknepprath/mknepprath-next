@@ -323,6 +323,22 @@
   line-height: 1.2;
 }
 
+.keyBadge {
+  position: absolute;
+  bottom: 2px;
+  left: 3px;
+  font-size: clamp(8px, 1.5vw, 11px);
+  font-weight: 700;
+  font-family: monospace;
+  background: rgba(41, 128, 185, 0.85);
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 3px;
+  line-height: 1.2;
+  pointer-events: none;
+  z-index: 4;
+}
+
 .cooldownBar {
   position: absolute;
   bottom: 0;
