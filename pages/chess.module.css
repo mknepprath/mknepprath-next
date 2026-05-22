@@ -433,6 +433,64 @@
   aspect-ratio: 1;
 }
 
+/* ── Team layouts ── */
+.teamGroups {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.teamGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.teamLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.45;
+}
+
+.teamPlayers {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.teamVs {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.35;
+  padding-top: 22px;
+}
+
+.teamWaitGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.teamWaitGroup {
+  width: 100%;
+}
+
+.teamWaitLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.45;
+  margin: 0 0 4px 0;
+}
+
 /* ── Map selector ── */
 .mapSelector {
   display: flex;

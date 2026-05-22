@@ -723,25 +723,53 @@ export default function Chess(): React.ReactNode {
     const waitingMap = CLIENT_MAPS[gameState?.mapId ?? mapId] ?? CLIENT_MAPS.standard;
     const maxP = waitingMap.maxPlayers ?? 2;
     const canStart = (gameState?.players.length ?? 0) >= maxP && gameState?.players.some(p => p.id === playerId);
+    const hasTeams = !!waitingMap.teams;
     return (
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
         <h1 className={styles.title}>Knepprath&apos;s Double Check Chess</h1>
         <div className={styles.waiting}>
-          <p>Share this code with your {maxP - 1 === 1 ? "opponent" : `${maxP - 1} opponents`}:</p>
+          <p>
+            {hasTeams
+              ? "Share this code to start a 2v2 match:"
+              : `Share this code with your ${maxP - 1 === 1 ? "opponent" : `${maxP - 1} opponents`}:`}
+          </p>
           <div className={styles.gameCode}>{gameCode}</div>
-          <p className={styles.status}>Map: {waitingMap.name} · {maxP} players</p>
-          <ul className={styles.playerList}>
-            {gameState?.players.map((p) => (
-              <li key={p.id}>
-                <span className={`${styles.colorDot} ${styles[`colorDot${p.color.charAt(0).toUpperCase() + p.color.slice(1)}`]}`} />
-                {p.name} {p.id === playerId && "(you)"}
-              </li>
-            ))}
-            {Array.from({ length: Math.max(0, maxP - (gameState?.players.length ?? 0)) }).map((_, i) => (
-              <li key={`empty-${i}`} style={{ opacity: 0.5 }}>Waiting for player…</li>
-            ))}
-          </ul>
+          <p className={styles.status}>
+            {waitingMap.name} · {hasTeams ? "2v2 team mode" : `${maxP} players`}
+          </p>
+          {hasTeams ? (
+            <div className={styles.teamWaitGroups}>
+              {waitingMap.teams!.map((team, ti) => (
+                <div key={ti} className={styles.teamWaitGroup}>
+                  <p className={styles.teamWaitLabel}>Team {ti + 1}</p>
+                  <ul className={styles.playerList}>
+                    {team.map(color => {
+                      const p = gameState?.players.find(pl => pl.color === color);
+                      return (
+                        <li key={color} style={p ? undefined : { opacity: 0.5 }}>
+                          <span className={`${styles.colorDot} ${styles[`colorDot${color.charAt(0).toUpperCase() + color.slice(1)}`]}`} />
+                          {p ? `${p.name}${p.id === playerId ? " (you)" : ""}` : "Waiting for player…"}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <ul className={styles.playerList}>
+              {gameState?.players.map((p) => (
+                <li key={p.id}>
+                  <span className={`${styles.colorDot} ${styles[`colorDot${p.color.charAt(0).toUpperCase() + p.color.slice(1)}`]}`} />
+                  {p.name} {p.id === playerId && "(you)"}
+                </li>
+              ))}
+              {Array.from({ length: Math.max(0, maxP - (gameState?.players.length ?? 0)) }).map((_, i) => (
+                <li key={`empty-${i}`} style={{ opacity: 0.5 }}>Waiting for player…</li>
+              ))}
+            </ul>
+          )}
           <button
             className={`${styles.btn} ${styles.btnPrimary}`}
             onClick={handleStart}
@@ -823,7 +851,43 @@ export default function Chess(): React.ReactNode {
     <div className={styles.page}>
       <Head title="Chess" />
       <div className={styles.gameLayout}>
-        {isMultiPlayer ? (
+        {currentMap.teams ? (
+          <div className={styles.teamGroups} style={{ width: boardWidth }}>
+            {currentMap.teams.map((team, ti) => {
+              const isMyTeam = myColor ? team.includes(myColor) : false;
+              return (
+                <React.Fragment key={ti}>
+                  {ti > 0 && <span className={styles.teamVs}>vs</span>}
+                  <div className={styles.teamGroup}>
+                    <span className={styles.teamLabel}>{isMyTeam ? "Your team" : "Enemy"}</span>
+                    <div className={styles.teamPlayers}>
+                      {team.map(color => {
+                        const p = gameState.players.find(pl => pl.color === color);
+                        if (!p) return null;
+                        const inCheckForP = gameState.inCheck[p.color] ?? false;
+                        const isMe = p.id === playerId;
+                        return (
+                          <div
+                            key={p.id}
+                            className={[
+                              styles.playerTag,
+                              PLAYER_TAG_CSS[p.color],
+                              isMe ? styles.isYou4 : "",
+                              inCheckForP ? styles.inCheck : "",
+                            ].filter(Boolean).join(" ")}
+                          >
+                            <span>{PIECE_GLYPHS[p.color].king}</span>
+                            {p.name}{isMe && " ✓"}{inCheckForP && " ⚠"}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        ) : isMultiPlayer ? (
           <div className={styles.playerInfo4} style={{ width: boardWidth }}>
             {gameState.players.map(p => {
               const inCheckForP = gameState.inCheck[p.color] ?? false;
