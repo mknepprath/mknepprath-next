@@ -471,7 +471,7 @@ export default function Chess(): React.ReactNode {
             {Object.values(CLIENT_MAPS).map(m => (
               <button
                 key={m.id}
-                className={`${styles.btn} ${styles.mapBtn} ${mapId === m.id ? styles.btnPrimary : styles.btnSecondary}`}
+                className={`${styles.btn} ${styles.mapBtn} ${mapId === m.id ? styles.mapBtnSelected : styles.btnSecondary}`}
                 onClick={() => setMapId(m.id)}
               >
                 {m.name}

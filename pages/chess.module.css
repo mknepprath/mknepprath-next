@@ -40,6 +40,8 @@
   border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
+  background: #fff;
+  color: #1a1a1a;
 }
 
 .input:focus {
@@ -107,6 +109,7 @@
   letter-spacing: 0.15em;
   font-family: monospace;
   background: #f0f0f0;
+  color: #1a1a1a;
   padding: 8px 20px;
   border-radius: 8px;
 }
@@ -121,6 +124,7 @@
 .playerList li {
   padding: 8px 12px;
   background: #f5f5f5;
+  color: #1a1a1a;
   border-radius: 6px;
   margin-bottom: 6px;
   display: flex;
@@ -162,6 +166,7 @@
   padding: 4px 10px;
   border-radius: 20px;
   background: #f0f0f0;
+  color: #1a1a1a;
   font-weight: 600;
 }
 
@@ -379,4 +384,19 @@
   flex: 1;
   padding: 8px 12px;
   font-size: 0.875rem;
+}
+
+.mapBtnSelected {
+  background: #1a1a1a;
+  color: #fff;
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mapBtnSelected {
+    background: #e8e8e8;
+    color: #1a1a1a;
+    outline-color: #e8e8e8;
+  }
 }
