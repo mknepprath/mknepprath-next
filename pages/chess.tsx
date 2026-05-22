@@ -582,8 +582,6 @@ export default function Chess(): React.ReactNode {
 
   // Lobby
   if (!gameCode) {
-    const selectedMap = CLIENT_MAPS[mapId] ?? CLIENT_MAPS.standard;
-    const botUnavailable = (selectedMap.maxPlayers ?? 2) > 2;
     return (
       <div className={styles.page}>
         <Head title="Knepprath's Double Check Chess" />
@@ -595,7 +593,7 @@ export default function Chess(): React.ReactNode {
             placeholder="Your name"
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && !botUnavailable && handlePlayVsBot()}
+            onKeyDown={(e) => e.key === "Enter" && handlePlayVsBot()}
             maxLength={20}
           />
           {joinMode === "join" && (
@@ -609,27 +607,27 @@ export default function Chess(): React.ReactNode {
             />
           )}
           <div className={styles.mapSelector}>
-            <span className={styles.mapLabel}>Map:</span>
-            {Object.values(CLIENT_MAPS).map(m => (
-              <button
-                key={m.id}
-                className={`${styles.btn} ${styles.mapBtn} ${mapId === m.id ? styles.mapBtnSelected : styles.btnSecondary}`}
-                onClick={() => setMapId(m.id)}
-              >
-                {m.name}
-              </button>
-            ))}
+            <span className={styles.mapLabel}>Map</span>
+            <div className={styles.mapGrid}>
+              {Object.values(CLIENT_MAPS).map(m => (
+                <button
+                  key={m.id}
+                  className={`${styles.btn} ${styles.mapBtn} ${mapId === m.id ? styles.mapBtnSelected : styles.btnSecondary}`}
+                  onClick={() => setMapId(m.id)}
+                >
+                  {m.name}
+                </button>
+              ))}
+            </div>
           </div>
-          {!botUnavailable && (
-            <button
-              className={`${styles.btn} ${styles.btnPrimary}`}
-              onClick={handlePlayVsBot}
-              disabled={!playerName.trim() || joinMode === "join"}
-              style={{ width: "100%" }}
-            >
-              Play vs Bot
-            </button>
-          )}
+          <button
+            className={`${styles.btn} ${styles.btnPrimary}`}
+            onClick={handlePlayVsBot}
+            disabled={!playerName.trim() || joinMode === "join"}
+            style={{ width: "100%" }}
+          >
+            Play vs Bot
+          </button>
           <div className={styles.lobbyButtons}>
             <button
               className={`${styles.btn} ${styles.btnSecondary}`}

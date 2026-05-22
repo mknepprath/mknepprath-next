@@ -436,18 +436,23 @@
 /* ── Map selector ── */
 .mapSelector {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 6px;
+  width: 100%;
 }
 
 .mapLabel {
   font-size: 0.875rem;
   opacity: 0.6;
-  white-space: nowrap;
+}
+
+.mapGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
 }
 
 .mapBtn {
-  flex: 1;
   padding: 8px 12px;
   font-size: 0.875rem;
 }
