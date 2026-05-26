@@ -161,6 +161,36 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116618860258221845",
+        "type": "ROBOT",
+        "title": "oran berry erasure is real but at least it's not great ballhttps://mastodon.social/@EveryPkmnCard/116618838131015982",
+        "date": "2026-05-22T15:09:49.464Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116618860258221845",
+        "summary": "<p>oran berry erasure is real but at least it&#39;s not great ball</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116618838131015982\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116618838131015982</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116608478118340470",
+        "type": "ROBOT",
+        "title": "great ball is criminally mid. pokéball erasurehttps://mastodon.social/@EveryPkmnCard/116608443581322064",
+        "date": "2026-05-20T19:09:30.510Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116608478118340470",
+        "summary": "<p>great ball is criminally mid. pokéball erasure</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116608443581322064\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116608443581322064</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116603523661354729",
+        "type": "ROBOT",
+        "title": "nice one. been thinking about type treatments latelyhttps://mastodon.social/@designprompts/116601364460418987",
+        "date": "2026-05-19T22:09:31.495Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116603523661354729",
+        "summary": "<p>nice one. been thinking about type treatments lately</p><p><a href=\"https://mastodon.social/@designprompts/116601364460418987\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@designprompts</span><span class=\"invisible\">/116601364460418987</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116547372537196549",
         "type": "ROBOT",
         "title": "that's heck yeah design actually. a pokemon ability that's also a curse. good stuffhttps://mastodon.social/@PokemonFacts/116547349753268431",
@@ -301,13 +331,73 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-05-12T06:57:34.131Z"
+    "updatedAt": "2026-05-25T07:32:20.386Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru18639690284",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-05-24T13:59:35.000Z",
+        "image": "s~a|FpcxpN@mCAyF@{FEg@FaAE_ABs@CiI@kBA_Q?o@G[Ec@HwAAUC}G@oDAs@ByCCsKD_DAiCBgCCe@EQy@yAm@yAa@oAIOGe@IiAEsACGD}AGyCDuDMiBQ{AY{AWaA[{@{@_Bi@y@i@o@cA_A{@k@w@]iAa@}@]mAs@kAy@yAuA[a@cAyAQE_@WKe@Qe@s@cA[Ui@Ua@IQAGDELEv`@@tDCvH?t@BRCZKvBAfDGbD@xICfCA`DCv@@ZAlEDXGZ@zDCbAA|Fs@hZ@tAK`AC|BKzCGnD[nFa@xD[tBW`CI^OzAYxAQhAOjAIdAKp@UtBi@nDSfBkAlHMpAMr@YxCSxAEl@BPHF\\L^Vb@HZBVAH@b@C\\BRC^@n@Cz@@TC",
+        "url": "https://www.strava.com/activities/18639690284",
+        "summary": "Distance: 5.27 mi, Time: 85 min, Elevation: 184 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18555584898",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-05-18T10:40:59.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/18555584898",
+        "summary": "Distance: 0.53 mi, Time: 11 min, Elevation: 108 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18506143993",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-05-14T11:54:18.000Z",
+        "image": "sic|Fr~spN`@RVBVCN@z@?jCJbACdAH`@Er@Bv@E|CB?r@DJTJn@BbAEhAAd@Dj@C\\D|AA\\Dp@Kp@?F@FF@D?ZBH",
+        "url": "https://www.strava.com/activities/18506143993",
+        "summary": "Distance: 0.71 mi, Time: 12 min, Elevation: 31 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18505911812",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-05-14T11:26:01.000Z",
+        "image": "{nc|FrsypNwJBeABk@Cc@@oDAeCB{@CkBByC?_@@K?MECSDiAr@iKPcBRmATcAd@wAx@qBz@iBbAmC\\s@\\eB^sCTyCFiBAqGBsAE{E?mEBk@AwCBg@CsA@yBB{@C_AAmEBoCCcG@oORoBJO@KCY]q@AMAcGDyACeA@eBA_EDiANiAJa@jAuCl@cADSDo@La@@w@JE~@AJCCQKIMCg@BOGCKGk@Eq@a@aBGc@C{ANp@DHl@l@",
+        "url": "https://www.strava.com/activities/18505911812",
+        "summary": "Distance: 3.13 mi, Time: 27 min, Elevation: 146 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18480799621",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-05-12T13:37:46.000Z",
+        "image": "s~a|FncxpNA_D@qFCkBDmBAi@MW@OJ_@?ICwA@yBA{BBgACaC?eK@sAA_ABaAAc@MgADYBu@CsC@}ECiBDuCCsEByKAuFCq@Iu@mAoCYi@]gASoAKgACy@v@Et@Bp@Cb@?tAE|@?|FKNDFR?P?dACpA@\\?fADp@Cp@?vACH]VYBe@Lq@`@QPG^IBq@Cs@EK@UTGPIb@?jIAdBBlC?tBCzC?vDBrHErBEf@B\\@t@@xDCvJAd@EX@VHb@EnB@rDHdCE`A@d@Eb@@|@",
+        "url": "https://www.strava.com/activities/18480799621",
+        "summary": "Distance: 3.14 mi, Time: 26 min, Elevation: 174 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18442699341",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-05-09T13:27:52.000Z",
+        "image": "mdf|Fhp{qNQa@F]\\D",
+        "url": "https://www.strava.com/activities/18442699341",
+        "summary": "Distance: 0.71 mi, Time: 13 min, Elevation: 0 ft",
+        "action": "Walked"
+      },
       {
         "id": "t116518760201304652",
         "type": "TOOT",
@@ -430,13 +520,23 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-05-08T06:35:38.219Z"
+    "updatedAt": "2026-05-25T07:32:20.386Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
     "slug": "classic-cinema-study",
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
+      {
+        "id": "flletterboxd-review-1328598471",
+        "type": "FILM",
+        "title": "Shadow of a Doubt",
+        "date": "2026-05-25T06:00:57.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/3/8/2/3/9/38239-shadow-of-a-doubt-0-600-0-900-crop.jpg?v=82c9d9cd7d",
+        "url": "https://letterboxd.com/mknepprath/film/shadow-of-a-doubt/1/",
+        "summary": " <blockquote><p><i>You know what St. Paul said: \"Take a little wine for thy stomach's sake.\"</i> - Uncle Charlie</p></blockquote><p>This second time watching Shadow of a Doubt was the first time I'd noted the two mentions of St. Paul. With Hitchcock, details like this are unlikely to be coincidence, so I decided to pull on that thread. I only had to pull once. The second mention of St. Paul is the aforementioned quote from 1 Timothy 5. This chapter, as it turns out, has a particular interest in widows: <i>\"Now she that is a widow indeed, and desolate, trusteth in God, and continueth in supplications and prayers night and day. But she that liveth in pleasure is dead while she liveth.\"</i></p><p>The first time St. Paul is mentioned is in reference to the Minnesotan city in which Emma and Charlie grew up, the place where, as Emma describes it, Charlie had a terrible bicycle accident that permanently changed him, <i>\"He didn't do much reading after that.\"</i> Paul's conversion occurred after he fell off of his horse.</p><p>I don't want to suggest that audiences and critics alike have missed this connection for 80+ years, but I haven't found anyone who's linked Uncle Charlie to St. Paul in this way yet.</p> ",
+        "action": "Rewatched"
+      },
       {
         "id": "bot116592199106165565",
         "type": "ROBOT",
@@ -479,7 +579,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-05-20T07:11:52.669Z"
+    "updatedAt": "2026-05-25T07:32:20.386Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
