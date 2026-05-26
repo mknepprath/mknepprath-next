@@ -619,5 +619,54 @@
     ],
     "createdAt": "2026-05-22T07:11:35.074Z",
     "updatedAt": "2026-05-22T07:11:35.074Z"
+  },
+  "anime-engagement": {
+    "title": "Anime Engagement",
+    "slug": "anime-engagement",
+    "description": "Michael actively engages with anime content across multiple formats, from manga series to discussing anime tropes in film criticism.",
+    "items": [
+      {
+        "id": "flletterboxd-review-1328606193",
+        "type": "FILM",
+        "title": "Star Wars: The Mandalorian and Grogu",
+        "date": "2026-05-25T06:10:27.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/1/1/1/0/7/3/1111073-star-wars-the-mandalorian-and-grogu-0-600-0-900-crop.jpg?v=5da24e2cba",
+        "url": "https://letterboxd.com/mknepprath/film/star-wars-the-mandalorian-and-grogu/",
+        "summary": " <p>As an anime enjoyer during my college years, I was well aware of the concept of filler episodes - episodes that were written to fill airtime until more of the manga was out and available to adapt. Key traits of filler were that it needed to be incredibly low stakes and lacking in character development, so as to ensure that the characters would not get out of sync with the source material's plot.</p><p>That's what this felt like.</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "b1421590158",
+        "type": "BOOK",
+        "title": "One-Punch Man, Vol. 10",
+        "date": "2026-02-09T00:00:00.000Z",
+        "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1475461788l/29499019._SY475_.jpg",
+        "url": "https://www.goodreads.com/review/show/8344816938?utm_medium=api&utm_source=rss",
+        "summary": "Metal Bat is cool",
+        "action": "Read"
+      },
+      {
+        "id": "b1421586568",
+        "type": "BOOK",
+        "title": "One-Punch Man, Vol. 8",
+        "date": "2026-02-08T00:00:00.000Z",
+        "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1458905653l/27406770.jpg",
+        "url": "https://www.goodreads.com/review/show/8343568450?utm_medium=api&utm_source=rss",
+        "summary": "King, great bit.",
+        "action": "Read"
+      },
+      {
+        "id": "b1421586576",
+        "type": "BOOK",
+        "title": "One-Punch Man, Vol. 9",
+        "date": "2026-02-08T00:00:00.000Z",
+        "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1469968983l/29498953.jpg",
+        "url": "https://www.goodreads.com/review/show/8343654801?utm_medium=api&utm_source=rss",
+        "summary": "See, the early Scream movies were exactly this for horror cinema but then dropped the bit after 4. I hope this never drops the bit.",
+        "action": "Read"
+      }
+    ],
+    "createdAt": "2026-05-26T07:11:10.870Z",
+    "updatedAt": "2026-05-26T07:11:10.870Z"
   }
 }
