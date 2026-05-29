@@ -15,11 +15,6 @@ export default async (
       .then((result) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        if (process.env.NODE_ENV === "production")
-          res.setHeader(
-            "Cache-Control",
-            "max-age=0, s-maxage=1, stale-while-revalidate"
-          );
         // hydrate results with book data
         const results = JSON.parse(result).results;
         const bookIds = results.map((result: Highlight) => result.book_id);
@@ -45,6 +40,11 @@ export default async (
                 book,
               };
             });
+            if (process.env.NODE_ENV === "production")
+              res.setHeader(
+                "Cache-Control",
+                "s-maxage=300, stale-while-revalidate=600"
+              );
             res.end(JSON.stringify(hydratedResults));
             resolve();
           });

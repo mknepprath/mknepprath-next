@@ -39,7 +39,7 @@ export default async (
     if (process.env.NODE_ENV === "production")
       res.setHeader(
         "Cache-Control",
-        "max-age=0, s-maxage=1, stale-while-revalidate"
+        "s-maxage=60, stale-while-revalidate=300"
       );
     res.json(posts);
   } catch (error) {

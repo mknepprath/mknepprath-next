@@ -9,9 +9,17 @@ const BASE_URL =
 
 // Generic function to fetch and normalize data from different sources
 const fetchData = async (endpoint: string) => {
-  const response = await fetch(`${BASE_URL}${endpoint}`);
-  if (!response.ok) throw new Error(`Failed to fetch from ${endpoint}`);
-  return response.json();
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      signal: controller.signal,
+    });
+    if (!response.ok) throw new Error(`Failed to fetch from ${endpoint}`);
+    return response.json();
+  } finally {
+    clearTimeout(timeout);
+  }
 };
 
 // Function to standardize the data into the common Post structure
@@ -290,17 +298,6 @@ const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
     }));
 };
 
-const formatTrophyData = (trophies: Trophy[]): Partial<PostListItem>[] =>
-  trophies.map((trophy) => ({
-    action: "Earned",
-    date: trophy.earnedTimestamp,
-    id: `t${trophy.trophyTitle}`,
-    title: trophy.trophyTitle,
-    summary: trophy.trophyDesc,
-    image: trophy.gameImg,
-    url: trophy.trophyUrl,
-  }));
-
 const formatChessData = (games: Chess[]): Partial<PostListItem>[] =>
   games.map((game) => {
     const actionMap: Record<string, string> = {
@@ -391,11 +388,6 @@ export default async (
       format: formatMusicData,
     },
     {
-      url: `/api/v1/psn?username=mknepprath`,
-      type: "TROPHY" as PostListItem["type"],
-      format: formatTrophyData,
-    },
-    {
       url: `/api/v1/steam`,
       type: "GAME" as PostListItem["type"],
       format: formatSteamData,
@@ -441,6 +433,7 @@ export default async (
       .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
       .slice(0, maxResults);
 
+    res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
     res.status(200).json(sortedPosts);
   } catch (error) {
     console.error("Error fetching and processing posts:", error);
