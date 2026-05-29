@@ -339,6 +339,36 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru18664466211",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-05-26T13:29:24.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/18664466211",
+        "summary": "Distance: 1.23 mi, Time: 29 min, Elevation: 43 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18661256909",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-05-26T08:53:47.000Z",
+        "image": "u~a|FpcxpNC{@DqECmA@}AAsEAY@o@AOKUN[C_@DuAAiC@sBAy@@_BAeD@}BCoD@qACy@I}@FsACGKCy@F]Aj@C[@gC?UBi@AqA@c@T_@Dy@Nw@Xe@Va@XcAnAg@v@s@nAk@~Au@rCO`AQr@Mx@QXa@b@SZKJ]NSP[f@Ul@Kb@ARKjLFnATjC?h@SfCK`@[jBk@nCATDx@AVERSb@I\\E^KnBGh@]rAUj@[Nc@f@OXYJUNMNYl@M^U|AUTAHKrB?fA@JNPBhBF|@Z|B",
+        "url": "https://www.strava.com/activities/18661256909",
+        "summary": "Distance: 3.16 mi, Time: 40 min, Elevation: 80 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18669440606",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-05-25T16:50:50.000Z",
+        "image": "q~a|FrcxpN@y@AoCBk@EuDByAAkCGOF[A_@Bi@A]EMDsACyBDsACc@@eDCw@Bw@AiD@uIGSE_@F}AASAk@B]AsA@eB@UCs@@uRA_A@}CAu@@m@AuADaBAy@JKBILQVQ@EEMQ[OOMY?c@H[K]OW?KLMLYFIALC@@FDACC@@@CWtAO\\IDCNBN\\^Vd@TVALKZSPQHGt@@RCj@BdCCz@@jBCxAHtA?~@CX?x@CjA@t@Cl@B|@CjABXCp@Dr@CtABf@Cl@BzAAd@@h@BLIzAJv@@VEbBB|@@bDA`A?rAA~ABb@?pDAfA@dA?fDBRCX@`@Cn@D^?bDC~AB|CAtABh@AhB",
+        "url": "https://www.strava.com/activities/18669440606",
+        "summary": "Distance: 3.71 mi, Time: 75 min, Elevation: 84 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru18639690284",
         "type": "RUN",
         "title": "Afternoon Run",
@@ -346,6 +376,16 @@
         "image": "s~a|FpcxpN@mCAyF@{FEg@FaAE_ABs@CiI@kBA_Q?o@G[Ec@HwAAUC}G@oDAs@ByCCsKD_DAiCBgCCe@EQy@yAm@yAa@oAIOGe@IiAEsACGD}AGyCDuDMiBQ{AY{AWaA[{@{@_Bi@y@i@o@cA_A{@k@w@]iAa@}@]mAs@kAy@yAuA[a@cAyAQE_@WKe@Qe@s@cA[Ui@Ua@IQAGDELEv`@@tDCvH?t@BRCZKvBAfDGbD@xICfCA`DCv@@ZAlEDXGZ@zDCbAA|Fs@hZ@tAK`AC|BKzCGnD[nFa@xD[tBW`CI^OzAYxAQhAOjAIdAKp@UtBi@nDSfBkAlHMpAMr@YxCSxAEl@BPHF\\L^Vb@HZBVAH@b@C\\BRC^@n@Cz@@TC",
         "url": "https://www.strava.com/activities/18639690284",
         "summary": "Distance: 5.27 mi, Time: 85 min, Elevation: 184 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18649839839",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-05-21T10:04:49.000Z",
+        "image": "s~a|FrcxpN?uNByCCU?iACmABa@@sBA{@@oLAaI@y@AeAI{@GWKM@OH[Jm@@SCcH@{BA_FBk@AgXBUJC`@k@Ia@_@{@A[`@aA\\i@Vw@HKRGUGQJCBIn@[dAIh@EFERAZDRZp@@HKVa@b@CL@p@B@XDDH?F?d@a@bA?`AGvCDrAAn@GtAAhBB|FAjBBnMIpAJdACh@FlFAlN@`AA`FDr@GjDBlR",
+        "url": "https://www.strava.com/activities/18649839839",
+        "summary": "Distance: 3.68 mi, Time: 54 min, Elevation: 120 ft",
         "action": "Ran"
       },
       {
@@ -520,7 +560,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-05-25T07:32:20.386Z"
+    "updatedAt": "2026-05-27T07:24:57.421Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -587,6 +627,16 @@
     "description": "Michael appreciates animated films and shows for their visual artistry and storytelling, from classic animated films to modern animated series.",
     "items": [
       {
+        "id": "flletterboxd-review-1328606193",
+        "type": "FILM",
+        "title": "Star Wars: The Mandalorian and Grogu",
+        "date": "2026-05-25T06:10:27.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/1/1/1/0/7/3/1111073-star-wars-the-mandalorian-and-grogu-0-600-0-900-crop.jpg?v=5da24e2cba",
+        "url": "https://letterboxd.com/mknepprath/film/star-wars-the-mandalorian-and-grogu/",
+        "summary": " <p>As an anime enjoyer during my college years, I was well aware of the concept of filler episodes - episodes that were written to fill airtime until more of the manga was out and available to adapt. Key traits of filler were that it needed to be incredibly low stakes and lacking in character development, so as to ensure that the characters would not get out of sync with the source material's plot.</p><p>That's what this felt like.</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "flletterboxd-review-1324471786",
         "type": "FILM",
         "title": "Pee-wee's Big Adventure",
@@ -615,10 +665,20 @@
         "url": "https://mastodon.social/@robot_mk/116598333296594486",
         "summary": "<p>the iron giant holds up so ridiculously well</p>",
         "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1318435239",
+        "type": "FILM",
+        "title": "The Iron Giant",
+        "date": "2026-05-16T22:54:24.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/4/6/2/8/0/46280-the-iron-giant-0-600-0-900-crop.jpg?v=4684e40750",
+        "url": "https://letterboxd.com/mknepprath/film/the-iron-giant/1/",
+        "summary": " <p>He Superman.</p> ",
+        "action": "Rewatched"
       }
     ],
     "createdAt": "2026-05-22T07:11:35.074Z",
-    "updatedAt": "2026-05-22T07:11:35.074Z"
+    "updatedAt": "2026-05-27T07:24:57.421Z"
   },
   "anime-engagement": {
     "title": "Anime Engagement",
