@@ -1,61 +1,40 @@
-import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
+
+const READWISE_HEADERS = {
+  Authorization: `Token ${process.env.READWISE_ACCESS_TOKEN}`,
+};
 
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ): Promise<void> => {
-  return new Promise((resolve) => {
-    fetch(`https://readwise.io/api/v2/highlights/`, {
-      headers: {
-        Authorization: `Token ${process.env.READWISE_ACCESS_TOKEN}`,
-      },
-    })
-      .then((response) => response.text())
-      .then((result) => {
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
-        // hydrate results with book data
-        const results = JSON.parse(result).results;
-        const bookIds = results.map((result: Highlight) => result.book_id);
-        const bookIdsString = bookIds.join(",");
-        const bookData = fetch(
-          `https://readwise.io/api/v2/books/?ids=${bookIdsString}`,
-          {
-            headers: {
-              Authorization: `Token ${process.env.READWISE_ACCESS_TOKEN}`,
-            },
-          }
-        );
-        bookData
-          .then((response) => response.text())
-          .then((result) => {
-            const bookData = JSON.parse(result).results;
-            const hydratedResults = results.map((result: Highlight) => {
-              const book = bookData.find(
-                (book: HighlightBook) => book.id === result.book_id
-              );
-              return {
-                ...result,
-                book,
-              };
-            });
-            if (process.env.NODE_ENV === "production")
-              res.setHeader(
-                "Cache-Control",
-                "s-maxage=300, stale-while-revalidate=600"
-              );
-            res.end(JSON.stringify(hydratedResults));
-            resolve();
-          });
+  const highlightsRes = await fetch(
+    "https://readwise.io/api/v2/highlights/",
+    { headers: READWISE_HEADERS },
+  );
+  if (!highlightsRes.ok) {
+    res.status(highlightsRes.status).json({ error: "Failed to fetch highlights" });
+    return;
+  }
+  const { results } = await highlightsRes.json();
 
-        // res.end(JSON.stringify(JSON.parse(result).results));
-        // resolve();
-      })
-      .catch((error) => {
-        res.json(error);
-        res.status(404).end();
-        return resolve();
-      });
-  });
+  const bookIds = results.map((h: Highlight) => h.book_id).join(",");
+  const booksRes = await fetch(
+    `https://readwise.io/api/v2/books/?ids=${bookIds}`,
+    { headers: READWISE_HEADERS },
+  );
+  if (!booksRes.ok) {
+    res.status(booksRes.status).json({ error: "Failed to fetch books" });
+    return;
+  }
+  const { results: bookData } = await booksRes.json();
+
+  const hydratedResults = results.map((highlight: Highlight) => ({
+    ...highlight,
+    book: bookData.find((book: HighlightBook) => book.id === highlight.book_id),
+  }));
+
+  if (process.env.NODE_ENV === "production")
+    res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
+  res.status(200).json(hydratedResults);
 };
