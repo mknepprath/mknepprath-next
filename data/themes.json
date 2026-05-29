@@ -5,6 +5,16 @@
     "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
     "items": [
       {
+        "id": "flletterboxd-review-1333045940",
+        "type": "FILM",
+        "title": "Pee-wee's Big Adventure",
+        "date": "2026-05-28T22:43:02.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/li/jl/a2/sr/2PT1qTPkD3UvP9zZ2EqZkDNyJl1-0-600-0-900-crop.jpg?v=9b6c097a6f",
+        "url": "https://letterboxd.com/mknepprath/film/pee-wees-big-adventure/2/",
+        "summary": " <p>I’m realizing how much Keaton energy is in this movie with each viewing. Andy is every single Joe Roberts character, especially the one from Three Ages</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "bot116476605270006969",
         "type": "ROBOT",
         "title": "audino's basically a therapist with better hearing aidshttps://mastodon.social/@PokemonFacts/116476570905795281",
@@ -104,7 +114,7 @@
       }
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
-    "updatedAt": "2026-04-28T19:39:50.231Z"
+    "updatedAt": "2026-05-29T07:18:28.539Z"
   },
   "photay-appreciation": {
     "title": "Photay Appreciation",
@@ -339,6 +349,36 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru18693311884",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-05-28T14:33:23.000Z",
+        "image": "}nc|FjuypNmI@{A@m@Dc@CqG@y@CmB@]@sAC{@BuAAK@o@AmID}@EM@QBmC?iBBaBKuBCcCBy@?QBOCo@FA{@BeECwC@cI@WHE^ED@FJD\\@nAEhEBfBCf@@tCBnABPFDrAApBFl@EbA@h@Ex@?|@EpC?VC|AD`FCbA@REBGHNJCf@@VEz@Dl@E`AFfAEpABr@ClF@j@Az@?TEXDvC@`@Cf@B`FG",
+        "url": "https://www.strava.com/activities/18693311884",
+        "summary": "Distance: 3.24 mi, Time: 33 min, Elevation: 104 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18689497055",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-05-28T08:33:11.000Z",
+        "image": "q~a|FncxpNBw@EqA@yCAQBsEAsBE]FuA?[E]B}A?qJC}@BgHCw@BmAAwB?[KmAFuACwABgACk@BmKCuABmEE_CD_CC{BBq@Ay@BiDBIXSJMLUMWg@o@AITo@XoAN_@TWBUHIZKAEMKIWN\\DMFCHD@LCFKIK@F?@JEKAS?JBDAF@]Af@AHYBOJ@RD`@CTOXUXY~@ANDR\\j@BLY\\WREJ?lAC|@@bDCdFBXEl@DbACz@BtFAf@@n@AnI@`BBz@KlAJz@AlABdCA`D@\\@xACfBBjGEbEDpBC^?tAAVDzAEvABv@@~@E|@D`EAx@",
+        "url": "https://www.strava.com/activities/18689497055",
+        "summary": "Distance: 3.72 mi, Time: 70 min, Elevation: 98 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18675788532",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-05-27T08:44:23.000Z",
+        "image": "u~a|FpcxpNBeACqEBq@AyDB_@CaBC]FoAAe@CUBoDCwK@_A?cFAmFK}@HwAA]CoDBiDCyFBs@CgA@i@AiEBmCAoEDqEp@u@@EESQc@WWGSDWRg@Zc@P[Lc@@MBKFGVM?QKMv@dBNFw@uBCF@xACLGCMwAUPILF`ABVg@p@Mr@I\\BJd@dAu@t@CL@bBCh@AjABx@Cr@BzCAzA@t@ClB@~DAlGB^C`C@xBB`AItAJv@?vABdAChC@~BAXA|AD~FCr@Bv@AlDBvAExABL?V@jCC|@@|HAnB",
+        "url": "https://www.strava.com/activities/18675788532",
+        "summary": "Distance: 3.74 mi, Time: 75 min, Elevation: 110 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru18664466211",
         "type": "RUN",
         "title": "Afternoon Walk",
@@ -560,7 +600,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-05-27T07:24:57.421Z"
+    "updatedAt": "2026-05-29T07:18:28.539Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
