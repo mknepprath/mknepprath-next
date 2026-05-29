@@ -43,6 +43,10 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
+      - name: Validate themes.json
+        if: steps.changes.outputs.changed == 'true'
+        run: node -e "JSON.parse(require('fs').readFileSync('data/themes.json', 'utf8'))"
+
       - name: Close stale update-themes PRs
         if: steps.changes.outputs.changed == 'true'
         env:
