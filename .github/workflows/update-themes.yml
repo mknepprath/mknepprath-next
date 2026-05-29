@@ -39,20 +39,20 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Open PR
+      - name: Close stale update-themes PRs
         if: steps.changes.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.ACTION_GITHUB_TOKEN }}
         run: |
-          BRANCH="automated/update-themes-$(date +%Y%m%d)"
+          gh pr list --state open --json number,title \
+            --jq '.[] | select(.title == "Update themes (automated)") | .number' | \
+            xargs -r -I {} gh pr close {} --comment "Superseded by direct push to master."
+
+      - name: Commit and push to master
+        if: steps.changes.outputs.changed == 'true'
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b "$BRANCH"
           git add data/themes.json
           git commit --no-verify -m "Update themes (automated)"
-          git push origin "$BRANCH"
-          gh pr create \
-            --title "Update themes (automated)" \
-            --body "Automated theme detection found new or updated themes." \
-            --head "$BRANCH" \
-            --base master
+          git push origin master
