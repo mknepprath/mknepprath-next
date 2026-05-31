@@ -85,9 +85,9 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
       </p>
       <blockquote>
         <p>
-          5 Now she that is a widow indeed, and desolate, trusteth in God, and
+          <sup>5</sup> Now she that is a widow indeed, and desolate, trusteth in God, and
           continueth in supplications and prayers night and day.
-          <br />6 <strong>But she that liveth in pleasure is dead while she liveth.</strong>
+          <br /><sup>6</sup> <strong>But she that liveth in pleasure is dead while she liveth.</strong>
         </p>
       </blockquote>
       <p>
@@ -96,7 +96,7 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
       </p>
       <blockquote>
         <p>
-          8 But if any provide not for his own, and specially for those of his
+          <sup>8</sup> But if any provide not for his own, and specially for those of his
           own house, he hath denied the faith, and is worse than an infidel.
         </p>
       </blockquote>
@@ -106,7 +106,7 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
       </p>
       <blockquote>
         <p>
-          13 And withal they learn to be idle, wandering about from house to
+          <sup>13</sup> And withal they learn to be idle, wandering about from house to
           house; and not only idle, but tattlers also and busybodies, speaking
           things which they ought not.
         </p>
@@ -137,7 +137,7 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
         one of these moments was one degree away from the first mention of St.
         Paul. Thanks to Uncle Charlie, we know he and Emma grew up in St. Paul,
         Minnesota, and Emma later recounts the only story we hear about his
-        childhood. For the scene, I found it to be unusually long and detailed.
+        childhood.
       </p>
       <blockquote>
         <p>
@@ -156,26 +156,44 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
         it&apos;s because it was meant to map one-to-one with another conversion
         story. That&apos;s right. St. Paul&apos;s.
       </p>
-      <ol>
-        <li>
-          On the road to Damascus, horse ↔ On the icy road, bike
-        </li>
-        <li>
-          A sudden light and falling to the ground ↔ Skidding into a streetcar
-          and nearly dying
-        </li>
-        <li>Saul loses his sight ↔ He suffers a fractured skull</li>
-        <li>Three days weak and helpless ↔ A long period laid up recovering</li>
-        <li>Saul regains strength and sight ↔ &ldquo;When he got well&rdquo;</li>
-        <li>
-          Saul becomes driven to preach Christ ↔ &ldquo;There was no holding
-          him&rdquo; afterward
-        </li>
-        <li>
-          Saul becomes devoted to the Word ↔ &ldquo;He didn&apos;t read much
-          after that&rdquo;
-        </li>
-      </ol>
+      <table>
+        <thead>
+          <tr>
+            <th>St. Paul</th>
+            <th>Uncle Charlie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>On the road to Damascus, horse</td>
+            <td>On the icy road, bike</td>
+          </tr>
+          <tr>
+            <td>A sudden light and falling to the ground</td>
+            <td>Skidding into a streetcar and nearly dying</td>
+          </tr>
+          <tr>
+            <td>Saul loses his sight</td>
+            <td>He suffers a fractured skull</td>
+          </tr>
+          <tr>
+            <td>Three days weak and helpless</td>
+            <td>A long period laid up recovering</td>
+          </tr>
+          <tr>
+            <td>Saul regains strength and sight</td>
+            <td>&ldquo;When he got well&rdquo;</td>
+          </tr>
+          <tr>
+            <td>Saul becomes driven to preach Christ</td>
+            <td>&ldquo;There was no holding him&rdquo; afterward</td>
+          </tr>
+          <tr>
+            <td>Saul becomes devoted to the Word</td>
+            <td>&ldquo;He didn&apos;t read much after that&rdquo;</td>
+          </tr>
+        </tbody>
+      </table>
       <p>
         They both fell off of their rides and converted. Note that
         Charlie&apos;s story is inverted.
@@ -191,8 +209,8 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
         Paul, a dark apostle.
       </p>
       <p>
-        While I can&apos;t claim that Hitchcock intended for all of this, I am
-        fairly confident in saying the writer of the film, Thornton Wilder, did.
+        While I can&apos;t claim that Hitchcock intended for all of this, I&apos;m
+        confident Thornton Wilder did.
         I now imagine Wilder had 1 Timothy 5 open beside him while writing this
         entire screenplay. Important to note that Wilder was no stranger to
         biblical allegory. His previous work was{" "}
