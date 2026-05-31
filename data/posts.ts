@@ -1,5 +1,12 @@
 const posts: PostListItem[] = [
   {
+    "date": "2026-05-31",
+    "id": "uncle-charlie-dark-apostle",
+    "image": "/assets/uncle-charlie.jpg",
+    "summary": "I think I've made a new discovery about an 83-year-old film: Uncle Charlie as an inverted St. Paul, in a Thornton Wilder theological film.",
+    "title": "Uncle Charlie the Dark Apostle"
+  },
+  {
     "date": "2026-03-19",
     "id": "lily-dex-revisited",
     "image": "/assets/lily-dex-hero.jpg",
