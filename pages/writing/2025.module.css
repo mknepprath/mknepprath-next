@@ -21,6 +21,21 @@
   }
 }
 
+.imageGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  margin: 16px 0;
+}
+.imageGridFull {
+  grid-column: 1 / -1;
+}
+@media (max-width: 631px) {
+  .imageGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .imagePair {
   align-items: start;
   display: grid;

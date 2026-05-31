@@ -107,16 +107,15 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <h3>March: Houston</h3>
 
-      <Image
-        alt="Family in front of a castle reflected in a pond near Houston"
-        className="corner-radius-8"
-        height={1066}
-        src="/assets/2025-houston-castle.jpg"
-        style={{ width: "100%", height: "auto" }}
-        width={1600}
-      />
-
-      <div className={styles.imagePair}>
+      <div className={styles.imageGrid}>
+        <Image
+          alt="Family in front of a castle reflected in a pond near Houston"
+          className={`corner-radius-8 ${styles.imageGridFull}`}
+          height={1066}
+          src="/assets/2025-houston-castle.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
         <Image
           alt="Jill among Texas bluebonnets"
           className="corner-radius-8"
@@ -136,17 +135,6 @@ export default function ReviewOf2025(): React.ReactNode {
       </div>
 
       <h3>May: New Mexico</h3>
-
-      <p>
-        Part of that was because my last living grandparent passed away. This
-        was not a surprise, and I was given the opportunity to visit her shortly
-        before. Trips to visit her as a child are some of my favorite memories.
-        We&apos;d drive across the country, seeing landscapes and culture we were
-        unfamiliar with being from the Midwest. She would always have the SNES
-        set up, I had assumed for us, but I later learned that she was a gamer
-        herself. Per my aunt, &ldquo;She beat both Super Mario and The Legend of
-        Zelda on SNES. SHE BEAT THEM BOTH. Final boss, vanquished.&rdquo;
-      </p>
 
       <p>
         I visited Albuquerque again in May to attend the funeral. Got to see a
@@ -202,8 +190,6 @@ export default function ReviewOf2025(): React.ReactNode {
         width="100%"
       ></iframe>
 
-      <h3>October: Michigan</h3>
-
       <h3>October/November: Disney World</h3>
 
       <p>
@@ -211,16 +197,15 @@ export default function ReviewOf2025(): React.ReactNode {
         tickets. We saw Cirque du Soleil.
       </p>
 
-      <Image
-        alt="Mickey's Not-So-Scary Halloween Party spooktacular show"
-        className="corner-radius-8"
-        height={1200}
-        src="/assets/2025-disney-spooktacular.jpg"
-        style={{ width: "100%", height: "auto" }}
-        width={1600}
-      />
-
-      <div className={styles.imagePair}>
+      <div className={styles.imageGrid}>
+        <Image
+          alt="Mickey's Not-So-Scary Halloween Party spooktacular show"
+          className={`corner-radius-8 ${styles.imageGridFull}`}
+          height={1200}
+          src="/assets/2025-disney-spooktacular.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
         <Image
           alt="Owen with the Mandalorian at Disney World"
           className="corner-radius-8"
