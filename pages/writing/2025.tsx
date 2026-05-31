@@ -137,7 +137,7 @@ export default function ReviewOf2025(): React.ReactNode {
       <h3>May: New Mexico</h3>
 
       <p>
-        I visited Albuquerque again in May to attend the funeral. Got to see a
+        I visited Albuquerque again in May to attend a family funeral. Got to see a
         lot of family that I hadn&apos;t seen since I was a child myself.
       </p>
 
