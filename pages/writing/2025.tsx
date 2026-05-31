@@ -77,7 +77,63 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <h3>February: Minnesota</h3>
 
+      <div className={styles.imagePair}>
+        <Image
+          alt="Bowling in Minnesota"
+          className="corner-radius-8"
+          height={1066}
+          src="/assets/2025-minnesota-bowling.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+        <Image
+          alt="Playing Legos with family in Minnesota"
+          className="corner-radius-8"
+          height={1066}
+          src="/assets/2025-minnesota-legos.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+      </div>
+
+      <Image
+        alt="Winter morning in Minnesota"
+        className="corner-radius-8"
+        height={1066}
+        src="/assets/2025-minnesota-winter.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
+
       <h3>March: Houston</h3>
+
+      <Image
+        alt="Family in front of a castle reflected in a pond near Houston"
+        className="corner-radius-8"
+        height={1066}
+        src="/assets/2025-houston-castle.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
+
+      <div className={styles.imagePair}>
+        <Image
+          alt="Jill among Texas bluebonnets"
+          className="corner-radius-8"
+          height={1066}
+          src="/assets/2025-houston-bluebonnets.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+        <Image
+          alt="Owen with a Blue Bell ice cream hat"
+          className="corner-radius-8"
+          height={1066}
+          src="/assets/2025-houston-owen.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+      </div>
 
       <h3>May: New Mexico</h3>
 
