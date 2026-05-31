@@ -87,7 +87,7 @@ export default function ReviewOf2025(): React.ReactNode {
           width={1600}
         />
         <Image
-          alt="Playing Legos with family in Minnesota"
+          alt="Playing with Legos with family in Minnesota"
           className="corner-radius-8"
           height={1066}
           src="/assets/2025-minnesota-legos.jpg"
@@ -449,7 +449,7 @@ export default function ReviewOf2025(): React.ReactNode {
       <ul>
         <li>
           <strong>Spamalot</strong> - went in not knowing it was literally The
-          Holy Grail. luckily I had watched that movie with Owen within the last
+          Holy Grail. Luckily I had watched that movie with Owen within the last
           year. One of my favorites, hilarious play!
         </li>
         <li>
@@ -470,11 +470,11 @@ export default function ReviewOf2025(): React.ReactNode {
           year of incredible work.
         </li>
         <li>
-          <strong>Biking</strong> - Had not owned bikes in ohio, bought a pair
+          <strong>Biking</strong> - Had not owned bikes in Ohio, bought a pair
           for me and my son. He learned fast.
         </li>
         <li>
-          <strong>Walkabout</strong> - mini golf. new levels. great fun.
+          <strong>Walkabout</strong> - mini golf. New levels. Great fun.
         </li>
       </ul>
 
