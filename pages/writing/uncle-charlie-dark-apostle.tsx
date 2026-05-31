@@ -43,7 +43,7 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
       </p>
       <p>
         I&apos;d read that Shadow of a Doubt (1943) was Alfred Hitchcock&apos;s
-        favorite film of his, something that landed in the &ldquo;fun
+        favorite of his own films, something that landed in the &ldquo;fun
         fact&rdquo; territory of my mind without further exploration during my
         initial viewing. This, despite my recurring confusion about how many of
         the characters were acting and talking during the film: weird
@@ -52,7 +52,7 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
         means.
       </p>
       <p>
-        During my second viewing, I found myself hooked by a most minor detail:
+        During my second viewing, I found myself hooked by a seemingly minor detail:
         repeated mentions of St. Paul. The first: Uncle Charlie, &ldquo;Standing
         there, you don&apos;t look like Emma Newton. You look like Emma Spencer
         Oakley of 46 Burnham Street, St. Paul, Minnesota.&rdquo; The second,
@@ -193,7 +193,7 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
       <p>
         While I can&apos;t claim that Hitchcock intended for all of this, I am
         fairly confident in saying the writer of the film, Thornton Wilder, did.
-        I now imagine Wilder had 1 Timothy 5 open on the side while writing this
+        I now imagine Wilder had 1 Timothy 5 open beside him while writing this
         entire screenplay. Important to note that Wilder was no stranger to
         biblical allegory. His previous work was{" "}
         <a href="https://en.wikipedia.org/wiki/The_Skin_of_Our_Teeth">
