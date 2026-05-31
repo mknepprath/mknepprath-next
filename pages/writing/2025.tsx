@@ -166,6 +166,25 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <p>My parents retired.</p>
 
+      <div className={styles.imagePair}>
+        <Image
+          alt="Dad at the retirement party"
+          className="corner-radius-8"
+          height={1066}
+          src="/assets/2025-michigan-retirement-party.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+        <Image
+          alt="Family gathered for the retirement celebration"
+          className="corner-radius-8"
+          height={1066}
+          src="/assets/2025-michigan-retirement-family.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+      </div>
+
       <h3>August: Japan</h3>
 
       <p>
