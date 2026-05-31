@@ -509,16 +509,15 @@ export default function ReviewOf2025(): React.ReactNode {
       <h2>Until Next Time</h2>
 
       <p>
-        All of the technology cultivated by my heroes curdling into dystopian
+        The technology cultivated by my heroes has curdled into dystopian
         surveillance tools used for rampant rent-seeking, the mass roundup and
         black bag capture of the most needy among us, and the mistreatment and
         even murder of those who so much as make a wrong step.
       </p>
 
       <p>
-        Social media is not a neutral mediator and removing that will only be
-        positive, more direct interactions, hence more hanging out with my
-        family, friends, neighbors.
+        Social media is not a neutral mediator. Removing it means more direct
+        interactions: more time with family, friends, neighbors.
       </p>
 
       <p>This is an invitation to reach out.</p>
