@@ -97,18 +97,18 @@ export default function ReviewOf2025(): React.ReactNode {
         lot of family that I hadn&apos;t seen since I was a child myself.
       </p>
 
-      <h3>June: Michigan</h3>
-
-      <p>My parents retired.</p>
-
       <Image
-        alt="Michigan"
+        alt="Family gathered in Albuquerque"
         className="corner-radius-8"
         height={1200}
-        src="/assets/2025-michigan.jpg"
+        src="/assets/2025-albuquerque-family.jpg"
         style={{ width: "100%", height: "auto" }}
         width={1600}
       />
+
+      <h3>June: Michigan</h3>
+
+      <p>My parents retired.</p>
 
       <h3>August: Japan</h3>
 
@@ -171,6 +171,34 @@ export default function ReviewOf2025(): React.ReactNode {
         Cancun.
       </p>
 
+      <div className={styles.imagePair}>
+        <Image
+          alt="Hiking through a canyon in El Paso"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-el-paso-hike.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+        <Image
+          alt="Family resting during the El Paso hike"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-el-paso-family.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+      </div>
+
+      <Image
+        alt="Owen relaxing at the Cancun resort"
+        className="corner-radius-8"
+        height={1199}
+        src="/assets/2025-cancun.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
+
       <h2>2025 in Film</h2>
 
       <h3>Superman (2025)</h3>
@@ -216,6 +244,25 @@ export default function ReviewOf2025(): React.ReactNode {
         during our trip to Japan where we did a day trip to visit Ghibli Park, a
         full theme park based on Studio Ghibli films.
       </p>
+
+      <div className={styles.imagePair}>
+        <Image
+          alt="Family in front of Kiki's bakery at Ghibli Park"
+          className="corner-radius-8"
+          height={1200}
+          src="/assets/2025-ghibli-family.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+        <Image
+          alt="Owen and Jill sitting with a large Totoro at Ghibli Park"
+          className="corner-radius-8"
+          height={1200}
+          src="/assets/2025-ghibli-totoro.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={1600}
+        />
+      </div>
 
       <h3>Reviews</h3>
 
