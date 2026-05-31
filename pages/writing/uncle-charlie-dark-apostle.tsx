@@ -134,7 +134,7 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
       />
       <p>
         I mentioned earlier how odd I&apos;d found some of the phrasing, and
-        one of these moments was one degree away from the first mention of St.
+        one of these moments is one degree away from the first mention of St.
         Paul. Thanks to Uncle Charlie, we know he and Emma grew up in St. Paul,
         Minnesota, and Emma later recounts the only story we hear about his
         childhood.
@@ -159,34 +159,34 @@ export default function UncleCharlieDarkApostle(): React.ReactNode {
       <table>
         <thead>
           <tr>
-            <th>St. Paul</th>
-            <th>Uncle Charlie</th>
+            <th>Acts 9</th>
+            <th>Shadow of a Doubt</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>On the road to Damascus, horse</td>
-            <td>On the icy road, bike</td>
+            <td>&ldquo;as he journeyed, he came near Damascus&rdquo;</td>
+            <td>&ldquo;he took it right out on the icy road&rdquo;</td>
           </tr>
           <tr>
-            <td>A sudden light and falling to the ground</td>
-            <td>Skidding into a streetcar and nearly dying</td>
+            <td>&ldquo;he fell to the earth&rdquo;</td>
+            <td>&ldquo;skidded into a street car&rdquo;</td>
           </tr>
           <tr>
-            <td>Saul loses his sight</td>
-            <td>He suffers a fractured skull</td>
+            <td>&ldquo;his eyes were opened, he saw no man&rdquo;</td>
+            <td>&ldquo;He had a fractured skull&rdquo;</td>
           </tr>
           <tr>
-            <td>Three days weak and helpless</td>
-            <td>A long period laid up recovering</td>
+            <td>&ldquo;three days without sight&rdquo;</td>
+            <td>&ldquo;laid up so long&rdquo;</td>
           </tr>
           <tr>
-            <td>Saul regains strength and sight</td>
-            <td>&ldquo;When he got well&rdquo;</td>
+            <td>&ldquo;received sight… and was strengthened&rdquo;</td>
+            <td>&ldquo;when he got well&rdquo;</td>
           </tr>
           <tr>
-            <td>Saul becomes driven to preach Christ</td>
-            <td>&ldquo;There was no holding him&rdquo; afterward</td>
+            <td>&ldquo;straightway he preached Christ&rdquo;</td>
+            <td>&ldquo;there was no holding him&rdquo;</td>
           </tr>
           <tr>
             <td>Saul becomes devoted to the Word</td>
