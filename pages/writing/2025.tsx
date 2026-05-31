@@ -58,8 +58,7 @@ export default function ReviewOf2025(): React.ReactNode {
       </p>
 
       <p>
-        While I&apos;m technically a voter without a party on this issue, I have
-        to give credit to Donald J. Trump for identifying how to hook people by
+        I have to give credit to Donald J. Trump for identifying how to hook people by
         their virtues and vices in order to unleash a level of cruelty unlike
         any man has been capable in centuries, save for perhaps one.
       </p>
