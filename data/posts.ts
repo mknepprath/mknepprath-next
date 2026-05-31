@@ -10,6 +10,13 @@ const posts: PostListItem[] = [
     "title": "Uncle Charlie the Dark Apostle"
   },
   {
+    "date": "2026-05-20",
+    "id": "2025",
+    "image": "/assets/2025-in-review-1.jpg",
+    "summary": "A look at my accomplishments during the past year.",
+    "title": "2025 in Review"
+  },
+  {
     "date": "2026-03-19",
     "id": "lily-dex-revisited",
     "image": "/assets/lily-dex-hero.jpg",

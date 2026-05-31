@@ -1,11 +1,12 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
 import styles from "./2025.module.css";
 
 export const meta: Meta = {
   image: "/assets/2025-in-review-1.jpg",
-  published: false,
+  published: true,
   publishedAt: "2026-05-20",
   summary: "A look at my accomplishments during the past year.",
   title: "2025 in Review",
@@ -19,7 +20,15 @@ export default function ReviewOf2025(): React.ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      {/* TODO: add hero photo */}
+      <Image
+        alt="Disney World's Main Street at night"
+        className="corner-radius-8"
+        height={1200}
+        priority
+        src="/assets/2025-in-review-1.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
 
       <header>
         <h1>{meta.title}</h1>
@@ -57,7 +66,14 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <h2>Travel</h2>
 
-      {/* TODO: add travel photo */}
+      <Image
+        alt="Flighty travel map showing 2025 flights"
+        className="corner-radius-8"
+        height={1004}
+        src="/assets/2025-travel-map.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1320}
+      />
 
       <h3>February: Minnesota</h3>
 
@@ -81,13 +97,18 @@ export default function ReviewOf2025(): React.ReactNode {
         lot of family that I hadn&apos;t seen since I was a child myself.
       </p>
 
-      {/* TODO: add New Mexico photo */}
-
       <h3>June: Michigan</h3>
 
       <p>My parents retired.</p>
 
-      {/* TODO: add Michigan photo */}
+      <Image
+        alt="Michigan"
+        className="corner-radius-8"
+        height={1200}
+        src="/assets/2025-michigan.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
 
       <h3>August: Japan</h3>
 
@@ -96,7 +117,15 @@ export default function ReviewOf2025(): React.ReactNode {
         to Tokyo and ended in Tokyo Disneyland.
       </p>
 
-      {/* TODO: add Japan photo */}
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        frameBorder="0"
+        height="353"
+        src="https://www.youtube.com/embed/WLrm3qDLxmo"
+        title="Japan 2025"
+        width="100%"
+      ></iframe>
 
       <h3>October: Michigan</h3>
 
@@ -107,7 +136,33 @@ export default function ReviewOf2025(): React.ReactNode {
         tickets. We saw Cirque du Soleil.
       </p>
 
-      {/* TODO: add Disney photo */}
+      <Image
+        alt="Mickey's Not-So-Scary Halloween Party spooktacular show"
+        className="corner-radius-8"
+        height={1200}
+        src="/assets/2025-disney-spooktacular.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
+
+      <div className={styles.imagePair}>
+        <Image
+          alt="Owen with the Mandalorian at Disney World"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-disney-mandalorian.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+        <Image
+          alt="Owen with a Star Wars droid at Disney World"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-disney-star-wars-droid.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+      </div>
 
       <h3>December: El Paso &amp; Cancun</h3>
 
@@ -115,8 +170,6 @@ export default function ReviewOf2025(): React.ReactNode {
         Visited family and then our family split to relax on the beaches of
         Cancun.
       </p>
-
-      {/* TODO: add El Paso/Cancún photo */}
 
       <h2>2025 in Film</h2>
 
@@ -138,7 +191,14 @@ export default function ReviewOf2025(): React.ReactNode {
         bus to escape Metropolis.
       </p>
 
-      {/* TODO: add Superman photo */}
+      <Image
+        alt="Cleveland's The Arcade dressed as Metropolis for the Superman film"
+        className="corner-radius-8"
+        height={1200}
+        src="/assets/2025-superman-arcade.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
 
       <h3>CIFF49</h3>
 
@@ -156,8 +216,6 @@ export default function ReviewOf2025(): React.ReactNode {
         during our trip to Japan where we did a day trip to visit Ghibli Park, a
         full theme park based on Studio Ghibli films.
       </p>
-
-      {/* TODO: add Ghibli Park photo */}
 
       <h3>Reviews</h3>
 
@@ -231,8 +289,6 @@ export default function ReviewOf2025(): React.ReactNode {
           unreality. I think he found that balance.
         </li>
       </ul>
-
-      {/* TODO: add film photo */}
 
       <h2>Books</h2>
 
@@ -315,7 +371,33 @@ export default function ReviewOf2025(): React.ReactNode {
         </li>
       </ul>
 
-      {/* TODO: add highlights photo */}
+      <div className={styles.imagePair}>
+        <Image
+          alt="New floor-to-ceiling library shelves in the renovated office"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-renovation-shelves-a.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+        <Image
+          alt="Renovated office with built-in shelving"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-renovation-shelves-b.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+      </div>
+
+      <Image
+        alt="Taekwondo belt promotion"
+        className="corner-radius-8"
+        height={1200}
+        src="/assets/2025-taekwondo.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
 
       <h2>Until Next Time</h2>
 
@@ -334,7 +416,14 @@ export default function ReviewOf2025(): React.ReactNode {
 
       <p>This is an invitation to reach out.</p>
 
-      {/* TODO: add closing photo */}
+      <Image
+        alt="Christmas tree and decorations"
+        className="corner-radius-8"
+        height={1200}
+        src="/assets/2025-winter-christmas.jpg"
+        style={{ width: "100%", height: "auto" }}
+        width={1600}
+      />
     </BlogPage>
   );
 }

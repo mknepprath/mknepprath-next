@@ -20,3 +20,17 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.imagePair {
+  align-items: start;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+  margin: 24px 0;
+}
+@media (min-width: 632px) {
+  .imagePair {
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
