@@ -227,7 +227,7 @@ export default function ReviewOf2025(): React.ReactNode {
       <h3>December: El Paso &amp; Cancun</h3>
 
       <p>
-        Visited family and then our family split to relax on the beaches of
+        We visited family and then our family split to relax on the beaches of
         Cancun.
       </p>
 
@@ -354,8 +354,8 @@ export default function ReviewOf2025(): React.ReactNode {
           puzzle boxes. They aren&apos;t thrill rides or epics. While movies can
           be all of these things, the best ones are those that plumb the depths
           of humanity for that which can&apos;t be mathed out. They uncover the
-          spark within each of us—a universal yearning to be, simply, perceived
-        </li>
+          spark within each of us—a universal yearning to be, simply, perceived.
+</li>
         <li>
           <strong>Stop Making Sense (1984)</strong>: Crescendos perfectly.
         </li>
