@@ -7,6 +7,7 @@ export const meta: Meta = {
   publishedAt: "2026-05-31",
   summary:
     "I think I've made a new discovery about an 83-year-old film: Uncle Charlie as an inverted St. Paul, in a Thornton Wilder theological film.",
+  tags: ["film"],
   title: "Uncle Charlie the Dark Apostle",
 };
 
