@@ -279,11 +279,30 @@ export default function ReviewOf2025(): React.ReactNode {
         bus to escape Metropolis.
       </p>
 
+      <div className={styles.imagePair}>
+        <Image
+          alt="Owen in his extra costume on the Superman film set"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-superman-onset.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+        <Image
+          alt="Owen in front of the Superman movie poster on opening day"
+          className="corner-radius-8"
+          height={1000}
+          src="/assets/2025-superman-opening-day.jpg"
+          style={{ width: "100%", height: "auto" }}
+          width={750}
+        />
+      </div>
+
       <Image
-        alt="Cleveland's The Arcade dressed as Metropolis for the Superman film"
+        alt="Owen visible among the extras boarding a bus in Superman (2025)"
         className="corner-radius-8"
-        height={1200}
-        src="/assets/2025-superman-arcade.jpg"
+        height={840}
+        src="/assets/2025-superman-movie-still.jpg"
         style={{ width: "100%", height: "auto" }}
         width={1600}
       />
