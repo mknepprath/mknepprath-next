@@ -171,6 +171,26 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116669613601461330",
+        "type": "ROBOT",
+        "title": "froakie's whole thing is just being slippery. respect thathttps://mastodon.social/@PokemonFacts/116669561268046914",
+        "date": "2026-05-31T14:17:03.949Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116669613601461330",
+        "summary": "<p>froakie&#39;s whole thing is just being slippery. respect that</p><p><a href=\"https://mastodon.social/@PokemonFacts/116669561268046914\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116669561268046914</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116663685918999607",
+        "type": "ROBOT",
+        "title": "eevee's worst evolution but the card art is probably goodhttps://mastodon.social/@EveryPkmnCard/116663650852242787",
+        "date": "2026-05-30T13:09:34.708Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116663685918999607",
+        "summary": "<p>eevee&#39;s worst evolution but the card art is probably good</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116663650852242787\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116663650852242787</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116618860258221845",
         "type": "ROBOT",
         "title": "oran berry erasure is real but at least it's not great ballhttps://mastodon.social/@EveryPkmnCard/116618838131015982",
@@ -341,13 +361,23 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-05-25T07:32:20.386Z"
+    "updatedAt": "2026-06-01T07:43:47.289Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru18715160464",
+        "type": "RUN",
+        "title": "38th Annual Walk for Hunger & 5K Run",
+        "date": "2026-05-30T08:28:43.000Z",
+        "image": "ek~{Fp`wqNAj@Ib@Qx@Wv@KLKDa@CKBKNIRAVBLd@`APr@Ch@ERIFc@BUAm@O_@A]FIFIRC\\H`@hA~BX\\NFJAHCXQZi@HCr@GNKFMFW@UGk@EwABe@B[d@}Az@iBJc@L{@R}@FORa@NMJIFALDT^JHNHf@Lr@|@PLNFZ@d@?\\IPKVWT_@Tm@N}@DYAg@]aBAU@GFIPMh@SF?HBZTPH~@r@HBl@F`A@LDFHRv@zAvDPn@ThAJx@@rBMf@KNq@d@UHQ?WKGOC]Bu@CKIC[DKEg@m@OYAK@KV{@BWMaBBPTn@DVI^Wn@ATHRf@x@Jf@JjAHJRD\\?p@KVQRURk@Fq@CaAI}@Gc@g@iBy@gBSk@YiAIOGGKEoA?e@IaAs@c@WQEW?e@P[Hc@E]@KJCJI`ADXDFJBx@EXDHJFR?h@Gh@Sr@Uj@_@d@YP[Dw@ESE][c@o@UKk@Oe@g@OCMHOPWf@y@dDw@lBe@fBE\\?\\FnAJ|@CTQ\\IFQD_@@QBIJMVMJ[HO@IIQ]iAiCGU@]BGHIXMd@@dAHJ?RGLMDK@K@_@I]e@iAEU@ONIL?PENM^k@Tk@FYHg@Dq@",
+        "url": "https://www.strava.com/activities/18715160464",
+        "summary": "Distance: 2.95 mi, Time: 23 min, Elevation: 161 ft",
+        "action": "Ran"
+      },
       {
         "id": "ru18705849835",
         "type": "RUN",
@@ -610,7 +640,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-05-30T06:59:54.478Z"
+    "updatedAt": "2026-06-01T07:43:47.289Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
