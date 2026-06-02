@@ -1,5 +1,6 @@
 import React, { useRef, useCallback, useEffect, startTransition, useState } from "react";
 import { useSpring, animated, to } from "react-spring";
+import { clamp } from "@lib/utils";
 import styles from "./card.module.css";
 
 interface Props {
@@ -13,11 +14,6 @@ const TILT_MAX = 8; // degrees
 const SCALE_HOVER = 1.02;
 const SHADOW_HOVER = 12;
 const GYRO_TILT_MAX = 6;
-
-// Clamp a value between -max and max
-function clamp(val: number, max: number) {
-  return Math.max(-max, Math.min(max, val));
-}
 
 // Shared gyroscope state — one listener for all cards
 let gyroListenerAttached = false;

@@ -2,15 +2,6 @@ interface Gif {
   id: string;
 }
 
-interface Post {
-  publishedAt: string;
-  id: string;
-  image?: string;
-  summary?: string;
-  title: string;
-}
-
-// TODO: Split the Post interface into two interfaces
 interface PostListItem {
   action?: string;
   date: string;

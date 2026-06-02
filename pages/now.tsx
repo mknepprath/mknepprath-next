@@ -1,4 +1,5 @@
 import Page from "@core/page";
+import { fetcher } from "@lib/fetcher";
 import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import useSWR from "swr";
@@ -9,9 +10,6 @@ const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://mknepprath.com"
     : "http://localhost:3000";
-
-const fetcher = (url: RequestInfo) =>
-  fetch(url).then((response) => response.json());
 
 interface NowPlayingResponse {
   item?: Music;

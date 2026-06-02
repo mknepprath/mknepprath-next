@@ -1,5 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
+import { setCacheControl } from "@lib/api";
 import xml2js from "xml2js";
 
 const LETTERBOXD_RSS = `https://letterboxd.com/mknepprath/rss/`;
@@ -38,10 +39,7 @@ export default async (
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   if (process.env.NODE_ENV === "production")
-    res.setHeader(
-      "Cache-Control",
-      "s-maxage=300, stale-while-revalidate=600"
-    );
+    setCacheControl(res, 300, 600);
   res.end(
     JSON.stringify(
       films

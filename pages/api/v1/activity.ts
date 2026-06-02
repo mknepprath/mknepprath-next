@@ -1,6 +1,7 @@
 import posts from "@data/posts";
 import { parseISO } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
+import { setCacheControl } from "@lib/api";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
@@ -433,7 +434,7 @@ export default async (
       .sort((a, b) => +parseISO(b.date) - +parseISO(a.date))
       .slice(0, maxResults);
 
-    res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
+    setCacheControl(res, 60);
     res.status(200).json(sortedPosts);
   } catch (error) {
     console.error("Error fetching and processing posts:", error);

@@ -2,14 +2,11 @@ import A from "@core/a";
 import Card from "@core/card";
 import Page from "@core/page";
 import PhotoStack from "@core/photo-stack";
-import fetch from "isomorphic-unfetch";
+import { fetcher } from "@lib/fetcher";
 import Link from "next/link";
 import useSWR from "swr";
 
 import styles from "./about.module.css";
-
-const fetcher = (url: RequestInfo) =>
-  fetch(url).then((response) => response.json());
 
 export default function About(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books`, fetcher);

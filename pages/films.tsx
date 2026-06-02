@@ -7,35 +7,12 @@ import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
+import { fetcher } from "@lib/fetcher";
+import { getFilmColors, hashString, stripHtml } from "@lib/utils";
 
 import styles from "./films.module.css";
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
-
 const REVIEW_THRESHOLD = 200;
-
-const FILM_PALETTE = [
-  { bg: "#e8833a", text: "#2a1400", accent: "#ffecd6" },
-  { bg: "#c9b896", text: "#2a2014", accent: "#f0e8d8" },
-  { bg: "#b898c0", text: "#2a1430", accent: "#f0e0f4" },
-  { bg: "#7ea888", text: "#0a2014", accent: "#d8f0e0" },
-  { bg: "#8abcc8", text: "#0a2030", accent: "#d0eaf0" },
-  { bg: "#d4a04a", text: "#2a1a00", accent: "#f8ecd0" },
-];
-
-function hashString(s: string): number {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
-  return Math.abs(h);
-}
-
-function getColors(id: string) {
-  return FILM_PALETTE[hashString(id) % FILM_PALETTE.length];
-}
-
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]+>/g, "").trim();
-}
 
 const filmPosts = posts
   .filter((p) => p.tags?.includes("film"))
@@ -80,7 +57,7 @@ export default function Films(): React.ReactNode {
         title: film.title,
         film,
         reviewText: plainReview,
-        colors: getColors(film.id),
+        colors: getFilmColors(film.id),
       };
       if (item.kind === "review") reviews.push(item);
       else stubs.push(item);

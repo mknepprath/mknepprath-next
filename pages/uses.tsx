@@ -1,10 +1,8 @@
 import A from "@core/a";
 import Page from "@core/page";
+import { fetcher } from "@lib/fetcher";
 import Image from "next/image";
 import useSWR from "swr";
-
-const fetcher = (url: RequestInfo) =>
-  fetch(url).then((response) => response.json());
 
 export default function Uses(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books?shelf=desk`, fetcher);

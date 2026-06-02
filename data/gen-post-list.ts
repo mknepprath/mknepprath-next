@@ -1,18 +1,10 @@
 import "colors";
 import { diffLines } from "diff";
 import fs from "fs";
+import { BlogPost as Post } from "../lib/types";
 import posts from "./get-blog-posts";
 
 const POSTS_FILE = `${process.cwd()}/data/posts.ts`;
-
-interface Post {
-  publishedAt: string;
-  id: string;
-  image?: string;
-  summary?: string;
-  tags?: string[];
-  title: string;
-}
 
 enum Color {
   Red = "red",

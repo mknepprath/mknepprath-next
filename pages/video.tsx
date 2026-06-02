@@ -2,6 +2,7 @@ import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
 import youtubeVideos from "@data/youtube-videos";
+import { fetcher } from "@lib/fetcher";
 import useSWR from "swr";
 
 import styles from "./video.module.css";
@@ -19,8 +20,6 @@ interface VimeoVideo {
   stats_number_of_plays: number;
   tags: string;
 }
-
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 function formatDuration(seconds: number): string {
   const m = Math.floor(seconds / 60);

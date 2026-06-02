@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { setCacheControl } from "@lib/api";
 
 const READWISE_HEADERS = {
   Authorization: `Token ${process.env.READWISE_ACCESS_TOKEN}`,
@@ -35,6 +36,6 @@ export default async (
   }));
 
   if (process.env.NODE_ENV === "production")
-    res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
+    setCacheControl(res, 300, 600);
   res.status(200).json(hydratedResults);
 };

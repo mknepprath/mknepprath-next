@@ -1,11 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Page from "@core/page";
 import { Post, POST_MAP } from "@core/post";
+import { fetcher } from "@lib/fetcher";
 import { parseISO } from "date-fns";
 import useSWR from "swr";
-
-const fetcher = (url: string) =>
-  fetch(url).then((response) => response.json());
 
 const PAGE_SIZE = 30;
 

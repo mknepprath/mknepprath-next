@@ -8,6 +8,7 @@ import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
 import classnames from "classnames";
 import { format, parseISO } from "date-fns";
+import { fetcher } from "@lib/fetcher";
 import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import Image from "next/image";
@@ -20,9 +21,6 @@ const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://mknepprath.com"
     : "http://localhost:3000";
-
-const fetcher = (url: RequestInfo) =>
-  fetch(url).then((response) => response.json());
 
 interface Props {
   initialActivity: PostListItem[];

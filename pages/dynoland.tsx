@@ -1,5 +1,5 @@
 import Page from "@core/page";
-import fetch from "isomorphic-unfetch";
+import { fetcher } from "@lib/fetcher";
 import Image from "next/image";
 import React, { SyntheticEvent } from "react";
 import useSWR from "swr";
@@ -30,8 +30,6 @@ function onClickToCopy(e: SyntheticEvent) {
 
 const IP = "144.217.215.65";
 const PORT = "25601";
-
-const fetcher = (url: RequestInfo) => fetch(url).then((r) => r.json());
 
 export default function Dynoland(): React.ReactNode {
   const { data } = useSWR(

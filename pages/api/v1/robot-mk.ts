@@ -1,5 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
+import { setCacheControl } from "@lib/api";
 
 export default async (
   req: NextApiRequest,
@@ -19,10 +20,7 @@ export default async (
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
     if (process.env.NODE_ENV === "production")
-      res.setHeader(
-        "Cache-Control",
-        "s-maxage=60, stale-while-revalidate=300"
-      );
+      setCacheControl(res, 60);
     res.json(data);
   } catch (error) {
     console.error("Error fetching robot_mk posts:", error);

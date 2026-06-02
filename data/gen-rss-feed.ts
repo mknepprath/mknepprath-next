@@ -3,19 +3,11 @@
 import "colors";
 import { diffLines } from "diff";
 import fs from "fs";
+import { BlogPost as Post } from "../lib/types";
 
 import posts from "./get-blog-posts";
 
 const FEED_FILE = `${process.cwd()}/public/feed.json`;
-
-interface Post {
-  publishedAt: string;
-  id: string;
-  image?: string;
-  summary?: string;
-  title: string;
-  contentHtml?: string;
-}
 
 enum Color {
   Red = "red",
