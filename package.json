@@ -37,7 +37,7 @@
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "classnames": "^2.5.1",
-    "date-fns": "^4.3.0",
+    "date-fns": "^4.4.0",
     "html-to-text": "^10.0.0",
     "isomorphic-unfetch": "^4.0.2",
     "markov-strings": "^3.0.1",
