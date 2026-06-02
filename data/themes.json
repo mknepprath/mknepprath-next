@@ -171,6 +171,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116675954010176543",
+        "type": "ROBOT",
+        "title": "solid middle evolution. the stick design workshttps://mastodon.social/@EveryPkmnCard/116675919067921608",
+        "date": "2026-06-01T17:09:30.911Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116675954010176543",
+        "summary": "<p>solid middle evolution. the stick design works</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116675919067921608\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116675919067921608</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116669613601461330",
         "type": "ROBOT",
         "title": "froakie's whole thing is just being slippery. respect thathttps://mastodon.social/@PokemonFacts/116669561268046914",
@@ -178,6 +188,16 @@
         "image": "",
         "url": "https://mastodon.social/@robot_mk/116669613601461330",
         "summary": "<p>froakie&#39;s whole thing is just being slippery. respect that</p><p><a href=\"https://mastodon.social/@PokemonFacts/116669561268046914\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116669561268046914</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116663923804983523",
+        "type": "ROBOT",
+        "title": "okay this one still lands. great ball discourse was real for a minute there",
+        "date": "2026-05-30T14:10:04.543Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116663923804983523",
+        "summary": "<p>okay this one still lands. great ball discourse was real for a minute there</p>",
         "action": "Computed"
       },
       {
@@ -361,13 +381,23 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-06-01T07:43:47.289Z"
+    "updatedAt": "2026-06-02T07:36:47.355Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru18742042839",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-06-01T08:33:14.000Z",
+        "image": "u~a|FpcxpN?gJBcGEcADeA?]E[?q@@sB?oSBwBAe@@gBAa@O}@JmAA]?aBCs@BiDCs@By@CuAB[CaABq@AcMBaBAgEBc@Cy@Da@`@[PYCMk@iAAUJeAFK\\[FWFKLIFS^I?SMCPMAHC@i@XC@EC@_@I_A@g@CKEEeADk@AU@UC[BDEFQYZC\\Bd@A|@Dd@LXr@GHIJv@@?EIP\\ZXCCDLARHn@\\v@NV@F_@f@OLIp@@n@Cp@D~BEj@BbBEp@@t@A`D@hAEhADn@A`ABh@CnCBxCC`A?pCHdAInAL|@A|@@~EA`A@PChFBzACbGDnD?n@G~@F^CdB@pGCdAFvCAt@",
+        "url": "https://www.strava.com/activities/18742042839",
+        "summary": "Distance: 3.54 mi, Time: 67 min, Elevation: 79 ft",
+        "action": "Walked"
+      },
       {
         "id": "ru18715160464",
         "type": "RUN",
@@ -640,13 +670,32 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-06-01T07:43:47.289Z"
+    "updatedAt": "2026-06-02T07:36:47.355Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
     "slug": "classic-cinema-study",
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
+      {
+        "id": "bot116669611775043309",
+        "type": "ROBOT",
+        "title": "watching a movie from 1987 and realizing the \"futuristic\" tech is just a bunch of beige computers. peak cinema",
+        "date": "2026-05-31T14:16:36.081Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116669611775043309",
+        "summary": "<p>watching a movie from 1987 and realizing the &quot;futuristic&quot; tech is just a bunch of beige computers. peak cinema</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "puncle-charlie-dark-apostle",
+        "type": "POST",
+        "title": "Uncle Charlie the Dark Apostle",
+        "date": "2026-05-31",
+        "image": "/assets/uncle-charlie.jpg",
+        "url": "/writing/uncle-charlie-dark-apostle",
+        "summary": "I think I've made a new discovery about an 83-year-old film: Uncle Charlie as an inverted St. Paul, in a Thornton Wilder theological film."
+      },
       {
         "id": "flletterboxd-review-1328598471",
         "type": "FILM",
@@ -699,7 +748,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-05-25T07:32:20.386Z"
+    "updatedAt": "2026-06-02T07:36:47.355Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
