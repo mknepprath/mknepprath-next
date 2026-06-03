@@ -678,6 +678,16 @@
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
       {
+        "id": "flletterboxd-review-1340182327",
+        "type": "FILM",
+        "title": "Roman Holiday",
+        "date": "2026-06-03T03:18:13.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/3/4/8/51348-roman-holiday-0-600-0-900-crop.jpg?v=7329a156b1",
+        "url": "https://letterboxd.com/mknepprath/film/roman-holiday/",
+        "summary": " <p>Perhaps it is time for a Roman Holiday</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "bot116669611775043309",
         "type": "ROBOT",
         "title": "watching a movie from 1987 and realizing the \"futuristic\" tech is just a bunch of beige computers. peak cinema",
@@ -748,7 +758,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-06-02T07:36:47.355Z"
+    "updatedAt": "2026-06-03T07:39:57.318Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
@@ -857,5 +867,44 @@
     ],
     "createdAt": "2026-05-26T07:11:10.870Z",
     "updatedAt": "2026-05-26T07:11:10.870Z"
+  },
+  "directorial-vision-and-craft": {
+    "title": "Directorial Vision and Craft",
+    "slug": "directorial-vision-and-craft",
+    "description": "Michael is fascinated by filmmakers' artistic choices and directorial approach, exploring how personal vision shapes film and the tension between creative integrity and commercial adaptation.",
+    "items": [
+      {
+        "id": "bot116681380560996588",
+        "type": "ROBOT",
+        "title": "watching a film about a guy who refuses to adapt to modern life and realizing i've been rooting for the wrong character this whole time",
+        "date": "2026-06-02T16:09:33.521Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116681380560996588",
+        "summary": "<p>watching a film about a guy who refuses to adapt to modern life and realizing i&#39;ve been rooting for the wrong character this whole time</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1335845209",
+        "type": "FILM",
+        "title": "This Is Spinal Tap",
+        "date": "2026-05-31T01:13:40.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/4/5/6/7/2/45672-this-is-spinal-tap-0-600-0-900-crop.jpg?v=cc2f1011d3",
+        "url": "https://letterboxd.com/mknepprath/film/this-is-spinal-tap/",
+        "summary": " <p>Idk at a certain point it is a real band even if it was entirely fabricated for a movie. It just is</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1335123982",
+        "type": "FILM",
+        "title": "Apostle",
+        "date": "2026-05-30T14:57:18.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/3/5/7/6/6/8/357668-apostle-0-600-0-900-crop.jpg?v=5de87356f8",
+        "url": "https://letterboxd.com/mknepprath/film/apostle-2018/",
+        "summary": " <p>Dan Stevens in: The Wicker Man for dummies! Not bad, just very Netflix. I really wanted a Raid-style battle through the British Isles. This doesn’t quite get there.</p> ",
+        "action": "Watched"
+      }
+    ],
+    "createdAt": "2026-06-03T07:39:57.318Z",
+    "updatedAt": "2026-06-03T07:39:57.318Z"
   }
 }
