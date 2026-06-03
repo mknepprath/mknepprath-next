@@ -27,7 +27,7 @@ export default function FamilySharing(): React.ReactNode {
         friends to do this, anyway. While this caused some confusion within the
         accounts, it was worth it to save some money through not having to buy
         the same app for each family member. How Apple reacted to this behavior
-        is telling — rather than doing the obvious by trying to prevent people
+        is telling : rather than doing the obvious by trying to prevent people
         from “cheating the system,” they’ve endorsed it by officially allowing
         family to share apps among each other for free.
       </p>
@@ -42,7 +42,7 @@ export default function FamilySharing(): React.ReactNode {
       <p>
         This is also great for Apple, because now that they’ve officially
         addressed customers’ desire to share apps, they’ve brought it into their
-        realm of control — and can build upon it. Work on this has already
+        realm of control : and can build upon it. Work on this has already
         begun. My favorite slide from the announcement of Family Sharing is
         pictured above.
       </p>

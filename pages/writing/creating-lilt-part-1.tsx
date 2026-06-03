@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export const meta: Meta = {
   published: true,
   publishedAt: "2015-11-21",
-  title: "Creating lilt — Part 1",
+  title: "Creating lilt : Part 1",
 };
 
 export default function CreatingLiltPart1(): ReactNode {
@@ -41,7 +41,7 @@ export default function CreatingLiltPart1(): ReactNode {
           Not long after I had the idea, Twitter released an update that
           separated <b>Tweets</b> and <b>Tweets & replies</b> into separate
           tabs. This means that your main Tweets feed won’t get bogged down with
-          game tweets — they’d only be visible under Tweets & replies.
+          game tweets : they’d only be visible under Tweets & replies.
         </li>
         <li>
           Finally, Twitter is still{" "}
@@ -83,7 +83,7 @@ export default function CreatingLiltPart1(): ReactNode {
       <p>
         I’m not sure how useful the hashtag is, especially considering how often
         people have already used{" "}
-        <a href="https://twitter.com/search?q=%23ladle">#ladle on Twitter</a> —
+        <a href="https://twitter.com/search?q=%23ladle">#ladle on Twitter</a> :
         but I like the idea of using it as an indicator for things that can be
         collected. Perhaps it would be more useful for more unique items or
         achievements, so that you’d be able see what other players are doing
@@ -93,7 +93,7 @@ export default function CreatingLiltPart1(): ReactNode {
         For the commands you send to @familiarlilt, my hope is to leave it open
         to whatever people want to try. What works will usually be pretty
         straight-forward, like “look at X” or “pick up Y,” but I would love to
-        add more to the game based on what people ask. An simple example — maybe
+        add more to the game based on what people ask. An simple example : maybe
         the game mentions a pond, but I didn’t plan anything for that pond
         beyond just being a part of the setting. If a dozen people ask to “look
         at pond” or “swim in pond,” I may consider adding an actual path to

@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export const meta: Meta = {
   published: false,
   publishedAt: "2023-02-13",
-  title: "Creating lilt — Part 6",
+  title: "Creating lilt : Part 6",
 };
 
 export default function CreatingLiltPart6(): ReactNode {

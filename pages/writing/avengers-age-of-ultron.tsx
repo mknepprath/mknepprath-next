@@ -34,7 +34,7 @@ export default function AvengersAgeOfUltron(): React.ReactNode {
         <h1>{meta.title}</h1>
       </header>
       <blockquote>
-        “I am not Ultron. I am not J.A.R.V.I.S. I am… I am.” — Vision
+        “I am not Ultron. I am not J.A.R.V.I.S. I am… I am.” : Vision
       </blockquote>
       <h2>A Quick Summary</h2>
       <p>
@@ -57,7 +57,7 @@ export default function AvengersAgeOfUltron(): React.ReactNode {
       <p>
         This one’s gotten better with time. It might be the rare case where ten
         years isn’t enough distance to fully review it. So much of its legacy
-        depends on what came after—Wanda’s arc, Vision’s existence, the Infinity
+        depends on what came after:Wanda’s arc, Vision’s existence, the Infinity
         Stones, Wakanda, even the road Tony ends up on. The movie feels more
         relevant now within the MCU than it did at the time.
       </p>
@@ -111,7 +111,7 @@ export default function AvengersAgeOfUltron(): React.ReactNode {
         turns on you. You’ve never seen a Frankenstein movie like this.
       </p>
       <p>And somehow, it still holds together. More than that, it holds up.</p>
-      <blockquote>“That up there, that’s the endgame.” — Tony Stark</blockquote>
+      <blockquote>“That up there, that’s the endgame.” : Tony Stark</blockquote>
 
       <hr />
 

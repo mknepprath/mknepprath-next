@@ -128,7 +128,7 @@ export default function GiantPortraits(): React.ReactNode {
       <blockquote>
         Does anyone want to assist me in sticking paper to a wall? Any help
         would be appreciated! YFAC 2:30pm. <br />
-        <br /> — Michael Knepprath (@mknepprath){" "}
+        <br /> : Michael Knepprath (@mknepprath){" "}
         <A href="https://twitter.mknepprath.com/12934777027/">April 27, 2010</A>
       </blockquote>
 

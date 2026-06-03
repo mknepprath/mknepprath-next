@@ -51,7 +51,7 @@ export default function VanillaLayer(): React.ReactNode {
       <p>
         <strong>Vanilla Tier:</strong> A base layer focusing on essentials like
         accessibility and cross-browser support. It doesn&apos;t even need to
-        function on its own—it just provides the groundwork for the next tier.
+        function on its own:it just provides the groundwork for the next tier.
         Most critically, it shouldn&apos;t include layout logic. I think this is
         what differentiates it from a typical design system.
       </p>
@@ -62,7 +62,7 @@ export default function VanillaLayer(): React.ReactNode {
       </p>
       <p>
         I believe a vanilla tier could become a more permanent base, escape the
-        design system death loop, and reach a state of maturity—especially as
+        design system death loop, and reach a state of maturity:especially as
         it’s exercised by the variety of tiers built on top of it. My employer
         uses a similar approach to manage multiple brands, creating a base
         system that each brand can adapt to their needs. Similar solution to a

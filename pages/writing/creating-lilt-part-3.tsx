@@ -4,7 +4,7 @@ import Image from "next/image";
 export const meta: Meta = {
   published: true,
   publishedAt: "2016-01-27",
-  title: "Creating lilt — Part 3",
+  title: "Creating lilt : Part 3",
 };
 
 export default function CreatingLiltPart3(): React.ReactNode {
@@ -32,7 +32,7 @@ export default function CreatingLiltPart3(): React.ReactNode {
 
       <h2>The Interface</h2>
       <p>
-        One quick reminder — this game will be played through Twitter in its
+        One quick reminder : this game will be played through Twitter in its
         final form, so I purposely spent very little time on this interface (and
         yet still more than I should have). You enter your “tweet” into the
         field on the left and it gets appended to the list on the right, along
@@ -40,12 +40,12 @@ export default function CreatingLiltPart3(): React.ReactNode {
         <a href="http://getbootstrap.com">Bootstrap</a>. Simple!
       </p>
 
-      <h2>The Engine — Phase 1</h2>
+      <h2>The Engine : Phase 1</h2>
       <blockquote>
-        <p>“Big things have small beginnings.” — David</p>
+        <p>“Big things have small beginnings.” : David</p>
       </blockquote>
       <p>
-        Small beginnings, indeed — you can view an early draft of{" "}
+        Small beginnings, indeed : you can view an early draft of{" "}
         <a href="https://gist.github.com/mknepprath/96b9944d055de23345ee">
           my game.js file here
         </a>
@@ -73,11 +73,11 @@ export default function CreatingLiltPart3(): React.ReactNode {
         door” under the “cell” if/else statement. Once it’s found, it assigns
         the proper response, “Surprise, no can do,” to <b>response</b>. Finally,
         the original <b>tweet</b> and <b>response</b> are appended to the list
-        (.command) on the right. You might notice that there is no other logic —
+        (.command) on the right. You might notice that there is no other logic :
         no way to interact with objects, or win. That’s coming, I promise!
       </p>
 
-      <h2>The Engine — Phase 2</h2>
+      <h2>The Engine : Phase 2</h2>
       <p>
         A few major features were added in{" "}
         <a href="https://gist.github.com/mknepprath/f723588d559048e05df2">
@@ -107,11 +107,11 @@ export default function CreatingLiltPart3(): React.ReactNode {
       <p>
         <b>Comments:</b> Now that game.js is getting to be bigger and more
         confusing, I’ve started to add comments to clarify what different tasks
-        are being handled. I get even more thorough than this as time passes —
+        are being handled. I get even more thorough than this as time passes :
         they’ve been extremely helpful during this process.
       </p>
 
-      <h2>The Engine — Phase 3</h2>
+      <h2>The Engine : Phase 3</h2>
       <p>
         You may have noticed that all of the if statements were getting a bit
         out of hand, and not very{" "}
@@ -153,7 +153,7 @@ export default function CreatingLiltPart3(): React.ReactNode {
         Once a match is found, it replies with the corresponding <b>response</b>{" "}
         (“There’s a coin in it.”), and triggers any <b>interactions</b>{" "}
         (chestopen) associated it. It will also change your position, although
-        there is only one instance where this is necessary so far — when you
+        there is only one instance where this is necessary so far : when you
         tweet “start” at the beginning of the game.
       </p>
 

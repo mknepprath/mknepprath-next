@@ -41,9 +41,9 @@ export default function DefectiveComics(): React.ReactNode {
       <p>Regardless, prepare to get robbed.</p>
       <p>
         DC is in a great place. Marvel’s done all the legwork of putting
-        together a expansive, yet cohesive, cinematic universe. It’s all there —
+        together a expansive, yet cohesive, cinematic universe. It’s all there :
         the planning, the timing, the pacing… DC should be taking this roadmap
-        and improving upon it. They even have the perfect hook — <b>Batman</b>.
+        and improving upon it. They even have the perfect hook : <b>Batman</b>.
         Instead, DC appears to be trying to copy Marvel as closely as it can.
         Poorly.
       </p>
@@ -54,7 +54,7 @@ export default function DefectiveComics(): React.ReactNode {
         sequence, and the fact that he’d directed Watchmen. Yes, it’s a dark
         superhero ensemble film, and it was okay… But DC seems to have missed
         the rest of his track record. Snyder films have style, and in the case
-        of both Watchmen and 300, this was their saving grace — and both
+        of both Watchmen and 300, this was their saving grace : and both
         borrowed heavily from their graphic novel counterparts to fill in the
         story and character development. But Snyder’s canary in the coal mine is
         Sucker Punch. Per Rotten Tomatoes (which gave it a generous 23%):
@@ -77,10 +77,10 @@ export default function DefectiveComics(): React.ReactNode {
       </p>
       <p>
         Unfortunately, it may be too late very soon. DC is in a hurry to catch
-        up to Marvel — Batman v Superman will feature the two titular characters
+        up to Marvel : Batman v Superman will feature the two titular characters
         along with Wonder Woman, Cyborg, Aquaman, Lex Luthor and countless other
         minor characters. This film is DC’s Avengers, but unlike The Avengers,
-        most people aren’t going to know or care about these characters — and
+        most people aren’t going to know or care about these characters : and
         back to Snyder’s weaknesses, we’re not going to get any character
         development in this film to make up for the fact that there was no build
         up to it.
@@ -90,7 +90,7 @@ export default function DefectiveComics(): React.ReactNode {
         either. DC seems to have doubled down on dark, gritty and serious. The
         working theory is that DC’s detour into the bright and colorful, Green
         Lantern, was a major flop, and their conclusion was that it was the fun
-        tone that caused the failure — not the fact that it was just a bad
+        tone that caused the failure : not the fact that it was just a bad
         movie. Whatever the reason, expect few jokes and even less fun.
       </p>
       <p>

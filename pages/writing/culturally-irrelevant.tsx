@@ -97,7 +97,7 @@ export default function CulturallyIrrelevant(): React.ReactNode {
           An unapologetic Sega fanboy from WI who always roots for the underdog,
           making him the most irrelevant of the bunch. P.S. Stanley Kubrick.
         </p>
-        <p>— Excerpts taken from the old Culturally Irrelevant website.</p>
+        <p>: Excerpts taken from the old Culturally Irrelevant website.</p>
       </blockquote>
       <p>
         Tyler, Ben, Josh, Dane and myself were friends since college and bonded
@@ -120,7 +120,7 @@ export default function CulturallyIrrelevant(): React.ReactNode {
           I&apos;ve got to bring.&rdquo;
         </p>
         <p>
-          <em>— Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
+          <em>: Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
         </p>
       </blockquote>
       <p>
@@ -301,7 +301,7 @@ export default function Home() {
           who I am as a human being. I&apos;m excited.&rdquo;
         </p>
         <p>
-          <em>— Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
+          <em>: Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
         </p>
       </blockquote>
 
@@ -511,7 +511,7 @@ export default function Home() {
           Space Odyssey that completely switched me over.&rdquo;
         </p>
         <p>
-          <em>— Episode #5 - Musical Interludes (June 5, 2015)</em>
+          <em>: Episode #5 - Musical Interludes (June 5, 2015)</em>
         </p>
       </blockquote>
       <Image

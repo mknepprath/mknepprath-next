@@ -4,7 +4,7 @@ import Image from "next/image";
 export const meta: Meta = {
   published: true,
   publishedAt: "2016-03-20",
-  title: "Creating lilt — Part 4",
+  title: "Creating lilt : Part 4",
 };
 
 export default function CreatingLiltPart4(): React.ReactNode {
@@ -24,7 +24,7 @@ export default function CreatingLiltPart4(): React.ReactNode {
           announced that they’d be shutting down
         </a>{" "}
         in early 2017. Luckily, this is a side project that hadn’t been launched
-        yet, so I can’t complain too much — my sympathies to those who had far
+        yet, so I can’t complain too much : my sympathies to those who had far
         more riding on the service.
       </p>
 
@@ -43,7 +43,7 @@ export default function CreatingLiltPart4(): React.ReactNode {
         work with Twitter’s API. I made some minor modifications to this bot to
         get a handle on how it was structured, then attempted to clone it and
         frankenstein the functionality I needed into it. This ended up being a
-        bad idea — I would have needed to rip out all of the old logic anyway,
+        bad idea : I would have needed to rip out all of the old logic anyway,
         so I decided to start fresh.
       </p>
 
@@ -73,7 +73,7 @@ export default function CreatingLiltPart4(): React.ReactNode {
         So far, I have three tables: Users, Items, and Moves. Moves serves the
         exact same purpose as the Moves table in Parse described in{" "}
         <a href="http://mknepprath.com/writing/creating-lilt-part-3">Part 3</a>,
-        so I won’t cover that again — but I’ll give an overview of the other
+        so I won’t cover that again : but I’ll give an overview of the other
         two:
       </p>
       <ol>
@@ -122,7 +122,7 @@ export default function CreatingLiltPart4(): React.ReactNode {
       <p>
         Very excited about how far along this has come in the last couple
         months. I’m hoping to launch a playable version of lilt relatively soon
-        — can’t wait for all of you to jump in and play.
+        : can’t wait for all of you to jump in and play.
       </p>
       <p>
         If you have any questions or suggestions,{" "}

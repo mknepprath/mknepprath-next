@@ -15,7 +15,7 @@ export default function TwitterBeNice(): React.ReactNode {
 
       <p>
         Twitter’s been lucky and unique in that they own the entirety of a near
-        ubiquitous type of messaging — the short form message. These streams of
+        ubiquitous type of messaging : the short form message. These streams of
         short form transmissions have become many people’s identity online.
         Watch the news and you’ll see the anchor’s Twitter handle featured as
         prominently as their name, and same goes for many sports players. This
@@ -30,7 +30,7 @@ export default function TwitterBeNice(): React.ReactNode {
         allows Twitter to stay on top without competing. As soon as an
         interesting or better way of consuming tweets comes along, Twitter
         doesn’t have to think twice about how their website or apps might be
-        comparatively insufficient — they can just cut off the third party’s
+        comparatively insufficient : they can just cut off the third party’s
         access to Twitter before most people notice what they’re missing.
       </p>
       <p>
@@ -44,7 +44,7 @@ export default function TwitterBeNice(): React.ReactNode {
         me.
       </p>
       <p>
-        I’m not sure if anything can be done about it, but Twitter — please give
+        I’m not sure if anything can be done about it, but Twitter : please give
         3rd party developers a fair shake. It will do nothing but help your
         platform in the end.
       </p>

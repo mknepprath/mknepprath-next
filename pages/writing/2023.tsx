@@ -117,7 +117,7 @@ export default function ReviewOf2023(): React.ReactNode {
 
       <p>
         Despite the towering stacks of unread books in my house, I ventured into
-        a new reading experience this year—consuming books on my phone through
+        a new reading experience this year:consuming books on my phone through
         Apple Books. The experiment was a wild success; I read 28 books in total
         (granted, a significant portion comprised early Sherlock Holmes short
         stories). Favorites included Camera Man, Leonardo da Vinci, Killers of
@@ -217,7 +217,7 @@ export default function ReviewOf2023(): React.ReactNode {
       </p>
 
       <p>
-        Lastly, I couldn&apos;t resist picking up Root—a beautifully designed
+        Lastly, I couldn&apos;t resist picking up Root:a beautifully designed
         game where teams with unique abilities vie for control of the board.
       </p>
 

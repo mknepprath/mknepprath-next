@@ -31,9 +31,9 @@ export default function AppleWatch(): React.ReactNode {
       </p>
       <p>
         Apple’s competitors have been working very hard to make a cool wrist
-        gadget — fashion being an afterthought. My main takeaway from this event
+        gadget : fashion being an afterthought. My main takeaway from this event
         is that Apple has clearly been studying a great deal about how things
-        work in the watch industry, addressing fashion first — because they’ve
+        work in the watch industry, addressing fashion first : because they’ve
         learned that regular people aren’t going to stick a big, ugly computer
         on their wrist no matter how many superpowers it grants them.
       </p>

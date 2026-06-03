@@ -24,7 +24,7 @@ export default function Sunsquints(): React.ReactNode {
 
       <blockquote>
         “‘You’re nobody, till somebody loves you.’ Of course, he was somebody.”
-        — <em>bbunks</em>
+        : <em>bbunks</em>
       </blockquote>
 
       <p>

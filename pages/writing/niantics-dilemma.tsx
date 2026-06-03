@@ -27,7 +27,7 @@ export default function NianticsDilemma(): React.ReactNode {
       <p>Great stuff! Had a thought about:</p>
       <blockquote>
         The question now is whether other developers can use Niantic’s tools to
-        build a Pokémon-scale hit — or whether, as my colleague Andrew Webster
+        build a Pokémon-scale hit : or whether, as my colleague Andrew Webster
         has argued at The Verge, Pokémon was a fluke.
       </blockquote>
       <p>

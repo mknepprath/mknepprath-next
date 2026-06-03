@@ -3,7 +3,7 @@ import BlogPage from "@core/blog-page";
 export const meta: Meta = {
   published: true,
   publishedAt: "2016-05-17",
-  title: "Creating lilt — Part 5",
+  title: "Creating lilt : Part 5",
 };
 
 export default function CreatingLiltPart5(): React.ReactNode {
@@ -35,7 +35,7 @@ export default function CreatingLiltPart5(): React.ReactNode {
       </p>
       <p>
         While I feel that lilt is very traditional in its gameplay, there is one
-        advantage it has that past games lacked — the Internet. By building on
+        advantage it has that past games lacked : the Internet. By building on
         top of Twitter’s API, I’ve been able to build a more social and
         cooperative text adventure than was previously possible. Players are
         able to see what their friends are doing in-game and give each other
@@ -54,7 +54,7 @@ export default function CreatingLiltPart5(): React.ReactNode {
 
       <h2>Why Twitter, Though?</h2>
       <p>
-        Twitter has it’s limitations — the obvious one being the 140-character
+        Twitter has it’s limitations : the obvious one being the 140-character
         limit. While many text adventures seem to thrive on the ability to pile
         on the exposition, I’ve decided to embrace the forced brevity, and I
         believe lilt is better for it. Being forced to say as much as possible
@@ -77,14 +77,14 @@ export default function CreatingLiltPart5(): React.ReactNode {
       <p>
         I made a lot of additions to lilt since{" "}
         <a href="https://mknepprath.com/writing/creating-lilt-part-4">
-          Creating lilt — Part 4
+          Creating lilt : Part 4
         </a>
         , including a few more Twitter accounts, refactoring, and other
         technical changes.
       </p>
       <ol>
         <li>
-          <a href="http://twitter.com/liltbuilder">@liltbuilder</a> — I made a
+          <a href="http://twitter.com/liltbuilder">@liltbuilder</a> : I made a
           few major updates to lilt, and this is one of them. This account has
           been given powers far beyond the normal player, including the ability
           to add new moves, responses, items, events, and more to lilt. In fact,
@@ -94,14 +94,14 @@ export default function CreatingLiltPart5(): React.ReactNode {
           before any player tweets, allowing me to catch any player moves I know
           won’t work. For example, if a player were to run into a forest
           (@familiarlilt run through the forest), and I’d never considered the
-          possibility — I can choose to add it as an option right then (@player
+          possibility : I can choose to add it as an option right then (@player
           You run through the forest until you find a clearing. There, you meet
           a fox.). Once I’ve added it, the option is there for if/when any
           future players attempt to do the same. In this way, I hope to build
           lilt organically, like a large-scale game of Dungeons & Dragons.
         </li>
         <li>
-          <a href="http://twitter.com/lilt_bird">@lilt_bird</a> — This is just
+          <a href="http://twitter.com/lilt_bird">@lilt_bird</a> : This is just
           one example of a player-controlled in-game character. While this blue
           bird is a character in the game, it’s currently controlled entirely by
           me. I hope to eventually have many characters like this, some of which
@@ -123,7 +123,7 @@ export default function CreatingLiltPart5(): React.ReactNode {
         While I’m excited to see where lilt goes from here, I’m personally proud
         of what I’ve accomplished with it thus far. When I was first
         brainstorming about the game, I had no experience with bots, the Twitter
-        API, or Python — and I doubt I had even heard of Heroku or PostgreSQL. I
+        API, or Python : and I doubt I had even heard of Heroku or PostgreSQL. I
         wasn’t sure if building lilt how I wanted to build it would be
         technically possible. I’m glad to have gained the experience, and look
         forward to building a world with you and everyone else who gives lilt a

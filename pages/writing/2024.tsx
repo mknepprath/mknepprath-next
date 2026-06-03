@@ -285,7 +285,7 @@ export default function ReviewOf2024(): React.ReactNode {
 
       <p>
         After years of watching Buster Keaton’s films on repeat, I finally saw
-        Sherlock Jr. on the big screen—exactly 100 years after its release. My
+        Sherlock Jr. on the big screen:exactly 100 years after its release. My
         son was the youngest attendee by far, but he loved it. Seeing it in a
         theater was magical, especially since the film itself takes place in a
         movie theater.

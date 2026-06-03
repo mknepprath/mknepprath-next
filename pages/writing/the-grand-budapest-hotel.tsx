@@ -38,7 +38,7 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
         “You see, there are still faint glimmers of civilization left in this
         barbaric slaughterhouse that was once known as humanity. Indeed that’s
         what we provide in our own modest, humble, insignificant... oh, f***
-        it.” — M. Gustave
+        it.” : M. Gustave
       </blockquote>
       <h2>A Quick Summary</h2>
       <p>
@@ -131,7 +131,7 @@ export default function TheGrandBudapestHotel(): React.ReactNode {
       <blockquote>
         “There are still faint glimmers of civilization left in this barbaric
         slaughterhouse that was once known as humanity... He was one of them.
-        What more is there to say?” — Zero
+        What more is there to say?” : Zero
       </blockquote>
 
       <hr />

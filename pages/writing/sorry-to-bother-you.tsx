@@ -78,7 +78,7 @@ export default function TwitterDefeatedMe(): React.ReactNode {
       </p>
       <p>
         Today, Twitter likes are simply that. A quick way to say, &ldquo;I like
-        this tweet.&rdquo; A social exchange—ephemeral in nature, but
+        this tweet.&rdquo; A social exchange:ephemeral in nature, but
         permanently recorded and published publicly by Twitter.
       </p>
       <p>
