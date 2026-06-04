@@ -389,6 +389,26 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru18777860206",
+        "type": "RUN",
+        "title": "Evening Run",
+        "date": "2026-06-03T20:31:18.000Z",
+        "image": "odc|Fzf{pNe@c@UOM?KBaAbAcBfC{CjDkA|AyAzAi@r@k@j@c@p@mBbCEL@Fn@l@x@`AFBDAVUn@}@xC{DTObAeA^s@zAkBjAaBX[`@YbA{AxAcB",
+        "url": "https://www.strava.com/activities/18777860206",
+        "summary": "Distance: 3.18 mi, Time: 36 min, Elevation: 68 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru18756380995",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-06-02T08:29:23.000Z",
+        "image": "m~a|FrcxpN@c@IsBDP@s@Ei@Ba@C{@BkIEYDeBCsA@oHC_EBuBCiHBsCMgAD{@EuE@iDAeDDqDCg@B}DCoBBsDAiDDs@AwA@UNQVQNYWc@OOOa@@OFO^_@FOBW@m@DSLIHCD@BAJORM@MCK]MREEBXa@E^a@@LWo@dDYl@Md@Cd@Nf@Rd@?FW\\[VCH@z@E`B@r@AbC@tCApGB|MAhGBh@IvAJx@?TAr@@jHCv@@`@AxBBvBArD@t@@dD@VEzBBPAfBCZB\\EtBB|AA|BDhACrA",
+        "url": "https://www.strava.com/activities/18756380995",
+        "summary": "Distance: 3.69 mi, Time: 70 min, Elevation: 219 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru18742042839",
         "type": "RUN",
         "title": "Morning Walk",
@@ -670,7 +690,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-06-02T07:36:47.355Z"
+    "updatedAt": "2026-06-04T07:36:20.986Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
