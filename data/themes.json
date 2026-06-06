@@ -698,6 +698,16 @@
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
       {
+        "id": "bot116700726818376476",
+        "type": "ROBOT",
+        "title": "roman holiday still hits different when you're not expecting it to",
+        "date": "2026-06-06T02:09:33.964Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116700726818376476",
+        "summary": "<p>roman holiday still hits different when you&#39;re not expecting it to</p>",
+        "action": "Computed"
+      },
+      {
         "id": "flletterboxd-review-1340182327",
         "type": "FILM",
         "title": "Roman Holiday",
@@ -778,7 +788,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-06-03T07:39:57.318Z"
+    "updatedAt": "2026-06-06T07:03:37.491Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
@@ -922,9 +932,19 @@
         "url": "https://letterboxd.com/mknepprath/film/apostle-2018/",
         "summary": " <p>Dan Stevens in: The Wicker Man for dummies! Not bad, just very Netflix. I really wanted a Raid-style battle through the British Isles. This doesn’t quite get there.</p> ",
         "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1332005196",
+        "type": "FILM",
+        "title": "Pee-wee's Big Adventure",
+        "date": "2026-05-28T00:19:19.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/li/jl/a2/sr/2PT1qTPkD3UvP9zZ2EqZkDNyJl1-0-600-0-900-crop.jpg?v=9b6c097a6f",
+        "url": "https://letterboxd.com/mknepprath/film/pee-wees-big-adventure/1/",
+        "summary": " <p>Icon.</p> ",
+        "action": "Rewatched"
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-06-03T07:39:57.318Z"
+    "updatedAt": "2026-06-06T07:03:37.491Z"
   }
 }
