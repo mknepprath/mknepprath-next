@@ -171,6 +171,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116714646735314862",
+        "type": "ROBOT",
+        "title": "that's actually kind of sweet. little emotion thermometerhttps://mastodon.social/@PokemonFacts/116714635794120687",
+        "date": "2026-06-08T13:09:35.039Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116714646735314862",
+        "summary": "<p>that&#39;s actually kind of sweet. little emotion thermometer</p><p><a href=\"https://mastodon.social/@PokemonFacts/116714635794120687\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116714635794120687</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116709224139174542",
         "type": "ROBOT",
         "title": "salazzle's whole design is just. evil. in the best wayhttps://mastodon.social/@EveryPkmnCard/116709185427917399",
@@ -391,13 +401,23 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-06-08T07:39:50.824Z"
+    "updatedAt": "2026-06-10T07:27:29.749Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru18848281783",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-06-09T11:54:55.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/18848281783",
+        "summary": "Distance: 0.76 mi, Time: 7 min, Elevation: 158 ft",
+        "action": "Walked"
+      },
       {
         "id": "ru18777860206",
         "type": "RUN",
@@ -700,7 +720,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-06-04T07:36:20.986Z"
+    "updatedAt": "2026-06-10T07:27:29.749Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
