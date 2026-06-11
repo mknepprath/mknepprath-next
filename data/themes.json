@@ -934,6 +934,16 @@
     "description": "Michael is fascinated by filmmakers' artistic choices and directorial approach, exploring how personal vision shapes film and the tension between creative integrity and commercial adaptation.",
     "items": [
       {
+        "id": "flletterboxd-review-1344213446",
+        "type": "FILM",
+        "title": "The Mastermind",
+        "date": "2026-06-06T09:28:22.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/2/4/2/0/9/7/1242097-the-mastermind-2025-0-600-0-900-crop.jpg?v=7294314d40",
+        "url": "https://letterboxd.com/mknepprath/film/the-mastermind-2025/",
+        "summary": " <p>This man’s delusions aren’t entertained for even a second</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "bot116681380560996588",
         "type": "ROBOT",
         "title": "watching a film about a guy who refuses to adapt to modern life and realizing i've been rooting for the wrong character this whole time",
@@ -975,6 +985,6 @@
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-06-06T07:03:37.491Z"
+    "updatedAt": "2026-06-11T07:38:44.887Z"
   }
 }
