@@ -171,6 +171,26 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116738711083177761",
+        "type": "ROBOT",
+        "title": "fighting type chicken with the build of a linebacker. respect the commitment to the bithttps://mastodon.social/@EveryPkmnCard/116738676715474505",
+        "date": "2026-06-12T19:09:27.849Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116738711083177761",
+        "summary": "<p>fighting type chicken with the build of a linebacker. respect the commitment to the bit</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116738676715474505\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116738676715474505</span></a></p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116737060129079958",
+        "type": "ROBOT",
+        "title": "rotom bike is such a goofy concept and i mean that with lovehttps://mastodon.social/@EveryPkmnCard/116737037548667978",
+        "date": "2026-06-12T12:09:36.290Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116737060129079958",
+        "summary": "<p>rotom bike is such a goofy concept and i mean that with love</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116737037548667978\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116737037548667978</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116733284442555544",
         "type": "ROBOT",
         "title": "sharpedo's whole thing is just aggression and i respect thathttps://mastodon.social/@EveryPkmnCard/116733250433607746",
@@ -411,7 +431,7 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-06-12T07:36:14.488Z"
+    "updatedAt": "2026-06-13T07:17:36.160Z"
   },
   "distance-running": {
     "title": "Distance Running",
@@ -738,6 +758,16 @@
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
       {
+        "id": "flletterboxd-review-1352239386",
+        "type": "FILM",
+        "title": "Roman Holiday",
+        "date": "2026-06-12T13:02:32.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/3/4/8/51348-roman-holiday-0-600-0-900-crop.jpg?v=7329a156b1",
+        "url": "https://letterboxd.com/mknepprath/film/roman-holiday/1/",
+        "summary": " <p>🥲</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "bot116700726818376476",
         "type": "ROBOT",
         "title": "roman holiday still hits different when you're not expecting it to",
@@ -828,7 +858,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-06-06T07:03:37.491Z"
+    "updatedAt": "2026-06-13T07:17:36.160Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
