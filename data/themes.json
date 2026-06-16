@@ -439,6 +439,66 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru18931791866",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-06-15T10:46:25.000Z",
+        "image": "syt~F_mckAzA@~@JjA^bBLzARlEzD~AbBZd@bEbCp@f@~AnAXPl@d@dA`Ap@d@PHRVf@Zb@\\j@n@nAbA@DCFCBQYBTESMWSIYa@_@WQQg@]s@u@YMe@]a@m@eAeAa@WWUG?QMSS_@Wk@UU]e@SS[iAiAOMUI[]o@a@_Ay@c@g@UQWK_@YQEaAGWIIKCM@o@OOQAs@No@?cAOQUCEBACCMAQHy@O_AGc@CG@{AC[Q]FoC}@aB{@kAeA{@i@QBKDK?k@YMY",
+        "url": "https://www.strava.com/activities/18931791866",
+        "summary": "Distance: 1.88 mi, Time: 39 min, Elevation: 167 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18931791129",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-06-14T17:33:20.000Z",
+        "image": "_av~FkvbkAeA`JKf@]dA]p@i@v@oB|ByAlBQd@S\\qBlC_AxAe@b@Y\\i@jAiBpCWh@j@|ARRg@i@a@}@u@hA@l@RbELp@Hl@@v@HjABRGzDE|@GJ@\\Cv@@F@f@GfCDN`@\\X^DCH@DRDJ@xCCb@@HRDdA@",
+        "url": "https://www.strava.com/activities/18931791129",
+        "summary": "Distance: 1.66 mi, Time: 39 min, Elevation: 190 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18931790849",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-06-14T11:55:00.000Z",
+        "image": "qfs~F}hbkAo@c@yF}EcG_FMe@mB{AuE}DQOW_@{AeAk@{@[SMMGYHi@@w@CIASPcAJ[Lu@VaAHy@Tu@Hy@Lo@N{A?IGMa@_@Y_@IEGDGH[bA",
+        "url": "https://www.strava.com/activities/18931790849",
+        "summary": "Distance: 1.04 mi, Time: 17 min, Elevation: 91 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18931791397",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-06-14T10:36:50.000Z",
+        "image": "yrt~FskckAdAZz@HnAZlAl@zCdB|@x@l@n@Zd@\\\\lAz@tAhAnCbCNVlAz@hBxAdAr@f@f@r@j@t@^JXFFZRRR`Al@d@`@FJZTx@t@LPJZD?DPd@CPBJD^X",
+        "url": "https://www.strava.com/activities/18931791397",
+        "summary": "Distance: 1 mi, Time: 21 min, Elevation: 70 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18908071979",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-06-13T17:04:22.000Z",
+        "image": "iau~FqrdkAm@U_Aq@uAcBk@m@u@e@kBo@aAUqABq@Wc@i@KwBRw@PQTw@BYT[PMZ_@CEUOMMA_AaAaBE@a@`@KFQ?OLYFSAEEI]De@KOASEDCAEUD{@CoCBgADMJC`AV@?LQbABf@HVA\\HTQf@U\\]JGDM@UAe@Kg@?SMk@SuDa@_CAB@BUaBOc@EaAQm@Eu@a@kBCCI@PL@KGW@ZECGO@i@Gw@GU",
+        "url": "https://www.strava.com/activities/18908071979",
+        "summary": "Distance: 1.87 mi, Time: 47 min, Elevation: 305 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru18903299871",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-06-13T13:53:56.000Z",
+        "image": "u|u~Fs|dkAl@vEp@dI",
+        "url": "https://www.strava.com/activities/18903299871",
+        "summary": "Distance: 0.59 mi, Time: 15 min, Elevation: 50 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru18848281783",
         "type": "RUN",
         "title": "Lunch Walk",
@@ -750,13 +810,23 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-06-10T07:27:29.749Z"
+    "updatedAt": "2026-06-16T07:55:26.812Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
     "slug": "classic-cinema-study",
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
+      {
+        "id": "bot116751215698003595",
+        "type": "ROBOT",
+        "title": "roman holiday holds up so well. audrey hepburn just doing her thing and gregory peck trying not to smile the whole time",
+        "date": "2026-06-15T00:09:33.128Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116751215698003595",
+        "summary": "<p>roman holiday holds up so well. audrey hepburn just doing her thing and gregory peck trying not to smile the whole time</p>",
+        "action": "Computed"
+      },
       {
         "id": "flletterboxd-review-1352239386",
         "type": "FILM",
@@ -858,7 +928,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-06-13T07:17:36.160Z"
+    "updatedAt": "2026-06-16T07:55:26.812Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
@@ -974,6 +1044,16 @@
     "description": "Michael is fascinated by filmmakers' artistic choices and directorial approach, exploring how personal vision shapes film and the tension between creative integrity and commercial adaptation.",
     "items": [
       {
+        "id": "bot116738239729266394",
+        "type": "ROBOT",
+        "title": "finally watched synecdoche new york again and man that movie just keeps getting worse in the best way possible",
+        "date": "2026-06-12T17:09:35.557Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116738239729266394",
+        "summary": "<p>finally watched synecdoche new york again and man that movie just keeps getting worse in the best way possible</p>",
+        "action": "Computed"
+      },
+      {
         "id": "flletterboxd-review-1344213446",
         "type": "FILM",
         "title": "The Mastermind",
@@ -1025,6 +1105,6 @@
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-06-11T07:38:44.887Z"
+    "updatedAt": "2026-06-16T07:55:26.812Z"
   }
 }
