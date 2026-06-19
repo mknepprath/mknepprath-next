@@ -1106,5 +1106,44 @@
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
     "updatedAt": "2026-06-16T07:55:26.812Z"
+  },
+  "ambient-and-experimental-music": {
+    "title": "Ambient and Experimental Music",
+    "slug": "ambient-and-experimental-music",
+    "description": "Michael listens to ambient and experimental electronic artists, exploring hazy, atmospheric soundscapes and innovative production techniques across multiple artists and contexts.",
+    "items": [
+      {
+        "id": "m282073",
+        "type": "MUSIC",
+        "title": "Dreamland (+ Bonus Levels)",
+        "date": "2026-06-19T02:30:00.000Z",
+        "image": "https://i.scdn.co/image/ab67616d0000b2739e495fb707973f3390850eea",
+        "url": "https://stats.fm/album/282073",
+        "summary": "Glass Animals",
+        "action": "Listened to"
+      },
+      {
+        "id": "m25505268",
+        "type": "MUSIC",
+        "title": "I Love You So F***ing Much",
+        "date": "2026-06-18T23:50:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/57/49/cd574928-97af-234b-2099-539262e163ce/24UMGIM27646.rgb.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/25505268",
+        "summary": "Glass Animals",
+        "action": "Listened to"
+      },
+      {
+        "id": "t116741189158222304",
+        "type": "TOOT",
+        "title": "the Wikipedia iOS app’s Places tab is my new home",
+        "date": "2026-06-13T05:39:40.276Z",
+        "image": "",
+        "url": "https://mastodon.social/@mknepprath/116741189158222304",
+        "summary": "<p>the Wikipedia iOS app’s Places tab is my new home</p>",
+        "action": "Tooted"
+      }
+    ],
+    "createdAt": "2026-06-19T07:50:22.627Z",
+    "updatedAt": "2026-06-19T07:50:22.627Z"
   }
 }
