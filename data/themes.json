@@ -1175,5 +1175,44 @@
     ],
     "createdAt": "2026-06-19T07:50:22.627Z",
     "updatedAt": "2026-06-21T07:37:05.740Z"
+  },
+  "vince-staples-engagement": {
+    "title": "Vince Staples Engagement",
+    "slug": "vince-staples-engagement",
+    "description": "Michael is actively listening to Vince Staples' music across multiple releases and has integrated the artist's work into his media consumption experiences.",
+    "items": [
+      {
+        "id": "m66688179",
+        "type": "MUSIC",
+        "title": "Cry Baby",
+        "date": "2026-06-24T11:16:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/27/fe/3c/27fe3ccb-9f3c-1472-a2af-ddabe248699b/26CRGIM53564.rgb.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/66688179",
+        "summary": "Vince Staples",
+        "action": "Listened to"
+      },
+      {
+        "id": "m26526753",
+        "type": "MUSIC",
+        "title": "Dark Times",
+        "date": "2026-06-23T20:33:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/ea/64/55ea64e9-c4d6-c49b-94df-8482cfd4aa59/24UMGIM53340.rgb.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/26526753",
+        "summary": "Vince Staples",
+        "action": "Listened to"
+      },
+      {
+        "id": "flletterboxd-review-1358128098",
+        "type": "FILM",
+        "title": "Predator: Badlands",
+        "date": "2026-06-17T00:59:11.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/1/2/5/8/0/9/1125809-predator-badlands-0-600-0-900-crop.jpg?v=a0e5686bef",
+        "url": "https://letterboxd.com/mknepprath/film/predator-badlands/1/",
+        "summary": " <p>Watched it on a plane, muted, while listening to the new Vince Staples album, which may be the ideal way to watch this movie</p> ",
+        "action": "Rewatched"
+      }
+    ],
+    "createdAt": "2026-06-25T07:10:18.393Z",
+    "updatedAt": "2026-06-25T07:10:18.393Z"
   }
 }
