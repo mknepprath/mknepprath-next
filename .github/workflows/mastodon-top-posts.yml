@@ -1,0 +1,44 @@
+name: Mastodon Top Posts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch top posts for @EveryPkmnCard
+        run: |
+          python3 - << 'PYEOF'
+          import time, urllib.request, json
+
+          BASE = "https://mastodon.social"
+          ACCT_ID = "109447224294183229"  # @EveryPkmnCard
+          PAGE, TOP_N, SLEEP = 40, 15, 0.5
+
+          def get(url):
+              req = urllib.request.Request(url, headers={"User-Agent": "top-post/1.0"})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return json.load(r)
+
+          url = f"{BASE}/api/v1/accounts/{ACCT_ID}/statuses?limit={PAGE}&exclude_replies=true"
+          best, seen = [], 0
+          while url:
+              batch = get(url)
+              if not batch:
+                  break
+              for s in batch:
+                  best.append((
+                      s["favourites_count"] + s["reblogs_count"],
+                      s["favourites_count"], s["reblogs_count"], s["url"]
+                  ))
+              seen += len(batch)
+              url = f"{BASE}/api/v1/accounts/{ACCT_ID}/statuses?limit={PAGE}&exclude_replies=true&max_id={batch[-1]['id']}"
+              print(f"fetched {seen}...", flush=True)
+              time.sleep(SLEEP)
+
+          best.sort(reverse=True)
+          print(f"\nTop {TOP_N} of {seen} (score = favs + boosts):\n")
+          for score, fav, boost, link in best[:TOP_N]:
+              print(f"{score:4d} (heart {fav}  boost {boost})  {link}")
+          PYEOF
