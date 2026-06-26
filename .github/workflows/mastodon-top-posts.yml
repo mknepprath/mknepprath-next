@@ -1,6 +1,11 @@
 name: Mastodon Top Posts
 
 on:
+  push:
+    branches:
+      - claude/mastodon-top-posts-b8druv
+    paths:
+      - .github/workflows/mastodon-top-posts.yml
   workflow_dispatch:
 
 jobs:
