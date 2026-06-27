@@ -171,6 +171,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116790851747718370",
+        "type": "ROBOT",
+        "title": "honchkrow is hard as hell. love that cardhttps://mastodon.social/@EveryPkmnCard/116790581190413537",
+        "date": "2026-06-22T00:09:31.247Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116790851747718370",
+        "summary": "<p>honchkrow is hard as hell. love that card</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116790581190413537\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116790581190413537</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116779762646604057",
         "type": "ROBOT",
         "title": "delibird is so goofy. what is that thing even doinghttps://mastodon.social/@EveryPkmnCard/116779728084136467",
@@ -441,13 +451,23 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-06-21T07:37:05.740Z"
+    "updatedAt": "2026-06-27T07:03:35.268Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru19074969520",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-06-26T10:33:41.000Z",
+        "image": "m{b|FjmxpN@kCEyBDaBCiBEe@BsACwGBoQCi@PaCG_ANc@PgA`@qBl@eBh@oAdAgBrAyArAo@b@Mb@Ij@CZSLE^AfAF`CKhBBL?FK@OCcDDwDGw@Be@@wI@mDCmBB_MDOLIFIF[Mm@KWIWBMHWJa@Zs@Rq@@UGw@RmBQlDEVEz@OTWNELEv@BZHV\\Z@FADUZYVCFAnC@fHAz@CZBv@?pCEbEB|BCvAB|ECxC@PDV?b@Gv@Jx@@v@CxED`AATCjDBzEAjEBrEAdA@l@AzI@j@AfDF`@Aj@",
+        "url": "https://www.strava.com/activities/19074969520",
+        "summary": "Distance: 4.18 mi, Time: 53 min, Elevation: 123 ft",
+        "action": "Ran"
+      },
       {
         "id": "ru18931791866",
         "type": "RUN",
@@ -820,7 +840,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-06-16T07:55:26.812Z"
+    "updatedAt": "2026-06-27T07:03:35.268Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -1214,5 +1234,44 @@
     ],
     "createdAt": "2026-06-25T07:10:18.393Z",
     "updatedAt": "2026-06-25T07:10:18.393Z"
+  },
+  "hitchcock-films": {
+    "title": "Hitchcock Films",
+    "slug": "hitchcock-films",
+    "description": "Michael is actively engaging with Alfred Hitchcock's films, rewatching and analyzing multiple versions of his works to understand the director's artistic choices and filmmaking evolution.",
+    "items": [
+      {
+        "id": "bot116819635401002388",
+        "type": "ROBOT",
+        "title": "the man who knew too much is just a really good movie. hitch knew what he was doing",
+        "date": "2026-06-27T02:09:34.945Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116819635401002388",
+        "summary": "<p>the man who knew too much is just a really good movie. hitch knew what he was doing</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1365311817",
+        "type": "FILM",
+        "title": "The Man Who Knew Too Much",
+        "date": "2026-06-22T18:38:01.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/5/4/6/51546-the-man-who-knew-too-much-0-600-0-900-crop.jpg?v=5c9436cade",
+        "url": "https://letterboxd.com/mknepprath/film/the-man-who-knew-too-much-1956/",
+        "summary": " <p>Watched the earlier version thinking it would enhance this viewing. Instead it left me wishing I was watching that version.</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1363800567",
+        "type": "FILM",
+        "title": "The Man Who Knew Too Much",
+        "date": "2026-06-21T16:52:13.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/jv/0s/r5/wj/AvOa83nHSNJBpOPK0IJLz01r0c6-0-600-0-900-crop.jpg?v=c7638859d6",
+        "url": "https://letterboxd.com/mknepprath/film/the-man-who-knew-too-much/",
+        "summary": " <p>I can see why Hitchcock would want to take another run at this. Not just because it feels a bit rough around the edges; it’s also the exact kind of story he loves to tell. I categorize them in my mind as the movies that are about the moral turmoil created by impossible math. Torn Curtain also falls in line with this.</p><p>Watching these has helped me identify what I find hollow about Nolan’s films at times. They’re just about the math, often missing the human part.</p> ",
+        "action": "Watched"
+      }
+    ],
+    "createdAt": "2026-06-27T07:03:35.268Z",
+    "updatedAt": "2026-06-27T07:03:35.268Z"
   }
 }
