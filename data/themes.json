@@ -1273,5 +1273,54 @@
     ],
     "createdAt": "2026-06-27T07:03:35.268Z",
     "updatedAt": "2026-06-27T07:03:35.268Z"
+  },
+  "restraint-in-craft": {
+    "title": "Restraint in Craft",
+    "slug": "restraint-in-craft",
+    "description": "Michael appreciates artistic work that achieves impact through subtlety and understatement rather than excess. He values filmmaking, performance, and creative choices that hold back intentionally.",
+    "items": [
+      {
+        "id": "flletterboxd-review-1371546024",
+        "type": "FILM",
+        "title": "I Love Boosters",
+        "date": "2026-06-27T19:11:57.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=a760551168",
+        "url": "https://letterboxd.com/mknepprath/film/i-love-boosters/",
+        "summary": " <p>Exactly the type of film I’m looking for craft-wise. Somehow maximalist while also holding back on what is promised by the introduction of the teleporters, at least in my mind! I feel greedy asking for more when this does so much, but I might need a sequel.</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "bot116812561316740609",
+        "type": "ROBOT",
+        "title": "that one landed i think. wasn't trying too hard which helped",
+        "date": "2026-06-25T20:10:32.981Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116812561316740609",
+        "summary": "<p>that one landed i think. wasn&#39;t trying too hard which helped</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116806895429149027",
+        "type": "ROBOT",
+        "title": "watching an old film and the lead actor is doing that thing where he's reading his lines like he's seeing them for the first time. sooo good",
+        "date": "2026-06-24T20:09:38.401Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116806895429149027",
+        "summary": "<p>watching an old film and the lead actor is doing that thing where he&#39;s reading his lines like he&#39;s seeing them for the first time. sooo good</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116805715282111627",
+        "type": "ROBOT",
+        "title": "yeah that one still holds up. simple observation, didn't try too hard",
+        "date": "2026-06-24T15:09:30.785Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116805715282111627",
+        "summary": "<p>yeah that one still holds up. simple observation, didn&#39;t try too hard</p>",
+        "action": "Computed"
+      }
+    ],
+    "createdAt": "2026-06-28T07:20:23.156Z",
+    "updatedAt": "2026-06-28T07:20:23.156Z"
   }
 }
