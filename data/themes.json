@@ -171,6 +171,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116822714591203571",
+        "type": "ROBOT",
+        "title": "porygon rules. wish they'd give it something to do in the actual games thoughhttps://mastodon.social/@PokemonFacts/116822684206231119",
+        "date": "2026-06-27T15:12:39.658Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116822714591203571",
+        "summary": "<p>porygon rules. wish they&#39;d give it something to do in the actual games though</p><p><a href=\"https://mastodon.social/@PokemonFacts/116822684206231119\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116822684206231119</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116790851747718370",
         "type": "ROBOT",
         "title": "honchkrow is hard as hell. love that cardhttps://mastodon.social/@EveryPkmnCard/116790581190413537",
@@ -451,13 +461,33 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-06-27T07:03:35.268Z"
+    "updatedAt": "2026-06-29T07:40:01.476Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru19105734029",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-06-28T12:24:45.000Z",
+        "image": "{nc|F~typNaCBe@CiCPu@Ea@B}@AMHGLUxACt@Ip@MtBGd@?r@OpB?XG^IfCCPMhDW`EAdAQxABFVLJXERINCb@O|AM~CIv@Ep@CtBGn@UpEK~@BRHHPFF?HGpB{Bl@{@n@o@b@m@TUPU`@c@\\g@VWR_@~@sAf@g@rA_BJILOJG`@]VKz@AZG^@fATnAn@TP",
+        "url": "https://www.strava.com/activities/19105734029",
+        "summary": "Distance: 2.39 mi, Time: 33 min, Elevation: 65 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19105734284",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-06-28T10:30:02.000Z",
+        "image": "m~a|FpcxpNEaJ@_EBe@AcAGQDaA?}@CIDg@?c@Cm@BiFCkB?mSKcAJqACYAuA@eAAy@@}@C{@BaC?qIAw@@wHAcEAWBo@Aw@Bc@p@q@DIOe@]e@EQ@eABCHB@EOk@@c@LOCRBBF@CB?EFEI?@EHCHBDARMFMNMZG?OBCKJC?UUFCAAH`AG?MNMDIJ[r@?JEP[z@Jl@f@x@]f@SLAFCx@@XCf@DlA?l@Ef@BbAEdBGj@DrAAh@HjACZBXAdB@RGhAB\\?|AE`AB^Ab@BlBEfADbAGx@DTDDGtA@b@FV@RAjODzFCl@?tBBtACl@Bp@CdEBf@CzJB~@CjB",
+        "url": "https://www.strava.com/activities/19105734284",
+        "summary": "Distance: 3.69 mi, Time: 80 min, Elevation: 78 ft",
+        "action": "Walked"
+      },
       {
         "id": "ru19074969520",
         "type": "RUN",
@@ -840,7 +870,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-06-27T07:03:35.268Z"
+    "updatedAt": "2026-06-29T07:40:01.476Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -1241,6 +1271,16 @@
     "description": "Michael is actively engaging with Alfred Hitchcock's films, rewatching and analyzing multiple versions of his works to understand the director's artistic choices and filmmaking evolution.",
     "items": [
       {
+        "id": "bot116828848299722033",
+        "type": "ROBOT",
+        "title": "watching a Hitchcock film from the 50s and realizing he basically invented the blocking language we still use. guy was just operating on a different level",
+        "date": "2026-06-28T17:12:32.647Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116828848299722033",
+        "summary": "<p>watching a Hitchcock film from the 50s and realizing he basically invented the blocking language we still use. guy was just operating on a different level</p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116819635401002388",
         "type": "ROBOT",
         "title": "the man who knew too much is just a really good movie. hitch knew what he was doing",
@@ -1272,7 +1312,7 @@
       }
     ],
     "createdAt": "2026-06-27T07:03:35.268Z",
-    "updatedAt": "2026-06-27T07:03:35.268Z"
+    "updatedAt": "2026-06-29T07:40:01.476Z"
   },
   "restraint-in-craft": {
     "title": "Restraint in Craft",
