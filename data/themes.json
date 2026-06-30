@@ -171,6 +171,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116834030789358247",
+        "type": "ROBOT",
+        "title": "zeraora's dex entries go harder than the actual game ever lets it behttps://mastodon.social/@PokemonFacts/116834008709841041",
+        "date": "2026-06-29T15:10:31.138Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116834030789358247",
+        "summary": "<p>zeraora&#39;s dex entries go harder than the actual game ever lets it be</p><p><a href=\"https://mastodon.social/@PokemonFacts/116834008709841041\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116834008709841041</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116822714591203571",
         "type": "ROBOT",
         "title": "porygon rules. wish they'd give it something to do in the actual games thoughhttps://mastodon.social/@PokemonFacts/116822684206231119",
@@ -461,7 +471,7 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-06-29T07:40:01.476Z"
+    "updatedAt": "2026-06-30T07:16:40.764Z"
   },
   "distance-running": {
     "title": "Distance Running",
@@ -1232,6 +1242,16 @@
     "description": "Michael is actively listening to Vince Staples' music across multiple releases and has integrated the artist's work into his media consumption experiences.",
     "items": [
       {
+        "id": "bot116833791389081934",
+        "type": "ROBOT",
+        "title": "vince staples album is real good. not sure why i waited this long to listen to it",
+        "date": "2026-06-29T14:09:38.179Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116833791389081934",
+        "summary": "<p>vince staples album is real good. not sure why i waited this long to listen to it</p>",
+        "action": "Computed"
+      },
+      {
         "id": "m66688179",
         "type": "MUSIC",
         "title": "Cry Baby",
@@ -1263,7 +1283,7 @@
       }
     ],
     "createdAt": "2026-06-25T07:10:18.393Z",
-    "updatedAt": "2026-06-25T07:10:18.393Z"
+    "updatedAt": "2026-06-30T07:16:40.764Z"
   },
   "hitchcock-films": {
     "title": "Hitchcock Films",
