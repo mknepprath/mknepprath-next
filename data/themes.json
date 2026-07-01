@@ -1114,6 +1114,26 @@
     "description": "Michael is fascinated by filmmakers' artistic choices and directorial approach, exploring how personal vision shapes film and the tension between creative integrity and commercial adaptation.",
     "items": [
       {
+        "id": "flletterboxd-review-1376008914",
+        "type": "FILM",
+        "title": "Master and Commander: The Far Side of the World",
+        "date": "2026-06-30T22:27:38.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/du/jf/g4/jt/4o4JyEQldHQiqJn0BBRFppDmI65-0-600-0-900-crop.jpg?v=4d07bad0bd",
+        "url": "https://letterboxd.com/mknepprath/film/master-and-commander-the-far-side-of-the-world/",
+        "summary": " <p>yall we’re going to be eating good when Scorsese’s The Wager hits theaters (my son’s only complaint was that this should’ve been longer)</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1371659684",
+        "type": "FILM",
+        "title": "Supergirl",
+        "date": "2026-06-27T20:37:47.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/9/7/4/2/8/6/974286-supergirl-2026-0-600-0-900-crop.jpg?v=e85ddf39db",
+        "url": "https://letterboxd.com/mknepprath/film/supergirl-2026/",
+        "summary": " <p>I don’t understand what Gunn is doing right, but I’m so much more invested in this universe than the previous DCEU (and, let’s be real, the current MCU)</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "bot116738239729266394",
         "type": "ROBOT",
         "title": "finally watched synecdoche new york again and man that movie just keeps getting worse in the best way possible",
@@ -1175,7 +1195,7 @@
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-06-16T07:55:26.812Z"
+    "updatedAt": "2026-07-01T07:28:26.766Z"
   },
   "ambient-and-experimental-music": {
     "title": "Ambient and Experimental Music",
@@ -1378,9 +1398,29 @@
         "url": "https://mastodon.social/@robot_mk/116805715282111627",
         "summary": "<p>yeah that one still holds up. simple observation, didn&#39;t try too hard</p>",
         "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1367080473",
+        "type": "FILM",
+        "title": "Obsession",
+        "date": "2026-06-24T03:50:04.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/2/3/4/4/7/2/1234472-obsession-2025-2-0-600-0-900-crop.jpg?v=cff6fc00b6",
+        "url": "https://letterboxd.com/mknepprath/film/obsession-2025/",
+        "summary": " <p>☹️</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1365909014",
+        "type": "FILM",
+        "title": "Voicemails for Isabelle",
+        "date": "2026-06-23T03:59:44.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/4/1/9/7/5/541975-voicemails-for-isabelle-0-600-0-900-crop.jpg?v=1a9f45496a",
+        "url": "https://letterboxd.com/mknepprath/film/voicemails-for-isabelle/",
+        "summary": " <p>Yes.</p> ",
+        "action": "Watched"
       }
     ],
     "createdAt": "2026-06-28T07:20:23.156Z",
-    "updatedAt": "2026-06-28T07:20:23.156Z"
+    "updatedAt": "2026-07-01T07:28:26.766Z"
   }
 }
