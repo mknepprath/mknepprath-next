@@ -5,6 +5,26 @@
     "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
     "items": [
       {
+        "id": "flletterboxd-review-1382947650",
+        "type": "FILM",
+        "title": "The Balloonatic",
+        "date": "2026-07-05T17:33:32.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/9/4/7/3/19473-the-balloonatic-0-600-0-900-crop.jpg?v=bfe6245f5e",
+        "url": "https://letterboxd.com/mknepprath/film/the-balloonatic/2/",
+        "summary": " <p>Phyllis is basically the star of this one</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1382925966",
+        "type": "FILM",
+        "title": "Cops",
+        "date": "2026-07-05T17:18:27.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/2/5/8/7/3/25873-cops-0-600-0-900-crop.jpg?v=25b72b1043",
+        "url": "https://letterboxd.com/mknepprath/film/cops/5/",
+        "summary": " <p>I looked up the goat gland bit and… wow</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "flletterboxd-review-1333045940",
         "type": "FILM",
         "title": "Pee-wee's Big Adventure",
@@ -114,7 +134,7 @@
       }
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
-    "updatedAt": "2026-05-30T06:59:54.478Z"
+    "updatedAt": "2026-07-06T10:02:11.951Z"
   },
   "photay-appreciation": {
     "title": "Photay Appreciation",
@@ -170,6 +190,26 @@
     "slug": "pokemon-design-appreciation",
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
+      {
+        "id": "bot116868000766906063",
+        "type": "ROBOT",
+        "title": "been thinking about how Porygon-Z has the worst design in the entire dex and I'm supposed to just accept that",
+        "date": "2026-07-05T15:09:31.858Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116868000766906063",
+        "summary": "<p>been thinking about how Porygon-Z has the worst design in the entire dex and I&#39;m supposed to just accept that</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "bot116864933449932686",
+        "type": "ROBOT",
+        "title": "heck yeah floatzel ruleshttps://mastodon.social/@EveryPkmnCard/116864904543645120",
+        "date": "2026-07-05T02:09:28.319Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116864933449932686",
+        "summary": "<p>heck yeah floatzel rules</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116864904543645120\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116864904543645120</span></a></p>",
+        "action": "Computed"
+      },
       {
         "id": "bot116834030789358247",
         "type": "ROBOT",
@@ -471,13 +511,23 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-06-30T07:16:40.764Z"
+    "updatedAt": "2026-07-06T10:02:11.951Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru19181711494",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-07-04T09:36:35.000Z",
+        "image": "g{b|FdmxpN?}EEi@@sDCmBFa@?kAEe@CkLB}@AeA@e@A}ABsCJuAAWEW@UNa@Fe@HYLu@Pg@^yA`A}BZk@l@y@v@y@f@_@dAc@l@Kx@Kb@U`BCj@Bl@KlCAXCHG?qEBwBCcBBk@Am@@a@Ao@@qDCo@B}FAmFFiCEeA?IDC|AdAT\\AFORGXG`BBh@?fBClC@vAAn@DpBApD@z@E~BD~DA`A@^?T@ABJDXIz@Af@Ej@@bAEbABxCArAB`@ArAB\\CfBBzBApBCj@AnAJbIEr@?|FAdK",
+        "url": "https://www.strava.com/activities/19181711494",
+        "summary": "Distance: 3.92 mi, Time: 39 min, Elevation: 81 ft",
+        "action": "Ran"
+      },
       {
         "id": "ru19105734029",
         "type": "RUN",
@@ -880,7 +930,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-06-29T07:40:01.476Z"
+    "updatedAt": "2026-07-06T10:02:11.951Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -1360,6 +1410,16 @@
     "description": "Michael appreciates artistic work that achieves impact through subtlety and understatement rather than excess. He values filmmaking, performance, and creative choices that hold back intentionally.",
     "items": [
       {
+        "id": "flletterboxd-review-1380543904",
+        "type": "FILM",
+        "title": "PlayTime",
+        "date": "2026-07-04T03:33:46.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/bi/e2/9h/of/ivRkXDUcdBZxQiYw5R99ZJM0CpA-0-600-0-900-crop.jpg?v=5ab043bd2f",
+        "url": "https://letterboxd.com/mknepprath/film/playtime/",
+        "summary": " <p>I want to make a movie like this but set in one of our anti-human-designed American cities</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "flletterboxd-review-1371546024",
         "type": "FILM",
         "title": "I Love Boosters",
@@ -1421,6 +1481,6 @@
       }
     ],
     "createdAt": "2026-06-28T07:20:23.156Z",
-    "updatedAt": "2026-07-01T07:28:26.766Z"
+    "updatedAt": "2026-07-06T10:02:11.951Z"
   }
 }
