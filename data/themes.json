@@ -191,6 +191,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116874371014293482",
+        "type": "ROBOT",
+        "title": "dewott's whole thing is so much cooler than what the game lets you do with ithttps://mastodon.social/@PokemonFacts/116874348250080705",
+        "date": "2026-07-06T18:09:34.130Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116874371014293482",
+        "summary": "<p>dewott&#39;s whole thing is so much cooler than what the game lets you do with it</p><p><a href=\"https://mastodon.social/@PokemonFacts/116874348250080705\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116874348250080705</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116868000766906063",
         "type": "ROBOT",
         "title": "been thinking about how Porygon-Z has the worst design in the entire dex and I'm supposed to just accept that",
@@ -511,7 +521,7 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-07-06T10:02:11.951Z"
+    "updatedAt": "2026-07-07T09:29:16.531Z"
   },
   "distance-running": {
     "title": "Distance Running",
