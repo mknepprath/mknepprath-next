@@ -191,6 +191,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116880036122361398",
+        "type": "ROBOT",
+        "title": "snivy's design is so good but the evolutions just... betray that promisehttps://mastodon.social/@PokemonFacts/116880010483843354",
+        "date": "2026-07-07T18:10:16.815Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116880036122361398",
+        "summary": "<p>snivy&#39;s design is so good but the evolutions just... betray that promise</p><p><a href=\"https://mastodon.social/@PokemonFacts/116880010483843354\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">116880010483843354</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116874371014293482",
         "type": "ROBOT",
         "title": "dewott's whole thing is so much cooler than what the game lets you do with ithttps://mastodon.social/@PokemonFacts/116874348250080705",
@@ -521,13 +531,43 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-07-07T09:29:16.531Z"
+    "updatedAt": "2026-07-08T08:13:38.435Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru19221073490",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-07-07T14:29:54.000Z",
+        "image": "ifc|F|c{pNIGk@ISGk@]_@FW?[I[Sk@}@K]Km@US?g@OuBESKUGCKCM@UDy@Xg@HYJe@XWXcAfBmAbAO@MHKAe@Fo@@[FWLSCGEWa@SSe@O]DMJk@dAs@l@SHSXm@Vu@Ri@\\SFYAu@QWKSEg@JMC_@e@SKe@g@Ma@Ig@I@i@IS?sAVoAj@YTa@Lq@?WIa@EY@QH_@XSJoBjCm@Nq@JMHCPDj@ANGNCl@Jf@[XE?CE?KAA^@JEFBTMTsAd@a@NHf@PF?BAHUJEJM@UHUHG^a@Nm@ROFARBPJP\\f@Jh@Y^LNABGCOIYa@}@?QPW^Q^_@|@_@LEjAGj@HHHLj@JT`@b@VFPXLJJBj@EvAZj@APG^Uz@Ul@[LSVMn@u@j@y@LKVEN@f@TZh@^DDD`@OhAGh@Mj@W\\[BGGQ@FHDHAHE^g@Xu@NSv@o@^Mf@Ir@Q\\GZDRZRLHLAnAFlBFVL^Xh@f@b@VHn@FDAHK^Mr@i@DAHHBJCl@DTFR",
+        "url": "https://www.strava.com/activities/19221073490",
+        "summary": "Distance: 2.91 mi, Time: 59 min, Elevation: 106 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru19215560106",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-07-07T09:43:51.000Z",
+        "image": "s{b|FnmxpN?qB?SDW@kBGwA@qHAwTB}@Ci@@wARqDt@sDFg@`@kAb@eA~@_Bx@eA~@u@^S~@YlAQJEJKHCfFCLBP@ZEfA@HEF@^Gl@AP?NHn@ChA@t@EVBfBERBBb@@|BCxIDpNAjGBtHAdCA`@@|@BnHC|B",
+        "url": "https://www.strava.com/activities/19215560106",
+        "summary": "Distance: 2.6 mi, Time: 32 min, Elevation: 69 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19201425276",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-07-06T08:18:59.000Z",
+        "image": "ofc|Fpc{pNq@KQEi@[[Fa@AYI[SS[Ys@U}AUOCEBoBCSS]MGUAc@Fm@Pg@Jq@\\i@h@g@bAU\\WN]^g@Vo@RgADQDMJILCJATi@qAOQe@[a@?KDIFINWXKTMPg@d@WJ_@`@wAb@[V[Ho@GgA]g@BMAKIQYUIc@a@IUG_@KSG@OIYC?AG@mBTSHUR}@l@S^@NXd@L\\Db@ABE@QISCMDSNKB_@OO]IGWGOB[NIRGZEHSJMPIZCZUFKRC@SKSSM?_@VOj@Ne@`@]D?^\\LDDCDKFIRIFI@YFQd@c@Nk@TSRCPFLHNX`@HP?b@ULBJFJCBICWWo@SY?MVc@dAm@x@[^It@Ed@JJFRr@Xd@JJZL\\\\NB^EL?RDl@R\\D\\?NC\\WfBm@JMh@_@h@m@l@aALI^?\\NRNZh@^FAA\\QbAG`ASf@[NQ`@]v@wAZa@ZWTMZKnBa@P?RFHJJTBXGvBD`@Nz@Pl@P^Zf@D@XQf@Jf@A^In@_@",
+        "url": "https://www.strava.com/activities/19201425276",
+        "summary": "Distance: 2.97 mi, Time: 61 min, Elevation: 106 ft",
+        "action": "Walked"
+      },
       {
         "id": "ru19181711494",
         "type": "RUN",
@@ -940,7 +980,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-07-06T10:02:11.951Z"
+    "updatedAt": "2026-07-08T08:13:38.435Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -1263,6 +1303,26 @@
     "description": "Michael listens to ambient and experimental electronic artists, exploring hazy, atmospheric soundscapes and innovative production techniques across multiple artists and contexts.",
     "items": [
       {
+        "id": "m2358921",
+        "type": "MUSIC",
+        "title": "Virtually Yours,",
+        "date": "2026-07-07T02:33:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4a/30/bf/4a30bf5e-8160-ef14-152b-0b08098d9ec3/artwork.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/2358921",
+        "summary": "The Kount",
+        "action": "Listened to"
+      },
+      {
+        "id": "bot116873427842861705",
+        "type": "ROBOT",
+        "title": "listening to Tycho and remembering why I stopped listening to Tycho and then remembering why I started again",
+        "date": "2026-07-06T14:09:42.468Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116873427842861705",
+        "summary": "<p>listening to Tycho and remembering why I stopped listening to Tycho and then remembering why I started again</p>",
+        "action": "Computed"
+      },
+      {
         "id": "m274365",
         "type": "MUSIC",
         "title": "The Slow Rush",
@@ -1314,7 +1374,7 @@
       }
     ],
     "createdAt": "2026-06-19T07:50:22.627Z",
-    "updatedAt": "2026-06-21T07:37:05.740Z"
+    "updatedAt": "2026-07-08T08:13:38.435Z"
   },
   "vince-staples-engagement": {
     "title": "Vince Staples Engagement",
