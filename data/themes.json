@@ -1552,5 +1552,42 @@
     ],
     "createdAt": "2026-06-28T07:20:23.156Z",
     "updatedAt": "2026-07-06T10:02:11.951Z"
+  },
+  "action-cinema-appreciation": {
+    "title": "Action Cinema Appreciation",
+    "slug": "action-cinema-appreciation",
+    "description": "Michael appreciates dynamic action filmmaking and performers known for their physical prowess and combat choreography. He values films that showcase impressive stunt work and martial arts expertise.",
+    "items": [
+      {
+        "id": "flletterboxd-review-1387782594",
+        "type": "FILM",
+        "title": "The Furious",
+        "date": "2026-07-09T03:16:43.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/1/6/4/1/5/4/1164154-the-furious-0-600-0-900-crop.jpg?v=f880a59523",
+        "url": "https://letterboxd.com/mknepprath/film/the-furious/",
+        "summary": " <p>When Yayan Ruhian shows up in your movie you know it’s about to get nuts</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "pmad-max-fury-road",
+        "type": "POST",
+        "title": "My Review of Mad Max: Fury Road (2015)",
+        "date": "2025-05-15",
+        "image": "/assets/mad-max-fury-road.jpg",
+        "url": "/writing/mad-max-fury-road",
+        "summary": "My review celebrating the 10th anniversary of Mad Max: Fury Road."
+      },
+      {
+        "id": "pdredd",
+        "type": "POST",
+        "title": "My Review of Dredd (2012)",
+        "date": "2022-09-21",
+        "image": "/assets/dredd-film.jpeg",
+        "url": "/writing/dredd",
+        "summary": "In which I coin the term “yassified bullet time”."
+      }
+    ],
+    "createdAt": "2026-07-09T09:26:04.764Z",
+    "updatedAt": "2026-07-09T09:26:04.764Z"
   }
 }
