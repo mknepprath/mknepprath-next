@@ -5,6 +5,16 @@
     "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
     "items": [
       {
+        "id": "bot116891829889268042",
+        "type": "ROBOT",
+        "title": "been rewatching Buster Keaton shorts and the man's physical comedy is just operating on a different plane",
+        "date": "2026-07-09T20:09:35.413Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116891829889268042",
+        "summary": "<p>been rewatching Buster Keaton shorts and the man&#39;s physical comedy is just operating on a different plane</p>",
+        "action": "Computed"
+      },
+      {
         "id": "flletterboxd-review-1382947650",
         "type": "FILM",
         "title": "The Balloonatic",
@@ -134,7 +144,7 @@
       }
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
-    "updatedAt": "2026-07-06T10:02:11.951Z"
+    "updatedAt": "2026-07-10T09:22:38.683Z"
   },
   "photay-appreciation": {
     "title": "Photay Appreciation",
@@ -538,6 +548,36 @@
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru19246107339",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-07-09T08:22:27.000Z",
+        "image": "aec|F|e{pN]Ys@YUO_@Ik@E]?k@DUQu@uA_@yAIwABmAAWCUUYWGM?u@T}@Ng@VYTa@h@Yn@[b@UPYZs@ZCD]FY@m@F]HUPK@KKM[][i@UIAQDSNc@x@s@r@[POTg@R_AXUR]LOA}@MWOMESA_@FUGW[WK[Wc@mAGGYEQ?@AE?m@Bw@JiBhASb@?FBJXf@F`@@ZK?IIQCODQLU?YKQYUMOASDUPMn@YPOVKn@UHIRC@YOOOUDYVGJQfAGPMDGE_@XGE@GEADCJDDCTCFBHEJYRcAFIVSLC`@TLBDCJSTEBE@WDOb@_@HOJa@NMVIH@THRZ\\HPANMPEXJLA@MEUGW[k@ASV_@~A}@zA[DET?PFRBHHPn@V`@RRTHb@`@HBVEZ?h@Rn@LR?REd@YlA]ZQTWz@q@p@kAFGJEb@Ad@TTZ^x@HJDi@VOHCt@En@If@QXQr@o@h@eAZc@V[RMn@WxA]TEN?PFVVNJJLEpBFv@Fd@Tt@T`@VV^Pr@H`@@d@NRDR?TH",
+        "url": "https://www.strava.com/activities/19246107339",
+        "summary": "Distance: 2.99 mi, Time: 62 min, Elevation: 130 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru19234640120",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-07-08T14:26:45.000Z",
+        "image": "aec|F~e{pN_@Y}@]GIKE}@M[?q@DWSu@wAW}@K_AEs@B{ACUIUMKGCQAk@P{A\\e@XWR]b@Yn@]d@QL[^_@Ro@R}AHa@VQBIIQc@UYg@Sa@BGFMNk@`Ak@f@UJORaAb@YHs@d@I@O@]EsAa@i@HQEa@c@QEc@k@M[Gg@GEADi@KU?aANk@TmAr@i@Nq@?o@MS?M@{@f@W^Yf@IF[b@k@\\g@NYDYJEJF`DPCBCViAJQLKPIJAl@XHMXGRaAf@e@Fc@HQDEVEL@TNHVHHZFP?RSLEH@VLLC@KEK]w@Wc@CALCN[XUnAs@RIx@IVA~@LTbAZXf@XV^PDVGP?|Ab@\\?TKROjA]HAFKRMTYVKX[ZWN[Zc@JGZCJ@\\PLLRZTHRL\\STEb@@JAv@Uj@Y`@a@JG|@_BJOj@k@d@Sh@El@SD@^ILANFLHJV@n@GhAHdANz@L`@P`@V\\FPXXD@ZGZCvARJDHHr@V`@Z",
+        "url": "https://www.strava.com/activities/19234640120",
+        "summary": "Distance: 2.96 mi, Time: 63 min, Elevation: 115 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru19229592823",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-07-08T08:23:51.000Z",
+        "image": "ofc|Fpc{pNEFGPEBUIQMy@MyABWUO[Y_@Sm@Qq@E}@Go@B]@g@?YCOKQMM]Eq@R[B_@J{@\\a@^kApBs@n@[PYHg@LgAFc@XODGE[s@SSSKOC_@@SPm@dAq@l@QHSTm@Zw@To@^_@AkA]WCg@@QC_@[YKUUOWQaACBm@M]DQ?_AP]Ly@j@QHO\\ARBPZd@Pf@AHM@QIOAc@RQ@_@ISa@]IYDEBKPGh@]VMNGl@CFYFITCBWKOQMGKFY\\DYJIJCNBh@VLB?CDMJg@La@d@e@Pi@ZSPC\\HJHLXTJP?NMRIj@JBE?KUy@OYAOTa@rAy@`@O`AO^?b@FFB`AjADBJPPLRZJDHBb@An@NP?h@FXAPEZURK`AWRMTYX[`@Yj@eARITCP?PDPJRX^x@PX?i@VOPGzAK\\M`@QTY`@YZg@\\u@RW^[l@WrBc@N?PDHHLPFDRT@HEtBBb@XtAJTPTj@d@RBd@@^ERId@_@",
+        "url": "https://www.strava.com/activities/19229592823",
+        "summary": "Distance: 3.59 mi, Time: 73 min, Elevation: 112 ft",
+        "action": "Walked"
+      },
       {
         "id": "ru19221073490",
         "type": "RUN",
@@ -980,7 +1020,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-07-08T08:13:38.435Z"
+    "updatedAt": "2026-07-10T09:22:38.683Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
