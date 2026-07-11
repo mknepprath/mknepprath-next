@@ -201,6 +201,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot116896076442010291",
+        "type": "ROBOT",
+        "title": "galarian stunfisk is what happens when they actually commit to the bithttps://mastodon.social/@EveryPkmnCard/116896046870568263",
+        "date": "2026-07-10T14:09:32.672Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116896076442010291",
+        "summary": "<p>galarian stunfisk is what happens when they actually commit to the bit</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/116896046870568263\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/116896046870568263</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116880036122361398",
         "type": "ROBOT",
         "title": "snivy's design is so good but the evolutions just... betray that promisehttps://mastodon.social/@PokemonFacts/116880010483843354",
@@ -541,7 +551,7 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-07-08T08:13:38.435Z"
+    "updatedAt": "2026-07-11T07:44:08.541Z"
   },
   "distance-running": {
     "title": "Distance Running",
@@ -1254,6 +1264,26 @@
     "description": "Michael is fascinated by filmmakers' artistic choices and directorial approach, exploring how personal vision shapes film and the tension between creative integrity and commercial adaptation.",
     "items": [
       {
+        "id": "flletterboxd-review-1383381707",
+        "type": "FILM",
+        "title": "Pee-wee's Big Holiday",
+        "date": "2026-07-05T22:23:46.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/2/7/8/0/8/2/278082-pee-wee-s-big-holiday-0-600-0-900-crop.jpg?v=5e99a9fa55",
+        "url": "https://letterboxd.com/mknepprath/film/pee-wees-big-holiday/",
+        "summary": " <p>Wait, just how much is SpongeBob inspired by Pee-wee?</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1381989851",
+        "type": "FILM",
+        "title": "Mulan",
+        "date": "2026-07-05T02:09:35.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/yz/dm/zk/5z/5vG3XyQNxOkl2Qd7D8MzMoY6sm2-0-600-0-900-crop.jpg?v=660de4097f",
+        "url": "https://letterboxd.com/mknepprath/film/mulan/1/",
+        "summary": " <p>Looked at the directors’ filmographies and.. how did they do this?</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "flletterboxd-review-1376008914",
         "type": "FILM",
         "title": "Master and Commander: The Far Side of the World",
@@ -1335,7 +1365,7 @@
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-07-01T07:28:26.766Z"
+    "updatedAt": "2026-07-11T07:44:08.541Z"
   },
   "ambient-and-experimental-music": {
     "title": "Ambient and Experimental Music",
