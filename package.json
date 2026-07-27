@@ -45,7 +45,7 @@
     "next": "^16.2.12",
     "octokit": "^4.1.3",
     "prismjs": "^1.30.0",
-    "react": "^19.2.7",
+    "react": "^19.2.8",
     "react-dom": "^19.2.7",
     "react-spring": "^10.0.4",
     "react-use-gesture": "^9.1.3",
