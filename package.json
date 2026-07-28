@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "build:feed": "ts-node -O '{\"module\":\"commonjs\",\"types\":[\"node\"]}' -s ./data/gen-rss-feed.ts",
+    "build:feed": "tsx ./data/gen-rss-feed.ts",
     "build:rss": "npm run build:feed",
-    "build:posts": "ts-node -O '{\"module\":\"commonjs\",\"types\":[\"node\"]}' -s ./data/gen-post-list.ts",
+    "build:posts": "tsx ./data/gen-post-list.ts",
     "commit:posts": "git add ./data/posts.ts ./public/feed.json",
     "start": "next start",
     "lint": "eslint ./pages/* ./core/* ./data/* --fix",
@@ -83,6 +83,7 @@
     "prettier": "^3.9.6",
     "socket.io": "^4.8.3",
     "ts-node": "^10.9.2",
-    "typescript": "^7.0.2"
+    "tsx": "^4.23.1",
+    "typescript": "~6.0.3"
   }
 }
