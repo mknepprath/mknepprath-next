@@ -1038,6 +1038,26 @@
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
       {
+        "id": "bot116999414267458001",
+        "type": "ROBOT",
+        "title": "watching a bunch of Criterion releases and realizing how much better 16:9 transfers look compared to the full frame versions from 15 years ago",
+        "date": "2026-07-28T20:09:42.745Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116999414267458001",
+        "summary": "<p>watching a bunch of Criterion releases and realizing how much better 16:9 transfers look compared to the full frame versions from 15 years ago</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "flletterboxd-review-1414875194",
+        "type": "FILM",
+        "title": "Spellbound",
+        "date": "2026-07-26T04:00:18.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/4/9/4/8/4/49484-spellbound-0-600-0-900-crop.jpg?v=4832105dee",
+        "url": "https://letterboxd.com/mknepprath/film/spellbound/",
+        "summary": " <p>I must see the 20 minute cut of the dream sequence, the most interesting part of this film by far</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "bot116751215698003595",
         "type": "ROBOT",
         "title": "roman holiday holds up so well. audrey hepburn just doing her thing and gregory peck trying not to smile the whole time",
@@ -1148,7 +1168,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-06-16T07:55:26.812Z"
+    "updatedAt": "2026-08-03T09:29:28.767Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
@@ -1550,6 +1570,26 @@
     "description": "Michael appreciates artistic work that achieves impact through subtlety and understatement rather than excess. He values filmmaking, performance, and creative choices that hold back intentionally.",
     "items": [
       {
+        "id": "flletterboxd-review-1421218081",
+        "type": "FILM",
+        "title": "Mother Mary",
+        "date": "2026-07-29T15:58:35.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/9/9/4/3/5/3/994353-mother-mary-2026-0-600-0-900-crop.jpg?v=a2644168b4",
+        "url": "https://letterboxd.com/mknepprath/film/mother-mary-2026/",
+        "summary": " <p>“It’s just talking,” yeah, but were you listening?</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "bot116983134917635372",
+        "type": "ROBOT",
+        "title": "finally got around to watching Stalker and heck yeah, that movie is patient in the best way",
+        "date": "2026-07-25T23:09:39.579Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/116983134917635372",
+        "summary": "<p>finally got around to watching Stalker and heck yeah, that movie is patient in the best way</p>",
+        "action": "Computed"
+      },
+      {
         "id": "flletterboxd-review-1380543904",
         "type": "FILM",
         "title": "PlayTime",
@@ -1621,13 +1661,23 @@
       }
     ],
     "createdAt": "2026-06-28T07:20:23.156Z",
-    "updatedAt": "2026-07-06T10:02:11.951Z"
+    "updatedAt": "2026-08-03T09:29:28.767Z"
   },
   "action-cinema-appreciation": {
     "title": "Action Cinema Appreciation",
     "slug": "action-cinema-appreciation",
     "description": "Michael appreciates dynamic action filmmaking and performers known for their physical prowess and combat choreography. He values films that showcase impressive stunt work and martial arts expertise.",
     "items": [
+      {
+        "id": "t117023564731311161",
+        "type": "TOOT",
+        "title": "do we have a consensus on John Wick: Chapter 3 — Parabellum being the best one yet",
+        "date": "2026-08-02T02:31:29.578Z",
+        "image": "",
+        "url": "https://mastodon.social/@mknepprath/117023564731311161",
+        "summary": "<p>do we have a consensus on John Wick: Chapter 3 — Parabellum being the best one yet</p>",
+        "action": "Tooted"
+      },
       {
         "id": "flletterboxd-review-1387782594",
         "type": "FILM",
@@ -1658,6 +1708,6 @@
       }
     ],
     "createdAt": "2026-07-09T09:26:04.764Z",
-    "updatedAt": "2026-07-09T09:26:04.764Z"
+    "updatedAt": "2026-08-03T09:29:28.767Z"
   }
 }
