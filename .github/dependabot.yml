@@ -7,6 +7,9 @@ updates:
     time: "10:00"
   open-pull-requests-limit: 10
   ignore:
+  - dependency-name: typescript
+    versions:
+    - ">=7"
   - dependency-name: cypress
     versions:
     - 7.0.1

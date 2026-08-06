@@ -56,11 +56,6 @@ const moduleExports = {
       },
     ];
   },
-  // TypeScript 7 is the native compiler and doesn't expose the JS compiler API
-  // Next.js uses for type checking, so shell out to the tsc CLI instead.
-  experimental: {
-    useTypeScriptCli: true,
-  },
   images: {
     remotePatterns: [
       {
