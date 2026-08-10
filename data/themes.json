@@ -1776,6 +1776,16 @@
     "description": "Michael has been rewatching the modern Spider-Man film trilogy, finding renewed appreciation for the films on subsequent viewings and enjoying them as visual/sensory experiences beyond plot.",
     "items": [
       {
+        "id": "flletterboxd-review-1437361838",
+        "type": "FILM",
+        "title": "Spider-Man: Into the Spider-Verse",
+        "date": "2026-08-07T00:27:05.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/2/5/1/9/4/3/251943-spider-man-into-the-spider-verse-0-600-0-900-crop.jpg?v=538fe0ada6",
+        "url": "https://letterboxd.com/mknepprath/film/spider-man-into-the-spider-verse/3/",
+        "summary": " <p>Excited to see how much of this film gets unlocked by Beyond, considering how much this opened up for me after seeing Across. How lucky are we to have these films?</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "flletterboxd-review-1432340207",
         "type": "FILM",
         "title": "Spider-Man: Brand New Day",
@@ -1817,6 +1827,6 @@
       }
     ],
     "createdAt": "2026-08-04T08:26:13.170Z",
-    "updatedAt": "2026-08-04T08:26:13.170Z"
+    "updatedAt": "2026-08-10T06:27:03.562Z"
   }
 }
