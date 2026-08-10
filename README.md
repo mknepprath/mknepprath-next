@@ -11,3 +11,5 @@ View the latest deploy here: https://mknepprath-next.mknepprath.now.sh.
 1. To install packages, run `npm i`.
 1. To run the website locally, run `npm run dev`.
 1. You can now view the website in your browser at `localhost:3000`.
+
+Thanks for visiting!
