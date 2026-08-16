@@ -1828,5 +1828,44 @@
     ],
     "createdAt": "2026-08-04T08:26:13.170Z",
     "updatedAt": "2026-08-10T06:27:03.562Z"
+  },
+  "the-end-of-oak-street": {
+    "title": "The End of Oak Street",
+    "slug": "the-end-of-oak-street",
+    "description": "Michael is deeply engaged with the film The End of Oak Street, planning multiple viewings and acquiring tickets to experience it repeatedly.",
+    "items": [
+      {
+        "id": "flletterboxd-review-1452604488",
+        "type": "FILM",
+        "title": "The End of Oak Street",
+        "date": "2026-08-16T01:46:16.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/9/9/2/9/6/2/992962-the-end-of-oak-street-0-600-0-900-crop.jpg?v=b06dbfb4c9",
+        "url": "https://letterboxd.com/mknepprath/film/the-end-of-oak-street/1/",
+        "summary": " <p>I will be watching this many many times</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1449366522",
+        "type": "FILM",
+        "title": "The End of Oak Street",
+        "date": "2026-08-14T02:47:29.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/9/9/2/9/6/2/992962-the-end-of-oak-street-0-600-0-900-crop.jpg?v=b06dbfb4c9",
+        "url": "https://letterboxd.com/mknepprath/film/the-end-of-oak-street/",
+        "summary": " <p>A premise so promising you spend the first twenty minutes stressed that the film won’t live up to it. Didn’t have to worry, hands down the second best dino film ever made. Very hashtag Amblin hashtag prehistoric hashtag Jumanji, I will be watching this many many times</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "t117082931671961957",
+        "type": "TOOT",
+        "title": "The End of Oak Street tickets ACQUIRED",
+        "date": "2026-08-12T14:09:17.202Z",
+        "image": "",
+        "url": "https://mastodon.social/@mknepprath/117082931671961957",
+        "summary": "<p>The End of Oak Street tickets ACQUIRED</p>",
+        "action": "Tooted"
+      }
+    ],
+    "createdAt": "2026-08-16T06:07:03.213Z",
+    "updatedAt": "2026-08-16T06:07:03.213Z"
   }
 }
