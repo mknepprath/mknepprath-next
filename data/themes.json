@@ -559,6 +559,96 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru19909510002",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-08-26T10:02:43.000Z",
+        "image": "}zb|FxlxpNAq@O[CQ@cFA_@Bi@EiA@cB@SFC\\Dl@ArBBd@AjC@t@Cp@@r@Cz@Kn@YhA{@VYL_@|BgDd@m@F@BJ?|AEXAt@DlCAhCBrCAt@",
+        "url": "https://www.strava.com/activities/19909510002",
+        "summary": "Distance: 1.93 mi, Time: 23 min, Elevation: 60 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19803241516",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-08-18T09:03:47.000Z",
+        "image": "}nc|FduypNsCFgA?m@CaBDsAC@A@BHi@L]@{@F_@PkAR_AHy@Nw@rAsKXiBDk@nAaJ@?H^Rr@h@pAv@zBNZZTTHZF^AR^ZEb@B^FjAh@",
+        "url": "https://www.strava.com/activities/19803241516",
+        "summary": "Distance: 2.91 mi, Time: 34 min, Elevation: 96 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19770196211",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-08-16T12:59:45.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/19770196211",
+        "summary": "Distance: 0.6 mi, Time: 12 min, Elevation: 25 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru19757558330",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-08-15T14:30:52.000Z",
+        "image": "}nc|FfuypN_@Cu@BqAAo@BUJK@[CmAAy@BgAAUEyCBoAAa@Ag@@wCCwDBs@CO@ID@A@k@h@aHTkEReBRiAReAj@iBZw@Vc@Tk@R_@DQR]DU\\u@Ts@b@aA\\_B@c@`@kCRaC?w@Do@AgC@yCBaAEk@@yDCwBBg@E}BD_BCoE@aA@U?kAEmA?aAB}A?yBC}@BgAA_C@sCEw@B[Cu@@}ABc@AoBPsBCk@@?IWCU?eAEeAFoAEaCB{ACuDDeDDm@F_@Rw@N_@j@aAd@uAd@m@DKFg@?[F]?CADGwAKi@Ao@m@eCEw@B{BCiBBwBAiE@cAAgAAcCRa@HYIaAIa@EgACgB@kAAy@?q@BWAkBBQTMf@}@pB}BlA]fAOr@A\\CTBdAT|Ah@z@z@p@x@\\p@NFFJAfBBV^g@NIJ?z@R\\NXTX\\l@`ADJDb@FZHBZ?NF`@p@\\Zh@n@h@d@n@r@t@h@n@`@d@Pr@\\rAf@p@ZfAr@fAbAj@r@`@p@b@z@h@tAf@zB^hCLrA@f@MpHHXCpAD~@P`BNr@\\~@Zn@PTL`@Zn@Hd@Rz@Gl@CdA@pHCl@?jDFlA@~@CnB@fACxA@rDAf@@l@Aj@@dBCj@IDe@Io@?YAo@Fm@C]BgAAi@@OD]T]Bi@Ry@Jc@Xu@j@i@n@cA~Aw@|AWx@[vAKX[dBW~@Bx@CpAGb@@b@@NAzA@bG?tI@fEC|P",
+        "url": "https://www.strava.com/activities/19757558330",
+        "summary": "Distance: 7.02 mi, Time: 86 min, Elevation: 215 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19728292683",
+        "type": "RUN",
+        "title": "Afternoon Ride",
+        "date": "2026-08-13T13:11:12.000Z",
+        "image": "sec|FrewpNdAxBLh@Db@AbDJ|BJ`B?hAMhAmAfGG|@?RRXVNh@NRRTb@H\\B\\A^_@xBOdB",
+        "url": "https://www.strava.com/activities/19728292683",
+        "summary": "Distance: 1.38 mi, Time: 7 min, Elevation: 12 ft",
+        "action": "Biked"
+      },
+      {
+        "id": "ru19660300376",
+        "type": "RUN",
+        "title": "Afternoon Ride",
+        "date": "2026-08-08T13:35:37.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/19660300376",
+        "summary": "Distance: 0.86 mi, Time: 7 min, Elevation: 13 ft",
+        "action": "Biked"
+      },
+      {
+        "id": "ru19660300381",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-08-08T10:05:21.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/19660300381",
+        "summary": "Distance: 0.65 mi, Time: 14 min, Elevation: 25 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru19643136103",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-08-07T11:12:20.000Z",
+        "image": "}nc|FjuypNYBe@Ck@BcAA]@gAAeD@BOPk@FeAxAiLAe@lA}JNeA|@yEBCD?b@TPR`AfBZv@Nl@TT`@TNB\\?b@XX@j@H\\Jz@\\",
+        "url": "https://www.strava.com/activities/19643136103",
+        "summary": "Distance: 2.52 mi, Time: 35 min, Elevation: 77 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19633504880",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-08-06T14:46:12.000Z",
+        "image": "aec|F|e{pNg@_@QE_@QKI[K{@E_ADWUo@eAOa@Ou@OyAAs@Du@CWIQOOYC}Bj@g@Ra@\\c@n@EBKZ[h@MHe@d@kAj@]F}@@WLK?WIWYUa@KGQKUB[Pu@hAm@h@ULKNOLuAd@i@\\MDa@?aBa@i@DME_@a@QEKIa@e@SaAWGUA_@Bg@Je@Dq@X]X_@REDIVAFBHR\\Pb@DTALOBOIOAODSNI@a@MMYIGWGSBoBbDIFGLC@ICQKOOI@ULQROz@}AxAbBsAB?MBBYVw@VUFCD@RPXPHEFUDEJCTDEe@DSFMNCNKFOHc@NOVCXLFFHTJDd@DXQJC^JLADIOs@a@_AN_@h@Sb@[l@WJCpAMRB\\JAGA?DBBJNn@BHb@d@^LZb@H@TGPAXDx@Vf@BVGz@e@`@Md@ST[PGn@k@b@w@TYHEXAL@`@T`@d@PJRDb@Sj@Cn@Iz@Y^a@^WT_@JKXCt@L`@GZBFF~Bz@n@|@Xt@b@r@ZXD@dAGn@H~Ap@^Z",
+        "url": "https://www.strava.com/activities/19633504880",
+        "summary": "Distance: 2.94 mi, Time: 59 min, Elevation: 518 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru19500274467",
         "type": "RUN",
         "title": "Morning Run",
@@ -1090,7 +1180,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-08-04T08:26:13.170Z"
+    "updatedAt": "2026-08-27T09:02:57.628Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -1453,6 +1543,26 @@
     "description": "Michael listens to ambient and experimental electronic artists, exploring hazy, atmospheric soundscapes and innovative production techniques across multiple artists and contexts.",
     "items": [
       {
+        "id": "m58495835",
+        "type": "MUSIC",
+        "title": "Lokah - Chapter 1: Chandra (Original Background Score)",
+        "date": "2026-08-27T02:46:00.000Z",
+        "image": "https://i.scdn.co/image/ab67616d0000b2739469c626e96c2a24ae33bc17",
+        "url": "https://stats.fm/album/58495835",
+        "summary": "Jakes Bejoy",
+        "action": "Listened to"
+      },
+      {
+        "id": "m15598919",
+        "type": "MUSIC",
+        "title": "Volcano",
+        "date": "2026-08-27T02:46:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d4/7d/e5/d47de508-312e-fbb2-8b5a-78b92645d778/197188308315.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/15598919",
+        "summary": "Jungle, Erick the Architect, Mood Talk",
+        "action": "Listened to"
+      },
+      {
         "id": "m2358921",
         "type": "MUSIC",
         "title": "Virtually Yours,",
@@ -1524,7 +1634,7 @@
       }
     ],
     "createdAt": "2026-06-19T07:50:22.627Z",
-    "updatedAt": "2026-07-08T08:13:38.435Z"
+    "updatedAt": "2026-08-27T09:02:57.628Z"
   },
   "vince-staples-engagement": {
     "title": "Vince Staples Engagement",
@@ -1630,6 +1740,16 @@
     "description": "Michael appreciates artistic work that achieves impact through subtlety and understatement rather than excess. He values filmmaking, performance, and creative choices that hold back intentionally.",
     "items": [
       {
+        "id": "flletterboxd-review-1463979935",
+        "type": "FILM",
+        "title": "Rebecca",
+        "date": "2026-08-23T03:50:40.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/8/3/3/51833-rebecca-0-600-0-900-crop.jpg?v=bde4ae41c9",
+        "url": "https://letterboxd.com/mknepprath/film/rebecca/",
+        "summary": " <p>Wasn’t sure I liked where this was heading, but then it redeems itself in the final five minutes or so. I went into this not knowing Hitchcock won Best Picture, let alone so early in his career.</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "flletterboxd-review-1421218081",
         "type": "FILM",
         "title": "Mother Mary",
@@ -1721,7 +1841,7 @@
       }
     ],
     "createdAt": "2026-06-28T07:20:23.156Z",
-    "updatedAt": "2026-08-03T09:29:28.767Z"
+    "updatedAt": "2026-08-27T09:02:57.628Z"
   },
   "action-cinema-appreciation": {
     "title": "Action Cinema Appreciation",
