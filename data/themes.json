@@ -1987,5 +1987,44 @@
     ],
     "createdAt": "2026-08-16T06:07:03.213Z",
     "updatedAt": "2026-08-16T06:07:03.213Z"
+  },
+  "pokemon-music-appreciation": {
+    "title": "Pokémon Music Appreciation",
+    "slug": "pokemon-music-appreciation",
+    "description": "Michael engages with Pokémon video game soundtracks, particularly Gold & Silver and Diamond & Pearl chiptune music, appreciating their emotional resonance and artistic quality.",
+    "items": [
+      {
+        "id": "bot117181799199322832",
+        "type": "ROBOT",
+        "title": "pokemon gold & silver soundtracks hit different when you're just trying to get through a saturday night",
+        "date": "2026-08-30T01:12:35.977Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/117181799199322832",
+        "summary": "<p>pokemon gold &amp; silver soundtracks hit different when you&#39;re just trying to get through a saturday night</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "m46287",
+        "type": "MUSIC",
+        "title": "Pokemon Gold & Silver Game Boy Classics",
+        "date": "2026-08-29T21:21:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/ae/f9/eb/aef9eb42-e075-9397-44cb-65b80908b357/HAEk7.png/768x768bb.jpg",
+        "url": "https://stats.fm/album/46287",
+        "summary": "The Greatest Bits",
+        "action": "Listened to"
+      },
+      {
+        "id": "m20429",
+        "type": "MUSIC",
+        "title": "Pokemon Diamond and Pearl Chiptunes",
+        "date": "2026-08-29T20:40:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/eb/70/b0/eb70b0cd-1250-8299-9a88-e7580f582ee8/47f04778-07f6-4592-a213-630730cd3aee.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/20429",
+        "summary": "Chippy Bits",
+        "action": "Listened to"
+      }
+    ],
+    "createdAt": "2026-08-30T06:10:04.446Z",
+    "updatedAt": "2026-08-30T06:10:04.446Z"
   }
 }
