@@ -30,9 +30,34 @@ jobs:
         run: npm ci
 
       - name: Fetch PSN trophies
+        id: fetch
         env:
           PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
         run: npx tsx scripts/update-trophies.ts
+
+      # The npsso cannot renew itself, so the only safe automation is a warning
+      # with enough lead time to replace it before trophies quietly stop updating.
+      - name: Warn when PSN_NPSSO is close to expiring
+        if: steps.fetch.outputs.npsso_days != '' && fromJSON(steps.fetch.outputs.npsso_days) <= 14
+        env:
+          GH_TOKEN: ${{ secrets.ACTION_GITHUB_TOKEN }}
+          DAYS: ${{ steps.fetch.outputs.npsso_days }}
+        run: |
+          TITLE="PSN_NPSSO expires soon"
+          EXISTING=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          BODY="\`PSN_NPSSO\` expires in **$DAYS days**. Trophy updates stop when it does.
+
+          To replace it:
+          1. Sign in at https://playstation.com
+          2. Open https://ca.account.sony.com/api/v1/ssocookie and copy the \`npsso\` value
+          3. \`gh secret set PSN_NPSSO -R ${{ github.repository }}\`
+
+          Sony's npsso lasts ~60 days from issue and the window does not slide, so this recurs a few times a year."
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh issue create --title "$TITLE" --body "$BODY"
+          fi
 
       - name: Check for changes
         id: changes

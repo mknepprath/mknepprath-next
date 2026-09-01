@@ -9,8 +9,11 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
+  // Readwise seeds accounts with "supplemental" popular highlights from books
+  // you own — nobody highlighted those, and they have no highlighted_at. Asking
+  // for highlights after the epoch returns only ones actually made by hand.
   const highlightsRes = await fetch(
-    "https://readwise.io/api/v2/highlights/",
+    "https://readwise.io/api/v2/highlights/?highlighted_at__gt=1970-01-01T00:00:00Z&page_size=100",
     { headers: READWISE_HEADERS },
   );
   if (!highlightsRes.ok) {
@@ -19,20 +22,32 @@ export default async (
   }
   const { results } = await highlightsRes.json();
 
-  const bookIds = results.map((h: Highlight) => h.book_id).join(",");
-  const booksRes = await fetch(
-    `https://readwise.io/api/v2/books/?ids=${bookIds}`,
-    { headers: READWISE_HEADERS },
+  // Readwise calls every source a "book", but these are mostly saved articles.
+  // The list endpoint ignores ?ids=, so it was returning an unrelated first page
+  // and nothing ever matched — every highlight came back unhydrated. A hundred
+  // highlights only span a handful of sources, so fetch each one directly.
+  const sourceIds = [...new Set(results.map((h: Highlight) => h.book_id))];
+
+  const sources = await Promise.all(
+    sourceIds.map(async (id) => {
+      try {
+        const r = await fetch(`https://readwise.io/api/v2/books/${id}/`, {
+          headers: READWISE_HEADERS,
+        });
+        return r.ok ? ((await r.json()) as HighlightBook) : null;
+      } catch {
+        return null;
+      }
+    }),
   );
-  if (!booksRes.ok) {
-    res.status(booksRes.status).json({ error: "Failed to fetch books" });
-    return;
-  }
-  const { results: bookData } = await booksRes.json();
+
+  const sourcesById = new Map(
+    sources.filter((b): b is HighlightBook => Boolean(b)).map((b) => [b.id, b]),
+  );
 
   const hydratedResults = results.map((highlight: Highlight) => ({
     ...highlight,
-    book: bookData.find((book: HighlightBook) => book.id === highlight.book_id),
+    book: sourcesById.get(highlight.book_id),
   }));
 
   if (process.env.NODE_ENV === "production")

@@ -60,6 +60,43 @@ async function withRetry<T>(label: string, fn: () => Promise<T>): Promise<T> {
   throw new Error(`${label} failed after ${MAX_ATTEMPTS} attempts: ${String(lastError)}`);
 }
 
+// Sony's npsso is good for roughly 60 days from issue and the window does not
+// slide — presenting it back to the endpoint returns the same token with the
+// clock already ticked down, and the OAuth refresh token expires sooner (10
+// days, also absolute). So the credential genuinely has to be replaced by hand.
+// The one thing worth automating is knowing before it dies rather than after.
+const NPSSO_WARN_DAYS = 14;
+
+async function reportNpssoExpiry(npsso: string): Promise<void> {
+  try {
+    const res = await fetch("https://ca.account.sony.com/api/v1/ssocookie", {
+      headers: { Cookie: `npsso=${npsso}` },
+    });
+    if (!res.ok) return;
+
+    const { expires_in: expiresIn } = (await res.json()) as { expires_in?: number };
+    if (typeof expiresIn !== "number") return;
+
+    const days = Math.floor(expiresIn / 86400);
+    console.log(`PSN_NPSSO expires in ${days} days.`);
+
+    if (days <= NPSSO_WARN_DAYS) {
+      // GitHub renders this as an annotation on the run.
+      console.log(
+        `::warning title=PSN_NPSSO expiring::PSN_NPSSO expires in ${days} days. ` +
+          `Replace it from https://ca.account.sony.com/api/v1/ssocookie while signed in to playstation.com, ` +
+          `then update the repo secret.`,
+      );
+    }
+    // Hand the day count to the workflow so it can open an issue.
+    if (process.env.GITHUB_OUTPUT) {
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, `npsso_days=${days}\n`);
+    }
+  } catch {
+    // Expiry reporting is a convenience — never let it fail the trophy update.
+  }
+}
+
 interface Trophy {
   id: string;
   title: string;
@@ -79,6 +116,8 @@ async function main() {
     exchangeCodeForAccessToken(await exchangeNpssoForCode(npsso)),
   );
   console.log("Authenticated with PSN.");
+
+  await reportNpssoExpiry(npsso);
 
   const { trophyTitles } = await withRetry("getUserTitles", () =>
     getUserTitles(auth, "me", { limit: MAX_TITLES }),
