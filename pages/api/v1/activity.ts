@@ -275,7 +275,11 @@ const formatHighlightData = (
         date: highlight.highlighted_at ?? highlight.created_at ?? highlight.updated,
         id: `h${highlight.id}`,
         title: highlight.text,
-        summary: book ? `From ${book.title} by ${book.author}` : undefined,
+        // These are saved articles far more often than books, so name the
+        // source and only add a byline when Readwise actually has one.
+        summary: book
+          ? [book.title, book.author].filter(Boolean).join(" — ")
+          : undefined,
         image: book?.cover_image_url,
         url:
           book?.source_url?.replace(/=$/, "") ??
