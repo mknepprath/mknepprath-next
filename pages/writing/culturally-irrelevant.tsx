@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/culturally-irrelevant-11.jpg",
   published: true,
   publishedAt: "2020-06-10",
@@ -25,7 +24,7 @@ export default function CulturallyIrrelevant(): React.ReactNode {
         alt="The hosts of Culturally Irrelevant."
         className="corner-radius-8"
         height={821}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         src="/assets/culturally-irrelevant-1.jpg"
         priority
         width={1920}
@@ -98,7 +97,7 @@ export default function CulturallyIrrelevant(): React.ReactNode {
           An unapologetic Sega fanboy from WI who always roots for the underdog,
           making him the most irrelevant of the bunch. P.S. Stanley Kubrick.
         </p>
-        <p>— Excerpts taken from the old Culturally Irrelevant website.</p>
+        <p>: Excerpts taken from the old Culturally Irrelevant website.</p>
       </blockquote>
       <p>
         Tyler, Ben, Josh, Dane and myself were friends since college and bonded
@@ -121,7 +120,7 @@ export default function CulturallyIrrelevant(): React.ReactNode {
           I&apos;ve got to bring.&rdquo;
         </p>
         <p>
-          <em>— Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
+          <em>: Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
         </p>
       </blockquote>
       <p>
@@ -188,7 +187,7 @@ export default function CulturallyIrrelevant(): React.ReactNode {
         className="corner-radius-8"
         height={506}
         src="/assets/culturally-irrelevant-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1402}
       />
       <p>
@@ -252,7 +251,7 @@ export default function Home() {
         className="corner-radius-8 bordered-image"
         height={1422}
         src="/assets/culturally-irrelevant-3.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1430}
       />
       <p>
@@ -302,7 +301,7 @@ export default function Home() {
           who I am as a human being. I&apos;m excited.&rdquo;
         </p>
         <p>
-          <em>— Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
+          <em>: Episode #1 - I Gotta Go Back To Wisconsin (March 6, 2015)</em>
         </p>
       </blockquote>
 
@@ -319,7 +318,7 @@ export default function Home() {
         className="corner-radius-8 bordered-image"
         height={1566}
         src="/assets/culturally-irrelevant-4.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1564}
       />
       <p>
@@ -330,7 +329,7 @@ export default function Home() {
         className="corner-radius-8 bordered-image"
         height={582}
         src="/assets/culturally-irrelevant-5.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={908}
       />
 
@@ -434,7 +433,7 @@ export default function Home() {
         className="corner-radius-8 bordered-image"
         height={1072}
         src="/assets/culturally-irrelevant-8.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={2038}
       />
 
@@ -472,7 +471,7 @@ export default function Home() {
         className="corner-radius-8 bordered-image"
         height={966}
         src="/assets/culturally-irrelevant-10.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1862}
       />
 
@@ -512,7 +511,7 @@ export default function Home() {
           Space Odyssey that completely switched me over.&rdquo;
         </p>
         <p>
-          <em>— Episode #5 - Musical Interludes (June 5, 2015)</em>
+          <em>: Episode #5 - Musical Interludes (June 5, 2015)</em>
         </p>
       </blockquote>
       <Image
@@ -520,7 +519,7 @@ export default function Home() {
         className="corner-radius-8"
         height={960}
         src="/assets/culturally-irrelevant-11.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1280}
       />
     </BlogPage>

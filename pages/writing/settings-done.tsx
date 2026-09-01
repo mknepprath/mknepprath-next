@@ -1,12 +1,11 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
 // Styles
 import styles from "./settings-done.module.css";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/settings-done.png",
   published: true,
   publishedAt: "2021-03-15",
@@ -28,8 +27,8 @@ export default function IosAppSettings(): React.ReactNode {
         alt="TestFlight screenshot feedback"
         className="bordered-image corner-radius-8"
         height={690}
-        src={meta.image}
-        layout="responsive"
+        src="/assets/settings-done.png"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1200}
       />

@@ -8,7 +8,7 @@ export const footerLinks: Link[] = [
   {
     href: "mailto:mknepprath@gmail.com",
     key: "email",
-    title: "Email Me",
+    title: "Contact Me",
   },
 ];
 
@@ -27,6 +27,7 @@ export const navLinks: Link[] = [
 
 interface ProjectLink {
   description: string;
+  githubRepo?: string;
   href: string;
   imgSrc?: string;
   title: string;
@@ -35,7 +36,20 @@ interface ProjectLink {
 /** @type {Array<{ description: string, href: string, title: string, imgSrc: string }>} */
 export const projectLinks: ProjectLink[] = [
   {
+    description: "A multiplayer map-building deduction game",
+    githubRepo: "mknepprath/wgt-server",
+    href: "/who-goes-there",
+    title: "Who Goes There?",
+  },
+  {
+    description: "Real-time chess with wild maps and team modes",
+    githubRepo: "mknepprath/wgt-server",
+    href: "/chess",
+    title: "Double Check Chess",
+  },
+  {
     description: "A simple Pokédex app for Go",
+    githubRepo: "mknepprath/lily-dex",
     href: "https://lilydex.com",
     title: "lily dex",
     imgSrc: "/assets/lily-dex-icon.png",
@@ -54,13 +68,14 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "A text adventure",
-    href: "https://botsin.space/@lilt",
+    githubRepo: "mknepprath/lilt",
+    href: "/lilt",
     title: "lilt",
     imgSrc: "/assets/lilt.png",
   },
   {
     description: "A prompt a day, every day",
-    href: "https://botsin.space/@designprompts",
+    href: "https://mastodon.social/@designprompts",
     title: "Design Prompts",
     imgSrc: "/assets/design-prompts.png",
   },
@@ -77,23 +92,21 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "AI bot",
+    githubRepo: "mknepprath/robot-mk",
     href: "https://mastodon.social/@robot_mk",
     title: "Robot MK",
     imgSrc: "/assets/robot-mk.png",
   },
   {
-    description: "A thread of Cinema 4D renders",
-    href: "https://twitter.com/mknepprath/status/959812218119512065",
-    title: "Cinema 4D Animations",
-  },
-  {
     description: "Chrome extension",
+    githubRepo: "mknepprath/patched-tomatoes",
     href: "/patched-tomatoes",
     title: "Patched Tomatoes",
     imgSrc: "/assets/patched-tomatoes.png",
   },
   {
     description: "A React RPG",
+    githubRepo: "mknepprath/tiny-mystery-club",
     href: "https://tinymystery.club",
     title: "Tiny Mystery Club",
     imgSrc: "/assets/prize-sparkle.gif",
@@ -105,7 +118,8 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     description: "Battle your friends on Mastodon",
-    href: "https://botsin.space/@bout",
+    githubRepo: "mknepprath/bout",
+    href: "https://mastodon.social/@boutbot",
     title: "Bout",
   },
   {

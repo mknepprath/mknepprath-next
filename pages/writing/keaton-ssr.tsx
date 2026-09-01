@@ -1,9 +1,9 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { ReactNode } from "react";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/keaton-ssr-2.png",
   published: true,
   publishedAt: "2023-03-10",
@@ -19,21 +19,22 @@ export default function KeatonSsr(): ReactNode {
       ogImage={meta.image}
       title={meta.title}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Buster Keaton and S. S. Rajamouli"
         className="bordered-image corner-radius-8"
         height={447}
         src="/assets/keaton-ssr-1.png"
+        style={{ maxWidth: '100%', height: 'auto' }}
         width={800}
       />
 
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
+
       <p>
         If you know me, you know I&apos;ve been obsessed with the film{" "}
-        <A href="https://letterboxd.com/film/rrr/">RRR</A> since early last
+        <A href="https://letterboxd.com/film/rrr/">RRR</A>{" "}since early last
         year. I&apos;ve seen it half a dozen times, and my obsession hasn&apos;t
         stopped there - I&apos;ve gone back and watched most of the director S.
         S. Rajamouli&apos;s other films as well.

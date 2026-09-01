@@ -1,18 +1,7 @@
 /* eslint-disable */
 const { join } = require("path");
-const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          { key: "Access-Control-Request-Headers", value: "sentry-trace" },
-        ],
-      },
-    ];
-  },
   async redirects() {
     return [
       {
@@ -68,27 +57,18 @@ const moduleExports = {
     ];
   },
   images: {
-    domains: [
-      "pbs.twimg.com", // Twitter
-      "a.ltrbxd.com", // Letterboxed
-      "i.gr-assets.com", // Goodreads
-      "files.mastodon.social", // Mastodon
-    ],
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "**.mzstatic.com", // Apple Music
+        protocol: "https", // Allow all HTTPS domains
+        hostname: "**", // Allow any hostname
       },
       {
-        protocol: "https",
-        hostname: "**.blobstore.apple.com", // Apple Music
+        protocol: "http", // Allow all HTTP domains (optional)
+        hostname: "**", // Allow any hostname
       },
     ],
   },
-  sentry: {
-    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
-    hideSourceMaps: true,
-  },
+  turbopack: {},
   webpack(config, options) {
     // Fix for a long-running react-spring bug. https://github.com/pmndrs/react-spring/issues/1078#issuecomment-743698325
     config.module.rules.push({
@@ -106,15 +86,11 @@ const moduleExports = {
     // `import Nav from "@core/Nav";`
     const paths = ["core", "data", "hooks"];
     paths.forEach(
-      (path) => (config.resolve.alias[`@${path}`] = join(__dirname, path))
+      (path) => (config.resolve.alias[`@${path}`] = join(__dirname, path)),
     );
 
     return config;
   },
 };
 
-const sentryWebpackPluginOptions = {
-  silent: true, // Suppresses all logs
-};
-
-module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
+module.exports = moduleExports;

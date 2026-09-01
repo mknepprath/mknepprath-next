@@ -1,11 +1,10 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2016-01-21",
-  title: "Creating lilt — Part 2",
+  title: "Creating lilt : Part 2",
 };
 
 export default function CreatingLiltPart2(): React.ReactNode {
@@ -19,11 +18,11 @@ export default function CreatingLiltPart2(): React.ReactNode {
         Now that I’ve been working on this game for a month or so, it’s time to
         share some of my progress. I knew that writing the story for this game
         was going to be a challenge, but I had not realized that I’d first have
-        to overcome a equally challenging prerequisite — figuring out how to
+        to overcome a equally challenging prerequisite : figuring out how to
         write this story.
       </p>
       <p>
-        Not to downplay the challenges of writing a good novel — but at the most
+        Not to downplay the challenges of writing a good novel : but at the most
         basic level, books are a long string of carefully curated words. There
         are tons of tools out there for organizing, formatting, and correcting
         these words, but not much out there for what I was planning to do. My
@@ -101,7 +100,7 @@ export default function CreatingLiltPart2(): React.ReactNode {
         alt="Drawing of The Room"
         height={639}
         src="/assets/creating-lilt-part-2-1.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <p>
@@ -120,7 +119,7 @@ export default function CreatingLiltPart2(): React.ReactNode {
         className="corner-radius-8"
         height={768}
         src="/assets/creating-lilt-part-2-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1400}
       />
       <p>

@@ -1,14 +1,14 @@
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2018-03-14",
   summary: "As featured in the Ultimate Guide to Small Business Web Design.",
   title: "Above All Else, Be Consistent",
 };
 
-export default function ReviewOf2020(): React.ReactNode {
+export default function Consistency(): React.ReactNode {
   return (
     <BlogPage
       dateTime={meta.publishedAt}

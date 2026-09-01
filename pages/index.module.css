@@ -3,6 +3,12 @@
   left: 0px;
   right: 0px;
   z-index: 200;
+  padding-top: 16px;
+}
+@media (min-width: 632px) {
+  .nav {
+    padding-top: 0;
+  }
 }
 .nav a,
 .nav span {
@@ -45,3 +51,50 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ── Section heading links ─────────────────────── */
+
+.sectionLink {
+  color: var(--black) !important;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.sectionLink:hover {
+  color: var(--primaryColor) !important;
+}
+
+/* ── Photography grid ─────────────────────────── */
+
+.photoGrid {
+  column-count: 2;
+  column-gap: 12px;
+}
+@media (min-width: 632px) {
+  .photoGrid {
+    column-gap: 16px;
+  }
+}
+
+.photoCell {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (min-width: 632px) {
+  .photoCell {
+    margin-bottom: 16px;
+  }
+}
+.photoCell:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0px 3px 8px rgba(0, 0, 0, 0.1),
+    0px 8px 20px rgba(0, 0, 0, 0.06);
+}
+.photoCell img {
+  display: block;
+}
+

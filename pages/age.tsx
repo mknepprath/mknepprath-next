@@ -5,7 +5,7 @@ interface Props {
   name?: string;
 }
 
-export default function Age({ year, name }: Props): JSX.Element {
+export default function Age({ year, name }: Props): React.JSX.Element {
   const currentYear = new Date().getFullYear();
   const age = currentYear - year;
 

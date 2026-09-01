@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-12-20",
   title: "App Of The Year: Duolingo",
@@ -31,7 +30,7 @@ export default function AppOfTheYearDuolingo(): React.ReactNode {
         className="corner-radius-8"
         height={1136}
         src="/assets/app-of-the-year-duolingo.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={640}
       />

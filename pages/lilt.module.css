@@ -1,0 +1,153 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem 0;
+  height: 100dvh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.terminal {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.entry {
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.move {
+  color: var(--primaryColor);
+}
+
+.move::before {
+  content: "> ";
+  opacity: 0.5;
+}
+
+.response {
+  color: var(--black);
+}
+
+.inputRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.prompt {
+  color: var(--primaryColor);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--black);
+  padding: 0;
+  line-height: 1.5;
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.sendButton {
+  background: none;
+  border: none;
+  color: var(--primaryColor);
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sendButton:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.loading {
+  color: #999;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+.subtitle {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: #999;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.75rem 0;
+  }
+
+  .log {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .inputRow {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .header {
+    margin-bottom: 0.75rem;
+  }
+
+  .logo {
+    height: 40px;
+  }
+}

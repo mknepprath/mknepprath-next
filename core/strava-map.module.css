@@ -1,0 +1,40 @@
+.container {
+  margin-top: 8px;
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container svg {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.routeGlow {
+  stroke: rgba(44, 110, 73, 0.25);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  animation: drawRoute 1.5s ease forwards;
+}
+
+.route {
+  stroke: #2c6e49;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  animation: drawRoute 1.5s ease forwards;
+}
+
+@keyframes drawRoute {
+  from {
+    stroke-dashoffset: var(--path-length);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

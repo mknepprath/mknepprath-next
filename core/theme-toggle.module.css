@@ -1,0 +1,15 @@
+.toggle {
+  background: none;
+  border: none;
+  color: var(--black);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 0 8px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.toggle:hover {
+  color: var(--primaryColor);
+  transform: translate(0, -2px);
+}

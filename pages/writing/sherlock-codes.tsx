@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/sherlock-codes.jpg",
   published: true,
   publishedAt: "2021-02-15",
@@ -25,8 +24,8 @@ export default function TenXDetective(): React.ReactNode {
         alt="Bug Detective"
         className="bordered-image corner-radius-8"
         height={690}
-        src={meta.image}
-        layout="responsive"
+        src="/assets/sherlock-codes.jpg"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1200}
       />
@@ -53,7 +52,7 @@ export default function TenXDetective(): React.ReactNode {
         className="corner-radius-8"
         height={826}
         src="/assets/sherlock-codes-1.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1102}
       />
       <blockquote>
@@ -103,7 +102,7 @@ export default function TenXDetective(): React.ReactNode {
         className="corner-radius-8"
         height={826}
         src="/assets/sherlock-codes-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1104}
       />
       <p>

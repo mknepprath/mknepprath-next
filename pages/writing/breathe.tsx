@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/breathe-1.jpg",
   published: true,
   publishedAt: "2019-08-03",
@@ -25,7 +24,7 @@ export default function Breathe(): React.ReactNode {
         alt="A feather"
         height={450}
         src="/assets/breathe-1.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={800}
       />
@@ -71,7 +70,7 @@ export default function Breathe(): React.ReactNode {
         <code className="language-js">
           {`
   // External
-  import parseISO from "date-fns/parseISO";
+  import { parseISO } from "date-fns";
   import Link from "next/link";
   import { withRouter } from "next/router";
 
@@ -183,15 +182,13 @@ export default function Breathe(): React.ReactNode {
         breathe.{" "}
       </p>
 
-      <a href="https://twitter.com/mknepprath/status/1057477764033458181">
-        <Image
-          alt="Fishing"
-          height={282}
-          src="/assets/breathe-2.jpg"
-          layout="responsive"
-          width={556}
-        />
-      </a>
+      <Image
+        alt="Fishing"
+        height={282}
+        src="/assets/breathe-2.jpg"
+        style={{ width: '100%', height: 'auto' }}
+        width={556}
+      />
     </BlogPage>
   );
 }

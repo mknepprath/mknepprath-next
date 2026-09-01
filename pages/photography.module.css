@@ -1,0 +1,101 @@
+/* ─────────────────────────────────────────────────
+   PHOTOGRAPHY — gallery exhibition
+   Dark walls, masonry per month section.
+   ───────────────────────────────────────────────── */
+
+.page {
+  padding: 0 16px 80px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+@media (min-width: 632px) {
+  .page {
+    padding: 0 40px 100px;
+  }
+}
+
+/* Header */
+.header {
+  padding: 48px 0 24px;
+}
+
+.title {
+  font-family: 'Caveat', cursive;
+  font-size: 3em;
+  font-weight: normal;
+  margin: 0;
+  color: #e8e4de;
+}
+
+/* ── Month section ────────────────────────────── */
+
+.group {
+  margin-bottom: 40px;
+}
+
+.monthLabel {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6a6560;
+  margin: 0 0 14px;
+  padding-left: 2px;
+}
+
+/* ── Masonry per section ──────────────────────── */
+
+.masonry {
+  column-count: 2;
+  column-gap: 14px;
+}
+
+@media (min-width: 632px) {
+  .masonry {
+    column-gap: 18px;
+  }
+}
+
+/* ── Photo cell ───────────────────────────────── */
+
+.cell {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  border: none;
+  background: none;
+  padding: 0 0 14px;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+@media (min-width: 632px) {
+  .cell {
+    padding-bottom: 18px;
+  }
+}
+
+.cellImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  transition: transform 0.25s ease;
+}
+
+.cell:hover .cellImg {
+  transform: translateY(-2px);
+}
+
+.cellCaption {
+  display: block;
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
+  color: #8a8278;
+  margin-top: 6px;
+  padding-left: 2px;
+  line-height: 1.3;
+}

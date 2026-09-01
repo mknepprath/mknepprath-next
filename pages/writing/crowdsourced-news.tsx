@@ -1,13 +1,30 @@
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
+  image: "crowdsourcing-news.jpg",
+  published: false,
   publishedAt: "2012-08-13",
   title: "The Advent of Crowdsourced News",
 };
 
 export default function CrowdsourcedNews(): React.ReactNode {
   return (
-    <BlogPage dateTime={meta.publishedAt} title={meta.title}>
+    <BlogPage
+      dateTime={meta.publishedAt}
+      ogImage={meta.image}
+      title={meta.title}
+    >
+      <Image
+        alt="Crowdsourcing news illustration"
+        className="corner-radius-8"
+        height={471}
+        style={{ width: '100%', height: 'auto' }}
+        priority
+        src="/assets/crowdsourcing-news.jpg"
+        width={700}
+      />
+
       <header>
         <h1>{meta.title}</h1>
       </header>

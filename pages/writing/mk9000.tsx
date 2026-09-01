@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/mk9000.png",
   published: true,
   publishedAt: "2019-09-29",
@@ -21,7 +20,7 @@ export default function MK9000(): React.ReactNode {
       <Image
         alt="Monolith"
         height={978}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/mk9000.png"
         width={1328}

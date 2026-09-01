@@ -1,8 +1,7 @@
-@media (min-width: 632px) {
-  .nav {
-    display: flex;
-    justify-content: space-between;
-  }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav ul {
@@ -34,18 +33,7 @@
 .siteLogo {
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  margin-top: 16px;
-
   cursor: pointer;
-}
-@media (min-width: 632px) {
-  .siteLogo {
-    justify-content: left;
-
-    margin-top: 0;
-  }
 }
 
 .siteLogo > * {

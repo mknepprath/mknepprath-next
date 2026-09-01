@@ -1,5 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
+import { setCacheControl } from "@lib/api";
 import xml2js from "xml2js";
 
 const LETTERBOXD_RSS = `https://letterboxd.com/mknepprath/rss/`;
@@ -20,9 +21,9 @@ export default async (
           const review = filmList[i].description[0].split(`</p>`);
           review.shift();
           films.push({
+            id: `l${filmList[i].guid[0]._.replace("letterboxd-list-", "")}`,
             image_url: filmList[i].description[0].split(`"`)[1],
             link: filmList[i].link[0],
-            // published_at: filmList[i]["letterboxd:watchedDate"]?.[0],
             published_at: filmList[i].pubDate[0],
             rating: filmList[i]["letterboxd:memberRating"]?.[0],
             review: review.join(`</p>`),
@@ -38,10 +39,7 @@ export default async (
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   if (process.env.NODE_ENV === "production")
-    res.setHeader(
-      "Cache-Control",
-      "max-age=0, s-maxage=1, stale-while-revalidate"
-    );
+    setCacheControl(res, 300, 600);
   res.end(
     JSON.stringify(
       films

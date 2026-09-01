@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-09-26",
   title: "iOS 7 Flashlight",
@@ -26,7 +25,7 @@ export default function Ios7Flashlight(): React.ReactNode {
         alt="Screenshot of the flashlight app icon in iOS 7"
         className="corner-radius-8"
         height={398}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         src="/assets/ios-7-flashlight.jpg"
         width={640}

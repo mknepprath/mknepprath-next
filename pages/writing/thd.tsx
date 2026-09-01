@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/thd-2.jpg",
   published: true,
   publishedAt: "2021-08-15",
@@ -38,7 +37,7 @@ export default function Thd(): React.ReactNode {
         className="corner-radius-8"
         height={900}
         src="/assets/thd-1.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <blockquote>
@@ -79,8 +78,8 @@ export default function Thd(): React.ReactNode {
         alt="Oz."
         className="corner-radius-8"
         height={901}
-        src={meta.image}
-        layout="responsive"
+        src="/assets/thd-2.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <blockquote>
@@ -121,7 +120,7 @@ export default function Thd(): React.ReactNode {
         className="corner-radius-8"
         height={899}
         src="/assets/thd-4.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1200}
       />
       <blockquote>

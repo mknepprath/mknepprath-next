@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/lily-dex-hero.jpg",
   published: true,
   publishedAt: "2020-11-01",
@@ -25,9 +24,9 @@ export default function LilyDex(): React.ReactNode {
         alt="lily dex artwork"
         className="corner-radius-8"
         height={1040}
-        layout="responsive"
         priority
-        src={meta.image}
+        src="/assets/lily-dex-hero.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={2000}
       />
 
@@ -116,7 +115,7 @@ export default function LilyDex(): React.ReactNode {
         className="corner-radius-8"
         height={1384}
         src="/assets/lily-dex-2.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={2000}
       />
       <p>
@@ -173,7 +172,7 @@ export default function LilyDex(): React.ReactNode {
         className="corner-radius-8"
         height={1129}
         src="/assets/lily-dex-1.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1227}
       />
     </BlogPage>

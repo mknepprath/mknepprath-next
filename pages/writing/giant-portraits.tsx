@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/giant-portraits-2.jpg",
   published: true,
   publishedAt: "2014-11-29",
@@ -44,7 +43,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8"
         height={195}
         src="/assets/giant-portraits-1.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={260}
       />
@@ -54,7 +53,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8"
         height={195}
         src="/assets/giant-portraits-2.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={260}
       />
@@ -65,7 +64,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8"
         height={568}
         src="/assets/giant-portraits-8.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1200}
       />
@@ -92,7 +91,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8"
         height={382}
         src="/assets/giant-portraits-5.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={637}
       />
@@ -102,7 +101,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8"
         height={479}
         src="/assets/giant-portraits-6.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={828}
       />
@@ -119,7 +118,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8"
         height={1024}
         src="/assets/giant-portraits-3.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={730}
       />
@@ -129,7 +128,7 @@ export default function GiantPortraits(): React.ReactNode {
       <blockquote>
         Does anyone want to assist me in sticking paper to a wall? Any help
         would be appreciated! YFAC 2:30pm. <br />
-        <br /> — Michael Knepprath (@mknepprath){" "}
+        <br /> : Michael Knepprath (@mknepprath){" "}
         <A href="https://twitter.mknepprath.com/12934777027/">April 27, 2010</A>
       </blockquote>
 
@@ -140,7 +139,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8"
         height={816}
         src="/assets/giant-portraits-4.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={608}
       />
@@ -161,7 +160,7 @@ export default function GiantPortraits(): React.ReactNode {
         className="corner-radius-8 bordered-image"
         height={480}
         src="/assets/giant-portraits-7.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={640}
       />

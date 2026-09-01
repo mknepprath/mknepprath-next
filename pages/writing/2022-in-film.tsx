@@ -1,18 +1,18 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Card from "@core/card";
 import { FilmPost } from "@core/post";
 import Shot from "@core/shot";
+import Image from "next/image";
 
 import styles from "./2022.module.css";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/2022-in-review-2.jpg",
   published: true,
   publishedAt: "2023-01-16",
   summary: "Reviewing the many movies I watched during 2022.",
+  tags: ["film"],
   title: "2022 in Film",
   tweetId: "1615084669233680384",
 };
@@ -26,19 +26,19 @@ export default function FilmsOf2022(): React.ReactNode {
       title={meta.title}
       tweetId={meta.tweetId}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Three photos from 2022."
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-2.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>
         Hi all! I wanted to take a moment to reflect on all the films I watched
@@ -463,8 +463,8 @@ export default function FilmsOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={675}
         src="https://a.ltrbxd.com/resized/sm/upload/5w/bn/ff/yt/sherlock-jr-1200-1200-675-675-crop-000000.jpg?v=a44af93dd3"
-        layout="responsive"
         width={1200}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>

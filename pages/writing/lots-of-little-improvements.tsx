@@ -1,6 +1,7 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
+  published: false,
   publishedAt: "2015-06-04",
   title: "Lots of Little Improvements",
 };

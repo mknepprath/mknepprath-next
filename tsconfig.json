@@ -13,20 +13,19 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
+    "jsx": "react-jsx",
     "paths": {
       "@core/*": [
-        "core/*"
+        "./core/*"
       ],
       "@data/*": [
-        "data/*"
+        "./data/*"
       ],
-      "@hooks/*": [
-        "hooks/*"
+      "@lib/*": [
+        "./lib/*"
       ]
     },
     "incremental": true

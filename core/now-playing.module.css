@@ -1,0 +1,67 @@
+.nowPlaying {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--black);
+  opacity: 0.6;
+  padding: 4px 0;
+  margin-top: 4px;
+  max-width: 280px;
+}
+
+.nowPlaying a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nowPlaying a:hover {
+  color: var(--primaryColor);
+}
+
+.trackInfo {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.equalizer {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 1.5px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.bar {
+  width: 2px;
+  background: var(--primaryColor);
+  border-radius: 1px;
+  animation: equalize 0.8s ease-in-out infinite alternate;
+}
+
+.bar:nth-child(1) {
+  animation-duration: 0.6s;
+  height: 4px;
+}
+
+.bar:nth-child(2) {
+  animation-duration: 0.8s;
+  animation-delay: 0.2s;
+  height: 8px;
+}
+
+.bar:nth-child(3) {
+  animation-duration: 0.5s;
+  animation-delay: 0.4s;
+  height: 5px;
+}
+
+@keyframes equalize {
+  0% {
+    height: 2px;
+  }
+  100% {
+    height: 11px;
+  }
+}

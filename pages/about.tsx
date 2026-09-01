@@ -2,19 +2,16 @@ import A from "@core/a";
 import Card from "@core/card";
 import Page from "@core/page";
 import PhotoStack from "@core/photo-stack";
-import fetch from "isomorphic-unfetch";
+import { fetcher } from "@lib/fetcher";
 import Link from "next/link";
 import useSWR from "swr";
 
 import styles from "./about.module.css";
 
-const fetcher = (url: RequestInfo) =>
-  fetch(url).then((response) => response.json());
-
 export default function About(): React.ReactNode {
   const { data: books } = useSWR<Book[]>(`/api/v1/books`, fetcher);
   const { data: films } = useSWR<Film[]>(`/api/v1/films?min_rating=2`, fetcher);
-  const { data: music } = useSWR<Music[]>(`/api/v1/music`, fetcher);
+  const { data: music } = useSWR<Music[]>(`/api/v1/music?limit=6`, fetcher);
   return (
     <Page className={styles.pageContainer} title="About Michael Knepprath">
       <article data-cy="about-page">
@@ -28,7 +25,7 @@ export default function About(): React.ReactNode {
 
         <p>
           Michael Knepprath is a Staff Software Engineer at{" "}
-          <A href="https://www.walmartlabs.com">Walmart</A> (prev.{" "}
+          <A href="https://tech.walmart.com">Walmart</A> (prev.{" "}
           <A href="https://hyper.online">Hyper</A>,{" "}
           <A href="https://whcc.com">WHCC</A>). He loves his family and working
           on side projects related to technology, design, film, video games,{" "}
@@ -91,37 +88,27 @@ export default function About(): React.ReactNode {
             </div>
           </>
         ) : null}
-      </article>
-
-      {music?.length ? (
-        <>
-          <h2>Recent Music</h2>
-          <div className={styles.cardContainer}>
-            {music.map((m) => {
-              // Titlecase the kind of media this is.
-              const kind = m.attributes.playParams.kind.replace(
-                /([A-Z])/g,
-                " $1"
-              );
-              return (
+        {music?.length ? (
+          <>
+            <h2>Recent Music</h2>
+            <div className={styles.cardContainer}>
+              {music.map((m) => (
                 <Card
-                  description={kind.charAt(0).toUpperCase() + kind.slice(1)}
+                  description={m.track.artists.map((a) => a.name).join(", ")}
                   href={
-                    m.attributes.playParams.globalId
-                      ? `https://music.apple.com/us/${m.attributes.playParams.kind}/${m.attributes.playParams.globalId}`
-                      : "#"
+                    m.track.externalIds.spotify?.[0]
+                      ? `https://open.spotify.com/track/${m.track.externalIds.spotify[0]}`
+                      : `https://stats.fm/track/${m.track.id}`
                   }
-                  imgSrc={m.attributes.artwork?.url // Artwork isn't always available.
-                    .replace("{w}", "200")
-                    .replace("{h}", "200")}
-                  key={m.id}
-                  title={m.attributes.name}
+                  imgSrc={m.track.albums[0]?.image}
+                  key={m.streamId}
+                  title={m.track.name}
                 />
-              );
-            })}
-          </div>
-        </>
-      ) : null}
+              ))}
+            </div>
+          </>
+        ) : null}
+      </article>
     </Page>
   );
 }

@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/dependabot-1.jpg",
   published: true,
   publishedAt: "2021-01-12",
@@ -25,9 +24,9 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         alt="Pull request as an Unown."
         className="corner-radius-8"
         height={534}
-        layout="responsive"
         priority
-        src={meta.image}
+        src="/assets/dependabot-1.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <header>
@@ -63,7 +62,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         </A>{" "}
         suggested a way to make it even better.
       </p>
-      <blockquote className="twitter-tweet">
+      <blockquote>
         <p lang="en" dir="ltr">
           Add some tests + auto merging + auto deploying and put that on
           autopilot 🚀
@@ -142,9 +141,9 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         alt="My GitHub Action in action."
         className="corner-radius-8 bordered-image"
         height={1100}
-        layout="responsive"
         priority
         src="/assets/dependabot-2.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={1880}
       />
       <p>
@@ -164,7 +163,7 @@ export default function AutomergingDependabotPullRequests(): React.ReactNode {
         merged, and deployed without any hand-holding from me - all I see are
         the merge notifications after the fact. Nice!
       </p>
-      <blockquote className="twitter-tweet" data-conversation="none">
+      <blockquote data-conversation="none">
         <p lang="en" dir="ltr">
           Copied that action over to a couple of my repos yesterday, can&#39;t
           wait for the automerge magic to begin!

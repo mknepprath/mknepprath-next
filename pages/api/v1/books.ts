@@ -1,5 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
+import { setCacheControl } from "@lib/api";
 import xml2js from "xml2js";
 
 export default async (
@@ -28,6 +29,7 @@ export default async (
             date_started: bookList[i].user_date_added[0],
             date_finished: bookList[i].user_read_at[0],
             rating: bookList[i].user_rating[0],
+            review: bookList[i].user_review[0],
           });
         }
       });
@@ -35,14 +37,11 @@ export default async (
     .catch((error) => console.error(error));
 
   if (shelf !== "desk")
-    books = books.filter((book) => +book.rating >= min_rating).slice(0, 6);
+    books = books.filter((book) => +book.rating >= +min_rating).slice(0, 6);
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
   if (process.env.NODE_ENV === "production")
-    res.setHeader(
-      "Cache-Control",
-      "max-age=0, s-maxage=1, stale-while-revalidate"
-    );
+    setCacheControl(res, 300, 600);
   res.end(JSON.stringify(books));
 };

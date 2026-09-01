@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2019-07-22",
   summary: "A quick guide for setting up a new website with GitHub.",
@@ -25,7 +24,7 @@ export default function CreateAWebsite(): React.ReactNode {
         alt="Illustration of a browser window"
         height={826}
         src="/assets/create-a-website1.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         priority
         width={1263}
       />
@@ -55,7 +54,7 @@ export default function CreateAWebsite(): React.ReactNode {
         alt="Octocat's face"
         height={636}
         src="/assets/create-a-website2.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={840}
       />
 
@@ -127,7 +126,7 @@ export default function CreateAWebsite(): React.ReactNode {
         alt="Illustration of rocketship"
         height={821}
         src="/assets/create-a-website3.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1040}
       />
 

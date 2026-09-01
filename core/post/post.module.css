@@ -1,0 +1,1320 @@
+.title {
+  color: var(--black);
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+.title:hover {
+  color: var(--primaryColor);
+}
+
+/* ─────────────────────────────────────────────────
+   GLOSS — card shine effects
+   Uses --mx / --my custom properties set by JS on mousemove.
+   ───────────────────────────────────────────────── */
+
+.polaroid,
+.musicCard {
+  position: relative;
+}
+
+/* Photo: realistic glossy print shine */
+.polaroid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+
+  background: radial-gradient(
+    ellipse at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    transparent 70%
+  );
+}
+
+.polaroid:hover::after {
+  opacity: 1;
+}
+
+/* Music: holographic shine */
+.musicCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: color-dodge;
+
+  background-image:
+    repeating-linear-gradient(
+      133deg,
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgb(255, 119, 115) 0%,
+      rgba(255, 237, 95, 1) 14.3%,
+      rgba(168, 255, 95, 1) 28.6%,
+      rgba(131, 255, 247, 1) 42.9%,
+      rgba(120, 148, 255, 1) 57.2%,
+      rgb(216, 117, 255) 71.5%,
+      rgb(255, 119, 115) 100%
+    ),
+    radial-gradient(
+      farthest-corner circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.3) 20%,
+      rgba(0, 0, 0, 0.5) 90%
+    );
+
+  background-blend-mode: hard-light, hue;
+  background-size: 300% 300%, 200% 700%, 200% 200%;
+  background-position:
+    var(--mx, 50%) var(--my, 50%),
+    0% var(--my, 50%),
+    var(--mx, 50%) var(--my, 50%);
+
+  filter: brightness(0.7) contrast(2.5) saturate(0.6);
+}
+
+.musicCard:hover::after {
+  opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .musicCard:hover::after {
+    opacity: 0.6;
+  }
+}
+
+/* Dark mode: swap light tan borders/bleeds for dark */
+@media (prefers-color-scheme: dark) {
+  .ticket,
+  .musicCard,
+  .clipping,
+  .polaroid,
+  .runSticker,
+  .receipt {
+    border-color: #2a2a2a !important;
+  }
+  .runSticker {
+    box-shadow:
+      0 0 0 8px #2a2a2a,
+      0px 2px 6px rgba(0, 0, 0, 0.2),
+      0px 6px 16px rgba(0, 0, 0, 0.12) !important;
+  }
+  .runSticker:hover {
+    box-shadow:
+      0 0 0 8px #2a2a2a,
+      0px 4px 10px rgba(0, 0, 0, 0.25),
+      0px 10px 24px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   FILM — vintage movie ticket
+   Solid color stock, big title, edge serial numbers.
+   ───────────────────────────────────────────────── */
+
+.ticket {
+  composes: paperNoise;
+  display: flex;
+  text-decoration: none;
+  overflow: hidden;
+  border: 8px solid #f5f0e8;
+  border-radius: 14px;
+  position: relative;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.12),
+    0px 6px 16px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ticket:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.14),
+    0px 10px 24px rgba(0, 0, 0, 0.09);
+}
+
+/* Vertical serial number edges */
+.ticketEdge {
+  writing-mode: vertical-lr;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 8px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.5;
+  user-select: none;
+}
+.ticketEdge:last-child {
+  writing-mode: vertical-rl;
+}
+
+/* Main body */
+.ticketBody {
+  flex: 1;
+  padding: 14px 10px;
+  min-width: 0;
+}
+
+/* Top row: admit text + poster thumbnail */
+.ticketTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.ticketAdmit {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.7;
+}
+
+/* Title — the star of the show */
+.ticketTitle {
+  margin: 0 0 6px;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+/* Review */
+.ticketReview {
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+.ticketReview > * {
+  margin: 0.25em 0;
+}
+
+/* Date + action footer */
+.ticketDate {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  opacity: 0.6;
+}
+
+/* Compat */
+.filmTitle {
+  color: var(--black);
+  margin: 0px;
+}
+.filmTitle:hover {
+  color: var(--primaryColor);
+}
+.filmReview > * {
+  margin: 0.4em 0 0.2em;
+}
+
+.tweet {
+  color: var(--black);
+  margin: 0;
+  margin-bottom: 0.2em;
+}
+.tweet:hover {
+  color: var(--primaryColor);
+}
+
+/* ─────────────────────────────────────────────────
+   RUN STICKER
+   Inspired by vintage travel/luggage sticker design.
+   Outer border → inset border → content area.
+   ───────────────────────────────────────────────── */
+.paperNoise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.4;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  mix-blend-mode: multiply;
+}
+
+.runSticker {
+  composes: paperNoise;
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  background: #f5f0e8;
+  border: 3px solid #2c3e2d;
+  border-radius: 12px;
+  position: relative;
+  padding: 10px;
+  /* Sticker shadow — wide parchment bleed + soft shadow */
+  box-shadow:
+    0 0 0 8px #f5f0e8,
+    0px 2px 4px rgba(0, 0, 0, 0.1),
+    0px 4px 12px rgba(0, 0, 0, 0.06);
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.runSticker:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 8px #f5f0e8,
+    0px 4px 8px rgba(0, 0, 0, 0.12),
+    0px 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Inset frame — the second border inside */
+.runInner {
+  border: 2px solid #2c3e2d;
+  border-radius: 8px;
+  padding: 14px 16px 12px;
+  position: relative;
+}
+
+/* Top row: dot accent + action label */
+.runTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.runDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e05a2b;
+  flex-shrink: 0;
+}
+
+.runLabel {
+  background: #2c3e2d;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+.runAction {
+  color: #e8dfd0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+/* Title */
+.runTitle {
+  margin: 4px 0 10px;
+  font-size: 18px;
+  color: #2c3e2d;
+  line-height: 1.2;
+}
+
+/* Layout: stacks on mobile, side-by-side on desktop */
+.runLayout {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 632px) {
+  .runLayout {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+/* Map column */
+.runMapCol {
+  border-top: 1px solid #c8bfb0;
+  border-bottom: 1px solid #c8bfb0;
+  padding: 8px 0;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 632px) {
+  .runMapCol {
+    flex: 0 0 30%;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid #c8bfb0;
+    padding: 0 0 0 16px;
+    margin: 0;
+  }
+}
+
+/* Info column */
+.runInfoCol {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Stats row */
+.runStats {
+  display: flex;
+  gap: 0;
+  margin: 8px 0 4px;
+}
+
+.runStat {
+  flex: 1;
+  text-align: center;
+  padding: 4px 0;
+  border-right: 1.5px solid #d4cbbf;
+}
+.runStat:last-child {
+  border-right: none;
+}
+.runStatValue {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2c3e2d;
+  letter-spacing: 0.3px;
+}
+
+/* ── Variants ── */
+
+/* Default: olive green + orange dot */
+.runVariantDefault .runDot { background: #e05a2b; }
+.runVariantDefault .runLabel { background: #2c3e2d; }
+
+/* Long run (10+ mi): deep navy + gold */
+.runVariantLong {
+  border-color: #1a2744;
+  background: #eae5da;
+}
+.runVariantLong .runInner { border-color: #1a2744; }
+.runVariantLong .runDot { background: #d4a037; }
+.runVariantLong .runLabel { background: #1a2744; }
+.runVariantLong .runTitle { color: #1a2744; }
+.runVariantLong .runStatValue { color: #1a2744; }
+.runVariantLong .runSticker {
+  box-shadow:
+    0 0 0 2px #eae5da,
+    0px 2px 4px rgba(0, 0, 0, 0.1),
+    0px 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Hilly (300+ ft elevation): terracotta + cream */
+.runVariantHilly {
+  border-color: #8b4513;
+  background: #f5ede0;
+}
+.runVariantHilly .runInner { border-color: #8b4513; }
+.runVariantHilly .runDot { background: #c75b2a; }
+.runVariantHilly .runLabel { background: #8b4513; }
+.runVariantHilly .runTitle { color: #8b4513; }
+.runVariantHilly .runStatValue { color: #8b4513; }
+
+/* Hike/Walk: forest green + lighter background */
+.runVariantHike {
+  border-color: #3a5a40;
+  background: #ecf0e8;
+}
+.runVariantHike .runInner { border-color: #3a5a40; }
+.runVariantHike .runDot { background: #6b8f5e; }
+.runVariantHike .runLabel { background: #3a5a40; }
+.runVariantHike .runTitle { color: #3a5a40; }
+.runVariantHike .runStatValue { color: #3a5a40; }
+
+/* Date footer */
+.runDate {
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8a7f70;
+  margin-top: 6px;
+  border-top: 1px solid #c8bfb0;
+  padding-top: 8px;
+}
+
+/* ─────────────────────────────────────────────────
+   REPO — thermal receipt / terminal printout
+   Monospace, narrow, perforated top + bottom edges.
+   ───────────────────────────────────────────────── */
+
+.receipt {
+  display: block;
+  text-decoration: none;
+  background: #1a1a1a;
+  border: 8px solid #f5f0e8;
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.receipt:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Hide perforated edges — not needed for terminal look */
+.receiptPerfTop,
+.receiptPerfBottom {
+  display: none;
+}
+
+/* Repo name — prompt style */
+.receiptRepo {
+  font-size: 12px;
+  color: #62bf9b;
+  margin-bottom: 6px;
+}
+
+/* Commit message */
+.receiptMessage {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+/* Blinking cursor */
+.receiptCursor {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  background: #62bf9b;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: receiptBlink 0.6s step-end infinite;
+}
+@keyframes receiptBlink {
+  50% { opacity: 0; }
+}
+
+/* Date footer */
+.receiptFooter {
+  font-size: 11px;
+  color: #555;
+}
+
+/* ─────────────────────────────────────────────────
+   MUSIC — player card with blurred album art bg
+   ───────────────────────────────────────────────── */
+
+.musicCard {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  border: 8px solid #f5f0e8;
+  border-radius: 14px;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  min-height: 100px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.12),
+    0px 6px 16px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.musicCard:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.14),
+    0px 10px 24px rgba(0, 0, 0, 0.09);
+}
+
+/* Blurred album art background */
+.musicBg {
+  position: absolute;
+  inset: -20px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(24px) saturate(1.2) brightness(0.5);
+  z-index: 0;
+}
+
+/* Content over the blur */
+.musicContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+}
+
+/* Sharp album art */
+.musicArt {
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Text info */
+.musicInfo {
+  min-width: 0;
+}
+
+.musicTitle {
+  margin: 0 0 2px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.musicArtist {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.musicDate {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ─────────────────────────────────────────────────
+   PHOTO — Polaroid
+   ───────────────────────────────────────────────── */
+
+.polaroid {
+  display: block;
+  text-decoration: none;
+  background: #faf9f6;
+  padding: 10px 10px 0;
+  border-radius: 3px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.polaroid:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Photo frame */
+.polaroidFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+
+/* Caption area — the thick bottom */
+.polaroidCaption {
+  padding: 12px 4px 16px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.polaroidText {
+  font-family: 'Caveat', cursive !important;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.3;
+}
+
+.polaroidDate {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .polaroid {
+    background: #2a2a2a;
+  }
+  .polaroidFrame {
+    background: #1a1a1a;
+  }
+  .polaroidText {
+    color: #bbb;
+  }
+  .polaroidDate {
+    color: #666;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   BOOK — library catalog card
+   Manila card, ruled lines, red header, catalog hole.
+   ───────────────────────────────────────────────── */
+
+.catalogCard {
+  composes: paperNoise;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 26px,
+      #e0d4be 26px,
+      #e0d4be 27px
+    ),
+    #f5ecd7;
+  border: none;
+  border-radius: 6px;
+  padding: 0 20px 16px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.catalogCard:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Red/brown header line */
+.catalogRedLine {
+  height: 2px;
+  background: #b85c3a;
+  margin: 0 -20px 14px;
+}
+
+/* Body: cover + info side by side */
+.catalogBody {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+/* Book cover thumbnail */
+.catalogCover {
+  flex-shrink: 0;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  line-height: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Text info */
+.catalogInfo {
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.catalogTitle {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 18px;
+  line-height: 1.25;
+  color: #2a2010;
+  margin: 0 0 4px;
+}
+
+.catalogAuthor {
+  font-size: 14px;
+  color: #5a4a30;
+  line-height: 1.4;
+}
+
+/* Catalog rod hole — small punched circle */
+.catalogHole {
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border-radius: 50%;
+  margin: 10px auto 8px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Library stamp */
+.catalogCard::before {
+  content: "READ";
+  position: absolute;
+  bottom: 20px;
+  right: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #5a4a30;
+  opacity: 0.06;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Footer */
+.catalogFooter {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9a8a68;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .catalogCard {
+    background:
+      repeating-linear-gradient(
+        180deg,
+        transparent 0px,
+        transparent 26px,
+        #3a3420 26px,
+        #3a3420 27px
+      ),
+      #2a2618;
+  }
+  .catalogRedLine {
+    background: #8a4a2a;
+  }
+  .catalogTitle {
+    color: #e0d8c0;
+  }
+  .catalogAuthor {
+    color: #a09878;
+  }
+  .catalogHole {
+    background: #1a1a1a;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .catalogFooter {
+    color: #6a6048;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   POST — newspaper clipping
+   ───────────────────────────────────────────────── */
+
+.clipping {
+  composes: paperNoise;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  background: #f4f1eb;
+  border: 8px solid #f5f0e8;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.1),
+    0px 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.clipping:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Cover image */
+.clippingImage {
+  position: relative;
+  height: 180px;
+}
+
+/* Text body */
+.clippingBody {
+  padding: 16px 20px 14px;
+}
+
+/* Headline — serif, editorial */
+.clippingHeadline {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #2a2218;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Thin rule under headline */
+.clippingRule {
+  width: 60px;
+  height: 1px;
+  background: #c0b8a8;
+  margin: 10px 0;
+}
+
+/* Summary excerpt */
+.clippingSummary {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #5a5040;
+  margin: 0 0 10px;
+}
+
+/* Dateline */
+.clippingDateline {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9a9080;
+}
+
+@media (prefers-color-scheme: dark) {
+  .clipping {
+    background: #2a2820;
+    border-color: #222;
+  }
+  .clippingHeadline {
+    color: #e8e0d0;
+  }
+  .clippingSummary {
+    color: #a8a090;
+  }
+  .clippingRule {
+    background: #4a4438;
+  }
+  .clippingDateline {
+    color: #6a6458;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   TOOT — Post-it / sticky note
+   ───────────────────────────────────────────────── */
+
+.stickyNote {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 40%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.03) 100%
+    ),
+    #fff4b8;
+  border: none;
+  border-radius: 2px 2px 4px 4px;
+  padding: 20px 22px 16px;
+  /* Asymmetric shadow — curled bottom-right corner */
+  box-shadow:
+    0px 1px 2px rgba(0, 0, 0, 0.06),
+    2px 4px 6px rgba(0, 0, 0, 0.05),
+    4px 8px 10px -2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.stickyNote:hover {
+  box-shadow:
+    0px 2px 4px rgba(0, 0, 0, 0.08),
+    3px 6px 10px rgba(0, 0, 0, 0.06),
+    6px 12px 16px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Image attachment */
+.stickyImage {
+  position: relative;
+  height: 180px;
+  margin: -4px -4px 12px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Toot text */
+.stickyText,
+.stickyText p,
+.stickyText span,
+.stickyText a {
+  font-family: 'Caveat', cursive !important;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #4a3800;
+}
+.stickyText a {
+  color: #7a5a00 !important;
+  text-decoration: underline;
+}
+.stickyText p {
+  margin: 0 0 0.4em;
+}
+.stickyText p:last-child {
+  margin-bottom: 0;
+}
+
+/* Date — scribbled in the corner */
+.stickyDate {
+  display: block;
+  text-align: right;
+  font-family: 'Caveat', cursive !important;
+  font-size: 16px;
+  color: #a08a40;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stickyNote {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 40%,
+        transparent 85%,
+        rgba(0, 0, 0, 0.06) 100%
+      ),
+      #4a4428;
+  }
+  .stickyText,
+  .stickyText p,
+  .stickyText span {
+    color: #f0e8c0 !important;
+  }
+  .stickyText a {
+    color: #e8d880 !important;
+  }
+  .stickyDate {
+    color: #a09860;
+  }
+}
+
+/* Blue sticky — Bluesky posts */
+.stickyBlue {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 40%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.03) 100%
+    ),
+    #b8d8f4;
+}
+.stickyBlueText,
+.stickyBlueText p,
+.stickyBlueText span,
+.stickyBlueText a {
+  color: #1a3a5a !important;
+}
+.stickyBlueText a {
+  color: #2a5a8a !important;
+}
+.stickyBlueDate {
+  color: #5a8ab0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stickyBlue {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 40%,
+        transparent 85%,
+        rgba(0, 0, 0, 0.06) 100%
+      ),
+      #283848;
+  }
+  .stickyBlueText,
+  .stickyBlueText p,
+  .stickyBlueText span {
+    color: #c0d8f0 !important;
+  }
+  .stickyBlueText a {
+    color: #80b0e0 !important;
+  }
+  .stickyBlueDate {
+    color: #6088b0;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   CHESS — tournament result slip
+   Cool grey-blue, two-player layout, result accent.
+   ───────────────────────────────────────────────── */
+
+.chessCard {
+  composes: paperNoise;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  background: #eef1f5;
+  border-radius: 4px;
+  padding: 16px 20px;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.08),
+    0px 6px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.chessCard:hover {
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.1),
+    0px 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Header: piece + rating left, date right */
+.chessHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.chessHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chessPiece {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+.chessTimeClass {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8090a0;
+  font-family: Consolas, Monaco, monospace;
+}
+.chessDate {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8a9aaa;
+}
+
+/* Thin ruled line */
+.chessRule {
+  height: 1px;
+  background: #d0d8e0;
+  margin: 6px 0;
+}
+
+/* Match row: player — result — opponent */
+.chessMatch {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+.chessPlayer {
+  flex: 1;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2a3040;
+  white-space: nowrap;
+  min-width: 0;
+}
+.chessOpponent {
+  text-align: right;
+  font-weight: normal;
+  color: #4a5568;
+}
+.chessCenter {
+  text-align: center;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+/* Hand-drawn circle around the winner */
+.chessCircled {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.chessCircleSvg {
+  position: absolute;
+  inset: -8px -14px;
+  width: calc(100% + 28px);
+  height: calc(100% + 16px);
+  pointer-events: none;
+}
+.chessCircle {
+  stroke: #2a4d8f;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawCircle 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.4s;
+}
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Result */
+.chessResult {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.chessWin .chessResult { color: #2d7a3a; }
+.chessLoss .chessResult { color: #a04040; }
+.chessDraw .chessResult { color: #8090a0; }
+
+/* Left accent */
+.chessWin { border-left: 4px solid #2d7a3a; }
+.chessLoss { border-left: 4px solid #a04040; }
+.chessDraw { border-left: 4px solid #8090a0; }
+
+/* Meta: accuracy + opening */
+.chessMeta {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #6a7a8a;
+  margin-top: 2px;
+}
+
+@media (max-width: 631px) {
+  .chessMeta {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .chessCard {
+    background: #1e2430;
+  }
+  .chessRule {
+    background: #2a3444;
+  }
+  .chessPlayer {
+    color: #d0d8e8;
+  }
+  .chessOpponent {
+    color: #8a9ab0;
+  }
+  .chessPiece,
+  .chessTimeClass,
+  .chessMeta,
+  .chessDate {
+    color: #5a6a80;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   ROBOT — doppelganger bot commentary
+   CRT / terminal aesthetic, green-on-dark.
+   ───────────────────────────────────────────────── */
+
+.robotCard {
+  display: block;
+  text-decoration: none;
+  background: #050a05;
+  border: 8px solid #1a3a1a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 0 40px rgba(0, 255, 0, 0.04),
+    0 0 15px rgba(0, 255, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.robotCard:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0px 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 0 50px rgba(0, 255, 0, 0.06),
+    0 0 25px rgba(0, 255, 0, 0.1);
+}
+
+/* Scanline overlay */
+.robotCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Phosphor glow — soft vignette from center */
+.robotCard::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(0, 255, 0, 0.05) 0%,
+    rgba(0, 255, 0, 0.02) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: phosphorPulse 4s ease-in-out infinite;
+}
+
+@keyframes phosphorPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.robotHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.robotIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.robotName {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #3a7a3a;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+.robotText {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4ade4a;
+  text-shadow: 0 0 6px rgba(74, 222, 74, 0.25);
+  position: relative;
+  z-index: 2;
+}
+.robotText p {
+  margin: 0;
+}
+
+.robotDate {
+  font-size: 10px;
+  color: #2a5a2a;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 4px rgba(0, 255, 0, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .robotCard {
+    border-color: #1a3a1a;
+  }
+}

@@ -8,7 +8,25 @@
   --hoverColor: #6cd48f;
   --primaryColor: #62bf9b;
   --selectedColor: #b984c8;
+
+  color-scheme: light dark;
 }
+
+/* System preference: dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: #e8e8e8;
+    --grey: #2a2a2a;
+    --white: #1a1a1a;
+    --hoverColor: #6cd48f;
+    --primaryColor: #6ec9a5;
+    --selectedColor: #c49bd3;
+  }
+  #keyart-6 {
+    background-image: linear-gradient(185deg, transparent 88%, #1a1a1a 88%) !important;
+  }
+}
+
 
 ::selection {
   background-color: var(--selectedColor);
@@ -16,12 +34,80 @@
 }
 
 body {
+  background-color: var(--white);
   color: var(--black);
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
     sans-serif;
   font-size: 1.2em;
   line-height: 1.6em;
   margin: 0;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Photography page — dark gallery walls */
+html:has([data-page="photography"]) {
+  --black: #e0dcd6;
+  --white: #141210;
+  --grey: #242220;
+}
+html:has([data-page="photography"]),
+html:has([data-page="photography"]) body {
+  background-color: #141210 !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  background-blend-mode: soft-light;
+}
+
+/* Video page — screening room */
+html:has([data-page="video"]) {
+  --black: #e0dcd6;
+  --white: #111110;
+  --grey: #222220;
+}
+html:has([data-page="video"]),
+html:has([data-page="video"]) body {
+  background-color: #111110 !important;
+}
+
+/* Films page — dark velvet theater lobby */
+[data-page="films"],
+[data-page="films"] ~ *,
+main:has([data-page="films"]) {
+  background-color: #1a0f0f;
+  color: #e0d6c8;
+}
+html:has([data-page="films"]),
+body:has([data-page="films"]) {
+  background-color: #1a0f0f !important;
+}
+/* Nav + links need light text on dark background */
+html:has([data-page="films"]) {
+  --black: #e0d6c8;
+  --white: #1a0f0f;
+  --grey: #2a1f1f;
+}
+
+/* Blog/writing pages — newsprint background everywhere */
+[data-page="blog"],
+[data-page="blog"] ~ *,
+main:has([data-page="blog"]) {
+  background-color: #f4f1eb;
+}
+html:has([data-page="blog"]),
+body:has([data-page="blog"]) {
+  background-color: #f4f1eb !important;
+}
+@media (prefers-color-scheme: dark) {
+  [data-page="blog"],
+  [data-page="blog"] ~ *,
+  main:has([data-page="blog"]) {
+    background-color: #2a2820;
+  }
+  html:has([data-page="blog"]),
+  body:has([data-page="blog"]) {
+    background-color: #2a2820 !important;
+  }
 }
 
 h1,
@@ -124,14 +210,20 @@ pre {
 
 .keyartLayer {
 	background-position: bottom center;
-	background-size: auto 1038px;
+	background-size: auto 519px;
 	background-repeat: repeat-x;
 	width: 100%;
 	position: absolute;
-  pointer-events: none;
+	pointer-events: none;
 }
-.keyartLayer.parallax {
-	position: fixed;
+
+@media (min-width: 632px) {
+	.keyartLayer {
+		background-size: auto 1038px;
+	}
+	.keyartLayer.parallax {
+		position: fixed;
+	}
 }
 #keyart-0 {
 	background-image: url('/assets/parallax-0.png');

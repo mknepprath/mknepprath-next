@@ -1,11 +1,10 @@
-import fetch from "isomorphic-unfetch";
-import Markov from "markov-strings";
-import Image from "next/legacy/image";
-import { Fragment, useEffect, useState } from "react";
-import useSWR from "swr";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
+import fetch from "isomorphic-unfetch";
+import Markov from "markov-strings";
+import Image from "next/image";
+import { Fragment, useEffect, startTransition, useState } from "react";
+import useSWR from "swr";
 
 interface MarkovResult {
   string: string;
@@ -31,7 +30,7 @@ function toTitleCase(str: string) {
   const smallWords =
     /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|v.?|vs.?|via)$/i;
   const alphanumericPattern = /([A-Za-z0-9\u00C0-\u00FF])/;
-  const wordSeparators = /([ :–—-])/;
+  const wordSeparators = /([ :–:-])/;
 
   return str
     .split(wordSeparators)
@@ -100,7 +99,7 @@ const cleanUp = (s = "") =>
     .join(" ")
     .replace("&amp;", "&");
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/guest-post.jpg",
   published: false,
   publishedAt: "2021-01-25",
@@ -121,25 +120,25 @@ export default function BillsPc(): React.ReactNode {
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
-    }
+    },
   );
 
   useEffect(() => {
     if (tweets?.data) {
-      const results = [];
+      const results: MarkovResult[] = [];
       const markov = new Markov({ stateSize: 1 });
       for (let i = 0; i <= 17; i++) {
         markov.addData(tweets?.data.map((d) => d.text));
         const result = markov.generate(options);
         results.push(result);
-        setTitle(cleanUp(result.string));
+        startTransition(() => setTitle(cleanUp(result.string)));
       }
-      setLines(results);
+      startTransition(() => setLines(results));
 
       const media = shuffle(tweets.includes.media).find(
-        (m) => m.type === "photo"
+        (m) => m.type === "photo",
       );
-      setImage(media);
+      startTransition(() => setImage(media));
     }
   }, [tweets?.data, tweets?.includes.media]);
 
@@ -156,9 +155,9 @@ export default function BillsPc(): React.ReactNode {
           alt="An image from Twitter."
           className="corner-radius-8"
           height={image.height}
-          layout="responsive"
           priority
           src={image.url}
+          style={{ width: '100%', height: 'auto' }}
           width={image.width}
         />
       ) : null}

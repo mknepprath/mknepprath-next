@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/adding-rss.jpg",
   published: true,
   publishedAt: "2020-01-15",
@@ -25,7 +24,7 @@ export default function RSS(): React.ReactNode {
       <Image
         alt="A big shiny subscribe button."
         height={629}
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         src="/assets/adding-rss.jpg"
         width={800}
       />
@@ -77,7 +76,7 @@ export default function RSS(): React.ReactNode {
       <pre>
         <code className="language-js">
           {`
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2019-07-22",
   summary: "A quick guide for setting up a new website with GitHub.",

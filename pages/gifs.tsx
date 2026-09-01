@@ -1,11 +1,10 @@
-import React, { SyntheticEvent } from "react";
-
 // Components
 import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
 // Data
 import { gifs } from "@data/gifs";
+import React, { SyntheticEvent } from "react";
 
 // Styles
 import styles from "./gifs.module.css";
@@ -37,7 +36,8 @@ function onClickToCopy(e: SyntheticEvent) {
   let succeeded;
   try {
     succeeded = document.execCommand("copy");
-  } catch (err) {
+  } catch (error: unknown) {
+    console.error(error instanceof Error ? error.message : "Unknown error");
     succeeded = false;
   }
   if (succeeded)

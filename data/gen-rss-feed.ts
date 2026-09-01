@@ -1,22 +1,13 @@
 // Fixed a ts-node issue with https://github.com/TypeStrong/ts-node/issues/436#issuecomment-624328557
 
 import "colors";
-
+import { diffLines } from "diff";
 import fs from "fs";
+import { BlogPost as Post } from "../lib/types";
 
 import posts from "./get-blog-posts";
 
-const Diff = require("diff"); // eslint-disable-line @typescript-eslint/no-var-requires
-
 const FEED_FILE = `${process.cwd()}/public/feed.json`;
-
-interface Post {
-  publishedAt: string;
-  id: string;
-  image?: string;
-  summary?: string;
-  title: string;
-}
 
 enum Color {
   Red = "red",
@@ -42,6 +33,7 @@ const feed = {
     id: `https://mknepprath.com/writing/${post.id}`,
     url: `https://mknepprath.com/writing/${post.id}`,
     title: post.title,
+    content_html: post.contentHtml || undefined,
     content_text: `${
       post.summary ? post.summary + " • " : ""
     }https://mknepprath.com/writing/${post.id}`,
@@ -61,7 +53,7 @@ function generateRSSFeed() {
 
   fs.writeFileSync(FEED_FILE, nextPosts);
 
-  const diff = Diff.diffLines(prevPosts, nextPosts);
+  const diff = diffLines(prevPosts, nextPosts);
 
   if (diff.length === 1) {
     console.info("No change\n");
@@ -69,26 +61,26 @@ function generateRSSFeed() {
     diff.forEach(function (part: {
       added?: boolean;
       removed?: boolean;
-      value: { [key: string]: string };
+      value: string;
     }) {
       // green for additions, red for deletions
       // grey for common parts
       const color = part.added
         ? Color.Green
         : part.removed
-        ? Color.Red
-        : Color.Grey;
+          ? Color.Red
+          : Color.Grey;
       if (color === Color.Grey) {
-        const lines = part.value[color].match(/[^\r\n]+/g);
+        const lines = part.value.match(/[^\r\n]+/g);
         if (!lines) return;
 
         if (lines.length < 4) {
-          process.stderr.write(part.value[color]);
+          process.stderr.write(part.value);
         } else {
           process.stderr.write(`${lines[0]}\n.......\n${lines.reverse()[1]}\n`); // index 1, because every part seems to include an empty line at the end.
         }
       } else {
-        process.stderr.write(part.value[color]);
+        process.stderr.write(part.value);
       }
     });
     process.stderr.write("\x1b[0m");

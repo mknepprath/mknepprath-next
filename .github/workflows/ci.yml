@@ -1,30 +1,21 @@
 name: ci
-# https://docs.github.com/en/actions/reference/events-that-trigger-workflows
 on: [deployment_status]
 jobs:
   e2e:
     name: "Tests"
-    # only runs this job on successful deploy
-    if: github.event.deployment_status.state == 'success'
+    if: github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'Production'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Run Cypress 🌲
-        uses: cypress-io/github-action@v4
-        # with:
-        #   record: true
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6
         env:
-          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
-          # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_BASE_URL: https://mknepprath.com
 
-      # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
-      - name: Cypress tests ✅
+      - name: Cypress tests passed
         if: ${{ success() }}
-        # set the merge commit status check
-        # using GitHub REST API
-        # see https://docs.github.com/en/rest/reference/repos#create-a-commit-status
         run: |
           curl --request POST \
           --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
@@ -37,7 +28,7 @@ jobs:
             "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
 
-      - name: Cypress tests 🚨
+      - name: Cypress tests failed
         if: ${{ failure() }}
         run: |
           curl --request POST \
@@ -47,5 +38,6 @@ jobs:
           --data '{
             "context": "e2e",
             "state": "failure",
-            "description": "Cypress tests failed"
+            "description": "Cypress tests failed",
+            "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'

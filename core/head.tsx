@@ -17,24 +17,17 @@ interface Props {
 export default function Head({
   children,
   title = "Michael Knepprath, Developer & Designer",
-  description = "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: technology, design, film, video games, and so on.",
+  description = "Michael Knepprath is a Software Engineer & Designer. He loves the point at which technology and art converge: software development, design, film, video games, and so on.",
   ogImage = "/assets/og-image.jpg",
-}: Props): JSX.Element {
+}: Props): React.JSX.Element {
   const router = useRouter();
-
-  React.useEffect(() => {
-    const script = document.createElement("script");
-    script.setAttribute("src", "https://platform.twitter.com/widgets.js");
-    script.setAttribute("async", "true");
-    document.head.appendChild(script);
-  }, []);
 
   return (
     <NextHead>
       <meta charSet="UTF-8" />
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       <link rel="manifest" href="/manifest.json" />
       <link
         rel="icon"

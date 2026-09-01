@@ -1,18 +1,17 @@
-import { parseISO } from "date-fns";
-import Image from "next/legacy/image";
-import Link from "next/link";
-import useSWR from "swr";
-
 import A from "@core/a";
 import BlogPage from "@core/blog-page";
 import Card from "@core/card";
+import { parseISO } from "date-fns";
+import Image from "next/image";
+import Link from "next/link";
+import useSWR from "swr";
 
 import styles from "./2022.module.css";
 
 const fetcher = (url: RequestInfo) =>
   fetch(url).then((response) => response.json());
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/2022-in-review-6.jpg",
   published: true,
   publishedAt: "2023-01-01",
@@ -24,7 +23,7 @@ export const meta = {
 export default function ReviewOf2022(): React.ReactNode {
   const { data: activity = [] } = useSWR<PostListItem[]>(
     `/api/v1/activity?max_results=6&min_rating=1`,
-    fetcher
+    fetcher,
   );
   return (
     <BlogPage
@@ -34,19 +33,19 @@ export default function ReviewOf2022(): React.ReactNode {
       title={meta.title}
       tweetId={meta.tweetId}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Three photos from 2022."
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-6.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>Hey everyone,</p>
 
@@ -74,9 +73,9 @@ export default function ReviewOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-7.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -185,9 +184,9 @@ export default function ReviewOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-2.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -216,9 +215,9 @@ export default function ReviewOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-1.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -287,9 +286,9 @@ export default function ReviewOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-3.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -328,9 +327,9 @@ export default function ReviewOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-4.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>
@@ -355,9 +354,9 @@ export default function ReviewOf2022(): React.ReactNode {
         className="corner-radius-8"
         height={384}
         src="/assets/2022-in-review-5.jpg"
-        layout="responsive"
         priority
         width={1170}
+        style={{ width: '100%', height: 'auto' }}
       />
     </BlogPage>
   );

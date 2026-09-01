@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   image: "/assets/twitter-likes-illustration-1.jpg",
   published: true,
   publishedAt: "2020-02-20",
@@ -24,9 +23,9 @@ export default function TwitterDefeatedMe(): React.ReactNode {
       <Image
         alt="Likes header illustration"
         height={365}
-        layout="responsive"
         priority
         src="/assets/twitter-likes-illustration-1.jpg"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <header>
@@ -79,7 +78,7 @@ export default function TwitterDefeatedMe(): React.ReactNode {
       </p>
       <p>
         Today, Twitter likes are simply that. A quick way to say, &ldquo;I like
-        this tweet.&rdquo; A social exchange—ephemeral in nature, but
+        this tweet.&rdquo; A social exchange:ephemeral in nature, but
         permanently recorded and published publicly by Twitter.
       </p>
       <p>
@@ -96,7 +95,7 @@ export default function TwitterDefeatedMe(): React.ReactNode {
         alt="Broken like"
         height={249}
         src="/assets/twitter-likes-illustration-2.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <p>
@@ -139,7 +138,7 @@ export default function TwitterDefeatedMe(): React.ReactNode {
         alt="Likes window illustrated"
         height={248}
         src="/assets/twitter-likes-illustration-3.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <p>
@@ -175,7 +174,7 @@ export default function TwitterDefeatedMe(): React.ReactNode {
         alt="Likes displayed as unliked"
         height={1060}
         src="/assets/twitter-likes-6.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1196}
       />
       <p>
@@ -211,7 +210,7 @@ for likeId in likeIds:
         alt="Command line liked and unliked messages"
         height={1192}
         src="/assets/twitter-likes-1.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1024}
       />
       <p>
@@ -223,7 +222,7 @@ for likeId in likeIds:
         alt="Unwanted notifications #1"
         height={180}
         src="/assets/twitter-likes-2.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1196}
       />
       <hr />
@@ -231,7 +230,7 @@ for likeId in likeIds:
         alt="Unwanted notifications #2"
         height={260}
         src="/assets/twitter-likes-3.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1196}
       />
       <hr />
@@ -239,7 +238,7 @@ for likeId in likeIds:
         alt="Unwanted notifications #3"
         height={186}
         src="/assets/twitter-likes-4.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1196}
       />
       <hr />
@@ -247,7 +246,7 @@ for likeId in likeIds:
         alt="Unwanted notifications #4"
         height={276}
         src="/assets/twitter-likes-5.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1196}
       />
       <p>
@@ -267,7 +266,7 @@ for likeId in likeIds:
         alt="I Defeated Twitter (Not)"
         height={192}
         src="/assets/twitter-likes-7.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1196}
       />
       <h3 id="delete-stale-likes">Delete Stale Likes</h3>
@@ -281,7 +280,7 @@ for likeId in likeIds:
         alt="Sweeping up likes"
         height={610}
         src="/assets/twitter-likes-illustration-4.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
       <p>Here&apos;s a snippet of this new script:</p>
@@ -316,7 +315,7 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
         alt="Unlike logs as direct messages"
         height={486}
         src="/assets/twitter-likes-8.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1196}
       />
       <h2 id="now-what">Now What?</h2>
@@ -339,7 +338,7 @@ twitter.dm_self("Unliking " + str(len(likes)) + " tweets ✌️")
         alt="Farewell image"
         height={611}
         src="/assets/twitter-likes-illustration-5.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={1000}
       />
     </BlogPage>

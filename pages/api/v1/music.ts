@@ -1,51 +1,47 @@
 import fetch from "isomorphic-unfetch";
-import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async (
-  req: NextApiRequest,
-  res: NextApiResponse
-): Promise<void> => {
+const STATSFM_API = "https://api.stats.fm/api/v1";
+const USERNAME = "mknepprath";
+
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
-    query: { offset = 0, limit = 6 },
+    query: { limit = 6, raw },
   } = req;
 
-  const jwtToken = jwt.sign({}, `${process.env.MUSIC_PRIVATE_KEY}`, {
-    algorithm: "ES256",
-    expiresIn: "180d",
-    issuer: process.env.MUSIC_TEAM_ID,
-    header: {
-      alg: "ES256",
-      kid: process.env.MUSIC_KEY_ID,
-    },
-  });
+  const max = parseInt(limit as string) || 6;
+  const isRaw = raw === "1";
 
-  const myHeaders = new Headers();
-  myHeaders.append("Authorization", `Bearer ${jwtToken}`);
-  myHeaders.append("Music-User-Token", `${process.env.MUSIC_USER_TOKEN}`);
+  try {
+    const fetchLimit = isRaw ? max : max * 5;
+    const response = await fetch(
+      `${STATSFM_API}/users/${USERNAME}/streams/recent?limit=${fetchLimit}`,
+    );
 
-  const requestOptions: RequestInit = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
+    if (!response.ok) {
+      return res
+        .status(response.status)
+        .json({ error: "Failed to fetch data from stats.fm" });
+    }
 
-  return new Promise((resolve) => {
-    fetch(
-      `https://api.music.apple.com/v1/me/library/recently-added?limit=${limit}&offset=${offset}`, // `https://api.music.apple.com/v1/me/history/heavy-rotation?limit=6`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
-        res.end(JSON.stringify(JSON.parse(result).data));
-        resolve();
-      })
-      .catch((error) => {
-        res.json(error);
-        res.status(404).end();
-        return resolve();
-      });
-  });
+    const data = await response.json();
+
+    if (isRaw) {
+      // Return raw streams (for activity feed album grouping)
+      return res.status(200).json(data.items);
+    }
+
+    // Dedupe by track ID, keep most recent stream per track
+    const seen = new Set<number>();
+    const unique = (data.items as Music[]).filter((m) => {
+      if (seen.has(m.track.id)) return false;
+      seen.add(m.track.id);
+      return true;
+    });
+
+    res.status(200).json(unique.slice(0, max));
+  } catch (error) {
+    console.error("Error fetching stats.fm data:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 };

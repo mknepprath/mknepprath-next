@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2013-09-26",
   title: "Instagram For iOS 7",
@@ -57,7 +56,7 @@ export default function InstagramForIos7(): React.ReactNode {
         className="corner-radius-8"
         height={1136}
         src="/assets/instagram-for-ios-7.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={640}
       />
     </BlogPage>

@@ -1,6 +1,7 @@
 import BlogPage from "@core/blog-page";
 
-export const meta = {
+export const meta: Meta = {
+  published: false,
   publishedAt: "2012-07-26",
   title: "Use Genesis to Create Powerful WordPress Websites",
 };

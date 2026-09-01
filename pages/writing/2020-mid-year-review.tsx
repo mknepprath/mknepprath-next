@@ -1,9 +1,8 @@
-import Image from "next/legacy/image";
+import BlogPage from "@core/blog-page";
+import Image from "next/image";
 import Link from "next/link";
 
-import BlogPage from "@core/blog-page";
-
-export const meta = {
+export const meta: Meta = {
   image: "/assets/2020-mid-year-1.jpg",
   published: true,
   publishedAt: "2020-06-30",
@@ -67,8 +66,8 @@ export default function MidyearReviewOf2020(): React.ReactNode {
           className="corner-radius-8"
           height={900}
           src="/assets/2020-mid-year-2.jpg"
-          layout="responsive"
           priority
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
       </a>
@@ -115,7 +114,7 @@ export default function MidyearReviewOf2020(): React.ReactNode {
           className="corner-radius-8"
           height={2048}
           src="/assets/2020-mid-year-3.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1536}
         />
       </a>
@@ -230,7 +229,7 @@ export default function MidyearReviewOf2020(): React.ReactNode {
           className="corner-radius-8"
           height={900}
           src="/assets/2020-mid-year-1.jpg"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
       </a>
@@ -270,8 +269,8 @@ export default function MidyearReviewOf2020(): React.ReactNode {
         className="corner-radius-8"
         height={990}
         src="/assets/2020-mid-year-4.png"
-        layout="responsive"
         width={1920}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <p>

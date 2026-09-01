@@ -1,10 +1,8 @@
-import fetch from "isomorphic-unfetch";
-import Image from "next/legacy/image";
+import Page from "@core/page";
+import { fetcher } from "@lib/fetcher";
+import Image from "next/image";
 import React, { SyntheticEvent } from "react";
 import useSWR from "swr";
-
-// Components
-import Page from "@core/page";
 
 // Styles
 import styles from "./dynoland.module.css";
@@ -19,7 +17,8 @@ function onClickToCopy(e: SyntheticEvent) {
   let succeeded;
   try {
     succeeded = document.execCommand("copy");
-  } catch (err) {
+  } catch (error: unknown) {
+    console.error(error instanceof Error ? error.message : "Unknown error");
     succeeded = false;
   }
   if (succeeded)
@@ -32,15 +31,13 @@ function onClickToCopy(e: SyntheticEvent) {
 const IP = "144.217.215.65";
 const PORT = "25601";
 
-const fetcher = (url: RequestInfo) => fetch(url).then((r) => r.json());
-
 export default function Dynoland(): React.ReactNode {
   const { data } = useSWR(
     `/api/v1/minecraft-status?host=${IP}&port=${PORT}`,
     fetcher,
     {
       refreshInterval: 30000,
-    }
+    },
   );
 
   if (!data) return null;
@@ -67,7 +64,7 @@ export default function Dynoland(): React.ReactNode {
           className="corner-radius-8"
           height={600}
           src="/assets/dynoland.png"
-          layout="responsive"
+          style={{ width: '100%', height: 'auto' }}
           width={1200}
         />
 

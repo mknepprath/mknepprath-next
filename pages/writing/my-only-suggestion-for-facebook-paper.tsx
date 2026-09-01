@@ -3,11 +3,10 @@
 
 // TODO: Check accuracy of timestamp.
 
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2014-02-12",
   title: "My Only Suggestion For Facebook Paper",
@@ -40,9 +39,9 @@ export default function FacebookPaper(): React.ReactNode {
         alt="Facebook lists"
         className="corner-radius-8"
         height={960}
-        layout="responsive"
         priority
         src="/assets/facebook-paper-lists.png"
+        style={{ width: '100%', height: 'auto' }}
         width={1190}
       />
 
@@ -86,7 +85,7 @@ export default function FacebookPaper(): React.ReactNode {
         className="corner-radius-8"
         height={533}
         src="/assets/facebook-paper-sections.png"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={900}
       />
 

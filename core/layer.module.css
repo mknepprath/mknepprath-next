@@ -1,14 +1,19 @@
 .keyartLayer {
-	height: 1000px;
-}
-.keyartLayer {
+	height: 500px;
 	background-position: bottom center;
-	background-size: auto 1038px;
+	background-size: auto 519px;
 	background-repeat: repeat-x;
 	width: 100%;
 	position: absolute;
-  pointer-events: none;
+	pointer-events: none;
 }
-.keyartLayer.parallax {
-	position: fixed;
+
+@media (min-width: 632px) {
+	.keyartLayer {
+		height: 1000px;
+		background-size: auto 1038px;
+	}
+	.keyartLayer.parallax {
+		position: fixed;
+	}
 }

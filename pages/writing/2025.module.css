@@ -1,0 +1,50 @@
+
+.noDropCap::first-letter {
+  font-size: 1em !important;
+  float: none !important;
+  line-height: inherit !important;
+  margin-right: 0 !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+}
+
+.cardContainer {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  margin: 24px 0;
+}
+@media (min-width: 632px) {
+  .cardContainer {
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.imageGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  margin: 16px 0;
+}
+.imageGridFull {
+  grid-column: 1 / -1;
+}
+@media (max-width: 631px) {
+  .imageGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imagePair {
+  align-items: start;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  margin: 16px 0;
+}
+@media (min-width: 632px) {
+  .imagePair {
+    grid-template-columns: 1fr 1fr;
+  }
+}

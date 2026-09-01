@@ -1,0 +1,185 @@
+/* ─────────────────────────────────────────────────
+   BLOG PAGE — newspaper clipping design language
+   Matches the Post activity card: newsprint bg,
+   serif headlines, thin rules, editorial feel.
+   ───────────────────────────────────────────────── */
+
+.blogContainer {
+  background: #f4f1eb;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* Paper noise texture overlay */
+.blogContainer::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  mix-blend-mode: multiply;
+}
+
+
+.article {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.article img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Title */
+.articleTitle {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 36px;
+  line-height: 1.15;
+  color: #2a2218;
+  margin: 0 0 6px;
+}
+@media (min-width: 632px) {
+  .articleTitle {
+    font-size: 44px;
+  }
+}
+
+/* Rule under title */
+.articleRule {
+  width: 80px;
+  height: 1.5px;
+  background: #c0b8a8;
+  margin: 16px 0 24px;
+}
+
+/* Article body typography */
+.articleBody h1 {
+  font-family: Charter, Georgia, serif !important;
+  font-size: 36px;
+  line-height: 1.15;
+  color: #2a2218;
+  margin-bottom: 6px;
+}
+@media (min-width: 632px) {
+  .articleBody h1 {
+    font-size: 44px;
+  }
+}
+.articleBody h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 1.5px;
+  background: #c0b8a8;
+  margin-top: 16px;
+}
+
+.articleBody h2,
+.articleBody h3,
+.articleBody h4 {
+  font-family: Charter, Georgia, serif !important;
+  color: #2a2218;
+}
+
+.articleBody p,
+.articleBody li {
+  color: #3a3228;
+  line-height: 1.7;
+}
+
+/* Drop cap on first paragraph */
+.articleBody > p:first-of-type::first-letter {
+  font-size: 3.2em;
+  float: left;
+  line-height: 1;
+  margin-right: 8px;
+  font-family: Charter, Georgia, serif;
+  color: #2a2218;
+  font-weight: bold;
+}
+
+/* Blockquotes — editorial pull-quote style */
+.articleBody blockquote {
+  border-left: 3px solid #c0b8a8;
+  padding-left: 20px;
+  font-style: italic;
+  color: #5a5248;
+  margin: 24px 0;
+}
+
+/* Horizontal rules — ornamental section break */
+.articleBody hr {
+  border: none;
+  text-align: center;
+  margin: 32px 0;
+  height: auto;
+  overflow: visible;
+}
+.articleBody hr::after {
+  content: "* * *";
+  display: block;
+  font-family: Charter, Georgia, serif;
+  font-size: 16px;
+  letter-spacing: 8px;
+  color: #8a8070;
+}
+
+/* Images — subtle shadow and rounding */
+.articleBody img {
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dateline / meta */
+.articleMeta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #9a9080;
+  margin-bottom: 24px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blogContainer {
+    background: #2a2820;
+  }
+  .blogContainer::after {
+    mix-blend-mode: soft-light;
+    opacity: 0.3;
+  }
+  .articleBody h1 {
+    color: #e8e0d0;
+  }
+  .articleBody h1::after {
+    background: #4a4438;
+  }
+  .articleBody h2,
+  .articleBody h3,
+  .articleBody h4 {
+    color: #e8e0d0;
+  }
+  .articleBody p,
+  .articleBody li {
+    color: #c0b8a8;
+  }
+  .articleBody > p:first-of-type::first-letter {
+    color: #e8e0d0;
+  }
+  .articleBody blockquote {
+    border-left-color: #4a4438;
+    color: #8a8278;
+  }
+  .articleBody hr::after {
+    color: #4a4438;
+  }
+  .articleBody img {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  .articleMeta {
+    color: #6a6458;
+  }
+}

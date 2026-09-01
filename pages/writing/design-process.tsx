@@ -1,8 +1,7 @@
-import Image from "next/legacy/image";
-
 import BlogPage from "@core/blog-page";
+import Image from "next/image";
 
-export const meta = {
+export const meta: Meta = {
   published: true,
   publishedAt: "2019-09-07",
   summary: "If I were to be asked to design an app, where would I start?",
@@ -20,18 +19,18 @@ export default function DesignProcess(): React.ReactNode {
       title={meta.title}
       tweetId={meta.tweetId}
     >
-      <header>
-        <h1>{meta.title}</h1>
-      </header>
-
       <Image
         alt="Rubber duck"
         height={540}
         priority
         src="/assets/design-process.jpg"
-        layout="responsive"
+        style={{ width: '100%', height: 'auto' }}
         width={896}
       />
+
+      <header>
+        <h1>{meta.title}</h1>
+      </header>
 
       <p>I was recently asked,</p>
       <blockquote>
