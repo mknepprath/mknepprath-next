@@ -5,7 +5,7 @@
  * uses Claude to detect new themes and assign items.
  * Snapshots full item data into themes.json.
  *
- * Usage: npx ts-node -O '{"module":"commonjs"}' scripts/update-themes.ts
+ * Usage: npx tsx scripts/update-themes.ts
  * Env: ANTHROPIC_API_KEY
  */
 
@@ -16,38 +16,104 @@ const THEMES_FILE = path.join(process.cwd(), "data/themes.json");
 const ACTIVITY_URL =
   "https://mknepprath.com/api/v1/activity?max_results=100&min_rating=0";
 
+const MAX_ATTEMPTS = 5;
+
+// 408/429 and the 5xx family are worth another go; anything else (bad key,
+// exhausted credits, malformed request) will fail the same way every time.
+function isRetryableStatus(status: number): boolean {
+  return status === 408 || status === 429 || status >= 500;
+}
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Runs `attempt` until it succeeds or we run out of tries, backing off
+ * exponentially with jitter. `attempt` signals a retryable failure by
+ * returning a delay in ms (from Retry-After) or null to use the backoff.
+ */
+async function withRetry<T>(
+  label: string,
+  attempt: () => Promise<{ ok: true; value: T } | { ok: false; retryable: boolean; message: string; retryAfterMs: number | null }>,
+): Promise<T> {
+  let lastMessage = "";
+
+  for (let i = 1; i <= MAX_ATTEMPTS; i++) {
+    let outcome;
+    try {
+      outcome = await attempt();
+    } catch (err) {
+      // Network-level failure (DNS, reset, timeout) — always worth retrying.
+      outcome = { ok: false as const, retryable: true, message: String(err), retryAfterMs: null };
+    }
+
+    if (outcome.ok) return outcome.value;
+
+    lastMessage = outcome.message;
+    if (!outcome.retryable) throw new Error(`${label} failed: ${lastMessage}`);
+    if (i === MAX_ATTEMPTS) break;
+
+    const backoff = outcome.retryAfterMs ?? 2 ** (i - 1) * 1000 + Math.floor(Math.random() * 500);
+    console.log(`${label} attempt ${i}/${MAX_ATTEMPTS} failed, retrying in ${backoff}ms — ${lastMessage}`);
+    await sleep(backoff);
+  }
+
+  throw new Error(`${label} failed after ${MAX_ATTEMPTS} attempts: ${lastMessage}`);
+}
+
+function retryAfterMs(res: Response): number | null {
+  const header = res.headers.get("retry-after");
+  if (!header) return null;
+  const seconds = Number(header);
+  return Number.isFinite(seconds) ? seconds * 1000 : null;
+}
+
 async function fetchJSON(url: string): Promise<unknown> {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Fetch failed: ${url} (${res.status})`);
-  return res.json();
+  return withRetry(`Fetch ${url}`, async () => {
+    const res = await fetch(url);
+    if (!res.ok) {
+      return {
+        ok: false as const,
+        retryable: isRetryableStatus(res.status),
+        message: `HTTP ${res.status}`,
+        retryAfterMs: retryAfterMs(res),
+      };
+    }
+    return { ok: true as const, value: (await res.json()) as unknown };
+  });
 }
 
 async function callClaude(system: string, prompt: string): Promise<string> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
 
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 4096,
-      system,
-      messages: [{ role: "user", content: prompt }],
-    }),
+  return withRetry("Claude API", async () => {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify({
+        model: "claude-haiku-4-5-20251001",
+        max_tokens: 4096,
+        system,
+        messages: [{ role: "user", content: prompt }],
+      }),
+    });
+
+    if (!res.ok) {
+      return {
+        ok: false as const,
+        retryable: isRetryableStatus(res.status),
+        message: `HTTP ${res.status}: ${await res.text()}`,
+        retryAfterMs: retryAfterMs(res),
+      };
+    }
+
+    const data = await res.json();
+    return { ok: true as const, value: (data.content?.[0]?.text || "") as string };
   });
-
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Claude API error ${res.status}: ${text}`);
-  }
-
-  const data = await res.json();
-  return data.content?.[0]?.text || "";
 }
 
 interface ActivityItem {
