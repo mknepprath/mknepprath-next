@@ -1319,189 +1319,266 @@
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Trophy cards — PlayStation's trophy-unlocked notification: a dark slab with
-   the tier's metal running through the accent, icon ring and footer.
-   --------------------------------------------------------------------------- */
-.trophyCard {
-  composes: paperNoise;
-  position: relative;
-  overflow: hidden;
+/* ─────────────────────────────────────────────────
+   TROPHY — graded collector slab
+   Medallion sealed in rigid acrylic. Printed grading
+   label up top, recessed well, tamper seal below.
+   Rarity is the grade.
+   ───────────────────────────────────────────────── */
+
+.slab {
   display: block;
-  border-radius: 6px;
-  padding: 14px 18px 12px;
-  background: linear-gradient(160deg, #20293a 0%, #161d2b 100%);
-  border-top: 2px solid var(--trophy-metal);
+  position: relative;
+  border-radius: 10px;
+  padding: 9px 9px 8px;
+  /* The acrylic itself: cool, slightly translucent, brighter at the top edge
+     where the light catches the bevel. */
+  background: linear-gradient(
+    165deg,
+    #fdfdfe 0%,
+    #eef1f5 18%,
+    #e4e9ef 55%,
+    #dde3ea 100%
+  );
   box-shadow:
-    0px 2px 6px rgba(0, 0, 0, 0.18),
-    0px 8px 20px rgba(0, 0, 0, 0.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(120, 135, 150, 0.28),
+    0px 2px 6px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.09);
   transition: box-shadow 0.2s;
 }
-.trophyCard:hover {
+.slab:hover {
   box-shadow:
-    0px 4px 12px rgba(0, 0, 0, 0.24),
-    0px 14px 30px rgba(0, 0, 0, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(120, 135, 150, 0.28),
+    0px 5px 12px rgba(0, 0, 0, 0.15),
+    0px 16px 34px rgba(0, 0, 0, 0.11);
 }
 
-/* Tier metals. Each sets the accent colour the rest of the card reads from. */
-.trophyBronze {
-  --trophy-metal: #cd7f32;
-  --trophy-glow: rgba(205, 127, 50, 0.35);
-}
-.trophySilver {
-  --trophy-metal: #b8c2cc;
-  --trophy-glow: rgba(184, 194, 204, 0.35);
-}
-.trophyGold {
-  --trophy-metal: #e8b923;
-  --trophy-glow: rgba(232, 185, 35, 0.35);
-}
-.trophyPlatinum {
-  --trophy-metal: #7ec8e3;
-  --trophy-glow: rgba(126, 200, 227, 0.4);
-}
-
-/* A single slow sheen across the metal, like the console's unlock animation. */
-.trophyGlint {
+/* Specular sweep across the plastic. */
+.slabSheen {
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   pointer-events: none;
   background: linear-gradient(
-    115deg,
-    transparent 40%,
-    var(--trophy-glow) 50%,
-    transparent 60%
+    118deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0.15) 52%,
+    transparent 66%
   );
-  opacity: 0;
-  transform: translateX(-60%);
-}
-.trophyCard:hover .trophyGlint {
-  animation: trophySweep 0.9s ease-out;
-}
-@keyframes trophySweep {
-  0% {
-    opacity: 0;
-    transform: translateX(-60%);
-  }
-  35% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(60%);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .trophyCard:hover .trophyGlint {
-    animation: none;
-  }
+  opacity: 0.55;
 }
 
-.trophyHeader {
+/* ── Printed grading label, slipped in behind the plastic ── */
+.slabLabel {
+  composes: paperNoise;
+  position: relative;
   display: flex;
+  align-items: stretch;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 10px;
+  background: #fbf8f1;
+  border-radius: 6px 6px 2px 2px;
+  border-bottom: 2px solid var(--slab-metal);
+  padding: 7px 10px 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
-.trophyGame {
+.slabGame {
+  font-family: Consolas, Monaco, monospace;
   font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--trophy-metal);
-  font-family: Consolas, Monaco, monospace;
+  letter-spacing: 1.6px;
+  color: #3d4652;
+  align-self: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.trophyDate {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #7c8798;
-  white-space: nowrap;
-}
-
-.trophyBody {
+/* The grade block — the bit collectors actually look at. */
+.slabGrade {
+  flex: none;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 7px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--slab-metal);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
-
-/* Icon sits in a ring of its own metal, as trophies do on the console. */
-.trophyIconRing {
-  flex: none;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  padding: 3px;
-  background: linear-gradient(145deg, var(--trophy-metal), rgba(0, 0, 0, 0.35));
-  box-shadow: 0 0 12px var(--trophy-glow);
+.slabGradeLabel {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: rgba(20, 24, 30, 0.62);
 }
-.trophyIcon {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
+.slabGradeValue {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  color: #14181e;
 }
-
-.trophyText {
-  min-width: 0;
-}
-.trophyUnlocked {
-  margin: 0 0 2px;
+.slabTier {
+  font-family: Consolas, Monaco, monospace;
   font-size: 9px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #6f7a8b;
-  font-family: Consolas, Monaco, monospace;
+  letter-spacing: 1.4px;
+  color: rgba(20, 24, 30, 0.75);
+  border-left: 1px solid rgba(20, 24, 30, 0.28);
+  padding-left: 7px;
 }
-.trophyName {
+
+/* ── The recessed well the medallion sits in ── */
+.slabWell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 5px;
+  padding: 16px 16px 14px;
+  border-radius: 2px 2px 6px 6px;
+  background: linear-gradient(180deg, #20262f 0%, #171c24 100%);
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Struck medallion, raised rim in the tier's metal. */
+.slabMedallion {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(
+    from 210deg,
+    var(--slab-metal) 0deg,
+    rgba(255, 255, 255, 0.85) 70deg,
+    var(--slab-metal) 150deg,
+    rgba(0, 0, 0, 0.45) 250deg,
+    var(--slab-metal) 360deg
+  );
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+.slabMedallionInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.slabIcon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slabText {
+  min-width: 0;
+}
+.slabTitle {
   margin: 0;
   font-size: 17px;
   line-height: 1.25;
-  color: #f2f5f9;
+  color: #f4f7fa;
 }
-.trophyDetail {
-  margin: 4px 0 0;
+.slabDetail {
+  margin: 5px 0 0;
   font-size: 13px;
   line-height: 1.4;
-  color: #9aa6b6;
+  color: #98a3b3;
 }
 
-.trophyFooter {
+/* ── Tamper seal along the bottom ── */
+.slabSeal {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
-  margin-top: 12px;
-  padding-top: 9px;
-  border-top: 1px solid #2a3444;
-}
-.trophyTier {
-  font-size: 10px;
-  font-weight: bold;
+  margin-top: 4px;
+  padding: 3px 9px;
+  border-radius: 2px 2px 5px 5px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 8px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #10161f;
-  background: var(--trophy-metal);
-  border-radius: 3px;
-  padding: 2px 7px;
-  font-family: Consolas, Monaco, monospace;
+  color: #5d6875;
+  /* Fine diagonal hatching, like a holographic security strip. */
+  background: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.6) 0px,
+      rgba(255, 255, 255, 0.6) 2px,
+      rgba(196, 206, 217, 0.5) 2px,
+      rgba(196, 206, 217, 0.5) 4px
+    ),
+    #dfe5ec;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
 }
-.trophyRarity {
-  font-size: 11px;
-  color: #7c8798;
-  font-family: Consolas, Monaco, monospace;
+.slabSealMark {
+  color: var(--slab-ink);
+  font-weight: bold;
 }
 
-/* The card is dark by design, so light mode only softens the surround. */
-@media (prefers-color-scheme: light) {
-  .trophyCard {
+/* ── Tier metals ── */
+.slabBronze {
+  --slab-metal: #c8813f;
+  --slab-ink: #9a5f27;
+}
+.slabSilver {
+  --slab-metal: #c2cad2;
+  --slab-ink: #737f8c;
+}
+.slabGold {
+  --slab-metal: #e6bb35;
+  --slab-ink: #a37f0d;
+}
+.slabPlatinum {
+  --slab-metal: #96d4e8;
+  --slab-ink: #3f8ba3;
+}
+
+@media (prefers-color-scheme: dark) {
+  .slab {
+    background: linear-gradient(
+      165deg,
+      #4a525d 0%,
+      #39414b 20%,
+      #2c333c 60%,
+      #262c34 100%
+    );
     box-shadow:
-      0px 2px 6px rgba(0, 0, 0, 0.1),
-      0px 8px 20px rgba(0, 0, 0, 0.06);
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+      0px 2px 6px rgba(0, 0, 0, 0.4),
+      0px 10px 24px rgba(0, 0, 0, 0.3);
+  }
+  .slabSheen {
+    opacity: 0.22;
+  }
+  .slabLabel {
+    background: #ece7dc;
+  }
+  .slabSeal {
+    /* The seal is a detail, not a panel — keep it near the shell's value so
+       it recedes behind the printed label. */
+    background: repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.055) 0px,
+        rgba(255, 255, 255, 0.055) 2px,
+        rgba(0, 0, 0, 0.16) 2px,
+        rgba(0, 0, 0, 0.16) 4px
+      ),
+      #333a44;
+    color: #6f7b89;
   }
 }

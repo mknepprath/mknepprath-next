@@ -9,10 +9,10 @@ interface PostProps extends PostListItem {
 }
 
 const TIER_CLASS: Record<string, string> = {
-  bronze: styles.trophyBronze,
-  silver: styles.trophySilver,
-  gold: styles.trophyGold,
-  platinum: styles.trophyPlatinum,
+  bronze: styles.slabBronze,
+  silver: styles.slabSilver,
+  gold: styles.slabGold,
+  platinum: styles.slabPlatinum,
 };
 
 const TrophyPost = ({
@@ -23,13 +23,12 @@ const TrophyPost = ({
   summary,
   title,
 }: PostProps) => {
-  // The feed packs the extras into summary as "detail · Key: value · ...",
+  // The feed packs extras into summary as "detail · Key: value · ...", the
   // same trick the chess cards use. Anything without a "Key:" is the detail.
-  const parts = (summary ?? "").split(" · ");
   const meta: Record<string, string> = {};
   const detail: string[] = [];
 
-  parts.forEach((part) => {
+  (summary ?? "").split(" · ").forEach((part) => {
     const match = part.match(/^(Game|Tier|Rarity): (.*)$/);
     if (match) meta[match[1]] = match[2];
     else if (part.trim()) detail.push(part.trim());
@@ -37,52 +36,55 @@ const TrophyPost = ({
 
   const tier = (meta.Tier ?? "").toLowerCase();
   const rarity = Number(meta.Rarity);
-  const hasRarity = Number.isFinite(rarity);
 
   return (
     <ActivityCard id={id} type="TROPHY" index={index}>
-      <article
-        className={`${styles.trophyCard} ${TIER_CLASS[tier] ?? styles.trophyBronze}`}
-      >
-        <div className={styles.trophyGlint} aria-hidden="true" />
-
-        <header className={styles.trophyHeader}>
-          <span className={styles.trophyGame}>{meta.Game ?? "PlayStation"}</span>
-          <span className={styles.trophyDate}>
-            {format(parseISO(date), "MMM d, yyyy")}
+      <article className={`${styles.slab} ${TIER_CLASS[tier] ?? styles.slabBronze}`}>
+        {/* Printed grading label, read through the plastic. */}
+        <header className={styles.slabLabel}>
+          <span className={styles.slabGame}>{meta.Game ?? "PlayStation"}</span>
+          <span className={styles.slabGrade}>
+            {Number.isFinite(rarity) ? (
+              <>
+                <span className={styles.slabGradeLabel}>Rarity</span>
+                <span className={styles.slabGradeValue}>{rarity}</span>
+              </>
+            ) : null}
+            <span className={styles.slabTier}>{tier || "trophy"}</span>
           </span>
         </header>
 
-        <div className={styles.trophyBody}>
+        {/* Recessed well holding the struck medallion. */}
+        <div className={styles.slabWell}>
           {image ? (
-            <div className={styles.trophyIconRing}>
-              <Image
-                alt={`${tier} trophy icon for ${title}`}
-                className={styles.trophyIcon}
-                height={64}
-                src={image}
-                width={64}
-              />
+            <div className={styles.slabMedallion}>
+              <div className={styles.slabMedallionInner}>
+                <Image
+                  alt={`${tier} trophy medallion for ${title}`}
+                  className={styles.slabIcon}
+                  height={72}
+                  src={image}
+                  width={72}
+                />
+              </div>
             </div>
           ) : null}
 
-          <div className={styles.trophyText}>
-            <p className={styles.trophyUnlocked}>Trophy unlocked</p>
-            <h3 className={styles.trophyName}>{title}</h3>
+          <div className={styles.slabText}>
+            <h3 className={styles.slabTitle}>{title}</h3>
             {detail.length ? (
-              <p className={styles.trophyDetail}>{detail.join(" · ")}</p>
+              <p className={styles.slabDetail}>{detail.join(" · ")}</p>
             ) : null}
           </div>
         </div>
 
-        <footer className={styles.trophyFooter}>
-          <span className={styles.trophyTier}>{tier || "trophy"}</span>
-          {hasRarity ? (
-            <span className={styles.trophyRarity}>
-              {rarity}% of players
-            </span>
-          ) : null}
+        {/* Tamper seal. */}
+        <footer className={styles.slabSeal}>
+          <span className={styles.slabSealMark}>Sealed</span>
+          <span>{format(parseISO(date), "MMM d, yyyy")}</span>
         </footer>
+
+        <div className={styles.slabSheen} aria-hidden="true" />
       </article>
     </ActivityCard>
   );
