@@ -435,7 +435,8 @@ export default async (
           date: trophy.date,
           id: trophy.id,
           image: trophy.image,
-          summary: `${trophy.summary} — ${trophy.game}`,
+          // Extra fields ride along in summary, as the chess cards do.
+          summary: `${trophy.summary} · Game: ${trophy.game} · Tier: ${trophy.type} · Rarity: ${trophy.rarity}`,
           title: trophy.title,
           type: "TROPHY",
         }) as PostListItem,

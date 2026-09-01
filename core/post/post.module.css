@@ -1318,3 +1318,190 @@
     border-color: #1a3a1a;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Trophy cards — PlayStation's trophy-unlocked notification: a dark slab with
+   the tier's metal running through the accent, icon ring and footer.
+   --------------------------------------------------------------------------- */
+.trophyCard {
+  composes: paperNoise;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-radius: 6px;
+  padding: 14px 18px 12px;
+  background: linear-gradient(160deg, #20293a 0%, #161d2b 100%);
+  border-top: 2px solid var(--trophy-metal);
+  box-shadow:
+    0px 2px 6px rgba(0, 0, 0, 0.18),
+    0px 8px 20px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s;
+}
+.trophyCard:hover {
+  box-shadow:
+    0px 4px 12px rgba(0, 0, 0, 0.24),
+    0px 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Tier metals. Each sets the accent colour the rest of the card reads from. */
+.trophyBronze {
+  --trophy-metal: #cd7f32;
+  --trophy-glow: rgba(205, 127, 50, 0.35);
+}
+.trophySilver {
+  --trophy-metal: #b8c2cc;
+  --trophy-glow: rgba(184, 194, 204, 0.35);
+}
+.trophyGold {
+  --trophy-metal: #e8b923;
+  --trophy-glow: rgba(232, 185, 35, 0.35);
+}
+.trophyPlatinum {
+  --trophy-metal: #7ec8e3;
+  --trophy-glow: rgba(126, 200, 227, 0.4);
+}
+
+/* A single slow sheen across the metal, like the console's unlock animation. */
+.trophyGlint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    var(--trophy-glow) 50%,
+    transparent 60%
+  );
+  opacity: 0;
+  transform: translateX(-60%);
+}
+.trophyCard:hover .trophyGlint {
+  animation: trophySweep 0.9s ease-out;
+}
+@keyframes trophySweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-60%);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(60%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trophyCard:hover .trophyGlint {
+    animation: none;
+  }
+}
+
+.trophyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.trophyGame {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--trophy-metal);
+  font-family: Consolas, Monaco, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.trophyDate {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #7c8798;
+  white-space: nowrap;
+}
+
+.trophyBody {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Icon sits in a ring of its own metal, as trophies do on the console. */
+.trophyIconRing {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(145deg, var(--trophy-metal), rgba(0, 0, 0, 0.35));
+  box-shadow: 0 0 12px var(--trophy-glow);
+}
+.trophyIcon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.trophyText {
+  min-width: 0;
+}
+.trophyUnlocked {
+  margin: 0 0 2px;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #6f7a8b;
+  font-family: Consolas, Monaco, monospace;
+}
+.trophyName {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.25;
+  color: #f2f5f9;
+}
+.trophyDetail {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #9aa6b6;
+}
+
+.trophyFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 9px;
+  border-top: 1px solid #2a3444;
+}
+.trophyTier {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #10161f;
+  background: var(--trophy-metal);
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-family: Consolas, Monaco, monospace;
+}
+.trophyRarity {
+  font-size: 11px;
+  color: #7c8798;
+  font-family: Consolas, Monaco, monospace;
+}
+
+/* The card is dark by design, so light mode only softens the surround. */
+@media (prefers-color-scheme: light) {
+  .trophyCard {
+    box-shadow:
+      0px 2px 6px rgba(0, 0, 0, 0.1),
+      0px 8px 20px rgba(0, 0, 0, 0.06);
+  }
+}
