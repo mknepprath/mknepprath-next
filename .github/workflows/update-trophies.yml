@@ -1,0 +1,58 @@
+name: Update Trophies
+
+on:
+  schedule:
+    # Run daily at 6:30 AM UTC (1:30 AM ET), half an hour after Update Themes
+    # so the two jobs never race to push to master.
+    - cron: "30 6 * * *"
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-trophies
+  cancel-in-progress: false
+
+jobs:
+  update-trophies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACTION_GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch PSN trophies
+        env:
+          PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
+        run: npx tsx scripts/update-trophies.ts
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet data/trophies.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate trophies.json
+        if: steps.changes.outputs.changed == 'true'
+        run: node -e "JSON.parse(require('fs').readFileSync('data/trophies.json', 'utf8'))"
+
+      - name: Commit and push to master
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/trophies.json
+          git commit --no-verify -m "Update trophies (automated)"
+          git pull --rebase origin master
+          git push origin master

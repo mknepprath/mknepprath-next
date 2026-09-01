@@ -1,4 +1,5 @@
 import posts from "@data/posts";
+import trophies from "@data/trophies.json";
 import { parseISO } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
 import { setCacheControl } from "@lib/api";
@@ -425,7 +426,22 @@ export default async (
         }) as PostListItem,
     );
 
-    const allPosts = [...externalPosts, ...typedPosts];
+    // Trophies are refreshed on a schedule by scripts/update-trophies.ts, so
+    // they are read straight from the repo rather than fetched per request.
+    const trophyPosts = trophies.map(
+      (trophy) =>
+        ({
+          action: "Earned",
+          date: trophy.date,
+          id: trophy.id,
+          image: trophy.image,
+          summary: `${trophy.summary} — ${trophy.game}`,
+          title: trophy.title,
+          type: "TROPHY",
+        }) as PostListItem,
+    );
+
+    const allPosts = [...externalPosts, ...typedPosts, ...trophyPosts];
 
     // If none of the posts are of type "POST", add one that is.
     if (allPosts.every((post) => post.type !== "POST")) {
