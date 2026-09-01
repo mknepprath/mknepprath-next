@@ -9,8 +9,11 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
+  // Readwise seeds accounts with "supplemental" popular highlights from books
+  // you own — nobody highlighted those, and they have no highlighted_at. Asking
+  // for highlights after the epoch returns only ones actually made by hand.
   const highlightsRes = await fetch(
-    "https://readwise.io/api/v2/highlights/",
+    "https://readwise.io/api/v2/highlights/?highlighted_at__gt=1970-01-01T00:00:00Z&page_size=100",
     { headers: READWISE_HEADERS },
   );
   if (!highlightsRes.ok) {
