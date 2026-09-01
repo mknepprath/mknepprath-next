@@ -8,47 +8,86 @@ interface PostProps extends PostListItem {
   index?: number;
 }
 
+const TIER_CLASS: Record<string, string> = {
+  bronze: styles.slabBronze,
+  silver: styles.slabSilver,
+  gold: styles.slabGold,
+  platinum: styles.slabPlatinum,
+};
+
 const TrophyPost = ({
-  action,
   date,
   id,
   image,
   index = 0,
   summary,
   title,
-  url,
-}: PostProps) => (
-  <ActivityCard id={id} type="TROPHY" index={index}>
-    <article key={id}>
-      <header className={styles.filmPostHeader}>
-        {image ? (
-          <a
-            className={styles.filmPoster}
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              alt={`cover image for ${title}`}
-              className="bordered-image corner-radius-8"
-              height={90}
-              src={image}
-              width={90}
-            />
-          </a>
-        ) : null}
-        <div>
-          <a href={url} target="_blank" rel="noreferrer">
-            <h3 className={styles.filmTitle}>{title}</h3>
-          </a>
-          <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
-          <small>
-            {action} on {format(parseISO(date), "MMMM d, yyyy")}
-          </small>
+}: PostProps) => {
+  // The feed packs extras into summary as "detail · Key: value · ...", the
+  // same trick the chess cards use. Anything without a "Key:" is the detail.
+  const meta: Record<string, string> = {};
+  const detail: string[] = [];
+
+  (summary ?? "").split(" · ").forEach((part) => {
+    const match = part.match(/^(Game|Tier|Rarity): (.*)$/);
+    if (match) meta[match[1]] = match[2];
+    else if (part.trim()) detail.push(part.trim());
+  });
+
+  const tier = (meta.Tier ?? "").toLowerCase();
+  const rarity = Number(meta.Rarity);
+
+  return (
+    <ActivityCard id={id} type="TROPHY" index={index}>
+      <article className={`${styles.slab} ${TIER_CLASS[tier] ?? styles.slabBronze}`}>
+        {/* Printed grading label, read through the plastic. */}
+        <header className={styles.slabLabel}>
+          <span className={styles.slabGame}>{meta.Game ?? "PlayStation"}</span>
+          <span className={styles.slabGrade}>
+            {Number.isFinite(rarity) ? (
+              <>
+                <span className={styles.slabGradeLabel}>Rarity</span>
+                <span className={styles.slabGradeValue}>{rarity}</span>
+              </>
+            ) : null}
+            <span className={styles.slabTier}>{tier || "trophy"}</span>
+          </span>
+        </header>
+
+        {/* Recessed well holding the struck medallion. */}
+        <div className={styles.slabWell}>
+          {image ? (
+            <div className={styles.slabMedallion}>
+              <div className={styles.slabMedallionInner}>
+                <Image
+                  alt={`${tier} trophy medallion for ${title}`}
+                  className={styles.slabIcon}
+                  height={72}
+                  src={image}
+                  width={72}
+                />
+              </div>
+            </div>
+          ) : null}
+
+          <div className={styles.slabText}>
+            <h3 className={styles.slabTitle}>{title}</h3>
+            {detail.length ? (
+              <p className={styles.slabDetail}>{detail.join(" · ")}</p>
+            ) : null}
+          </div>
         </div>
-      </header>
-    </article>
-  </ActivityCard>
-);
+
+        {/* Tamper seal. */}
+        <footer className={styles.slabSeal}>
+          <span className={styles.slabSealMark}>Sealed</span>
+          <span>{format(parseISO(date), "MMM d, yyyy")}</span>
+        </footer>
+
+        <div className={styles.slabSheen} aria-hidden="true" />
+      </article>
+    </ActivityCard>
+  );
+};
 
 export default TrophyPost;

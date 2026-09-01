@@ -1,4 +1,5 @@
 import posts from "@data/posts";
+import trophies from "@data/trophies.json";
 import { parseISO } from "date-fns";
 import { NextApiRequest, NextApiResponse } from "next";
 import { setCacheControl } from "@lib/api";
@@ -52,7 +53,14 @@ const processEndpointData = async (
 ): Promise<PostListItem[]> => {
   try {
     const data = await fetchData(endpoint);
-    return formatFn(data).map((post) => formatPost({ ...post, type }));
+    const formatted = formatFn(data).map((post) => formatPost({ ...post, type }));
+    // A source that fetches fine but formats to nothing is the failure mode
+    // that hides — a shape change upstream drops the whole type with no error.
+    if (!formatted.length) {
+      const received = Array.isArray(data) ? data.length : "non-array";
+      console.warn(`${endpoint} yielded 0 ${type} posts from ${received} records`);
+    }
+    return formatted;
   } catch (error) {
     console.error(`Error processing data from ${endpoint}:`, error);
     return [];
@@ -256,16 +264,31 @@ const formatHighlightData = (
   highlights: Highlight[],
 ): Partial<PostListItem>[] =>
   highlights
-    .filter((highlight) => highlight.highlighted_at && highlight.book)
-    .map((highlight) => ({
-      action: "Highlighted",
-      date: highlight.highlighted_at,
-      id: `h${highlight.id}`,
-      title: highlight.text,
-      summary: `From ${highlight.book.title} by ${highlight.book.author}`,
-      image: highlight.book.cover_image_url,
-      url: highlight.book.source_url.replace(/=$/, ""),
-    }));
+    // Readwise leaves highlighted_at null on plenty of highlights, and book
+    // hydration can come back empty — neither should drop the highlight, since
+    // the text is the content. Requiring both silently emptied this source.
+    .filter((highlight) => highlight.text)
+    .map((highlight) => {
+      const book = highlight.book;
+      return {
+        action: "Highlighted",
+        date: highlight.highlighted_at ?? highlight.created_at ?? highlight.updated,
+        id: `h${highlight.id}`,
+        title: highlight.text,
+        summary: book ? `From ${book.title} by ${book.author}` : undefined,
+        image: book?.cover_image_url,
+        url:
+          book?.source_url?.replace(/=$/, "") ??
+          highlight.readwise_url ??
+          highlight.url ??
+          undefined,
+      };
+    })
+    .filter((post) => Boolean(post.date))
+    // Readwise syncs highlights in bulk, so without highlighted_at they all
+    // share one created_at and would otherwise swamp a day of the feed.
+    .sort((a, b) => +parseISO(b.date as string) - +parseISO(a.date as string))
+    .slice(0, 10);
 
 const formatMusicData = (music: Music[]): Partial<PostListItem>[] => {
   // Group by album ID, counting total streams and unique tracks per album
@@ -425,7 +448,23 @@ export default async (
         }) as PostListItem,
     );
 
-    const allPosts = [...externalPosts, ...typedPosts];
+    // Trophies are refreshed on a schedule by scripts/update-trophies.ts, so
+    // they are read straight from the repo rather than fetched per request.
+    const trophyPosts = trophies.map(
+      (trophy) =>
+        ({
+          action: "Earned",
+          date: trophy.date,
+          id: trophy.id,
+          image: trophy.image,
+          // Extra fields ride along in summary, as the chess cards do.
+          summary: `${trophy.summary} · Game: ${trophy.game} · Tier: ${trophy.type} · Rarity: ${trophy.rarity}`,
+          title: trophy.title,
+          type: "TROPHY",
+        }) as PostListItem,
+    );
+
+    const allPosts = [...externalPosts, ...typedPosts, ...trophyPosts];
 
     // If none of the posts are of type "POST", add one that is.
     if (allPosts.every((post) => post.type !== "POST")) {

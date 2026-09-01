@@ -294,8 +294,10 @@ interface Highlight {
   note: string;
   location: number;
   location_type: string;
-  highlighted_at: string;
-  url: string;
+  highlighted_at: string | null;
+  created_at: string;
+  readwise_url?: string;
+  url: string | null;
   color: string;
   updated: string;
   book_id: number;
@@ -303,7 +305,7 @@ interface Highlight {
     id: number;
     name: string;
   }[];
-  book: HighlightBook;
+  book?: HighlightBook;
 }
 
 interface HighlightBook {

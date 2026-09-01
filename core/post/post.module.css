@@ -1318,3 +1318,279 @@
     border-color: #1a3a1a;
   }
 }
+
+/* ─────────────────────────────────────────────────
+   TROPHY — graded collector slab
+   Medallion sealed in rigid acrylic. Printed grading
+   label up top, recessed well, tamper seal below.
+   Rarity is the grade.
+   ───────────────────────────────────────────────── */
+
+.slab {
+  display: block;
+  position: relative;
+  border-radius: 10px;
+  padding: 9px 9px 8px;
+  /* The acrylic itself: cool, slightly translucent, brighter at the top edge
+     where the light catches the bevel. */
+  background: linear-gradient(
+    165deg,
+    #fdfdfe 0%,
+    #eef1f5 18%,
+    #e4e9ef 55%,
+    #dde3ea 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(120, 135, 150, 0.28),
+    0px 2px 6px rgba(0, 0, 0, 0.12),
+    0px 10px 24px rgba(0, 0, 0, 0.09);
+  transition: box-shadow 0.2s;
+}
+.slab:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(120, 135, 150, 0.28),
+    0px 5px 12px rgba(0, 0, 0, 0.15),
+    0px 16px 34px rgba(0, 0, 0, 0.11);
+}
+
+/* Specular sweep across the plastic. */
+.slabSheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    118deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0.15) 52%,
+    transparent 66%
+  );
+  opacity: 0.55;
+}
+
+/* ── Printed grading label, slipped in behind the plastic ── */
+.slabLabel {
+  composes: paperNoise;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
+  background: #fbf8f1;
+  border-radius: 6px 6px 2px 2px;
+  border-bottom: 2px solid var(--slab-metal);
+  padding: 7px 10px 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.slabGame {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #3d4652;
+  align-self: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* The grade block — the bit collectors actually look at. */
+.slabGrade {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--slab-metal);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+.slabGradeLabel {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: rgba(20, 24, 30, 0.62);
+}
+.slabGradeValue {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  color: #14181e;
+}
+.slabTier {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: rgba(20, 24, 30, 0.75);
+  border-left: 1px solid rgba(20, 24, 30, 0.28);
+  padding-left: 7px;
+}
+
+/* ── The recessed well the medallion sits in ── */
+.slabWell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 5px;
+  padding: 16px 16px 14px;
+  border-radius: 2px 2px 6px 6px;
+  background: linear-gradient(180deg, #f4f7fa 0%, #e7edf3 100%);
+  box-shadow:
+    inset 0 2px 5px rgba(70, 85, 100, 0.22),
+    inset 0 0 0 1px rgba(120, 135, 150, 0.16);
+}
+
+/* Struck medallion, raised rim in the tier's metal. */
+.slabMedallion {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(
+    from 210deg,
+    var(--slab-metal) 0deg,
+    rgba(255, 255, 255, 0.85) 70deg,
+    var(--slab-metal) 150deg,
+    rgba(0, 0, 0, 0.45) 250deg,
+    var(--slab-metal) 360deg
+  );
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+.slabMedallionInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+.slabIcon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slabText {
+  min-width: 0;
+}
+.slabTitle {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.25;
+  color: #1d2530;
+}
+.slabDetail {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #5c6875;
+}
+
+/* ── Tamper seal along the bottom ── */
+.slabSeal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+  padding: 3px 9px;
+  border-radius: 2px 2px 5px 5px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #5d6875;
+  /* Fine diagonal hatching, like a holographic security strip. */
+  background: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.6) 0px,
+      rgba(255, 255, 255, 0.6) 2px,
+      rgba(196, 206, 217, 0.5) 2px,
+      rgba(196, 206, 217, 0.5) 4px
+    ),
+    #dfe5ec;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.slabSealMark {
+  color: var(--slab-ink);
+  font-weight: bold;
+}
+
+/* ── Tier metals ── */
+.slabBronze {
+  --slab-metal: #c8813f;
+  --slab-ink: #9a5f27;
+}
+.slabSilver {
+  --slab-metal: #c2cad2;
+  --slab-ink: #737f8c;
+}
+.slabGold {
+  --slab-metal: #e6bb35;
+  --slab-ink: #a37f0d;
+}
+.slabPlatinum {
+  --slab-metal: #96d4e8;
+  --slab-ink: #3f8ba3;
+}
+
+@media (prefers-color-scheme: dark) {
+  .slab {
+    background: linear-gradient(
+      165deg,
+      #4a525d 0%,
+      #39414b 20%,
+      #2c333c 60%,
+      #262c34 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+      0px 2px 6px rgba(0, 0, 0, 0.4),
+      0px 10px 24px rgba(0, 0, 0, 0.3);
+  }
+  .slabSheen {
+    opacity: 0.22;
+  }
+  .slabLabel {
+    background: #ece7dc;
+  }
+  .slabWell {
+    background: linear-gradient(180deg, #20262f 0%, #171c24 100%);
+    box-shadow:
+      inset 0 2px 5px rgba(0, 0, 0, 0.55),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  .slabTitle {
+    color: #f4f7fa;
+  }
+  .slabDetail {
+    color: #98a3b3;
+  }
+  .slabSeal {
+    /* The seal is a detail, not a panel — keep it near the shell's value so
+       it recedes behind the printed label. */
+    background: repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.055) 0px,
+        rgba(255, 255, 255, 0.055) 2px,
+        rgba(0, 0, 0, 0.16) 2px,
+        rgba(0, 0, 0, 0.16) 4px
+      ),
+      #333a44;
+    color: #6f7b89;
+  }
+}
