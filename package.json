@@ -65,7 +65,7 @@
     "@types/node": "^26.2.0",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@types/react-dom": "^19.2.5",
     "@types/xml2js": "^0.4.14",
     "@typescript-eslint/eslint-plugin": "^8.67.0",
     "@typescript-eslint/parser": "^8.67.0",
