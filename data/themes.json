@@ -1642,6 +1642,16 @@
     "description": "Michael is actively listening to Vince Staples' music across multiple releases and has integrated the artist's work into his media consumption experiences.",
     "items": [
       {
+        "id": "m5159",
+        "type": "MUSIC",
+        "title": "Summertime '06",
+        "date": "2026-09-01T21:34:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f5/ec/db/f5ecdb60-effd-0965-75af-d59ae71d97ca/15UMGIM30084.rgb.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/5159",
+        "summary": "Vince Staples, Snoh Aalegra",
+        "action": "Listened to"
+      },
+      {
         "id": "bot116833791389081934",
         "type": "ROBOT",
         "title": "vince staples album is real good. not sure why i waited this long to listen to it",
@@ -1683,7 +1693,7 @@
       }
     ],
     "createdAt": "2026-06-25T07:10:18.393Z",
-    "updatedAt": "2026-06-30T07:16:40.764Z"
+    "updatedAt": "2026-09-02T10:20:21.282Z"
   },
   "hitchcock-films": {
     "title": "Hitchcock Films",
