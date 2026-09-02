@@ -70,7 +70,7 @@
     "@typescript-eslint/eslint-plugin": "^8.67.0",
     "@typescript-eslint/parser": "^8.67.0",
     "colors": "^1.4.0",
-    "cypress": "^15.21.0",
+    "cypress": "^15.21.1",
     "diff": "^9.0.0",
     "eslint": "^10.9.0",
     "eslint-config-next": "^16.3.2",
