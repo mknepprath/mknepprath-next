@@ -559,6 +559,66 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru20007249434",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-09-02T08:57:27.000Z",
+        "image": "w~a|FxutpNCr@B~BKdB@\\Fn@Ab@D`@EpD@lDCbBDbDErDBVJHBFO`A@bCIz@Jn@@T?fGAbABhBAfC@bNX?DD?@IGKAG@EDBpBSn@@JLP@HA~NBhC",
+        "url": "https://www.strava.com/activities/20007249434",
+        "summary": "Distance: 1.86 mi, Time: 35 min, Elevation: 7 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20007248435",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-09-02T08:31:55.000Z",
+        "image": "q~a|FjcxpNCaE?{KAqABaAE{@DkC?gHCwI@}GCq@K_AHgACcFDq@@cAEgABeBEwK?gJ",
+        "url": "https://www.strava.com/activities/20007248435",
+        "summary": "Distance: 1.75 mi, Time: 20 min, Elevation: 75 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19991444528",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-09-01T08:29:28.000Z",
+        "image": "s~a|FpcxpNFw@@s@OeDJyFAyBE[Bc@@w@GgBD_DAk@DiAGyA@{BCi@@cAC{@By@AoBD}@GqBDw@M{@?MFa@@g@GwBBcEC_@Aq@BsAEsAByBAcADaBAgABUCaC?{BD_CEgBHuBHO@CACJMTQBI?Im@gAGa@Ta@FYFKL]@UNMH]EIFk@Cg@BgAIKSCI?q@xZDTBp@AdABzAA|@BVG~D?tBDlBCdAF|BGzFBD?j@Gr@Jz@@hA?|BCfA@|@Af@B`BCjCBjCAvACf@DfDAbADj@G`B?bABpBAlEDzE?z@",
+        "url": "https://www.strava.com/activities/19991444528",
+        "summary": "Distance: 3.6 mi, Time: 71 min, Elevation: 94 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru19967678673",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-08-30T12:48:48.000Z",
+        "image": "{nc|FhuypNe@AyADiCCu@@oAAkAFo@EeGDs@AcB?i@AiEBa@CGDEIT{C?{@Hc@JgAFkAVuDTaBb@sBVy@t@mBp@wA|A{DTa@b@kBDg@RqA?mADCHe@L{CDkCAeCD{AEcAAoEB}BC{CDkBEsB?qAF_BCaA@uICo@Bq@C[AwD@QBkFAwDNyBASCB@a@M}@CeD?oF@_AAqABcACyCLsARy@rAyCTe@h@w@?{@BSA_@B{@Mq@Am@Ie@YcAI{@A}EDoEEkCBwMCgDB}B?_AG}A@_@C[Ck@D}BAeBB}GEqAB}DCu^@k@FQCMDA@HFFLBDABCC_@HKv@?V@LCnBBbD?xACR@lBIzAOLCVMPRGf@CbEBr@Cr@@n@ErABdBAf@Bj@Cx@BnBCf@@`BEdBB`DEt@@xH?x@CTD|AAjDC`@DXAnBEf@@TBlCEnA?zGCjBBxCCjB@^AVBt@CpA@pDEbC?`DC`@LFf@Fv@\\jA@lAF|B@n@Gp@FvBD`CGn@@B@@H?x@t@HxBKjAKtBFfAANHBHE@CAp@M`AF^EjADdAEj@FT?p@MvAC`A?f@EHDDXAdA?d@ANKFo@?KBG\\KVc@r@OFc@h@u@nA]`@MTIR?b@OZOl@?JJTOZGb@@bEDlBAvDCv@BnCCtABfFCrCFhCC~@@^AHEK?D?v@I~@B~@?xBHvBCZ?vAJ|BEjBCfDB~BAbCFhCETEfA?~@EbCBjFAj@@`CAfB@pACtBBp@C`BB`PArB@d@ClGDxBDf@C`AEd@BhFC~DMpDSdBGb@Gp@Or@Od@m@bC{@zCSf@wAjC{AzBQLGAK]oA{BSg@m@{@EEE?k@l@WBc@T]b@gBtBy@lAw@t@i@l@}BtCMJG?IKKm@",
+        "url": "https://www.strava.com/activities/19967678673",
+        "summary": "Distance: 8.02 mi, Time: 100 min, Elevation: 262 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru19938192239",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-08-28T09:07:06.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/19938192239",
+        "summary": "Distance: 1.64 mi, Time: 32 min, Elevation: 39 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru19926134896",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-08-27T10:11:13.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/19926134896",
+        "summary": "Distance: 1.23 mi, Time: 26 min, Elevation: 38 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru19909510002",
         "type": "RUN",
         "title": "Morning Run",
@@ -1180,7 +1240,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-08-27T09:02:57.628Z"
+    "updatedAt": "2026-09-03T10:29:59.947Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -1642,6 +1702,16 @@
     "description": "Michael is actively listening to Vince Staples' music across multiple releases and has integrated the artist's work into his media consumption experiences.",
     "items": [
       {
+        "id": "m1334016",
+        "type": "MUSIC",
+        "title": "Norf Norf",
+        "date": "2026-09-02T14:15:00.000Z",
+        "image": "https://i.scdn.co/image/ab67616d0000b27305cfc2356552e8cebacde4a2",
+        "url": "https://stats.fm/album/1334016",
+        "summary": "Vince Staples",
+        "action": "Listened to"
+      },
+      {
         "id": "m5159",
         "type": "MUSIC",
         "title": "Summertime '06",
@@ -1693,7 +1763,7 @@
       }
     ],
     "createdAt": "2026-06-25T07:10:18.393Z",
-    "updatedAt": "2026-09-02T10:20:21.282Z"
+    "updatedAt": "2026-09-03T10:29:59.947Z"
   },
   "hitchcock-films": {
     "title": "Hitchcock Films",
