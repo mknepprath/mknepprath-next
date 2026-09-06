@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { useTransition, animated } from "react-spring";
 
 import { AppProps } from "next/app";
@@ -64,6 +65,7 @@ export default function MyApp({
         ))}
       </div>
       <Analytics />
+      <SpeedInsights />
     </main>
   );
 }

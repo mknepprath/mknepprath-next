@@ -36,6 +36,7 @@
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "classnames": "^2.5.1",
     "date-fns": "^4.4.0",
     "html-to-text": "^10.0.1",
@@ -80,8 +81,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.11.0",
     "pre-commit": "^2.0.0",
-    "psn-api": "^2.18.1",
     "prettier": "^3.9.6",
+    "psn-api": "^2.18.1",
     "socket.io": "^4.8.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.23.13",
