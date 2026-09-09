@@ -559,6 +559,26 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru20066269054",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-09-06T13:18:58.000Z",
+        "image": "}nc|FnuypNgCMy@ByA?_BHe@CWB@@a@?}@EaABqBCiAB}CA_A@kEAiADg@CgABi@A_@D_@Eu@@[AkB?OG]a@ICYCo@@wARg@AGEEIIeEKiAMy@MqBMu@AUBc@b@gD^kDX_BL_BBsCIcAAeBScAMqAAu@Di@Rw@f@}@^y@La@Ji@Bu@?iAJmCP[@KCMOi@@c@Ou@Am@Ic@?}@NqALu@@MEa@@YTcAFa@h@eBAm@NcADk@HUDUCaCOyCWsCYqAOgAIkCHqC\\}BFqCAe@CSBg@Mo@QaD?aABwB?m@Iy@S{@[q@]k@wCgEGM_@c@MUcAwAO[}AwBe@u@@IN[Ze@Jk@E_A@k@E]a@i@U_@QAMIIOAQ?q@Am@BqCA_DBgECuDDgAEmABmF?{FBi@FGL]TQtB?ZC~BBbAChE?P@RHLCZ?TGhD?`@BpCCTBz@AXB|@C`C?\\@FH@RFXAT{AdBg@^}@^ILENBhFEfABbCAxBB|BEhABxF@`@Lz@Vr@@x@Fl@Vf@x@hAHRF~ALf@I`ANPFXBDLFR?DDtAtCNb@Jd@HdA@t@?vE@zBAbBDhACpC?hBEz@@JB@C@?j@BhFAzD@dEAj@Bp@C`A@tCA~@@`FCf@AbBFb@?rACjB?jBDzAC~@B`JEj@?tBBrEWbEOrAUlART^HHJYrAg@`A}@dC_@p@i@rAW`@Uj@i@vBIf@Mh@QtA_@hFU|DEzABJt@G|@H`@Af@DrBAb@B~AGtB@TBpCENET@XEv@m@h@[r@Uv@On@CpAMTB`@RVTT^",
+        "url": "https://www.strava.com/activities/20066269054",
+        "summary": "Distance: 6.87 mi, Time: 117 min, Elevation: 247 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20020533382",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-09-03T08:46:58.000Z",
+        "image": "q~a|FrcxpN?oHC_DByBAkACWD{@As@AIQ]Pa@BQCcB@aCCoE@_CB]Ey@BqCAgA@kDM_AD}ABqJCoCByEAsC@wA?g@GjAAnC@|FJvDGT?TDj@BhBCxDElAHj@B^EvADbAIlBJdDO|BB|EClA@bD@lADdAG^Bd@@nDAdA@d@CzEBzACl@?V",
+        "url": "https://www.strava.com/activities/20020533382",
+        "summary": "Distance: 3.11 mi, Time: 41 min, Elevation: 73 ft",
+        "action": "Ran"
+      },
+      {
         "id": "ru20007249434",
         "type": "RUN",
         "title": "Morning Walk",
@@ -1240,7 +1260,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-09-03T10:29:59.947Z"
+    "updatedAt": "2026-09-09T10:32:48.235Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
