@@ -559,6 +559,46 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru20159460578",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-09-13T09:56:09.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20159460578",
+        "summary": "Distance: 1.55 mi, Time: 38 min, Elevation: 0 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20159460726",
+        "type": "RUN",
+        "title": "Shaker Lakes Hike & Run 10K",
+        "date": "2026-09-13T08:29:59.000Z",
+        "image": "ale|Fze{pNXc@^u@VW\\OLCh@Ap@Hd@?h@MlAs@v@]JA`@?LFDH?Lu@|JMzBEb@EHQFiB?sBLk@Ly@VsAp@eBfBi@z@u@xAaAnC[tAMx@UhCe@dBYp@gB|Cw@z@_Az@a@Zg@Zq@l@W\\s@lAYZe@\\c@R]F]Hy@FQ@gAKy@Oo@SMKOe@@KHc@T_@Xo@l@mBb@aAVq@v@kB|@gBn@eB~AwDn@sAfByEdAaCPWx@sB^q@L[PQLuAFQj@aDf@uAdA_CL_@d@uBNiABo@WwDAg@LQJa@@QY}BBcAJ]Dc@Pw@Ea@?_@NeARw@bAiCv@}DHu@?k@CgAWwD?cFDg@TkBLs@V{BZoB?c@Fe@@kAG_DSaBSiD?s@Ji@rAkBXw@Jq@Dg@@y@Cq@DaBL]JMRGX?HBZTV\\DP`@fDR~CALKd@[tBG~@?~ALh@H@DGAIMQAO?u@FaATwCPaANo@N[NSJK^QfAOr@@\\Ah@OPOP_@BMHqBb@eEVoAHQ@LG`AUz@KdAMpBEhBEXCbA@l@Gp@JbA?z@HlADrCQ|CIj@UjAo@`CYn@OXK^OXM\\sBrCUh@Wv@a@lCKxGIdBQnAa@~B]j@aAzBYx@o@pCSnBC~@DfAb@tBb@hCC`BW`CAb@EXA`@R|ARn@LPVXT@ZJR@|@KjBcAl@QLAR?JDBH@REz@K`AEx@YhDQ~CE^EFI@QC[@gACkAFeALo@N}@b@m@\\i@d@cAnAc@r@_@~@q@rAM`@s@bDGd@Er@YrB[bAm@rAs@lAg@r@YTgApAaCnBw@bAUf@URi@ZeAb@i@J_@Bc@?w@OYA_Bc@KIKWAWFO^u@x@wBXg@La@d@eAL_@p@aBRa@XcAtDiIj@}A`AsBp@kBXa@Ts@Zo@L]LSh@}ANQlAgB\\[b@Sv@Q`@G",
+        "url": "https://www.strava.com/activities/20159460726",
+        "summary": "Distance: 6.2 mi, Time: 58 min, Elevation: 171 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20117588836",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-09-10T09:49:58.000Z",
+        "image": "a}a|FdptpN@ISa@GiCHMPg@NO@CBi@G_A?]COF@HF?LCFr@zAFKMGHVq@^EH?PQt@W^M^CT@LHTLTHR[^Yn@G\\@TClEBn@CxJDrECxAFfAGn@?dA@LFNBVCvBEr@AbA@tAEdALz@E`A@tBCnBBzC?rPCdAD~AErAHzCCl@FX?\\CxAArB?v@FjAAdA",
+        "url": "https://www.strava.com/activities/20117588836",
+        "summary": "Distance: 2.13 mi, Time: 43 min, Elevation: 27 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20117590005",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-09-10T09:31:41.000Z",
+        "image": "o~a|FlcxpN@y@Ae@@k@AcD@a@AcHA[AGCAHkBEa@AcGBqB?yC@i@CaCBgDAqEAm@Km@A_@EO@GHO@ICsBBkD?{I",
+        "url": "https://www.strava.com/activities/20117590005",
+        "summary": "Distance: 1.59 mi, Time: 17 min, Elevation: 73 ft",
+        "action": "Ran"
+      },
+      {
         "id": "ru20066269054",
         "type": "RUN",
         "title": "Afternoon Run",
@@ -1260,7 +1300,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-09-09T10:32:48.235Z"
+    "updatedAt": "2026-09-14T11:24:25.984Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -1514,6 +1554,16 @@
     "description": "Michael is fascinated by filmmakers' artistic choices and directorial approach, exploring how personal vision shapes film and the tension between creative integrity and commercial adaptation.",
     "items": [
       {
+        "id": "flletterboxd-review-1493736156",
+        "type": "FILM",
+        "title": "Mayday",
+        "date": "2026-09-13T00:22:43.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/0/2/5/2/0/3/1025203-mayday-2026-0-600-0-900-crop.jpg?v=d05a68f0b6",
+        "url": "https://letterboxd.com/mknepprath/film/mayday-2026/",
+        "summary": " <p>Hopefully this does well enough to keep my boys out of director jail so they can return to their passion: franchise filmmaking, specifically Dungeon &amp; Dragons II.</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "flletterboxd-review-1383381707",
         "type": "FILM",
         "title": "Pee-wee's Big Holiday",
@@ -1615,7 +1665,7 @@
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-07-11T07:44:08.541Z"
+    "updatedAt": "2026-09-14T11:24:25.984Z"
   },
   "ambient-and-experimental-music": {
     "title": "Ambient and Experimental Music",
