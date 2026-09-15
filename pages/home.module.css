@@ -1,0 +1,215 @@
+.nav {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width: 632px) {
+  .nav {
+    padding-left: var(--mainPadding);
+    padding-right: var(--mainPadding);
+  }
+}
+
+/* ─── Grid shell ──────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  padding: 12px 16px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (min-width: 632px) {
+  .grid {
+    padding: 16px 24px 80px;
+    gap: 14px;
+  }
+}
+
+/* ─── Pinned cards ────────────────────────────────── */
+
+.pinnedCard {
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Identity */
+.identityCard {
+  background: linear-gradient(145deg, #0d1b2a 0%, #1b2838 40%, #0f3460 100%);
+  color: #fff;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.identityCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 80% 20%,
+    rgba(98, 191, 155, 0.25) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.identityName {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.identityBio {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 20px;
+}
+
+.identityLink {
+  display: inline-block;
+  color: var(--primaryColor);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.identityLink:hover {
+  color: var(--hoverColor);
+}
+
+/* Links */
+.linksCard {
+  background: var(--grey);
+  gap: 0;
+}
+
+.linksLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0.4;
+  margin-bottom: 14px;
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.linkItem::after {
+  content: "→";
+  opacity: 0.3;
+  font-size: 0.8rem;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.linkItem:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--primaryColor);
+}
+.linkItem:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .linkItem:hover {
+    background: rgba(255, 255, 255, 0.07);
+  }
+}
+
+/* ─── Photography strip ───────────────────────────── */
+
+.photoStrip {
+  grid-column: 1 / -1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+}
+
+.photoStripHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 10px;
+  background: #111;
+}
+
+.photoStripLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.photoStripLink {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.photoStripLink:hover {
+  color: #fff;
+}
+
+.photoMosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 140px);
+  gap: 3px;
+}
+
+@media (min-width: 500px) {
+  .photoMosaic {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 220px;
+  }
+}
+
+.photoCell {
+  display: block;
+  overflow: hidden;
+  background: #222;
+}
+
+.photoCell:hover img {
+  transform: scale(1.04);
+  transition: transform 0.4s ease;
+}
+
+.photoCell img {
+  transition: transform 0.4s ease;
+}
+
+/* On mobile, show 3×3. On wider screens, show 9×1 strip */
+@media (min-width: 500px) {
+  .photoMosaic {
+    grid-template-rows: 220px;
+  }
+}
