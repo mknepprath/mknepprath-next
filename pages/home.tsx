@@ -31,9 +31,6 @@ const LINKS = [
   { label: "Films", href: "/films" },
   { label: "About", href: "/about" },
   { label: "GitHub", href: "https://github.com/mknepprath" },
-  { label: "Bluesky", href: "https://bsky.app/profile/mknepprath.com" },
-  { label: "Mastodon", href: "https://mastodon.social/@mknepprath" },
-  { label: "Letterboxd", href: "https://letterboxd.com/mknepprath" },
 ];
 
 type CSSVars = React.CSSProperties & Record<`--${string}`, string | number>;
