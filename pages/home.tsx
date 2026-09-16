@@ -210,111 +210,97 @@ function useHatch() {
 function useFoldIn(active: boolean, rects: React.RefObject<Rects>, done: () => void) {
   useLayoutEffect(() => {
     if (!active) return;
+
     const from = rects.current || {};
-    const anchors = Array.from(document.querySelectorAll<HTMLElement>("[data-anchor]"));
-    const cleanups: (() => void)[] = [];
-
-    anchors.forEach((el) => {
-      const first = from[el.dataset.anchor || ""];
-      if (!first) return;
-      const last = el.getBoundingClientRect();
-      if (!last.width || !last.height) return;
-
-      const dx = first.left - last.left;
-      const dy = first.top - last.top;
-      const sx = first.width / last.width;
-      const sy = first.height / last.height;
-
-      el.style.transformOrigin = "top left";
-      el.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
-      el.style.opacity = "1";
-      el.style.transition = "none";
-
-      // The miniature is bare colour, so hide the contents until it lands.
-      const kids = Array.from(el.children) as HTMLElement[];
-      kids.forEach((kid) => {
-        if (kid.tagName === "DIV" && kid.querySelector("img")) return;
-        kid.style.opacity = "0";
-      });
-
-      cleanups.push(() => {
-        el.style.transform = "";
-        el.style.transition = "";
-        el.style.transformOrigin = "";
-        el.style.opacity = "";
-        kids.forEach((kid) => {
-          kid.style.opacity = "";
-          kid.style.transition = "";
-        });
-      });
-    });
-
-    /*
-     * The rest of the grid is laid out as one scaled-down copy pinned to the
-     * miniature, so opening expands a single object instead of flying a few
-     * blocks past neighbours that are already parked in place.
-     */
     const identity = document.querySelector<HTMLElement>('[data-anchor="identity"]');
-    const others: { cell: HTMLElement; delay: number }[] = [];
+    const cells = Array.from(document.querySelectorAll<HTMLElement>(`.${styles.cell}`));
+    const reveal = () => cells.forEach((cell) => cell.classList.add(styles.in));
 
-    if (identity && from.identity) {
-      const idLast = identity.getBoundingClientRect();
-      const scale = from.identity.width / idLast.width;
-      const reach = Math.hypot(window.innerWidth, window.innerHeight);
-
-      document
-        .querySelectorAll<HTMLElement>(`.${styles.cell}:not([data-anchor])`)
-        .forEach((cell) => {
-          const r = cell.getBoundingClientRect();
-          if (r.top > window.innerHeight * 1.1 || r.bottom < 0) return;
-
-          const startX = from.identity.left + (r.left - idLast.left) * scale;
-          const startY = from.identity.top + (r.top - idLast.top) * scale;
-          const dist = Math.hypot(r.left - idLast.left, r.top - idLast.top);
-
-          cell.style.transformOrigin = "top left";
-          cell.style.transform = `translate(${startX - r.left}px, ${startY - r.top}px) scale(${scale})`;
-          cell.style.opacity = "0";
-          cell.style.transition = "none";
-
-          others.push({ cell, delay: Math.round(Math.min(dist / reach, 1) * 200) });
-          cleanups.push(() => {
-            cell.style.transform = "";
-            cell.style.transition = "";
-            cell.style.transformOrigin = "";
-            cell.style.opacity = "";
-            cell.classList.add(styles.in);
-          });
-        });
+    // Without a measured miniature there is nothing to grow from.
+    if (!identity || !from.identity) {
+      reveal();
+      done();
+      return;
     }
 
-    const raf = requestAnimationFrame(() => {
-      anchors.forEach((el) => {
-        if (!from[el.dataset.anchor || ""]) return;
-        el.style.transition = `transform ${FLIGHT_MS}ms ${EASE}`;
-        el.style.transform = "none";
-        // Contents arrive while the block is still travelling, not after it.
-        (Array.from(el.children) as HTMLElement[]).forEach((kid) => {
-          kid.style.transition = `opacity 300ms ease ${Math.round(FLIGHT_MS * 0.42)}ms`;
-          kid.style.opacity = "1";
-        });
-      });
+    const idLast = identity.getBoundingClientRect();
+    if (!idLast.width) {
+      reveal();
+      done();
+      return;
+    }
 
-      others.forEach(({ cell, delay }) => {
-        cell.style.transition = `transform ${FLIGHT_MS}ms ${EASE}, opacity 320ms ease ${delay}ms`;
-        cell.style.transform = "none";
-        cell.style.opacity = "1";
-      });
+    /*
+     * The grid starts as one scaled-down copy pinned to the miniature and
+     * expands to full size, so everything moves together. The four blocks the
+     * miniature actually showed get their own exact start rect; the rest are
+     * placed by the same transform, which is what makes it read as one object.
+     *
+     * Driven by the Web Animations API rather than inline styles: a two-step
+     * style flip depends on a reflow landing between the frames, and when it
+     * does not the tiles simply appear without moving.
+     */
+    const scale = from.identity.width / idLast.width;
+    const animations: Animation[] = [];
+    const inView = (r: DOMRect) => r.top < window.innerHeight * 1.15 && r.bottom > -40;
+
+    cells.forEach((cell) => {
+      const r = cell.getBoundingClientRect();
+      if (!r.width || !inView(r)) return;
+
+      const anchor = cell.dataset.anchor ? from[cell.dataset.anchor] : undefined;
+      const startX = anchor ? anchor.left : from.identity.left + (r.left - idLast.left) * scale;
+      const startY = anchor ? anchor.top : from.identity.top + (r.top - idLast.top) * scale;
+      const sx = anchor ? anchor.width / r.width : scale;
+      const sy = anchor ? anchor.height / r.height : scale;
+
+      cell.style.transformOrigin = "top left";
+      animations.push(
+        cell.animate(
+          [
+            {
+              transform: `translate(${startX - r.left}px, ${startY - r.top}px) scale(${sx}, ${sy})`,
+              opacity: anchor ? 1 : 0,
+            },
+            { opacity: 1, offset: anchor ? 0 : 0.42 },
+            { transform: "none", opacity: 1 },
+          ],
+          { duration: FLIGHT_MS, easing: EASE, fill: "both" },
+        ),
+      );
+
+      // A block in the miniature was bare colour, so its contents arrive as it
+      // lands rather than riding along stretched.
+      if (anchor) {
+        Array.from(cell.children).forEach((kid) => {
+          animations.push(
+            (kid as HTMLElement).animate([{ opacity: 0 }, { opacity: 0, offset: 0.4 }, { opacity: 1 }], {
+              duration: FLIGHT_MS,
+              easing: "ease",
+              fill: "both",
+            }),
+          );
+        });
+      }
     });
 
-    const timer = setTimeout(() => {
-      cleanups.forEach((fn) => fn());
-      done();
-    }, FLIGHT_MS + 80);
+    reveal();
 
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      animations.forEach((animation) => animation.cancel());
+      cells.forEach((cell) => {
+        cell.style.transformOrigin = "";
+      });
+      done();
+    };
+
+    const timer = setTimeout(finish, FLIGHT_MS + 60);
     return () => {
-      cancelAnimationFrame(raf);
       clearTimeout(timer);
+      finish();
     };
   }, [active, rects, done]);
 }
