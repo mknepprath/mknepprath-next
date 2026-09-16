@@ -796,3 +796,208 @@ a.shot:hover .meta {
   padding-bottom: 0.18em;
   margin-bottom: -0.18em;
 }
+
+/* ─── Landing (the front door) ───────────────────── */
+
+.landing {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 5vw, 64px);
+  background: var(--ink);
+  transition: opacity 0.35s ease, filter 0.4s ease;
+}
+
+/*
+ * Opening runs in two beats: the text drops away, then the hatch expands to
+ * fill the screen before the whole panel clears to reveal the grid beneath.
+ */
+.landingOut {
+  pointer-events: none;
+  animation: foldAway 0.56s forwards;
+}
+
+.landingOut .landingText {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.18s ease, transform 0.28s ease;
+}
+
+.landingOut .hatchLabel {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+@keyframes foldAway {
+  0%,
+  62% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.landingInner {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 6vw, 88px);
+  width: 100%;
+  max-width: 1040px;
+}
+
+.landingText {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.landingMeta {
+  color: var(--lime);
+  margin-bottom: 22px;
+}
+
+.landingName {
+  margin: 0;
+  padding-bottom: 0.2em;
+  font-size: clamp(44px, 7.5vw, 104px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.84;
+}
+
+.landingBio {
+  max-width: 34ch;
+  margin: 0 0 28px;
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.45;
+  opacity: 0.72;
+}
+
+.landingLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+}
+
+.landingLinks a {
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(242 239 232 / 0.25);
+  padding-bottom: 3px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.landingLinks a:hover {
+  color: var(--lime);
+  border-color: var(--lime);
+}
+
+/* The hatch: a miniature of the grid that expands into the real thing. */
+.hatch {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.1, 1);
+  transform-origin: center;
+}
+
+.hatchOut {
+  /* Accelerating outward reads like a hatch being pushed open. */
+  transform: scale(9);
+  transition: transform 0.56s cubic-bezier(0.55, 0, 0.9, 0.35);
+}
+
+.hatchMosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 3px;
+  width: clamp(210px, 27vw, 310px);
+  aspect-ratio: 1;
+  background: var(--ink);
+}
+
+.hatchMosaic > span {
+  position: relative;
+  overflow: hidden;
+}
+
+.m2x2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.m1x2 {
+  grid-row: span 2;
+}
+.m2x1 {
+  grid-column: span 2;
+}
+
+.hatchLabel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hatchLabel .mono {
+  color: var(--lime);
+}
+
+.hatchCta {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+.hatch:hover .hatchCta {
+  color: var(--lime);
+}
+
+.hatch:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 6px;
+}
+
+/* Close control, shown once the grid is open. */
+.close {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+  padding: 9px 13px;
+  border: none;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.close:hover {
+  background: var(--lime);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing,
+  .hatch,
+  .hatchMosaic {
+    transition: none;
+  }
+}

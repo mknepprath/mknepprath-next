@@ -5,7 +5,7 @@ import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useSWR from "swr";
 
 import styles from "./home.module.css";
@@ -126,6 +126,151 @@ function useReveal(count: number) {
     });
     return () => observer.disconnect();
   }, [count]);
+}
+
+const OPEN_HASH = "#grid";
+const FOLD_MS = 560;
+
+/**
+ * The landing sits in front of the grid until the hatch is opened. The state
+ * lives in the URL hash so the grid is linkable and the back button closes it.
+ */
+function useHatch() {
+  const [open, setOpen] = useState(false);
+  const [opening, setOpening] = useState(false);
+
+  useEffect(() => {
+    const sync = () => setOpen(window.location.hash === OPEN_HASH);
+    sync();
+    window.addEventListener("popstate", sync);
+    window.addEventListener("hashchange", sync);
+    return () => {
+      window.removeEventListener("popstate", sync);
+      window.removeEventListener("hashchange", sync);
+    };
+  }, []);
+
+  const openGrid = useCallback(() => {
+    const instant = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", OPEN_HASH);
+    if (instant) {
+      setOpen(true);
+      return;
+    }
+    // Let the hatch finish expanding before the grid takes over.
+    setOpening(true);
+    setOpen(true);
+    setTimeout(() => setOpening(false), FOLD_MS);
+  }, []);
+
+  const close = useCallback(() => {
+    history.pushState(null, "", window.location.pathname);
+    setOpen(false);
+    setOpening(false);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, close]);
+
+  return { close, open, opening, openGrid };
+}
+
+// A 4x4 miniature of the real grid: identity block, index, a photo, then the
+// colour blocks the feed is made of.
+const HATCH_CELLS: { bg?: string; photo?: 0 | 1; span?: string }[] = [
+  { bg: "var(--lime)", span: "m2x2" },
+  { bg: "var(--paper)", span: "m1x2" },
+  { photo: 0, span: "m1x2" },
+  { photo: 1, span: "m2x1" },
+  { bg: "var(--tomato)" },
+  { bg: "var(--blue)" },
+  { bg: "var(--yellow)" },
+  { bg: "var(--violet)" },
+  { bg: "var(--sky)" },
+  { bg: "var(--mint)" },
+];
+
+function Landing({
+  latest,
+  onOpen,
+  opening,
+  photos,
+}: {
+  latest?: PostListItem;
+  onOpen: () => void;
+  opening: boolean;
+  photos: Toot[];
+}) {
+  return (
+    <div className={cx(styles.landing, opening && styles.landingOut)}>
+      <div className={styles.landingInner}>
+        <div className={styles.landingText}>
+          <div className={cx(styles.meta, styles.landingMeta)}>
+            <span>mknepprath.com</span>
+          </div>
+          <h1 className={styles.landingName}>
+            Michael
+            <br />
+            Knepprath
+          </h1>
+          <p className={styles.landingBio}>
+            Staff Software Engineer at Walmart. I make games, apps, and tools,
+            and write about design, film, and video games.
+          </p>
+          <div className={styles.landingLinks}>
+            <Link href="/writing">Writing</Link>
+            <Link href="/photography">Photography</Link>
+            <a href="https://github.com/mknepprath" rel="noopener noreferrer" target="_blank">
+              GitHub
+            </a>
+            <a href="mailto:mknepprath@gmail.com">Email</a>
+          </div>
+        </div>
+
+        <button
+          aria-label="Open the activity grid"
+          className={cx(styles.hatch, opening && styles.hatchOut)}
+          onClick={onOpen}
+          type="button"
+        >
+          <span className={styles.hatchMosaic} aria-hidden>
+            {HATCH_CELLS.map((cell, n) => {
+              const photo = cell.photo !== undefined ? photos[cell.photo] : undefined;
+              return (
+                <span
+                  className={cell.span ? styles[cell.span] : undefined}
+                  key={n}
+                  style={{ background: cell.bg || "var(--ink2)" }}
+                >
+                  {photo ? (
+                    <Image
+                      alt=""
+                      fill
+                      sizes="160px"
+                      src={photo.media_attachments[0].url}
+                      style={{ objectFit: "cover" }}
+                    />
+                  ) : null}
+                </span>
+              );
+            })}
+          </span>
+          <span className={styles.hatchLabel}>
+            <span className={styles.mono}>
+              {latest ? `Active ${shortDate(latest.date)}` : "Live"}
+            </span>
+            <span className={styles.hatchCta}>Open the grid ⤢</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  );
 }
 
 interface TileProps {
@@ -623,6 +768,8 @@ export default function GridHome({
   initialPhotos,
   initialShots,
 }: Props): React.ReactNode {
+  const { close, open, opening, openGrid } = useHatch();
+
   const { data: activity = initialActivity } = useSWR<PostListItem[]>(ACTIVITY_URL, fetcher, {
     fallbackData: initialActivity,
     revalidateOnFocus: false,
@@ -698,7 +845,7 @@ export default function GridHome({
 
   tiles.push(<Footer i={i++} key="footer" />);
 
-  useReveal(tiles.length);
+  useReveal(open ? tiles.length : 0);
 
   return (
     <>
@@ -707,7 +854,22 @@ export default function GridHome({
         <style>{`.${styles.cell}{opacity:1!important;transform:none!important}`}</style>
       </noscript>
       <div className={styles.shell} data-page="grid">
-        <div className={styles.grid}>{tiles}</div>
+        {open ? (
+          <>
+            <button className={styles.close} onClick={close} type="button">
+              Close ✕
+            </button>
+            <div className={styles.grid}>{tiles}</div>
+          </>
+        ) : null}
+        {open && !opening ? null : (
+          <Landing
+            latest={posts[0]}
+            onOpen={openGrid}
+            opening={opening}
+            photos={photos.slice(0, 2)}
+          />
+        )}
       </div>
     </>
   );
