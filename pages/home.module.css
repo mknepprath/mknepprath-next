@@ -315,10 +315,11 @@ a.cell:hover .arrow {
  * matched to each shot's aspect so the crop stays honest: 2x3 for portrait,
  * 4x3 for landscape.
  */
+/*
+ * Two columns only gets three shapes — full width, full square, half square —
+ * so every row resolves cleanly instead of interlocking at odd heights.
+ */
 .photoHero,
-.photoPortrait {
-  grid-row: span 2;
-}
 .photoFeature {
   grid-column: span 2;
   grid-row: span 2;
@@ -328,8 +329,8 @@ a.cell:hover .arrow {
 }
 
 @media (min-width: 640px) {
-  .photoHero {
-    grid-column: span 2;
+  .photoPortrait {
+    grid-row: span 2;
   }
 }
 
@@ -680,6 +681,19 @@ a.repo:hover .meta {
   padding: 0;
 }
 
+/* Artwork needs its own room; a half square leaves nothing for the caption. */
+.shot {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media (min-width: 640px) {
+  .shot {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
 @media (min-width: 1024px) {
   .shot {
     grid-column: span 2;
@@ -967,7 +981,7 @@ a.shot:hover .meta {
 /* Close control, shown once the grid is open. */
 .close {
   position: fixed;
-  top: 12px;
+  bottom: 12px;
   right: 12px;
   z-index: 30;
   padding: 9px 13px;
@@ -982,6 +996,13 @@ a.shot:hover .meta {
 }
 .close:hover {
   background: var(--lime);
+}
+
+@media (min-width: 640px) {
+  .close {
+    top: 12px;
+    bottom: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
