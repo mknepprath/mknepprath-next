@@ -62,7 +62,7 @@
     "@octokit/types": "^18.0.0",
     "@types/classnames": "^2.3.4",
     "@types/html-to-text": "^9.0.4",
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.5.1",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
