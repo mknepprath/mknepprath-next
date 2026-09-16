@@ -129,8 +129,10 @@ function useReveal(count: number) {
 }
 
 const OPEN_HASH = "#grid";
-const EXIT_MS = 170;
-const FLIGHT_MS = 640;
+// One envelope for the whole opening: everything starts together and settles
+// inside this window, rather than running as separate beats.
+const FLIGHT_MS = 720;
+const EASE = "cubic-bezier(0.22, 0.65, 0.2, 1)";
 
 type Rects = Record<string, DOMRect>;
 
@@ -168,18 +170,17 @@ function useHatch() {
       setOpen(true);
       return;
     }
-    // Drop the text first, then hand the blocks over to the real grid.
+    // Measure the miniature now so the real tiles can take over in the very
+    // same frame; the landing stays only long enough for its text to leave.
+    const found: Rects = {};
+    document.querySelectorAll<HTMLElement>("[data-mini]").forEach((el) => {
+      if (el.dataset.mini) found[el.dataset.mini] = el.getBoundingClientRect();
+    });
+    rects.current = found;
+    setFlying(true);
+    setOpen(true);
     setExiting(true);
-    setTimeout(() => {
-      const found: Rects = {};
-      document.querySelectorAll<HTMLElement>("[data-mini]").forEach((el) => {
-        if (el.dataset.mini) found[el.dataset.mini] = el.getBoundingClientRect();
-      });
-      rects.current = found;
-      setFlying(true);
-      setOpen(true);
-      setExiting(false);
-    }, EXIT_MS);
+    setTimeout(() => setExiting(false), 260);
   }, []);
 
   const close = useCallback(() => {
@@ -248,16 +249,41 @@ function useFoldIn(active: boolean, rects: React.RefObject<Rects>, done: () => v
       });
     });
 
+    // Where the miniature sat — the rest of the grid fills outward from here.
+    const seeds = Object.values(from);
+    const originX = seeds.length
+      ? seeds.reduce((sum, r) => sum + r.left + r.width / 2, 0) / seeds.length
+      : window.innerWidth / 2;
+    const originY = seeds.length
+      ? seeds.reduce((sum, r) => sum + r.top + r.height / 2, 0) / seeds.length
+      : window.innerHeight / 2;
+    const reach = Math.hypot(window.innerWidth, window.innerHeight);
+
     const raf = requestAnimationFrame(() => {
       anchors.forEach((el) => {
         if (!from[el.dataset.anchor || ""]) return;
-        el.style.transition = `transform ${FLIGHT_MS}ms cubic-bezier(0.2, 0.75, 0.15, 1)`;
+        el.style.transition = `transform ${FLIGHT_MS}ms ${EASE}`;
         el.style.transform = "none";
+        // Contents arrive while the block is still travelling, not after it.
         (Array.from(el.children) as HTMLElement[]).forEach((kid) => {
-          kid.style.transition = `opacity 260ms ease ${FLIGHT_MS - 220}ms`;
+          kid.style.transition = `opacity 300ms ease ${Math.round(FLIGHT_MS * 0.42)}ms`;
           kid.style.opacity = "1";
         });
       });
+
+      // Fill the gaps as they open rather than waiting for the flight to end.
+      document
+        .querySelectorAll<HTMLElement>(`.${styles.cell}:not([data-anchor])`)
+        .forEach((cell) => {
+          const r = cell.getBoundingClientRect();
+          if (r.top > window.innerHeight || r.bottom < 0) return;
+          const dist = Math.hypot(
+            r.left + r.width / 2 - originX,
+            r.top + r.height / 2 - originY,
+          );
+          cell.style.transitionDelay = `${Math.round(Math.min(dist / reach, 1) * FLIGHT_MS * 0.45)}ms`;
+          cell.classList.add(styles.in);
+        });
     });
 
     const timer = setTimeout(() => {
@@ -982,7 +1008,7 @@ export default function GridHome({
             <div className={styles.grid}>{tiles}</div>
           </>
         ) : null}
-        {open ? null : (
+        {open && !exiting ? null : (
           <Landing
             exiting={exiting}
             latest={posts[0]}

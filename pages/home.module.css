@@ -96,8 +96,8 @@
   opacity: 0;
   transform: translate3d(0, 14px, 0);
   transition:
-    opacity 0.4s cubic-bezier(0.2, 0.7, 0.1, 1),
-    transform 0.45s cubic-bezier(0.2, 0.7, 0.1, 1);
+    opacity 0.38s cubic-bezier(0.22, 0.65, 0.2, 1),
+    transform 0.46s cubic-bezier(0.22, 0.65, 0.2, 1);
 }
 
 .in {
@@ -814,19 +814,26 @@ a.shot:hover .meta {
  * Opening runs in two beats: the text drops away, then the hatch expands to
  * fill the screen before the whole panel clears to reveal the grid beneath.
  */
+/*
+ * While opening, the panel hands its blocks to the real grid instantly and
+ * only its text plays out, so the whole thing reads as one movement.
+ */
 .landingOut {
+  background: transparent;
   pointer-events: none;
+}
+
+.landingOut .hatchMosaic,
+.landingOut .hatchLabel {
+  opacity: 0;
 }
 
 .landingOut .landingText {
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.18s ease, transform 0.28s ease;
-}
-
-.landingOut .hatchLabel {
-  opacity: 0;
-  transition: opacity 0.15s ease;
+  transform: translateY(-14px);
+  transition:
+    opacity 0.19s ease,
+    transform 0.32s cubic-bezier(0.22, 0.65, 0.2, 1);
 }
 
 .landingInner {
