@@ -307,6 +307,48 @@ a.cell:hover .arrow {
   padding: 0;
 }
 
+/*
+ * Photography claims more of the grid as the window widens, with spans
+ * matched to each shot's aspect so the crop stays honest: 2x3 for portrait,
+ * 4x3 for landscape.
+ */
+.photoHero,
+.photoPortrait {
+  grid-row: span 2;
+}
+.photoFeature {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.photoLandscape {
+  grid-column: span 2;
+}
+
+@media (min-width: 640px) {
+  .photoHero {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .photoHero {
+    grid-row: span 3;
+  }
+  .photoPortrait {
+    grid-column: span 2;
+    grid-row: span 3;
+  }
+  .photoLandscape {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+  .photoFeature {
+    grid-column: span 3;
+    grid-row: span 3;
+  }
+}
+
+
 .media {
   position: absolute;
   inset: 0;
@@ -524,6 +566,12 @@ a.repo:hover .meta {
   -webkit-line-clamp: 4;
 }
 
+/* A short post in a single square wants type scaled to that narrower box. */
+.quoteSm {
+  --tbase: clamp(15px, 9cqw, 26px);
+  -webkit-line-clamp: 5;
+}
+
 .quoteDense {
   --tbase: clamp(13px, 3.2cqw, 20px);
   --tscale: 1;
@@ -690,4 +738,19 @@ a.repo:hover .meta {
   .media img {
     transition: none;
   }
+}
+
+/*
+ * Line clamping hides overflow, which shears the descenders off the last line
+ * (the y in "Mayday"). Pad the clip box and pull the same amount back off the
+ * margin so spacing is unchanged. Must stay last — it overrides the margin
+ * resets on the individual text blocks above.
+ */
+.clamp2,
+.clamp3,
+.clamp4,
+.quote,
+.excerpt {
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
 }

@@ -15,9 +15,9 @@ const BASE_URL =
     ? "https://mknepprath.com"
     : "http://localhost:3000";
 
-const ACTIVITY_URL = "/api/v1/activity?max_results=50&min_rating=0";
+const ACTIVITY_URL = "/api/v1/activity?max_results=90&min_rating=0";
 const PHOTOS_URL = "/api/v1/photos?limit=18";
-const PHOTO_EVERY = 4;
+const PHOTO_EVERY = 3;
 // Keep the stream recent, but never let a quiet stretch empty the grid.
 const MAX_AGE_DAYS = 60;
 const MIN_POSTS = 24;
@@ -273,22 +273,24 @@ function PhotoTile({
 }: {
   i: number;
   photo: Toot;
-  size: "hero" | "feature" | "portrait" | "landscape";
+  size: "hero" | "feature" | "portrait" | "landscape" | "small";
 }) {
   const media = photo.media_attachments[0];
   const alt =
     media.description || stripTags(photo.content) || "Photograph by Michael Knepprath";
   const sizeClass = {
-    hero: cx(styles.w2md, styles.h2),
-    feature: cx(styles.w2, styles.h2),
-    portrait: styles.h2,
-    landscape: styles.w2,
+    hero: styles.photoHero,
+    feature: styles.photoFeature,
+    portrait: styles.photoPortrait,
+    landscape: styles.photoLandscape,
+    small: undefined,
   }[size];
   const sizes = {
-    hero: "(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 34vw",
-    feature: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw",
-    portrait: "(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw",
-    landscape: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw",
+    hero: "(max-width: 1024px) 50vw, 33vw",
+    feature: "(max-width: 640px) 100vw, 50vw",
+    portrait: "(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 33vw",
+    landscape: "(max-width: 640px) 100vw, 50vw",
+    small: "(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw",
   }[size];
 
   return (
@@ -409,11 +411,13 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
       const text = type === "SKEET" ? htmlToText(title) : htmlToText(summary || title);
       // Posts shaped like a grid (Wordle, lists) need room for their rows.
       const dense = (text.match(/\n/g) || []).length >= 2;
-      // A long post earns a taller box instead of being cut off.
+      // A long post earns a taller box instead of being cut off; a short one
+      // takes a single square, which gives the grid small pieces to pack with.
       const tall = text.length > 180;
+      const short = !dense && text.length <= 70;
       return (
         <Tile
-          className={cx(styles.cell, styles.w2, tall && styles.h2, kind)}
+          className={cx(styles.cell, !short && styles.w2, tall && styles.h2, kind)}
           href={url}
           i={i}
         >
@@ -421,9 +425,10 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           <h3
             className={cx(
               styles.quote,
+              short && styles.quoteSm,
               dense && styles.quoteDense,
               tall && styles.quoteTall,
-              !dense && lenClass(text),
+              !dense && !short && lenClass(text),
             )}
           >
             {text}
@@ -602,10 +607,13 @@ export default function GridHome({ initialActivity, initialPhotos }: Props): Rea
 
   const photos = (Array.isArray(photoData) ? photoData : [])
     .filter((p) => p.media_attachments?.[0]?.type === "image")
-    .slice(0, 12);
+    .slice(0, 16);
 
+  // Mixing in single-square shots gives the packer small pieces to fill
+  // around the big ones, so the grid stays tight instead of gapping.
   const photoSize = (photo: Toot, n: number) => {
-    if (n % 3 === 0) return "feature" as const;
+    if (n % 5 === 0) return "feature" as const;
+    if (n % 3 === 0) return "small" as const;
     const { width = 1, height = 1 } = photo.media_attachments[0].meta?.original || {};
     return height > width ? ("portrait" as const) : ("landscape" as const);
   };
@@ -629,6 +637,14 @@ export default function GridHome({ initialActivity, initialPhotos }: Props): Rea
     }
     tiles.push(<ActivityTile i={i++} key={post.id} post={post} />);
   });
+
+  // Any photos left over go in last as single squares. Dense packing pulls
+  // them back up into gaps left by the larger tiles; with no gaps they simply
+  // land at the end.
+  while (p < photos.length) {
+    tiles.push(<PhotoTile i={i++} key={photos[p].id} photo={photos[p]} size="small" />);
+    p++;
+  }
 
   tiles.push(<Footer i={i++} key="footer" />);
 
