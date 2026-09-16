@@ -269,12 +269,15 @@ function useFoldIn(active: boolean, rects: React.RefObject<Rects>, done: () => v
         ),
       );
 
-      // A block in the miniature was bare colour, so its contents arrive as it
-      // lands rather than riding along stretched.
+      // A block that was bare colour in the miniature gets its contents as it
+      // lands. Photographs were already on screen, so they ride along instead
+      // of blanking out and fading back in.
       if (anchor) {
-        Array.from(cell.children).forEach((kid) => {
+        Array.from(cell.children).forEach((child) => {
+          const kid = child as HTMLElement;
+          if (kid.querySelector("img") || kid.tagName === "IMG") return;
           animations.push(
-            (kid as HTMLElement).animate([{ opacity: 0 }, { opacity: 0, offset: 0.4 }, { opacity: 1 }], {
+            kid.animate([{ opacity: 0 }, { opacity: 0, offset: 0.4 }, { opacity: 1 }], {
               duration: FLIGHT_MS,
               easing: "ease",
               fill: "both",
