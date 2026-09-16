@@ -602,7 +602,6 @@ function Footer({ i }: { i: number }) {
         mknepprath@gmail.com
       </a>
       <div className={styles.footerRow}>
-        <Link href="/activity">All activity</Link>
         <Link href="/writing">Writing</Link>
         <a href="/feed.json">Feed</a>
         <a href="https://github.com/mknepprath/mknepprath-next" rel="noopener noreferrer" target="_blank">
