@@ -40,6 +40,28 @@ const cx = (...names: (string | false | undefined)[]) =>
 
 const isExternal = (href: string) => /^https?:\/\//.test(href);
 
+// Long titles step down a size instead of being cut off mid-word.
+const lenClass = (text = "") =>
+  text.length > 80
+    ? styles.len4
+    : text.length > 48
+      ? styles.len3
+      : text.length > 24
+        ? styles.len2
+        : undefined;
+
+// Secondary copy is dropped rather than shown truncated.
+const fits = (text = "", max = 110) => text.length > 0 && text.length <= max;
+
+// Ends on a full sentence so the copy reads as finished, never cut off.
+const toSentence = (html = "", max = 150) => {
+  const text = stripTags(html);
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const end = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("! "), cut.lastIndexOf("? "));
+  return end > 40 ? cut.slice(0, end + 1) : "";
+};
+
 // Formatted in UTC so server and client render the same string.
 const shortDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", {
@@ -321,12 +343,19 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           <div className={styles.body}>
             <Meta date={date} label={action} />
             <div>
-              <h3 className={cx(styles.title, styles.tSplit, styles.clamp3)}>
+              <h3
+                className={cx(
+                  styles.title,
+                  styles.tSplit,
+                  lenClass(mainTitle || title),
+                  styles.clamp4,
+                )}
+              >
                 {mainTitle || title}
               </h3>
               {series ? <span className={cx(styles.mono, styles.series)}>{series}</span> : null}
-              {!series && summary ? (
-                <p className={cx(styles.summary, styles.clamp2)}>{stripTags(summary)}</p>
+              {!series && toSentence(summary) ? (
+                <p className={styles.summary}>{toSentence(summary)}</p>
               ) : null}
             </div>
           </div>
@@ -366,9 +395,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           <Meta date={date} label="Commit" />
           <div>
             <h3 className={styles.repoName}>{title}</h3>
-            {summary ? (
-              <p className={cx(styles.summary, styles.clamp2)}>{summary}</p>
-            ) : null}
+            {fits(summary, 90) ? <p className={styles.summary}>{summary}</p> : null}
           </div>
         </Tile>
       );
@@ -382,10 +409,25 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
       const text = type === "SKEET" ? htmlToText(title) : htmlToText(summary || title);
       // Posts shaped like a grid (Wordle, lists) need room for their rows.
       const dense = (text.match(/\n/g) || []).length >= 2;
+      // A long post earns a taller box instead of being cut off.
+      const tall = text.length > 180;
       return (
-        <Tile className={cx(styles.cell, styles.w2, kind)} href={url} i={i}>
+        <Tile
+          className={cx(styles.cell, styles.w2, tall && styles.h2, kind)}
+          href={url}
+          i={i}
+        >
           <Meta date={date} label={label} />
-          <h3 className={cx(styles.quote, dense && styles.quoteDense)}>{text}</h3>
+          <h3
+            className={cx(
+              styles.quote,
+              dense && styles.quoteDense,
+              tall && styles.quoteTall,
+              !dense && lenClass(text),
+            )}
+          >
+            {text}
+          </h3>
         </Tile>
       );
     }
@@ -410,7 +452,9 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           ) : null}
           <div className={styles.body}>
             <Meta date={date} label="Writing" />
-            <h2 className={cx(styles.title, styles.tLg, styles.clamp3)}>{title}</h2>
+            <h2 className={cx(styles.title, styles.tLg, lenClass(title), styles.clamp4)}>
+              {title}
+            </h2>
           </div>
         </Tile>
       );
@@ -439,7 +483,9 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
               <Image alt="" fill sizes="96px" src={image} style={{ objectFit: "cover" }} />
             </div>
           ) : null}
-          <h3 className={cx(styles.title, styles.tSm, styles.clamp2)}>{title}</h3>
+          <h3 className={cx(styles.title, styles.tSm, lenClass(title), styles.clamp3)}>
+            {title}
+          </h3>
         </Tile>
       );
 
@@ -464,21 +510,32 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           ) : null}
           <div className={styles.bleedSlab}>
             <Meta date={date} label={type === "MUSIC" ? "On repeat" : "Playing"} />
-            <h3 className={cx(styles.title, styles.tSm, styles.clamp2)}>{title}</h3>
-            {summary ? (
-              <span className={cx(styles.mono, styles.clamp2)}>{summary}</span>
-            ) : null}
+            <h3 className={cx(styles.title, styles.tSm, lenClass(title), styles.clamp3)}>
+              {title}
+            </h3>
+            {fits(summary, 60) ? <span className={styles.mono}>{summary}</span> : null}
           </div>
         </Tile>
       );
 
     case "HIGHLIGHT":
       return (
-        <Tile className={cx(styles.cell, styles.highlight, styles.w2)} href={url} i={i}>
+        <Tile
+          className={cx(
+            styles.cell,
+            styles.highlight,
+            styles.w2,
+            title.length > 180 && styles.h2,
+          )}
+          href={url}
+          i={i}
+        >
           <Meta date={date} label="Highlight" />
           <div>
-            <p className={styles.excerpt}>“{title}”</p>
-            <span className={cx(styles.mono, styles.sub)}>{summary}</span>
+            <p className={cx(styles.excerpt, lenClass(title))}>“{title}”</p>
+            {fits(summary, 70) ? (
+              <span className={cx(styles.mono, styles.sub)}>{summary}</span>
+            ) : null}
           </div>
         </Tile>
       );
@@ -487,7 +544,9 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
       return (
         <Tile className={cx(styles.cell, styles.repo)} href={url} i={i}>
           <Meta date={date} label={action || type || "Update"} />
-          <h3 className={cx(styles.title, styles.tSm, styles.clamp3)}>{stripTags(title)}</h3>
+          <h3 className={cx(styles.title, styles.tSm, lenClass(title), styles.clamp4)}>
+            {stripTags(title)}
+          </h3>
         </Tile>
       );
   }
