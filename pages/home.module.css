@@ -1,215 +1,658 @@
-.nav {
-  padding-left: 16px;
-  padding-right: 16px;
+/* ─── Shell & tokens ─────────────────────────────── */
+
+.shell {
+  --ink: #0e0e0e;
+  --ink2: #1a1a1a;
+  --paper: #f2efe8;
+  --lime: #c6f432;
+  --tomato: #ff4a1c;
+  --violet: #7b5cff;
+  --blue: #2b4bff;
+  --teal: #12b5a6;
+  --pink: #ff6ac2;
+  --sky: #5ec8ff;
+  --orange: #ff9a3d;
+  --yellow: #ffd21f;
+  --mint: #3ddc97;
+  --cobalt: #1e2a78;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --gap: 3px;
+  --cols: 2;
+  --pad: 12px;
+
+  container-type: inline-size;
+  min-height: 100vh;
+  background: var(--ink);
+  color: var(--paper);
+  color-scheme: dark;
+  font-size: 16px;
+  line-height: 1.25;
 }
-@media (min-width: 632px) {
-  .nav {
-    padding-left: var(--mainPadding);
-    padding-right: var(--mainPadding);
+
+@media (min-width: 640px) {
+  .shell {
+    --cols: 4;
+    --pad: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .shell {
+    --cols: 6;
+    --pad: 18px;
+  }
+}
+@media (min-width: 1600px) {
+  .shell {
+    --cols: 8;
   }
 }
 
-/* ─── Grid shell ──────────────────────────────────── */
-
+/* Square row unit derived from the column width */
 .grid {
+  --u: calc((100cqi - (var(--cols) + 1) * var(--gap)) / var(--cols));
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 12px;
-  padding: 12px 16px 64px;
-  max-width: 1280px;
-  margin: 0 auto;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-auto-rows: var(--u);
+  grid-auto-flow: row dense;
+  gap: var(--gap);
+  padding: var(--gap);
 }
 
-@media (min-width: 632px) {
-  .grid {
-    padding: 16px 24px 80px;
-    gap: 14px;
+.w2 {
+  grid-column: span 2;
+}
+.w3 {
+  grid-column: span 2;
+}
+.h2 {
+  grid-row: span 2;
+}
+@media (min-width: 640px) {
+  .w2md {
+    grid-column: span 2;
+  }
+  .w3 {
+    grid-column: span 3;
   }
 }
 
-/* ─── Pinned cards ────────────────────────────────── */
+/* ─── Cell base ──────────────────────────────────── */
 
-.pinnedCard {
-  border-radius: 16px;
-  padding: 24px;
-  min-height: 200px;
+.cell {
+  --bg: var(--ink2);
+  --fg: var(--paper);
+  position: relative;
+  container-type: size;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  padding: var(--pad);
+  background: var(--bg);
+  color: var(--fg);
+  text-decoration: none;
+  animation: wipe 0.55s cubic-bezier(0.2, 0.7, 0.1, 1) both;
+  animation-delay: calc(min(var(--i, 0), 28) * 28ms);
 }
 
-/* Identity */
-.identityCard {
-  background: linear-gradient(145deg, #0d1b2a 0%, #1b2838 40%, #0f3460 100%);
-  color: #fff;
-  justify-content: flex-end;
+a.cell:hover,
+a.cell:focus-visible {
+  --route: var(--bg);
+  background: var(--fg);
+  color: var(--bg);
+  outline: none;
+}
+
+@keyframes wipe {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.meta {
   position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.meta,
+.meta *,
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.arrow {
+  opacity: 0.45;
+  transition: opacity 0.15s, transform 0.2s;
+}
+a.cell:hover .arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+.tSm {
+  font-size: clamp(16px, 11cqw, 30px);
+}
+.tSplit {
+  font-size: clamp(17px, 5.4cqw, 36px);
+}
+.tLg {
+  font-size: clamp(22px, 7.5cqw, 60px);
+}
+
+.clamp2,
+.clamp3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.clamp2 {
+  -webkit-line-clamp: 2;
+}
+.clamp3 {
+  -webkit-line-clamp: 3;
+}
 
-.identityCard::before {
-  content: "";
+.summary {
+  margin: 0.5em 0 0;
+  font-size: clamp(12px, 3cqw, 15px);
+  line-height: 1.35;
+  opacity: 0.8;
+}
+
+.sub {
+  display: block;
+  margin-top: 6px;
+}
+
+/* ─── Identity ───────────────────────────────────── */
+
+.identity {
+  --bg: var(--lime);
+  --fg: var(--ink);
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(40px, 15cqw, 170px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.84;
+}
+
+.bio {
+  max-width: 36ch;
+  margin: 0.9em 0 0;
+  font-size: clamp(14px, 2.4cqw, 20px);
+  line-height: 1.3;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  vertical-align: 0;
+  background: currentColor;
+  animation: blink 1.6s steps(2, jump-none) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ─── Links ──────────────────────────────────────── */
+
+.links {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  padding-bottom: 0;
+}
+
+.linkList {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linkList li {
+  display: flex;
+  flex: 1;
+  margin: 0;
+}
+
+.linkList a {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.5em;
+  margin-inline: calc(var(--pad) * -1);
+  padding: 0.38em var(--pad);
+  border-top: 1px solid rgb(14 14 14 / 0.15);
+  color: var(--ink);
+  font-size: clamp(15px, 9cqw, 24px);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.linkList a:hover,
+.linkList a:focus-visible {
+  background: var(--ink);
+  color: var(--lime);
+  outline: none;
+}
+
+.num {
+  min-width: 2ch;
+  font-family: var(--mono);
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+.ext {
+  margin-left: auto;
+  font-size: 0.7em;
+}
+
+/* ─── Photos ─────────────────────────────────────── */
+
+.photo {
+  --bg: #000;
+  --fg: #000;
+  padding: 0;
+}
+
+.media {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse at 80% 20%,
-    rgba(98, 191, 155, 0.25) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
 }
 
-.identityName {
-  font-size: 1.6rem;
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 10px;
-  color: #fff;
+.media img {
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+a.cell:hover .media img {
+  transform: scale(1.045);
 }
 
-.identityBio {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0 0 20px;
-}
-
-.identityLink {
-  display: inline-block;
-  color: var(--primaryColor);
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: 0.01em;
-}
-.identityLink:hover {
-  color: var(--hoverColor);
-}
-
-/* Links */
-.linksCard {
-  background: var(--grey);
-  gap: 0;
-}
-
-.linksLabel {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+.chip {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+  padding: 4px 6px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
   text-transform: uppercase;
-  color: var(--black);
-  opacity: 0.4;
-  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+a.photo:hover .chip {
+  opacity: 1;
+  transform: none;
 }
 
-.linksList {
+.slab {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  max-width: 85%;
+  padding: var(--pad);
+  background: var(--tomato);
+  color: var(--ink);
+}
+
+.slabTitle {
+  font-size: clamp(20px, 9cqw, 56px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+/* ─── Film & book ────────────────────────────────── */
+
+.split {
+  flex-direction: row;
+  gap: 0;
+  padding: 0;
+}
+
+.poster {
+  position: relative;
+  flex: none;
+  height: 100%;
+  aspect-ratio: 2 / 3;
+  background: rgb(0 0 0 / 0.25);
+}
+
+.body {
+  display: flex;
   flex: 1;
-}
-
-.linkItem {
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 8px 10px;
-  border-radius: 8px;
-  color: var(--black);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s;
-}
-.linkItem::after {
-  content: "→";
-  opacity: 0.3;
-  font-size: 0.8rem;
-  transition: opacity 0.15s, transform 0.15s;
-}
-.linkItem:hover {
-  background: rgba(0, 0, 0, 0.06);
-  color: var(--primaryColor);
-}
-.linkItem:hover::after {
-  opacity: 1;
-  transform: translateX(2px);
+  gap: 8px;
+  min-width: 0;
+  padding: var(--pad);
 }
 
-@media (prefers-color-scheme: dark) {
-  .linkItem:hover {
-    background: rgba(255, 255, 255, 0.07);
-  }
-}
-
-/* ─── Photography strip ───────────────────────────── */
-
-.photoStrip {
-  grid-column: 1 / -1;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #111;
-}
-
-.photoStripHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px 10px;
-  background: #111;
-}
-
-.photoStripLabel {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.photoStripLink {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.photoStripLink:hover {
-  color: #fff;
-}
-
-.photoMosaic {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 140px);
-  gap: 3px;
-}
-
-@media (min-width: 500px) {
-  .photoMosaic {
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: 220px;
-  }
-}
-
-.photoCell {
+.series {
   display: block;
+  margin-top: 0.6em;
+  opacity: 0.75;
+}
+
+.film {
+  --bg: var(--tomato);
+  --fg: var(--ink);
+}
+
+.book {
+  --bg: var(--violet);
+  --fg: #fff;
+}
+
+/* ─── Runs ───────────────────────────────────────── */
+
+.run {
+  --bg: var(--blue);
+  --fg: #fff;
+  --route: var(--lime);
+}
+
+.walk {
+  --bg: var(--teal);
+  --fg: var(--ink);
+  --route: var(--ink);
+}
+
+.route {
+  position: absolute;
+  left: 14%;
+  top: 22%;
+  z-index: 1;
+  width: 72%;
+  height: 44%;
+  overflow: visible;
+}
+
+.route path {
+  fill: none;
+  stroke: var(--route);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.4s 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.stat {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(26px, 20cqw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+}
+
+.statXl {
+  font-size: clamp(40px, 34cqw, 110px);
+}
+
+.unit {
+  margin-left: 0.12em;
+  font-family: var(--mono);
+  font-size: 0.3em;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* ─── Repos ──────────────────────────────────────── */
+
+.repo {
+  --bg: var(--ink2);
+  --fg: var(--paper);
+}
+
+.repo .meta {
+  color: var(--lime);
+}
+a.repo:hover .meta {
+  color: inherit;
+}
+
+.repoName {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: clamp(14px, 9.5cqw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+/* ─── Short-form text ────────────────────────────── */
+
+.robot {
+  --bg: var(--pink);
+  --fg: var(--ink);
+}
+
+.toot {
+  --bg: var(--sky);
+  --fg: var(--ink);
+}
+
+.skeet {
+  --bg: var(--orange);
+  --fg: var(--ink);
+}
+
+.quote {
+  display: -webkit-box;
+  margin: 0;
   overflow: hidden;
-  background: #222;
+  font-size: clamp(16px, 4.8cqw, 30px);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
-.photoCell:hover img {
-  transform: scale(1.04);
-  transition: transform 0.4s ease;
+/* ─── Writing ────────────────────────────────────── */
+
+.post {
+  --bg: var(--yellow);
+  --fg: var(--ink);
+  gap: 0;
+  padding: 0;
 }
 
-.photoCell img {
-  transition: transform 0.4s ease;
+.postImage {
+  position: relative;
+  flex: 1 1 55%;
+  min-height: 0;
 }
 
-/* On mobile, show 3×3. On wider screens, show 9×1 strip */
-@media (min-width: 500px) {
-  .photoMosaic {
-    grid-template-rows: 220px;
+.post .body {
+  flex: 0 0 auto;
+}
+
+/* ─── Chess ──────────────────────────────────────── */
+
+.chess {
+  --bg: var(--mint);
+  --fg: var(--ink);
+  padding-right: calc(var(--pad) + 12px);
+}
+
+.chess::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  background: repeating-conic-gradient(currentColor 0 25%, transparent 0 50%) 0 0 / 12px 12px;
+}
+
+.result {
+  font-size: 48cqh;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+}
+
+/* ─── Trophy ─────────────────────────────────────── */
+
+.trophy {
+  --bg: var(--cobalt);
+  --fg: #fff;
+}
+
+.icon {
+  position: relative;
+  flex: none;
+  width: 34cqw;
+  aspect-ratio: 1;
+}
+
+/* ─── Full-bleed (music, games) ──────────────────── */
+
+.bleed {
+  --bg: #000;
+  --fg: #fff;
+  padding: 0;
+}
+
+.bleedSlab {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--pad);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ─── Highlight ──────────────────────────────────── */
+
+.highlight {
+  --bg: var(--paper);
+  --fg: var(--ink);
+}
+
+.excerpt {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: clamp(15px, 4.2cqw, 26px);
+  font-style: italic;
+  line-height: 1.2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+/* ─── Footer ─────────────────────────────────────── */
+
+.footer {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  grid-column: 1 / -1;
+}
+
+.footerMail {
+  color: inherit;
+  font-size: clamp(22px, 7cqw, 110px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+.footerMail:hover {
+  color: var(--tomato);
+}
+
+.footerRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+
+.footerRow a {
+  color: inherit;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.footerRow a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell,
+  .dot {
+    animation: none;
+  }
+  .route path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .media img {
+    transition: none;
   }
 }

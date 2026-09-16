@@ -6,7 +6,7 @@ import styles from "./strava-map.module.css";
  * Decode a Google-encoded polyline string into an array of [lat, lng] pairs.
  * https://developers.google.com/maps/documentation/utilities/polylinealgorithm
  */
-function decodePolyline(encoded: string): [number, number][] {
+export function decodePolyline(encoded: string): [number, number][] {
   const points: [number, number][] = [];
   let index = 0;
   let lat = 0;
