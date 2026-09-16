@@ -922,6 +922,7 @@ a.shot:hover .meta {
 .hatch {
   flex: 0 0 auto;
   align-items: flex-start;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -940,14 +941,20 @@ a.shot:hover .meta {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 3px;
-  width: min(300px, 74vw);
+  /* Shares the text block's right edge so the column reads as one column. */
+  width: 100%;
+  max-width: 360px;
   aspect-ratio: 1;
   background: var(--ink);
 }
 
 @media (min-width: 760px) {
+  .hatch {
+    align-self: auto;
+  }
   .hatchMosaic {
     width: clamp(210px, 27vw, 310px);
+    max-width: none;
   }
 }
 
