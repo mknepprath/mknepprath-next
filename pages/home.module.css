@@ -213,6 +213,9 @@ a.cell:hover .arrow {
 
 .name {
   margin: 0;
+  /* Leading this tight puts the descenders below the text box, so reserve
+     room for them or the p tails land on the bio. */
+  padding-bottom: 0.2em;
   font-size: clamp(40px, 15cqw, 170px);
   font-weight: 900;
   letter-spacing: -0.05em;
