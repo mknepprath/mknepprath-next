@@ -667,6 +667,45 @@ a.repo:hover .meta {
   color: var(--paper);
 }
 
+/* ─── Illustrations ──────────────────────────────── */
+
+/*
+ * The artwork is the point, so the caption sits in a strip beneath it rather
+ * than as a slab over the top of it.
+ */
+.shot {
+  --bg: var(--ink2);
+  --fg: var(--paper);
+  gap: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .shot {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.shotArt {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: #000;
+}
+
+.shotLabel {
+  flex: none;
+  padding: 10px var(--pad) 12px;
+}
+
+.shot .meta {
+  color: var(--lime);
+}
+a.shot:hover .meta {
+  color: inherit;
+}
+
 /* ─── Highlight ──────────────────────────────────── */
 
 .highlight {

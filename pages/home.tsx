@@ -325,17 +325,17 @@ function PhotoTile({
 function ShotTile({ i, shot }: { i: number; shot: Shot }) {
   const year = shot.published_at?.slice(0, 4);
   return (
-    <Tile className={cx(styles.cell, styles.bleed)} href={shot.html_url} i={i}>
-      <div className={styles.media}>
+    <Tile className={cx(styles.cell, styles.shot)} href={shot.html_url} i={i}>
+      <div className={styles.shotArt}>
         <Image
           alt={shot.title}
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 33vw"
           src={shot.images.normal}
           style={{ objectFit: "cover" }}
         />
       </div>
-      <div className={styles.bleedSlab}>
+      <div className={styles.shotLabel}>
         <div className={styles.meta}>
           <span>Illustration{year ? ` · ${year}` : ""}</span>
           <span aria-hidden className={styles.arrow}>
