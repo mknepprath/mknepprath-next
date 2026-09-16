@@ -194,7 +194,7 @@ a.cell:hover .arrow {
 
 .summary {
   margin: 0.5em 0 0;
-  font-size: clamp(12px, 3cqw, 15px);
+  font-size: clamp(11px, 2.6cqw, 13.5px);
   line-height: 1.35;
   opacity: 0.8;
 }

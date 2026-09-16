@@ -16,8 +16,11 @@ const BASE_URL =
     : "http://localhost:3000";
 
 const ACTIVITY_URL = "/api/v1/activity?max_results=90&min_rating=0";
-const PHOTOS_URL = "/api/v1/photos?limit=18";
+const PHOTOS_URL = "/api/v1/photos?limit=24";
+const SHOTS_URL = "/api/v1/dribbble";
 const PHOTO_EVERY = 3;
+const SHOT_EVERY = 7;
+const MAX_SHOTS = 4;
 // Keep the stream recent, but never let a quiet stretch empty the grid.
 const MAX_AGE_DAYS = 60;
 const MIN_POSTS = 24;
@@ -54,7 +57,8 @@ const lenClass = (text = "") =>
 const fits = (text = "", max = 110) => text.length > 0 && text.length <= max;
 
 // Ends on a full sentence so the copy reads as finished, never cut off.
-const toSentence = (html = "", max = 150) => {
+// A review that is one long sentence keeps its whole text if it fits the box.
+const toSentence = (html = "", max = 190) => {
   const text = stripTags(html);
   if (text.length <= max) return text;
   const cut = text.slice(0, max);
@@ -313,6 +317,38 @@ function PhotoTile({
       ) : (
         <span className={styles.chip}>{shortDate(photo.created_at)}</span>
       )}
+    </Tile>
+  );
+}
+
+/**
+ * Illustrations live outside the activity feed and are years old, so they are
+ * mixed in on their own cadence and labelled with the year rather than a date.
+ */
+function ShotTile({ i, shot }: { i: number; shot: Shot }) {
+  const year = shot.published_at?.slice(0, 4);
+  return (
+    <Tile className={cx(styles.cell, styles.bleed)} href={shot.html_url} i={i}>
+      <div className={styles.media}>
+        <Image
+          alt={shot.title}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw"
+          src={shot.images.normal}
+          style={{ objectFit: "cover" }}
+        />
+      </div>
+      <div className={styles.bleedSlab}>
+        <div className={styles.meta}>
+          <span>Illustration{year ? ` · ${year}` : ""}</span>
+          <span aria-hidden className={styles.arrow}>
+            ↗
+          </span>
+        </div>
+        <h3 className={cx(styles.title, styles.tSm, lenClass(shot.title), styles.clamp2)}>
+          {shot.title}
+        </h3>
+      </div>
     </Tile>
   );
 }
@@ -583,15 +619,24 @@ function Footer({ i }: { i: number }) {
 interface Props {
   initialActivity: PostListItem[];
   initialPhotos: Toot[];
+  initialShots: Shot[];
 }
 
-export default function GridHome({ initialActivity, initialPhotos }: Props): React.ReactNode {
+export default function GridHome({
+  initialActivity,
+  initialPhotos,
+  initialShots,
+}: Props): React.ReactNode {
   const { data: activity = initialActivity } = useSWR<PostListItem[]>(ACTIVITY_URL, fetcher, {
     fallbackData: initialActivity,
     revalidateOnFocus: false,
   });
   const { data: photoData = initialPhotos } = useSWR<Toot[]>(PHOTOS_URL, fetcher, {
     fallbackData: initialPhotos,
+    revalidateOnFocus: false,
+  });
+  const { data: shotData = initialShots } = useSWR<Shot[]>(SHOTS_URL, fetcher, {
+    fallbackData: initialShots,
     revalidateOnFocus: false,
   });
 
@@ -607,7 +652,11 @@ export default function GridHome({ initialActivity, initialPhotos }: Props): Rea
 
   const photos = (Array.isArray(photoData) ? photoData : [])
     .filter((p) => p.media_attachments?.[0]?.type === "image")
-    .slice(0, 16);
+    .slice(0, 20);
+
+  const shots = (Array.isArray(shotData) ? shotData : [])
+    .filter((shot) => shot.images?.normal)
+    .slice(0, MAX_SHOTS);
 
   // Mixing in single-square shots gives the packer small pieces to fill
   // around the big ones, so the grid stays tight instead of gapping.
@@ -628,12 +677,17 @@ export default function GridHome({ initialActivity, initialPhotos }: Props): Rea
   }
 
   let p = 1;
+  let s = 0;
   posts.forEach((post, n) => {
     if (n > 0 && n % PHOTO_EVERY === 0 && p < photos.length) {
       tiles.push(
         <PhotoTile i={i++} key={photos[p].id} photo={photos[p]} size={photoSize(photos[p], p)} />,
       );
       p++;
+    }
+    if (n > 0 && n % SHOT_EVERY === 0 && s < shots.length) {
+      tiles.push(<ShotTile i={i++} key={shots[s].id} shot={shots[s]} />);
+      s++;
     }
     tiles.push(<ActivityTile i={i++} key={post.id} post={post} />);
   });
@@ -666,11 +720,13 @@ export default function GridHome({ initialActivity, initialPhotos }: Props): Rea
 export const getStaticProps: GetStaticProps<Props> = async () => {
   let initialActivity: PostListItem[] = [];
   let initialPhotos: Toot[] = [];
+  let initialShots: Shot[] = [];
 
   try {
-    const [activityRes, photosRes] = await Promise.all([
+    const [activityRes, photosRes, shotsRes] = await Promise.all([
       fetch(`${BASE_URL}${ACTIVITY_URL}`),
       fetch(`${BASE_URL}${PHOTOS_URL}`),
+      fetch(`${BASE_URL}${SHOTS_URL}`),
     ]);
     if (activityRes.ok) {
       const data = await activityRes.json();
@@ -680,9 +736,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       const data = await photosRes.json();
       if (Array.isArray(data)) initialPhotos = data;
     }
+    if (shotsRes.ok) {
+      const data = await shotsRes.json();
+      if (Array.isArray(data)) initialShots = data;
+    }
   } catch {
     // SWR refetches client-side
   }
 
-  return { props: { initialActivity, initialPhotos }, revalidate: 300 };
+  return { props: { initialActivity, initialPhotos, initialShots }, revalidate: 300 };
 };
