@@ -93,8 +93,16 @@
   background: var(--bg);
   color: var(--fg);
   text-decoration: none;
-  animation: wipe 0.55s cubic-bezier(0.2, 0.7, 0.1, 1) both;
-  animation-delay: calc(min(var(--i, 0), 28) * 28ms);
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 0.4s cubic-bezier(0.2, 0.7, 0.1, 1),
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.in {
+  opacity: 1;
+  transform: none;
 }
 
 a.cell:hover,
@@ -103,15 +111,6 @@ a.cell:focus-visible {
   background: var(--fg);
   color: var(--bg);
   outline: none;
-}
-
-@keyframes wipe {
-  from {
-    clip-path: inset(0 0 100% 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
 }
 
 .meta {
@@ -502,8 +501,15 @@ a.repo:hover .meta {
   letter-spacing: -0.015em;
   line-height: 1.1;
   overflow-wrap: anywhere;
+  white-space: pre-line;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
+}
+
+.quoteDense {
+  font-size: clamp(13px, 3.2cqw, 20px);
+  line-height: 1.18;
+  -webkit-line-clamp: 8;
 }
 
 /* ─── Writing ────────────────────────────────────── */
@@ -644,7 +650,11 @@ a.repo:hover .meta {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cell,
+  .cell {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
   .dot {
     animation: none;
   }

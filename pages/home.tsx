@@ -5,6 +5,7 @@ import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import useSWR from "swr";
 
 import styles from "./home.module.css";
@@ -17,6 +18,9 @@ const BASE_URL =
 const ACTIVITY_URL = "/api/v1/activity?max_results=50&min_rating=0";
 const PHOTOS_URL = "/api/v1/photos?limit=18";
 const PHOTO_EVERY = 4;
+// Keep the stream recent, but never let a quiet stretch empty the grid.
+const MAX_AGE_DAYS = 60;
+const MIN_POSTS = 24;
 
 const LINKS = [
   { label: "Writing", href: "/writing" },
@@ -44,15 +48,62 @@ const shortDate = (iso: string) =>
     timeZone: "UTC",
   });
 
-const stripTags = (html = "") =>
-  html
-    .replace(/<[^>]+>/g, " ")
+const decode = (text: string) =>
+  text
     .replace(/&amp;/g, "&")
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&nbsp;/g, " ");
+
+const stripTags = (html = "") =>
+  decode(html.replace(/<[^>]+>/g, " "))
     .replace(/(https?:\/\/|www\.)\S+/g, "")
     .replace(/\s+/g, " ")
     .trim();
+
+// Paragraphs and <br>s carry meaning in posts (Wordle grids, poems, lists),
+// so turn them into real newlines instead of flattening to one line.
+const htmlToText = (html = "") =>
+  decode(
+    html
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/p>\s*/gi, "\n\n")
+      .replace(/<[^>]+>/g, ""),
+  )
+    .replace(/(https?:\/\/|www\.)\S+/g, "")
+    .replace(/[ \t]+/g, " ")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+/**
+ * Reveals tiles as they scroll in, staggering each batch so a row lands
+ * left-to-right instead of the whole page animating at once on load.
+ */
+function useReveal(count: number) {
+  useEffect(() => {
+    const cells = Array.from(document.querySelectorAll<HTMLElement>(`.${styles.cell}`));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let n = 0;
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const cell = entry.target as HTMLElement;
+          cell.style.transitionDelay = `${Math.min(n++, 8) * 45}ms`;
+          cell.classList.add(styles.in);
+          observer.unobserve(cell);
+        }
+      },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.04 },
+    );
+    cells.forEach((cell) => {
+      if (!cell.classList.contains(styles.in)) observer.observe(cell);
+    });
+    return () => observer.disconnect();
+  }, [count]);
+}
 
 interface TileProps {
   href: string;
@@ -327,10 +378,14 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
     case "SKEET": {
       const kind = { ROBOT: styles.robot, TOOT: styles.toot, SKEET: styles.skeet }[type];
       const label = { ROBOT: "Robot MK", TOOT: "Mastodon", SKEET: "Bluesky" }[type];
+      // Bluesky hands us plain text; Mastodon and the bot hand us HTML.
+      const text = type === "SKEET" ? htmlToText(title) : htmlToText(summary || title);
+      // Posts shaped like a grid (Wordle, lists) need room for their rows.
+      const dense = (text.match(/\n/g) || []).length >= 2;
       return (
         <Tile className={cx(styles.cell, styles.w2, kind)} href={url} i={i}>
           <Meta date={date} label={label} />
-          <h3 className={styles.quote}>{stripTags(title)}</h3>
+          <h3 className={cx(styles.quote, dense && styles.quoteDense)}>{text}</h3>
         </Tile>
       );
     }
@@ -408,8 +463,11 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
             </div>
           ) : null}
           <div className={styles.bleedSlab}>
-            <Meta date={date} label={type === "MUSIC" ? "Listening" : "Playing"} />
+            <Meta date={date} label={type === "MUSIC" ? "On repeat" : "Playing"} />
             <h3 className={cx(styles.title, styles.tSm, styles.clamp2)}>{title}</h3>
+            {summary ? (
+              <span className={cx(styles.mono, styles.clamp2)}>{summary}</span>
+            ) : null}
           </div>
         </Tile>
       );
@@ -473,9 +531,15 @@ export default function GridHome({ initialActivity, initialPhotos }: Props): Rea
     revalidateOnFocus: false,
   });
 
-  const posts = (Array.isArray(activity) ? activity : [])
+  const recent = (Array.isArray(activity) ? activity : [])
     .filter((post) => post.type !== "PHOTO")
     .sort((a, b) => +new Date(b.date) - +new Date(a.date));
+
+  // Anchored to the newest item, not the clock, so server and client agree.
+  const newest = recent[0] ? +new Date(recent[0].date) : 0;
+  const cutoff = newest - MAX_AGE_DAYS * 86400000;
+  const fresh = recent.filter((post) => +new Date(post.date) > cutoff);
+  const posts = fresh.length >= MIN_POSTS ? fresh : recent.slice(0, MIN_POSTS);
 
   const photos = (Array.isArray(photoData) ? photoData : [])
     .filter((p) => p.media_attachments?.[0]?.type === "image")
@@ -509,9 +573,14 @@ export default function GridHome({ initialActivity, initialPhotos }: Props): Rea
 
   tiles.push(<Footer i={i++} key="footer" />);
 
+  useReveal(tiles.length);
+
   return (
     <>
       <Head title="Michael Knepprath" />
+      <noscript>
+        <style>{`.${styles.cell}{opacity:1!important;transform:none!important}`}</style>
+      </noscript>
       <div className={styles.shell} data-page="grid">
         <div className={styles.grid}>{tiles}</div>
       </div>
