@@ -249,15 +249,44 @@ function useFoldIn(active: boolean, rects: React.RefObject<Rects>, done: () => v
       });
     });
 
-    // Where the miniature sat — the rest of the grid fills outward from here.
-    const seeds = Object.values(from);
-    const originX = seeds.length
-      ? seeds.reduce((sum, r) => sum + r.left + r.width / 2, 0) / seeds.length
-      : window.innerWidth / 2;
-    const originY = seeds.length
-      ? seeds.reduce((sum, r) => sum + r.top + r.height / 2, 0) / seeds.length
-      : window.innerHeight / 2;
-    const reach = Math.hypot(window.innerWidth, window.innerHeight);
+    /*
+     * The rest of the grid is laid out as one scaled-down copy pinned to the
+     * miniature, so opening expands a single object instead of flying a few
+     * blocks past neighbours that are already parked in place.
+     */
+    const identity = document.querySelector<HTMLElement>('[data-anchor="identity"]');
+    const others: { cell: HTMLElement; delay: number }[] = [];
+
+    if (identity && from.identity) {
+      const idLast = identity.getBoundingClientRect();
+      const scale = from.identity.width / idLast.width;
+      const reach = Math.hypot(window.innerWidth, window.innerHeight);
+
+      document
+        .querySelectorAll<HTMLElement>(`.${styles.cell}:not([data-anchor])`)
+        .forEach((cell) => {
+          const r = cell.getBoundingClientRect();
+          if (r.top > window.innerHeight * 1.1 || r.bottom < 0) return;
+
+          const startX = from.identity.left + (r.left - idLast.left) * scale;
+          const startY = from.identity.top + (r.top - idLast.top) * scale;
+          const dist = Math.hypot(r.left - idLast.left, r.top - idLast.top);
+
+          cell.style.transformOrigin = "top left";
+          cell.style.transform = `translate(${startX - r.left}px, ${startY - r.top}px) scale(${scale})`;
+          cell.style.opacity = "0";
+          cell.style.transition = "none";
+
+          others.push({ cell, delay: Math.round(Math.min(dist / reach, 1) * 200) });
+          cleanups.push(() => {
+            cell.style.transform = "";
+            cell.style.transition = "";
+            cell.style.transformOrigin = "";
+            cell.style.opacity = "";
+            cell.classList.add(styles.in);
+          });
+        });
+    }
 
     const raf = requestAnimationFrame(() => {
       anchors.forEach((el) => {
@@ -271,19 +300,11 @@ function useFoldIn(active: boolean, rects: React.RefObject<Rects>, done: () => v
         });
       });
 
-      // Fill the gaps as they open rather than waiting for the flight to end.
-      document
-        .querySelectorAll<HTMLElement>(`.${styles.cell}:not([data-anchor])`)
-        .forEach((cell) => {
-          const r = cell.getBoundingClientRect();
-          if (r.top > window.innerHeight || r.bottom < 0) return;
-          const dist = Math.hypot(
-            r.left + r.width / 2 - originX,
-            r.top + r.height / 2 - originY,
-          );
-          cell.style.transitionDelay = `${Math.round(Math.min(dist / reach, 1) * FLIGHT_MS * 0.45)}ms`;
-          cell.classList.add(styles.in);
-        });
+      others.forEach(({ cell, delay }) => {
+        cell.style.transition = `transform ${FLIGHT_MS}ms ${EASE}, opacity 320ms ease ${delay}ms`;
+        cell.style.transform = "none";
+        cell.style.opacity = "1";
+      });
     });
 
     const timer = setTimeout(() => {
