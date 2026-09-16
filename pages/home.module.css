@@ -850,14 +850,23 @@ a.shot:hover .meta {
     transform 0.32s cubic-bezier(0.22, 0.65, 0.2, 1);
 }
 
+/* Small screens read top to bottom: who this is, then the way in. */
 .landingInner {
   display: flex;
-  flex-wrap: wrap-reverse;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(28px, 6vw, 88px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 34px;
   width: 100%;
   max-width: 1040px;
+}
+
+@media (min-width: 760px) {
+  .landingInner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 6vw, 88px);
+  }
 }
 
 .landingText {
@@ -912,6 +921,7 @@ a.shot:hover .meta {
 /* The hatch: a miniature of the grid that expands into the real thing. */
 .hatch {
   flex: 0 0 auto;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -930,9 +940,15 @@ a.shot:hover .meta {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 3px;
-  width: clamp(210px, 27vw, 310px);
+  width: min(300px, 74vw);
   aspect-ratio: 1;
   background: var(--ink);
+}
+
+@media (min-width: 760px) {
+  .hatchMosaic {
+    width: clamp(210px, 27vw, 310px);
+  }
 }
 
 .hatchMosaic > span {
@@ -953,9 +969,11 @@ a.shot:hover .meta {
 
 .hatchLabel {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 16px;
+  align-self: stretch;
+  gap: 6px 16px;
 }
 
 .hatchLabel .mono {
