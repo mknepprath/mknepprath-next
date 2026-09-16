@@ -5,7 +5,7 @@ import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import useSWR from "swr";
 
 import styles from "./home.module.css";
@@ -129,7 +129,10 @@ function useReveal(count: number) {
 }
 
 const OPEN_HASH = "#grid";
-const FOLD_MS = 560;
+const EXIT_MS = 170;
+const FLIGHT_MS = 640;
+
+type Rects = Record<string, DOMRect>;
 
 /**
  * The landing sits in front of the grid until the hatch is opened. The state
@@ -137,10 +140,19 @@ const FOLD_MS = 560;
  */
 function useHatch() {
   const [open, setOpen] = useState(false);
-  const [opening, setOpening] = useState(false);
+  const [exiting, setExiting] = useState(false);
+  const [flying, setFlying] = useState(false);
+  const rects = useRef<Rects>({});
 
   useEffect(() => {
-    const sync = () => setOpen(window.location.hash === OPEN_HASH);
+    const sync = () => {
+      const next = window.location.hash === OPEN_HASH;
+      setOpen(next);
+      if (!next) {
+        setExiting(false);
+        setFlying(false);
+      }
+    };
     sync();
     window.addEventListener("popstate", sync);
     window.addEventListener("hashchange", sync);
@@ -151,22 +163,30 @@ function useHatch() {
   }, []);
 
   const openGrid = useCallback(() => {
-    const instant = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     history.pushState(null, "", OPEN_HASH);
-    if (instant) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setOpen(true);
       return;
     }
-    // Let the hatch finish expanding before the grid takes over.
-    setOpening(true);
-    setOpen(true);
-    setTimeout(() => setOpening(false), FOLD_MS);
+    // Drop the text first, then hand the blocks over to the real grid.
+    setExiting(true);
+    setTimeout(() => {
+      const found: Rects = {};
+      document.querySelectorAll<HTMLElement>("[data-mini]").forEach((el) => {
+        if (el.dataset.mini) found[el.dataset.mini] = el.getBoundingClientRect();
+      });
+      rects.current = found;
+      setFlying(true);
+      setOpen(true);
+      setExiting(false);
+    }, EXIT_MS);
   }, []);
 
   const close = useCallback(() => {
     history.pushState(null, "", window.location.pathname);
     setOpen(false);
-    setOpening(false);
+    setFlying(false);
+    setExiting(false);
   }, []);
 
   useEffect(() => {
@@ -178,16 +198,87 @@ function useHatch() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, close]);
 
-  return { close, open, opening, openGrid };
+  return { close, exiting, flying, open, openGrid, rects, setFlying };
+}
+
+/**
+ * Flies the four blocks of the hatch miniature to the exact position and size
+ * of the real tiles they stand for, so the thing you clicked becomes the thing
+ * you land on. Tile contents fade in once the geometry has settled.
+ */
+function useFoldIn(active: boolean, rects: React.RefObject<Rects>, done: () => void) {
+  useLayoutEffect(() => {
+    if (!active) return;
+    const from = rects.current || {};
+    const anchors = Array.from(document.querySelectorAll<HTMLElement>("[data-anchor]"));
+    const cleanups: (() => void)[] = [];
+
+    anchors.forEach((el) => {
+      const first = from[el.dataset.anchor || ""];
+      if (!first) return;
+      const last = el.getBoundingClientRect();
+      if (!last.width || !last.height) return;
+
+      const dx = first.left - last.left;
+      const dy = first.top - last.top;
+      const sx = first.width / last.width;
+      const sy = first.height / last.height;
+
+      el.style.transformOrigin = "top left";
+      el.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+      el.style.opacity = "1";
+      el.style.transition = "none";
+
+      // The miniature is bare colour, so hide the contents until it lands.
+      const kids = Array.from(el.children) as HTMLElement[];
+      kids.forEach((kid) => {
+        if (kid.tagName === "DIV" && kid.querySelector("img")) return;
+        kid.style.opacity = "0";
+      });
+
+      cleanups.push(() => {
+        el.style.transform = "";
+        el.style.transition = "";
+        el.style.transformOrigin = "";
+        el.style.opacity = "";
+        kids.forEach((kid) => {
+          kid.style.opacity = "";
+          kid.style.transition = "";
+        });
+      });
+    });
+
+    const raf = requestAnimationFrame(() => {
+      anchors.forEach((el) => {
+        if (!from[el.dataset.anchor || ""]) return;
+        el.style.transition = `transform ${FLIGHT_MS}ms cubic-bezier(0.2, 0.75, 0.15, 1)`;
+        el.style.transform = "none";
+        (Array.from(el.children) as HTMLElement[]).forEach((kid) => {
+          kid.style.transition = `opacity 260ms ease ${FLIGHT_MS - 220}ms`;
+          kid.style.opacity = "1";
+        });
+      });
+    });
+
+    const timer = setTimeout(() => {
+      cleanups.forEach((fn) => fn());
+      done();
+    }, FLIGHT_MS + 80);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+    };
+  }, [active, rects, done]);
 }
 
 // A 4x4 miniature of the real grid: identity block, index, a photo, then the
 // colour blocks the feed is made of.
-const HATCH_CELLS: { bg?: string; photo?: 0 | 1; span?: string }[] = [
-  { bg: "var(--lime)", span: "m2x2" },
-  { bg: "var(--paper)", span: "m1x2" },
-  { photo: 0, span: "m1x2" },
-  { photo: 1, span: "m2x1" },
+const HATCH_CELLS: { bg?: string; mini?: string; photo?: 0 | 1; span?: string }[] = [
+  { bg: "var(--lime)", mini: "identity", span: "m2x2" },
+  { bg: "var(--paper)", mini: "links", span: "m1x2" },
+  { photo: 0, mini: "photo0", span: "m1x2" },
+  { photo: 1, mini: "photo1", span: "m2x1" },
   { bg: "var(--tomato)" },
   { bg: "var(--blue)" },
   { bg: "var(--yellow)" },
@@ -197,18 +288,18 @@ const HATCH_CELLS: { bg?: string; photo?: 0 | 1; span?: string }[] = [
 ];
 
 function Landing({
+  exiting,
   latest,
   onOpen,
-  opening,
   photos,
 }: {
+  exiting: boolean;
   latest?: PostListItem;
   onOpen: () => void;
-  opening: boolean;
   photos: Toot[];
 }) {
   return (
-    <div className={cx(styles.landing, opening && styles.landingOut)}>
+    <div className={cx(styles.landing, exiting && styles.landingOut)}>
       <div className={styles.landingInner}>
         <div className={styles.landingText}>
           <div className={cx(styles.meta, styles.landingMeta)}>
@@ -235,7 +326,7 @@ function Landing({
 
         <button
           aria-label="Open the activity grid"
-          className={cx(styles.hatch, opening && styles.hatchOut)}
+          className={styles.hatch}
           onClick={onOpen}
           type="button"
         >
@@ -245,6 +336,7 @@ function Landing({
               return (
                 <span
                   className={cell.span ? styles[cell.span] : undefined}
+                  data-mini={cell.mini}
                   key={n}
                   style={{ background: cell.bg || "var(--ink2)" }}
                 >
@@ -274,18 +366,20 @@ function Landing({
 }
 
 interface TileProps {
+  anchor?: string;
   href: string;
   i: number;
   className: string;
   children: React.ReactNode;
 }
 
-function Tile({ href, i, className, children }: TileProps) {
+function Tile({ anchor, href, i, className, children }: TileProps) {
   const style: CSSVars = { "--i": i };
   if (isExternal(href)) {
     return (
       <a
         className={className}
+        data-anchor={anchor}
         href={href}
         rel="noopener noreferrer"
         style={style}
@@ -296,7 +390,7 @@ function Tile({ href, i, className, children }: TileProps) {
     );
   }
   return (
-    <Link className={className} href={href} style={style}>
+    <Link className={className} data-anchor={anchor} href={href} style={style}>
       {children}
     </Link>
   );
@@ -353,7 +447,11 @@ function Route({ polyline }: { polyline: string }) {
 function Identity({ i, latest }: { i: number; latest?: PostListItem }) {
   const style: CSSVars = { "--i": i };
   return (
-    <div className={cx(styles.cell, styles.identity, styles.w3, styles.h2)} style={style}>
+    <div
+      className={cx(styles.cell, styles.identity, styles.w3, styles.h2)}
+      data-anchor="identity"
+      style={style}
+    >
       <div className={styles.meta}>
         <span>mknepprath.com</span>
         {latest ? (
@@ -381,7 +479,11 @@ function Identity({ i, latest }: { i: number; latest?: PostListItem }) {
 function Links({ i }: { i: number }) {
   const style: CSSVars = { "--i": i };
   return (
-    <nav className={cx(styles.cell, styles.links, styles.h2)} style={style}>
+    <nav
+      className={cx(styles.cell, styles.links, styles.h2)}
+      data-anchor="links"
+      style={style}
+    >
       <div className={styles.meta}>
         <span>Index</span>
       </div>
@@ -413,10 +515,12 @@ function Links({ i }: { i: number }) {
 }
 
 function PhotoTile({
+  anchor,
   i,
   photo,
   size,
 }: {
+  anchor?: string;
   i: number;
   photo: Toot;
   size: "hero" | "feature" | "portrait" | "landscape" | "small";
@@ -440,7 +544,12 @@ function PhotoTile({
   }[size];
 
   return (
-    <Tile className={cx(styles.cell, styles.photo, sizeClass)} href="/photography" i={i}>
+    <Tile
+      anchor={anchor}
+      className={cx(styles.cell, styles.photo, sizeClass)}
+      href="/photography"
+      i={i}
+    >
       <div className={styles.media}>
         <Image
           alt={alt}
@@ -768,7 +877,8 @@ export default function GridHome({
   initialPhotos,
   initialShots,
 }: Props): React.ReactNode {
-  const { close, open, opening, openGrid } = useHatch();
+  const { close, exiting, flying, open, openGrid, rects, setFlying } = useHatch();
+  const landed = useCallback(() => setFlying(false), [setFlying]);
 
   const { data: activity = initialActivity } = useSWR<PostListItem[]>(ACTIVITY_URL, fetcher, {
     fallbackData: initialActivity,
@@ -816,7 +926,9 @@ export default function GridHome({
   tiles.push(<Identity i={i++} key="identity" latest={posts[0]} />);
   tiles.push(<Links i={i++} key="links" />);
   if (photos[0]) {
-    tiles.push(<PhotoTile i={i++} key={photos[0].id} photo={photos[0]} size="hero" />);
+    tiles.push(
+      <PhotoTile anchor="photo0" i={i++} key={photos[0].id} photo={photos[0]} size="hero" />,
+    );
   }
 
   let p = 1;
@@ -824,7 +936,13 @@ export default function GridHome({
   posts.forEach((post, n) => {
     if (n > 0 && n % PHOTO_EVERY === 0 && p < photos.length) {
       tiles.push(
-        <PhotoTile i={i++} key={photos[p].id} photo={photos[p]} size={photoSize(photos[p], p)} />,
+        <PhotoTile
+          anchor={p === 1 ? "photo1" : undefined}
+          i={i++}
+          key={photos[p].id}
+          photo={photos[p]}
+          size={photoSize(photos[p], p)}
+        />,
       );
       p++;
     }
@@ -845,7 +963,9 @@ export default function GridHome({
 
   tiles.push(<Footer i={i++} key="footer" />);
 
-  useReveal(open ? tiles.length : 0);
+  useFoldIn(open && flying, rects, landed);
+  // Hold the cascade until the blocks have landed, so the two don't compete.
+  useReveal(open && !flying ? tiles.length : 0);
 
   return (
     <>
@@ -862,11 +982,11 @@ export default function GridHome({
             <div className={styles.grid}>{tiles}</div>
           </>
         ) : null}
-        {open && !opening ? null : (
+        {open ? null : (
           <Landing
+            exiting={exiting}
             latest={posts[0]}
             onOpen={openGrid}
-            opening={opening}
             photos={photos.slice(0, 2)}
           />
         )}
