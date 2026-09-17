@@ -772,19 +772,19 @@ function ProjectTile({
 }) {
   return (
     <Tile className={cx(styles.cell, styles.project)} href={project.href} i={i}>
+      <Meta label="Project" />
       {project.imgSrc ? (
         <div className={styles.projectArt}>
           <Image
             alt=""
             fill
-            sizes="(max-width: 640px) 50vw, 20vw"
+            sizes="(max-width: 640px) 40vw, 12vw"
             src={project.imgSrc}
-            style={{ objectFit: "contain" }}
+            style={{ objectFit: "contain", objectPosition: "left center" }}
           />
         </div>
       ) : null}
-      <div className={styles.projectLabel}>
-        <Meta label="Project" />
+      <div>
         <h3 className={cx(styles.title, styles.tSm, lenClass(project.title), styles.clamp2)}>
           {project.title}
         </h3>

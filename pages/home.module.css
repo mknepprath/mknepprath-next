@@ -1079,25 +1079,18 @@ a.shot:hover .meta {
 .project {
   --bg: var(--paper);
   --fg: var(--ink);
-  gap: 0;
-  padding: 0;
-}
-
-.projectArt {
-  position: relative;
-  flex: 1;
-  min-height: 0;
-  margin: 10%;
-}
-
-.projectLabel {
-  flex: none;
-  padding: 0 var(--pad) var(--pad);
 }
 
 .project .meta {
-  margin-bottom: 6px;
-  opacity: 0.55;
+  opacity: 0.5;
+}
+
+/* Icon sits between the label and the title, matching the other tile types. */
+.projectArt {
+  position: relative;
+  flex: 0 0 auto;
+  width: 38%;
+  aspect-ratio: 1;
 }
 
 /* ─── Swipe (mobile) ─────────────────────────────── */
@@ -1136,8 +1129,7 @@ a.shot:hover .meta {
 
   .grid:not(.asGrid) .slab,
   .grid:not(.asGrid) .bleedSlab,
-  .grid:not(.asGrid) .shotLabel,
-  .grid:not(.asGrid) .projectLabel {
+  .grid:not(.asGrid) .shotLabel {
     padding-bottom: 56px;
   }
 
