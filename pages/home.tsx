@@ -455,17 +455,22 @@ function Scramble({ text }: { text: string }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     cancelAnimationFrame(raf.current);
     const chars = Array.from(text);
-    const frames = 24;
+    const frames = 60;
+    // Each unresolved slot holds its glyph for a few frames; churning every
+    // frame just reads as noise.
+    const held: string[] = new Array(chars.length).fill("");
     let frame = 0;
     const step = () => {
-      const settled = Math.floor((frame / frames) * chars.length * 1.5);
+      const settled = Math.floor((frame / frames) * chars.length);
       setDisplay(
         chars
-          .map((char, i) =>
-            i < settled || char === " " || char === "\n"
-              ? char
-              : GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
-          )
+          .map((char, i) => {
+            if (i < settled || char === " " || char === "\n") return char;
+            if (!held[i] || (frame + i) % 4 === 0) {
+              held[i] = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+            }
+            return held[i];
+          })
           .join(""),
       );
       if (frame++ < frames) raf.current = requestAnimationFrame(step);
