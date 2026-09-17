@@ -1,4 +1,5 @@
 import { projectLinks } from "@data/links";
+import type { HomeVideo } from "./api/v1/home";
 import Head from "@core/head";
 import { decodePolyline } from "@core/strava-map";
 import { fetcher } from "@lib/fetcher";
@@ -807,6 +808,35 @@ function ProjectTile({
   );
 }
 
+/** Old film work: the thumbnail carries it, with the year on the label. */
+function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
+  const year = video.upload_date?.slice(0, 4);
+  return (
+    <Tile className={cx(styles.cell, styles.shot, styles.w2)} href={video.url} i={i}>
+      <div className={styles.shotArt}>
+        <Image
+          alt={video.title}
+          fill
+          sizes="(max-width: 640px) 100vw, 34vw"
+          src={video.thumbnail_large}
+          style={{ objectFit: "cover" }}
+        />
+      </div>
+      <div className={styles.shotLabel}>
+        <div className={styles.meta}>
+          <span>Video{year ? ` · ${year}` : ""}</span>
+          <span aria-hidden className={styles.arrow}>
+            ↗
+          </span>
+        </div>
+        <h3 className={cx(styles.title, styles.tSm, lenClass(video.title), styles.clamp2)}>
+          {video.title}
+        </h3>
+      </div>
+    </Tile>
+  );
+}
+
 function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
   const { action = "", date, image, summary = "", title, type, url = "#" } = post;
 
@@ -1070,7 +1100,8 @@ function Footer({ i }: { i: number }) {
 }
 
 interface HomeItem {
-  kind: "activity" | "photo" | "shot" | "project";
+  kind: "activity" | "photo" | "shot" | "project" | "video";
+  video?: HomeVideo;
   post?: PostListItem;
   photo?: Toot;
   fill?: boolean;
@@ -1133,6 +1164,8 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
           size={photoSize(item.photo, n, item.fill)}
         />,
       );
+    } else if (item.kind === "video" && item.video) {
+      tiles.push(<VideoTile i={i++} key={item.video.id} video={item.video} />);
     } else if (item.kind === "shot" && item.shot) {
       tiles.push(<ShotTile i={i++} key={item.shot.id} shot={item.shot} />);
     } else if (item.kind === "project" && item.project) {

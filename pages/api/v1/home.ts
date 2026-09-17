@@ -52,13 +52,23 @@ const TYPE_WEIGHT: Record<string, number> = {
   CHESS: 20,
 };
 const MAX_SHOTS = 4;
+const MAX_VIDEOS = 4;
 const PHOTO_EVERY = 3;
 const SHOT_EVERY = 7;
 // Commits nobody wrote are not activity.
 const AUTOMATED = /\b(automated|dependabot|renovate)\b/i;
 
+export interface HomeVideo {
+  id: number;
+  title: string;
+  url: string;
+  thumbnail_large: string;
+  upload_date: string;
+}
+
 type HomeItem =
   | { kind: "activity"; post: PostListItem }
+  | { kind: "video"; video: HomeVideo }
   | { kind: "photo"; photo: Toot; fill?: boolean }
   | { kind: "shot"; shot: Shot }
   | { kind: "project"; project: (typeof projectLinks)[number] };
@@ -78,11 +88,12 @@ export default async (
   _req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
-  const [activity, photoData, shotData] = await Promise.all([
+  const [activity, photoData, shotData, videoData] = await Promise.all([
     // Reach well back; the scoring decides what is worth a tile, not the slice.
     get<PostListItem>("/api/v1/activity?max_results=200&min_rating=0"),
     get<Toot>("/api/v1/photos?limit=24"),
     get<Shot>("/api/v1/dribbble"),
+    get<HomeVideo>("/api/v1/vimeo"),
   ]);
 
   const recent = activity
@@ -154,6 +165,7 @@ export default async (
     .filter((photo) => photo.media_attachments?.[0]?.type === "image")
     .slice(0, MAX_PHOTOS);
   const shots = shotData.filter((shot) => shot.images?.normal).slice(0, MAX_SHOTS);
+  const videos = videoData.filter((video) => video.thumbnail_large).slice(0, MAX_VIDEOS);
 
   // A project whose repo is already in the stream is being represented by its
   // own commits, so only the quiet ones need a tile.
@@ -168,9 +180,12 @@ export default async (
   let p = 1;
   let s = 0;
   let j = 0;
-  // Projects are evergreen, so they are spaced evenly across the whole stream
-  // instead of riding a fixed cadence that leaves a remainder at the end.
+  let v = 0;
+  // Evergreen things are spaced evenly across the whole stream; a fixed cadence
+  // places only as many as the stream is long and leaves the rest in a heap at
+  // the end.
   const projectStep = projects.length ? posts.length / (projects.length + 1) : 0;
+  const videoStep = videos.length ? posts.length / (videos.length + 1) : 0;
 
   if (photos[0]) items.push({ kind: "photo", photo: photos[0] });
 
@@ -183,6 +198,10 @@ export default async (
       items.push({ kind: "shot", shot: shots[s] });
       s++;
     }
+    while (videoStep && v < videos.length && n >= videoStep * (v + 1)) {
+      items.push({ kind: "video", video: videos[v] });
+      v++;
+    }
     while (projectStep && j < projects.length && n >= projectStep * (j + 1)) {
       items.push({ kind: "project", project: projects[j] });
       j++;
@@ -193,6 +212,7 @@ export default async (
   // Anything the cadences did not reach still belongs on the page. These go in
   // last as single squares, which lets the grid pack them into leftover gaps.
   while (p < photos.length) items.push({ kind: "photo", photo: photos[p++], fill: true });
+  while (v < videos.length) items.push({ kind: "video", video: videos[v++] });
   while (j < projects.length) items.push({ kind: "project", project: projects[j++] });
 
   setCacheControl(res, 300);
