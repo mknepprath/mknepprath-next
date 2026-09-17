@@ -1168,6 +1168,11 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
             <div className={styles.swipeBar}>
               <span>
                 {at} / {tiles.length}
+                {/* Snapped cards leave no sliver of the next one showing, so
+                    say it once on the opening card and never again. */}
+                {at === 1 && !asGrid ? (
+                  <span className={styles.swipeHint}> · swipe</span>
+                ) : null}
               </span>
               <button
                 className={styles.swipeToggle}

@@ -1287,3 +1287,7 @@ a.shot:hover .meta {
     display: none;
   }
 }
+
+.swipeHint {
+  opacity: 0.55;
+}
