@@ -15,9 +15,42 @@ const BASE_URL =
     ? "https://mknepprath.com"
     : "http://localhost:3000";
 
-const MAX_AGE_DAYS = 60;
-const MIN_POSTS = 24;
+/*
+ * Relevance, not just recency. Age decays rather than falling off a cliff, so
+ * a piece of writing from months ago can still outrank yesterday's walk, and
+ * how much of a person is in a thing counts: a review outranks a bare rating,
+ * a commit message outranks nothing at all.
+ */
+const RECENCY_WEIGHT = 90;
+const RECENCY_FALLOFF = 45;
+const OLDEST_DAYS = 365;
+// A tile has to be earned: without a floor the slots outnumber the candidates
+// and everything gets in regardless of how it scored.
+const MIN_SCORE = 60;
+const MAX_POSTS = 42;
+const MAX_PER_TYPE = 8;
 const MAX_PHOTOS = 20;
+
+// Only some summaries are written by a person; a chess tile's "Rating · Accuracy"
+// or a run's distance line is generated, and should earn no credit for prose.
+const AUTHORED = new Set(["FILM", "BOOK", "POST", "HIGHLIGHT"]);
+const TEXT_POSTS = new Set(["TOOT", "SKEET", "ROBOT"]);
+
+const TYPE_WEIGHT: Record<string, number> = {
+  POST: 100,
+  TROPHY: 42,
+  FILM: 50,
+  BOOK: 50,
+  SKEET: 36,
+  MUSIC: 40,
+  GAME: 40,
+  HIGHLIGHT: 38,
+  TOOT: 36,
+  ROBOT: 32,
+  REPO: 30,
+  RUN: 26,
+  CHESS: 20,
+};
 const MAX_SHOTS = 4;
 const PHOTO_EVERY = 3;
 const SHOT_EVERY = 7;
@@ -46,23 +79,76 @@ export default async (
   res: NextApiResponse,
 ): Promise<void> => {
   const [activity, photoData, shotData] = await Promise.all([
-    get<PostListItem>("/api/v1/activity?max_results=90&min_rating=0"),
+    // Reach well back; the scoring decides what is worth a tile, not the slice.
+    get<PostListItem>("/api/v1/activity?max_results=200&min_rating=0"),
     get<Toot>("/api/v1/photos?limit=24"),
     get<Shot>("/api/v1/dribbble"),
   ]);
 
   const recent = activity
     .filter((post) => post.type !== "PHOTO")
+    .filter(
+      (post) => post.type !== "REPO" || !AUTOMATED.test(`${post.title} ${post.summary || ""}`),
+    )
     .sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
-  // Anchored to the newest item rather than the clock, so the window is stable
-  // for as long as the response is cached.
-  const newest = recent[0] ? +new Date(recent[0].date) : 0;
-  const cutoff = newest - MAX_AGE_DAYS * 86400000;
-  const fresh = recent.filter((post) => +new Date(post.date) > cutoff);
-  const posts = (fresh.length >= MIN_POSTS ? fresh : recent.slice(0, MIN_POSTS)).filter(
-    (post) => post.type !== "REPO" || !AUTOMATED.test(`${post.title} ${post.summary || ""}`),
-  );
+  // Anchored to the newest item rather than the clock, so a cached response
+  // stays internally consistent.
+  const newest = recent[0] ? +new Date(recent[0].date) : Date.now();
+  const floor = newest - OLDEST_DAYS * 86400000;
+  const seen = new Map<string, number>();
+
+  const scored = recent
+    .filter((post) => +new Date(post.date) > floor)
+    .map((post) => {
+      const type = post.type || "POST";
+      const ageDays = Math.max(0, (newest - +new Date(post.date)) / 86400000);
+      const summary = post.summary || "";
+
+      // Counted newest first, so it is the repeats further down that are
+      // damped rather than the freshest example of a kind.
+      const repeat = seen.get(type) || 0;
+      seen.set(type, repeat + 1);
+
+      const substance = AUTHORED.has(type)
+        ? summary.length > 60
+          ? 20
+          : summary.length > 20
+            ? 8
+            : 0
+        : TEXT_POSTS.has(type) && (post.title || "").length > 80
+          ? 12
+          : 0;
+
+      const score =
+        (TYPE_WEIGHT[type] ?? 30) +
+        RECENCY_WEIGHT * Math.exp(-ageDays / RECENCY_FALLOFF) +
+        substance +
+        (post.image ? 12 : 0) -
+        repeat * 7;
+
+      return { post, score, repeat, type };
+    })
+    .filter(({ repeat, score }) => repeat < MAX_PER_TYPE && score >= MIN_SCORE)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, MAX_POSTS);
+
+  /*
+   * Chosen by score, but read as a stream: back to date order, then nudged so
+   * two of the same kind never sit next to each other.
+   */
+  const queue = scored
+    .map(({ post, type }) => ({ post, type }))
+    .sort((a, b) => +new Date(b.post.date) - +new Date(a.post.date));
+
+  const posts: PostListItem[] = [];
+  let lastType = "";
+  while (queue.length) {
+    const next = queue.findIndex((item) => item.type !== lastType);
+    const [taken] = queue.splice(next === -1 ? 0 : next, 1);
+    posts.push(taken.post);
+    lastType = taken.type;
+  }
 
   const photos = photoData
     .filter((photo) => photo.media_attachments?.[0]?.type === "image")
