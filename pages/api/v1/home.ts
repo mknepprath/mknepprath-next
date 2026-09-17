@@ -39,7 +39,7 @@ const AUTHORED = new Set(["FILM", "BOOK", "POST", "HIGHLIGHT"]);
 const TEXT_POSTS = new Set(["TOOT", "SKEET", "ROBOT"]);
 
 const TYPE_WEIGHT: Record<string, number> = {
-  POST: 100,
+  POST: 150,
   TROPHY: 42,
   FILM: 50,
   BOOK: 50,
@@ -178,10 +178,13 @@ export default async (
   // stays internally consistent.
   const newest = recent[0] ? +new Date(recent[0].date) : Date.now();
   const floor = newest - OLDEST_DAYS * 86400000;
+  // An essay does not go stale the way a walk does, so writing is not held to
+  // the age floor and is barely damped for repeating.
+  const evergreen = (post: PostListItem) => post.type === "POST";
   const seen = new Map<string, number>();
 
   const scored = recent
-    .filter((post) => +new Date(post.date) > floor)
+    .filter((post) => evergreen(post) || +new Date(post.date) > floor)
     .map((post) => {
       const type = post.type || "POST";
       const ageDays = Math.max(0, (newest - +new Date(post.date)) / 86400000);
@@ -207,7 +210,7 @@ export default async (
         RECENCY_WEIGHT * Math.exp(-ageDays / RECENCY_FALLOFF) +
         substance +
         (post.image ? 12 : 0) -
-        repeat * 7;
+        repeat * (evergreen(post) ? 2 : 7);
 
       return { post, score, repeat, type };
     })
@@ -218,18 +221,45 @@ export default async (
   /*
    * Chosen by score, but read as a stream: back to date order, then nudged so
    * two of the same kind never sit next to each other.
+   *
+   * Writing is held out of that ordering entirely. An essay does not belong to
+   * the day it was published the way a run does, and by date the older ones
+   * sink to the bottom together; spread through the stream, each one reads as
+   * something worth surfacing.
    */
-  const queue = scored
+  const inWindow = scored.filter(({ post }) => !evergreen(post));
+  const essays = scored
+    .filter(({ post }) => evergreen(post))
+    .sort((a, b) => +new Date(b.post.date) - +new Date(a.post.date))
+    .map(({ post }) => post);
+
+  const queue = inWindow
     .map(({ post, type }) => ({ post, type }))
     .sort((a, b) => +new Date(b.post.date) - +new Date(a.post.date));
 
-  const posts: PostListItem[] = [];
+  const stream: PostListItem[] = [];
   let lastType = "";
   while (queue.length) {
     const next = queue.findIndex((item) => item.type !== lastType);
     const [taken] = queue.splice(next === -1 ? 0 : next, 1);
-    posts.push(taken.post);
+    stream.push(taken.post);
     lastType = taken.type;
+  }
+
+  // Slots are measured against the finished length, so the essays land evenly
+  // instead of running out of stream and piling up at the end.
+  const total = stream.length + essays.length;
+  const slots = new Set(
+    essays.map((_, k) => Math.floor(((k + 1) * total) / (essays.length + 1))),
+  );
+
+  const posts: PostListItem[] = [];
+  let o = 0;
+  let n = 0;
+  for (let at = 0; at < total; at++) {
+    if (slots.has(at) && o < essays.length) posts.push(essays[o++]);
+    else if (n < stream.length) posts.push(stream[n++]);
+    else if (o < essays.length) posts.push(essays[o++]);
   }
 
   const photos = photoData
