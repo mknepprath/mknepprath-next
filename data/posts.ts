@@ -58,15 +58,6 @@ const posts: PostListItem[] = [
     "title": "2024 in Review"
   },
   {
-    "date": "2024-12-19",
-    "id": "two-types-of-filmmakers",
-    "summary": "Jafar Panahi on artistic vision versus commercial appeal in filmmaking.",
-    "tags": [
-      "film"
-    ],
-    "title": "Two Types of Filmmakers"
-  },
-  {
     "date": "2024-10-23",
     "id": "sometown-usa",
     "image": "/assets/sometown-usa-1.jpg",
