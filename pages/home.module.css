@@ -361,6 +361,20 @@ a.cell:hover .arrow {
 .media img {
   transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.1, 1);
 }
+
+/* Photographs breathe slowly while they are on screen. */
+.photo.in .media {
+  animation: drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1.04) translate3d(0.6%, 0.5%, 0);
+  }
+  to {
+    transform: scale(1.09) translate3d(-0.8%, -0.7%, 0);
+  }
+}
 a.cell:hover .media img {
   transform: scale(1.045);
 }
@@ -486,6 +500,22 @@ a.photo:hover .chip {
 }
 
 @keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Hovering a run retraces the route. */
+a.cell:hover .route path {
+  animation-name: redraw;
+  animation-duration: 0.85s;
+  animation-delay: 0s;
+}
+
+@keyframes redraw {
+  from {
+    stroke-dashoffset: 1;
+  }
   to {
     stroke-dashoffset: 0;
   }
@@ -793,6 +823,9 @@ a.shot:hover .meta {
   }
   .media img {
     transition: none;
+  }
+  .photo.in .media {
+    animation: none;
   }
 }
 

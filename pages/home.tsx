@@ -401,6 +401,92 @@ function Landing({
   );
 }
 
+
+/** Counts a distance up from zero the first time its tile scrolls into view. */
+function CountUp({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState(value);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const target = parseFloat(value);
+    if (!Number.isFinite(target)) return;
+    const decimals = (value.split(".")[1] || "").length;
+
+    // Starts counting the moment the tile appears, so the number is never
+    // shown settled and then reset.
+    let raf = 0;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const started = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min((now - started) / 700, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          setDisplay(t < 1 ? (target * eased).toFixed(decimals) : value);
+          if (t < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [value]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
+const GLYPHS = "▚▞░▒▓#%&@$*+=-<>/\\";
+
+/** Shuffles a bot's words into place on hover, left to right. */
+function Scramble({ text }: { text: string }) {
+  const [display, setDisplay] = useState(text);
+  const ref = useRef<HTMLSpanElement>(null);
+  const raf = useRef(0);
+
+  const run = useCallback(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    cancelAnimationFrame(raf.current);
+    const chars = Array.from(text);
+    const frames = 24;
+    let frame = 0;
+    const step = () => {
+      const settled = Math.floor((frame / frames) * chars.length * 1.5);
+      setDisplay(
+        chars
+          .map((char, i) =>
+            i < settled || char === " " || char === "\n"
+              ? char
+              : GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          )
+          .join(""),
+      );
+      if (frame++ < frames) raf.current = requestAnimationFrame(step);
+      else setDisplay(text);
+    };
+    raf.current = requestAnimationFrame(step);
+  }, [text]);
+
+  // Listens on the whole tile so hovering anywhere on the card sets it off.
+  useEffect(() => {
+    const tile = ref.current?.closest("a");
+    tile?.addEventListener("mouseenter", run);
+    return () => {
+      tile?.removeEventListener("mouseenter", run);
+      cancelAnimationFrame(raf.current);
+    };
+  }, [run]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
 interface TileProps {
   anchor?: string;
   href: string;
@@ -702,7 +788,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           {hasRoute ? <Route polyline={image} /> : null}
           <div>
             <p className={cx(styles.stat, !hasRoute && styles.statXl)}>
-              {miles || "—"}
+              {miles ? <CountUp value={miles} /> : "—"}
               <span className={styles.unit}>mi</span>
             </p>
             <span className={cx(styles.mono, styles.sub)}>
@@ -754,7 +840,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
               !dense && !short && lenClass(text),
             )}
           >
-            {text}
+            {type === "ROBOT" ? <Scramble text={text} /> : text}
           </h3>
         </Tile>
       );
