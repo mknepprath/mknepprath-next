@@ -681,6 +681,9 @@ function PhotoTile({
   size: "hero" | "feature" | "portrait" | "landscape" | "small";
 }) {
   const media = photo.media_attachments[0];
+  const { width = 1, height = 1 } = media.meta?.original || {};
+  // Which way the crop hides the picture decides which way it travels.
+  const pan = width > height ? styles.panX : styles.panY;
   const alt =
     media.description || stripTags(photo.content) || "Photograph by Michael Knepprath";
   const sizeClass = {
@@ -701,7 +704,7 @@ function PhotoTile({
   return (
     <Tile
       anchor={anchor}
-      className={cx(styles.cell, styles.photo, sizeClass)}
+      className={cx(styles.cell, styles.photo, pan, sizeClass)}
       href="/photography"
       i={i}
     >

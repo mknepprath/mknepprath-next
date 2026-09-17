@@ -359,6 +359,7 @@ a.cell:hover .arrow {
   inset: 0;
 }
 
+
 .media img {
   transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.1, 1);
 }
@@ -826,7 +827,9 @@ a.shot:hover .meta {
   .media img {
     transition: none;
   }
-  .photo.in .media {
+  .photo.in .media,
+  .panX.in .media img,
+  .panY.in .media img {
     animation: none;
   }
 }
@@ -978,7 +981,6 @@ a.shot:hover .meta {
   gap: 3px;
   /* Shares the text block's right edge so the column reads as one column. */
   width: 100%;
-  max-width: 360px;
   aspect-ratio: 1;
   background: var(--ink);
 }
@@ -1123,8 +1125,69 @@ a.shot:hover .meta {
     /* A full screen is too tall to push content to both ends. */
     justify-content: center;
     gap: 18px;
-    /* Keep content clear of the fixed controls along the bottom edge. */
-    padding-bottom: calc(var(--pad) + 46px);
+  }
+
+  /*
+   * Artwork runs the full height of the card and the controls float over it.
+   * Only text needs to keep clear of the bottom edge.
+   */
+  /* A poster squeezed into a column becomes a sliver, so stack it instead. */
+  .grid:not(.asGrid) .split {
+    flex-direction: column;
+    gap: 0;
+    justify-content: flex-start;
+  }
+
+  .grid:not(.asGrid) .poster {
+    flex: 1 1 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .grid:not(.asGrid) .body {
+    flex: 0 0 auto;
+  }
+
+  .grid:not(.asGrid) .body {
+    padding-bottom: 56px;
+  }
+
+  /*
+   * A full-bleed crop hides most of a landscape shot, so instead of scaling in
+   * place the visible window travels across the picture — panning sideways on
+   * a wide photo, up and down on a tall one. Animating object-position moves
+   * the crop itself, so there is never a gap at the edge.
+   */
+  .grid:not(.asGrid) .photo.in .media {
+    animation: none;
+  }
+
+  .grid:not(.asGrid) .panX.in .media img {
+    animation: panX 17s ease-in-out infinite alternate;
+  }
+
+  .grid:not(.asGrid) .panY.in .media img {
+    animation: panY 21s ease-in-out infinite alternate;
+  }
+
+  @keyframes panX {
+    from {
+      object-position: 8% 50%;
+    }
+    to {
+      object-position: 92% 50%;
+    }
+  }
+
+  @keyframes panY {
+    from {
+      object-position: 50% 12%;
+    }
+    to {
+      object-position: 50% 88%;
+    }
   }
 
   .grid:not(.asGrid) .slab,
@@ -1168,10 +1231,6 @@ a.shot:hover .meta {
   .grid:not(.asGrid) .route {
     top: 16%;
     height: 34%;
-  }
-  .grid:not(.asGrid) .poster {
-    aspect-ratio: auto;
-    width: 42%;
   }
   .grid:not(.asGrid) .result {
     font-size: 34cqh;
