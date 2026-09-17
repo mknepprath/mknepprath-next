@@ -6,6 +6,18 @@ updates:
     interval: weekly
     time: "10:00"
   open-pull-requests-limit: 10
+  # React refuses to run when react and react-dom are on different versions:
+  # "Incompatible React versions: The "react" and "react-dom" packages must have
+  # the exact same version." Dependabot raised them as separate pull requests, so
+  # each one bumped half the pair and failed its Vercel build on its own — the
+  # versions only agree once both land, which separate PRs can never do.
+  groups:
+    react:
+      patterns:
+      - react
+      - react-dom
+      - "@types/react"
+      - "@types/react-dom"
   ignore:
   - dependency-name: typescript
     versions:
