@@ -1,5 +1,5 @@
 import { projectLinks } from "@data/links";
-import type { HomeVideo } from "./api/v1/home";
+import type { HomeTheme, HomeVideo } from "./api/v1/home";
 import Head from "@core/head";
 import { decodePolyline } from "@core/strava-map";
 import { fetcher } from "@lib/fetcher";
@@ -808,23 +808,51 @@ function ProjectTile({
   );
 }
 
-/** Old film work: the thumbnail carries it, with the year on the label. */
+/**
+ * Film work. On a phone the clip plays in place once the card is on screen —
+ * muted and looping, which is the only kind of autoplay a browser allows — and
+ * is torn down again when it scrolls away.
+ */
 function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
-  const year = video.upload_date?.slice(0, 4);
+  const ref = useRef<HTMLDivElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    const art = ref.current;
+    if (!art || !window.matchMedia("(max-width: 639px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setPlaying(entry.isIntersecting),
+      { threshold: 0.75 },
+    );
+    observer.observe(art);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Tile className={cx(styles.cell, styles.shot, styles.w2)} href={video.url} i={i}>
-      <div className={styles.shotArt}>
+      <div className={styles.shotArt} ref={ref}>
         <Image
           alt={video.title}
           fill
           sizes="(max-width: 640px) 100vw, 34vw"
-          src={video.thumbnail_large}
+          src={video.thumbnail}
           style={{ objectFit: "cover" }}
         />
+        {playing ? (
+          <iframe
+            allow="autoplay; encrypted-media; picture-in-picture"
+            className={styles.videoEmbed}
+            src={video.embed}
+            tabIndex={-1}
+            title={video.title}
+          />
+        ) : null}
       </div>
       <div className={styles.shotLabel}>
         <div className={styles.meta}>
-          <span>Video{year ? ` · ${year}` : ""}</span>
+          <span>Video{video.year ? ` · ${video.year}` : ""}</span>
           <span aria-hidden className={styles.arrow}>
             ↗
           </span>
@@ -832,6 +860,25 @@ function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
         <h3 className={cx(styles.title, styles.tSm, lenClass(video.title), styles.clamp2)}>
           {video.title}
         </h3>
+      </div>
+    </Tile>
+  );
+}
+
+/** A theme is a claim about a stretch of time, so it reads as a chapter. */
+function ThemeTile({ i, theme }: { i: number; theme: HomeTheme }) {
+  return (
+    <Tile
+      className={cx(styles.cell, styles.theme, styles.w2)}
+      href={`/themes/${theme.slug}`}
+      i={i}
+    >
+      <Meta label={`Theme · ${theme.count} things`} />
+      <div>
+        <h3 className={cx(styles.title, styles.tSplit, lenClass(theme.title))}>
+          {theme.title}
+        </h3>
+        <p className={cx(styles.summary, styles.clamp3)}>{theme.description}</p>
       </div>
     </Tile>
   );
@@ -1100,8 +1147,9 @@ function Footer({ i }: { i: number }) {
 }
 
 interface HomeItem {
-  kind: "activity" | "photo" | "shot" | "project" | "video";
+  kind: "activity" | "photo" | "shot" | "project" | "video" | "theme";
   video?: HomeVideo;
+  theme?: HomeTheme;
   post?: PostListItem;
   photo?: Toot;
   fill?: boolean;
@@ -1164,6 +1212,8 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
           size={photoSize(item.photo, n, item.fill)}
         />,
       );
+    } else if (item.kind === "theme" && item.theme) {
+      tiles.push(<ThemeTile i={i++} key={item.theme.slug} theme={item.theme} />);
     } else if (item.kind === "video" && item.video) {
       tiles.push(<VideoTile i={i++} key={item.video.id} video={item.video} />);
     } else if (item.kind === "shot" && item.shot) {

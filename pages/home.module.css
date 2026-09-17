@@ -1281,3 +1281,25 @@ a.shot:hover .meta {
 .swipeHint {
   opacity: 0.55;
 }
+
+/* ─── Themes ─────────────────────────────────────── */
+
+/* Written about the activity rather than being a piece of it. */
+.theme {
+  --bg: var(--cobalt);
+  --fg: #fff;
+}
+
+.theme .summary {
+  opacity: 0.85;
+}
+
+/* Clip playing in place inside a video tile. */
+.videoEmbed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
