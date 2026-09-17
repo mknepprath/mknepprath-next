@@ -16,17 +16,7 @@ const BASE_URL =
     ? "https://mknepprath.com"
     : "http://localhost:3000";
 
-const ACTIVITY_URL = "/api/v1/activity?max_results=90&min_rating=0";
-const PHOTOS_URL = "/api/v1/photos?limit=24";
-const SHOTS_URL = "/api/v1/dribbble";
-const PHOTO_EVERY = 3;
-const SHOT_EVERY = 7;
-const MAX_SHOTS = 4;
-// Keep the stream recent, but never let a quiet stretch empty the grid.
-const MAX_AGE_DAYS = 60;
-const MIN_POSTS = 24;
-// Commits nobody wrote are not activity.
-const AUTOMATED = /\b(automated|dependabot|renovate)\b/i;
+const HOME_URL = "/api/v1/home";
 
 const LINKS = [
   { label: "Writing", href: "/writing" },
@@ -507,12 +497,30 @@ function Scramble({ text }: { text: string }) {
     raf.current = requestAnimationFrame(step);
   }, [text]);
 
-  // Listens on the whole tile so hovering anywhere on the card sets it off.
+  /*
+   * Hovering anywhere on the card sets it off. In the phone pager there is no
+   * hover, so the card scrambles as it swipes into view instead — and again
+   * each time you come back to it.
+   */
   useEffect(() => {
     const tile = ref.current?.closest("a");
-    tile?.addEventListener("mouseenter", run);
+    if (!tile) return;
+    tile.addEventListener("mouseenter", run);
+
+    let observer: IntersectionObserver | undefined;
+    if (window.matchMedia("(max-width: 639px)").matches) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) run();
+        },
+        { threshold: 0.65 },
+      );
+      observer.observe(tile);
+    }
+
     return () => {
-      tile?.removeEventListener("mouseenter", run);
+      tile.removeEventListener("mouseenter", run);
+      observer?.disconnect();
       cancelAnimationFrame(raf.current);
     };
   }, [run]);
@@ -1061,64 +1069,46 @@ function Footer({ i }: { i: number }) {
   );
 }
 
-interface Props {
-  initialActivity: PostListItem[];
-  initialPhotos: Toot[];
-  initialShots: Shot[];
+interface HomeItem {
+  kind: "activity" | "photo" | "shot" | "project";
+  post?: PostListItem;
+  photo?: Toot;
+  fill?: boolean;
+  shot?: Shot;
+  project?: (typeof projectLinks)[number];
 }
 
-export default function GridHome({
-  initialActivity,
-  initialPhotos,
-  initialShots,
-}: Props): React.ReactNode {
+interface HomeFeed {
+  items: HomeItem[];
+  latest: string | null;
+}
+
+interface Props {
+  initialFeed: HomeFeed;
+}
+
+export default function GridHome({ initialFeed }: Props): React.ReactNode {
   const { close, exiting, flying, open, openGrid, rects, setFlying } = useHatch();
   const [asGrid, setAsGrid] = useState(false);
+
+  const { data: feed = initialFeed } = useSWR<HomeFeed>(HOME_URL, fetcher, {
+    fallbackData: initialFeed,
+    revalidateOnFocus: false,
+  });
+
+  const items = Array.isArray(feed?.items) ? feed.items : [];
+  const photos = items
+    .filter((item) => item.kind === "photo" && item.photo)
+    .map((item) => item.photo as Toot);
+  const latest = feed?.latest
+    ? ({ date: feed.latest, id: "latest", title: "" } as PostListItem)
+    : undefined;
+
   const landed = useCallback(() => setFlying(false), [setFlying]);
 
-  const { data: activity = initialActivity } = useSWR<PostListItem[]>(ACTIVITY_URL, fetcher, {
-    fallbackData: initialActivity,
-    revalidateOnFocus: false,
-  });
-  const { data: photoData = initialPhotos } = useSWR<Toot[]>(PHOTOS_URL, fetcher, {
-    fallbackData: initialPhotos,
-    revalidateOnFocus: false,
-  });
-  const { data: shotData = initialShots } = useSWR<Shot[]>(SHOTS_URL, fetcher, {
-    fallbackData: initialShots,
-    revalidateOnFocus: false,
-  });
-
-  const recent = (Array.isArray(activity) ? activity : [])
-    .filter((post) => post.type !== "PHOTO")
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date));
-
-  // Anchored to the newest item, not the clock, so server and client agree.
-  const newest = recent[0] ? +new Date(recent[0].date) : 0;
-  const cutoff = newest - MAX_AGE_DAYS * 86400000;
-  const fresh = recent.filter((post) => +new Date(post.date) > cutoff);
-  const posts = (fresh.length >= MIN_POSTS ? fresh : recent.slice(0, MIN_POSTS)).filter(
-    (post) => post.type !== "REPO" || !AUTOMATED.test(`${post.title} ${post.summary || ""}`),
-  );
-
-  const photos = (Array.isArray(photoData) ? photoData : [])
-    .filter((p) => p.media_attachments?.[0]?.type === "image")
-    .slice(0, 20);
-
-  const shots = (Array.isArray(shotData) ? shotData : [])
-    .filter((shot) => shot.images?.normal)
-    .slice(0, MAX_SHOTS);
-
-  // A project whose repo is already in the stream is being represented by its
-  // own commits, so only the quiet ones need a tile.
-  const liveRepos = new Set(
-    posts.filter((post) => post.type === "REPO").map((post) => post.title),
-  );
-  const projects = projectLinks.filter(
-    (project) => !project.githubRepo || !liveRepos.has(project.githubRepo.split("/")[1]),
-  );
-
-  const photoSize = (photo: Toot, n: number) => {
+  const photoSize = (photo: Toot, n: number, fill?: boolean) => {
+    if (fill) return "small" as const;
+    if (n === 0) return "hero" as const;
     if (n % 5 === 0) return "feature" as const;
     if (n % 3 === 0) return "small" as const;
     const { width = 1, height = 1 } = photo.media_attachments[0].meta?.original || {};
@@ -1127,59 +1117,33 @@ export default function GridHome({
 
   const tiles: React.ReactNode[] = [];
   let i = 0;
+  let photoIndex = 0;
 
-  tiles.push(<Identity i={i++} key="identity" latest={posts[0]} />);
+  tiles.push(<Identity i={i++} key="identity" latest={latest} />);
   tiles.push(<Links i={i++} key="links" />);
-  if (photos[0]) {
-    tiles.push(
-      <PhotoTile anchor="photo0" i={i++} key={photos[0].id} photo={photos[0]} size="hero" />,
-    );
-  }
 
-  let p = 1;
-  let s = 0;
-  let j = 0;
-  // Spread every remaining project evenly across the whole stream.
-  const projectEvery = projects.length
-    ? Math.max(3, Math.floor(posts.length / projects.length))
-    : 0;
-
-  posts.forEach((post, n) => {
-    if (n > 0 && n % PHOTO_EVERY === 0 && p < photos.length) {
+  items.forEach((item) => {
+    if (item.kind === "photo" && item.photo) {
+      const n = photoIndex++;
       tiles.push(
         <PhotoTile
-          anchor={p === 1 ? "photo1" : undefined}
+          anchor={n === 0 ? "photo0" : n === 1 ? "photo1" : undefined}
           i={i++}
-          key={photos[p].id}
-          photo={photos[p]}
-          size={photoSize(photos[p], p)}
+          key={item.photo.id}
+          photo={item.photo}
+          size={photoSize(item.photo, n, item.fill)}
         />,
       );
-      p++;
+    } else if (item.kind === "shot" && item.shot) {
+      tiles.push(<ShotTile i={i++} key={item.shot.id} shot={item.shot} />);
+    } else if (item.kind === "project" && item.project) {
+      tiles.push(
+        <ProjectTile i={i++} key={item.project.title} project={item.project} />,
+      );
+    } else if (item.post) {
+      tiles.push(<ActivityTile i={i++} key={item.post.id} post={item.post} />);
     }
-    if (n > 0 && n % SHOT_EVERY === 0 && s < shots.length) {
-      tiles.push(<ShotTile i={i++} key={shots[s].id} shot={shots[s]} />);
-      s++;
-    }
-    if (projectEvery && n > 0 && n % projectEvery === 0 && j < projects.length) {
-      tiles.push(<ProjectTile i={i++} key={projects[j].title} project={projects[j]} />);
-      j++;
-    }
-    tiles.push(<ActivityTile i={i++} key={post.id} post={post} />);
   });
-
-  // Any photos left over go in last as single squares. Dense packing pulls
-  // them back up into gaps left by the larger tiles; with no gaps they simply
-  // land at the end.
-  while (p < photos.length) {
-    tiles.push(<PhotoTile i={i++} key={photos[p].id} photo={photos[p]} size="small" />);
-    p++;
-  }
-
-  while (j < projects.length) {
-    tiles.push(<ProjectTile i={i++} key={projects[j].title} project={projects[j]} />);
-    j++;
-  }
 
   tiles.push(<Footer i={i++} key="footer" />);
 
@@ -1218,7 +1182,7 @@ export default function GridHome({
         {open && !exiting ? null : (
           <Landing
             exiting={exiting}
-            latest={posts[0]}
+            latest={latest}
             onOpen={openGrid}
             photos={photos.slice(0, 2)}
           />
@@ -1229,31 +1193,17 @@ export default function GridHome({
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  let initialActivity: PostListItem[] = [];
-  let initialPhotos: Toot[] = [];
-  let initialShots: Shot[] = [];
+  let initialFeed: HomeFeed = { items: [], latest: null };
 
   try {
-    const [activityRes, photosRes, shotsRes] = await Promise.all([
-      fetch(`${BASE_URL}${ACTIVITY_URL}`),
-      fetch(`${BASE_URL}${PHOTOS_URL}`),
-      fetch(`${BASE_URL}${SHOTS_URL}`),
-    ]);
-    if (activityRes.ok) {
-      const data = await activityRes.json();
-      if (Array.isArray(data)) initialActivity = data;
-    }
-    if (photosRes.ok) {
-      const data = await photosRes.json();
-      if (Array.isArray(data)) initialPhotos = data;
-    }
-    if (shotsRes.ok) {
-      const data = await shotsRes.json();
-      if (Array.isArray(data)) initialShots = data;
+    const response = await fetch(`${BASE_URL}${HOME_URL}`);
+    if (response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data?.items)) initialFeed = data;
     }
   } catch {
     // SWR refetches client-side
   }
 
-  return { props: { initialActivity, initialPhotos, initialShots }, revalidate: 300 };
+  return { props: { initialFeed }, revalidate: 300 };
 };
