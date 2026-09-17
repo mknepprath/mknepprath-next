@@ -1089,7 +1089,6 @@ interface Props {
 
 export default function GridHome({ initialFeed }: Props): React.ReactNode {
   const { close, exiting, flying, open, openGrid, rects, setFlying } = useHatch();
-  const [asGrid, setAsGrid] = useState(false);
 
   const { data: feed = initialFeed } = useSWR<HomeFeed>(HOME_URL, fetcher, {
     fallbackData: initialFeed,
@@ -1164,23 +1163,12 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
             <button className={styles.close} onClick={close} type="button">
               Close ✕
             </button>
-            <div className={cx(styles.grid, asGrid && styles.asGrid)}>{tiles}</div>
+            <div className={styles.grid}>{tiles}</div>
             <div className={styles.swipeBar}>
-              <span>
-                {at} / {tiles.length}
-                {/* Snapped cards leave no sliver of the next one showing, so
-                    say it once on the opening card and never again. */}
-                {at === 1 && !asGrid ? (
-                  <span className={styles.swipeHint}> · swipe</span>
-                ) : null}
-              </span>
-              <button
-                className={styles.swipeToggle}
-                onClick={() => setAsGrid((previous) => !previous)}
-                type="button"
-              >
-                {asGrid ? "Swipe" : "Grid"}
-              </button>
+              {at} / {tiles.length}
+              {/* Snapped cards leave no sliver of the next one showing, so say
+                  it once on the opening card and never again. */}
+              {at === 1 ? <span className={styles.swipeHint}> · swipe</span> : null}
             </div>
           </>
         ) : null}

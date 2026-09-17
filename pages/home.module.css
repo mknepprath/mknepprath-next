@@ -1103,7 +1103,7 @@ a.shot:hover .meta {
  * changes, so there is no second layout to keep in sync.
  */
 @media (max-width: 639px) {
-  .grid:not(.asGrid) {
+  .grid {
     display: block;
     height: 100dvh;
     padding: 0;
@@ -1113,11 +1113,11 @@ a.shot:hover .meta {
     scrollbar-width: none;
   }
 
-  .grid:not(.asGrid)::-webkit-scrollbar {
+  .grid::-webkit-scrollbar {
     display: none;
   }
 
-  .grid:not(.asGrid) > * {
+  .grid > * {
     width: 100%;
     height: 100dvh;
     scroll-snap-align: start;
@@ -1132,13 +1132,13 @@ a.shot:hover .meta {
    * Only text needs to keep clear of the bottom edge.
    */
   /* A poster squeezed into a column becomes a sliver, so stack it instead. */
-  .grid:not(.asGrid) .split {
+  .grid .split {
     flex-direction: column;
     gap: 0;
     justify-content: flex-start;
   }
 
-  .grid:not(.asGrid) .poster {
+  .grid .poster {
     flex: 1 1 auto;
     width: 100%;
     height: auto;
@@ -1146,11 +1146,11 @@ a.shot:hover .meta {
     aspect-ratio: auto;
   }
 
-  .grid:not(.asGrid) .body {
+  .grid .body {
     flex: 0 0 auto;
   }
 
-  .grid:not(.asGrid) .body {
+  .grid .body {
     padding-bottom: 56px;
   }
 
@@ -1160,15 +1160,15 @@ a.shot:hover .meta {
    * a wide photo, up and down on a tall one. Animating object-position moves
    * the crop itself, so there is never a gap at the edge.
    */
-  .grid:not(.asGrid) .photo.in .media {
+  .grid .photo.in .media {
     animation: none;
   }
 
-  .grid:not(.asGrid) .panX.in .media img {
+  .grid .panX.in .media img {
     animation: panX 17s ease-in-out infinite alternate;
   }
 
-  .grid:not(.asGrid) .panY.in .media img {
+  .grid .panY.in .media img {
     animation: panY 21s ease-in-out infinite alternate;
   }
 
@@ -1190,69 +1190,69 @@ a.shot:hover .meta {
     }
   }
 
-  .grid:not(.asGrid) .slab,
-  .grid:not(.asGrid) .bleedSlab,
-  .grid:not(.asGrid) .shotLabel {
+  .grid .slab,
+  .grid .bleedSlab,
+  .grid .shotLabel {
     padding-bottom: 56px;
   }
 
   /* Full screen gives the type room the small tiles could not. */
-  .grid:not(.asGrid) .title {
+  .grid .title {
     --tscale: 1;
   }
-  .grid:not(.asGrid) .tSm {
+  .grid .tSm {
     --tbase: clamp(28px, 9cqw, 56px);
   }
-  .grid:not(.asGrid) .tSplit {
+  .grid .tSplit {
     --tbase: clamp(26px, 7cqw, 48px);
   }
-  .grid:not(.asGrid) .tLg {
+  .grid .tLg {
     --tbase: clamp(32px, 11cqw, 68px);
   }
-  .grid:not(.asGrid) .quote {
+  .grid .quote {
     --tbase: clamp(24px, 7cqw, 44px);
     -webkit-line-clamp: 12;
   }
-  .grid:not(.asGrid) .summary {
+  .grid .summary {
     font-size: clamp(15px, 4cqw, 19px);
   }
-  .grid:not(.asGrid) .stat {
+  .grid .stat {
     font-size: clamp(64px, 26cqw, 120px);
   }
-  .grid:not(.asGrid) .name {
+  .grid .name {
     font-size: clamp(48px, 17cqw, 104px);
   }
-  .grid:not(.asGrid) .bio {
+  .grid .bio {
     font-size: clamp(17px, 5cqw, 22px);
   }
-  .grid:not(.asGrid) .linkList a {
+  .grid .linkList a {
     font-size: clamp(22px, 8cqw, 34px);
   }
-  .grid:not(.asGrid) .route {
+  .grid .route {
     top: 16%;
     height: 34%;
   }
-  .grid:not(.asGrid) .result {
+  .grid .result {
     font-size: 34cqh;
   }
-  .grid:not(.asGrid) .footerMail {
+  .grid .footerMail {
     font-size: clamp(30px, 9cqw, 52px);
   }
-  .grid:not(.asGrid) .repoName {
+  .grid .repoName {
     font-size: clamp(26px, 9cqw, 42px);
   }
-  .grid:not(.asGrid) .excerpt {
+  .grid .excerpt {
     --tbase: clamp(22px, 6.5cqw, 38px);
   }
   /* The meta line stays at the top edge; only the content centres. */
-  .grid:not(.asGrid) > * > .meta:first-child {
+  .grid > * > .meta:first-child {
     position: absolute;
     top: var(--pad);
     left: var(--pad);
     right: var(--pad);
   }
 
-  /* Progress through the stack, and the way back to the grid. */
+  /* Where you are in the stack. */
   .swipeBar {
     position: fixed;
     left: 12px;
@@ -1267,16 +1267,6 @@ a.shot:hover .meta {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .swipeToggle {
-    padding: 0;
-    border: none;
-    background: none;
-    color: var(--lime);
-    cursor: pointer;
-    font: inherit;
     text-transform: uppercase;
   }
 }
