@@ -1,0 +1,33 @@
+import { projectLinks } from "@data/links";
+import posts from "@data/posts";
+
+describe("Classic home", () => {
+  before(() => {
+    cy.visit("/classic");
+  });
+
+  it.skip("should render posts", () => {
+    posts.slice(0, 5).map((post) => {
+      cy.contains(post.title);
+    });
+  });
+
+  it("should render Projects section", () => {
+    cy.contains("Projects").scrollIntoView().should("be.visible");
+  });
+
+  it("should render projects", () => {
+    projectLinks.map((project) => {
+      cy.contains(project.title);
+    });
+  });
+
+  it("should render Illustrations section", () => {
+    // Illustrations depend on Dribbble API — may not load on preview deploys
+    cy.get("body").then(($body) => {
+      if ($body.text().includes("Illustrations")) {
+        cy.contains("Illustrations").scrollIntoView().should("be.visible");
+      }
+    });
+  });
+});

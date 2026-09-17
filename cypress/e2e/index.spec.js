@@ -1,33 +1,23 @@
-import { projectLinks } from "@data/links";
-import posts from "@data/posts";
-
 describe("Home", () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit("/");
   });
 
-  it.skip("should render posts", () => {
-    posts.slice(0, 5).map((post) => {
-      cy.contains(post.title);
-    });
+  it("should render the landing", () => {
+    cy.contains("Michael");
+    cy.contains("Knepprath");
+    cy.get("button[aria-label^='See what']").should("exist");
   });
 
-  it("should render Projects section", () => {
-    cy.contains("Projects").scrollIntoView().should("be.visible");
+  it("should open the grid from the hatch", () => {
+    cy.get("button[aria-label^='See what']").click();
+    cy.location("hash").should("eq", "#grid");
+    cy.contains("Index");
   });
 
-  it("should render projects", () => {
-    projectLinks.map((project) => {
-      cy.contains(project.title);
-    });
-  });
-
-  it("should render Illustrations section", () => {
-    // Illustrations depend on Dribbble API — may not load on preview deploys
-    cy.get("body").then(($body) => {
-      if ($body.text().includes("Illustrations")) {
-        cy.contains("Illustrations").scrollIntoView().should("be.visible");
-      }
-    });
+  it("should close the grid again", () => {
+    cy.get("button[aria-label^='See what']").click();
+    cy.contains("Close").click();
+    cy.location("hash").should("eq", "");
   });
 });
