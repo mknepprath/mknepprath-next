@@ -389,7 +389,7 @@ function Landing({
         </div>
 
         <button
-          aria-label="Open the activity grid"
+          aria-label="See what I've been up to"
           className={styles.hatch}
           onClick={onOpen}
           type="button"
@@ -421,7 +421,7 @@ function Landing({
             <span className={styles.mono}>
               {latest ? `Active ${shortDate(latest.date)}` : "Live"}
             </span>
-            <span className={styles.hatchCta}>Open the grid ⤢</span>
+            <span className={styles.hatchCta}>What I&apos;ve been up to ↗</span>
           </span>
         </button>
       </div>
