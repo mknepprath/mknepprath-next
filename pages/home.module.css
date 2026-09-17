@@ -1095,6 +1095,11 @@ a.shot:hover .meta {
   aspect-ratio: 1;
 }
 
+/* Only meaningful in the phone pager. */
+.endCap {
+  display: none;
+}
+
 /* ─── Swipe (mobile) ─────────────────────────────── */
 
 /*
@@ -1250,6 +1255,15 @@ a.shot:hover .meta {
     top: var(--pad);
     left: var(--pad);
     right: var(--pad);
+  }
+
+  .grid > .endCap {
+    display: grid;
+    place-items: center;
+    height: 42dvh;
+    color: var(--paper);
+    opacity: 0.45;
+    scroll-snap-align: start;
   }
 
   /* Where you are in the stack. */

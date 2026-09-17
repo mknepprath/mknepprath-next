@@ -1239,8 +1239,29 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
   });
 
   tiles.push(<Footer i={i++} key="footer" />);
+  // Swiping past the end of the pager is how you get back out.
+  tiles.push(
+    <div className={styles.endCap} key="endcap">
+      <span className={styles.mono}>↑ Back to the start</span>
+    </div>,
+  );
 
   const at = useSwipePosition(tiles.length, open);
+
+  // Reaching the strip below the last card closes the pager.
+  useEffect(() => {
+    if (!open || !window.matchMedia("(max-width: 639px)").matches) return;
+    const cap = document.querySelector(`.${styles.endCap}`);
+    if (!cap) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) close();
+      },
+      { threshold: 0.6 },
+    );
+    observer.observe(cap);
+    return () => observer.disconnect();
+  }, [open, close]);
   useFoldIn(open && flying, rects, landed);
   // Hold the cascade until the blocks have landed, so the two don't compete.
   useReveal(open && !flying ? tiles.length : 0);

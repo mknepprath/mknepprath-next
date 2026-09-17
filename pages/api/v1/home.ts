@@ -235,7 +235,25 @@ export default async (
   const photos = photoData
     .filter((photo) => photo.media_attachments?.[0]?.type === "image")
     .slice(0, MAX_PHOTOS);
-  const shots = shotData.filter((shot) => shot.images?.normal).slice(0, MAX_SHOTS);
+  /*
+   * Every size Dribbble hands back is the same URL pinned to ?resize=400x300,
+   * which is smaller than the tile it lands in. The CDN will resize to the
+   * shot's real dimensions, so ask for those instead.
+   */
+  const shots = shotData
+    .filter((shot) => shot.images?.normal)
+    .slice(0, MAX_SHOTS)
+    .map((shot) => {
+      const base = shot.images.normal.split("?")[0];
+      const longest = Math.max(shot.width || 0, shot.height || 0) || 1600;
+      const scale = Math.min(1, 1600 / longest);
+      const width = Math.round((shot.width || 1600) * scale);
+      const height = Math.round((shot.height || 1200) * scale);
+      return {
+        ...shot,
+        images: { ...shot.images, normal: `${base}?resize=${width}x${height}` },
+      };
+    });
 
   // A project whose repo is already in the stream is being represented by its
   // own commits, so only the quiet ones need a tile.
