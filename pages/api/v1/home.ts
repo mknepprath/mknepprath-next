@@ -108,7 +108,13 @@ const youtube = async (id: string): Promise<HomeVideo | null> => {
       url: `https://www.youtube.com/watch?v=${id}`,
       thumbnail: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
       year: "",
-      embed: `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&modestbranding=1&rel=0`,
+      /*
+       * No loop: YouTube implements it by re-queuing the video as a one-item
+       * playlist, which tears the player down and rebuilds it every cycle — a
+       * visible flash, and relentless on a clip only seconds long. It plays
+       * once and holds, and plays again if you scroll back to it.
+       */
+      embed: `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&playsinline=1&modestbranding=1&rel=0`,
     };
   } catch {
     return null;
