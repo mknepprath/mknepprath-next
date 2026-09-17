@@ -117,6 +117,12 @@ export const projectLinks: ProjectLink[] = [
     title: "Sequential Art™",
   },
   {
+    description: "A new Pokémon card every hour",
+    githubRepo: "mknepprath/every-pokemon-card",
+    href: "https://mastodon.social/@EveryPkmnCard",
+    title: "Every Pokémon Card",
+  },
+  {
     description: "Battle your friends on Mastodon",
     githubRepo: "mknepprath/bout",
     href: "https://mastodon.social/@boutbot",
