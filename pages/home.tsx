@@ -1,3 +1,4 @@
+import { projectLinks } from "@data/links";
 import Head from "@core/head";
 import { decodePolyline } from "@core/strava-map";
 import { fetcher } from "@lib/fetcher";
@@ -24,6 +25,8 @@ const MAX_SHOTS = 4;
 // Keep the stream recent, but never let a quiet stretch empty the grid.
 const MAX_AGE_DAYS = 60;
 const MIN_POSTS = 24;
+// Commits nobody wrote are not activity.
+const AUTOMATED = /\b(automated|dependabot|renovate)\b/i;
 
 const LINKS = [
   { label: "Writing", href: "/writing" },
@@ -731,6 +734,43 @@ function ShotTile({ i, shot }: { i: number; shot: Shot }) {
   );
 }
 
+/**
+ * A project is evergreen, so it carries a label instead of a date and is
+ * spread through the stream rather than placed by time.
+ */
+function ProjectTile({
+  i,
+  project,
+}: {
+  i: number;
+  project: (typeof projectLinks)[number];
+}) {
+  return (
+    <Tile className={cx(styles.cell, styles.project)} href={project.href} i={i}>
+      {project.imgSrc ? (
+        <div className={styles.projectArt}>
+          <Image
+            alt=""
+            fill
+            sizes="(max-width: 640px) 50vw, 20vw"
+            src={project.imgSrc}
+            style={{ objectFit: "contain" }}
+          />
+        </div>
+      ) : null}
+      <div className={styles.projectLabel}>
+        <Meta label="Project" />
+        <h3 className={cx(styles.title, styles.tSm, lenClass(project.title), styles.clamp2)}>
+          {project.title}
+        </h3>
+        {fits(project.description, 46) ? (
+          <p className={styles.summary}>{project.description}</p>
+        ) : null}
+      </div>
+    </Tile>
+  );
+}
+
 function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
   const { action = "", date, image, summary = "", title, type, url = "#" } = post;
 
@@ -1028,7 +1068,9 @@ export default function GridHome({
   const newest = recent[0] ? +new Date(recent[0].date) : 0;
   const cutoff = newest - MAX_AGE_DAYS * 86400000;
   const fresh = recent.filter((post) => +new Date(post.date) > cutoff);
-  const posts = fresh.length >= MIN_POSTS ? fresh : recent.slice(0, MIN_POSTS);
+  const posts = (fresh.length >= MIN_POSTS ? fresh : recent.slice(0, MIN_POSTS)).filter(
+    (post) => post.type !== "REPO" || !AUTOMATED.test(`${post.title} ${post.summary || ""}`),
+  );
 
   const photos = (Array.isArray(photoData) ? photoData : [])
     .filter((p) => p.media_attachments?.[0]?.type === "image")
@@ -1038,8 +1080,15 @@ export default function GridHome({
     .filter((shot) => shot.images?.normal)
     .slice(0, MAX_SHOTS);
 
-  // Mixing in single-square shots gives the packer small pieces to fill
-  // around the big ones, so the grid stays tight instead of gapping.
+  // A project whose repo is already in the stream is being represented by its
+  // own commits, so only the quiet ones need a tile.
+  const liveRepos = new Set(
+    posts.filter((post) => post.type === "REPO").map((post) => post.title),
+  );
+  const projects = projectLinks.filter(
+    (project) => !project.githubRepo || !liveRepos.has(project.githubRepo.split("/")[1]),
+  );
+
   const photoSize = (photo: Toot, n: number) => {
     if (n % 5 === 0) return "feature" as const;
     if (n % 3 === 0) return "small" as const;
@@ -1060,6 +1109,12 @@ export default function GridHome({
 
   let p = 1;
   let s = 0;
+  let j = 0;
+  // Spread every remaining project evenly across the whole stream.
+  const projectEvery = projects.length
+    ? Math.max(3, Math.floor(posts.length / projects.length))
+    : 0;
+
   posts.forEach((post, n) => {
     if (n > 0 && n % PHOTO_EVERY === 0 && p < photos.length) {
       tiles.push(
@@ -1077,6 +1132,10 @@ export default function GridHome({
       tiles.push(<ShotTile i={i++} key={shots[s].id} shot={shots[s]} />);
       s++;
     }
+    if (projectEvery && n > 0 && n % projectEvery === 0 && j < projects.length) {
+      tiles.push(<ProjectTile i={i++} key={projects[j].title} project={projects[j]} />);
+      j++;
+    }
     tiles.push(<ActivityTile i={i++} key={post.id} post={post} />);
   });
 
@@ -1086,6 +1145,11 @@ export default function GridHome({
   while (p < photos.length) {
     tiles.push(<PhotoTile i={i++} key={photos[p].id} photo={photos[p]} size="small" />);
     p++;
+  }
+
+  while (j < projects.length) {
+    tiles.push(<ProjectTile i={i++} key={projects[j].title} project={projects[j]} />);
+    j++;
   }
 
   tiles.push(<Footer i={i++} key="footer" />);

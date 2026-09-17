@@ -1071,3 +1071,30 @@ a.shot:hover .meta {
     transition: none;
   }
 }
+
+/* ─── Projects ───────────────────────────────────── */
+
+/* Curated rather than collected, so they sit light against the dark feed. */
+.project {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  gap: 0;
+  padding: 0;
+}
+
+.projectArt {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin: 10%;
+}
+
+.projectLabel {
+  flex: none;
+  padding: 0 var(--pad) var(--pad);
+}
+
+.project .meta {
+  margin-bottom: 6px;
+  opacity: 0.55;
+}
