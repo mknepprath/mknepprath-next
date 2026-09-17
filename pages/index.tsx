@@ -822,14 +822,67 @@ function ProjectTile({
 }
 
 /**
+ * YouTube's player API, loaded once and only when a clip actually needs it.
+ */
+let youTubeApi: Promise<void> | undefined;
+
+function loadYouTubeApi(): Promise<void> {
+  if (youTubeApi) return youTubeApi;
+  youTubeApi = new Promise((resolve) => {
+    const w = window as unknown as { YT?: { Player?: unknown }; onYouTubeIframeAPIReady?: () => void };
+    if (w.YT?.Player) return resolve();
+    w.onYouTubeIframeAPIReady = () => resolve();
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  });
+  return youTubeApi;
+}
+
+/**
  * Film work. On a phone the clip plays in place once the card is on screen —
  * muted and looping, which is the only kind of autoplay a browser allows — and
  * is torn down again when it scrolls away.
  */
 function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
   const ref = useRef<HTMLDivElement>(null);
+  const frame = useRef<HTMLIFrameElement>(null);
+  const player = useRef<unknown>(null);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
+  const isYouTube = video.embed.includes("youtube.com");
+
+  /*
+   * Restart the clip from the player rather than letting it end. YouTube's own
+   * loop parameter re-queues the video, which tears the player down and flashes
+   * every cycle; reaching the end at all raises the "more videos" screen.
+   */
+  useEffect(() => {
+    if (!playing || !isYouTube) return;
+    let cancelled = false;
+
+    loadYouTubeApi().then(() => {
+      const el = frame.current;
+      if (cancelled || !el) return;
+      const YT = (window as unknown as { YT: { Player: new (el: Element, o: unknown) => unknown } }).YT;
+      player.current = new YT.Player(el, {
+        events: {
+          onStateChange: (event: { data: number; target: { seekTo: (n: number) => void; playVideo: () => void } }) => {
+            // 0 is ENDED
+            if (event.data === 0) {
+              event.target.seekTo(0);
+              event.target.playVideo();
+            }
+          },
+        },
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      player.current = null;
+    };
+  }, [playing, isYouTube]);
 
   useEffect(() => {
     const art = ref.current;
@@ -868,6 +921,7 @@ function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
             allow="autoplay; encrypted-media; picture-in-picture"
             className={cx(styles.videoEmbed, ready && styles.videoReady)}
             onLoad={() => setReady(true)}
+            ref={frame}
             src={video.embed}
             tabIndex={-1}
             title={video.title}

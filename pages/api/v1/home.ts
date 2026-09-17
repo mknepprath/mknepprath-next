@@ -109,12 +109,12 @@ const youtube = async (id: string): Promise<HomeVideo | null> => {
       thumbnail: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
       year: "",
       /*
-       * No loop: YouTube implements it by re-queuing the video as a one-item
-       * playlist, which tears the player down and rebuilds it every cycle — a
-       * visible flash, and relentless on a clip only seconds long. It plays
-       * once and holds, and plays again if you scroll back to it.
+       * controls, annotations, fullscreen and keyboard are all removable by
+       * parameter. The "more videos" grid at the end is not — that is the end
+       * screen, and the only way to avoid it is to never reach the end, so the
+       * player is looped over the JS API instead (enablejsapi below).
        */
-      embed: `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&playsinline=1&modestbranding=1&rel=0`,
+      embed: `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&iv_load_policy=3&fs=0&disablekb=1&enablejsapi=1`,
     };
   } catch {
     return null;
