@@ -81,6 +81,7 @@
 .cell {
   --bg: var(--ink2);
   --fg: var(--paper);
+  box-sizing: border-box;
   position: relative;
   container-type: size;
   display: flex;
@@ -1097,4 +1098,141 @@ a.shot:hover .meta {
 .project .meta {
   margin-bottom: 6px;
   opacity: 0.55;
+}
+
+/* ─── Swipe (mobile) ─────────────────────────────── */
+
+/*
+ * On a phone the grid becomes a full-screen vertical pager: one item per
+ * screen, snapping as you scroll. Same tiles, same DOM — only the container
+ * changes, so there is no second layout to keep in sync.
+ */
+@media (max-width: 639px) {
+  .grid:not(.asGrid) {
+    display: block;
+    height: 100dvh;
+    padding: 0;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior-y: contain;
+    scrollbar-width: none;
+  }
+
+  .grid:not(.asGrid)::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid:not(.asGrid) > * {
+    width: 100%;
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    /* A full screen is too tall to push content to both ends. */
+    justify-content: center;
+    gap: 18px;
+    /* Keep content clear of the fixed controls along the bottom edge. */
+    padding-bottom: calc(var(--pad) + 46px);
+  }
+
+  .grid:not(.asGrid) .slab,
+  .grid:not(.asGrid) .bleedSlab,
+  .grid:not(.asGrid) .shotLabel,
+  .grid:not(.asGrid) .projectLabel {
+    padding-bottom: 56px;
+  }
+
+  /* Full screen gives the type room the small tiles could not. */
+  .grid:not(.asGrid) .title {
+    --tscale: 1;
+  }
+  .grid:not(.asGrid) .tSm {
+    --tbase: clamp(28px, 9cqw, 56px);
+  }
+  .grid:not(.asGrid) .tSplit {
+    --tbase: clamp(26px, 7cqw, 48px);
+  }
+  .grid:not(.asGrid) .tLg {
+    --tbase: clamp(32px, 11cqw, 68px);
+  }
+  .grid:not(.asGrid) .quote {
+    --tbase: clamp(24px, 7cqw, 44px);
+    -webkit-line-clamp: 12;
+  }
+  .grid:not(.asGrid) .summary {
+    font-size: clamp(15px, 4cqw, 19px);
+  }
+  .grid:not(.asGrid) .stat {
+    font-size: clamp(64px, 26cqw, 120px);
+  }
+  .grid:not(.asGrid) .name {
+    font-size: clamp(48px, 17cqw, 104px);
+  }
+  .grid:not(.asGrid) .bio {
+    font-size: clamp(17px, 5cqw, 22px);
+  }
+  .grid:not(.asGrid) .linkList a {
+    font-size: clamp(22px, 8cqw, 34px);
+  }
+  .grid:not(.asGrid) .route {
+    top: 16%;
+    height: 34%;
+  }
+  .grid:not(.asGrid) .poster {
+    aspect-ratio: auto;
+    width: 42%;
+  }
+  .grid:not(.asGrid) .result {
+    font-size: 34cqh;
+  }
+  .grid:not(.asGrid) .footerMail {
+    font-size: clamp(30px, 9cqw, 52px);
+  }
+  .grid:not(.asGrid) .repoName {
+    font-size: clamp(26px, 9cqw, 42px);
+  }
+  .grid:not(.asGrid) .excerpt {
+    --tbase: clamp(22px, 6.5cqw, 38px);
+  }
+  /* The meta line stays at the top edge; only the content centres. */
+  .grid:not(.asGrid) > * > .meta:first-child {
+    position: absolute;
+    top: var(--pad);
+    left: var(--pad);
+    right: var(--pad);
+  }
+
+  /* Progress through the stack, and the way back to the grid. */
+  .swipeBar {
+    position: fixed;
+    left: 12px;
+    bottom: 14px;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 11px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .swipeToggle {
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--lime);
+    cursor: pointer;
+    font: inherit;
+    text-transform: uppercase;
+  }
+}
+
+/* The pager is a phone affordance; wider screens keep the grid. */
+@media (min-width: 640px) {
+  .swipeBar {
+    display: none;
+  }
 }

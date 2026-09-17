@@ -131,6 +131,31 @@ function useReveal(count: number) {
   }, [count]);
 }
 
+/**
+ * Tracks which card is on screen in the phone pager, so the counter reads
+ * like a position in a stack rather than a scrollbar.
+ */
+function useSwipePosition(total: number, active: boolean) {
+  const [at, setAt] = useState(1);
+
+  useEffect(() => {
+    if (!active || !window.matchMedia("(max-width: 639px)").matches) return;
+    const cells = Array.from(document.querySelectorAll<HTMLElement>(`.${styles.cell}`));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setAt(cells.indexOf(entry.target as HTMLElement) + 1);
+        }
+      },
+      { threshold: 0.6 },
+    );
+    cells.forEach((cell) => observer.observe(cell));
+    return () => observer.disconnect();
+  }, [total, active]);
+
+  return at;
+}
+
 const OPEN_HASH = "#grid";
 // One envelope for the whole opening: everything starts together and settles
 // inside this window, rather than running as separate beats.
@@ -1045,6 +1070,7 @@ export default function GridHome({
   initialShots,
 }: Props): React.ReactNode {
   const { close, exiting, flying, open, openGrid, rects, setFlying } = useHatch();
+  const [asGrid, setAsGrid] = useState(false);
   const landed = useCallback(() => setFlying(false), [setFlying]);
 
   const { data: activity = initialActivity } = useSWR<PostListItem[]>(ACTIVITY_URL, fetcher, {
@@ -1154,6 +1180,7 @@ export default function GridHome({
 
   tiles.push(<Footer i={i++} key="footer" />);
 
+  const at = useSwipePosition(tiles.length, open);
   useFoldIn(open && flying, rects, landed);
   // Hold the cascade until the blocks have landed, so the two don't compete.
   useReveal(open && !flying ? tiles.length : 0);
@@ -1170,7 +1197,19 @@ export default function GridHome({
             <button className={styles.close} onClick={close} type="button">
               Close ✕
             </button>
-            <div className={styles.grid}>{tiles}</div>
+            <div className={cx(styles.grid, asGrid && styles.asGrid)}>{tiles}</div>
+            <div className={styles.swipeBar}>
+              <span>
+                {at} / {tiles.length}
+              </span>
+              <button
+                className={styles.swipeToggle}
+                onClick={() => setAsGrid((previous) => !previous)}
+                type="button"
+              >
+                {asGrid ? "Swipe" : "Grid"}
+              </button>
+            </div>
           </>
         ) : null}
         {open && !exiting ? null : (
