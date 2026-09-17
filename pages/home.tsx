@@ -816,6 +816,7 @@ function ProjectTile({
 function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
   const ref = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const art = ref.current;
@@ -823,7 +824,11 @@ function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => setPlaying(entry.isIntersecting),
+      ([entry]) => {
+        setPlaying(entry.isIntersecting);
+        // The next mount is a fresh player, so it has to prove itself again.
+        if (!entry.isIntersecting) setReady(false);
+      },
       { threshold: 0.75 },
     );
     observer.observe(art);
@@ -840,10 +845,16 @@ function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
           src={video.thumbnail}
           style={{ objectFit: "cover" }}
         />
+        {/*
+          The player paints white while it boots, so it stays hidden until it
+          has loaded and the still frame shows through until then. Otherwise a
+          visitor gets a blank rectangle and assumes it is broken.
+        */}
         {playing ? (
           <iframe
             allow="autoplay; encrypted-media; picture-in-picture"
-            className={styles.videoEmbed}
+            className={cx(styles.videoEmbed, ready && styles.videoReady)}
+            onLoad={() => setReady(true)}
             src={video.embed}
             tabIndex={-1}
             title={video.title}
