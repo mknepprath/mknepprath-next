@@ -706,13 +706,22 @@ function PhotoTile({
     landscape: styles.photoLandscape,
     small: undefined,
   }[size];
-  const sizes = {
-    hero: "(max-width: 1024px) 50vw, 33vw",
-    feature: "(max-width: 640px) 100vw, 50vw",
-    portrait: "(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 33vw",
-    landscape: "(max-width: 640px) 100vw, 50vw",
-    small: "(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 17vw",
-  }[size];
+  /*
+   * On a phone every card is full screen and object-fit: cover scales the
+   * picture to fill it, so the painted width is larger than the viewport —
+   * much larger for a wide shot, which is sized by the card's height. The
+   * grid hints (50vw, 25vw, 17vw) were leaving photos visibly soft.
+   */
+  const onPhone = width > height ? "(max-width: 640px) 1400px, " : "(max-width: 640px) 800px, ";
+  const sizes =
+    onPhone +
+    {
+      hero: "(max-width: 1024px) 50vw, 33vw",
+      feature: "50vw",
+      portrait: "(max-width: 1024px) 25vw, 33vw",
+      landscape: "50vw",
+      small: "(max-width: 1024px) 25vw, 17vw",
+    }[size];
 
   return (
     <Tile
@@ -755,7 +764,7 @@ function ShotTile({ i, shot }: { i: number; shot: Shot }) {
         <Image
           alt={shot.title}
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 33vw"
+          sizes="(max-width: 640px) 900px, (max-width: 1024px) 25vw, 33vw"
           src={shot.images.normal}
           style={{ objectFit: "cover" }}
         />
@@ -845,7 +854,7 @@ function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
         <Image
           alt={video.title}
           fill
-          sizes="(max-width: 640px) 100vw, 34vw"
+          sizes="(max-width: 640px) 900px, 34vw"
           src={video.thumbnail}
           style={{ objectFit: "cover" }}
         />
@@ -918,7 +927,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
               <Image
                 alt=""
                 fill
-                sizes="(max-width: 640px) 34vw, 12vw"
+                sizes="(max-width: 640px) 500px, 12vw"
                 src={image}
                 style={{ objectFit: "cover" }}
               />
@@ -1031,7 +1040,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
               <Image
                 alt=""
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw"
+                sizes="(max-width: 640px) 900px, (max-width: 1024px) 50vw, 34vw"
                 src={image}
                 style={{ objectFit: "cover" }}
               />
@@ -1089,7 +1098,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
               <Image
                 alt=""
                 fill
-                sizes="(max-width: 640px) 100vw, 34vw"
+                sizes="(max-width: 640px) 900px, 34vw"
                 src={image}
                 style={{ objectFit: "cover" }}
               />
