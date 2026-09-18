@@ -33,6 +33,20 @@ const cx = (...names: (string | false | undefined)[]) =>
 
 const isExternal = (href: string) => /^https?:\/\//.test(href);
 
+/*
+ * Whether a click should be caught by the closeup rather than followed.
+ * Next's Link navigates from inside its own click handler, so a tile has to
+ * cancel the event itself — a handler further up the tree runs too late.
+ */
+const opensCloseup = (e: React.MouseEvent) =>
+  !e.metaKey &&
+  !e.ctrlKey &&
+  !e.shiftKey &&
+  !e.altKey &&
+  e.button === 0 &&
+  typeof window !== "undefined" &&
+  !window.matchMedia("(max-width: 639px)").matches;
+
 // Long titles step down a size instead of being cut off mid-word.
 const lenClass = (text = "") =>
   text.length > 80
@@ -547,31 +561,29 @@ interface TileProps {
 
 function Tile({ anchor, href, i, item, className, children }: TileProps) {
   const style: CSSVars = { "--i": i };
-  if (isExternal(href)) {
-    return (
-      <a
-        className={className}
-        data-anchor={anchor}
-        data-item={item}
-        href={href}
-        rel="noopener noreferrer"
-        style={style}
-        target="_blank"
-      >
-        {children}
-      </a>
-    );
-  }
+  const external = isExternal(href);
+
+  /*
+   * A plain anchor rather than next/link. Link navigates from inside its own
+   * click handler, which made cancelling it to open the closeup unreliable;
+   * with a real anchor the browser's default action is cancelled the ordinary
+   * way. These are exit points, so losing client-side routing costs nothing.
+   */
   return (
-    <Link
+    <a
       className={className}
       data-anchor={anchor}
       data-item={item}
       href={href}
+      onClick={(e) => {
+        if (item !== undefined && opensCloseup(e)) e.preventDefault();
+      }}
+      rel={external ? "noopener noreferrer" : undefined}
       style={style}
+      target={external ? "_blank" : undefined}
     >
       {children}
-    </Link>
+    </a>
   );
 }
 
@@ -1507,11 +1519,9 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
    * still opens the source in a new tab.
    */
   const onGridClick = (e: React.MouseEvent) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     // The phone pager already shows a card full screen, so a modal on top of it
-    // is the same view twice — and intercepting the tap fights the link. There,
-    // a tap just follows the link.
-    if (window.matchMedia("(max-width: 639px)").matches) return;
+    // is the same view twice; there a tap just follows the link.
+    if (!opensCloseup(e)) return;
     const tile = (e.target as HTMLElement).closest("[data-item]");
     const n = Number(tile?.getAttribute("data-item"));
     if (!tile || !Number.isFinite(n) || !items[n]) return;
