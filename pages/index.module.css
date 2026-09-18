@@ -109,12 +109,19 @@
   transform: none;
 }
 
-a.cell:hover,
 a.cell:focus-visible {
   --route: var(--bg);
   background: var(--fg);
   color: var(--bg);
   outline: none;
+}
+@media (hover: hover) {
+  a.cell:hover {
+    --route: var(--bg);
+    background: var(--fg);
+    color: var(--bg);
+    outline: none;
+  }
 }
 
 .meta {
@@ -140,11 +147,15 @@ a.cell:focus-visible {
 
 .arrow {
   opacity: 0.45;
-  transition: opacity 0.15s, transform 0.2s;
+  transition:
+    opacity 0.15s,
+    transform 0.2s;
 }
-a.cell:hover .arrow {
-  opacity: 1;
-  transform: translate(2px, -2px);
+@media (hover: hover) {
+  a.cell:hover .arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
 }
 
 .title {
@@ -287,11 +298,17 @@ a.cell:hover .arrow {
   text-decoration: none;
 }
 
-.linkList a:hover,
 .linkList a:focus-visible {
   background: var(--ink);
   color: var(--lime);
   outline: none;
+}
+@media (hover: hover) {
+  .linkList a:hover {
+    background: var(--ink);
+    color: var(--lime);
+    outline: none;
+  }
 }
 
 .num {
@@ -356,12 +373,10 @@ a.cell:hover .arrow {
   }
 }
 
-
 .media {
   position: absolute;
   inset: 0;
 }
-
 
 .media img {
   transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.1, 1);
@@ -381,8 +396,10 @@ a.cell:hover .arrow {
     transform: scale(1.09) translate3d(-0.9%, -0.8%, 0);
   }
 }
-a.cell:hover .media img {
-  transform: scale(1.045);
+@media (hover: hover) {
+  a.cell:hover .media img {
+    transform: scale(1.045);
+  }
 }
 
 .chip {
@@ -400,11 +417,15 @@ a.cell:hover .media img {
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(4px);
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
-a.photo:hover .chip {
-  opacity: 1;
-  transform: none;
+@media (hover: hover) {
+  a.photo:hover .chip {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .slab {
@@ -510,12 +531,13 @@ a.photo:hover .chip {
     stroke-dashoffset: 0;
   }
 }
-
-/* Hovering a run retraces the route. */
-a.cell:hover .route path {
-  animation-name: redraw;
-  animation-duration: 0.85s;
-  animation-delay: 0s;
+@media (hover: hover) {
+  /* Hovering a run retraces the route. */
+  a.cell:hover .route path {
+    animation-name: redraw;
+    animation-duration: 0.85s;
+    animation-delay: 0s;
+  }
 }
 
 @keyframes redraw {
@@ -560,8 +582,10 @@ a.cell:hover .route path {
 .repo .meta {
   color: var(--lime);
 }
-a.repo:hover .meta {
-  color: inherit;
+@media (hover: hover) {
+  a.repo:hover .meta {
+    color: inherit;
+  }
 }
 
 .repoName {
@@ -658,7 +682,8 @@ a.repo:hover .meta {
   right: 0;
   bottom: 0;
   width: 12px;
-  background: repeating-conic-gradient(currentColor 0 25%, transparent 0 50%) 0 0 / 12px 12px;
+  background: repeating-conic-gradient(currentColor 0 25%, transparent 0 50%) 0
+    0 / 12px 12px;
 }
 
 .result {
@@ -752,8 +777,10 @@ a.repo:hover .meta {
 .shot .meta {
   color: var(--lime);
 }
-a.shot:hover .meta {
-  color: inherit;
+@media (hover: hover) {
+  a.shot:hover .meta {
+    color: inherit;
+  }
 }
 
 /* ─── Highlight ──────────────────────────────────── */
@@ -792,8 +819,10 @@ a.shot:hover .meta {
   overflow-wrap: anywhere;
   text-decoration: none;
 }
-.footerMail:hover {
-  color: var(--tomato);
+@media (hover: hover) {
+  .footerMail:hover {
+    color: var(--tomato);
+  }
 }
 
 .footerRow {
@@ -810,8 +839,10 @@ a.shot:hover .meta {
   text-decoration: none;
   text-transform: uppercase;
 }
-.footerRow a:hover {
-  text-decoration: underline;
+@media (hover: hover) {
+  .footerRow a:hover {
+    text-decoration: underline;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -862,7 +893,9 @@ a.shot:hover .meta {
   place-items: center;
   padding: clamp(20px, 5vw, 64px);
   background: var(--ink);
-  transition: opacity 0.35s ease, filter 0.4s ease;
+  transition:
+    opacity 0.35s ease,
+    filter 0.4s ease;
 }
 
 /*
@@ -952,11 +985,15 @@ a.shot:hover .meta {
   text-transform: uppercase;
   border-bottom: 1px solid rgb(242 239 232 / 0.25);
   padding-bottom: 3px;
-  transition: color 0.15s, border-color 0.15s;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
 }
-.landingLinks a:hover {
-  color: var(--lime);
-  border-color: var(--lime);
+@media (hover: hover) {
+  .landingLinks a:hover {
+    color: var(--lime);
+    border-color: var(--lime);
+  }
 }
 
 /* The hatch: a miniature of the grid that expands into the real thing. */
@@ -1034,8 +1071,10 @@ a.shot:hover .meta {
   text-transform: uppercase;
   transition: color 0.15s;
 }
-.hatch:hover .hatchCta {
-  color: var(--lime);
+@media (hover: hover) {
+  .hatch:hover .hatchCta {
+    color: var(--lime);
+  }
 }
 
 .hatch:focus-visible {
@@ -1059,8 +1098,10 @@ a.shot:hover .meta {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.close:hover {
-  background: var(--lime);
+@media (hover: hover) {
+  .close:hover {
+    background: var(--lime);
+  }
 }
 
 @media (min-width: 640px) {

@@ -510,7 +510,10 @@ function Scramble({ text }: { text: string }) {
   useEffect(() => {
     const tile = ref.current?.closest("a");
     if (!tile) return;
-    tile.addEventListener("mouseenter", run);
+    // A touch browser fires mouseenter on tap, which would scramble the text
+    // mid-swipe; those cards are handled by the observer below instead.
+    const canHover = window.matchMedia("(hover: hover)").matches;
+    if (canHover) tile.addEventListener("mouseenter", run);
 
     let observer: IntersectionObserver | undefined;
     if (window.matchMedia("(max-width: 639px)").matches) {
@@ -524,7 +527,7 @@ function Scramble({ text }: { text: string }) {
     }
 
     return () => {
-      tile.removeEventListener("mouseenter", run);
+      if (canHover) tile.removeEventListener("mouseenter", run);
       observer?.disconnect();
       cancelAnimationFrame(raf.current);
     };
