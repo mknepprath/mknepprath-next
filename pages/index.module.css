@@ -1265,6 +1265,12 @@ a.cell:focus-visible {
   .grid .summary {
     font-size: clamp(15px, 4cqw, 19px);
   }
+  /* Nothing sits behind these cards now, so let the text run. */
+  .grid .clamp2,
+  .grid .clamp3,
+  .grid .clamp4 {
+    -webkit-line-clamp: 10;
+  }
   .grid .stat {
     font-size: clamp(64px, 26cqw, 120px);
   }

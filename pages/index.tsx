@@ -1508,6 +1508,10 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
    */
   const onGridClick = (e: React.MouseEvent) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    // The phone pager already shows a card full screen, so a modal on top of it
+    // is the same view twice — and intercepting the tap fights the link. There,
+    // a tap just follows the link.
+    if (window.matchMedia("(max-width: 639px)").matches) return;
     const tile = (e.target as HTMLElement).closest("[data-item]");
     const n = Number(tile?.getAttribute("data-item"));
     if (!tile || !Number.isFinite(n) || !items[n]) return;
