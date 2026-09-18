@@ -540,17 +540,19 @@ interface TileProps {
   anchor?: string;
   href: string;
   i: number;
+  item?: number;
   className: string;
   children: React.ReactNode;
 }
 
-function Tile({ anchor, href, i, className, children }: TileProps) {
+function Tile({ anchor, href, i, item, className, children }: TileProps) {
   const style: CSSVars = { "--i": i };
   if (isExternal(href)) {
     return (
       <a
         className={className}
         data-anchor={anchor}
+        data-item={item}
         href={href}
         rel="noopener noreferrer"
         style={style}
@@ -561,7 +563,13 @@ function Tile({ anchor, href, i, className, children }: TileProps) {
     );
   }
   return (
-    <Link className={className} data-anchor={anchor} href={href} style={style}>
+    <Link
+      className={className}
+      data-anchor={anchor}
+      data-item={item}
+      href={href}
+      style={style}
+    >
       {children}
     </Link>
   );
@@ -688,11 +696,13 @@ function Links({ i }: { i: number }) {
 function PhotoTile({
   anchor,
   i,
+  item,
   photo,
   size,
 }: {
   anchor?: string;
   i: number;
+  item?: number;
   photo: Toot;
   size: "hero" | "feature" | "portrait" | "landscape" | "small";
 }) {
@@ -732,6 +742,7 @@ function PhotoTile({
       className={cx(styles.cell, styles.photo, pan, sizeClass)}
       href="/photography"
       i={i}
+      item={item}
     >
       <div className={styles.media}>
         <Image
@@ -759,10 +770,10 @@ function PhotoTile({
  * Illustrations live outside the activity feed and are years old, so they are
  * mixed in on their own cadence and labelled with the year rather than a date.
  */
-function ShotTile({ i, shot }: { i: number; shot: Shot }) {
+function ShotTile({ i, item, shot }: { i: number; item?: number; shot: Shot }) {
   const year = shot.published_at?.slice(0, 4);
   return (
-    <Tile className={cx(styles.cell, styles.shot)} href={shot.html_url} i={i}>
+    <Tile className={cx(styles.cell, styles.shot)} href={shot.html_url} i={i} item={item}>
       <div className={styles.shotArt}>
         <Image
           alt={shot.title}
@@ -793,13 +804,15 @@ function ShotTile({ i, shot }: { i: number; shot: Shot }) {
  */
 function ProjectTile({
   i,
+  item,
   project,
 }: {
   i: number;
+  item?: number;
   project: (typeof projectLinks)[number];
 }) {
   return (
-    <Tile className={cx(styles.cell, styles.project)} href={project.href} i={i}>
+    <Tile className={cx(styles.cell, styles.project)} href={project.href} i={i} item={item}>
       <Meta label="Project" />
       {project.imgSrc ? (
         <div className={styles.projectArt}>
@@ -847,7 +860,7 @@ function loadYouTubeApi(): Promise<void> {
  * muted and looping, which is the only kind of autoplay a browser allows — and
  * is torn down again when it scrolls away.
  */
-function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
+function VideoTile({ i, item, video }: { i: number; item?: number; video: HomeVideo }) {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useRef<HTMLIFrameElement>(null);
   const player = useRef<unknown>(null);
@@ -905,7 +918,12 @@ function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
   }, []);
 
   return (
-    <Tile className={cx(styles.cell, styles.shot, styles.w2)} href={video.url} i={i}>
+    <Tile
+      className={cx(styles.cell, styles.shot, styles.w2)}
+      href={video.url}
+      i={i}
+      item={item}
+    >
       <div className={styles.shotArt} ref={ref}>
         <Image
           alt={video.title}
@@ -947,12 +965,13 @@ function VideoTile({ i, video }: { i: number; video: HomeVideo }) {
 }
 
 /** A theme is a claim about a stretch of time, so it reads as a chapter. */
-function ThemeTile({ i, theme }: { i: number; theme: HomeTheme }) {
+function ThemeTile({ i, item, theme }: { i: number; item?: number; theme: HomeTheme }) {
   return (
     <Tile
       className={cx(styles.cell, styles.theme, styles.w2)}
       href={`/themes/${theme.slug}`}
       i={i}
+      item={item}
     >
       <Meta label={`Theme · ${theme.count} things`} />
       <div>
@@ -965,7 +984,7 @@ function ThemeTile({ i, theme }: { i: number; theme: HomeTheme }) {
   );
 }
 
-function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
+function ActivityTile({ i, item, post }: { i: number; item?: number; post: PostListItem }) {
   const { action = "", date, image, summary = "", title, type, url = "#" } = post;
 
   switch (type) {
@@ -978,6 +997,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           className={cx(styles.cell, styles.split, styles.w2, type === "FILM" ? styles.film : styles.book)}
           href={url}
           i={i}
+          item={item}
         >
           {image ? (
             <div className={styles.poster}>
@@ -1022,6 +1042,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           className={cx(styles.cell, action === "Ran" ? styles.run : styles.walk)}
           href={url}
           i={i}
+          item={item}
         >
           <Meta date={date} label={action} />
           {hasRoute ? <Route polyline={image} /> : null}
@@ -1041,7 +1062,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
 
     case "REPO":
       return (
-        <Tile className={cx(styles.cell, styles.repo)} href={url} i={i}>
+        <Tile className={cx(styles.cell, styles.repo)} href={url} i={i} item={item}>
           <Meta date={date} label="Commit" />
           <div>
             <h3 className={styles.repoName}>{title}</h3>
@@ -1068,6 +1089,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           className={cx(styles.cell, !short && styles.w2, tall && styles.h2, kind)}
           href={url}
           i={i}
+          item={item}
         >
           <Meta date={date} label={label} />
           <h3
@@ -1091,6 +1113,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           className={cx(styles.cell, styles.post, styles.w2, image && styles.h2)}
           href={url}
           i={i}
+          item={item}
         >
           {image ? (
             <div className={styles.postImage}>
@@ -1115,7 +1138,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
     case "CHESS": {
       const result = action.startsWith("Won") ? "W" : action.startsWith("Lost") ? "L" : "D";
       return (
-        <Tile className={cx(styles.cell, styles.chess)} href={url} i={i}>
+        <Tile className={cx(styles.cell, styles.chess)} href={url} i={i} item={item}>
           <Meta date={date} label="Chess" />
           <span aria-hidden className={styles.result}>
             {result}
@@ -1129,7 +1152,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
 
     case "TROPHY":
       return (
-        <Tile className={cx(styles.cell, styles.trophy)} href={url} i={i}>
+        <Tile className={cx(styles.cell, styles.trophy)} href={url} i={i} item={item}>
           <Meta date={date} label="Trophy" />
           {image ? (
             <div className={styles.icon}>
@@ -1149,6 +1172,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           className={cx(styles.cell, styles.bleed, type === "GAME" && styles.w2)}
           href={url}
           i={i}
+          item={item}
         >
           {image ? (
             <div className={styles.media}>
@@ -1182,6 +1206,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
           )}
           href={url}
           i={i}
+          item={item}
         >
           <Meta date={date} label="Highlight" />
           <div>
@@ -1195,7 +1220,7 @@ function ActivityTile({ i, post }: { i: number; post: PostListItem }) {
 
     default:
       return (
-        <Tile className={cx(styles.cell, styles.repo)} href={url} i={i}>
+        <Tile className={cx(styles.cell, styles.repo)} href={url} i={i} item={item}>
           <Meta date={date} label={action || type || "Update"} />
           <h3 className={cx(styles.title, styles.tSm, lenClass(title), styles.clamp4)}>
             {stripTags(title)}
@@ -1243,6 +1268,162 @@ interface HomeFeed {
   latest: string | null;
 }
 
+/**
+ * The closeup. Every tile is otherwise a one-way exit off the site, and the
+ * grid has to truncate to keep its shape — so this is where an item is shown
+ * whole: the picture large, the review untruncated, and the link out offered
+ * rather than taken for you.
+ */
+function Closeup({
+  at,
+  items,
+  onClose,
+  onStep,
+}: {
+  at: number;
+  items: HomeItem[];
+  onClose: () => void;
+  onStep: (delta: number) => void;
+}) {
+  const item = items[at];
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") onStep(1);
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") onStep(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose, onStep]);
+
+  if (!item) return null;
+
+  const post = item.post;
+  const shot = item.shot;
+  const video = item.video;
+  const photo = item.photo;
+  const project = item.project;
+  const theme = item.theme;
+
+  const image =
+    photo?.media_attachments?.[0]?.url ||
+    shot?.images?.normal ||
+    video?.thumbnail ||
+    project?.imgSrc ||
+    (post?.type === "RUN" ? undefined : post?.image);
+
+  const label =
+    (photo && "Photograph") ||
+    (shot && "Illustration") ||
+    (video && "Video") ||
+    (project && "Project") ||
+    (theme && "Theme") ||
+    post?.action ||
+    post?.type ||
+    "";
+
+  const title =
+    photo?.media_attachments?.[0]?.description ||
+    shot?.title ||
+    video?.title ||
+    project?.title ||
+    theme?.title ||
+    (post ? stripTags(post.title) : "");
+
+  const body =
+    project?.description ||
+    theme?.description ||
+    (post?.type === "TOOT" || post?.type === "ROBOT"
+      ? htmlToText(post.summary || post.title)
+      : post
+        ? stripTags(post.summary)
+        : "") ||
+    (photo ? stripTags(photo.content) : "");
+
+  const href =
+    photo?.url ||
+    shot?.html_url ||
+    video?.url ||
+    project?.href ||
+    (theme ? `/themes/${theme.slug}` : "") ||
+    post?.url ||
+    "";
+
+  const date = photo?.created_at || post?.date;
+  const route = post?.type === "RUN" && post.image ? post.image : undefined;
+
+  return (
+    <div className={styles.closeup} onClick={onClose} role="presentation">
+      <div
+        className={styles.closeupPanel}
+        onClick={(e) => e.stopPropagation()}
+        role="presentation"
+      >
+        {image ? (
+          <div className={styles.closeupArt}>
+            <Image
+              alt={title || ""}
+              fill
+              sizes="(max-width: 900px) 100vw, 60vw"
+              src={image}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        ) : null}
+        {route ? (
+          <div className={styles.closeupRoute}>
+            <Route polyline={route} />
+          </div>
+        ) : null}
+
+        <div className={styles.closeupBody}>
+          <div className={styles.meta}>
+            <span>
+              {label}
+              {date ? ` · ${shortDate(date)}` : ""}
+            </span>
+            <span>
+              {at + 1} / {items.length}
+            </span>
+          </div>
+
+          {title ? <h2 className={styles.closeupTitle}>{title}</h2> : null}
+          {body ? <p className={styles.closeupText}>{body}</p> : null}
+
+          <div className={styles.closeupActions}>
+            {href ? (
+              isExternal(href) ? (
+                <a
+                  className={styles.closeupLink}
+                  href={href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Open ↗
+                </a>
+              ) : (
+                <Link className={styles.closeupLink} href={href}>
+                  Open →
+                </Link>
+              )
+            ) : null}
+            <button className={styles.closeupStep} onClick={() => onStep(-1)} type="button">
+              ←
+            </button>
+            <button className={styles.closeupStep} onClick={() => onStep(1)} type="button">
+              →
+            </button>
+            <button className={styles.closeupStep} onClick={onClose} type="button">
+              Close ✕
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 interface Props {
   initialFeed: HomeFeed;
 }
@@ -1264,6 +1445,7 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
     : undefined;
 
   const landed = useCallback(() => setFlying(false), [setFlying]);
+  const [closeup, setCloseup] = useState<number | null>(null);
 
   const photoSize = (photo: Toot, n: number, fill?: boolean) => {
     if (fill) return "small" as const;
@@ -1281,30 +1463,33 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
   tiles.push(<Identity i={i++} key="identity" latest={latest} />);
   tiles.push(<Links i={i++} key="links" />);
 
-  items.forEach((item) => {
+  items.forEach((item, at) => {
     if (item.kind === "photo" && item.photo) {
       const n = photoIndex++;
       tiles.push(
         <PhotoTile
           anchor={n === 0 ? "photo0" : n === 1 ? "photo1" : undefined}
           i={i++}
+          item={at}
           key={item.photo.id}
           photo={item.photo}
           size={photoSize(item.photo, n, item.fill)}
         />,
       );
     } else if (item.kind === "theme" && item.theme) {
-      tiles.push(<ThemeTile i={i++} key={item.theme.slug} theme={item.theme} />);
+      tiles.push(
+        <ThemeTile i={i++} item={at} key={item.theme.slug} theme={item.theme} />,
+      );
     } else if (item.kind === "video" && item.video) {
-      tiles.push(<VideoTile i={i++} key={item.video.id} video={item.video} />);
+      tiles.push(<VideoTile i={i++} item={at} key={item.video.id} video={item.video} />);
     } else if (item.kind === "shot" && item.shot) {
-      tiles.push(<ShotTile i={i++} key={item.shot.id} shot={item.shot} />);
+      tiles.push(<ShotTile i={i++} item={at} key={item.shot.id} shot={item.shot} />);
     } else if (item.kind === "project" && item.project) {
       tiles.push(
-        <ProjectTile i={i++} key={item.project.title} project={item.project} />,
+        <ProjectTile i={i++} item={at} key={item.project.title} project={item.project} />,
       );
     } else if (item.post) {
-      tiles.push(<ActivityTile i={i++} key={item.post.id} post={item.post} />);
+      tiles.push(<ActivityTile i={i++} item={at} key={item.post.id} post={item.post} />);
     }
   });
 
@@ -1315,6 +1500,27 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
       <span className={styles.mono}>↑ Back to the start</span>
     </div>,
   );
+
+  /*
+   * One delegated handler rather than a callback threaded through ten tile
+   * components. Modified clicks are left alone so a middle-click or cmd-click
+   * still opens the source in a new tab.
+   */
+  const onGridClick = (e: React.MouseEvent) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    const tile = (e.target as HTMLElement).closest("[data-item]");
+    const n = Number(tile?.getAttribute("data-item"));
+    if (!tile || !Number.isFinite(n) || !items[n]) return;
+    e.preventDefault();
+    setCloseup(n);
+  };
+
+  const stepCloseup = (delta: number) =>
+    setCloseup((previous) =>
+      previous === null ? null : (previous + delta + items.length) % items.length,
+    );
+
+  const closeCloseup = () => setCloseup(null);
 
   const at = useSwipePosition(tiles.length, open);
 
@@ -1348,7 +1554,9 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
             <button className={styles.close} onClick={close} type="button">
               Close ✕
             </button>
-            <div className={styles.grid}>{tiles}</div>
+            <div className={styles.grid} onClick={onGridClick} role="presentation">
+              {tiles}
+            </div>
             <div className={styles.swipeBar}>
               {at} / {tiles.length}
               {/* Snapped cards leave no sliver of the next one showing, so say
@@ -1356,6 +1564,14 @@ export default function GridHome({ initialFeed }: Props): React.ReactNode {
               {at === 1 ? <span className={styles.swipeHint}> · swipe</span> : null}
             </div>
           </>
+        ) : null}
+        {closeup !== null ? (
+          <Closeup
+            at={closeup}
+            items={items}
+            onClose={closeCloseup}
+            onStep={stepCloseup}
+          />
         ) : null}
         {open && !exiting ? null : (
           <Landing

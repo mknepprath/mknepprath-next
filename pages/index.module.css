@@ -1368,3 +1368,116 @@ a.cell:focus-visible {
 .videoReady {
   opacity: 1;
 }
+
+/* ─── Closeup ────────────────────────────────────── */
+
+.closeup {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 40px);
+  background: rgb(0 0 0 / 0.82);
+  animation: closeupIn 0.22s ease both;
+}
+
+@keyframes closeupIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.closeupPanel {
+  display: flex;
+  flex-direction: column;
+  width: min(1000px, 100%);
+  max-height: 100%;
+  overflow: hidden;
+  background: var(--ink2);
+  color: var(--paper);
+}
+
+.closeupArt,
+.closeupRoute {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: min(62vh, 620px);
+  background: #000;
+}
+
+.closeupRoute {
+  --route: var(--lime);
+  height: min(38vh, 320px);
+  background: var(--blue);
+}
+
+.closeupBody {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(16px, 2.4vw, 26px);
+}
+
+.closeupTitle {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+/* The grid has to truncate; here the text is shown whole. */
+.closeupText {
+  max-width: 68ch;
+  margin: 0;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.5;
+  white-space: pre-line;
+  opacity: 0.82;
+  overflow-y: auto;
+  max-height: 28vh;
+}
+
+.closeupActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.closeupLink,
+.closeupStep {
+  padding: 9px 14px;
+  border: none;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.closeupStep {
+  background: rgb(242 239 232 / 0.14);
+  color: var(--paper);
+}
+
+.closeupStep:last-child {
+  margin-left: auto;
+}
+
+@media (hover: hover) {
+  .closeupLink:hover {
+    background: var(--lime);
+  }
+  .closeupStep:hover {
+    background: rgb(242 239 232 / 0.28);
+  }
+}
