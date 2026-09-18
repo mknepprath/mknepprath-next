@@ -11,21 +11,24 @@ interface Card {
   suit: 'spades' | 'hearts' | 'clubs' | 'diamonds' | 'neutral';
 }
 
+// Each player only receives their own view: their hand, and the infected suit
+// only if they're The Thing (everyone learns it at the blood test).
 interface GameState {
   id: string;
-  players: { id: string; name: string; secretSuit: string; connected: boolean }[];
+  players: { id: string; name: string; connected: boolean; handSize: number }[];
   grid: Map<string, Card>;
   currentPlayerIndex: number;
-  deck: Card[];
-  hands: Card[][];
+  deckSize: number;
+  hand: Card[];
   gameStarted: boolean;
   gameEnded: boolean;
+  role?: 'human' | 'thing';
   thingSuit?: string;
+  thingPlayerId?: string;
   winner?: 'humans' | 'thing';
   phase: 'waiting' | 'playing' | 'revealed';
   escapePath?: string[];
-  exitPosition?: string;
-  queensVariant?: boolean;
+  exitPositions?: string[];
   score?: {
     humans: number;
     thing: number;
@@ -63,7 +66,6 @@ export default function WhoGoesThere(): React.ReactNode {
   const [status, setStatus] = useState<string>('Connecting...');
   const [connectionError, setConnectionError] = useState<boolean>(false);
   const [showRules, setShowRules] = useState<boolean>(false);
-  const [queensVariant, setQueensVariant] = useState<boolean>(false);
 
   // Initialize socket connection
   useEffect(() => {
@@ -95,7 +97,6 @@ export default function WhoGoesThere(): React.ReactNode {
 
     newSocket.on('gameStateUpdate', (state: GameState) => {
       console.log('Game state updated:', state);
-      console.log('Phase:', state.phase, 'Thing suit:', state.thingSuit, 'Winner:', state.winner);
       // Convert grid from object to Map for frontend compatibility
       if (state.grid && typeof state.grid === 'object') {
         const gridMap = new Map();
@@ -148,7 +149,7 @@ export default function WhoGoesThere(): React.ReactNode {
 
   const startGame = () => {
     if (!socket || !gameCode) return;
-    socket.emit('startGame', { gameCode, queensVariant });
+    socket.emit('startGame', { gameCode });
   };
 
   const playAgain = () => {
@@ -162,12 +163,7 @@ export default function WhoGoesThere(): React.ReactNode {
     setSelectedCard(-1);
   };
 
-  const revealThing = () => {
-    if (!socket || !gameCode) return;
-    socket.emit('revealThing', { gameCode });
-  };
-
-  const renderCard = (card: Card, key?: string, isInfected?: boolean, isOnPath?: boolean, isExit?: boolean, revealed?: boolean) => {
+  const renderCard = (card: Card, key?: string, isInfected?: boolean, isOnPath?: boolean, isExit?: boolean) => {
     const className = [
       styles.card,
       styles[card.suit],
@@ -178,12 +174,11 @@ export default function WhoGoesThere(): React.ReactNode {
 
     const displayValue = card.value === 1 ? 'A' : (card.value === 0 || card.value === 11) ? 'Q' : card.value;
 
-    // For the neutral Queen, show ? during game, reveal suit after blood test
+    // The center Queen is face down; The Thing (and everyone, after the blood
+    // test) knows its suit
     let symbol;
-    if (card.suit === 'neutral' && !revealed) {
-      symbol = '?';
-    } else if (card.suit === 'neutral' && revealed && gameState?.thingSuit) {
-      symbol = SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS];
+    if (card.suit === 'neutral') {
+      symbol = gameState?.thingSuit ? SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS] : '?';
     } else {
       symbol = SYMBOLS[card.suit as keyof typeof SYMBOLS];
     }
@@ -237,12 +232,11 @@ export default function WhoGoesThere(): React.ReactNode {
                            gameState.thingSuit &&
                            card.suit === gameState.thingSuit &&
                            card.value !== 0);
-          const isRevealed = gameState.phase === 'revealed';
           const isOnPath = !!(gameState.phase === 'revealed' &&
                           gameState.escapePath &&
                           gameState.escapePath.includes(key));
-          const isExit = gameState.phase === 'revealed' && gameState.exitPosition === key;
-          cells.push(renderCard(card, key, isInfected, isOnPath, isExit, isRevealed));
+          const isExit = !!(gameState.phase === 'revealed' && gameState.exitPositions?.includes(key));
+          cells.push(renderCard(card, key, isInfected, isOnPath, isExit));
         } else if (gameState.phase === 'playing' && canPlaceAt(x, y)) {
           // Valid placement position
           cells.push(
@@ -321,16 +315,13 @@ export default function WhoGoesThere(): React.ReactNode {
     return true;
   };
 
-  const getCurrentPlayerHand = () => {
-    if (!gameState || !playerId) return [];
-    const playerIndex = gameState.players.findIndex(p => p.id === playerId);
-    return gameState.hands[playerIndex] || [];
-  };
+  const getCurrentPlayerHand = () => gameState?.hand || [];
 
-  const getCurrentPlayerSuit = () => {
-    if (!gameState || !playerId) return null;
-    const player = gameState.players.find(p => p.id === playerId);
-    return player?.secretSuit || null;
+  // Suits proven clean: a Queen of that suit is on the map or in your hand
+  const getClearedSuits = () => {
+    if (!gameState) return [];
+    const queens = [...gameState.grid.values(), ...gameState.hand].filter(card => card.value === 11);
+    return (Object.keys(SYMBOLS) as (keyof typeof SYMBOLS)[]).filter(suit => queens.some(card => card.suit === suit));
   };
 
   const isCurrentPlayerTurn = () => {
@@ -369,13 +360,13 @@ export default function WhoGoesThere(): React.ReactNode {
 
           <div className={styles.rules}>
             <h2>How to Play</h2>
-            <p>Build a research station with cards. One suit is secretly infected. When revealed, can you still escape?</p>
+            <p>Build a research station together. One of you is secretly The Thing, and only they know which suit is infected.</p>
             <ul>
               <li><strong>2-4 players</strong> - Uses a standard deck</li>
-              <li><strong>Secret roles</strong> - Each player has a hidden suit</li>
-              <li><strong>Map building</strong> - Place cards to build corridors</li>
-              <li><strong>The reveal</strong> - One suit becomes impassable walls</li>
-              <li><strong>Escape or die</strong> - Is there still a path to safety?</li>
+              <li><strong>Hidden role</strong> - One player is The Thing</li>
+              <li><strong>Map building</strong> - Take turns placing cards</li>
+              <li><strong>Blood test</strong> - The infected suit becomes walls</li>
+              <li><strong>Escape</strong> - Every clean 10 must connect to the center</li>
             </ul>
           </div>
         </div>
@@ -453,13 +444,13 @@ export default function WhoGoesThere(): React.ReactNode {
 
           <div className={styles.rules}>
             <h2>How to Play</h2>
-            <p>Build a research station with cards. One suit is secretly infected. When revealed, can you still escape?</p>
+            <p>Build a research station together. One of you is secretly The Thing, and only they know which suit is infected.</p>
             <ul>
               <li><strong>2-4 players</strong> - Uses a standard deck</li>
-              <li><strong>Secret roles</strong> - Each player has a hidden suit</li>
-              <li><strong>Map building</strong> - Place cards to build corridors</li>
-              <li><strong>The reveal</strong> - One suit becomes impassable walls</li>
-              <li><strong>Escape or die</strong> - Is there still a path to safety?</li>
+              <li><strong>Hidden role</strong> - One player is The Thing</li>
+              <li><strong>Map building</strong> - Take turns placing cards</li>
+              <li><strong>Blood test</strong> - The infected suit becomes walls</li>
+              <li><strong>Escape</strong> - Every clean 10 must connect to the center</li>
             </ul>
           </div>
         </div>
@@ -497,16 +488,6 @@ export default function WhoGoesThere(): React.ReactNode {
             
             {gameState.players.length >= 2 && (
               <div className={styles.startGameSection}>
-                <label className={styles.variantToggle}>
-                  <input
-                    type="checkbox"
-                    checked={queensVariant}
-                    onChange={(e) => setQueensVariant(e.target.checked)}
-                  />
-                  <span>Queens Variant</span>
-                  <span className={styles.variantHint}>Adds 3 extra Queens to deck</span>
-                </label>
-
                 <button onClick={startGame} className={styles.primaryButton}>
                   Start Game
                 </button>
@@ -543,18 +524,28 @@ export default function WhoGoesThere(): React.ReactNode {
                   </div>
 
                   <div className={styles.deckInfo}>
-                    Deck: {gameState.deck.length} card{gameState.deck.length !== 1 ? 's' : ''} remaining
-                    {gameState.deck.length === 0 && ' - Ready for Blood Test!'}
+                    {gameState.deckSize > 0
+                      ? `Deck: ${gameState.deckSize} card${gameState.deckSize !== 1 ? 's' : ''} remaining`
+                      : 'Deck empty - play out your hands, then the blood test runs'}
+                  </div>
+
+                  <div className={styles.deckInfo}>
+                    Cleared by Queens:{' '}
+                    {getClearedSuits().length > 0
+                      ? getClearedSuits().map(suit => SYMBOLS[suit]).join(' ')
+                      : 'none yet'}
                   </div>
                 </>
               )}
 
-              {/* Always show player's suit during game */}
-              {gameState.gameStarted && (
+              {gameState.phase === 'playing' && (
                 <div className={styles.playerSuit}>
-                  Your suit: <strong>{SYMBOLS[getCurrentPlayerSuit() as keyof typeof SYMBOLS]} {getCurrentPlayerSuit()}</strong>
-                  {gameState.phase === 'revealed' && gameState.thingSuit === getCurrentPlayerSuit() && (
-                    <span className={styles.youAreThing}> - You were The Thing!</span>
+                  {gameState.role === 'thing' ? (
+                    <span className={styles.youAreThing}>
+                      You are The Thing. Infected suit: {SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS]} {gameState.thingSuit}
+                    </span>
+                  ) : (
+                    <>You are <strong>human</strong>. One of the others is The Thing.</>
                   )}
                 </div>
               )}
@@ -562,6 +553,9 @@ export default function WhoGoesThere(): React.ReactNode {
               {gameState.phase === 'revealed' && (
                 <div className={styles.gameResult}>
                   <h2>Blood Test Results</h2>
+                  <p>
+                    The Thing was <strong>{gameState.thingPlayerId === playerId ? 'you' : gameState.players.find(p => p.id === gameState.thingPlayerId)?.name}</strong>
+                  </p>
                   <p>
                     Infected suit: <strong>{SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS]} {gameState.thingSuit}</strong>
                   </p>
@@ -619,11 +613,6 @@ export default function WhoGoesThere(): React.ReactNode {
               </div>
             )}
 
-            {gameState.phase === 'playing' && gameState.deck.length === 0 && isCurrentPlayerTurn() && (
-              <button onClick={revealThing} className={styles.revealButton}>
-                Run Blood Test
-              </button>
-            )}
           </div>
         )}
 
@@ -638,55 +627,48 @@ export default function WhoGoesThere(): React.ReactNode {
               <div className={styles.rulesContent}>
                 <section>
                   <h3>Goal</h3>
-                  <p>Build a research station with cards. One suit is secretly infected. When revealed, can you still escape?</p>
+                  <p>Build a research station together. One player is secretly <strong>The Thing</strong>. Humans want an escape route; The Thing wants everyone trapped.</p>
                 </section>
 
                 <section>
                   <h3>Setup</h3>
                   <ul>
-                    <li>Each player is assigned a <strong>secret suit</strong></li>
-                    <li>A face-down Queen (The Thing) is placed at the center</li>
-                    <li>Each player draws 3 cards to start</li>
+                    <li>One player is secretly The Thing. Only they know which suit is <strong>infected</strong></li>
+                    <li>The infected suit&apos;s Queen sits face down at the center</li>
+                    <li>Everyone starts with 3 cards</li>
                   </ul>
                 </section>
 
                 <section>
                   <h3>Your Turn</h3>
                   <ol>
-                    <li><strong>Draw</strong> 1 card from the deck</li>
-                    <li><strong>Place</strong> 1 card from your hand on the map</li>
+                    <li><strong>Place</strong> 1 card next to (N/S/E/W) a card on the map</li>
+                    <li><strong>Draw</strong> 1 card, while the deck lasts</li>
                   </ol>
-                  <p>Cards must be placed adjacent (N/S/E/W) to existing cards.</p>
+                  <p>No block of cards can be bigger than 2×2.</p>
                 </section>
 
                 <section>
-                  <h3>The 2×2 Rule</h3>
-                  <p>You can create 2×2 blocks, but <strong>never larger</strong>. No 3×2, no 2×3 rectangles allowed.</p>
+                  <h3>Queens</h3>
+                  <p>The other three Queens are in the deck. A Queen proves its suit is clean, so play one to tell everyone, or keep it to yourself.</p>
                 </section>
 
                 <section>
                   <h3>The Blood Test</h3>
-                  <p>When the deck is empty, the current player runs the blood test:</p>
+                  <p>Once every card is on the map, the center Queen flips:</p>
                   <ul>
-                    <li>The center Queen reveals the <strong>infected suit</strong></li>
-                    <li>All cards of that suit become impassable walls</li>
-                    <li>The <strong>exit</strong> is the 10 of the opposite suit (same color)</li>
+                    <li>Cards of the infected suit become <strong>walls</strong></li>
+                    <li><strong>Humans win</strong> if all three clean 10s connect to the center</li>
+                    <li><strong>The Thing wins</strong> if even one is cut off</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h3>Winning</h3>
-                  <p><strong>Humans win:</strong> If there&apos;s a path from center to exit</p>
-                  <p><strong>The Thing wins:</strong> If the path is blocked</p>
-                </section>
-
-                <section>
-                  <h3>Strategy Tips</h3>
+                  <h3>Tips</h3>
                   <ul>
-                    <li>Build <strong>redundant paths</strong> - one suit will become walls</li>
-                    <li>Place <strong>10s strategically</strong> - they&apos;re potential exits</li>
-                    <li>Use <strong>2×2 blocks</strong> for alternate routes</li>
-                    <li>Your own suit might be The Thing - hedge your bets!</li>
+                    <li>Watch who plays which suit where. The Thing plugs chokepoints</li>
+                    <li>Keep the 10s close and give each more than one route</li>
+                    <li>The Thing: play like a human until it counts</li>
                   </ul>
                 </section>
               </div>

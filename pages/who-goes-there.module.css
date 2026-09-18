@@ -239,38 +239,10 @@
   align-items: center;
 }
 
-.variantToggle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.75rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
 
-.variantToggle:hover {
-  background: rgba(255,255,255,0.08);
-}
 
-.variantToggle input[type="checkbox"] {
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-}
 
-.variantToggle span {
-  font-size: 0.9rem;
-  color: #B8D4E3;
-}
 
-.variantHint {
-  font-size: 0.75rem !important;
-  opacity: 0.6;
-  font-style: italic;
-}
 
 .game {
   display: flex;
@@ -492,24 +464,7 @@
   font-style: italic;
 }
 
-.revealButton {
-  align-self: center;
-  padding: 1rem 2rem;
-  background: rgba(139,0,0,0.3);
-  border: 2px solid #8B0000;
-  color: #e8e0d4;
-  font-family: inherit;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.3s;
-  font-weight: bold;
-}
 
-.revealButton:hover {
-  background: rgba(139,0,0,0.5);
-  box-shadow: 0 0 20px rgba(139,0,0,0.5);
-}
 
 .playAgainButton {
   align-self: center;
