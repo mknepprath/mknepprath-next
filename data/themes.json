@@ -1554,6 +1554,16 @@
     "description": "Michael is fascinated by filmmakers' artistic choices and directorial approach, exploring how personal vision shapes film and the tension between creative integrity and commercial adaptation.",
     "items": [
       {
+        "id": "t117287913584079405",
+        "type": "TOOT",
+        "title": "“We only have two types of filmmakers in the world. 95% are filmmakers who are after what the audience wants. But another 5% says this is how I look, and it’s up to the audience to come and find me.”— Jafar Panahi",
+        "date": "2026-09-17T18:58:52.964Z",
+        "image": "",
+        "url": "https://mastodon.social/@mknepprath/117287913584079405",
+        "summary": "<p>“We only have two types of filmmakers in the world. 95% are filmmakers who are after what the audience wants. But another 5% says this is how I look, and it’s up to the audience to come and find me.”</p><p>— Jafar Panahi</p>",
+        "action": "Tooted"
+      },
+      {
         "id": "flletterboxd-review-1493736156",
         "type": "FILM",
         "title": "Mayday",
@@ -1665,7 +1675,7 @@
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-09-14T11:24:25.984Z"
+    "updatedAt": "2026-09-18T10:21:21.062Z"
   },
   "ambient-and-experimental-music": {
     "title": "Ambient and Experimental Music",
