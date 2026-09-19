@@ -163,29 +163,79 @@ export default function WhoGoesThere(): React.ReactNode {
     setSelectedCard(-1);
   };
 
-  const renderCard = (card: Card, key?: string, isInfected?: boolean, isOnPath?: boolean, isExit?: boolean) => {
-    const className = [
-      styles.card,
-      styles[card.suit],
-      isInfected ? styles.infected : '',
-      isOnPath ? styles.onPath : '',
-      isExit ? styles.exit : ''
-    ].filter(Boolean).join(' ');
+  // Cards say what they do: EXIT (10s), CLEAR (Queens, which prove a suit is
+  // safe) and START (the center, hiding the infected suit). Everything else is
+  // plain floor, so its rank doesn't matter.
+  const cardJob = (card: Card) => {
+    if (card.suit === 'neutral') return 'START';
+    if (card.value === 10) return 'EXIT';
+    if (card.value === 11) return 'CLEAR';
+    return null;
+  };
 
-    const displayValue = card.value === 1 ? 'A' : (card.value === 0 || card.value === 11) ? 'Q' : card.value;
+  // The Thing (and everyone, after the blood test) knows the START tile's suit
+  const cardSymbol = (card: Card) => {
+    if (card.suit !== 'neutral') return SYMBOLS[card.suit as keyof typeof SYMBOLS];
+    return gameState?.thingSuit ? SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS] : '?';
+  };
 
-    // The center Queen is face down; The Thing (and everyone, after the blood
-    // test) knows its suit
-    let symbol;
-    if (card.suit === 'neutral') {
-      symbol = gameState?.thingSuit ? SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS] : '?';
-    } else {
-      symbol = SYMBOLS[card.suit as keyof typeof SYMBOLS];
+  const renderCard = (card: Card) => {
+    const job = cardJob(card);
+    return (
+      <div className={`${styles.card} ${styles[card.suit]}`}>
+        {job && <span className={styles.job}>{job}</span>}
+        <span className={styles.symbol}>{cardSymbol(card)}</span>
+      </div>
+    );
+  };
+
+  // A map tile draws floor toward each open neighbor, so lines of tiles read
+  // as hallways and any 2x2 block opens up into a room. After the blood test,
+  // infected tiles become walls and the passages into them close.
+  const renderTile = (card: Card, key: string, x: number, y: number) => {
+    if (!gameState) return null;
+    const revealed = gameState.phase === 'revealed';
+    const isWall = (c?: Card) => !!(revealed && c && c.suit === gameState.thingSuit);
+    const open = (dx: number, dy: number) => {
+      const neighbor = gameState.grid.get(`${x + dx},${y + dy}`);
+      return !!neighbor && !isWall(neighbor);
+    };
+
+    if (isWall(card)) {
+      return (
+        <div key={key} className={`${styles.tile} ${styles.wall}`}>
+          <span className={styles.job}>{cardJob(card)}</span>
+          <span className={styles.symbol}>{cardSymbol(card)}</span>
+        </div>
+      );
     }
+
+    const sides = { n: open(0, -1), s: open(0, 1), e: open(1, 0), w: open(-1, 0) };
+    const room = [[-1, -1], [1, -1], [-1, 1], [1, 1]].some(([dx, dy]) =>
+      open(dx, 0) && open(0, dy) && open(dx, dy)
+    );
+    const reached = !!(revealed && gameState.escapePath?.includes(key));
+    const cleanExit = !!(revealed && gameState.exitPositions?.includes(key));
+    const job = cardJob(card);
+
+    const className = [
+      styles.tile,
+      styles[card.suit],
+      room ? styles.room : '',
+      reached ? styles.reached : '',
+      cleanExit && reached ? styles.exit : '',
+      cleanExit && !reached ? styles.cutOff : '',
+      job ? styles.special : ''
+    ].filter(Boolean).join(' ');
 
     return (
       <div key={key} className={className}>
-        {displayValue}{symbol}
+        <span className={styles.floor} />
+        {(Object.keys(sides) as (keyof typeof sides)[]).map(side =>
+          sides[side] && <span key={side} className={`${styles.arm} ${styles[side]}`} />
+        )}
+        {job && <span className={styles.job}>{job}</span>}
+        <span className={styles.symbol}>{cardSymbol(card)}</span>
       </div>
     );
   };
@@ -227,16 +277,7 @@ export default function WhoGoesThere(): React.ReactNode {
         const card = gameState.grid.get(key);
 
         if (card) {
-          // Existing card
-          const isInfected = !!(gameState.phase === 'revealed' &&
-                           gameState.thingSuit &&
-                           card.suit === gameState.thingSuit &&
-                           card.value !== 0);
-          const isOnPath = !!(gameState.phase === 'revealed' &&
-                          gameState.escapePath &&
-                          gameState.escapePath.includes(key));
-          const isExit = !!(gameState.phase === 'revealed' && gameState.exitPositions?.includes(key));
-          cells.push(renderCard(card, key, isInfected, isOnPath, isExit));
+          cells.push(renderTile(card, key, x, y));
         } else if (gameState.phase === 'playing' && canPlaceAt(x, y)) {
           // Valid placement position
           cells.push(
@@ -317,7 +358,7 @@ export default function WhoGoesThere(): React.ReactNode {
 
   const getCurrentPlayerHand = () => gameState?.hand || [];
 
-  // Suits proven clean: a Queen of that suit is on the map or in your hand
+  // Suits proven clean: a CLEAR card of that suit is on the map or in your hand
   const getClearedSuits = () => {
     if (!gameState) return [];
     const queens = [...gameState.grid.values(), ...gameState.hand].filter(card => card.value === 11);
@@ -366,7 +407,7 @@ export default function WhoGoesThere(): React.ReactNode {
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
               <li><strong>Blood test</strong> - The infected suit becomes walls</li>
-              <li><strong>Escape</strong> - Every clean 10 must connect to the center</li>
+              <li><strong>Escape</strong> - Every clean exit must connect to the center</li>
             </ul>
           </div>
         </div>
@@ -450,7 +491,7 @@ export default function WhoGoesThere(): React.ReactNode {
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
               <li><strong>Blood test</strong> - The infected suit becomes walls</li>
-              <li><strong>Escape</strong> - Every clean 10 must connect to the center</li>
+              <li><strong>Escape</strong> - Every clean exit must connect to the center</li>
             </ul>
           </div>
         </div>
@@ -530,7 +571,7 @@ export default function WhoGoesThere(): React.ReactNode {
                   </div>
 
                   <div className={styles.deckInfo}>
-                    Cleared by Queens:{' '}
+                    Cleared:{' '}
                     {getClearedSuits().length > 0
                       ? getClearedSuits().map(suit => SYMBOLS[suit]).join(' ')
                       : 'none yet'}
@@ -634,7 +675,7 @@ export default function WhoGoesThere(): React.ReactNode {
                   <h3>Setup</h3>
                   <ul>
                     <li>One player is secretly The Thing. Only they know which suit is <strong>infected</strong></li>
-                    <li>The infected suit&apos;s Queen sits face down at the center</li>
+                    <li>The <strong>START</strong> tile at the center hides the infected suit</li>
                     <li>Everyone starts with 3 cards</li>
                   </ul>
                 </section>
@@ -649,16 +690,21 @@ export default function WhoGoesThere(): React.ReactNode {
                 </section>
 
                 <section>
-                  <h3>Queens</h3>
-                  <p>The other three Queens are in the deck. A Queen proves its suit is clean, so play one to tell everyone, or keep it to yourself.</p>
+                  <h3>The Cards</h3>
+                  <ul>
+                    <li><strong>Floor</strong> - Most cards. Only the suit matters</li>
+                    <li><strong>EXIT</strong> - One per suit. Humans need to reach them</li>
+                    <li><strong>CLEAR</strong> - Proves its suit is safe. Play it to tell everyone, or keep it to yourself</li>
+                  </ul>
+                  <p>Tiles in a line form hallways; any 2×2 block becomes a room.</p>
                 </section>
 
                 <section>
                   <h3>The Blood Test</h3>
-                  <p>Once every card is on the map, the center Queen flips:</p>
+                  <p>Once every card is on the map, the START tile reveals the infected suit:</p>
                   <ul>
-                    <li>Cards of the infected suit become <strong>walls</strong></li>
-                    <li><strong>Humans win</strong> if all three clean 10s connect to the center</li>
+                    <li>Tiles of the infected suit become <strong>walls</strong></li>
+                    <li><strong>Humans win</strong> if all three clean exits connect to the center</li>
                     <li><strong>The Thing wins</strong> if even one is cut off</li>
                   </ul>
                 </section>
@@ -667,7 +713,7 @@ export default function WhoGoesThere(): React.ReactNode {
                   <h3>Tips</h3>
                   <ul>
                     <li>Watch who plays which suit where. The Thing plugs chokepoints</li>
-                    <li>Keep the 10s close and give each more than one route</li>
+                    <li>Keep exits close and give each more than one route</li>
                     <li>The Thing: play like a human until it counts</li>
                   </ul>
                 </section>

@@ -307,7 +307,7 @@
 
 .grid {
   display: grid;
-  gap: 3px;
+  gap: 0;
   padding: 1rem;
 }
 
@@ -322,8 +322,10 @@
   width: 50px;
   height: 50px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1px;
   font-size: 0.95rem;
   font-weight: bold;
   border-radius: 3px;
@@ -355,28 +357,99 @@
   border-color: rgba(200,160,50,0.4);
 }
 
-.card.neutral {
-  background: rgba(232,224,212,0.15);
-  color: #e8e0d4;
-  border: 2px solid rgba(232,224,212,0.5);
-  box-shadow: 0 0 10px rgba(232,224,212,0.2);
+
+
+
+
+
+
+
+/* Map tiles: suit colors set the floor, walls come from empty space */
+.tile {
+  --floor: rgba(232,224,212,0.25);
+  --edge: rgba(232,224,212,0.5);
+  --ink: #e8e0d4;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  color: var(--ink);
+  font-weight: bold;
 }
 
-.card.infected {
-  background: rgba(139,0,0,0.4) !important;
-  border-color: rgba(139,0,0,0.6) !important;
-  color: rgba(255,255,255,0.3) !important;
-  text-decoration: line-through;
+.tile.spades { --floor: rgba(100,140,180,0.35); --edge: rgba(138,180,212,0.6); --ink: #8ab4d4; }
+.tile.hearts { --floor: rgba(200,60,60,0.3); --edge: rgba(212,112,112,0.6); --ink: #d47070; }
+.tile.clubs { --floor: rgba(80,170,100,0.3); --edge: rgba(112,196,138,0.6); --ink: #70c48a; }
+.tile.diamonds { --floor: rgba(200,160,50,0.3); --edge: rgba(212,176,80,0.6); --ink: #d4b050; }
+
+.floor,
+.arm {
+  position: absolute;
+  background: var(--floor);
 }
 
-.card.onPath {
-  box-shadow: 0 0 8px rgba(58,122,92,0.8);
-  border-color: #3a7a5c !important;
+/* Hallway: a core square with arms reaching each neighbor */
+.floor { inset: 13px; }
+.arm.n { top: 0; left: 13px; right: 13px; height: 13px; }
+.arm.s { bottom: 0; left: 13px; right: 13px; height: 13px; }
+.arm.e { right: 0; top: 13px; bottom: 13px; width: 13px; }
+.arm.w { left: 0; top: 13px; bottom: 13px; width: 13px; }
+
+/* Room: part of a 2x2 block, so the floor fills the tile */
+.room .floor { inset: 3px; }
+.room .arm.n, .room .arm.s { left: 3px; right: 3px; height: 3px; }
+.room .arm.e, .room .arm.w { top: 3px; bottom: 3px; width: 3px; }
+
+.tile.neutral .floor {
+  background: rgba(232,224,212,0.2);
+  box-shadow: 0 0 0 2px rgba(232,224,212,0.6);
 }
 
-.card.exit {
-  border: 2px solid #c9a227 !important;
-  box-shadow: 0 0 10px rgba(201,162,39,0.6);
+.symbol {
+  position: relative;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.job {
+  position: relative;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.card .symbol { font-size: 1.1rem; }
+.card .job { font-size: 0.6rem; }
+
+/* START, EXIT and CLEAR are landmarks: always a small room */
+.tile.special .floor {
+  inset: 4px;
+  box-shadow: 0 0 0 1px var(--edge);
+}
+
+/* After the blood test */
+.tile.wall {
+  background: repeating-linear-gradient(45deg, rgba(139,0,0,0.55) 0 4px, rgba(60,0,0,0.55) 4px 8px);
+  color: rgba(255,255,255,0.35);
+  outline: 1px solid rgba(139,0,0,0.8);
+  outline-offset: -1px;
+}
+
+.tile.reached .floor,
+.tile.reached .arm {
+  background: color-mix(in srgb, var(--floor), #3a7a5c 45%);
+}
+
+.tile.exit .floor {
+  box-shadow: 0 0 0 2px #c9a227, 0 0 12px rgba(201,162,39,0.7);
+}
+
+.tile.cutOff .floor {
+  box-shadow: 0 0 0 2px #ff4d4d, 0 0 12px rgba(255,77,77,0.7);
 }
 
 .validPosition {
@@ -385,9 +458,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(58,122,92,0.2);
-  border: 1px dashed rgba(58,122,92,0.6);
+  background: rgba(58,122,92,0.12);
+  border: 1px dashed rgba(58,122,92,0.5);
   border-radius: 3px;
+  box-sizing: border-box;
+  transform: scale(0.8);
   cursor: pointer;
   color: #3a7a5c;
   font-size: 1.5rem;
