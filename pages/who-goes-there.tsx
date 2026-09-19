@@ -96,8 +96,8 @@ const roleAnnouncement = (role: 'human' | 'thing', thingSuit?: string): Announce
   kicker: 'You are',
   title: role === 'thing' ? 'The Thing' : 'Human',
   sub: role === 'thing'
-    ? `Goal: cut off one EXIT. Your ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} cards become walls at the end. Don't get caught.`
-    : 'Goal: connect all 3 EXITs to START. One of you is The Thing, and its suit turns to walls at the end.',
+    ? `Your secret suit is ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} ${thingSuit}. At the end, every ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} card becomes a wall. Goal: cut off one EXIT. Don't get caught.`
+    : 'One of you is The Thing, secretly assigned one of the four suits. At the end, that suit becomes walls. Goal: keep all 3 EXITs connected to START.',
   blocking: true,
   hold: 4500
 });
@@ -620,8 +620,8 @@ export default function WhoGoesThere(): React.ReactNode {
           <section>
             <h3>Setup</h3>
             <ul>
-              <li>One player is secretly The Thing. Only they know which suit is <strong>infected</strong></li>
-              <li>The <strong>START</strong> tile at the center hides the infected suit</li>
+              <li>One player is secretly The Thing, and is secretly assigned one of the four suits: the <strong>infected</strong> suit</li>
+              <li>Only The Thing knows which suit it is. The <strong>START</strong> tile at the center hides it</li>
               <li>Everyone holds 2 cards</li>
             </ul>
           </section>
@@ -699,12 +699,12 @@ export default function WhoGoesThere(): React.ReactNode {
 
           <div className={styles.rules}>
             <h2>How to Play</h2>
-            <p>Build a research station together. One of you is secretly The Thing, and only they know which suit is infected.</p>
+            <p>Build a research station together. One of you is secretly The Thing, assigned one of the four suits. At the end, every card of that suit becomes a wall.</p>
             <ul>
               <li><strong>2-6 players</strong> - Uses a standard deck</li>
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
-              <li><strong>Blood test</strong> - The infected suit becomes walls</li>
+              <li><strong>Blood test</strong> - The Thing&apos;s suit becomes walls</li>
               <li><strong>Escape</strong> - Every clean exit must connect to the center</li>
             </ul>
           </div>
@@ -783,12 +783,12 @@ export default function WhoGoesThere(): React.ReactNode {
 
           <div className={styles.rules}>
             <h2>How to Play</h2>
-            <p>Build a research station together. One of you is secretly The Thing, and only they know which suit is infected.</p>
+            <p>Build a research station together. One of you is secretly The Thing, assigned one of the four suits. At the end, every card of that suit becomes a wall.</p>
             <ul>
               <li><strong>2-6 players</strong> - Uses a standard deck</li>
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
-              <li><strong>Blood test</strong> - The infected suit becomes walls</li>
+              <li><strong>Blood test</strong> - The Thing&apos;s suit becomes walls</li>
               <li><strong>Escape</strong> - Every clean exit must connect to the center</li>
             </ul>
             <button onClick={() => setShowRules(true)} className={styles.secondaryButton}>
