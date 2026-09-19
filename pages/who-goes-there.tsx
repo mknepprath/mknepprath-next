@@ -1,5 +1,5 @@
 import Head from "@core/head";
-import React, { useEffect, startTransition, useState } from "react";
+import React, { useEffect, useRef, startTransition, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
 // Styles
@@ -38,6 +38,15 @@ interface GameState {
 
 const SYMBOLS = { spades: '♠', hearts: '♥', clubs: '♣', diamonds: '♦' };
 
+// Base tile size in px; the whole map scales from this to fit the screen
+const TILE = 50;
+
+// Blood test timeline (ms): the START tile flips, walls slam in outward from
+// the center, then the escape route floods out along the open tiles
+const REVEAL = { flip: 700, walls: 1100, wallStep: 45, flood: 2100, floodStep: 70 };
+
+type CSSVars = React.CSSProperties & Record<`--${string}`, string | number>;
+
 export default function WhoGoesThere(): React.ReactNode {
   // Add iOS layout fixes
   useEffect(() => {
@@ -66,6 +75,11 @@ export default function WhoGoesThere(): React.ReactNode {
   const [status, setStatus] = useState<string>('Connecting...');
   const [connectionError, setConnectionError] = useState<boolean>(false);
   const [showRules, setShowRules] = useState<boolean>(false);
+  // Among Us-style role card shown at the start of each round
+  const [intro, setIntro] = useState<{ role: 'human' | 'thing'; thingSuit?: string } | null>(null);
+  const introShown = useRef('');
+  const boardRef = useRef<HTMLDivElement>(null);
+  const [boardSize, setBoardSize] = useState({ width: 0, height: 0 });
 
   // Initialize socket connection
   useEffect(() => {
@@ -105,6 +119,14 @@ export default function WhoGoesThere(): React.ReactNode {
         });
         state.grid = gridMap;
       }
+
+      // New round: show everyone their role once
+      const round = `${state.id}:${state.score?.rounds ?? 0}`;
+      if (state.phase === 'playing' && state.role && introShown.current !== round) {
+        introShown.current = round;
+        setIntro({ role: state.role, thingSuit: state.thingSuit });
+      }
+
       setGameState(state);
     });
 
@@ -136,6 +158,18 @@ export default function WhoGoesThere(): React.ReactNode {
       newSocket.close();
     };
   }, []); // Empty dependency array - only run once on mount
+
+  // Track the board's size so the map can scale to fit without scrolling
+  const inGame = !!gameState?.gameStarted;
+  useEffect(() => {
+    const board = boardRef.current;
+    if (!inGame || !board) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setBoardSize({ width: entry.contentRect.width, height: entry.contentRect.height });
+    });
+    observer.observe(board);
+    return () => observer.disconnect();
+  }, [inGame]);
 
   const createGame = () => {
     if (!socket || !playerName.trim()) return;
@@ -192,7 +226,7 @@ export default function WhoGoesThere(): React.ReactNode {
   // A map tile draws floor toward each open neighbor, so lines of tiles read
   // as hallways and any 2x2 block opens up into a room. After the blood test,
   // infected tiles become walls and the passages into them close.
-  const renderTile = (card: Card, key: string, x: number, y: number) => {
+  const renderTile = (card: Card, key: string, x: number, y: number, flood: Map<string, number>) => {
     if (!gameState) return null;
     const revealed = gameState.phase === 'revealed';
     const isWall = (c?: Card) => !!(revealed && c && c.suit === gameState.thingSuit);
@@ -201,20 +235,12 @@ export default function WhoGoesThere(): React.ReactNode {
       return !!neighbor && !isWall(neighbor);
     };
 
-    if (isWall(card)) {
-      return (
-        <div key={key} className={`${styles.tile} ${styles.wall}`}>
-          <span className={styles.job}>{cardJob(card)}</span>
-          <span className={styles.symbol}>{cardSymbol(card)}</span>
-        </div>
-      );
-    }
-
+    const wall = isWall(card);
     const sides = { n: open(0, -1), s: open(0, 1), e: open(1, 0), w: open(-1, 0) };
-    const room = [[-1, -1], [1, -1], [-1, 1], [1, 1]].some(([dx, dy]) =>
+    const room = !wall && [[-1, -1], [1, -1], [-1, 1], [1, 1]].some(([dx, dy]) =>
       open(dx, 0) && open(0, dy) && open(dx, dy)
     );
-    const reached = !!(revealed && gameState.escapePath?.includes(key));
+    const reached = revealed && flood.has(key);
     const cleanExit = !!(revealed && gameState.exitPositions?.includes(key));
     const job = cardJob(card);
 
@@ -222,22 +248,69 @@ export default function WhoGoesThere(): React.ReactNode {
       styles.tile,
       styles[card.suit],
       room ? styles.room : '',
+      wall ? styles.wall : '',
       reached ? styles.reached : '',
       cleanExit && reached ? styles.exit : '',
       cleanExit && !reached ? styles.cutOff : '',
       job ? styles.special : ''
     ].filter(Boolean).join(' ');
 
+    // Stagger the blood test: walls by distance from the center, the escape
+    // route by how far the flood has to travel
+    const style: CSSVars = {};
+    if (wall) style['--delay'] = `${REVEAL.walls + (Math.abs(x) + Math.abs(y)) * REVEAL.wallStep}ms`;
+    if (reached) style['--delay'] = `${REVEAL.flood + (flood.get(key) ?? 0) * REVEAL.floodStep}ms`;
+    if (cleanExit && !reached) style['--delay'] = `${revealEnd(flood)}ms`;
+
     return (
-      <div key={key} className={className}>
+      <div key={key} className={className} style={style}>
         <span className={styles.floor} />
-        {(Object.keys(sides) as (keyof typeof sides)[]).map(side =>
+        {!wall && (Object.keys(sides) as (keyof typeof sides)[]).map(side =>
           sides[side] && <span key={side} className={`${styles.arm} ${styles[side]}`} />
         )}
+        {wall && <span className={styles.wallFill} />}
         {job && <span className={styles.job}>{job}</span>}
         <span className={styles.symbol}>{cardSymbol(card)}</span>
       </div>
     );
+  };
+
+  // Steps from the center to every tile the humans can reach
+  const floodDistances = () => {
+    const distances = new Map<string, number>();
+    if (!gameState || gameState.phase !== 'revealed') return distances;
+    distances.set('0,0', 0);
+    const queue = ['0,0'];
+    while (queue.length > 0) {
+      const pos = queue.shift() as string;
+      const [x, y] = pos.split(',').map(Number);
+      for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
+        const next = `${x + dx},${y + dy}`;
+        const card = gameState.grid.get(next);
+        if (card && card.suit !== gameState.thingSuit && !distances.has(next)) {
+          distances.set(next, (distances.get(pos) ?? 0) + 1);
+          queue.push(next);
+        }
+      }
+    }
+    return distances;
+  };
+
+  // When the flood has finished and the result can come in
+  const revealEnd = (flood: Map<string, number>) =>
+    REVEAL.flood + Math.max(0, ...flood.values()) * REVEAL.floodStep + 400;
+
+  const gridBounds = () => {
+    let minX = 0, maxX = 0, minY = 0, maxY = 0;
+    gameState?.grid.forEach((_, key) => {
+      const [x, y] = key.split(',').map(Number);
+      minX = Math.min(minX, x);
+      maxX = Math.max(maxX, x);
+      minY = Math.min(minY, y);
+      maxY = Math.max(maxY, y);
+    });
+    // One ring of padding for placing new cards
+    return { minX: minX - 1, minY: minY - 1, cols: maxX - minX + 3, rows: maxY - minY + 3 };
   };
 
   const renderGrid = () => {
@@ -245,28 +318,8 @@ export default function WhoGoesThere(): React.ReactNode {
       return <div className={styles.emptyGrid}>Waiting for first card...</div>;
     }
 
-    // Convert Map to array for processing
-    const gridEntries = Array.from(gameState.grid.entries());
-    
-    // Find grid bounds
-    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-    gridEntries.forEach(([key]) => {
-      const [x, y] = key.split(',').map(Number);
-      minX = Math.min(minX, x);
-      maxX = Math.max(maxX, x);
-      minY = Math.min(minY, y);
-      maxY = Math.max(maxY, y);
-    });
-
-    // Add padding for placing new cards
-    const padding = 1;
-    minX -= padding;
-    maxX += padding;
-    minY -= padding;
-    maxY += padding;
-
-    const cols = maxX - minX + 1;
-    const rows = maxY - minY + 1;
+    const { minX, minY, cols, rows } = gridBounds();
+    const flood = floodDistances();
 
     const cells = [];
     for (let row = 0; row < rows; row++) {
@@ -277,31 +330,39 @@ export default function WhoGoesThere(): React.ReactNode {
         const card = gameState.grid.get(key);
 
         if (card) {
-          cells.push(renderTile(card, key, x, y));
-        } else if (gameState.phase === 'playing' && canPlaceAt(x, y)) {
-          // Valid placement position
+          cells.push(renderTile(card, key, x, y, flood));
+        } else if (gameState.phase === 'playing' && isCurrentPlayerTurn() && canPlaceAt(x, y)) {
           cells.push(
-            <div 
-              key={key} 
+            <button
+              key={key}
               className={styles.validPosition}
               onClick={() => placeCard(key)}
+              aria-label={`Place at ${key}`}
             >
               +
-            </div>
+            </button>
           );
         } else {
-          // Empty space
           cells.push(<div key={key} className={styles.emptyCell}></div>);
         }
       }
     }
 
+    // Fit the whole map in the board, growing small maps up a little. Past the
+    // minimum a very long map scrolls instead of shrinking to specks.
+    const width = cols * TILE;
+    const height = rows * TILE;
+    const scale = boardSize.width
+      ? Math.max(0.45, Math.min(1.3, boardSize.width / width, boardSize.height / height))
+      : 1;
+
     return (
-      <div 
-        className={styles.grid}
+      <div
+        className={`${styles.grid} ${selectedCard >= 0 ? styles.armed : ''}`}
         style={{
-          gridTemplateColumns: `repeat(${cols}, 50px)`,
-          gridTemplateRows: `repeat(${rows}, 50px)`
+          gridTemplateColumns: `repeat(${cols}, ${TILE}px)`,
+          gridTemplateRows: `repeat(${rows}, ${TILE}px)`,
+          zoom: scale
         }}
       >
         {cells}
@@ -573,12 +634,19 @@ export default function WhoGoesThere(): React.ReactNode {
   return (
     <div className={styles.fullscreen}>
       <Head title="Who Goes There?" description="A multiplayer map-building deduction game" />
-      <div className={styles.container}>
+      <div className={`${styles.container} ${inGame ? styles.inGame : ''}`}>
         <header className={styles.gameHeader}>
           <h1>WHO GOES THERE?</h1>
           <div className={styles.gameInfo}>
             <span>Game: {gameCode}</span>
-            <span>Players: {gameState?.players.length || 0}/6</span>
+            {!inGame && <span>Players: {gameState?.players.length || 0}/6</span>}
+            <button
+              onClick={() => setShowRules(true)}
+              className={styles.rulesButton}
+              title="View Rules"
+            >
+              ?
+            </button>
           </div>
         </header>
 
@@ -611,121 +679,146 @@ export default function WhoGoesThere(): React.ReactNode {
           </div>
         )}
 
-        {gameState && gameState.gameStarted && (
-          <div className={styles.game}>
-            <button
-              onClick={() => setShowRules(true)}
-              className={styles.rulesButton}
-              title="View Rules"
-            >
-              ?
-            </button>
+        {gameState && gameState.gameStarted && (() => {
+          const revealed = gameState.phase === 'revealed';
+          const current = gameState.players[gameState.currentPlayerIndex];
+          const thingName = gameState.thingPlayerId === playerId
+            ? 'You were'
+            : `${gameState.players.find(p => p.id === gameState.thingPlayerId)?.name} was`;
+          const cleared = getClearedSuits();
+          const resultStyle: CSSVars = { '--delay': `${revealEnd(floodDistances())}ms` };
 
-            <div className={styles.gameStatus}>
-              {gameState.phase === 'playing' && (
-                <>
-                  <div className={styles.turnInfo}>
-                    {isCurrentPlayerTurn() ? (
-                      <span className={styles.yourTurn}>Your turn</span>
-                    ) : (
-                      <span>
-                        {gameState.players[gameState.currentPlayerIndex]?.name}&apos;s turn
-                      </span>
-                    )}
-                  </div>
-
-                  <div className={styles.deckInfo}>
-                    {gameState.deckSize > 0
-                      ? `Deck: ${gameState.deckSize} card${gameState.deckSize !== 1 ? 's' : ''} remaining`
-                      : 'Deck empty - play out your hands, then the blood test runs'}
-                  </div>
-
-                  <div className={styles.deckInfo}>
-                    Cleared:{' '}
-                    {getClearedSuits().length > 0
-                      ? getClearedSuits().map(suit => SYMBOLS[suit]).join(' ')
-                      : 'none yet'}
-                  </div>
-                </>
-              )}
-
-              {gameState.phase === 'playing' && (
-                <div className={styles.playerSuit}>
-                  {gameState.role === 'thing' ? (
-                    <span className={styles.youAreThing}>
-                      You are The Thing. Infected suit: {SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS]} {gameState.thingSuit}
+          return (
+            <div className={styles.game}>
+              <div className={styles.statusBar}>
+                <div className={styles.players}>
+                  {gameState.players.map((player, index) => (
+                    <span
+                      key={player.id}
+                      className={[
+                        styles.chip,
+                        !revealed && index === gameState.currentPlayerIndex ? styles.activeChip : '',
+                        revealed && player.id === gameState.thingPlayerId ? styles.thingChip : '',
+                        player.connected ? '' : styles.offline
+                      ].filter(Boolean).join(' ')}
+                      style={resultStyle}
+                    >
+                      {player.id === playerId ? 'You' : player.name}
+                      {!revealed && <span className={styles.chipCount}>{player.handSize}</span>}
                     </span>
-                  ) : (
-                    <>You are <strong>human</strong>. One of the others is The Thing.</>
+                  ))}
+                </div>
+
+                <div className={styles.meta}>
+                  <span>Deck <strong>{gameState.deckSize}</strong></span>
+                  <span>Cleared <strong>{cleared.length > 0 ? cleared.map(suit => SYMBOLS[suit]).join(' ') : '—'}</strong></span>
+                  {gameState.role && (
+                    <button
+                      className={`${styles.roleBadge} ${gameState.role === 'thing' ? styles.roleThing : ''}`}
+                      onClick={() => setIntro({ role: gameState.role as 'human' | 'thing', thingSuit: gameState.thingSuit })}
+                      title="Show your role again"
+                    >
+                      {gameState.role === 'thing'
+                        ? `Thing ${SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS] ?? ''}`
+                        : 'Human'}
+                    </button>
                   )}
                 </div>
-              )}
+              </div>
 
-              {gameState.phase === 'revealed' && (
-                <div className={styles.gameResult}>
-                  <h2>Blood Test Results</h2>
-                  <p>
-                    The Thing was <strong>{gameState.thingPlayerId === playerId ? 'you' : gameState.players.find(p => p.id === gameState.thingPlayerId)?.name}</strong>
-                  </p>
-                  <p>
-                    Infected suit: <strong>{SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS]} {gameState.thingSuit}</strong>
-                  </p>
-                  <p className={gameState.winner === 'humans' ? styles.humansWin : styles.thingWin}>
-                    {gameState.winner === 'humans' ? 'HUMANS ESCAPE!' : 'THE THING WINS!'}
-                  </p>
+              <div className={styles.gameBoard} ref={boardRef}>
+                {renderGrid()}
 
+                {!revealed && (
+                  <div
+                    key={`${gameState.currentPlayerIndex}:${gameState.grid.size}`}
+                    className={`${styles.turnBanner} ${isCurrentPlayerTurn() ? styles.myTurn : ''}`}
+                  >
+                    {isCurrentPlayerTurn() ? 'Your turn' : `${current?.name}'s turn`}
+                  </div>
+                )}
+
+                {revealed && (
+                  <div key={`test:${gameState.score?.rounds}`} className={styles.bloodTest}>
+                    Blood test
+                  </div>
+                )}
+              </div>
+
+              {!revealed ? (
+                <div className={styles.hand}>
+                  <div className={styles.handCards}>
+                    {getCurrentPlayerHand().map((card, index) => (
+                      <button
+                        key={`${card.suit}${card.value}`}
+                        className={`${styles.handCard} ${selectedCard === index ? styles.selected : ''}`}
+                        onClick={() => setSelectedCard(index === selectedCard ? -1 : index)}
+                      >
+                        {renderCard(card)}
+                      </button>
+                    ))}
+                  </div>
+                  <p className={styles.instruction}>
+                    {!isCurrentPlayerTurn()
+                      ? `Waiting for ${current?.name}`
+                      : selectedCard >= 0
+                        ? 'Now pick a spot on the map'
+                        : 'Pick a card to place'}
+                  </p>
+                </div>
+              ) : (
+                <div className={styles.resultBar} style={resultStyle}>
+                  <strong className={gameState.winner === 'humans' ? styles.humansWin : styles.thingWin}>
+                    {gameState.winner === 'humans' ? 'Humans escape!' : 'The Thing wins!'}
+                  </strong>
+                  <span>
+                    {thingName} The Thing · infected {SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS]}
+                  </span>
                   {gameState.score && (
-                    <div className={styles.scoreDisplay}>
-                      <h3>Score</h3>
-                      <div className={styles.scoreGrid}>
-                        <div className={styles.scoreItem}>
-                          <span className={styles.scoreLabel}>Humans</span>
-                          <span className={styles.scoreValue}>{gameState.score.humans}</span>
-                        </div>
-                        <div className={styles.scoreItem}>
-                          <span className={styles.scoreLabel}>Thing</span>
-                          <span className={styles.scoreValue}>{gameState.score.thing}</span>
-                        </div>
-                      </div>
-                      <p className={styles.roundsPlayed}>Round {gameState.score.rounds}</p>
-                    </div>
+                    <span className={styles.score}>
+                      Humans {gameState.score.humans} – {gameState.score.thing} Thing
+                    </span>
                   )}
-
                   <button onClick={playAgain} className={styles.playAgainButton}>
-                    Play Again
+                    Play again
                   </button>
                 </div>
               )}
-            </div>
 
-            <div className={styles.gameBoard}>
-              {renderGrid()}
-            </div>
-
-            {gameState.phase === 'playing' && (
-              <div className={styles.hand}>
-                <h3>Your hand:</h3>
-                <div className={styles.handCards}>
-                  {getCurrentPlayerHand().map((card, index) => (
-                    <div
-                      key={index}
-                      className={`${styles.handCard} ${selectedCard === index ? styles.selected : ''}`}
-                      onClick={() => setSelectedCard(index === selectedCard ? -1 : index)}
-                    >
-                      {renderCard(card)}
-                    </div>
-                  ))}
-                </div>
-                {selectedCard >= 0 && (
-                  <p className={styles.instruction}>
-                    Click on a + to place the selected card
+              {intro && (
+                <div
+                  className={`${styles.intro} ${intro.role === 'thing' ? styles.introThing : styles.introHuman}`}
+                  onClick={() => setIntro(null)}
+                  onAnimationEnd={(e) => {
+                    if (e.target === e.currentTarget && e.animationName.includes('introOut')) setIntro(null);
+                  }}
+                >
+                  <p className={styles.introShh}>You are</p>
+                  <h2 className={styles.introRole}>{intro.role === 'thing' ? 'The Thing' : 'Human'}</h2>
+                  <p className={styles.introSub}>
+                    {intro.role === 'thing' ? (
+                      <>Infected suit <strong>{SYMBOLS[intro.thingSuit as keyof typeof SYMBOLS]} {intro.thingSuit}</strong>. Cut off an exit.</>
+                    ) : (
+                      <>One of you is The Thing. Keep every exit reachable.</>
+                    )}
                   </p>
-                )}
-              </div>
-            )}
-
-          </div>
-        )}
+                  <div className={styles.introCrew}>
+                    {gameState.players.map((player, index) => (
+                      <span
+                        key={player.id}
+                        className={player.id === playerId ? styles.introMe : ''}
+                        style={{ '--i': index } as CSSVars}
+                      >
+                        {player.name}
+                      </span>
+                    ))}
+                  </div>
+                  <p className={styles.introSkip}>Tap to continue</p>
+                </div>
+              )}
+            </div>
+          );
+        })()}
 
         {rulesModal}
       </div>
