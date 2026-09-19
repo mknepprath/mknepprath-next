@@ -96,8 +96,8 @@ const roleAnnouncement = (role: 'human' | 'thing', thingSuit?: string): Announce
   kicker: 'You are',
   title: role === 'thing' ? 'The Thing' : 'Human',
   sub: role === 'thing'
-    ? `Your secret suit is ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} ${thingSuit}. At the end, every ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} card becomes a wall. Goal: cut off one EXIT. Don't get caught.`
-    : 'One of you is The Thing, secretly assigned one of the four suits. At the end, that suit becomes walls. Goal: keep all 3 EXITs connected to START.',
+    ? `Your secret suit is ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} ${thingSuit}. At the end, every ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} card becomes a wall, including its EXIT. Goal: wall off one of the other EXITs from START. Don't get caught.`
+    : 'One of you is The Thing, secretly assigned one of the four suits. At the end, that suit becomes walls, including its EXIT. Goal: keep the other three EXITs connected to START.',
   blocking: true,
   hold: 4500
 });
@@ -187,8 +187,8 @@ function announcementsFor(prev: GameState | null, next: GameState, me: string): 
       kicker: `${name(next.thingPlayerId)} ${next.thingPlayerId === me ? 'were' : 'was'} The Thing`,
       title: next.winner === 'humans' ? 'Humans escape' : 'The Thing wins',
       sub: next.winner === 'humans'
-        ? 'Every exit connects to the center.'
-        : `${cutOff} exit${cutOff === 1 ? '' : 's'} cut off.`,
+        ? 'Every EXIT connects to START.'
+        : `${cutOff} EXIT${cutOff === 1 ? '' : 's'} cut off from START.`,
       hold: 2600,
       wait: Math.max(0, revealEnd(flood) - test - 800)
     });
@@ -639,7 +639,7 @@ export default function WhoGoesThere(): React.ReactNode {
             <h3>The Cards</h3>
             <ul>
               <li><strong>Floor</strong> - Most cards. Only the suit matters</li>
-              <li><strong>EXIT</strong> - One per suit. Humans need to reach them</li>
+              <li><strong>EXIT</strong> - One per suit, four in all. The Thing&apos;s EXIT becomes a wall, so humans need the other three</li>
               <li><strong>CLEAR</strong> - Proves its suit is safe. Play it to tell everyone, or keep it to yourself</li>
             </ul>
             <p>Tiles in a line form hallways; any 2×2 block becomes a room.</p>
@@ -650,7 +650,7 @@ export default function WhoGoesThere(): React.ReactNode {
             <p>Once every card is on the map, the START tile reveals the infected suit:</p>
             <ul>
               <li>Tiles of the infected suit become <strong>walls</strong></li>
-              <li><strong>Humans win</strong> if all three clean exits connect to the center</li>
+              <li><strong>Humans win</strong> if the three EXITs that aren&apos;t The Thing&apos;s all connect to START</li>
               <li><strong>The Thing wins</strong> if even one is cut off</li>
             </ul>
           </section>
@@ -660,7 +660,7 @@ export default function WhoGoesThere(): React.ReactNode {
             <ul>
               <li>Talk! Say which CLEAR cards you hold. The Thing can lie too</li>
               <li>Watch who plays which suit where. The Thing plugs chokepoints</li>
-              <li>Keep exits close and give each more than one route</li>
+              <li>Keep EXITs close to START and give each more than one route</li>
               <li>The Thing: play like a human until it counts</li>
             </ul>
           </section>
@@ -705,7 +705,7 @@ export default function WhoGoesThere(): React.ReactNode {
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
               <li><strong>Blood test</strong> - The Thing&apos;s suit becomes walls</li>
-              <li><strong>Escape</strong> - Every clean exit must connect to the center</li>
+              <li><strong>Escape</strong> - Each suit has one EXIT card. The three that aren&apos;t The Thing&apos;s must connect to START</li>
             </ul>
           </div>
         </div>
@@ -789,7 +789,7 @@ export default function WhoGoesThere(): React.ReactNode {
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
               <li><strong>Blood test</strong> - The Thing&apos;s suit becomes walls</li>
-              <li><strong>Escape</strong> - Every clean exit must connect to the center</li>
+              <li><strong>Escape</strong> - Each suit has one EXIT card. The three that aren&apos;t The Thing&apos;s must connect to START</li>
             </ul>
             <button onClick={() => setShowRules(true)} className={styles.secondaryButton}>
               Full rules
