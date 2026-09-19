@@ -403,7 +403,7 @@ export default function WhoGoesThere(): React.ReactNode {
             <h2>How to Play</h2>
             <p>Build a research station together. One of you is secretly The Thing, and only they know which suit is infected.</p>
             <ul>
-              <li><strong>2-4 players</strong> - Uses a standard deck</li>
+              <li><strong>2-6 players</strong> - Uses a standard deck</li>
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
               <li><strong>Blood test</strong> - The infected suit becomes walls</li>
@@ -487,7 +487,7 @@ export default function WhoGoesThere(): React.ReactNode {
             <h2>How to Play</h2>
             <p>Build a research station together. One of you is secretly The Thing, and only they know which suit is infected.</p>
             <ul>
-              <li><strong>2-4 players</strong> - Uses a standard deck</li>
+              <li><strong>2-6 players</strong> - Uses a standard deck</li>
               <li><strong>Hidden role</strong> - One player is The Thing</li>
               <li><strong>Map building</strong> - Take turns placing cards</li>
               <li><strong>Blood test</strong> - The infected suit becomes walls</li>
@@ -508,7 +508,7 @@ export default function WhoGoesThere(): React.ReactNode {
           <h1>WHO GOES THERE?</h1>
           <div className={styles.gameInfo}>
             <span>Game: {gameCode}</span>
-            <span>Players: {gameState?.players.length || 0}/4</span>
+            <span>Players: {gameState?.players.length || 0}/6</span>
           </div>
         </header>
 
