@@ -102,13 +102,22 @@ const roleAnnouncement = (role: 'human' | 'thing', thingSuit?: string): Announce
   hold: 4500
 });
 
-const proofAnnouncement = (suit: keyof typeof SYMBOLS): Announced => ({
-  tone: 'clear',
-  kicker: 'Only you know',
-  title: `${SYMBOLS[suit]} is clean`,
-  sub: 'Play your CLEAR card to prove it, or keep it quiet.',
-  hold: 2600
-});
+// Drawing a CLEAR card: proof for a human, a bluffing tool for The Thing
+const proofAnnouncement = (suit: keyof typeof SYMBOLS, role?: 'human' | 'thing'): Announced => role === 'thing'
+  ? {
+    tone: 'clear',
+    kicker: 'You drew a CLEAR card',
+    title: `${SYMBOLS[suit]} proof`,
+    sub: 'Playing it makes you look trustworthy.',
+    hold: 2600
+  }
+  : {
+    tone: 'clear',
+    kicker: 'Only you know',
+    title: `${SYMBOLS[suit]} is clean`,
+    sub: 'Play your CLEAR card to prove it, or keep it quiet.',
+    hold: 2600
+  };
 
 // Compare two game states and work out what to announce
 function announcementsFor(prev: GameState | null, next: GameState, me: string): Announced[] {
@@ -134,7 +143,7 @@ function announcementsFor(prev: GameState | null, next: GameState, me: string): 
   if (newRound && next.role) {
     events.push(roleAnnouncement(next.role, next.thingSuit));
     next.hand.filter(card => card.value === 11).forEach(card =>
-      events.push(proofAnnouncement(card.suit as keyof typeof SYMBOLS)));
+      events.push(proofAnnouncement(card.suit as keyof typeof SYMBOLS, next.role)));
     return events;
   }
 
@@ -158,7 +167,7 @@ function announcementsFor(prev: GameState | null, next: GameState, me: string): 
     // You drew a CLEAR card: private proof
     next.hand.forEach(card => {
       if (card.value === 11 && !prev.hand.some(c => c.value === 11 && c.suit === card.suit)) {
-        events.push(proofAnnouncement(card.suit as keyof typeof SYMBOLS));
+        events.push(proofAnnouncement(card.suit as keyof typeof SYMBOLS, next.role));
       }
     });
 
@@ -222,6 +231,8 @@ export default function WhoGoesThere(): React.ReactNode {
   const nextAnnouncementId = useRef(0);
   const boardRef = useRef<HTMLDivElement>(null);
   const [boardSize, setBoardSize] = useState({ width: 0, height: 0 });
+  // The Thing sees its cards as the walls they'll become (can be hidden)
+  const [wallView, setWallView] = useState(true);
 
   // Initialize socket connection
   useEffect(() => {
@@ -366,10 +377,16 @@ export default function WhoGoesThere(): React.ReactNode {
     return gameState?.thingSuit ? SYMBOLS[gameState.thingSuit as keyof typeof SYMBOLS] : '?';
   };
 
+  // Infected cards look like walls to The Thing while wall view is on
+  const seesWalls = !!(gameState?.phase === 'playing' && gameState.role === 'thing' && wallView);
+  const looksLikeWall = (card?: Card) =>
+    !!(card && gameState?.thingSuit && card.suit === gameState.thingSuit &&
+      (gameState.phase === 'revealed' || seesWalls));
+
   const renderCard = (card: Card) => {
     const job = cardJob(card);
     return (
-      <div className={`${styles.card} ${styles[card.suit]}`}>
+      <div className={`${styles.card} ${styles[card.suit]} ${looksLikeWall(card) ? styles.wallCard : ''}`}>
         {job && <span className={styles.job}>{job}</span>}
         <span className={styles.symbol}>{cardSymbol(card)}</span>
       </div>
@@ -382,7 +399,7 @@ export default function WhoGoesThere(): React.ReactNode {
   const renderTile = (card: Card, key: string, x: number, y: number, flood: Map<string, number>) => {
     if (!gameState) return null;
     const revealed = gameState.phase === 'revealed';
-    const isWall = (c?: Card) => !!(revealed && c && c.suit === gameState.thingSuit);
+    const isWall = looksLikeWall;
     const open = (dx: number, dy: number) => {
       const neighbor = gameState.grid.get(`${x + dx},${y + dy}`);
       return !!neighbor && !isWall(neighbor);
@@ -840,6 +857,16 @@ export default function WhoGoesThere(): React.ReactNode {
                 <div className={styles.meta}>
                   <span>Deck <strong>{gameState.deckSize}</strong></span>
                   <span>Cleared <strong>{cleared.length > 0 ? cleared.map(suit => SYMBOLS[suit]).join(' ') : '—'}</strong></span>
+                  {gameState.role === 'thing' && !revealed && (
+                    <button
+                      className={`${styles.toggle} ${wallView ? styles.toggleOn : ''}`}
+                      aria-pressed={wallView}
+                      onClick={() => setWallView(on => !on)}
+                      title="Show your infected cards as walls"
+                    >
+                      Wall view {wallView ? 'on' : 'off'}
+                    </button>
+                  )}
                   {gameState.role && (
                     <button
                       className={`${styles.roleBadge} ${gameState.role === 'thing' ? styles.roleThing : ''}`}

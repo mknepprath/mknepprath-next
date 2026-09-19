@@ -810,6 +810,30 @@
   animation: flip 0.6s ease 700ms both;
 }
 
+/* The Thing's hand: infected cards already look like walls */
+.card.wallCard {
+  background: repeating-linear-gradient(45deg, rgba(139,0,0,0.75) 0 4px, rgba(60,0,0,0.75) 4px 8px);
+  border-color: rgba(160,0,0,0.9);
+  color: rgba(255,255,255,0.7);
+}
+
+.toggle {
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  border: 1px solid rgba(184,212,227,0.3);
+  background: transparent;
+  color: #B8D4E3;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.toggleOn {
+  border-color: rgba(160,0,0,0.9);
+  background: repeating-linear-gradient(45deg, rgba(139,0,0,0.45) 0 4px, rgba(60,0,0,0.45) 4px 8px);
+  color: #fff;
+}
+
 .wallFill {
   position: absolute;
   inset: 0;
