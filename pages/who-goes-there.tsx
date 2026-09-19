@@ -371,6 +371,71 @@ export default function WhoGoesThere(): React.ReactNode {
     return gameState.currentPlayerIndex === playerIndex;
   };
 
+  // Full rules, reachable from the lobby and in-game
+  const rulesModal = showRules && (
+    <div className={styles.modal} onClick={() => setShowRules(false)}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        <button className={styles.modalClose} onClick={() => setShowRules(false)}>×</button>
+
+        <h2>How to Play</h2>
+
+        <div className={styles.rulesContent}>
+          <section>
+            <h3>Goal</h3>
+            <p>Build a research station together. One player is secretly <strong>The Thing</strong>. Humans want an escape route; The Thing wants everyone trapped.</p>
+          </section>
+
+          <section>
+            <h3>Setup</h3>
+            <ul>
+              <li>One player is secretly The Thing. Only they know which suit is <strong>infected</strong></li>
+              <li>The <strong>START</strong> tile at the center hides the infected suit</li>
+              <li>Everyone starts with 3 cards</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Your Turn</h3>
+            <ol>
+              <li><strong>Place</strong> 1 card next to (N/S/E/W) a card on the map</li>
+              <li><strong>Draw</strong> 1 card, while the deck lasts</li>
+            </ol>
+            <p>No block of cards can be bigger than 2×2.</p>
+          </section>
+
+          <section>
+            <h3>The Cards</h3>
+            <ul>
+              <li><strong>Floor</strong> - Most cards. Only the suit matters</li>
+              <li><strong>EXIT</strong> - One per suit. Humans need to reach them</li>
+              <li><strong>CLEAR</strong> - Proves its suit is safe. Play it to tell everyone, or keep it to yourself</li>
+            </ul>
+            <p>Tiles in a line form hallways; any 2×2 block becomes a room.</p>
+          </section>
+
+          <section>
+            <h3>The Blood Test</h3>
+            <p>Once every card is on the map, the START tile reveals the infected suit:</p>
+            <ul>
+              <li>Tiles of the infected suit become <strong>walls</strong></li>
+              <li><strong>Humans win</strong> if all three clean exits connect to the center</li>
+              <li><strong>The Thing wins</strong> if even one is cut off</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Tips</h3>
+            <ul>
+              <li>Watch who plays which suit where. The Thing plugs chokepoints</li>
+              <li>Keep exits close and give each more than one route</li>
+              <li>The Thing: play like a human until it counts</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+
   // Show connection error only if there's an actual error (not just initial loading)
   if (connectionError) {
     return (
@@ -493,7 +558,12 @@ export default function WhoGoesThere(): React.ReactNode {
               <li><strong>Blood test</strong> - The infected suit becomes walls</li>
               <li><strong>Escape</strong> - Every clean exit must connect to the center</li>
             </ul>
+            <button onClick={() => setShowRules(true)} className={styles.secondaryButton}>
+              Full rules
+            </button>
           </div>
+
+          {rulesModal}
         </div>
       </div>
     );
@@ -657,70 +727,7 @@ export default function WhoGoesThere(): React.ReactNode {
           </div>
         )}
 
-        {/* Rules Modal */}
-        {showRules && (
-          <div className={styles.modal} onClick={() => setShowRules(false)}>
-            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-              <button className={styles.modalClose} onClick={() => setShowRules(false)}>×</button>
-
-              <h2>How to Play</h2>
-
-              <div className={styles.rulesContent}>
-                <section>
-                  <h3>Goal</h3>
-                  <p>Build a research station together. One player is secretly <strong>The Thing</strong>. Humans want an escape route; The Thing wants everyone trapped.</p>
-                </section>
-
-                <section>
-                  <h3>Setup</h3>
-                  <ul>
-                    <li>One player is secretly The Thing. Only they know which suit is <strong>infected</strong></li>
-                    <li>The <strong>START</strong> tile at the center hides the infected suit</li>
-                    <li>Everyone starts with 3 cards</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h3>Your Turn</h3>
-                  <ol>
-                    <li><strong>Place</strong> 1 card next to (N/S/E/W) a card on the map</li>
-                    <li><strong>Draw</strong> 1 card, while the deck lasts</li>
-                  </ol>
-                  <p>No block of cards can be bigger than 2×2.</p>
-                </section>
-
-                <section>
-                  <h3>The Cards</h3>
-                  <ul>
-                    <li><strong>Floor</strong> - Most cards. Only the suit matters</li>
-                    <li><strong>EXIT</strong> - One per suit. Humans need to reach them</li>
-                    <li><strong>CLEAR</strong> - Proves its suit is safe. Play it to tell everyone, or keep it to yourself</li>
-                  </ul>
-                  <p>Tiles in a line form hallways; any 2×2 block becomes a room.</p>
-                </section>
-
-                <section>
-                  <h3>The Blood Test</h3>
-                  <p>Once every card is on the map, the START tile reveals the infected suit:</p>
-                  <ul>
-                    <li>Tiles of the infected suit become <strong>walls</strong></li>
-                    <li><strong>Humans win</strong> if all three clean exits connect to the center</li>
-                    <li><strong>The Thing wins</strong> if even one is cut off</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h3>Tips</h3>
-                  <ul>
-                    <li>Watch who plays which suit where. The Thing plugs chokepoints</li>
-                    <li>Keep exits close and give each more than one route</li>
-                    <li>The Thing: play like a human until it counts</li>
-                  </ul>
-                </section>
-              </div>
-            </div>
-          </div>
-        )}
+        {rulesModal}
       </div>
     </div>
   );
