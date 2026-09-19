@@ -699,14 +699,12 @@ export default function WhoGoesThere(): React.ReactNode {
 
           <div className={styles.rules}>
             <h2>How to Play</h2>
-            <p>Build a research station together. One of you is secretly The Thing, assigned one of the four suits. At the end, every card of that suit becomes a wall.</p>
             <ul>
-              <li><strong>2-6 players</strong> - Uses a standard deck</li>
-              <li><strong>Hidden role</strong> - One player is The Thing</li>
-              <li><strong>Map building</strong> - Take turns placing cards</li>
-              <li><strong>Blood test</strong> - The Thing&apos;s suit becomes walls</li>
-              <li><strong>Escape</strong> - Each suit has one EXIT card. The three that aren&apos;t The Thing&apos;s must connect to START</li>
+              <li>One of you is secretly <strong>The Thing</strong>, assigned one of the four suits. Take turns placing cards to build a station.</li>
+              <li>Each suit has one <strong>EXIT</strong>. At the end, The Thing&apos;s suit, EXIT included, turns into <strong>walls</strong>.</li>
+              <li>Humans win if the other three EXITs still connect to <strong>START</strong>. The Thing wins if one is cut off.</li>
             </ul>
+            <p className={styles.fine}>2-6 players</p>
           </div>
         </div>
       </div>
@@ -783,14 +781,12 @@ export default function WhoGoesThere(): React.ReactNode {
 
           <div className={styles.rules}>
             <h2>How to Play</h2>
-            <p>Build a research station together. One of you is secretly The Thing, assigned one of the four suits. At the end, every card of that suit becomes a wall.</p>
             <ul>
-              <li><strong>2-6 players</strong> - Uses a standard deck</li>
-              <li><strong>Hidden role</strong> - One player is The Thing</li>
-              <li><strong>Map building</strong> - Take turns placing cards</li>
-              <li><strong>Blood test</strong> - The Thing&apos;s suit becomes walls</li>
-              <li><strong>Escape</strong> - Each suit has one EXIT card. The three that aren&apos;t The Thing&apos;s must connect to START</li>
+              <li>One of you is secretly <strong>The Thing</strong>, assigned one of the four suits. Take turns placing cards to build a station.</li>
+              <li>Each suit has one <strong>EXIT</strong>. At the end, The Thing&apos;s suit, EXIT included, turns into <strong>walls</strong>.</li>
+              <li>Humans win if the other three EXITs still connect to <strong>START</strong>. The Thing wins if one is cut off.</li>
             </ul>
+            <p className={styles.fine}>2-6 players</p>
             <button onClick={() => setShowRules(true)} className={styles.secondaryButton}>
               Full rules
             </button>
