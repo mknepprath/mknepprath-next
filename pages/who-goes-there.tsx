@@ -96,8 +96,8 @@ const roleAnnouncement = (role: 'human' | 'thing', thingSuit?: string): Announce
   kicker: 'You are',
   title: role === 'thing' ? 'The Thing' : 'Human',
   sub: role === 'thing'
-    ? `Infected suit ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} ${thingSuit}. Cut off an exit.`
-    : 'One of you is The Thing. Keep every exit reachable.',
+    ? `Goal: cut off one EXIT. Your ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} cards become walls at the end. Don't get caught.`
+    : 'Goal: connect all 3 EXITs to START. One of you is The Thing, and its suit turns to walls at the end.',
   blocking: true,
   hold: 4500
 });
@@ -108,14 +108,14 @@ const proofAnnouncement = (suit: keyof typeof SYMBOLS, role?: 'human' | 'thing')
     tone: 'clear',
     kicker: 'You drew a CLEAR card',
     title: `${SYMBOLS[suit]} proof`,
-    sub: 'Playing it makes you look trustworthy.',
+    sub: `Play it to look human, or hold it to keep ${SYMBOLS[suit]} under suspicion.`,
     hold: 2600
   }
   : {
     tone: 'clear',
     kicker: 'Only you know',
     title: `${SYMBOLS[suit]} is clean`,
-    sub: 'Play your CLEAR card to prove it, or keep it quiet.',
+    sub: `Tell the others, and play it on the map to prove it.`,
     hold: 2600
   };
 
@@ -313,6 +313,32 @@ export default function WhoGoesThere(): React.ReactNode {
   }, []); // Empty dependency array - only run once on mount
 
   const announcement = announcements[0];
+  // One line under your hand saying what to do right now, and why
+  const coachTip = () => {
+    if (!gameState) return '';
+    const hand = gameState.hand;
+    const thing = gameState.role === 'thing';
+    const symbol = (card: Card) => SYMBOLS[card.suit as keyof typeof SYMBOLS];
+
+    if (!isCurrentPlayerTurn()) {
+      const name = gameState.players[gameState.currentPlayerIndex]?.name;
+      return thing
+        ? `${name} is placing. Act human; your walls only count at the end.`
+        : `${name} is placing. Watch where they put each suit.`;
+    }
+    if (selectedCard >= 0) return 'Now pick a spot on the map.';
+
+    const clear = hand.find(card => card.value === 11);
+    const exit = hand.find(card => card.value === 10);
+    const infected = hand.find(card => card.suit === gameState.thingSuit);
+
+    if (thing && infected) return `Your turn. ${symbol(infected)} is a wall: put it where there's only one way through.`;
+    if (thing) return 'Your turn. Build like a human so nobody suspects you.';
+    if (clear) return `Your turn. Play your CLEAR to officially clear ${symbol(clear)}.`;
+    if (exit) return 'Your turn. Put EXITs near START, with more than one way in.';
+    return 'Your turn. Keep a route open to every EXIT.';
+  };
+
   // The role badge brings the role reveal back up
   const replayRole = () => {
     if (!gameState?.role) return;
@@ -596,14 +622,14 @@ export default function WhoGoesThere(): React.ReactNode {
             <ul>
               <li>One player is secretly The Thing. Only they know which suit is <strong>infected</strong></li>
               <li>The <strong>START</strong> tile at the center hides the infected suit</li>
-              <li>Everyone starts with 3 cards</li>
+              <li>Everyone holds 2 cards</li>
             </ul>
           </section>
 
           <section>
             <h3>Your Turn</h3>
             <ol>
-              <li><strong>Place</strong> 1 card next to (N/S/E/W) a card on the map</li>
+              <li><strong>Place</strong> 1 of your 2 cards next to (N/S/E/W) a card on the map</li>
               <li><strong>Draw</strong> 1 card, while the deck lasts</li>
             </ol>
             <p>No block of cards can be bigger than 2×2.</p>
@@ -632,6 +658,7 @@ export default function WhoGoesThere(): React.ReactNode {
           <section>
             <h3>Tips</h3>
             <ul>
+              <li>Talk! Say which CLEAR cards you hold. The Thing can lie too</li>
               <li>Watch who plays which suit where. The Thing plugs chokepoints</li>
               <li>Keep exits close and give each more than one route</li>
               <li>The Thing: play like a human until it counts</li>
@@ -907,13 +934,7 @@ export default function WhoGoesThere(): React.ReactNode {
                       </button>
                     ))}
                   </div>
-                  <p className={styles.instruction}>
-                    {!isCurrentPlayerTurn()
-                      ? `Waiting for ${current?.name}`
-                      : selectedCard >= 0
-                        ? 'Now pick a spot on the map'
-                        : 'Pick a card to place'}
-                  </p>
+                  <p className={styles.instruction}>{coachTip()}</p>
                 </div>
               ) : (
                 <div className={styles.resultBar} style={resultStyle}>
