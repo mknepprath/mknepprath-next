@@ -741,7 +741,7 @@
   border-color: #8B0000;
   background: rgba(139,0,0,0.35);
   color: #fff;
-  animation: pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) var(--delay, 0ms) both;
+  animation: unmask 0.6s ease var(--delay, 0ms) both;
 }
 
 .offline {
@@ -804,20 +804,6 @@
 
 /* ---------- Blood test ---------- */
 
-.bloodTest {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Creepster', cursive;
-  font-size: clamp(2.5rem, 10vw, 5rem);
-  color: #c40000;
-  text-shadow: 0 0 30px rgba(196,0,0,0.6);
-  letter-spacing: 0.08em;
-  pointer-events: none;
-  animation: bloodTest 1.6s ease both;
-}
 
 .tile.neutral.reached,
 .tile.neutral.wall {
@@ -876,9 +862,15 @@
   font-size: 0.9rem;
 }
 
-/* ---------- Role reveal ---------- */
+/* ---------- Announcements ---------- */
 
-.intro {
+/* Mid-game announcements are see-through and don't block play */
+.announce {
+  --tint: rgba(232,224,212,0.12);
+  --ink: #e8e0d4;
+  --k: 0.05s;
+  --t: 0.15s;
+  --s: 0.45s;
   position: fixed;
   inset: 0;
   z-index: 900;
@@ -886,56 +878,76 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
   padding: 2rem;
   text-align: center;
-  cursor: pointer;
-  background: radial-gradient(ellipse at center, #10202a 0%, #000 70%);
-  animation: introIn 0.4s ease both, introOut 0.5s ease 4.5s forwards;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, var(--tint) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 80%);
+  animation:
+    announceIn 0.3s ease var(--wait) both,
+    announceOut 0.4s ease calc(var(--wait) + var(--hold)) forwards;
 }
 
-.introThing {
+/* The role reveal takes over the screen until it's done or tapped */
+.announce.blocking {
+  --k: 0.3s;
+  --t: 0.8s;
+  --s: 1.5s;
+  gap: 1rem;
+  pointer-events: auto;
+  cursor: pointer;
+  background: radial-gradient(ellipse at center, #10202a 0%, #000 70%);
+}
+
+.announce.blocking.thing {
   background: radial-gradient(ellipse at center, #3a0000 0%, #000 70%);
 }
 
-.introShh {
+.announce.human { --tint: rgba(138,212,255,0.18); --ink: #8ad4ff; }
+.announce.thing { --tint: rgba(255,42,42,0.2); --ink: #ff2a2a; }
+.announce.clear { --tint: rgba(112,196,138,0.2); --ink: #70c48a; }
+.announce.alarm { --tint: rgba(196,0,0,0.25); --ink: #c40000; }
+
+.kicker {
   margin: 0;
-  color: rgba(232,224,212,0.7);
-  letter-spacing: 0.4em;
+  color: rgba(232,224,212,0.75);
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  font-size: 1rem;
-  animation: fadeUp 0.6s ease 0.3s both;
+  font-size: 0.95rem;
+  animation: fadeUp 0.45s ease calc(var(--wait) + var(--k)) both;
 }
 
-.introRole {
+.headline {
   margin: 0;
   font-family: 'Creepster', cursive;
   font-weight: normal;
-  font-size: clamp(3.5rem, 16vw, 8rem);
+  font-size: clamp(3rem, 13vw, 7rem);
   line-height: 1;
   letter-spacing: 0.05em;
-  animation: roleSlam 0.7s cubic-bezier(0.2, 1.4, 0.4, 1) 0.8s both;
+  color: var(--ink);
+  text-shadow: 0 0 40px var(--ink), 0 2px 0 #000;
+  animation: roleSlam 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) calc(var(--wait) + var(--t)) both;
 }
 
-.introHuman .introRole {
-  color: #8ad4ff;
-  text-shadow: 0 0 40px rgba(138,212,255,0.6);
+.blocking .headline {
+  font-size: clamp(3.5rem, 16vw, 8rem);
 }
 
-.introThing .introRole {
-  color: #ff2a2a;
-  text-shadow: 0 0 40px rgba(255,0,0,0.7);
-  animation: roleSlam 0.7s cubic-bezier(0.2, 1.4, 0.4, 1) 0.8s both, glitch 2.4s steps(1) 1.6s infinite;
+.thing .headline {
+  animation:
+    roleSlam 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) calc(var(--wait) + var(--t)) both,
+    glitch 2.4s steps(1) calc(var(--wait) + var(--t) + 0.8s) infinite;
 }
 
-.introSub {
+.sub {
   margin: 0;
   max-width: 28rem;
   color: #e8e0d4;
-  animation: fadeUp 0.6s ease 1.5s both;
+  text-shadow: 0 1px 8px #000;
+  animation: fadeUp 0.45s ease calc(var(--wait) + var(--s)) both;
 }
 
-.introCrew {
+.crew {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
@@ -943,7 +955,7 @@
   margin-top: 1rem;
 }
 
-.introCrew span {
+.crew span {
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
   border: 1px solid rgba(232,224,212,0.3);
@@ -952,18 +964,13 @@
   animation: fadeUp 0.5s ease calc(1.9s + var(--i) * 0.12s) both;
 }
 
-.introHuman .introMe {
-  border-color: #8ad4ff;
-  color: #8ad4ff;
+.crew .me {
+  border-color: var(--ink);
+  color: var(--ink);
+  box-shadow: 0 0 14px var(--tint);
 }
 
-.introThing .introMe {
-  border-color: #ff2a2a;
-  color: #ff2a2a;
-  box-shadow: 0 0 14px rgba(255,42,42,0.6);
-}
-
-.introSkip {
+.skip {
   margin: 1rem 0 0;
   font-size: 0.75rem;
   color: rgba(232,224,212,0.4);
@@ -995,17 +1002,13 @@
   50% { background: rgba(58,122,92,0.3); }
 }
 
-@keyframes pop {
-  from { transform: scale(0.6); opacity: 0; }
-  to { transform: none; opacity: 1; }
+/* Looks like any other chip until the verdict, then turns */
+@keyframes unmask {
+  from { border-color: rgba(184,212,227,0.2); background: transparent; color: #B8D4E3; }
+  50% { transform: scale(1.25); }
+  to { border-color: #8B0000; background: rgba(139,0,0,0.35); color: #fff; transform: none; }
 }
 
-@keyframes bloodTest {
-  0% { opacity: 0; transform: scale(1.6); filter: blur(6px); }
-  25% { opacity: 1; transform: none; filter: none; }
-  70% { opacity: 1; }
-  100% { opacity: 0; transform: scale(0.95); }
-}
 
 @keyframes flip {
   0% { transform: rotateY(0); }
@@ -1041,12 +1044,12 @@
   to { opacity: 1; transform: none; }
 }
 
-@keyframes introIn {
+@keyframes announceIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-@keyframes introOut {
+@keyframes announceOut {
   to { opacity: 0; visibility: hidden; }
 }
 
@@ -1088,7 +1091,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   /* Keep the timing (the reveal still happens in order) but drop the motion */
-  .game * {
+  .game *,
+  .announce,
+  .announce * {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
   }

@@ -47,6 +47,147 @@ const REVEAL = { flip: 700, walls: 1100, wallStep: 45, flood: 2100, floodStep: 7
 
 type CSSVars = React.CSSProperties & Record<`--${string}`, string | number>;
 
+// Everything the game tells you drops in full-screen, one at a time
+interface Announcement {
+  id: number;
+  tone: 'human' | 'thing' | 'clear' | 'alarm' | 'neutral';
+  kicker?: string;
+  title: string;
+  sub?: string;
+  // The role reveal: opaque, shows the crew, tap to dismiss
+  blocking?: boolean;
+  // Drop anything still queued so this lands in sync with the board
+  interrupt?: boolean;
+  hold: number;
+  wait?: number;
+}
+
+type Announced = Omit<Announcement, 'id'>;
+
+const SUIT_NAMES = { spades: 'Spades', hearts: 'Hearts', clubs: 'Clubs', diamonds: 'Diamonds' };
+
+// Steps from the center to every tile the humans can reach after the blood test
+function floodDistances(state: GameState) {
+  const distances = new Map<string, number>();
+  if (state.phase !== 'revealed') return distances;
+  distances.set('0,0', 0);
+  const queue = ['0,0'];
+  while (queue.length > 0) {
+    const pos = queue.shift() as string;
+    const [x, y] = pos.split(',').map(Number);
+    for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
+      const next = `${x + dx},${y + dy}`;
+      const card = state.grid.get(next);
+      if (card && card.suit !== state.thingSuit && !distances.has(next)) {
+        distances.set(next, (distances.get(pos) ?? 0) + 1);
+        queue.push(next);
+      }
+    }
+  }
+  return distances;
+}
+
+// When the flood has finished and the result can come in
+const revealEnd = (flood: Map<string, number>) =>
+  REVEAL.flood + Math.max(0, ...flood.values()) * REVEAL.floodStep + 400;
+
+const roleAnnouncement = (role: 'human' | 'thing', thingSuit?: string): Announced => ({
+  tone: role,
+  kicker: 'You are',
+  title: role === 'thing' ? 'The Thing' : 'Human',
+  sub: role === 'thing'
+    ? `Infected suit ${SYMBOLS[thingSuit as keyof typeof SYMBOLS]} ${thingSuit}. Cut off an exit.`
+    : 'One of you is The Thing. Keep every exit reachable.',
+  blocking: true,
+  hold: 4500
+});
+
+const proofAnnouncement = (suit: keyof typeof SYMBOLS): Announced => ({
+  tone: 'clear',
+  kicker: 'Only you know',
+  title: `${SYMBOLS[suit]} is clean`,
+  sub: 'Play your CLEAR card to prove it, or keep it quiet.',
+  hold: 2600
+});
+
+// Compare two game states and work out what to announce
+function announcementsFor(prev: GameState | null, next: GameState, me: string): Announced[] {
+  const events: Announced[] = [];
+  const name = (id?: string) => id === me ? 'You' : next.players.find(p => p.id === id)?.name ?? 'Someone';
+  const samePhase = prev?.id === next.id && prev.phase === next.phase && prev.score?.rounds === next.score?.rounds;
+
+  // Crew coming and going
+  if (prev?.id === next.id) {
+    for (const player of next.players) {
+      const before = prev.players.find(p => p.id === player.id);
+      if (!before && player.id !== me) {
+        events.push({ tone: 'neutral', kicker: 'New arrival', title: player.name, sub: 'joined the station', hold: 1400 });
+      } else if (before?.connected && !player.connected) {
+        events.push({ tone: 'alarm', kicker: 'Lost contact', title: player.name, sub: 'dropped out', hold: 1600 });
+      }
+    }
+  }
+
+  // A new round: everyone learns their role
+  const newRound = next.phase === 'playing' && next.role &&
+    !(prev?.id === next.id && prev.phase === 'playing' && prev.score?.rounds === next.score?.rounds);
+  if (newRound && next.role) {
+    events.push(roleAnnouncement(next.role, next.thingSuit));
+    next.hand.filter(card => card.value === 11).forEach(card =>
+      events.push(proofAnnouncement(card.suit as keyof typeof SYMBOLS)));
+    return events;
+  }
+
+  if (prev && samePhase && next.phase === 'playing') {
+    const mover = prev.players[prev.currentPlayerIndex]?.id;
+
+    // A CLEAR card hit the map: that suit is proven safe
+    next.grid.forEach((card, key) => {
+      if (card.value === 11 && !prev.grid.has(key)) {
+        const suit = card.suit as keyof typeof SYMBOLS;
+        events.push({
+          tone: 'clear',
+          kicker: `${name(mover)} played a CLEAR card`,
+          title: `${SYMBOLS[suit]} cleared`,
+          sub: `${SUIT_NAMES[suit]} can't be infected.`,
+          hold: 2200
+        });
+      }
+    });
+
+    // You drew a CLEAR card: private proof
+    next.hand.forEach(card => {
+      if (card.value === 11 && !prev.hand.some(c => c.value === 11 && c.suit === card.suit)) {
+        events.push(proofAnnouncement(card.suit as keyof typeof SYMBOLS));
+      }
+    });
+
+    if (prev.deckSize > 0 && next.deckSize === 0) {
+      events.push({ tone: 'neutral', kicker: 'Deck empty', title: 'Last cards', sub: 'Play out your hands. Then the blood test.', hold: 2200 });
+    }
+  }
+
+  // The blood test, then the verdict once the flood has played out
+  if (prev?.id === next.id && prev.phase === 'playing' && next.phase === 'revealed') {
+    const flood = floodDistances(next);
+    const cutOff = (next.exitPositions ?? []).filter(pos => !flood.has(pos)).length;
+    const test = 1500;
+    events.push({ tone: 'alarm', kicker: 'Every card is down', title: 'Blood test', hold: test, interrupt: true });
+    events.push({
+      tone: next.winner === 'humans' ? 'human' : 'thing',
+      kicker: `${name(next.thingPlayerId)} ${next.thingPlayerId === me ? 'were' : 'was'} The Thing`,
+      title: next.winner === 'humans' ? 'Humans escape' : 'The Thing wins',
+      sub: next.winner === 'humans'
+        ? 'Every exit connects to the center.'
+        : `${cutOff} exit${cutOff === 1 ? '' : 's'} cut off.`,
+      hold: 2600,
+      wait: Math.max(0, revealEnd(flood) - test - 800)
+    });
+  }
+
+  return events;
+}
+
 export default function WhoGoesThere(): React.ReactNode {
   // Add iOS layout fixes
   useEffect(() => {
@@ -75,9 +216,10 @@ export default function WhoGoesThere(): React.ReactNode {
   const [status, setStatus] = useState<string>('Connecting...');
   const [connectionError, setConnectionError] = useState<boolean>(false);
   const [showRules, setShowRules] = useState<boolean>(false);
-  // Among Us-style role card shown at the start of each round
-  const [intro, setIntro] = useState<{ role: 'human' | 'thing'; thingSuit?: string } | null>(null);
-  const introShown = useRef('');
+  // Announcements queue up and drop in one at a time
+  const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+  const lastState = useRef<GameState | null>(null);
+  const nextAnnouncementId = useRef(0);
   const boardRef = useRef<HTMLDivElement>(null);
   const [boardSize, setBoardSize] = useState({ width: 0, height: 0 });
 
@@ -120,11 +262,11 @@ export default function WhoGoesThere(): React.ReactNode {
         state.grid = gridMap;
       }
 
-      // New round: show everyone their role once
-      const round = `${state.id}:${state.score?.rounds ?? 0}`;
-      if (state.phase === 'playing' && state.role && introShown.current !== round) {
-        introShown.current = round;
-        setIntro({ role: state.role, thingSuit: state.thingSuit });
+      const events = announcementsFor(lastState.current, state, newSocket.id ?? '');
+      lastState.current = state;
+      if (events.length > 0) {
+        const fresh = events.map(event => ({ ...event, id: nextAnnouncementId.current++ }));
+        setAnnouncements(queue => fresh.some(event => event.interrupt) ? fresh : [...queue, ...fresh]);
       }
 
       setGameState(state);
@@ -158,6 +300,17 @@ export default function WhoGoesThere(): React.ReactNode {
       newSocket.close();
     };
   }, []); // Empty dependency array - only run once on mount
+
+  const announcement = announcements[0];
+  // The role badge brings the role reveal back up
+  const replayRole = () => {
+    if (!gameState?.role) return;
+    const id = nextAnnouncementId.current++;
+    setAnnouncements(queue => [{ ...roleAnnouncement(gameState.role as 'human' | 'thing', gameState.thingSuit), id }, ...queue]);
+  };
+
+  const dismissAnnouncement = () =>
+    setAnnouncements(queue => queue.filter(a => a.id !== announcement?.id));
 
   // Track the board's size so the map can scale to fit without scrolling
   const inGame = !!gameState?.gameStarted;
@@ -275,31 +428,6 @@ export default function WhoGoesThere(): React.ReactNode {
     );
   };
 
-  // Steps from the center to every tile the humans can reach
-  const floodDistances = () => {
-    const distances = new Map<string, number>();
-    if (!gameState || gameState.phase !== 'revealed') return distances;
-    distances.set('0,0', 0);
-    const queue = ['0,0'];
-    while (queue.length > 0) {
-      const pos = queue.shift() as string;
-      const [x, y] = pos.split(',').map(Number);
-      for (const [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
-        const next = `${x + dx},${y + dy}`;
-        const card = gameState.grid.get(next);
-        if (card && card.suit !== gameState.thingSuit && !distances.has(next)) {
-          distances.set(next, (distances.get(pos) ?? 0) + 1);
-          queue.push(next);
-        }
-      }
-    }
-    return distances;
-  };
-
-  // When the flood has finished and the result can come in
-  const revealEnd = (flood: Map<string, number>) =>
-    REVEAL.flood + Math.max(0, ...flood.values()) * REVEAL.floodStep + 400;
-
   const gridBounds = () => {
     let minX = 0, maxX = 0, minY = 0, maxY = 0;
     gameState?.grid.forEach((_, key) => {
@@ -319,7 +447,7 @@ export default function WhoGoesThere(): React.ReactNode {
     }
 
     const { minX, minY, cols, rows } = gridBounds();
-    const flood = floodDistances();
+    const flood = floodDistances(gameState);
 
     const cells = [];
     for (let row = 0; row < rows; row++) {
@@ -686,7 +814,7 @@ export default function WhoGoesThere(): React.ReactNode {
             ? 'You were'
             : `${gameState.players.find(p => p.id === gameState.thingPlayerId)?.name} was`;
           const cleared = getClearedSuits();
-          const resultStyle: CSSVars = { '--delay': `${revealEnd(floodDistances())}ms` };
+          const resultStyle: CSSVars = { '--delay': `${revealEnd(floodDistances(gameState))}ms` };
 
           return (
             <div className={styles.game}>
@@ -715,7 +843,7 @@ export default function WhoGoesThere(): React.ReactNode {
                   {gameState.role && (
                     <button
                       className={`${styles.roleBadge} ${gameState.role === 'thing' ? styles.roleThing : ''}`}
-                      onClick={() => setIntro({ role: gameState.role as 'human' | 'thing', thingSuit: gameState.thingSuit })}
+                      onClick={replayRole}
                       title="Show your role again"
                     >
                       {gameState.role === 'thing'
@@ -735,12 +863,6 @@ export default function WhoGoesThere(): React.ReactNode {
                     className={`${styles.turnBanner} ${isCurrentPlayerTurn() ? styles.myTurn : ''}`}
                   >
                     {isCurrentPlayerTurn() ? 'Your turn' : `${current?.name}'s turn`}
-                  </div>
-                )}
-
-                {revealed && (
-                  <div key={`test:${gameState.score?.rounds}`} className={styles.bloodTest}>
-                    Blood test
                   </div>
                 )}
               </div>
@@ -785,40 +907,46 @@ export default function WhoGoesThere(): React.ReactNode {
                 </div>
               )}
 
-              {intro && (
-                <div
-                  className={`${styles.intro} ${intro.role === 'thing' ? styles.introThing : styles.introHuman}`}
-                  onClick={() => setIntro(null)}
-                  onAnimationEnd={(e) => {
-                    if (e.target === e.currentTarget && e.animationName.includes('introOut')) setIntro(null);
-                  }}
-                >
-                  <p className={styles.introShh}>You are</p>
-                  <h2 className={styles.introRole}>{intro.role === 'thing' ? 'The Thing' : 'Human'}</h2>
-                  <p className={styles.introSub}>
-                    {intro.role === 'thing' ? (
-                      <>Infected suit <strong>{SYMBOLS[intro.thingSuit as keyof typeof SYMBOLS]} {intro.thingSuit}</strong>. Cut off an exit.</>
-                    ) : (
-                      <>One of you is The Thing. Keep every exit reachable.</>
-                    )}
-                  </p>
-                  <div className={styles.introCrew}>
-                    {gameState.players.map((player, index) => (
-                      <span
-                        key={player.id}
-                        className={player.id === playerId ? styles.introMe : ''}
-                        style={{ '--i': index } as CSSVars}
-                      >
-                        {player.name}
-                      </span>
-                    ))}
-                  </div>
-                  <p className={styles.introSkip}>Tap to continue</p>
-                </div>
-              )}
             </div>
           );
         })()}
+
+        {announcement && (
+          <div
+            key={announcement.id}
+            className={[
+              styles.announce,
+              styles[announcement.tone],
+              announcement.blocking ? styles.blocking : ''
+            ].filter(Boolean).join(' ')}
+            style={{ '--hold': `${announcement.hold}ms`, '--wait': `${announcement.wait ?? 0}ms` } as CSSVars}
+            onClick={announcement.blocking ? dismissAnnouncement : undefined}
+            onAnimationEnd={(e) => {
+              if (e.target === e.currentTarget && e.animationName.includes('announceOut')) dismissAnnouncement();
+            }}
+            role="status"
+          >
+            {announcement.kicker && <p className={styles.kicker}>{announcement.kicker}</p>}
+            <h2 className={styles.headline}>{announcement.title}</h2>
+            {announcement.sub && <p className={styles.sub}>{announcement.sub}</p>}
+            {announcement.blocking && gameState && (
+              <>
+                <div className={styles.crew}>
+                  {gameState.players.map((player, index) => (
+                    <span
+                      key={player.id}
+                      className={player.id === playerId ? styles.me : ''}
+                      style={{ '--i': index } as CSSVars}
+                    >
+                      {player.name}
+                    </span>
+                  ))}
+                </div>
+                <p className={styles.skip}>Tap to continue</p>
+              </>
+            )}
+          </div>
+        )}
 
         {rulesModal}
       </div>
