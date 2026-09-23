@@ -81,7 +81,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.12.0",
     "pre-commit": "^2.0.0",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.8",
     "psn-api": "^2.18.1",
     "socket.io": "^4.8.3",
     "ts-node": "^10.9.2",
