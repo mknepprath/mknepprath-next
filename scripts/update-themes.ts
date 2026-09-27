@@ -334,7 +334,15 @@ If no themes are detected, respond with: {"themes": {}}`;
   }
 }
 
+// Hitting the account's API spend cap is a billing state, not a broken run:
+// skip quietly so the daily workflow doesn't report a failure until it resets.
+const USAGE_LIMIT = /usage limit/i;
+
 main().catch((err) => {
+  if (USAGE_LIMIT.test(String(err))) {
+    console.log(`Skipping run — ${err.message}`);
+    return;
+  }
   console.error("Error:", err);
   process.exit(1);
 });
