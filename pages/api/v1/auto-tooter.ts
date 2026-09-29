@@ -49,18 +49,38 @@ export default async (
     (activity) => !skipTypes.has(activity.type || "") && activity.url,
   );
 
-  // get mastodon posts
+  // get mastodon posts.
+  //
+  // `Accept-Encoding: identity` is not cosmetic. mastodon.social sends
+  // `Vary: Accept-Encoding` with `stale-if-error=86400`, so the gzip variant of this URL
+  // is a separate CDN cache key, and because this is the only thing that ever requests
+  // it, that key went stale and stayed stale. It served a 14-hour-old timeline while the
+  // identity variant was 28 seconds old. A dedupe check against a stale timeline is a
+  // dedupe check that always misses.
   const toots: Toot[] = await fetch(
-    `https://mastodon.social/api/v1/accounts/231610/statuses?limit=20&exclude_replies=1`,
+    `https://mastodon.social/api/v1/accounts/231610/statuses?limit=40&exclude_replies=1`,
+    { cache: "no-store", headers: { "Accept-Encoding": "identity" } },
   ).then((response) => response.json());
 
-  // Return the index of the latest item in `activity` that was posted to Mastodon
+  // No timeline, no way to know what has been posted. Do nothing.
+  if (!Array.isArray(toots) || toots.length === 0) {
+    res.statusCode = 503;
+    res.end(JSON.stringify({ error: "could not read the Mastodon timeline" }));
+    return;
+  }
+
+  // Return the index of the latest item in `activity` that was posted to Mastodon.
+  // Matched on `?i=<id>` rather than the bare id, which is a loose substring.
   const lastPostedIndex = activity.findIndex((post) =>
-    toots.find((toot) => toot.content.includes(post.id)),
+    toots.some((toot) => toot.content.includes(`?i=${post.id}`)),
   );
 
-  // slice at last posted index
-  const newActivity = activity.slice(0, lastPostedIndex);
+  // -1 means nothing in `activity` appears in the timeline, so there is no floor to slice
+  // at. `slice(0, -1)` dropped the *last* element and posted the rest, which turned every
+  // dedupe miss into a repost of the newest item, once per cron run, indefinitely. Post
+  // nothing instead: a skipped post is recoverable, forty duplicates are not.
+  const newActivity =
+    lastPostedIndex === -1 ? [] : activity.slice(0, lastPostedIndex);
 
   // post new activity to Mastodon
   const response = await Promise.all(
