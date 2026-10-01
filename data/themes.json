@@ -559,6 +559,56 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru20358693214",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-09-26T18:40:05.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20358693214",
+        "summary": "Distance: 1.31 mi, Time: 28 min, Elevation: 24 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20326348742",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-09-25T12:05:54.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20326348742",
+        "summary": "Distance: 1.24 mi, Time: 24 min, Elevation: 26 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20215422896",
+        "type": "RUN",
+        "title": "Morning Walk",
+        "date": "2026-09-17T08:44:38.000Z",
+        "image": "}bc|Fbi{pNEJuAzA{@fAKPe@b@eDdEu@v@QVmB|BUPc@n@wAbBg@t@SLYXw@jAsAzAkA|AWRg@p@wAbBIDG?a@x@_@\\OTy@|@KPoC~Cc@VkAJGNKDGPMHi@r@m@l@o@z@]j@KFa@j@SDWPgAj@}A`@UHKJCA_ADACe@AIBGR?j@cChCc@n@M^Ct@Mp@IbCE^E`AI~@EzAMjAGFUDyAU]A_@BWHqAbAoAjAUTEJALm@vBCx@Gf@?\\MzAIdBQfC?l@G^GdAS@CBCHMtAE`AKb@@x@APEA?@BNBGCEHGI?LVK@Fi@?UJu@@o@J_A?q@N_DnB{OLi@@[b@[ACBCfAcAhA_AVEb@A|ANZGHGFUE_AHo@ViDF]NSr@q@h@m@FQAc@@AF?f@]Xk@b@m@Na@JQRy@JwAnJuHvDgBLCZBv@KTMt@o@LUt@_ARY|AiBFEF?NO^o@~@eAZg@~BcCDKAE@BNMb@k@RSRa@h@m@HOfAiAFO`E{EVWZa@LKRU|@oA`DwDh@q@b@_@b@m@TMn@w@LWRSN[",
+        "url": "https://www.strava.com/activities/20215422896",
+        "summary": "Distance: 3.8 mi, Time: 77 min, Elevation: 96 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20186934760",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-09-15T09:26:10.000Z",
+        "image": "g~a|FpcxpN?k@Gm@@oAC}AAIA@BmHAQB_AG_@B}@CgA@c@Dc@BeA?gBIg@GuA?wED{@AkA@iJKsAD]@q@C{B@qAAgO?yAFcAEqADgBC}C@oBAs@Bs@?uBr@w@@KEKc@i@KYNeAXi@XaAFq@N@M@DDACC@CFBJFDD??GII?CB@n@CV@FEFcAAODEG?[KG?IFDC@GIvAMLOBQJUBEDW|A?HHPAPSZKZFVf@r@DLCJMHIJCNA^QRC^AdAAjBB`@Er@DdDA`@@`DAz@GnADdACfEBlBEnD@^?~@FfAGvALz@ElBBhAAdMBhAAx@@dEAhCBVKR?JH`@?`MAdABvCAx@",
+        "url": "https://www.strava.com/activities/20186934760",
+        "summary": "Distance: 3.78 mi, Time: 84 min, Elevation: 144 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20179236454",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-09-14T17:53:20.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20179236454",
+        "summary": "Distance: 0.66 mi, Time: 12 min, Elevation: 25 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru20159460578",
         "type": "RUN",
         "title": "Morning Walk",
@@ -1300,13 +1350,23 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-09-14T11:24:25.984Z"
+    "updatedAt": "2026-10-01T12:11:35.247Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
     "slug": "classic-cinema-study",
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
+      {
+        "id": "flletterboxd-review-1515742925",
+        "type": "FILM",
+        "title": "I Walked with a Zombie",
+        "date": "2026-09-29T02:32:51.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/3/4/7/7/8/34778-i-walked-with-a-zombie-0-600-0-900-crop.jpg?v=10c561ee93",
+        "url": "https://letterboxd.com/mknepprath/film/i-walked-with-a-zombie/",
+        "summary": " <p>Expected a silly little B-movie, instead got a chilling condemnation of empire. Cinema, you did it again.</p> ",
+        "action": "Watched"
+      },
       {
         "id": "bot116999414267458001",
         "type": "ROBOT",
@@ -1438,7 +1498,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-08-03T09:29:28.767Z"
+    "updatedAt": "2026-10-01T12:11:35.247Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
@@ -1564,6 +1624,16 @@
         "action": "Tooted"
       },
       {
+        "id": "flletterboxd-review-1498240234",
+        "type": "FILM",
+        "title": "Stoker",
+        "date": "2026-09-16T13:28:58.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/7/3/3/7/1/73371-stoker-0-600-0-900-crop.jpg?v=00f414ccc1",
+        "url": "https://letterboxd.com/mknepprath/film/stoker/",
+        "summary": " <p>I like it less after learning about the Shadow of a Doubt influence. That is a much, much better movie. I’m not sure this one understood that one; it seems to take the popular surface-level understanding of the Hitchcock work and polish that up while completely ignoring its core themes.</p><p>As an exercise in style, this is a massive success. But I do expect more substance from Park Chan-wook.</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "flletterboxd-review-1493736156",
         "type": "FILM",
         "title": "Mayday",
@@ -1675,7 +1745,7 @@
       }
     ],
     "createdAt": "2026-06-03T07:39:57.318Z",
-    "updatedAt": "2026-09-18T10:21:21.062Z"
+    "updatedAt": "2026-10-01T12:11:35.247Z"
   },
   "ambient-and-experimental-music": {
     "title": "Ambient and Experimental Music",
@@ -1851,6 +1921,16 @@
     "description": "Michael is actively engaging with Alfred Hitchcock's films, rewatching and analyzing multiple versions of his works to understand the director's artistic choices and filmmaking evolution.",
     "items": [
       {
+        "id": "flletterboxd-review-1512447343",
+        "type": "FILM",
+        "title": "Frenzy",
+        "date": "2026-09-27T01:21:50.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/5/1/5/4/7/51547-frenzy-0-600-0-900-crop.jpg?v=4ca676e027",
+        "url": "https://letterboxd.com/mknepprath/film/frenzy/",
+        "summary": " <p>The masterwork of a fully-out misanthropic deviant, or just British?</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "bot116828848299722033",
         "type": "ROBOT",
         "title": "watching a Hitchcock film from the 50s and realizing he basically invented the blocking language we still use. guy was just operating on a different level",
@@ -1892,7 +1972,7 @@
       }
     ],
     "createdAt": "2026-06-27T07:03:35.268Z",
-    "updatedAt": "2026-06-29T07:40:01.476Z"
+    "updatedAt": "2026-10-01T12:11:35.247Z"
   },
   "restraint-in-craft": {
     "title": "Restraint in Craft",
@@ -2009,6 +2089,16 @@
     "description": "Michael appreciates dynamic action filmmaking and performers known for their physical prowess and combat choreography. He values films that showcase impressive stunt work and martial arts expertise.",
     "items": [
       {
+        "id": "flletterboxd-review-1506420039",
+        "type": "FILM",
+        "title": "Predators",
+        "date": "2026-09-22T17:01:41.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/2/8/4/0/4/6/1284046-predators-2025-0-600-0-900-crop.jpg?v=9e4cf695d7",
+        "url": "https://letterboxd.com/mknepprath/film/predators-2025/",
+        "summary": " <p>Every circus needs a ringleader. Does a pretty good job of quantifying the needless pain caused by a media demon. The autobiographical turn deepens it into a quest for answers: seeking out the most obvious source (if TV is to be believed) and finding it hollow. Perhaps the land of monsters is not the place to find heroes, just more monsters.</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "t117023564731311161",
         "type": "TOOT",
         "title": "do we have a consensus on John Wick: Chapter 3 — Parabellum being the best one yet",
@@ -2048,7 +2138,7 @@
       }
     ],
     "createdAt": "2026-07-09T09:26:04.764Z",
-    "updatedAt": "2026-08-03T09:29:28.767Z"
+    "updatedAt": "2026-10-01T12:11:35.247Z"
   },
   "spider-man-rewatch-appreciation": {
     "title": "Spider-Man Rewatch Appreciation",
