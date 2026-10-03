@@ -7,7 +7,25 @@
       "Bash(python3:*)",
       "Bash(ngrok update:*)",
       "Bash(sudo ngrok update:*)",
-      "Bash(npm run dev:custom:*)"
+      "Bash(npm run dev:custom:*)",
+      "Bash(gh run *)",
+      "Bash(gh api *)",
+      "Bash(NODE_OPTIONS=\"\" npx tsx scripts/update-themes.ts)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(NODE_OPTIONS=\"\" npm install)",
+      "Bash(NODE_OPTIONS=\"\" node -e \"const ts = require\\('typescript'\\); console.log\\('TS:', ts.version\\)\")",
+      "Bash(NODE_OPTIONS=\"\" node -e \"const n = require\\('./node_modules/next/package.json'\\); console.log\\('Next:', n.version\\)\")",
+      "Bash(NODE_OPTIONS=\"\" ./node_modules/.bin/next build)",
+      "Bash(NODE_OPTIONS=\"\" npm run lint:quiet)",
+      "Bash(NODE_OPTIONS=\"\" npm show @typescript-eslint/eslint-plugin version)",
+      "Bash(NODE_OPTIONS=\"\" npm show @typescript-eslint/eslint-plugin@latest version)",
+      "Bash(NODE_OPTIONS=\"\" npm show *)",
+      "Bash(NODE_OPTIONS=\"\" node *)",
+      "Bash(gh workflow *)"
     ]
   }
 }
