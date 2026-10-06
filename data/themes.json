@@ -201,6 +201,36 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "r472455591",
+        "type": "REPO",
+        "title": "every-pokemon-card",
+        "date": "2026-10-04T19:42:04.000Z",
+        "image": "",
+        "url": "https://mastodon.social/@EveryPkmnCard",
+        "summary": "Post cards with no artist instead of crashing",
+        "action": "Updated"
+      },
+      {
+        "id": "r600773141",
+        "type": "REPO",
+        "title": "pokemon-facts",
+        "date": "2026-09-15T22:50:00.000Z",
+        "image": "",
+        "url": "https://mastodon.social/@PokemonFacts",
+        "summary": "Scale posted sprites up to a consistent size",
+        "action": "Updated"
+      },
+      {
+        "id": "bot117174473429883477",
+        "type": "ROBOT",
+        "title": "dondozo really said \"i will be strong and stupid and that's okay\"https://mastodon.social/@PokemonFacts/117174450667063000",
+        "date": "2026-08-28T18:09:33.598Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/117174473429883477",
+        "summary": "<p>dondozo really said &quot;i will be strong and stupid and that&#39;s okay&quot;</p><p><a href=\"https://mastodon.social/@PokemonFacts/117174450667063000\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@PokemonFacts/</span><span class=\"invisible\">117174450667063000</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "bot116896076442010291",
         "type": "ROBOT",
         "title": "galarian stunfisk is what happens when they actually commit to the bithttps://mastodon.social/@EveryPkmnCard/116896046870568263",
@@ -551,13 +581,83 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-07-11T07:44:08.541Z"
+    "updatedAt": "2026-10-06T12:32:57.435Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru20454445223",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-10-04T18:26:00.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20454445223",
+        "summary": "Distance: 1.01 mi, Time: 21 min, Elevation: 20 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20454445242",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-10-04T17:05:43.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20454445242",
+        "summary": "Distance: 0.87 mi, Time: 18 min, Elevation: 10 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20449607337",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-10-04T10:26:57.000Z",
+        "image": "ebc|Fbj{pNmB~B_@l@gBpBm@l@YNY^i@h@ORs@v@wD|E_@`@a@j@i@l@ER@LR\\^z@Ll@HNLDHCFIj@u@fBoBl@y@tA}AT]nA}AVWlCcDRQTa@~AiBT_@DSFAd@a@",
+        "url": "https://www.strava.com/activities/20449607337",
+        "summary": "Distance: 1.55 mi, Time: 15 min, Elevation: 22 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20441326182",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-10-03T18:44:29.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20441326182",
+        "summary": "Distance: 1.17 mi, Time: 27 min, Elevation: 13 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20433994367",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-10-03T09:33:32.000Z",
+        "image": "qoc|FnazpNi@SWEi@@UHa@^WZUd@Up@SjAGxAVhDCjAIv@?XHTHHJDz@In@QVEVDNJLVH\\HpDPz@Vn@X`@b@\\\\Jv@Bn@JRLBVEN]f@yBpCs@v@mBbCcAjAaAnAuEtF}@lAALFJ|@p@lAfBl@vAV|@NTHDJ?JELMxFgHnC_D~CyD^i@d@c@bC{C",
+        "url": "https://www.strava.com/activities/20433994367",
+        "summary": "Distance: 3.11 mi, Time: 27 min, Elevation: 49 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20415246295",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-10-01T17:29:57.000Z",
+        "image": "med|FpqrpNCQEEBg@EE@MEE@OBIHA@GAG?IEw@GUHGCI?OGY?KEGCSNO@MDEFC@AAGDABECYGM@SEQ@GIKEWJA?EJG@YFGAADQ?KBCEKFG@EIe@WeDDo@Js@DcBEs@M}@@GAa@N}AVkADoAGs@B_BK_B?sAEyABg@Gm@?QP[DQAe@@UAsF?ECC{@CyEBIDAHD`@@bD?vAA\\BdBC~FBr@AjDBjBApA@vDAdCBbI?~DC`@DFTAFB\\p@JHd@@\\AFI@DFBp@@LCT@FED}@?B@A?A?B?CC?DAA?ERAp@R\\r@l@EZ@jAExAHf@@XGtCBrCAnB",
+        "url": "https://www.strava.com/activities/20415246295",
+        "summary": "Distance: 1.85 mi, Time: 37 min, Elevation: 41 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20411034294",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-09-30T18:39:43.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20411034294",
+        "summary": "Distance: 0.81 mi, Time: 17 min, Elevation: 9 ft",
+        "action": "Walked"
+      },
       {
         "id": "ru20358693214",
         "type": "RUN",
@@ -1350,13 +1450,63 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-10-01T12:11:35.247Z"
+    "updatedAt": "2026-10-06T12:32:57.435Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
     "slug": "classic-cinema-study",
     "description": "Michael is deeply engaged with early and classic cinema, watching and analyzing films from the 1920s-1950s, appreciating their technical craftsmanship and timeless quality.",
     "items": [
+      {
+        "id": "flletterboxd-review-1524393283",
+        "type": "FILM",
+        "title": "The Gold Ghost",
+        "date": "2026-10-05T02:26:33.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/4/4/3/8/14438-the-gold-ghost-0-600-0-900-crop.jpg?v=56e181a5a9",
+        "url": "https://letterboxd.com/mknepprath/film/the-gold-ghost/",
+        "summary": " <p>I swear there is a perfectly serviceable Buster two-reeler in here if they’d just cut the dialogue and add some cards and music. Baffles me that they replaced score with silent shuffling sounds while Buster’s gags are enacted in these later films. No one thought to add fun, frantic music under the bowling sequence? What gives?</p><p>Happy birthday, Buster!</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1520976588",
+        "type": "FILM",
+        "title": "The Crazies",
+        "date": "2026-10-03T03:53:41.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/ow/qh/sd/pa/whkSx9FaQpphpt81hQA4rzOK5cy-0-600-0-900-crop.jpg?v=d448c9fc8e",
+        "url": "https://letterboxd.com/mknepprath/film/the-crazies/",
+        "summary": " <p>the og raccoon city!</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1520422583",
+        "type": "FILM",
+        "title": "Genocide",
+        "date": "2026-10-02T20:46:40.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/9/7/6/8/6/97686-genocide-0-600-0-900-crop.jpg?v=0a5fc1c21b",
+        "url": "https://letterboxd.com/mknepprath/film/genocide-1968/",
+        "summary": " <p>Imagine a Godzilla movie, but replace Godzilla with a bleak, empty feeling in your soul</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1520074560",
+        "type": "FILM",
+        "title": "Viy",
+        "date": "2026-10-02T15:34:47.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/8/9/2/2/8922-viy-0-600-0-900-crop.jpg?v=b1bfca9754",
+        "url": "https://letterboxd.com/mknepprath/film/viy/",
+        "summary": " <p>Going to make it my life’s mission to see this in a packed theater</p> ",
+        "action": "Watched"
+      },
+      {
+        "id": "flletterboxd-review-1519534884",
+        "type": "FILM",
+        "title": "Dracula",
+        "date": "2026-10-02T03:02:13.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/4/4/9/3/5/44935-dracula-0-600-0-900-crop.jpg?v=ce1ddf1b0a",
+        "url": "https://letterboxd.com/mknepprath/film/dracula-1958/",
+        "summary": " <p>imo turning Mina into just another victim is basically unforgivable</p> ",
+        "action": "Watched"
+      },
       {
         "id": "flletterboxd-review-1515742925",
         "type": "FILM",
@@ -1498,7 +1648,7 @@
       }
     ],
     "createdAt": "2026-05-20T07:11:52.669Z",
-    "updatedAt": "2026-10-01T12:11:35.247Z"
+    "updatedAt": "2026-10-06T12:32:57.435Z"
   },
   "animation-appreciation": {
     "title": "Animation Appreciation",
