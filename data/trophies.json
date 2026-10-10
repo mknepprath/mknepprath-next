@@ -247,7 +247,7 @@
     "date": "2024-11-09T23:12:07Z",
     "game": "Ratchet & Clank: Rift Apart",
     "type": "bronze",
-    "rarity": "63.5"
+    "rarity": "63.4"
   },
   {
     "id": "tNPWR20842_00-21",
@@ -287,7 +287,7 @@
     "date": "2024-10-11T00:11:58Z",
     "game": "Star Wars Outlaws",
     "type": "bronze",
-    "rarity": "26.7"
+    "rarity": "26.6"
   },
   {
     "id": "tNPWR30405_00-36",
@@ -297,7 +297,7 @@
     "date": "2024-10-10T23:33:39Z",
     "game": "Star Wars Outlaws",
     "type": "silver",
-    "rarity": "27.2"
+    "rarity": "27.1"
   },
   {
     "id": "tNPWR30405_00-41",
@@ -377,7 +377,7 @@
     "date": "2024-09-10T19:53:39Z",
     "game": "LEGO® Star Wars™: The Skywalker Saga",
     "type": "bronze",
-    "rarity": "5.4"
+    "rarity": "5.3"
   },
   {
     "id": "tNPWR30405_00-33",
@@ -397,6 +397,6 @@
     "date": "2024-09-08T13:49:26Z",
     "game": "Star Wars Outlaws",
     "type": "bronze",
-    "rarity": "68.1"
+    "rarity": "68.0"
   }
 ]
