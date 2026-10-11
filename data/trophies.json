@@ -1,5 +1,35 @@
 [
   {
+    "id": "tNPWR30405_00-9",
+    "title": "Adventure and excitement",
+    "summary": "Discover all planet areas",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/eeae3e8a-d015-4f23-9bd8-bc3d446562bf.png",
+    "date": "2026-10-10T23:32:46Z",
+    "game": "Star Wars Outlaws",
+    "type": "silver",
+    "rarity": "20.7"
+  },
+  {
+    "id": "tNPWR30405_00-6",
+    "title": "Galactic gourmet",
+    "summary": "Sample all galactic street food",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/d38b9ccb-e0bf-485f-ad3f-36436f89f58b.png",
+    "date": "2026-10-10T21:56:58Z",
+    "game": "Star Wars Outlaws",
+    "type": "bronze",
+    "rarity": "11.1"
+  },
+  {
+    "id": "tNPWR30405_00-42",
+    "title": "One job at a time",
+    "summary": "Complete all main quests on Kijimi",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/70601944-2482-4328-9019-e6db51335c2c.png",
+    "date": "2026-10-10T19:13:35Z",
+    "game": "Star Wars Outlaws",
+    "type": "bronze",
+    "rarity": "26.8"
+  },
+  {
     "id": "tNPWR39871_00-12",
     "title": "Life finds a way",
     "summary": "Have your first baby animal born in your zoo",
@@ -347,7 +377,7 @@
     "date": "2024-09-17T00:22:40Z",
     "game": "Star Wars Outlaws",
     "type": "bronze",
-    "rarity": "41.7"
+    "rarity": "41.6"
   },
   {
     "id": "tNPWR30405_00-19",
@@ -368,35 +398,5 @@
     "game": "LEGO® Star Wars™: The Skywalker Saga",
     "type": "bronze",
     "rarity": "20.3"
-  },
-  {
-    "id": "tNPWR21757_00-26",
-    "title": "''Raw, untamed power''",
-    "summary": "Fully upgrade a character class",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21757_00/dba1d870-b5c8-4ea1-abc0-c62c6dffcc83.png",
-    "date": "2024-09-10T19:53:39Z",
-    "game": "LEGO® Star Wars™: The Skywalker Saga",
-    "type": "bronze",
-    "rarity": "5.3"
-  },
-  {
-    "id": "tNPWR30405_00-33",
-    "title": "Like a bantha",
-    "summary": "Perform a perfect landing with the speeder",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/815f5994-a0fd-45c2-b107-5931fa937b8d.png",
-    "date": "2024-09-08T13:53:35Z",
-    "game": "Star Wars Outlaws",
-    "type": "bronze",
-    "rarity": "62.6"
-  },
-  {
-    "id": "tNPWR30405_00-40",
-    "title": "Made it somehow",
-    "summary": "Acquire a blaster, a starship, and a speeder",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/bc7aa8b1-b55e-494d-a39e-495e4170ddc0.png",
-    "date": "2024-09-08T13:49:26Z",
-    "game": "Star Wars Outlaws",
-    "type": "bronze",
-    "rarity": "68.0"
   }
 ]
