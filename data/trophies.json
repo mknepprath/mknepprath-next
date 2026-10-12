@@ -1,5 +1,35 @@
 [
   {
+    "id": "tNPWR30405_00-47",
+    "title": "The Director",
+    "summary": "Learn Sliro's secret",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/ad283d98-d6ed-4bc1-a2cc-3b4f0499ca6b.png",
+    "date": "2026-10-12T00:43:20Z",
+    "game": "Star Wars Outlaws",
+    "type": "silver",
+    "rarity": "20.2"
+  },
+  {
+    "id": "tNPWR30405_00-46",
+    "title": "Best of the best",
+    "summary": "Complete all main quests on Akiva",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/864b3973-3f07-4b00-bbc9-d78d45eca7ae.png",
+    "date": "2026-10-11T18:11:53Z",
+    "game": "Star Wars Outlaws",
+    "type": "silver",
+    "rarity": "21.5"
+  },
+  {
+    "id": "tNPWR30405_00-45",
+    "title": "Spiked",
+    "summary": "Liberate the original Super Viper Droid",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/4d3a600b-f219-4310-bc59-2169092f30a4.png",
+    "date": "2026-10-11T13:41:44Z",
+    "game": "Star Wars Outlaws",
+    "type": "bronze",
+    "rarity": "23.8"
+  },
+  {
     "id": "tNPWR30405_00-9",
     "title": "Adventure and excitement",
     "summary": "Discover all planet areas",
@@ -247,7 +277,7 @@
     "date": "2024-11-10T16:06:22Z",
     "game": "Ratchet & Clank: Rift Apart",
     "type": "bronze",
-    "rarity": "58.2"
+    "rarity": "58.1"
   },
   {
     "id": "tNPWR20842_00-2",
@@ -368,35 +398,5 @@
     "game": "Star Wars Outlaws",
     "type": "bronze",
     "rarity": "54.0"
-  },
-  {
-    "id": "tNPWR30405_00-39",
-    "title": "Get rhythm",
-    "summary": "Pick 20 locks with the data spike",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/9197b5b9-3001-47b2-9472-8e9fceab664b.png",
-    "date": "2024-09-17T00:22:40Z",
-    "game": "Star Wars Outlaws",
-    "type": "bronze",
-    "rarity": "41.6"
-  },
-  {
-    "id": "tNPWR30405_00-19",
-    "title": "Stay on target",
-    "summary": "Complete your first Intel chain",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/9f95f95f-2b75-4a8a-8b6c-0c3b67db822d.png",
-    "date": "2024-09-15T21:46:03Z",
-    "game": "Star Wars Outlaws",
-    "type": "bronze",
-    "rarity": "49.3"
-  },
-  {
-    "id": "tNPWR21757_00-24",
-    "title": "''A fine addition to my collection''",
-    "summary": "Collect all Minikits in a single level",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21757_00/199066a8-63ea-4a9a-9496-4ef3a380b4a3.png",
-    "date": "2024-09-11T23:38:25Z",
-    "game": "LEGO® Star Wars™: The Skywalker Saga",
-    "type": "bronze",
-    "rarity": "20.3"
   }
 ]
