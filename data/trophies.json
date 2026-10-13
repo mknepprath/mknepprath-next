@@ -1,5 +1,25 @@
 [
   {
+    "id": "tNPWR30405_00-49",
+    "title": "Calling in some favors",
+    "summary": "Destroy the Revelator",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/4de690b7-9936-4717-b5ad-1514c3c00636.png",
+    "date": "2026-10-13T11:42:47Z",
+    "game": "Star Wars Outlaws",
+    "type": "gold",
+    "rarity": "19.1"
+  },
+  {
+    "id": "tNPWR30405_00-48",
+    "title": "Eye on the score",
+    "summary": "Complete all main quests in Canto Bight",
+    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/119816cd-b760-45cf-ad90-bf9a43f737e5.png",
+    "date": "2026-10-13T00:11:15Z",
+    "game": "Star Wars Outlaws",
+    "type": "silver",
+    "rarity": "19.9"
+  },
+  {
     "id": "tNPWR30405_00-47",
     "title": "The Director",
     "summary": "Learn Sliro's secret",
@@ -97,7 +117,7 @@
     "date": "2025-07-14T01:14:37Z",
     "game": "ELDEN RING NIGHTREIGN",
     "type": "bronze",
-    "rarity": "93.2"
+    "rarity": "93.1"
   },
   {
     "id": "tNPWR30405_00-37",
@@ -107,7 +127,7 @@
     "date": "2025-01-09T04:44:36Z",
     "game": "Star Wars Outlaws",
     "type": "bronze",
-    "rarity": "29.4"
+    "rarity": "29.3"
   },
   {
     "id": "tNPWR30405_00-10",
@@ -378,25 +398,5 @@
     "game": "Star Wars Outlaws",
     "type": "bronze",
     "rarity": "23.0"
-  },
-  {
-    "id": "tNPWR30405_00-25",
-    "title": "How rude!",
-    "summary": "Blind 30 enemies with Nix attacks",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/8fc67bb3-b4b7-440f-bc6c-3b90c31d1fad.png",
-    "date": "2024-09-21T22:39:59Z",
-    "game": "Star Wars Outlaws",
-    "type": "bronze",
-    "rarity": "3.1"
-  },
-  {
-    "id": "tNPWR30405_00-38",
-    "title": "Now you see me, now you don't",
-    "summary": "Disable an alarm using a security terminal while the alarm is active",
-    "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/7f11c184-144b-466f-9804-9a86f91c7791.png",
-    "date": "2024-09-21T22:14:46Z",
-    "game": "Star Wars Outlaws",
-    "type": "bronze",
-    "rarity": "54.0"
   }
 ]
