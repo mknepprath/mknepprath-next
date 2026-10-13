@@ -2426,5 +2426,78 @@
     ],
     "createdAt": "2026-08-30T06:10:04.446Z",
     "updatedAt": "2026-08-30T06:10:04.446Z"
+  },
+  "star-wars-outlaws-engagement": {
+    "title": "Star Wars Outlaws Engagement",
+    "slug": "star-wars-outlaws-engagement",
+    "description": "Michael is actively playing Star Wars Outlaws, earning multiple achievements across different gameplay objectives and completing main quests on various planets.",
+    "items": [
+      {
+        "id": "m28527147",
+        "type": "MUSIC",
+        "title": "Star Wars Outlaws - Original Video Game Soundtrack",
+        "date": "2026-10-13T10:35:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7a/61/84/7a6184a1-2e67-31c0-95e0-8266d28d6ad7/24UMGIM89725.rgb.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/28527147",
+        "summary": "Wilbert Roget, II",
+        "action": "Listened to"
+      },
+      {
+        "id": "tNPWR30405_00-47",
+        "type": "TROPHY",
+        "title": "The Director",
+        "date": "2026-10-12T00:43:20Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/ad283d98-d6ed-4bc1-a2cc-3b4f0499ca6b.png",
+        "summary": "Learn Sliro's secret · Game: Star Wars Outlaws · Tier: silver · Rarity: 20.2",
+        "action": "Earned"
+      },
+      {
+        "id": "tNPWR30405_00-46",
+        "type": "TROPHY",
+        "title": "Best of the best",
+        "date": "2026-10-11T18:11:53Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/864b3973-3f07-4b00-bbc9-d78d45eca7ae.png",
+        "summary": "Complete all main quests on Akiva · Game: Star Wars Outlaws · Tier: silver · Rarity: 21.5",
+        "action": "Earned"
+      },
+      {
+        "id": "tNPWR30405_00-45",
+        "type": "TROPHY",
+        "title": "Spiked",
+        "date": "2026-10-11T13:41:44Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/4d3a600b-f219-4310-bc59-2169092f30a4.png",
+        "summary": "Liberate the original Super Viper Droid · Game: Star Wars Outlaws · Tier: bronze · Rarity: 23.8",
+        "action": "Earned"
+      },
+      {
+        "id": "tNPWR30405_00-9",
+        "type": "TROPHY",
+        "title": "Adventure and excitement",
+        "date": "2026-10-10T23:32:46Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/eeae3e8a-d015-4f23-9bd8-bc3d446562bf.png",
+        "summary": "Discover all planet areas · Game: Star Wars Outlaws · Tier: silver · Rarity: 20.7",
+        "action": "Earned"
+      },
+      {
+        "id": "tNPWR30405_00-6",
+        "type": "TROPHY",
+        "title": "Galactic gourmet",
+        "date": "2026-10-10T21:56:58Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/d38b9ccb-e0bf-485f-ad3f-36436f89f58b.png",
+        "summary": "Sample all galactic street food · Game: Star Wars Outlaws · Tier: bronze · Rarity: 11.1",
+        "action": "Earned"
+      },
+      {
+        "id": "tNPWR30405_00-42",
+        "type": "TROPHY",
+        "title": "One job at a time",
+        "date": "2026-10-10T19:13:35Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/70601944-2482-4328-9019-e6db51335c2c.png",
+        "summary": "Complete all main quests on Kijimi · Game: Star Wars Outlaws · Tier: bronze · Rarity: 26.8",
+        "action": "Earned"
+      }
+    ],
+    "createdAt": "2026-10-13T13:17:44.503Z",
+    "updatedAt": "2026-10-13T13:17:44.503Z"
   }
 }
