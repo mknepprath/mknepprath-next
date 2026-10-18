@@ -1,14 +1,46 @@
 name: auto-merge
 
+# Dependabot PRs below a major version merge themselves once required checks pass.
+# The previous action (ahmadnassri/action-dependabot-auto-merge) approved but never
+# merged: it relied on an @dependabot merge comment that was never posted.
 on:
   pull_request_target:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
+  # Kept as "auto-merge": branch protection may require a check by this name. It is
+  # skipped for other authors, and a skipped job satisfies a required check.
   auto-merge:
+    if: github.event_name == 'pull_request_target' && github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ahmadnassri/action-dependabot-auto-merge@v2
-        with:
-          target: minor
-          github-token: ${{ secrets.ACTION_GITHUB_TOKEN }}
+      - id: meta
+        uses: dependabot/fetch-metadata@v2
+      - if: steps.meta.outputs.update-type != 'version-update:semver-major'
+        run: |
+          gh pr review --approve "$PR_URL"
+          gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.ACTION_GITHUB_TOKEN }}
+
+  # Auto-merge waits on PRs that are behind when the branch must be up to date,
+  # and Dependabot only rebases on conflicts, so ask it to rebase after each push.
+  rebase-behind:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sleep 30 # mergeStateStatus is UNKNOWN until GitHub recomputes it after the push
+          gh pr list --repo "$GITHUB_REPOSITORY" --author app/dependabot --state open \
+            --json number,mergeStateStatus -q '.[] | select(.mergeStateStatus == "BEHIND") | .number' |
+          while read -r n; do
+            gh pr comment "$n" --repo "$GITHUB_REPOSITORY" --body "@dependabot rebase"
+          done
+        env:
+          GH_TOKEN: ${{ secrets.ACTION_GITHUB_TOKEN }}
