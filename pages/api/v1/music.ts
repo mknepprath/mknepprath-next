@@ -2,7 +2,12 @@ import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const STATSFM_API = "https://api.stats.fm/api/v1";
-const USERNAME = "mknepprath";
+
+// The "mknepprath" account is gone — stats.fm answers 404 for that name. This
+// is the id of the current one, which signed up with Apple in December 2024 and
+// so has no readable username (setting a custom URL needs stats.fm Plus).
+// Resolvable any time via /search?query=mknepprath&type=user.
+const USERNAME = process.env.STATSFM_USER ?? "000519.091a1325d33c4dc893d389bfc8f0fa43.2320";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
