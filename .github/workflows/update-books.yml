@@ -29,10 +29,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Warn rather than fail while the secret is missing: nothing here can set
+      # it, and a red run every morning says no more than one warning does.
       - name: Record newly read books
         env:
           GOODREADS_ID: ${{ secrets.GOODREADS_ID }}
-        run: npx tsx scripts/update-books.ts
+        run: |
+          if [ -z "$GOODREADS_ID" ]; then
+            echo "::warning title=GOODREADS_ID missing::Set it with \`gh secret set GOODREADS_ID\` (the numeric id from your Goodreads profile URL) to track read dates."
+            exit 0
+          fi
+          npx tsx scripts/update-books.ts
 
       - name: Check for changes
         id: changes
