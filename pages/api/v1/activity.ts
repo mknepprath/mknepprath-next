@@ -80,15 +80,19 @@ const formatFilmData = (films: Film[]): Partial<PostListItem>[] =>
   }));
 
 const formatBookData = (books: Book[]): Partial<PostListItem>[] =>
-  books.map((book) => ({
-    action: "Read",
-    date: book.date_finished,
-    id: `b${book.isbn}`,
-    title: book.title,
-    summary: book.review,
-    image: book.large_image_url,
-    url: book.link,
-  }));
+  books
+    .map((book) => ({
+      action: "Read",
+      date: book.date_finished,
+      id: `b${book.id}`,
+      title: book.title,
+      summary: book.review,
+      image: book.large_image_url,
+      url: book.link,
+    }))
+    // Books shelved before scripts/update-books.ts started keeping dates have
+    // none to sort by, and the feed is ordered by date alone.
+    .filter((post) => Boolean(post.date));
 
 const runTypeMap: { [type: string]: string } = {
   AlpineSki: "Skied",

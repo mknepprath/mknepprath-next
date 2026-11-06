@@ -49,15 +49,16 @@ interface Steam {
 }
 
 interface Book {
-  author: string;
-  date_finished: string;
-  date_started: string;
+  // The Goodreads review id. Everything but the read shelf comes from a widget
+  // that carries no author, rating or review, and no shelf carries a date.
+  id: string;
+  author?: string;
+  date_finished?: string;
   image_url: string;
-  isbn: string;
   large_image_url: string;
   link: string;
-  rating: string;
-  review: string;
+  rating?: string;
+  review?: string;
   small_image_url: string;
   title: string;
 }

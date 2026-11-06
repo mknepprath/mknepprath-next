@@ -61,7 +61,7 @@ export default function About(): React.ReactNode {
             <div className={styles.cardContainer}>
               {books.map((book) => (
                 <Card
-                  description={book.author}
+                  description={book.author ?? ""}
                   href={book.link}
                   imgSrc={book.image_url}
                   key={book.link}

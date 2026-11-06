@@ -217,7 +217,8 @@ export default function Uses(): React.ReactNode {
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .map((book) => (
                   <li key={book.link}>
-                    <A href={book.link}>{book.title}</A> by {book.author}
+                    <A href={book.link}>{book.title}</A>
+                    {book.author ? ` by ${book.author}` : null}
                   </li>
                 ))}
             </>

@@ -106,7 +106,7 @@ export default function Now({
               <a
                 className={styles.item}
                 href={book.link}
-                key={book.isbn}
+                key={book.id}
                 rel="noopener noreferrer"
                 target="_blank"
               >

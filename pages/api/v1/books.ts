@@ -1,47 +1,43 @@
-import fetch from "isomorphic-unfetch";
 import { NextApiRequest, NextApiResponse } from "next";
 import { setCacheControl } from "@lib/api";
-import xml2js from "xml2js";
+import { fetchRecentlyRead, fetchShelf } from "@lib/goodreads";
+import bookDates from "@data/books.json";
+
+// Read dates come from data/books.json, which scripts/update-books.ts keeps —
+// the widgets Goodreads left behind don't carry them.
+const dates = bookDates as Record<string, { title: string; finished: string | null }>;
 
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ): Promise<void> => {
   const { shelf = "read", min_rating = 3 } = req.query;
   let books: Book[] = [];
-  await fetch(
-    `https://www.goodreads.com/review/list_rss/${process.env.GOODREADS_ID}?key=${process.env.GOODREADS_KEY}&shelf=${shelf}&sort=date_read`
-  )
-    .then((response) => response.text())
-    .then((body) => {
-      xml2js.parseString(body, function (error, response) {
-        if (error) console.error(error);
-        const bookList = response.rss.channel[0].item;
-        for (let i = 0; i < bookList.length; i++) {
-          books.push({
-            title: bookList[i].title[0],
-            author: bookList[i].author_name[0],
-            isbn: bookList[i].isbn[0],
-            image_url: bookList[i].book_image_url[0],
-            small_image_url: bookList[i].book_small_image_url[0],
-            large_image_url: bookList[i].book_large_image_url[0],
-            link: bookList[i].link[0],
-            date_started: bookList[i].user_date_added[0],
-            date_finished: bookList[i].user_read_at[0],
-            rating: bookList[i].user_rating[0],
-            review: bookList[i].user_review[0],
-          });
-        }
-      });
-    })
-    .catch((error) => console.error(error));
 
-  if (shelf !== "desk")
-    books = books.filter((book) => +book.rating >= +min_rating).slice(0, 6);
+  try {
+    const userId = process.env.GOODREADS_ID;
+    if (!userId) throw new Error("GOODREADS_ID not set");
+
+    // Only the read shelf comes with ratings and reviews attached; everything
+    // else is title, cover and link.
+    books =
+      shelf === "read"
+        ? await fetchRecentlyRead(userId)
+        : await fetchShelf(userId, shelf as string);
+
+    books = books.map((book) => ({
+      ...book,
+      date_finished: dates[book.id]?.finished ?? undefined,
+    }));
+  } catch (error) {
+    console.error(error);
+  }
+
+  if (shelf === "read")
+    books = books.filter((book) => +(book.rating ?? 0) >= +min_rating).slice(0, 6);
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  if (process.env.NODE_ENV === "production")
-    setCacheControl(res, 300, 600);
+  if (process.env.NODE_ENV === "production") setCacheControl(res, 300, 600);
   res.end(JSON.stringify(books));
 };
