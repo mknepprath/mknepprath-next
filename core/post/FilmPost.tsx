@@ -1,7 +1,7 @@
 import ActivityCard from "@core/activity-card";
 import { getFilmColors, hashString, stripHtml } from "@lib/utils";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -71,7 +71,7 @@ const FilmPost = ({
             className={styles.ticketDate}
             style={{ color: colors.accent }}
           >
-            {format(parseISO(date), "MMM d, yyyy")} · {action}
+            {formatUTC(date, "MMM d, yyyy")} · {action}
           </div>
         </div>
 

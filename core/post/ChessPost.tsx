@@ -1,5 +1,5 @@
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -52,7 +52,7 @@ const ChessPost = ({
             </span>
           </div>
           <span className={styles.chessDate}>
-            {format(parseISO(date), "MMM d, yyyy")}
+            {formatUTC(date, "MMM d, yyyy")}
           </span>
         </div>
 

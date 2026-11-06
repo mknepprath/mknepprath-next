@@ -1,6 +1,6 @@
 import { startTransition, useEffect, useState } from "react";
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -39,7 +39,7 @@ const RobotPost = ({
           <div className={styles.robotText} />
         )}
         <div className={styles.robotDate}>
-          {format(parseISO(date), "MMM d, h:mm a")}
+          {formatUTC(date, "MMM d, h:mm a")}
         </div>
       </a>
     </ActivityCard>

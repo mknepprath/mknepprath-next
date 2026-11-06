@@ -1,6 +1,6 @@
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -81,7 +81,7 @@ const TrophyPost = ({
         {/* Tamper seal. */}
         <footer className={styles.slabSeal}>
           <span className={styles.slabSealMark}>Sealed</span>
-          <span>{format(parseISO(date), "MMM d, yyyy")}</span>
+          <span>{formatUTC(date, "MMM d, yyyy")}</span>
         </footer>
 
         <div className={styles.slabSheen} aria-hidden="true" />

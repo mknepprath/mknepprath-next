@@ -1,6 +1,6 @@
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -48,7 +48,7 @@ const MusicPost = ({
           <h3 className={styles.musicTitle}>{title}</h3>
           {summary && <p className={styles.musicArtist}>{summary}</p>}
           <small className={styles.musicDate}>
-            {action} · {format(parseISO(date), "MMM d, yyyy")}
+            {action} · {formatUTC(date, "MMM d, yyyy")}
           </small>
         </div>
       </div>

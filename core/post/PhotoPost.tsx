@@ -1,6 +1,6 @@
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -39,7 +39,7 @@ const PhotoPost = ({
           <span className={styles.polaroidText}>{title}</span>
         )}
         <span className={styles.polaroidDate}>
-          {action} · {format(parseISO(date), "MMM d")}
+          {action} · {formatUTC(date, "MMM d")}
         </span>
       </div>
     </a>

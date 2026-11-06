@@ -4,9 +4,9 @@ import Head from "@core/head";
 import Lightbox from "@core/lightbox";
 import Nav from "@core/nav";
 import { Photo } from "@lib/photography";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import useSWR from "swr";
+import { formatUTC } from "@lib/date";
 
 import styles from "./photography.module.css";
 
@@ -48,7 +48,7 @@ function groupByMonth(photos: Photo[]): MonthGroup[] {
 
   for (const photo of photos) {
     if (!photo.date) continue;
-    const label = format(parseISO(photo.date), "MMMM yyyy");
+    const label = formatUTC(photo.date, "MMMM yyyy");
     if (!current || current.label !== label) {
       current = { label, photos: [] };
       groups.push(current);

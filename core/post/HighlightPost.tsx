@@ -1,6 +1,6 @@
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -61,7 +61,7 @@ const HighlightPost = ({
           </a>
           <p style={{ margin: "0.4em 0px 0.2em" }}>{summary}</p>
           <small>
-            {action} on {format(parseISO(date), "MMMM d, yyyy")}
+            {action} on {formatUTC(date, "MMMM d, yyyy")}
           </small>
         </div>
       </header>

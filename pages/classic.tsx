@@ -7,13 +7,14 @@ import { Post, POST_MAP } from "@core/post";
 import Shot from "@core/shot";
 import { projectLinks } from "@data/links";
 import classnames from "classnames";
-import { format, parseISO } from "date-fns";
+import { parseISO } from "date-fns";
 import { fetcher } from "@lib/fetcher";
 import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
+import { formatUTC } from "@lib/date";
 
 import styles from "./classic.module.css";
 
@@ -134,7 +135,7 @@ export default function Home({ initialActivity, initialShots }: Props): React.Re
             <div className={styles.cardContainer}>
               {shots?.map(({ html_url, images, published_at, title }) => (
                 <Shot
-                  description={format(parseISO(published_at), "MMMM d, yyyy")}
+                  description={formatUTC(published_at, "MMMM d, yyyy")}
                   href={html_url}
                   imgSrc={images.normal}
                   key={title}

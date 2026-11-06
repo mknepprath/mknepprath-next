@@ -2,7 +2,6 @@ import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
 import { Post, POST_MAP } from "@core/post";
-import { format, parseISO } from "date-fns";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 
@@ -26,6 +25,7 @@ const TYPE_WEIGHT: Record<string, number> = {
   SKEET: 5,
   ROBOT: 0,
 };
+import { formatUTC } from "@lib/date";
 
 import styles from "./themes.module.css";
 
@@ -51,7 +51,7 @@ export default function ThemePage({ theme }: Props): React.ReactNode {
           <p className={styles.detailDesc}>{theme.description}</p>
           <span className={styles.detailMeta}>
             {theme.items.length} items · Updated{" "}
-            {format(parseISO(theme.updatedAt), "MMMM d, yyyy")}
+            {formatUTC(theme.updatedAt, "MMMM d, yyyy")}
           </span>
         </header>
 

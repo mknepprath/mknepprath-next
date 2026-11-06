@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 import Image from "next/image";
-import { format, parseISO } from "date-fns";
 import { Photo } from "@lib/photography";
+import { formatUTC } from "@lib/date";
 
 import styles from "./lightbox.module.css";
 
@@ -85,7 +85,7 @@ export default function Lightbox({
             <span className={styles.captionText}>{photo.caption}</span>
           )}
           <span className={styles.captionDate}>
-            {format(parseISO(photo.date), "MMMM d, yyyy")}
+            {formatUTC(photo.date, "MMMM d, yyyy")}
           </span>
         </div>
       </div>

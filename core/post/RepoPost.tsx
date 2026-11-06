@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -63,7 +63,7 @@ const RepoPost = ({
           )}
         </div>
         <div className={styles.receiptFooter}>
-          {action} · {format(parseISO(date), "MMM d, yyyy")}
+          {action} · {formatUTC(date, "MMM d, yyyy")}
         </div>
       </a>
     </ActivityCard>

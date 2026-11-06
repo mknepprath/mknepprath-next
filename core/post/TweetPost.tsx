@@ -1,6 +1,6 @@
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -44,7 +44,7 @@ const TweetPost = ({
           )}
         </a>
         <small>
-          {action} on {format(parseISO(date), "MMMM d, yyyy")}
+          {action} on {formatUTC(date, "MMMM d, yyyy")}
         </small>
       </header>
     </article>

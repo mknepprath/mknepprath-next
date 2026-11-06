@@ -1,5 +1,4 @@
 import ActivityCard from "@core/activity-card";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +15,7 @@ import SkeetPost from "./SkeetPost";
 import TootPost from "./TootPost";
 import TrophyPost from "./TrophyPost";
 import TweetPost from "./TweetPost";
+import { formatUTC } from "@lib/date";
 
 import styles from "./post.module.css";
 
@@ -53,7 +53,7 @@ const Post = ({
           <p className={styles.clippingSummary}>{summary}</p>
         ) : null}
         <div className={styles.clippingDateline}>
-          {action || "Published"} · {format(parseISO(date), "MMM d, yyyy")}
+          {action || "Published"} · {formatUTC(date, "MMM d, yyyy")}
         </div>
       </div>
     </Link>

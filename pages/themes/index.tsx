@@ -1,9 +1,9 @@
 import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
-import { format, parseISO } from "date-fns";
 import { GetStaticProps } from "next";
 import Link from "next/link";
+import { formatUTC } from "@lib/date";
 
 import styles from "./themes.module.css";
 
@@ -67,7 +67,7 @@ export default function ThemesIndex({ themes }: Props): React.ReactNode {
               <h2 className={styles.themeTitle}>{theme.title}</h2>
               <p className={styles.themeDesc}>{theme.description}</p>
               <span className={styles.themeMeta}>
-                {theme.itemCount} items · {format(parseISO(theme.latestDate), "MMM yyyy")}
+                {theme.itemCount} items · {formatUTC(theme.latestDate, "MMM yyyy")}
               </span>
             </Link>
           ))}

@@ -3,12 +3,12 @@ import Footer from "@core/footer";
 import Head from "@core/head";
 import Nav from "@core/nav";
 import posts from "@data/posts";
-import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 import { fetcher } from "@lib/fetcher";
 import { getFilmColors, hashString, stripHtml } from "@lib/utils";
+import { formatUTC } from "@lib/date";
 
 import styles from "./films.module.css";
 
@@ -96,7 +96,7 @@ export default function Films(): React.ReactNode {
             <p className={styles.playbillSummary}>{item.summary}</p>
           )}
           <span className={styles.playbillDate}>
-            {format(parseISO(item.date), "MMMM d, yyyy")}
+            {formatUTC(item.date, "MMMM d, yyyy")}
           </span>
         </div>
       </Link>,
@@ -186,7 +186,7 @@ export default function Films(): React.ReactNode {
               </p>
             )}
             <div className={styles.ticketDate} style={{ color: colors.accent }}>
-              {format(new Date(film.published_at), "MMM d, yyyy")}
+              {formatUTC(film.published_at, "MMM d, yyyy")}
             </div>
           </div>
           <div className={styles.ticketEdge} style={{ color: colors.accent }}>
