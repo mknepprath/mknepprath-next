@@ -40,16 +40,16 @@ export default function Dynoland(): React.ReactNode {
     },
   );
 
-  if (!data) return null;
-
+  // The status request waits on a TCP round trip to the game server, so the
+  // page renders without it and only the live numbers hold off.
   return (
     <Page title="Dynoland">
       <article data-cy="dynoland-page">
         <header>
-          <h1>Dynoland {data.online ? "" : "(Offline)"}</h1>
+          <h1>Dynoland {data && !data.online ? "(Offline)" : ""}</h1>
         </header>
 
-        {data.online ? (
+        {!data || data.online ? (
           ""
         ) : (
           <p>
@@ -80,15 +80,18 @@ export default function Dynoland(): React.ReactNode {
         </p>
 
         <p>
-          There are currently{" "}
-          {data.players.online <= 0
-            ? "no"
-            : `${data.players.online}/${data.players.max}`}{" "}
-          players online. If you would like to be whitelisted to access this
-          server, contact <a href="mailto:mknepprath@gmail.com">Michael</a>.
+          {data
+            ? `There are currently ${
+                data.players.online <= 0
+                  ? "no"
+                  : `${data.players.online}/${data.players.max}`
+              } players online. `
+            : "Checking who's online. "}
+          If you would like to be whitelisted to access this server, contact{" "}
+          <a href="mailto:mknepprath@gmail.com">Michael</a>.
         </p>
 
-        {data.version.name ? (
+        {data?.version.name ? (
           <p>
             We&apos;re running version{" "}
             {data.version.name.replace("Spigot ", "")} of Minecraft, so you will
