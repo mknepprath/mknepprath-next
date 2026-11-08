@@ -201,6 +201,16 @@
     "description": "Michael actively engages with Pokémon content, from building a GO companion app to sharing observations about specific Pokémon designs and their visual details.",
     "items": [
       {
+        "id": "bot117553609084330093",
+        "type": "ROBOT",
+        "title": "yeah the og healing items really said \"that's it\" and moved onhttps://mastodon.social/@EveryPkmnCard/117553591001793105",
+        "date": "2026-11-03T17:08:44.560Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/117553609084330093",
+        "summary": "<p>yeah the og healing items really said &quot;that&#39;s it&quot; and moved on</p><p><a href=\"https://mastodon.social/@EveryPkmnCard/117553591001793105\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">mastodon.social/@EveryPkmnCard</span><span class=\"invisible\">/117553591001793105</span></a></p>",
+        "action": "Computed"
+      },
+      {
         "id": "r472455591",
         "type": "REPO",
         "title": "every-pokemon-card",
@@ -581,13 +591,113 @@
       }
     ],
     "createdAt": "2026-04-19T06:34:21.907Z",
-    "updatedAt": "2026-10-06T12:32:57.435Z"
+    "updatedAt": "2026-11-08T12:34:05.488Z"
   },
   "distance-running": {
     "title": "Distance Running",
     "slug": "distance-running",
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
+      {
+        "id": "ru20890120011",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-11-06T18:43:06.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20890120011",
+        "summary": "Distance: 0.95 mi, Time: 20 min, Elevation: 63 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20823012719",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-11-01T16:23:18.000Z",
+        "image": "addlDl`wpNf@`@l@VHJRf@LLJ@JC|@YP@RFNRHj@HH^A\\QE?HEOH?Ct@WLOd@y@",
+        "url": "https://www.strava.com/activities/20823012719",
+        "summary": "Distance: 0.84 mi, Time: 16 min, Elevation: 105 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20779390322",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-10-25T18:12:43.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20779390322",
+        "summary": "Distance: 1.16 mi, Time: 33 min, Elevation: 54 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20730768871",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-10-25T11:14:38.000Z",
+        "image": "koc|FhzypN]pAEj@@TFRRZ",
+        "url": "https://www.strava.com/activities/20730768871",
+        "summary": "Distance: 1.77 mi, Time: 23 min, Elevation: 69 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20730769355",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-10-24T18:13:25.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20730769355",
+        "summary": "Distance: 0.98 mi, Time: 26 min, Elevation: 70 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20730769354",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-10-24T11:13:18.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20730769354",
+        "summary": "Distance: 0.98 mi, Time: 17 min, Elevation: 64 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20676336035",
+        "type": "RUN",
+        "title": "Morning Run",
+        "date": "2026-10-21T10:11:21.000Z",
+        "image": "ebc|Fbj{pNwBlCsC`DsAdBs@v@cAlA_@^E?AAHCGA{@zAg@j@E@@EED}BbDOFg@l@i@v@{BnCiBrBg@t@g@b@y@`AS\\SLa@f@cAdAg@`As@v@s@j@c@RYBg@CK@ECEIOCKWOIAMF[@_AHu@FWXi@`AmAxAaBl@y@|@_A^m@l@q@n@{@f@e@FCVg@RK^k@n@s@rAcBTSZ]bAyAvCgDx@aAZg@Z[F@CDBIb@o@jAsAj@{@n@u@h@g@^g@l@o@r@}@NYx@XVN",
+        "url": "https://www.strava.com/activities/20676336035",
+        "summary": "Distance: 2.28 mi, Time: 30 min, Elevation: 43 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20663565207",
+        "type": "RUN",
+        "title": "Lunch Walk",
+        "date": "2026-10-20T12:32:58.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20663565207",
+        "summary": "Distance: 1.18 mi, Time: 20 min, Elevation: 11 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru20607220032",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-10-15T11:26:49.000Z",
+        "image": "_oc|FhuypN{ABmACoABu@AkCD@STaABc@^uCAB`@yCNyATsA\\iCHaAVwAZkC^iCNiAJ_@F@FDjA`DFHv@`CNtAJFHHFNSlAQzAGvAAlCDrA`@hD",
+        "url": "https://www.strava.com/activities/20607220032",
+        "summary": "Distance: 3.66 mi, Time: 56 min, Elevation: 115 ft",
+        "action": "Ran"
+      },
+      {
+        "id": "ru20484283446",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-10-06T17:54:20.000Z",
+        "image": "{~d|F~mqpNj@s@j@g@pAo@|@SdBA?mB[oBe@gA[i@MICIk@i@y@c@_@Ka@EwAI{AFi@FcAVAe@Ou@G}@My@ACGCi@Ha@f@Wf@YjAMv@CbFBPA`@BREF@n@CL?\\?|@CbAGf@[nAUp@_@h@ERBLV`@|@z@~@`@`@B@DOt@DR@n@BBVDj@~CZr@\\hARf@LHLAFELDBDDXE`A@b@Hr@Bp@@|@GbB?HJNF^SXMXa@pBG|@?pAFhBEhBWfBQf@Qn@[j@Ob@C\\HXt@|@l@d@XPj@Tx@Rl@DTDr@CLDbA?TAh@?HAd@@RBPSf@y@Aa@B]A[A?HGGaA?cB@WC[B_BCqAB_B?sLb@Ib@Qd@W\\Wd@g@j@y@PMGy@@MJ@VJHA\\k@HIb@DJG\\Fr@Cd@@JBDDP^BL^@FFAZAdE@pAAlBBp@Lh@Aj@Hj@IlAJV",
+        "url": "https://www.strava.com/activities/20484283446",
+        "summary": "Distance: 2.37 mi, Time: 45 min, Elevation: 51 ft",
+        "action": "Walked"
+      },
       {
         "id": "ru20454445223",
         "type": "RUN",
@@ -1450,7 +1560,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-10-06T12:32:57.435Z"
+    "updatedAt": "2026-11-08T12:34:05.488Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -2506,6 +2616,16 @@
     "description": "Michael is actively watching horror and spooky-themed films across various styles, from classic horror to contemporary genre films and seasonal viewing.",
     "items": [
       {
+        "id": "flletterboxd-review-1576990548",
+        "type": "FILM",
+        "title": "Godzilla Minus Zero",
+        "date": "2026-11-08T02:53:55.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/2/6/6/6/8/4/1266684-godzilla-minus-zero-0-600-0-900-crop.jpg?v=38989be61d",
+        "url": "https://letterboxd.com/mknepprath/film/godzilla-minus-zero/",
+        "summary": " <p>The crowd in my theater cheered for the Toho logo 💞</p> ",
+        "action": "Watched"
+      },
+      {
         "id": "flletterboxd-review-1575446817",
         "type": "FILM",
         "title": "Die Hard",
@@ -2556,6 +2676,16 @@
         "action": "Watched"
       },
       {
+        "id": "flletterboxd-review-1562728728",
+        "type": "FILM",
+        "title": "It's the Great Pumpkin, Charlie Brown",
+        "date": "2026-10-30T12:17:40.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/4/3/9/6/1/43961-it-s-the-great-pumpkin-charlie-brown-0-600-0-900-crop.jpg?v=882c455c6a",
+        "url": "https://letterboxd.com/mknepprath/film/its-the-great-pumpkin-charlie-brown/",
+        "summary": " <p>Snoopy playing with the leaf is the first time I’ve witnessed our dog excited about something on the TV</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "flletterboxd-review-1562671733",
         "type": "FILM",
         "title": "The Blackcoat's Daughter",
@@ -2567,6 +2697,6 @@
       }
     ],
     "createdAt": "2026-11-07T12:13:08.097Z",
-    "updatedAt": "2026-11-07T12:13:08.097Z"
+    "updatedAt": "2026-11-08T12:34:05.488Z"
   }
 }
