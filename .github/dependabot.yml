@@ -19,14 +19,6 @@ updates:
       - "@types/react"
       - "@types/react-dom"
   ignore:
-  # minimatch only patched GHSA-g3hv-75wg-m249 in 11.0.1, and 11 dropped the
-  # default export that @eslint/eslintrc imports, so forcing it breaks eslint
-  # outright while npm's only other path downgrades eslint two majors. Every
-  # security run failed on that choice. Revisit once the eslint stack ships
-  # against minimatch 11.
-  - dependency-name: minimatch
-    versions:
-    - ">=11"
   - dependency-name: typescript
     versions:
     - ">=7"

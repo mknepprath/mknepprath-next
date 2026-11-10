@@ -87,5 +87,11 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3"
+  },
+  "overrides": {
+    "minimatch": "^11.0.5",
+    "@eslint/eslintrc": {
+      "minimatch": "^3.1.5"
+    }
   }
 }
