@@ -36,7 +36,7 @@
   "homepage": "https://github.com/mknepprath/mknepprath-next#readme",
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
+    "@vercel/speed-insights": "^2.1.0",
     "classnames": "^2.5.1",
     "date-fns": "^4.4.0",
     "html-to-text": "^10.0.1",
