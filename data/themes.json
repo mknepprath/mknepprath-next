@@ -599,6 +599,16 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru20911592003",
+        "type": "RUN",
+        "title": "Lunch Run",
+        "date": "2026-11-08T11:19:24.000Z",
+        "image": "ubc|Fpi{pNgBrBcA|A_B|A{BzC]\\SL?CEBo@`As@r@s@`A{@`A]l@k@r@MHICs@}@cA_AGSDOh@y@dAgApBaCFA?CNW^_@V_@x@y@r@cAlB}Bp@_Az@y@zAmBNKEIUCOIu@QQAe@Fg@@}@iAg@_AGgAOmADoACg@LUF]Bc@GUNWHWTy@PiA",
+        "url": "https://www.strava.com/activities/20911592003",
+        "summary": "Distance: 2.13 mi, Time: 27 min, Elevation: 103 ft",
+        "action": "Ran"
+      },
+      {
         "id": "ru20890120011",
         "type": "RUN",
         "title": "Evening Walk",
@@ -1560,7 +1570,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-11-08T12:34:05.488Z"
+    "updatedAt": "2026-11-10T14:04:01.543Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -2543,6 +2553,45 @@
     "description": "Michael is actively playing Star Wars Outlaws, earning multiple achievements across different gameplay objectives and completing main quests on various planets.",
     "items": [
       {
+        "id": "bot117586875159875869",
+        "type": "ROBOT",
+        "title": "been thinking about how star wars outlaws could've used like two more months in the oven",
+        "date": "2026-11-09T14:08:44.586Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/117586875159875869",
+        "summary": "<p>been thinking about how star wars outlaws could&#39;ve used like two more months in the oven</p>",
+        "action": "Computed"
+      },
+      {
+        "id": "t117487829954301708",
+        "type": "TOOT",
+        "title": "we’re dunin’",
+        "date": "2026-10-23T02:20:14.685Z",
+        "image": "https://files.mastodon.social/media_attachments/files/117/487/829/665/515/333/original/92adc0395b9739fd.png",
+        "url": "https://mastodon.social/@mknepprath/117487829954301708",
+        "summary": "<p>we’re dunin’</p>",
+        "action": "Tooted"
+      },
+      {
+        "id": "t117446631989259175",
+        "type": "TOOT",
+        "title": "You know what would be good? A Star Wars Outlaws sequel",
+        "date": "2026-10-15T19:43:03.625Z",
+        "image": "",
+        "url": "https://mastodon.social/@mknepprath/117446631989259175",
+        "summary": "<p>You know what would be good? A Star Wars Outlaws sequel</p>",
+        "action": "Tooted"
+      },
+      {
+        "id": "tNPWR30405_00-49",
+        "type": "TROPHY",
+        "title": "Calling in some favors",
+        "date": "2026-10-13T11:42:47Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/4de690b7-9936-4717-b5ad-1514c3c00636.png",
+        "summary": "Destroy the Revelator · Game: Star Wars Outlaws · Tier: gold · Rarity: 19.1",
+        "action": "Earned"
+      },
+      {
         "id": "m28527147",
         "type": "MUSIC",
         "title": "Star Wars Outlaws - Original Video Game Soundtrack",
@@ -2551,6 +2600,15 @@
         "url": "https://stats.fm/album/28527147",
         "summary": "Wilbert Roget, II",
         "action": "Listened to"
+      },
+      {
+        "id": "tNPWR30405_00-48",
+        "type": "TROPHY",
+        "title": "Eye on the score",
+        "date": "2026-10-13T00:11:15Z",
+        "image": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30405_00/119816cd-b760-45cf-ad90-bf9a43f737e5.png",
+        "summary": "Complete all main quests in Canto Bight · Game: Star Wars Outlaws · Tier: silver · Rarity: 19.8",
+        "action": "Earned"
       },
       {
         "id": "tNPWR30405_00-47",
@@ -2608,7 +2666,7 @@
       }
     ],
     "createdAt": "2026-10-13T13:17:44.503Z",
-    "updatedAt": "2026-10-13T13:17:44.503Z"
+    "updatedAt": "2026-11-10T14:04:01.543Z"
   },
   "horror-and-spooky-cinema": {
     "title": "Horror and Spooky Cinema",
