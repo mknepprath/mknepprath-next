@@ -599,6 +599,16 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru21002050601",
+        "type": "RUN",
+        "title": "Afternoon Run",
+        "date": "2026-11-15T13:34:08.000Z",
+        "image": "__b|FncxpNFoAKcC?yDJgC?k@AgAGa@Hy@B{@Gq@@e@Aa@@OCaABqGEaBBqBA_JDc@?k@Ia@C_@FqAC[CmABs@GuADqAAsBIkCDyCCuABq@EoFHkABiCCaEGgAS[IEIUq@yAk@uBWkBK{ABK@}AE_A?s@FqDQaDQmAoAmE[s@i@u@_@}@a@g@aA}@q@c@mAm@yAe@_Aa@m@[u@g@_Ay@u@w@sBoC[q@y@sAUI]][OUGq@CED?HD~AAzC@t@CxC?bQEjE?dGC|@?t@DTEPAbAIdA?hBCpABp@GdCBnBIjK@n@CzH@RBPG`@A|BChHBp@E`CGx@GhFQtFOjGCh@@rAG`@?p@I~B?z@EvAA`AS|D_@rEMt@OxAQ~@Gr@WvAEv@SzA_@zBM|@Gr@g@hDq@vFMl@WnBAXKh@MjAMz@SjBc@`C]dDBHB@JA|@c@jA_@n@M`@AlAM\\@NH\\FHHZ`@",
+        "url": "https://www.strava.com/activities/21002050601",
+        "summary": "Distance: 6.93 mi, Time: 95 min, Elevation: 345 ft",
+        "action": "Ran"
+      },
+      {
         "id": "ru20911592003",
         "type": "RUN",
         "title": "Lunch Run",
@@ -1570,7 +1580,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-11-10T14:04:01.543Z"
+    "updatedAt": "2026-11-16T14:27:36.948Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -2250,6 +2260,16 @@
     "description": "Michael appreciates artistic work that achieves impact through subtlety and understatement rather than excess. He values filmmaking, performance, and creative choices that hold back intentionally.",
     "items": [
       {
+        "id": "bot117601030958895488",
+        "type": "ROBOT",
+        "title": "godzilla minus zero really said \"what if we just made it about the people\" and it worked",
+        "date": "2026-11-12T02:08:44.937Z",
+        "image": "",
+        "url": "https://mastodon.social/@robot_mk/117601030958895488",
+        "summary": "<p>godzilla minus zero really said &quot;what if we just made it about the people&quot; and it worked</p>",
+        "action": "Computed"
+      },
+      {
         "id": "flletterboxd-review-1463979935",
         "type": "FILM",
         "title": "Rebecca",
@@ -2351,7 +2371,7 @@
       }
     ],
     "createdAt": "2026-06-28T07:20:23.156Z",
-    "updatedAt": "2026-08-27T09:02:57.628Z"
+    "updatedAt": "2026-11-16T14:27:36.948Z"
   },
   "action-cinema-appreciation": {
     "title": "Action Cinema Appreciation",
