@@ -2776,5 +2776,44 @@
     ],
     "createdAt": "2026-11-07T12:13:08.097Z",
     "updatedAt": "2026-11-08T12:34:05.488Z"
+  },
+  "literary-science-fiction": {
+    "title": "Literary Science Fiction",
+    "slug": "literary-science-fiction",
+    "description": "Michael is engaging with science fiction literature across multiple works, enjoying narratives that blend speculative worldbuilding with character-driven storytelling.",
+    "items": [
+      {
+        "id": "t117475936297697530",
+        "type": "TOOT",
+        "title": "Finished The Murderbot Diaries, starting Dungeon Crawler Carl",
+        "date": "2026-10-20T23:55:31.888Z",
+        "image": "",
+        "url": "https://mastodon.social/@mknepprath/117475936297697530",
+        "summary": "<p>Finished The Murderbot Diaries, starting Dungeon Crawler Carl</p>",
+        "action": "Tooted"
+      },
+      {
+        "id": "b8934479162",
+        "type": "BOOK",
+        "title": "Platform Decay",
+        "date": "2026-10-16T00:00:00.000Z",
+        "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1758044201l/240019874.jpg",
+        "url": "https://www.goodreads.com/review/show/8934479162",
+        "summary": "The transportation entry! Loved it.",
+        "action": "Read"
+      },
+      {
+        "id": "b8770854115",
+        "type": "BOOK",
+        "title": "System Collapse",
+        "date": "2026-09-10T00:00:00.000Z",
+        "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1674575978l/65211701.jpg",
+        "url": "https://www.goodreads.com/review/show/8770854115",
+        "summary": "the documentary film editing sequence was actually so unique and interesting to me. I’m not sure I’ve seen that done in another work of popular media.",
+        "action": "Read"
+      }
+    ],
+    "createdAt": "2026-11-20T14:42:44.661Z",
+    "updatedAt": "2026-11-20T14:42:44.661Z"
   }
 }
