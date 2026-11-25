@@ -5,6 +5,36 @@
     "description": "Michael has been actively rewatching and studying Buster Keaton's films, deeply appreciating his physical comedy and filmmaking craft across multiple viewings.",
     "items": [
       {
+        "id": "flletterboxd-review-1601799165",
+        "type": "FILM",
+        "title": "Madagascar: Escape 2 Africa",
+        "date": "2026-11-25T03:05:13.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/4/6/1/4/5/46145-madagascar-escape-2-africa-0-600-0-900-crop.jpg?v=92f4a1b4a1",
+        "url": "https://letterboxd.com/mknepprath/film/madagascar-escape-2-africa/",
+        "summary": " <p>Moto Moto will return in AVENGERS: DOOMSDAY</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1601791742",
+        "type": "FILM",
+        "title": "The Goat",
+        "date": "2026-11-25T02:58:39.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/4/4/5/0/14450-the-goat-0-600-0-900-crop.jpg?v=4ad4e63423",
+        "url": "https://letterboxd.com/mknepprath/film/the-goat/2/",
+        "summary": " <p>In case anyone was wondering, as I was, the more accurate title for this film is “The Scapegoat”. ofc Buster is also the GOAT</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1601770938",
+        "type": "FILM",
+        "title": "Madagascar",
+        "date": "2026-11-25T02:39:17.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/4g/qd/0m/h2/80MP1QuE4D8TQ0EBygGbWiWadrd-0-600-0-900-crop.jpg?v=bf11b45f90",
+        "url": "https://letterboxd.com/mknepprath/film/madagascar/",
+        "summary": " <p>What’s eating Marty? Alienation. Separation from where his body knows it belongs, in spite of the simulacrum he has been placed in. The irony, then, is in the transference of this bodily knowledge to the one who most rejected it, Alex, curdling Marty&#039;s dreams into a living nightmare.<br />What’s eating Marty? Alex, his shadow self.</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "bot116891829889268042",
         "type": "ROBOT",
         "title": "been rewatching Buster Keaton shorts and the man's physical comedy is just operating on a different plane",
@@ -144,7 +174,7 @@
       }
     ],
     "createdAt": "2026-03-31T21:25:02.835Z",
-    "updatedAt": "2026-07-10T09:22:38.683Z"
+    "updatedAt": "2026-11-25T16:36:08.545Z"
   },
   "photay-appreciation": {
     "title": "Photay Appreciation",
@@ -599,6 +629,26 @@
     "description": "Michael is actively training for and completing distance running events, including marathons and long training runs. He tracks his running activities regularly and celebrates milestones like completing his first marathon.",
     "items": [
       {
+        "id": "ru21078633507",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-11-21T18:12:04.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/21078633507",
+        "summary": "Distance: 0.85 mi, Time: 24 min, Elevation: 0 ft",
+        "action": "Walked"
+      },
+      {
+        "id": "ru21053217179",
+        "type": "RUN",
+        "title": "Evening Walk",
+        "date": "2026-11-19T18:23:07.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/21053217179",
+        "summary": "Distance: 0.72 mi, Time: 20 min, Elevation: 51 ft",
+        "action": "Walked"
+      },
+      {
         "id": "ru21002050601",
         "type": "RUN",
         "title": "Afternoon Run",
@@ -607,6 +657,16 @@
         "url": "https://www.strava.com/activities/21002050601",
         "summary": "Distance: 6.93 mi, Time: 95 min, Elevation: 345 ft",
         "action": "Ran"
+      },
+      {
+        "id": "ru20976735071",
+        "type": "RUN",
+        "title": "Afternoon Walk",
+        "date": "2026-11-13T16:07:40.000Z",
+        "image": "",
+        "url": "https://www.strava.com/activities/20976735071",
+        "summary": "Distance: 0.96 mi, Time: 19 min, Elevation: 13 ft",
+        "action": "Walked"
       },
       {
         "id": "ru20911592003",
@@ -1580,7 +1640,7 @@
       }
     ],
     "createdAt": "2026-05-06T00:41:14.219Z",
-    "updatedAt": "2026-11-16T14:27:36.948Z"
+    "updatedAt": "2026-11-25T16:36:08.545Z"
   },
   "classic-cinema-study": {
     "title": "Classic Cinema Study",
@@ -2815,5 +2875,44 @@
     ],
     "createdAt": "2026-11-20T14:42:44.661Z",
     "updatedAt": "2026-11-20T14:42:44.661Z"
+  },
+  "stop-motion-and-quirky-animation": {
+    "title": "Stop-Motion and Quirky Animation",
+    "slug": "stop-motion-and-quirky-animation",
+    "description": "Michael appreciates distinctive stop-motion and animated films that blend humor with visual creativity, from Wallace & Gromit to Fantastic Mr. Fox and Madagascar.",
+    "items": [
+      {
+        "id": "m25765625",
+        "type": "MUSIC",
+        "title": "Fantastic Mr. Fox (Original Soundtrack) [Deluxe Version]",
+        "date": "2026-11-25T09:46:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/05/a2/f7/05a2f715-ff2c-c4ac-d266-c875e1aecdea/00018771027720.rgb.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/25765625",
+        "summary": "Alexandre Desplat",
+        "action": "Listened to"
+      },
+      {
+        "id": "flletterboxd-review-1600071591",
+        "type": "FILM",
+        "title": "One Week",
+        "date": "2026-11-23T21:25:30.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/3/7/4/5/5/37455-one-week-0-600-0-900-crop.jpg?v=de19636f8b",
+        "url": "https://letterboxd.com/mknepprath/film/one-week/4/",
+        "summary": " <p>Once you have a big weird house, the comedy writes itself</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1599049556",
+        "type": "FILM",
+        "title": "Wallace & Gromit: Vengeance Most Fowl",
+        "date": "2026-11-23T02:31:09.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/8/3/4/5/6/1/834561-wallace-gromit-vengeance-most-fowl-0-600-0-900-crop.jpg?v=b5b3c56e5e",
+        "url": "https://letterboxd.com/mknepprath/film/wallace-gromit-vengeance-most-fowl/1/",
+        "summary": " <p>Details in common with The Madagascar Penguins in a Christmas Caper (2005):<br />- criminal penguins locked up in a zoo<br />- penguins disguised as nuns<br />- anvil gag<br />- bowling pin as penguin stand-in<br />- framed photos from the home during the end credits</p> ",
+        "action": "Rewatched"
+      }
+    ],
+    "createdAt": "2026-11-25T16:36:08.545Z",
+    "updatedAt": "2026-11-25T16:36:08.545Z"
   }
 }
