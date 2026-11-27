@@ -2882,6 +2882,16 @@
     "description": "Michael appreciates distinctive stop-motion and animated films that blend humor with visual creativity, from Wallace & Gromit to Fantastic Mr. Fox and Madagascar.",
     "items": [
       {
+        "id": "flletterboxd-review-1604090258",
+        "type": "FILM",
+        "title": "Madagascar 3: Europe's Most Wanted",
+        "date": "2026-11-26T22:21:53.000Z",
+        "image": "https://a.ltrbxd.com/resized/sm/upload/ra/ee/np/jf/5aNEbL2EpKk47V3wDXVenLx2ksS-0-600-0-900-crop.jpg?v=3b859eebca",
+        "url": "https://letterboxd.com/mknepprath/film/madagascar-3-europes-most-wanted/2/",
+        "summary": " <p>Circus stick together</p> ",
+        "action": "Rewatched"
+      },
+      {
         "id": "m25765625",
         "type": "MUSIC",
         "title": "Fantastic Mr. Fox (Original Soundtrack) [Deluxe Version]",
@@ -2913,6 +2923,45 @@
       }
     ],
     "createdAt": "2026-11-25T16:36:08.545Z",
-    "updatedAt": "2026-11-25T16:36:08.545Z"
+    "updatedAt": "2026-11-27T15:55:46.410Z"
+  },
+  "over-the-garden-wall-engagement": {
+    "title": "Over the Garden Wall Engagement",
+    "slug": "over-the-garden-wall-engagement",
+    "description": "Michael is deeply engaged with Over the Garden Wall across multiple formats, rewatching the series, consuming related media like the 10th anniversary tribute, and listening to the original soundtrack.",
+    "items": [
+      {
+        "id": "m229600",
+        "type": "MUSIC",
+        "title": "Over the Garden Wall (Original Television Soundtrack)",
+        "date": "2026-11-27T13:19:00.000Z",
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0d/94/03/0d9403ec-2f61-908e-3409-69cc2270ba2f/794043206559.jpg/768x768bb.jpg",
+        "url": "https://stats.fm/album/229600",
+        "summary": "Over the Garden Wall, The Blasting Company, Leah Harmon, Eddika Organista, Over The Garden Wall",
+        "action": "Listened to"
+      },
+      {
+        "id": "flletterboxd-review-1603752749",
+        "type": "FILM",
+        "title": "Over the Garden Wall 10th Anniversary Tribute",
+        "date": "2026-11-26T17:47:29.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/1/2/5/4/9/2/7/1254927-over-the-garden-wall-10th-anniversary-tribute-0-600-0-900-crop.jpg?v=c989dd5dcd",
+        "url": "https://letterboxd.com/mknepprath/film/over-the-garden-wall-10th-anniversary-tribute/2/",
+        "summary": " <p>How does this so perfectly encapsulate the whole show</p> ",
+        "action": "Rewatched"
+      },
+      {
+        "id": "flletterboxd-review-1603749321",
+        "type": "FILM",
+        "title": "Over the Garden Wall",
+        "date": "2026-11-26T17:44:01.000Z",
+        "image": "https://a.ltrbxd.com/resized/film-poster/3/4/3/9/1/1/343911-over-the-garden-wall-0-600-0-900-crop.jpg?v=85834d0555",
+        "url": "https://letterboxd.com/mknepprath/film/over-the-garden-wall-2014/2/",
+        "summary": " <p>At the end grandpa said, “what was that?”</p> ",
+        "action": "Rewatched"
+      }
+    ],
+    "createdAt": "2026-11-27T15:55:46.410Z",
+    "updatedAt": "2026-11-27T15:55:46.410Z"
   }
 }
